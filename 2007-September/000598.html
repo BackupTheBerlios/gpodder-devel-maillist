@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Removal of channels combobox?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Removal%20of%20channels%20combobox%3F&In-Reply-To=%3C1190205042.27618.29.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000582.html">
+   <LINK REL="Next"  HREF="000607.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Removal of channels combobox?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Removal%20of%20channels%20combobox%3F&In-Reply-To=%3C1190205042.27618.29.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Removal of channels combobox?">thp at perli.net
+       </A><BR>
+    <I>Wed Sep 19 14:30:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000582.html">[gpodder-devel] Removal of channels combobox?
+</A></li>
+        <LI>Next message: <A HREF="000607.html">[gpodder-devel] Removal of channels combobox?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#598">[ date ]</a>
+              <a href="thread.html#598">[ thread ]</a>
+              <a href="subject.html#598">[ subject ]</a>
+              <a href="author.html#598">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Alistair!
+
+On Wed, 2007-09-12 at 15:53 +0100, Alistair Sutton wrote:
+&gt;<i> My only concern would be  the resetting of the navigator after a
+</I>&gt;<i> download has begun.
+</I>&gt;<i> 
+</I>&gt;<i> Currently, at least for me, if an episode is selected from a channel
+</I>&gt;<i> at the end of the list, then once the download starts the navigator
+</I>&gt;<i> resets itself back to the top of the list. 
+</I>&gt;<i> 
+</I>&gt;<i> For people with small lists or very large screens this isn't a problem
+</I>&gt;<i> but for me (who has, obsessively, 58 channels in the list) it can be
+</I>&gt;<i> annoying that I have to keep scrolling through the navigator every
+</I>&gt;<i> time I download an episode.
+</I>
+I've included some code to re-scroll the navigator in the right position
+when the navigator's TreeModel gets updated. This should fix the problem
+for you, please try out the latest SVN trunk head.
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000582.html">[gpodder-devel] Removal of channels combobox?
+</A></li>
+	<LI>Next message: <A HREF="000607.html">[gpodder-devel] Removal of channels combobox?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#598">[ date ]</a>
+              <a href="thread.html#598">[ thread ]</a>
+              <a href="subject.html#598">[ subject ]</a>
+              <a href="author.html#598">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

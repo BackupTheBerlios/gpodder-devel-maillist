@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Requests / wishlist
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Requests%20/%20wishlist&In-Reply-To=%3C20070222063011.0326eef6%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000078.html">
+   <LINK REL="Next"  HREF="000080.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Requests / wishlist</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Requests%20/%20wishlist&In-Reply-To=%3C20070222063011.0326eef6%40macbook%3E"
+       TITLE="[gpodder-devel] Requests / wishlist">thp at perli.net
+       </A><BR>
+    <I>Thu Feb 22 06:30:11 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000078.html">[gpodder-devel] Requests / wishlist
+</A></li>
+        <LI>Next message: <A HREF="000080.html">[gpodder-devel] Requests / wishlist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#79">[ date ]</a>
+              <a href="thread.html#79">[ thread ]</a>
+              <a href="subject.html#79">[ subject ]</a>
+              <a href="author.html#79">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello John,
+
+On Wed, 21 Feb 2007 18:11:54 -0600 John Connor wrote:
+&gt;<i> 1)  Could you name the subdirs for each podcast with either the name
+</I>&gt;<i> of the podcast (or can I change it after it is created?)
+</I>
+The problem is with podcasts changing name, etc it would be very hard
+to keep track of each of the podcasts. You can, however, use the
+function &quot;Sync to MP3 player&quot; to sync to some folder in your home
+directory, and a folder structure will be created with correct names on
+sync :)
+
+&gt;<i> 2)  I use Rhythmbox to listen to the casts - when I hit play it just
+</I>&gt;<i> launches Rhythmbox, I then have to hit play again for it to load and
+</I>&gt;<i> begin playing.  One click launching would be perfect.
+</I>
+Try the following: Set &quot;Player application to &quot;Shell command&quot; and use
+the following string:
+
+rhythmbox-client --play-uri=%u
+
+After that, rhythmbox should start playing the file immediately :)
+
+&gt;<i> 3)  Finally, could it mark via a different color code when a podcast
+</I>&gt;<i> has been played.
+</I>
+Would be easily added, but I don't know if it's a good idea since
+gPodder can't check if you've really played through the whole podcast
+with the player application. Of course, we could mark every podcast on
+which &quot;Play&quot; has been clicked, but I don't know if this is what you
+desire?
+
+
+Enjoy.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000078.html">[gpodder-devel] Requests / wishlist
+</A></li>
+	<LI>Next message: <A HREF="000080.html">[gpodder-devel] Requests / wishlist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#79">[ date ]</a>
+              <a href="thread.html#79">[ thread ]</a>
+              <a href="subject.html#79">[ subject ]</a>
+              <a href="author.html#79">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

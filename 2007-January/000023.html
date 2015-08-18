@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%20preparations%3A%20Please%20translate%0A%20and%20test%21&In-Reply-To=%3C20070117191729.0ec6ee64%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000022.html">
+   <LINK REL="Next"  HREF="000024.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%20preparations%3A%20Please%20translate%0A%20and%20test%21&In-Reply-To=%3C20070117191729.0ec6ee64%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!">thp at perli.net
+       </A><BR>
+    <I>Wed Jan 17 19:17:29 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000022.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate	and test!
+</A></li>
+        <LI>Next message: <A HREF="000024.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate	and test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello nikosapi,
+
+On Tue, 16 Jan 2007 20:17:22 -0500 nikosapi wrote:
+&gt;<i> 1) Add a timeout to the wget command, like -T 10 in case a feed is
+</I>&gt;<i> down then the max you have to wait is 30 sec (see the wget man page).
+</I>
+That's a good idea, thanks -&gt; I've added a 15 seconds timeout just to
+make sure it won't timeout too much when not needed (I'm still on 64k
+at home :). Fixed in current svn trunk head.
+
+&gt;<i> 2) For some odd reason on my FC6 box I still can't see the download
+</I>&gt;<i> speed, I just get &quot;unknown&quot;. I looked at libwget but I can't see a
+</I>&gt;<i> problem. Here's a sample wget output from my FC6 box:
+</I>&gt;<i> 21% [====&gt;                      ] 5,067,240   95.5K/s  eta 1m 51s
+</I>&gt;<i> And here's one from my Ubuntu box:
+</I>&gt;<i> 34% [=======&gt;                ] 8,019,516    277.87K/s    ETA 01:19
+</I>
+Strange. This shouldn't happen of course. What does &quot;wget --version&quot;
+output on each of your boxes? gPodder &quot;reads&quot; the current download
+speed by trying to match the download speed with a regular expression,
+but it should not be fooled by the difference of the &quot;ETA&quot; part. Maybe
+you can investigate further or try out a locally-compiled wget just to
+make sure it's not the Fedora package that's making problems?
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000022.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate	and test!
+</A></li>
+	<LI>Next message: <A HREF="000024.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate	and test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

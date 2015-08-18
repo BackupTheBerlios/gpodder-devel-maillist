@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feature request: HTTP Authentication
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20request%3A%20HTTP%20Authentication&In-Reply-To=%3C1184694418.5627.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000409.html">
+   <LINK REL="Next"  HREF="000408.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feature request: HTTP Authentication</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20request%3A%20HTTP%20Authentication&In-Reply-To=%3C1184694418.5627.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Feature request: HTTP Authentication">thp at perli.net
+       </A><BR>
+    <I>Tue Jul 17 19:46:58 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000409.html">[gpodder-devel] Feature request: HTTP Authentication
+</A></li>
+        <LI>Next message: <A HREF="000408.html">[gpodder-devel] gPodder IRC chat room
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#415">[ date ]</a>
+              <a href="thread.html#415">[ thread ]</a>
+              <a href="subject.html#415">[ subject ]</a>
+              <a href="author.html#415">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Andre!
+
+On Mon, 2007-07-16 at 23:57 +0200, Andre Colomb wrote:
+&gt;<i> Do you think there is a way to analyse wget's output and catch 401
+</I>&gt;<i> errors when adding the feed? It doesn't seem to return any meaningful
+</I>&gt;<i> value. This way, you could prompt for credentials without the user
+</I>&gt;<i> specifying them in the URL in the first place. That would bring it to
+</I>&gt;<i> perfection :-)
+</I>
+Short answer: Not at the moment, no.
+
+Long answer: I think the only way we could identify 401 errors is to set
+the environment variable &quot;LC_ALL&quot; of the wget process to &quot;C&quot; (i.e.
+standard strings) and grep for &quot;Auth.*failed&quot;. If the wget process
+returns with a non-zero return value, chances are high that the download
+failed because of that. Would be a bit hack-ish, but I guess if you've
+subscribed to some authentication-only podcast, you should know so
+anyway.
+
+A dialog box informing the user about the failed download would be nice,
+though.
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000409.html">[gpodder-devel] Feature request: HTTP Authentication
+</A></li>
+	<LI>Next message: <A HREF="000408.html">[gpodder-devel] gPodder IRC chat room
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#415">[ date ]</a>
+              <a href="thread.html#415">[ thread ]</a>
+              <a href="subject.html#415">[ subject ]</a>
+              <a href="author.html#415">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

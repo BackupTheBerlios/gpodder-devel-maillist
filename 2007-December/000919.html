@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4762F0E1.50701%40electrichendrix.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000916.html">
+   <LINK REL="Next"  HREF="000921.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 crash</H1>
+    <B>Chris Arnold</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4762F0E1.50701%40electrichendrix.com%3E"
+       TITLE="[gpodder-devel] 0.10.3 crash">carnold at electrichendrix.com
+       </A><BR>
+    <I>Fri Dec 14 22:08:49 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000916.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+        <LI>Next message: <A HREF="000921.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#919">[ date ]</a>
+              <a href="thread.html#919">[ thread ]</a>
+              <a href="subject.html#919">[ subject ]</a>
+              <a href="author.html#919">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thomas Perl wrote:
+&gt;<i> Hello, Chris!
+</I>&gt;<i>   
+</I>Hi Thomas!
+&gt;<i>
+</I>&gt;<i> What do you mean with &quot;artwork support&quot;? 
+</I>I just mean that the channel also shows the feed artwork ( i thought
+this might be related to this error, TypeError: Surface.write_to_png
+takes one argument which must be a filename (str) or file object) .
+&gt;<i> Do you have the URL of the
+</I>&gt;<i> channel that does not work? 
+</I>There isn't a particular channel that does not work. I have, right now,
+about 5 podcasts/channels. As soon as i launch gpodder, it opens and
+starts to &quot;update channels&quot;, after this it crashes. If i click &quot;cancel&quot;
+while &quot;updating channels&quot;, it crashes.
+&gt;<i> Does gPodder work when started as the new
+</I>&gt;<i> test user when adding the channel that didn't work for your initial user?
+</I>&gt;<i>   
+</I>I can add channels/podcasts to the test user and it does work.
+&gt;<i> Maybe you should run gPodder again with the --verbose switch and paste
+</I>&gt;<i> the console output when the error happens. I know you sent this before,
+</I>&gt;<i> but just in case the problem you now see is something different..
+</I>(HistoryStore) Creating new history list.
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) Could not find pymad.
+(ipodsync) Could not find eyeD3 - falling back to channel cover for iPod
+cover art
+(ConverterCollection) Could not find &quot;oggdec&quot;, &quot;.ogg&quot; files cannot be
+converted.(ipodsync) Found mplayer, using it to find track length of files
+*** attempt to put segment in horiz list twice
+*** attempt to put segment in horiz list twice
+(gPodder) No tooltips for channel navigator (need at least PyGTK 2.12)
+Trying to get settings for <A HREF="http://www.desiringgod.org/feeds/SermonAudio/">http://www.desiringgod.org/feeds/SermonAudio/</A>
+Trying to get settings for <A HREF="http://www.desiringgod.org/feeds/SermonVideo/">http://www.desiringgod.org/feeds/SermonVideo/</A>
+Trying to get settings for <A HREF="http://podcast.oneplace.com/gt/3040306.xml">http://podcast.oneplace.com/gt/3040306.xml</A>
+Trying to get settings for <A HREF="http://podcast.oneplace.com/tbd/3040306.xml">http://podcast.oneplace.com/tbd/3040306.xml</A>
+Trying to get settings for <A HREF="http://feeds.feedburner.com/sermonindex">http://feeds.feedburner.com/sermonindex</A>
+Trying to get settings for <A HREF="http://broadcast.ligonier.org/podcast/podcast.xml">http://broadcast.ligonier.org/podcast/podcast.xml</A>
+Trying to get settings for <A HREF="http://lote.org/lote.xml">http://lote.org/lote.xml</A>
+Stale download directory found: d41d8cd98f00b204e9800998ecf8427e
+Successfully removed
+/home/ELECTRICHENDRIX/carnold/gpodder-downloads/d41d8cd98f00b204e9800998ecf8427e.
+Player found: Helix Banshee (/usr/share/applications/banshee.desktop)
+Player found: MPlayer (/usr/share/applications/mplayer.desktop)
+Player found: RealPlayer 10 (/usr/share/applications/realplay.desktop)
+Trying to get settings for <A HREF="http://www.desiringgod.org/feeds/SermonAudio/">http://www.desiringgod.org/feeds/SermonAudio/</A>
+(podcastChannel) Cannot instantiate episode:
+<A HREF="http://www.desiringgod.org/media/audio/2007/20071209.mp3.">http://www.desiringgod.org/media/audio/2007/20071209.mp3.</A> Skipping.
+Trying to get settings for <A HREF="http://www.desiringgod.org/feeds/SermonVideo/">http://www.desiringgod.org/feeds/SermonVideo/</A>
+Trying to get settings for <A HREF="http://podcast.oneplace.com/gt/3040306.xml">http://podcast.oneplace.com/gt/3040306.xml</A>
+Trying to get settings for <A HREF="http://podcast.oneplace.com/tbd/3040306.xml">http://podcast.oneplace.com/tbd/3040306.xml</A>
+Trying to get settings for <A HREF="http://feeds.feedburner.com/sermonindex">http://feeds.feedburner.com/sermonindex</A>
+Trying to get settings for <A HREF="http://broadcast.ligonier.org/podcast/podcast.xml">http://broadcast.ligonier.org/podcast/podcast.xml</A>
+(Cache) Warning: <A HREF="http://lote.org/lote.xml">http://lote.org/lote.xml</A> (documented declared as
+us-ascii, but parsed as utf-8)
+Trying to get settings for <A HREF="http://lote.org/lote.xml">http://lote.org/lote.xml</A>
+(podcastChannel) Loading downloaded episodes for
+<A HREF="http://www.desiringgod.org/feeds/SermonAudio/">http://www.desiringgod.org/feeds/SermonAudio/</A>
+Traceback (most recent call last):
+File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 203, in new
+TypeError: the object does not support the given parameter
+
+Trying to get settings for <A HREF="http://www.desiringgod.org/feeds/SermonAudio/">http://www.desiringgod.org/feeds/SermonAudio/</A>
+Traceback (most recent call last):
+File &quot;/usr/bin/gpodder&quot;, line 148, in ?
+sys.exit( main())
+File &quot;/usr/bin/gpodder&quot;, line 144, in main
+gui.main()
+File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 2196, in main
+File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 77, in __init__
+File &quot;usr/lib/python2.4/site-packages/gpodder/SimpleGladeApp.py&quot;, line
+110, in __init__
+File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 283, in new
+File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 811, in
+update_feed_cache
+File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 605, in
+updateComboBox
+File &quot;usr/lib/python2.4/site-packages/gpodder/libpodcasts.py&quot;, line 726,
+in channels_to_model
+File &quot;usr/lib/python2.4/site-packages/gpodder/draw.py&quot;, line 130, in
+draw_pill_pixbuf
+TypeError: Surface.write_to_png takes one argument which must be a
+filename (str) or file object
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000916.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+	<LI>Next message: <A HREF="000921.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#919">[ date ]</a>
+              <a href="thread.html#919">[ thread ]</a>
+              <a href="subject.html#919">[ subject ]</a>
+              <a href="author.html#919">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

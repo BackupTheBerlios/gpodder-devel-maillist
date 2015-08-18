@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Little fix (Was: Preference Dialog errors in	ver 228)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Little%20fix%20%28Was%3A%20Preference%20Dialog%20errors%20in%0A%09ver%20228%29&In-Reply-To=%3C200701151501.09250.nikosapi%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Little fix (Was: Preference Dialog errors in	ver 228)</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Little%20fix%20%28Was%3A%20Preference%20Dialog%20errors%20in%0A%09ver%20228%29&In-Reply-To=%3C200701151501.09250.nikosapi%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] Little fix (Was: Preference Dialog errors in	ver 228)">nikosapi at gmail.com
+       </A><BR>
+    <I>Mon Jan 15 21:01:09 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[gpodder-devel] Preference Dialog errors in ver 228
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Nice! Gpodder seems to be working great but I'll try testing all of it in the 
+coming 2 days.
+
+I found one little change you forgot on the Jan. 6 revision:
+In libopmlreader.py, line 77 should be parser.setErrorHandler( self) instead 
+of parser.setErrorHandler( rssErrorHandler()).
+
+Thanks for the great software,
+
+nick
+
+On Monday 15 January 2007 13:12, Thomas Perl wrote:
+&gt;<i> Hello Nick,
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 11 Jan 2007 16:57:12 -0500 nikosapi wrote:
+</I>&gt;<i> &gt; Uninstall gpodder with make uninstall
+</I>&gt;<i> &gt; Delete gpodder sources and get new from svn
+</I>&gt;<i> &gt; rm -fr ~/.conf/gpodder
+</I>&gt;<i> &gt; Install gpodder with make install
+</I>&gt;<i> &gt; run gpodder
+</I>&gt;<i> &gt; Click Podcasts--&gt;Preferences--&gt;Then click OK and get this:
+</I>&gt;<i> &gt; [...]
+</I>&gt;<i>
+</I>&gt;<i> Ok, thanks for the nice description. This bug has been fixed in
+</I>&gt;<i> current svn trunk's head :)
+</I>&gt;<i>
+</I>&gt;<i> Have you seen any other problems? If not, I'd like to do a 0.8.9 test
+</I>&gt;<i> release this week and see if there are any remaining bugs so we can
+</I>&gt;<i> push out 0.9.0 soon :)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Enjoy.
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[gpodder-devel] Preference Dialog errors in ver 228
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

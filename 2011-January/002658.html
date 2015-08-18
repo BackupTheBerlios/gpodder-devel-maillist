@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] secure gpodder.net
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20secure%20gpodder.net&In-Reply-To=%3C1294484790.6410.48.camel%40peavey.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002652.html">
+   <LINK REL="Next"  HREF="002659.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] secure gpodder.net</H1>
+    <B>Bernd Schlapsi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20secure%20gpodder.net&In-Reply-To=%3C1294484790.6410.48.camel%40peavey.lan%3E"
+       TITLE="[gpodder-devel] secure gpodder.net">brot at gmx.info
+       </A><BR>
+    <I>Sat Jan  8 12:06:30 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002652.html">[gpodder-devel] secure gpodder.net
+</A></li>
+        <LI>Next message: <A HREF="002659.html">[gpodder-devel] secure gpodder.net
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2658">[ date ]</a>
+              <a href="thread.html#2658">[ thread ]</a>
+              <a href="subject.html#2658">[ subject ]</a>
+              <a href="author.html#2658">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2011-01-07 at 00:38 +0200, Stefan K&#246;gl wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> Am 2011-01-06 21:16, schrieb Stefan Derkits:
+</I>&gt;<i> &gt; On 06/01/11 20:03, Bernd wrote:
+</I>&gt;<i> &gt;&gt; At the moment <A HREF="http://gpodder.net/">http://gpodder.net/</A> is only available through an http
+</I>&gt;<i> &gt;&gt; connection. 
+</I>&gt;<i> 
+</I>&gt;<i> Actually this is not quite true... Just try
+</I>&gt;<i> 
+</I>&gt;<i>  <A HREF="https://gpodder.net/">https://gpodder.net/</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt; What are your plans for http:/gpodder.net?
+</I>&gt;<i> 
+</I>&gt;<i> In terms of business plans, there's nothing serious so far...
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt; Would you support a campaign on a croudfunding site?
+</I>&gt;<i> 
+</I>&gt;<i> We didn't initiate anything like that so far, but I don't see any
+</I>&gt;<i> reasons against it.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Another Point that needs to be considered with increasing popularity of
+</I>&gt;<i> &gt; gpodder would be the Speed. At the Moment sometimes the Website is
+</I>&gt;<i> &gt; nearly unacessible or very very slow.
+</I>&gt;<i> 
+</I>&gt;<i> Currently my main focus is on rewriting the backend to use CouchDB
+</I>&gt;<i> instead of MySQL, which should give some speed-up. It should then also
+</I>&gt;<i> be easier to scale by just adding new virtual machines if necessary. I'd
+</I>&gt;<i> expect the CouchDB-migration to be finished within 2 or 3 month from now.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- Stefan
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+OK, you're right - this was my fault.
+
+But <A HREF="https://gpodder.net">https://gpodder.net</A> is only used if someone visits this site directly.
+
+All 3 available mygpo libraries (Python, C and Java) are using http for the connection and don't have the option to use https
+python: <A HREF="http://repo.or.cz/w/mygpoclient.git/blob/HEAD:/mygpoclient/locator.py">http://repo.or.cz/w/mygpoclient.git/blob/HEAD:/mygpoclient/locator.py</A>
+c: <A HREF="http://www.gitorious.org/libmygpo-qt/libmygpo-qt/blobs/master/src/UrlBuilder.cpp">http://www.gitorious.org/libmygpo-qt/libmygpo-qt/blobs/master/src/UrlBuilder.cpp</A>
+java: <A HREF="https://github.com/nheid/mygpodderlib/blob/master/src/main/java/com/unitedcoders/gpodder/GpodderAPI.java">https://github.com/nheid/mygpodderlib/blob/master/src/main/java/com/unitedcoders/gpodder/GpodderAPI.java</A>
+
+Will the https access always be available in the future beside the http access?
+If yes I will write feature requests for all 3 libraries to include the option to use a https connection instead of http
+
+
+Bernd
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002652.html">[gpodder-devel] secure gpodder.net
+</A></li>
+	<LI>Next message: <A HREF="002659.html">[gpodder-devel] secure gpodder.net
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2658">[ date ]</a>
+              <a href="thread.html#2658">[ thread ]</a>
+              <a href="subject.html#2658">[ subject ]</a>
+              <a href="author.html#2658">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Latest version of gpodder seems to not work?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20version%20of%20gpodder%20seems%20to%20not%20work%3F&In-Reply-To=%3C776941.69645.qm%40web60818.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000797.html">
+   <LINK REL="Next"  HREF="000798.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Latest version of gpodder seems to not work?</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20version%20of%20gpodder%20seems%20to%20not%20work%3F&In-Reply-To=%3C776941.69645.qm%40web60818.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] Latest version of gpodder seems to not work?">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sun Nov 18 15:25:51 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000797.html">[gpodder-devel] Latest version of gpodder seems to not work?
+</A></li>
+        <LI>Next message: <A HREF="000798.html">[gpodder-devel] Thomas: do you have 0.9.0's tarball?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#802">[ date ]</a>
+              <a href="thread.html#802">[ thread ]</a>
+              <a href="subject.html#802">[ subject ]</a>
+              <a href="author.html#802">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Thomas,
+
+I updated my Gentoo installation and now it works
+flawlessly.
+
+Thanks,
+Wilfred
+
+--- Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello, Wilfred!
+</I>&gt;<i> 
+</I>&gt;<i> Wilfred van Rooijen wrote:
+</I>&gt;<i> &gt; I updated to revision 466 of gpodder, and when I
+</I>&gt;<i> run
+</I>&gt;<i> &gt; 'make test &amp;', this is the result:
+</I>&gt;<i> [...]
+</I>&gt;<i> &gt; TypeError: object of type `GtkTreeView' does not
+</I>&gt;<i> have
+</I>&gt;<i> &gt; property `has-tooltip'
+</I>&gt;<i> [...]
+</I>&gt;<i> &gt; What am I doing wrong? Do I need to delete my
+</I>&gt;<i> config
+</I>&gt;<i> &gt; files or something like that?
+</I>&gt;<i> 
+</I>&gt;<i> Actually, this is because you have a PyGTK version
+</I>&gt;<i> before 2.12 
+</I>&gt;<i> installed. If you want to have neat, informative
+</I>&gt;<i> tooltips when hovering 
+</I>&gt;<i> your mouse over a channel in the channel navigator,
+</I>&gt;<i> upgrade to PyGTK 
+</I>&gt;<i> 2.12. If you want to work with gPodder without
+</I>&gt;<i> upgrading, please do a 
+</I>&gt;<i> &quot;svn update&quot; in your working directory - I've just
+</I>&gt;<i> commited a new patch 
+</I>&gt;<i> into our repository that will handle the error and
+</I>&gt;<i> simply disable the 
+</I>&gt;<i> tooltips if it cannot hook up the tooltip.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your bug report, though :)
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+      ____________________________________________________________________________________
+Be a better pen pal. 
+Text or chat with friends inside Yahoo! Mail. See how.  <A HREF="http://overview.mail.yahoo.com/">http://overview.mail.yahoo.com/</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000797.html">[gpodder-devel] Latest version of gpodder seems to not work?
+</A></li>
+	<LI>Next message: <A HREF="000798.html">[gpodder-devel] Thomas: do you have 0.9.0's tarball?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#802">[ date ]</a>
+              <a href="thread.html#802">[ thread ]</a>
+              <a href="subject.html#802">[ subject ]</a>
+              <a href="author.html#802">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

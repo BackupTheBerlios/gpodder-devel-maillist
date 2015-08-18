@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Download authentication bugfix
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Download%20authentication%20bugfix&In-Reply-To=%3C200709272052.19539.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000635.html">
+   <LINK REL="Next"  HREF="000637.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Download authentication bugfix</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Download%20authentication%20bugfix&In-Reply-To=%3C200709272052.19539.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Download authentication bugfix">nikosapi at gmail.com
+       </A><BR>
+    <I>Fri Sep 28 02:52:19 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000635.html">[gpodder-devel] gPodder 0.10.0 on Windows
+</A></li>
+        <LI>Next message: <A HREF="000637.html">[gpodder-devel] Download authentication bugfix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#636">[ date ]</a>
+              <a href="thread.html#636">[ thread ]</a>
+              <a href="subject.html#636">[ subject ]</a>
+              <a href="author.html#636">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+It seems that with the move to urllib the download authentication wasn't 
+re-implemented so I took care of it. I chose not to use urlparse because my 
+code was a bit smaller and it should be just as reliable. Also there was 
+a 'load_settings()' missing when loading the channels for the first time 
+which didn't load the custom channel titles and username/password info.
+
+Another bug which I didn't have a chance to look into was that I couldn't 
+cancel a download that is in progress. If I have time, I'll look into it this 
+weekend (if you didn't already get to it).
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-r433--auth-settings.patch
+Type: text/x-diff
+Size: 2383 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070927/3709dd22/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070927/3709dd22/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000635.html">[gpodder-devel] gPodder 0.10.0 on Windows
+</A></li>
+	<LI>Next message: <A HREF="000637.html">[gpodder-devel] Download authentication bugfix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#636">[ date ]</a>
+              <a href="thread.html#636">[ thread ]</a>
+              <a href="subject.html#636">[ subject ]</a>
+              <a href="author.html#636">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

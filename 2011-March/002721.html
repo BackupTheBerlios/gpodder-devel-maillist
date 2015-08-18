@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] libmygpo-qt for Meego/Harmattan
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20for%20Meego/Harmattan&In-Reply-To=%3C98D776998F624B4EAC20298C3B039AFE07513EB7%40008-AM1MPN1-004.mgdnok.nokia.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002719.html">
+   <LINK REL="Next"  HREF="002720.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] libmygpo-qt for Meego/Harmattan</H1>
+    <B>ari.hannula at nokia.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20for%20Meego/Harmattan&In-Reply-To=%3C98D776998F624B4EAC20298C3B039AFE07513EB7%40008-AM1MPN1-004.mgdnok.nokia.com%3E"
+       TITLE="[gpodder-devel] libmygpo-qt for Meego/Harmattan">ari.hannula at nokia.com
+       </A><BR>
+    <I>Mon Mar 21 12:13:28 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002719.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+        <LI>Next message: <A HREF="002720.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2721">[ date ]</a>
+              <a href="thread.html#2721">[ thread ]</a>
+              <a href="subject.html#2721">[ subject ]</a>
+              <a href="author.html#2721">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.
+
+This gets interesting. If I run make again and again may times in a row, it actually compiles something every time and progresses until 45%. Seems that make exits every time it executes something and throws mmap: No such device or address.
+-ari
+
+________________________________________
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A> [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A>] on behalf of ext Thomas Perl [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>]
+Sent: Monday, March 21, 2011 12:39
+To: Development for gPodder
+Subject: Re: [gpodder-devel] libmygpo-qt for Meego/Harmattan
+
+Hi Ari,
+
+On Mon, Mar 21, 2011 at 08:25:41AM +0000, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ari.hannula at nokia.com</A> wrote:
+&gt;<i> Tried to compile 1.0.1 and here's the output:
+</I>&gt;<i>
+</I>&gt;<i> [sbox-maemo6-armv7: ~/libmygpo-qt/build] &gt; make
+</I>&gt;<i> [  1%] Generating Device.moc
+</I>&gt;<i> mmap: No such device or address
+</I>&gt;<i> make[2]: *** [src/moc_Settings.cxx] Error 255
+</I>&gt;<i> make[1]: *** [src/CMakeFiles/mygpo-qt.dir/all] Error 2
+</I>&gt;<i> make: *** [all] Error 2
+</I>
+Have you set up Scratchbox correctly? Have you tried building it in a
+different Scratchbox instance to check if it isn't a problem with your
+installation?
+
+&gt;<i> Also there was something fishy in cmake, it could not find QtCore when
+</I>&gt;<i> run the first time but then I did cmake the second time and it worked.
+</I>&gt;<i> Output:
+</I>&gt;<i> [sbox-maemo6-armv7: ~/libmygpo-qt/build] &gt; fakeroot cmake ..
+</I>&gt;<i> -DCMAKE_INSTALL_PREFIX=BASE_PATH_OF_INSTALLATION
+</I>&gt;<i> -DCMAKE_BUILD_TYPE=Debug
+</I>
+You should not need to run cmake with &quot;fakeroot&quot;. Does the problem exist
+even when running without &quot;fakeroot&quot;? I will give the library a try on
+the FREMANTLE_ARMEL target in my scratchbox install.
+
+HTH.
+Thomas
+
+_______________________________________________
+gpodder-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002719.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+	<LI>Next message: <A HREF="002720.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2721">[ date ]</a>
+              <a href="thread.html#2721">[ thread ]</a>
+              <a href="subject.html#2721">[ subject ]</a>
+              <a href="author.html#2721">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 2.4 &quot;The Pants Alternative&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%202.4%20%22The%20Pants%20Alternative%22%20released&In-Reply-To=%3C20100408231504.GB18598%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002496.html">
+   <LINK REL="Next"  HREF="002502.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 2.4 &quot;The Pants Alternative&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%202.4%20%22The%20Pants%20Alternative%22%20released&In-Reply-To=%3C20100408231504.GB18598%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] gPodder 2.4 &quot;The Pants Alternative&quot; released">thp at gpodder.org
+       </A><BR>
+    <I>Fri Apr  9 01:15:04 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002496.html">[gpodder-devel] How to sync maemo gpodder with mygpodder
+</A></li>
+        <LI>Next message: <A HREF="002502.html">[gpodder-devel] gPodder 2.5 &quot;Knock knock knock Penny&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2500">[ date ]</a>
+              <a href="thread.html#2500">[ thread ]</a>
+              <a href="subject.html#2500">[ subject ]</a>
+              <a href="author.html#2500">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Mar 30, 2010 at 12:32:34PM -0300, Silvio Sisto wrote:
+&gt;<i> I think I have a bug to report...
+</I>&gt;<i> 
+</I>&gt;<i> If you go to the view menu there are two similar options:
+</I>&gt;<i> 1: Show &quot;All episodes&quot; in podcast list
+</I>&gt;<i> 2: All episodes
+</I>&gt;<i> 
+</I>&gt;<i> If you go to preferences there's a third similar option:
+</I>&gt;<i> 3: Show &quot;All episodes&quot; in podcast list
+</I>&gt;<i> 
+</I>&gt;<i> I have the first option enabled in the view menu but the third option
+</I>&gt;<i> is disabled but apparently they are exactly the same option. Also I
+</I>&gt;<i> don't know why there seems to be 3 different places to set the same
+</I>&gt;<i> option.
+</I>
+Yes, this was my mistake (mechanically adding stuff from the Desktop
+version to the Maemo 4 UI). The &quot;1&quot; and &quot;3&quot; are really the same, and
+therefore I have removed the option from the main menu in the Maemo 4 UI
+to avoid confusion. The &quot;All episodes&quot; item in the view menu controls
+the view filter for the episode list, whereas the other menu item (now
+in the preferences dialog) controls whether or not the item that
+combines all episodes from all podcasts will be shown in the podcast
+list.
+
+Commit link here: <A HREF="http://gpodder.org/commit/3f6a2a1">http://gpodder.org/commit/3f6a2a1</A>
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002496.html">[gpodder-devel] How to sync maemo gpodder with mygpodder
+</A></li>
+	<LI>Next message: <A HREF="002502.html">[gpodder-devel] gPodder 2.5 &quot;Knock knock knock Penny&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2500">[ date ]</a>
+              <a href="thread.html#2500">[ thread ]</a>
+              <a href="subject.html#2500">[ subject ]</a>
+              <a href="author.html#2500">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

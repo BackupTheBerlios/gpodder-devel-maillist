@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Human-readable download folders, please test (was: Re: Non-human	readable directory and file names)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FHuman-readable_download_folders%3D2C_plea%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fse_test_%3D28was%3D3A_Re%3D3A_Non-human%3D09readable_directory_a%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fnd_file_names%3D29%3F%3D&In-Reply-To=%3C200711031217.03419.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000761.html">
+   <LINK REL="Next"  HREF="000752.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Human-readable download folders, please test (was: Re: Non-human	readable directory and file names)</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FHuman-readable_download_folders%3D2C_plea%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fse_test_%3D28was%3D3A_Re%3D3A_Non-human%3D09readable_directory_a%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fnd_file_names%3D29%3F%3D&In-Reply-To=%3C200711031217.03419.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Human-readable download folders, please test (was: Re: Non-human	readable directory and file names)">nikosapi at gmail.com
+       </A><BR>
+    <I>Sat Nov  3 17:17:03 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000761.html">[gpodder-devel] Human-readable download folders,	please test (was: Re: Non-human	readable directory and file names)
+</A></li>
+        <LI>Next message: <A HREF="000752.html">[gpodder-devel] No errormessage when disk is full
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#771">[ date ]</a>
+              <a href="thread.html#771">[ thread ]</a>
+              <a href="subject.html#771">[ subject ]</a>
+              <a href="author.html#771">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On November 2, 2007 13:54:38 Thomas Perl wrote:
+&gt;<i> Hello, Nick!
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 2007-11-01 at 15:51 -0400, nikosapi wrote:
+</I>&gt;<i> &gt; I've been looking through the suggestions and an idea that didn't come
+</I>&gt;<i> &gt; up was a simple enumeration at the beginning or ending of directory
+</I>&gt;<i> &gt; and file names. For example it could look something like this:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ~/{download dir}/{number}-{&lt;title&gt; (cut off if too long)}/
+</I>&gt;<i> &gt; {number}-{show title (also cut off if too long) or original
+</I>&gt;<i> &gt; filename}.ext
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ~/gpodder-downloads/03-This_Week_in_Tech/19-Some_random_show.mp3
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The numbers could be assigned randomly (in that case a bigger number
+</I>&gt;<i> &gt; would be needed) or the numbers could simply be counters that gpodder
+</I>&gt;<i> &gt; keeps track of.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I think this would be nicer than having to descend through many oddly
+</I>&gt;<i> &gt; named directories to find a show you're looking for.
+</I>&gt;<i>
+</I>&gt;<i> Your proposal sounds reasonable, and it might be something we should
+</I>&gt;<i> think about if we are going to change the internal structure of the
+</I>&gt;<i> download folder. Of course, we have to make a number-URL mapping and
+</I>&gt;<i> save that somewhere so we can always find the right number to determine
+</I>&gt;<i> the file name.
+</I>&gt;<i>
+</I>&gt;<i> Anyway, I've been working on a compatible hard-linking system that will
+</I>&gt;<i> preserve the download folder structure, generate a new structure that
+</I>&gt;<i> (given it resides on the same filesystem as the download folder and it
+</I>&gt;<i> supports hard links) will not use any additional hard disk space and is
+</I>&gt;<i> even compatible with renames.
+</I>&gt;<i>
+</I>&gt;<i> Save the two attached scripts somewhere in your $PATH and don't forget
+</I>&gt;<i> to set the PYTHONPATH variable to the &quot;src/&quot; subfolder of your SVN
+</I>&gt;<i> checkout, so the scripts will find the gPodder libraries.
+</I>&gt;<i>
+</I>&gt;<i>     Usage: gdfs-init.py [--yes] [Podcasts dir]
+</I>&gt;<i>
+</I>&gt;<i>         Populates &quot;Podcasts dir&quot; with hard links from gPodder's
+</I>&gt;<i>         downloads folder. &quot;Podcasts dir&quot; should be on the same
+</I>&gt;<i>         filesystem as the downloads folder, and the filesystem
+</I>&gt;<i>         has to support hard links.
+</I>&gt;<i>
+</I>&gt;<i>         If &quot;Podcasts dir&quot; already exists, the script will ask
+</I>&gt;<i>         to overwrite its contents and re-build the mirror.
+</I>&gt;<i>
+</I>&gt;<i>         The optional &quot;--yes&quot; parameter will skip the overwrite
+</I>&gt;<i>         question and foribly re-build the folder if it exists.
+</I>&gt;<i>
+</I>&gt;<i>     Usage: gdfs-check.py [from-gpodder|from-podcasts] [Podcasts dir]
+</I>&gt;<i>
+</I>&gt;<i>         If you have deleted episodes from your Podcast mirror
+</I>&gt;<i>         folder, use &quot;from-podcasts&quot; to get a list of files
+</I>&gt;<i>         that you have to delete from gPodder's download
+</I>&gt;<i>         folder to &quot;sync&quot; with your podcast mirror.
+</I>&gt;<i>
+</I>&gt;<i>         If you have deleted episodes in gPodder, you can use
+</I>&gt;<i>         &quot;from-gpodder&quot; to get a list of files that are still
+</I>&gt;<i>         available in your podcasts dir, but not in gPodder's
+</I>&gt;<i>         download directory.
+</I>&gt;<i>
+</I>&gt;<i> So, basically, to get things going, download the two scripts to your
+</I>&gt;<i> Desktop, run &quot;python gdfs-init.py --yes Podcasts&quot; and you should have
+</I>&gt;<i> your podcasts in human-readable folder and file names on your Desktop.
+</I>&gt;<i>
+</I>&gt;<i> You can always refresh this &quot;mirror&quot; of your download directory by
+</I>&gt;<i> running the same command again, which will overwrite the old &quot;Podcasts&quot;
+</I>&gt;<i> folder.
+</I>&gt;<i>
+</I>&gt;<i> Please try out these scripts and tell me how they work for you. Maybe we
+</I>&gt;<i> can do some more integration into gPodder when things are tested and
+</I>&gt;<i> users are happy with this solution.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>
+It works great, I didn't notice any problems. It's funny because I was 
+thinking of something similar but disregarded the idea because it seemed too 
+complicated, but you did it :)
+
+If a few more people could test it (maybe people with big gpodder libraries) I 
+think it would be a really cool feature. 
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000761.html">[gpodder-devel] Human-readable download folders,	please test (was: Re: Non-human	readable directory and file names)
+</A></li>
+	<LI>Next message: <A HREF="000752.html">[gpodder-devel] No errormessage when disk is full
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#771">[ date ]</a>
+              <a href="thread.html#771">[ thread ]</a>
+              <a href="subject.html#771">[ subject ]</a>
+              <a href="author.html#771">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

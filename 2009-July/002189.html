@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Status update from the gPodder land
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Status%20update%20from%20the%20gPodder%20land&In-Reply-To=%3C20090713120716.0193f3aab1db45621a7a7ee5866e9102.ce6c38531a.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002188.html">
+   <LINK REL="Next"  HREF="002190.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Status update from the gPodder land</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Status%20update%20from%20the%20gPodder%20land&In-Reply-To=%3C20090713120716.0193f3aab1db45621a7a7ee5866e9102.ce6c38531a.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] Status update from the gPodder land">thp at gpodder.org
+       </A><BR>
+    <I>Mon Jul 13 21:07:16 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002188.html">[gpodder-devel] update french localisation
+</A></li>
+        <LI>Next message: <A HREF="002190.html">[gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2189">[ date ]</a>
+              <a href="thread.html#2189">[ thread ]</a>
+              <a href="subject.html#2189">[ subject ]</a>
+              <a href="author.html#2189">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello there!
+
+As some of you might have noticed, there was some Bugzilla activity
+today. I've done a quick summer clean-up of all the open bug reports
+and had a look what is still relevant in the current version.
+
+For some bugs where I need testing with the current version or that
+I think can be closed but wasn't sure, I've made a short comment. If
+you received such a bug mail, please take the time to test it with
+the latest version in the Git repository - this really helps getting
+things forward and not spending time analyzing and working on bugs
+that have already been fixed.
+
+Also, some bugs unfortunately had to be closed WONTFIX due to my
+limited time. There are three main reasons, mostly described in the
+closing comment:
+
+  * Support for devices I don't have (iPods and MTP devices)
+  * Niche and exotic feature requests
+  * &quot;Ugly&quot;/non-standard feeds
+
+Support for iPods and MTP devices (and FS-based MP3 players, of course)
+will stay in gPodder, I do NOT plan to remove these for obvious reasons.
+What it means that I won't be able to fix bugs that are related to some
+libgpod or libmtp library messing with your data - patches are of course
+gladly accepted, and I'll try to help wherever I can - get in touch!
+
+I've also merged some reports that can be fixed in one big step, mostly
+by rewriting a larger component in gPodder (e.g. the download folder
+management or the episode dialog).
+
+Some code changes in the last few weeks have ripped out some
+configuration
+options or even minor features (like proxy support). Most of these
+features were not really polished or complete, so removing them and
+replacing them with either external tools that are more suited for the
+job (like a local proxy server that you can configure to your liking) is
+surely the way to go, in order to be able to devote more time to make
+the
+gPodder core application more stable and polished.
+
+If you want to get back your favourite feature that I have just ripped
+out
+of the codebase without asking anybody, feel free to do so, but be
+prepared
+to submit a nice patch with a clean implementation :)
+
+Some good news at this already-quite-long mail: There have been some
+fixes
+and improvements (multiple file playback FTW!) in the codebase as well,
+so
+expect some experimental release goodness really soon now.
+
+Feedback, as always, welcome.
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002188.html">[gpodder-devel] update french localisation
+</A></li>
+	<LI>Next message: <A HREF="002190.html">[gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2189">[ date ]</a>
+              <a href="thread.html#2189">[ thread ]</a>
+              <a href="subject.html#2189">[ subject ]</a>
+              <a href="author.html#2189">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

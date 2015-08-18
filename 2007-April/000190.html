@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Playback%20tracking%20support%20and%20iPod%20sync%20%28was%3A%0A%09gPodder%20-%20Thanks%20and%20Wishlist%29&In-Reply-To=%3Cb63520a30704032302u4095fec6v8224494ca6488d7d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000186.html">
+   <LINK REL="Next"  HREF="000196.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)</H1>
+    <B>Stephan Buys</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Playback%20tracking%20support%20and%20iPod%20sync%20%28was%3A%0A%09gPodder%20-%20Thanks%20and%20Wishlist%29&In-Reply-To=%3Cb63520a30704032302u4095fec6v8224494ca6488d7d%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)">stephan.buys at gmail.com
+       </A><BR>
+    <I>Wed Apr  4 08:02:50 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000186.html">[gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)
+</A></li>
+        <LI>Next message: <A HREF="000196.html">[gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#190">[ date ]</a>
+              <a href="thread.html#190">[ thread ]</a>
+              <a href="subject.html#190">[ subject ]</a>
+              <a href="author.html#190">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+After some initial testing this looks very promising. For some reason the
+&quot;Playcound&quot; of the tracks dont always get set (although the blue dot) always
+disappears.
+
+I have downloaded gtkpod and will try and get more information relating to
+the &quot;blue dot's&quot;/playcount behaviour.
+
+Kind regards,
+Stephan
+
+On 4/3/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> On Mon, 2007-04-02 at 17:00 +0200, Stephan Buys wrote:
+</I>&gt;<i> &gt;         &gt; 2. A way for my iPod to then update and reflect the &quot;played&quot;
+</I>&gt;<i> &gt;         status of the podcasts.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;         I think newer iPods have something that has been described to
+</I>&gt;<i> &gt;         me as a &quot;blue dot&quot;, but on my iPod mini, I can't see the
+</I>&gt;<i> &gt;         played/unplayed status of Podcasts. If you want such a
+</I>&gt;<i> &gt;         feature, you'd have to test it on your iPod and report back if
+</I>&gt;<i> &gt;         it works or not, because I can't test here.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; This is exactly what I am referring to :-) &quot;The blue dot&quot;. I am more
+</I>&gt;<i> &gt; than happy to test this.
+</I>&gt;<i> &gt; Basically the blue dot disappears when you hit play on a track.
+</I>&gt;<i>
+</I>&gt;<i> I've implemented basic playback history support in the latest svn
+</I>&gt;<i> revision. Please try it out and tell me if it works for you. What you
+</I>&gt;<i> get:
+</I>&gt;<i>
+</I>&gt;<i> * Enable &quot;Played&quot; column in the Advanced tab of the Properties dialog
+</I>&gt;<i> * Playback files on your computer - the &quot;Played&quot; column will show a
+</I>&gt;<i>   green dot
+</I>&gt;<i> * Sync to your iPod - played back files shouldn't have a blue dot
+</I>&gt;<i>   anymore
+</I>&gt;<i> * Play back files on your iPod, then sync with gPodder - gPodder should
+</I>&gt;<i>   update the played back status of the podcasts accordingly
+</I>&gt;<i>
+</I>&gt;<i> This also works with older iPods (tested with iPod mini), and uses the
+</I>&gt;<i> playcount as a &quot;played&quot; indicator. Don't know if playcount increase
+</I>&gt;<i> means a fully played episode or just the start of the playback - test on
+</I>&gt;<i> your iPod.
+</I>&gt;<i>
+</I>&gt;<i> &gt; BTW - I can probably contribute .deb packaging for the upcoming Ubuntu
+</I>&gt;<i> &gt; release, let me know if you would be interested.
+</I>&gt;<i>
+</I>&gt;<i> It'd be great if you could work towards getting gPodder into the Ubuntu
+</I>&gt;<i> repositories. You might want to start from the Debian package I'm
+</I>&gt;<i> currently working on. A bit older version can be found on [1], but if
+</I>&gt;<i> you're interested, I can send you the latest .deb source files.
+</I>&gt;<i>
+</I>&gt;<i> [1] <A HREF="http://mentors.debian.net/debian/pool/main/g/gpodder/">http://mentors.debian.net/debian/pool/main/g/gpodder/</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070404/d0ea72d3/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070404/d0ea72d3/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000186.html">[gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)
+</A></li>
+	<LI>Next message: <A HREF="000196.html">[gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#190">[ date ]</a>
+              <a href="thread.html#190">[ thread ]</a>
+              <a href="subject.html#190">[ subject ]</a>
+              <a href="author.html#190">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

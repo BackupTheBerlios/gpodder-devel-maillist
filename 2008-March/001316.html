@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Error when writing iTunesDB.ext
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Error%20when%20writing%20iTunesDB.ext&In-Reply-To=%3C1206707663.25432.5.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001315.html">
+   <LINK REL="Next"  HREF="001319.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Error when writing iTunesDB.ext</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Error%20when%20writing%20iTunesDB.ext&In-Reply-To=%3C1206707663.25432.5.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Error when writing iTunesDB.ext">thp at perli.net
+       </A><BR>
+    <I>Fri Mar 28 13:34:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001315.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+        <LI>Next message: <A HREF="001319.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1316">[ date ]</a>
+              <a href="thread.html#1316">[ thread ]</a>
+              <a href="subject.html#1316">[ subject ]</a>
+              <a href="author.html#1316">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Joe!
+
+On Fri, 2008-03-28 at 01:52 -0400, JoeHill wrote:
+&gt;<i> JoeHill wrote: 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Just did an svn up to Revision: 643, but I'm still getting an unmatched
+</I>&gt;<i> &gt; checksum error from gtkpod.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; This is what it shows in the gpodder console:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; [42270.381] (iPodDevice) Error when writing iTunesDB.ext
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/home/joehill/svn/gpodder/src/gpodder/sync.py&quot;, line 211, in close
+</I>&gt;<i> &gt;     db = gpod.ipod.Database(self.mountpoint)
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/ipod.py&quot;, line 85, in __init__
+</I>&gt;<i> &gt;     self._load_gtkpod_extended_info()
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/ipod.py&quot;, line 101, in
+</I>&gt;<i> &gt; _load_gtkpod_extended_info gtkpod.parse(itdbext_file, self, self._itdb_file)
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/gtkpod.py&quot;, line 108, in parse
+</I>&gt;<i> &gt;     tracks_by_sha[sha1_hash(track.ipod_filename())] = track
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/gtkpod.py&quot;, line 25, in
+</I>&gt;<i> &gt; sha1_hash size = os.path.getsize(filename)
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/posixpath.py&quot;, line 139, in getsize
+</I>&gt;<i> &gt;     return os.stat(filename).st_size
+</I>&gt;<i> &gt; TypeError: coercing to Unicode: need string or buffer, NoneType found
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Googling that last bit got me this:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &quot;This may be an indication that in your database you have a record with a
+</I>&gt;<i> &gt; None value, e. g.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;         [('Developmental Neurobiology', 'ANAT2008'),
+</I>&gt;<i> &gt;          ('Neuroanatomy', 'ANAT2009'),
+</I>&gt;<i> &gt;          ('Man in black', None)])
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; and most likely the right fix is to correct the database entry and make sure
+</I>&gt;<i> &gt; that no new such records can be entered into it.&quot;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; However, I have no idea how I would go about following this advice...
+</I>&gt;<i> 
+</I>&gt;<i> sorry, should have given a link to what I found:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://mail.python.org/pipermail/python-list/2006-July/395253.html">http://mail.python.org/pipermail/python-list/2006-July/395253.html</A>
+</I>
+
+Thanks for investigating on this problem. Could you please post this
+information and the bug to <A HREF="http://bugs.gpodder.org/">http://bugs.gpodder.org/</A> where we can deal
+with it in a better way then here on the development discussion mailing
+list?
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001315.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+	<LI>Next message: <A HREF="001319.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1316">[ date ]</a>
+              <a href="thread.html#1316">[ thread ]</a>
+              <a href="subject.html#1316">[ subject ]</a>
+              <a href="author.html#1316">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

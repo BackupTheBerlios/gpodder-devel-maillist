@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Add Makefile target for installing without	calling gtk-update-icon-cache ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Add%20Makefile%20target%20for%20installing%20without%0A%09calling%20gtk-update-icon-cache%20%3F&In-Reply-To=%3C883cfe6d0703271507v79ee5b30q7295ef5391a73ee0%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000152.html">
+   <LINK REL="Next"  HREF="000154.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Add Makefile target for installing without	calling gtk-update-icon-cache ?</H1>
+    <B>Michel Salim</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Add%20Makefile%20target%20for%20installing%20without%0A%09calling%20gtk-update-icon-cache%20%3F&In-Reply-To=%3C883cfe6d0703271507v79ee5b30q7295ef5391a73ee0%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Add Makefile target for installing without	calling gtk-update-icon-cache ?">michel.salim at gmail.com
+       </A><BR>
+    <I>Wed Mar 28 00:07:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000152.html">[gpodder-devel] Add Makefile target for installing	without	calling gtk-update-icon-cache ?
+</A></li>
+        <LI>Next message: <A HREF="000154.html">[gpodder-devel] Add Makefile target for installing	without	calling gtk-update-icon-cache ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Salut, Thomas!
+
+2007/3/27, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt;:
+&gt;<i>
+</I>&gt;<i> I've put the icon cache updating into a seperate makefile target, as I
+</I>&gt;<i> suppose it should be run in the postinst scripts of the different
+</I>&gt;<i> packages and formats, anyway.
+</I>&gt;<i>
+</I>Great, thanks.
+
+&gt;<i> &gt; Also, /usr/share/datadir/gpodder.glade tries to load
+</I>&gt;<i> &gt; gpodder-48x48.png, which it expects to be in the same directory --
+</I>&gt;<i> &gt; this does not work unless one makes a symlink from one of the icon
+</I>&gt;<i> &gt; files to this.
+</I>&gt;<i>
+</I>&gt;<i> Also, this has been removed, as we're setting a global default icon for
+</I>&gt;<i> all windows in gPodder in startup code now.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>One small question: why is there a src/gpodder.py.orig file?
+
+Regards,
+
+-- 
+Michel Salim
+<A HREF="http://hircus.wordpress.com/">http://hircus.wordpress.com/</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000152.html">[gpodder-devel] Add Makefile target for installing	without	calling gtk-update-icon-cache ?
+</A></li>
+	<LI>Next message: <A HREF="000154.html">[gpodder-devel] Add Makefile target for installing	without	calling gtk-update-icon-cache ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

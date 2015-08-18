@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder SVN rev468 crashing at startup
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20SVN%20rev468%20crashing%20at%20startup&In-Reply-To=%3C4741F52D.7010503%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000804.html">
+   <LINK REL="Next"  HREF="000805.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder SVN rev468 crashing at startup</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20SVN%20rev468%20crashing%20at%20startup&In-Reply-To=%3C4741F52D.7010503%40perli.net%3E"
+       TITLE="[gpodder-devel] gPodder SVN rev468 crashing at startup">thp at perli.net
+       </A><BR>
+    <I>Mon Nov 19 21:42:21 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000804.html">[gpodder-devel] gPodder SVN rev468 crashing at startup
+</A></li>
+        <LI>Next message: <A HREF="000805.html">[gpodder-devel] Patch to display unplayed episodes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#806">[ date ]</a>
+              <a href="thread.html#806">[ thread ]</a>
+              <a href="subject.html#806">[ subject ]</a>
+              <a href="author.html#806">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+Pieter De Decker wrote:
+&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;bin/gpodder&quot;, line 148, in &lt;module&gt;
+</I>&gt;<i>     sys.exit( main())
+</I>&gt;<i>   File &quot;bin/gpodder&quot;, line 144, in main
+</I>&gt;<i>     gui.main()
+</I>&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/gui.py&quot;, line 2110, in main
+</I>&gt;<i>     gPodder().run()
+</I>&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/gui.py&quot;, line 77, in __init__
+</I>&gt;<i>     SimpleGladeApp.SimpleGladeApp.__init__( self, path, root, domain,
+</I>&gt;<i> **kwargs)
+</I>&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/SimpleGladeApp.py&quot;, line
+</I>&gt;<i> 110, in __init__
+</I>&gt;<i>     self.new()
+</I>&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/gui.py&quot;, line 271, in new
+</I>&gt;<i>     self.channels = load_channels( load_items = False, offline = True)
+</I>&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/libpodcasts.py&quot;, line
+</I>&gt;<i> 731, in load_channels
+</I>&gt;<i>     podcastChannel.clear_cache(urls_to_keep)
+</I>&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/libpodcasts.py&quot;, line
+</I>&gt;<i> 112, in clear_cache
+</I>&gt;<i>     for url in cls.storage.keys():
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/shelve.py&quot;, line 92, in keys
+</I>&gt;<i>     return self.dict.keys()
+</I>&gt;<i>   File &quot;bsddb/__init__.py&quot;, line 252, in keys
+</I>&gt;<i>   File &quot;bsddb/dbutils.py&quot;, line 62, in DeadlockWrap
+</I>&gt;<i> bsddb.db.DBPageNotFoundError: (-30987, 'DB_PAGE_NOTFOUND: Requested page
+</I>&gt;<i> not found')
+</I>&gt;<i> make: *** [test] Fout 1
+</I>&gt;<i> ---
+</I>&gt;<i> 
+</I>&gt;<i> Is this my fault, or is something wrong with gPodder's code?
+</I>
+Try removing the ~/.config/gpodder/feedcache.db file. If this error
+happens again, please send another e-mail, so I can investigate further.
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000804.html">[gpodder-devel] gPodder SVN rev468 crashing at startup
+</A></li>
+	<LI>Next message: <A HREF="000805.html">[gpodder-devel] Patch to display unplayed episodes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#806">[ date ]</a>
+              <a href="thread.html#806">[ thread ]</a>
+              <a href="subject.html#806">[ subject ]</a>
+              <a href="author.html#806">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

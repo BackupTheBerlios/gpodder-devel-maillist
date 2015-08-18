@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Invalid feed: can gPodder handle it?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Invalid%20feed%3A%20can%20gPodder%20handle%20it%3F&In-Reply-To=%3C1203621164.6235.10.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001214.html">
+   <LINK REL="Next"  HREF="001215.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Invalid feed: can gPodder handle it?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Invalid%20feed%3A%20can%20gPodder%20handle%20it%3F&In-Reply-To=%3C1203621164.6235.10.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Invalid feed: can gPodder handle it?">thp at perli.net
+       </A><BR>
+    <I>Thu Feb 21 20:12:44 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001214.html">[gpodder-devel] Invalid feed: can gPodder handle it?
+</A></li>
+        <LI>Next message: <A HREF="001215.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1216">[ date ]</a>
+              <a href="thread.html#1216">[ thread ]</a>
+              <a href="subject.html#1216">[ subject ]</a>
+              <a href="author.html#1216">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, &#65279;J&#233;r&#244;me!
+
+On Wed, 2008-02-20 at 22:17 +0100, J&#233;r&#244;me Chabod wrote:
+&gt;<i> This feed
+</I>&gt;<i> <A HREF="http://www.rss-one.com/rss-3950-Canal-Plus---Le-Zapping">http://www.rss-one.com/rss-3950-Canal-Plus---Le-Zapping</A> stores 
+</I>&gt;<i> its episodes url in &lt;url&gt; tag instead of &lt;enclosure url&gt; and thus
+</I>&gt;<i> can't be handled by gPodder.
+</I>&gt;<i> I imagine this is invalid, but is there a way to read it in gpodder?
+</I>
+I think you would have to mess with feedparser. In short: It's not a
+valid feed. Possible solutions:
+
+a) Write to them they should fix their INVALID, BUGGY RSS feed
+
+b) Write an XSLT transformation (or a Python script that modifies the
+   XML document using DOM or something) that you put on your server that
+   corrects the buggy RSS feed and outputs a valid podcast RSS feed,
+   and subscribe to that URL
+
+For &quot;b)&quot;, it would be nice if you could send in the resulting script or
+xslt file, because I think many people could profit from such a script
+that they can customize on their server and make buggy feeds working.
+That said, podcast authors should really fix their RSS feeds. After all,
+that's why we have standards (and why it's so easy for gPodder to
+subscribe to feeds from so many different sites and authors).
+
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001214.html">[gpodder-devel] Invalid feed: can gPodder handle it?
+</A></li>
+	<LI>Next message: <A HREF="001215.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1216">[ date ]</a>
+              <a href="thread.html#1216">[ thread ]</a>
+              <a href="subject.html#1216">[ subject ]</a>
+              <a href="author.html#1216">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

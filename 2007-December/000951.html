@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C476A2E68.70403%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000950.html">
+   <LINK REL="Next"  HREF="000915.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 crash</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C476A2E68.70403%40perli.net%3E"
+       TITLE="[gpodder-devel] 0.10.3 crash">thp at perli.net
+       </A><BR>
+    <I>Thu Dec 20 09:57:12 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000950.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+        <LI>Next message: <A HREF="000915.html">[gpodder-devel] Broken iPod sync: problem with &quot;Play Counts&quot; file?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#951">[ date ]</a>
+              <a href="thread.html#951">[ thread ]</a>
+              <a href="subject.html#951">[ subject ]</a>
+              <a href="author.html#951">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Chris!
+
+Chris Arnold wrote:
+&gt;<i> I updated using the opensuse repo to pycairo 1.2.2 and get this error
+</I>&gt;<i> when starting gpodder:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i> File &quot;/usr/bin/gpodder&quot;, line 148, in ?
+</I>&gt;<i> sys.exit( main())
+</I>&gt;<i> File &quot;/usr/bin/gpodder&quot;, line 109, in main
+</I>&gt;<i> from gpodder import console
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/console.py&quot;, line 20, in ?
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/util.py&quot;, line 35, in ?
+</I>&gt;<i> File &quot;/usr/lib/python2.4/site-packages/gtk-2.0/gtk/__init__.py&quot;, line
+</I>&gt;<i> 37, in ? from _gtk import *
+</I>&gt;<i> File &quot;/usr/lib/python2.4/site-packages/cairo/__init__.py&quot;, line 1, in ?
+</I>&gt;<i> from _cairo import *
+</I>&gt;<i> ImportError: /usr/lib/python2.4/site-packages/cairo/_cairo.so: undefined
+</I>&gt;<i> symbol: cairo_ps_surface_dsc_begin_setup
+</I>
+You then have to also update the libcairo package to match the version 
+of pycairo. It could be named libcairo or cairo-lib or something like 
+that. If you have installed pycairo 1.2.2, also install cairo 1.2.2.
+
+&gt;<i> I tried putting the patch in the .config/gpodder folder and running the
+</I>&gt;<i> patch but nothing happened, it just sat there at the CL. Do i have to
+</I>&gt;<i> use only the svn and patch together or can i run the patch in the
+</I>&gt;<i> .config/gpodder folder and it work?
+</I>
+No, you have to download a svn working copy and apply the patch there:
+
+&gt;<i> mkdir ~/src
+</I>&gt;<i> cd ~/src
+</I>&gt;<i> svn co <A HREF="http://svn.berlios.de/svnroot/repos/gpodder/trunk">http://svn.berlios.de/svnroot/repos/gpodder/trunk</A> gpodder
+</I>&gt;<i> cd gpodder
+</I>&gt;<i> wget <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071217/adc632e0/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071217/adc632e0/attachment.bin</A>
+</I>&gt;<i> patch -p0 &lt; attachment.bin
+</I>&gt;<i> rm attachment.bin
+</I>&gt;<i> echo &quot;`pwd`/bin/gpodder --local&quot; &gt;~/start-gpodder
+</I>&gt;<i> chmod +x ~/start-gpodder
+</I>
+This should leave you with a &quot;start-gpodder&quot; script in your home 
+directory from which you can start your patched gPodder 0.10.3.
+
+&gt;&gt;<i> If you don't miss the new features and can live with the bugs, you can 
+</I>&gt;&gt;<i> also downgrade to gPodder 0.10.2. Please note this is not really a &quot;bug&quot; 
+</I>&gt;&gt;<i> in gPodder, but simply a downwards compatibility issue of pycairo. 
+</I>&gt;&gt;<i> gPodder uses a feature (write_to_png being able to write to a StringIO 
+</I>&gt;&gt;<i> object) that has only been added to pycairo in version 1.1.6).
+</I>&gt;&gt;<i>   
+</I>&gt;<i> I know this is not a bug with gpodder (this is not the first time i ran
+</I>&gt;<i> into this with SLED). I really wanted 0.10.3 for the itms and other
+</I>&gt;<i> protocol but am willing to put 10.2 back on if i could get the link to
+</I>&gt;<i> download it from you?
+</I>
+Old gPodder releases (the source tarballs, at least) can always be found 
+on this page:
+
+<A HREF="https://developer.berlios.de/project/showfiles.php?group_id=5351">https://developer.berlios.de/project/showfiles.php?group_id=5351</A>
+
+
+Thanks,
+Tohmas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000950.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+	<LI>Next message: <A HREF="000915.html">[gpodder-devel] Broken iPod sync: problem with &quot;Play Counts&quot; file?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#951">[ date ]</a>
+              <a href="thread.html#951">[ thread ]</a>
+              <a href="subject.html#951">[ subject ]</a>
+              <a href="author.html#951">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

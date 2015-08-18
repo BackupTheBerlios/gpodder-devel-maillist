@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] treeAvailable reordering
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20treeAvailable%20reordering&In-Reply-To=%3C20070313194916.4bb76433%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000104.html">
+   <LINK REL="Next"  HREF="000107.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] treeAvailable reordering</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20treeAvailable%20reordering&In-Reply-To=%3C20070313194916.4bb76433%40macbook%3E"
+       TITLE="[gpodder-devel] treeAvailable reordering">thp at perli.net
+       </A><BR>
+    <I>Tue Mar 13 19:49:16 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000104.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+        <LI>Next message: <A HREF="000107.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#106">[ date ]</a>
+              <a href="thread.html#106">[ thread ]</a>
+              <a href="subject.html#106">[ subject ]</a>
+              <a href="author.html#106">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Michel,
+
+On Mon, 12 Mar 2007 19:56:55 -0400 Michel Salim wrote:
+&gt;<i> Available podcasts, I suppose (in gPodder terminology, this includes
+</I>&gt;<i> both the ones listed in the feed and the ones already downloaded, even
+</I>&gt;<i> if no longer available, right? I've not used it long enough to notice
+</I>&gt;<i> what happens when some episodes were dropped).
+</I>&gt;<i> 
+</I>&gt;<i> Searching descriptions by default would make sense. I don't think the
+</I>&gt;<i> URL adds much (assuming the search is done within a channel)
+</I>
+Ok, I'll note that. So you basically want to have a search field that
+searches _inside_ the currently selected channel and display the
+results in the list? Do you think a &quot;global&quot; search function also makes
+sense or is it ok to just have a channel list &quot;filtered&quot; by some search
+terms? (like, for example, library search in Rhythmbox)
+
+&gt;<i> self.channel.sort()
+</I>&gt;<i> self.channel.reverse()
+</I>&gt;<i> 
+</I>&gt;<i> This should probably be self.channel.sort(reverse=True), to avoid
+</I>&gt;<i> going over the list another time.
+</I>
+Thanks for this quick heads-up, didn't know about the reverse keyword
+parameter, of course that is the better method - added and commited to
+current svn head :)
+
+
+Enjoy,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000104.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+	<LI>Next message: <A HREF="000107.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#106">[ date ]</a>
+              <a href="thread.html#106">[ thread ]</a>
+              <a href="subject.html#106">[ subject ]</a>
+              <a href="author.html#106">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Extended format_filesize() function to cover SI	units
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extended%20format_filesize%28%29%20function%20to%20cover%20SI%0A%09units&In-Reply-To=%3C200710312223.30858.z0idberg%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000734.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Extended format_filesize() function to cover SI	units</H1>
+    <B>Gerrit Sangel</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extended%20format_filesize%28%29%20function%20to%20cover%20SI%0A%09units&In-Reply-To=%3C200710312223.30858.z0idberg%40gmx.de%3E"
+       TITLE="[gpodder-devel] Extended format_filesize() function to cover SI	units">z0idberg at gmx.de
+       </A><BR>
+    <I>Wed Oct 31 22:23:29 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000734.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#736">[ date ]</a>
+              <a href="thread.html#736">[ thread ]</a>
+              <a href="subject.html#736">[ subject ]</a>
+              <a href="author.html#736">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello list,
+
+I have extended the format_filesize() function from utils.py to format the 
+bytesize into a correct way.
+
+It now has 3 options, determined by a shell variable BYTEPREFIX
+
+1. If the variable is set to &#8220;off&#8221;, the string is formatted the usual way. So 
+20,000 Bytes are 19.53 &#8220;Kilo&#8221;bytes (the output is &#8220;19.53 KB&#8221;)
+2. If the variable is set to &#8220;decimal&#8221;, it uses the SI units in the correct 
+way. This way, 20,000 Bytes are exactly 20 Kilobytes. 20,000,000 Bytes are 20 
+Megabytes. The output is &#8220;20 KB&#8221; and so on.
+3. If the variable is set to &#8220;binary&#8221;, it uses the Binary prefixes (Kibi, 
+Mebi, Gibi). So 20,000 Bytes will become 19.53 Kibibyte. The output then 
+is &#8220;19.53 KiB&#8221;.
+
+If BYTEPREFIX is not set, it automatically assumes the setting &#8220;off&#8221;.
+
+The function needs the os module for os.environ[], but I think this is already 
+imported in gpodder?
+
+I have done this via a shell variable, because I think, it would be nice if 
+the user could globally change the setting and then all applications with 
+this feature would use the setting. I do not think it is very convenient if 
+the user has to switch the setting each time in every appplication. This way, 
+he could set the BYTEPREFIX variable and all applications could benefit. 
+
+I know that the function might now be a bit cumbersome, but this is more or 
+less my first &#8220;real&#8221; programmed function. 
+
+If somebody could look over the function and see if there are some flaws I did 
+not see?
+
+Also I only made a &#8220;dry run&#8221; of the function, I did not include it in gpodder. 
+So I do not know if it works :D 
+
+Thanks
+
+Gerrit Sangel
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: filesize.py
+Type: application/x-python
+Size: 2064 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071031/6498426c/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071031/6498426c/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000734.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#736">[ date ]</a>
+              <a href="thread.html#736">[ thread ]</a>
+              <a href="subject.html#736">[ subject ]</a>
+              <a href="author.html#736">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

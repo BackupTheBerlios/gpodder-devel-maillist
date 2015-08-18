@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder hook script repository
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%20hook%20script%20repository&In-Reply-To=%3C1294480605.6410.26.camel%40peavey.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002656.html">
+   <LINK REL="Next"  HREF="002664.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder hook script repository</H1>
+    <B>Bernd Schlapsi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%20hook%20script%20repository&In-Reply-To=%3C1294480605.6410.26.camel%40peavey.lan%3E"
+       TITLE="[gpodder-devel] gpodder hook script repository">brot at gmx.info
+       </A><BR>
+    <I>Sat Jan  8 10:56:45 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002656.html">[gpodder-devel] gpodder hook script repository
+</A></li>
+        <LI>Next message: <A HREF="002664.html">[gpodder-devel] Where to suggest ideas?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2657">[ date ]</a>
+              <a href="thread.html#2657">[ thread ]</a>
+              <a href="subject.html#2657">[ subject ]</a>
+              <a href="author.html#2657">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2011-01-07 at 21:50 +0100, Thomas Perl wrote:
+&gt;<i> Hi Bernd!
+</I>&gt;<i> 
+</I>&gt;<i> On Thu, Jan 06, 2011 at 08:31:18PM +0100, Bernd wrote:
+</I>&gt;<i> &gt; I created a github repository which includes two hook scripts for
+</I>&gt;<i> &gt; gPodder.
+</I>&gt;<i> &gt; <A HREF="https://github.com/brot/gpodder-hook-scripts">https://github.com/brot/gpodder-hook-scripts</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I will add more scripts if I need more for my own purpose. Feel free to
+</I>&gt;<i> &gt; use my scripts and/or fork the github directory.
+</I>&gt;<i> &gt; It would also be nice if you could send me your pull requests with your
+</I>&gt;<i> &gt; scripts so we could build a repository with user generated hook scripts.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Which hook scripts do you use at the moment?
+</I>&gt;<i> 
+</I>&gt;<i> Sounds great. You might want to add the example hook scripts from the
+</I>&gt;<i> gPodder folder (bittorrent.py and mp3split.py from doc/dev/examples/) to
+</I>&gt;<i> the repository, and we can remove these scripts from the gPodder
+</I>&gt;<i> repository then and add a README file that points to your repository :)
+</I>&gt;<i> 
+</I>&gt;<i> It would be nice to have a good collection of scripts for gPodder in
+</I>&gt;<i> that repository - this way, we can make gPodder more modular and
+</I>&gt;<i> &quot;outsource&quot; feature requests to hook scripts, as I'm planning on
+</I>&gt;<i> removing some of the features in the current version to clean up the
+</I>&gt;<i> code.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+I merged the pull request from marvil07 (he added the example scripts
+from doc/dev/examples) today and the repository includes 4 scripts at
+the moment. 
+
+Which features do you plan to remove from gPodder core? Do you already
+have a list of this features so we could help to write the hook scripts.
+
+If we move features to the hook scripts we should think about a way to
+make it easy for users to activate this scripts in gPodder.
+Something like &quot;Preferences -&gt; Plugins&quot; could be possible?!
+
+The problem I see at the moment is that some of the hook scripts need
+some configuration (e.g: bittorrent script). Is it possible to create a
+configuration file for each script and gPodder parses this configuration
+files and show all the necessary options within the GUI and writes it
+back to the configure file.
+This files for each hook script could also store the enable/disable
+state which should also be shown in the GUI.
+
+Or should this hook system be a way for power users to configure gPodder
+for the own needs? 
+
+
+Bernd
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002656.html">[gpodder-devel] gpodder hook script repository
+</A></li>
+	<LI>Next message: <A HREF="002664.html">[gpodder-devel] Where to suggest ideas?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2657">[ date ]</a>
+              <a href="thread.html#2657">[ thread ]</a>
+              <a href="subject.html#2657">[ subject ]</a>
+              <a href="author.html#2657">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

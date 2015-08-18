@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4769D98E.80800%40electrichendrix.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000949.html">
+   <LINK REL="Next"  HREF="000951.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 crash</H1>
+    <B>Chris Arnold</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4769D98E.80800%40electrichendrix.com%3E"
+       TITLE="[gpodder-devel] 0.10.3 crash">carnold at electrichendrix.com
+       </A><BR>
+    <I>Thu Dec 20 03:55:10 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000949.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+        <LI>Next message: <A HREF="000951.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#950">[ date ]</a>
+              <a href="thread.html#950">[ thread ]</a>
+              <a href="subject.html#950">[ subject ]</a>
+              <a href="author.html#950">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thomas Perl wrote:
+&gt;<i> Hello, Chris!
+</I>&gt;<i>   
+</I>Hi Thomas!
+&gt;<i> Looking at
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://webcvs.cairographics.org/pycairo/NEWS?revision=1.20&amp;view=markup">http://webcvs.cairographics.org/pycairo/NEWS?revision=1.20&amp;view=markup</A>
+</I>&gt;<i>
+</I>&gt;<i> I see that in &quot;Overview of changes from pycairo 1.0.2 to pycairo 1.1.6&quot;, 
+</I>&gt;<i> write_to_png() has been changed to write to file-like objects:
+</I>&gt;<i>
+</I>&gt;<i>      surface.write_to_png() and ImageSurface.create_from_png() can
+</I>&gt;<i>      now write to file-like objects (like StringIO).
+</I>&gt;<i>
+</I>&gt;<i> This means that starting from pycairo 1.1.6, gPodder will work as 
+</I>&gt;<i> expected. 
+</I>I updated using the opensuse repo to pycairo 1.2.2 and get this error
+when starting gpodder:
+Traceback (most recent call last):
+File &quot;/usr/bin/gpodder&quot;, line 148, in ?
+sys.exit( main())
+File &quot;/usr/bin/gpodder&quot;, line 109, in main
+from gpodder import console
+File &quot;usr/lib/python2.4/site-packages/gpodder/console.py&quot;, line 20, in ?
+File &quot;usr/lib/python2.4/site-packages/gpodder/util.py&quot;, line 35, in ?
+File &quot;/usr/lib/python2.4/site-packages/gtk-2.0/gtk/__init__.py&quot;, line
+37, in ? from _gtk import *
+File &quot;/usr/lib/python2.4/site-packages/cairo/__init__.py&quot;, line 1, in ?
+from _cairo import *
+ImportError: /usr/lib/python2.4/site-packages/cairo/_cairo.so: undefined
+symbol: cairo_ps_surface_dsc_begin_setup
+&gt;<i>
+</I>&gt;<i> Things will work with the patch I sent you some days ago, if you decide 
+</I>&gt;<i> to stick with the old pycairo version. As soon as you update your 
+</I>&gt;<i> distribution to a newer release (or pycairo is updated for your 
+</I>&gt;<i> release), things should start working without problems.
+</I>&gt;<i>   
+</I>I tried putting the patch in the .config/gpodder folder and running the
+patch but nothing happened, it just sat there at the CL. Do i have to
+use only the svn and patch together or can i run the patch in the
+.config/gpodder folder and it work?
+&gt;<i> If you don't miss the new features and can live with the bugs, you can 
+</I>&gt;<i> also downgrade to gPodder 0.10.2. Please note this is not really a &quot;bug&quot; 
+</I>&gt;<i> in gPodder, but simply a downwards compatibility issue of pycairo. 
+</I>&gt;<i> gPodder uses a feature (write_to_png being able to write to a StringIO 
+</I>&gt;<i> object) that has only been added to pycairo in version 1.1.6).
+</I>&gt;<i>   
+</I>I know this is not a bug with gpodder (this is not the first time i ran
+into this with SLED). I really wanted 0.10.3 for the itms and other
+protocol but am willing to put 10.2 back on if i could get the link to
+download it from you?
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000949.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+	<LI>Next message: <A HREF="000951.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#950">[ date ]</a>
+              <a href="thread.html#950">[ thread ]</a>
+              <a href="subject.html#950">[ subject ]</a>
+              <a href="author.html#950">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

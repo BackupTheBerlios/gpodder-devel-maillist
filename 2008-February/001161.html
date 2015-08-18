@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Usability: Episode list and toolbar patch (was: Re:	GUI Proposal)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Usability%3A%20Episode%20list%20and%20toolbar%20patch%20%28was%3A%20Re%3A%0A%09GUI%20Proposal%29&In-Reply-To=%3C1201960799.6139.15.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001159.html">
+   <LINK REL="Next"  HREF="001169.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Usability: Episode list and toolbar patch (was: Re:	GUI Proposal)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Usability%3A%20Episode%20list%20and%20toolbar%20patch%20%28was%3A%20Re%3A%0A%09GUI%20Proposal%29&In-Reply-To=%3C1201960799.6139.15.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Usability: Episode list and toolbar patch (was: Re:	GUI Proposal)">thp at perli.net
+       </A><BR>
+    <I>Sat Feb  2 14:59:59 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001159.html">[gpodder-devel] GUI Proposal
+</A></li>
+        <LI>Next message: <A HREF="001169.html">[gpodder-devel] Usability: Episode list and toolbar patch (was:	Re: GUI Proposal)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1161">[ date ]</a>
+              <a href="thread.html#1161">[ thread ]</a>
+              <a href="subject.html#1161">[ subject ]</a>
+              <a href="author.html#1161">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Fri, 2008-02-01 at 21:04 -0500, nikosapi wrote:
+&gt;<i> On February 1, 2008 20:46:10 Rafael Proen&#231;a wrote:
+</I>&gt;<i> &gt; I forgot to tell, I've added a &quot;Patchs&quot; section on the wiki created by
+</I>&gt;<i> &gt; Thomas:
+</I>&gt;<i> &gt; <A HREF="http://gpodderwiki.jottit.com/gui-proposal-discussion">http://gpodderwiki.jottit.com/gui-proposal-discussion</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; One more thing: as you can see, I did not assigned an icon for the View
+</I>&gt;<i> &gt; menu, this is because I do not think that that menu bars should have icons,
+</I>&gt;<i> &gt; it does not follow the Gnome HIG. So my suggestion is to remove the icons
+</I>&gt;<i> &gt; from the menu bar, like in this screenshot
+</I>&gt;<i> &gt; <A HREF="http://img107.imageshack.us/img107/7442/gpoddermockupviewmenumm1.png">http://img107.imageshack.us/img107/7442/gpoddermockupviewmenumm1.png</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Let me know if we can move on to the episodes treeview.
+</I>
+Your patch looks okay, I did a modified version of your patch and merged
+it with my episode description patch I did some days ago (also posted
+here on the mailing list).
+
+The patch applies to a clean r556 checkout of our svn trunk (you might
+want to do &quot;svn update &amp;&amp; svn revert -R .&quot; to get a clean working dir
+state).
+
+Here are the changes included in the patch:
+ * &quot;View menu&quot;
+    -&gt; &quot;show toolbar&quot; (ctrl+t) and &quot;show descriptions&quot; (ctrl+d)
+ * Improved episode list columns (better space handling, etc..)
+ * Removed resizable columns in episode list and description column
+ * Add &quot;Ctrl+L&quot; as a shortcut for &quot;add channel&quot;
+ * Move widgets around, like you suggested
+ * Remove &quot;update feeds&quot; toolbar button and add new button in window
+
+You can now dynamically switch the toolbar and the descriptions on and
+off in the main window with &quot;Ctrl+T&quot; and &quot;Ctrl+D&quot;.
+
+&gt;<i> I think the little icons look good, they help the user distinguish between 
+</I>&gt;<i> between the various menus. Does the gnome HIG explicitly say not to include 
+</I>&gt;<i> little icons? (sorry, I'm not very familiar with the guidelines)
+</I>
+I think the HIG already mentioned it somewhere and I read some usability
+document about how the icons should only be placed on important menu
+items and not on all items - that reverts the effect of icons in menus
+being a visual hint or something like that.
+
+I left it the way it is, because I liked the look and I think the icons
+in the menubar (not in its submenu) are a good visual guide on where the
+single menu items start and end. It's very clear that there are
+(currently) four menus that can be popped up, it's not so clear with
+text-only menu bars. But that's my opinion ;)
+
+What do other people think about icons in the main menu? Should we think
+about removing the icons on some items?
+
+&gt;<i> From what I can see on [1] I don't think it would be much of an issue. In fact 
+</I>&gt;<i> if we really were to comply with the gnome HIG, the &quot;Podcasts&quot; menu would 
+</I>&gt;<i> have to be renamed to &quot;File&quot;, but once again I think &quot;Podcasts&quot; is a better 
+</I>&gt;<i> choice.
+</I>
+Yes, I agree here. But on the other hand, when talking about the menu,
+maybe we should rename &quot;Channel&quot; to &quot;Episodes&quot;, as the items in this
+menu are all related to doing something with the currently selected
+episodes.
+
+&gt;<i> [1] <A HREF="http://library.gnome.org/devel/hig-book/stable/menus-menubar.html.en">http://library.gnome.org/devel/hig-book/stable/menus-menubar.html.en</A>
+</I>
+
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r556_episode-list_toolbar_usability.patch
+Type: text/x-patch
+Size: 25426 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080202/100feca1/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080202/100feca1/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001159.html">[gpodder-devel] GUI Proposal
+</A></li>
+	<LI>Next message: <A HREF="001169.html">[gpodder-devel] Usability: Episode list and toolbar patch (was:	Re: GUI Proposal)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1161">[ date ]</a>
+              <a href="thread.html#1161">[ thread ]</a>
+              <a href="subject.html#1161">[ subject ]</a>
+              <a href="author.html#1161">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

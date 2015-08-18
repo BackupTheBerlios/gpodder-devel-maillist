@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder Trouble
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20Trouble&In-Reply-To=%3C200806042101.08180.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001503.html">
+   <LINK REL="Next"  HREF="001504.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder Trouble</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20Trouble&In-Reply-To=%3C200806042101.08180.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] gPodder Trouble">me at nikosapi.org
+       </A><BR>
+    <I>Thu Jun  5 03:01:08 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001503.html">[gpodder-devel] gPodder Trouble
+</A></li>
+        <LI>Next message: <A HREF="001504.html">[gpodder-devel] feedparser dependency
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1502">[ date ]</a>
+              <a href="thread.html#1502">[ thread ]</a>
+              <a href="subject.html#1502">[ subject ]</a>
+              <a href="author.html#1502">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On June 4, 2008 14:28:40 TEST wrote:
+&gt;<i> For about a day, whenever I try to open gPodder it either flashes open
+</I>&gt;<i> and then closes right away or it opens and when I try to click on
+</I>&gt;<i> something the window goes black. I have not done anything unusual when
+</I>&gt;<i> this happened. I am using Ubuntu 8.04 and have been for the last month.
+</I>&gt;<i> I have noticed other issues with the OS but this is new. Can anyone help
+</I>&gt;<i> me with this. gPodder is the only on podcast client that works with my
+</I>&gt;<i> Dell DJ Ditty. So Until I get my iRiver e100 I am stuck.
+</I>&gt;<i>
+</I>&gt;<i> Thanks ahead of time!
+</I>&gt;<i>
+</I>&gt;<i> Xpistos
+</I>
+
+Hello Xpistos!
+
+Could you start gPodder from the command line and copy/paste the output?
+Run it like so: gpodder --verbose
+
+Or since it sounds like a DB issue, you could try the following:
+
+cd ~/.config/gpodder
+mkdir db_backup
+mv *.db db_backup/
+
+This will force gPodder to rebuild it's feed info caches which should sort out 
+the problem. You can restore the old cache files if necessary with this:
+
+cd ~/.config/gpodder
+mv db_backup/* .
+rmdir db_backup
+
+Hope this helps,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001503.html">[gpodder-devel] gPodder Trouble
+</A></li>
+	<LI>Next message: <A HREF="001504.html">[gpodder-devel] feedparser dependency
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1502">[ date ]</a>
+              <a href="thread.html#1502">[ thread ]</a>
+              <a href="subject.html#1502">[ subject ]</a>
+              <a href="author.html#1502">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

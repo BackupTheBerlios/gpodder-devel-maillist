@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Managing Downloads with Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C87hb851u44.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002789.html">
+   <LINK REL="Next"  HREF="002791.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Managing Downloads with Woodchuck</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C87hb851u44.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Managing Downloads with Woodchuck">neal at walfield.org
+       </A><BR>
+    <I>Sat Jun  4 17:42:03 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002789.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002791.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2790">[ date ]</a>
+              <a href="thread.html#2790">[ thread ]</a>
+              <a href="subject.html#2790">[ subject ]</a>
+              <a href="author.html#2790">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Justin,
+
+At Sat, 4 Jun 2011 15:14:29 +0400,
+Justin Forest wrote:
+&gt;<i> I think it is a good idea to use an external download manager.  Not
+</I>&gt;<i> only for mobile devices, but in general.  So that gPodder would focus
+</I>&gt;<i> on podcasting and not deal with bandwidth throttling, etc.
+</I>
+Woodchuck isn't so much about performing downloads as it is about
+scheduling them.  That is, Woodchuck's primary goal is to determine
+when it is a good time to download data and which data to download.
+(That said, it does provide a simple downloader for objects accessible
+over http and https.)
+
+As gPodder should not depend on Woodchuck (at least not until
+Woodchuck becomes widely adopted) and as gPodder's download
+functionality already works, I intend to only hook gPodder up to
+Woodchuck's scheduling frame work when Woodchuck is available.
+
+&gt;<i> My understanding is that there would need to be an API to queue an URL
+</I>&gt;<i> for downloading,
+</I>
+Right.  The basic idea is that gPodder registers a stream for each
+podcast subscription (pywoodchuck.stream_register).  At some point,
+Woodchuck makes an upcall telling gPodder that it is a good time to
+update one or more streams (pywoodchuck.stream_update_cb).  (If
+gPodder is not running, Woodchuck first starts it using
+org.freedesktop.DBus.StartServiceByName.)  gPodder then updates the
+feeds and reports whether the update was successful
+(pywoodchuck.stream_updated).  For each new episode, gPodder registers
+a new object (pywoodchuck.object_register).
+
+At some point (perhaps immediately), Woodchuck tells gPodder to
+download some objects (pywoodchuck.object_download_cb).  gPodder then
+downloads the objects and reports success or the type of failure
+(pywoodchuck.object_downloaded).
+
+When the user listens to a podcast, gPodder reports this to Woodchuck
+(pywoodchuck.object_used).  That way, Woodchuck can learn the user's
+preferences.
+
+If the user wants to listen to a podcast episode and it is not
+downloaded, gPodder can still download it in the usual fashion.
+Nevertheless, gPodder should still report that it was downloaded
+(pywoodchuck.object_downloaded) so that Woodchuck can improve its
+model of the user's preferences.
+
+&gt;<i> get asynchronous updates and pause/cancel specific
+</I>&gt;<i> file, maybe pop up a settings dialog.
+</I>
+I'm not sure what you have in mind here.  Could you elaborate?
+
+&gt;<i>  The rest would be done by an
+</I>&gt;<i> external module which would use Woodchuck on Maemo,
+</I>
+Right.
+
+&gt;<i> something else on desktop,
+</I>
+There is no reason that Woodchuck cannot also be used on the Desktop.
+
+&gt;<i> gPodder would have a local implementation based on download.py, in
+</I>&gt;<i> case the external module does not exist.
+</I>
+Right.  I figure that that could be done in a similar way to how
+gPodder handles DBus when it is missing--an empty implementation.
+
+
+Neal
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002789.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002791.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2790">[ date ]</a>
+              <a href="thread.html#2790">[ thread ]</a>
+              <a href="subject.html#2790">[ subject ]</a>
+              <a href="author.html#2790">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

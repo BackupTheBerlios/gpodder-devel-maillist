@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Most revision buggy?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C3e8fd0440807151221x30182c85j9cb986b813bf3d0%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001633.html">
+   <LINK REL="Next"  HREF="001634.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Most revision buggy?</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C3e8fd0440807151221x30182c85j9cb986b813bf3d0%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Most revision buggy?">me at nikosapi.org
+       </A><BR>
+    <I>Tue Jul 15 21:21:28 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001633.html">[gpodder-devel]  Most revision buggy?
+</A></li>
+        <LI>Next message: <A HREF="001634.html">[gpodder-devel] Cannot submit a new bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1636">[ date ]</a>
+              <a href="thread.html#1636">[ thread ]</a>
+              <a href="subject.html#1636">[ subject ]</a>
+              <a href="author.html#1636">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Jul 15, 2008 at 2:07 PM, FriedBunny &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">friedbunny at kulturny.com</A>&gt; wrote:
+&gt;<i> I have an issue similar to Wilfred's first, my iPod fails to sync (or
+</I>&gt;<i> even manually copy) &gt;=r767.
+</I>&gt;<i>
+</I>&gt;<i> Exception in thread Thread-34:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>  File &quot;/usr/lib/python2.5/threading.py&quot;, line 486, in __bootstrap_inner
+</I>&gt;<i>    self.run()
+</I>&gt;<i>  File &quot;/usr/lib/python2.5/threading.py&quot;, line 446, in run
+</I>&gt;<i>    self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>  File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 1695, in
+</I>&gt;<i> sync_to_ipod_thread
+</I>&gt;<i>  File &quot;usr/lib/python2.5/site-packages/gpodder/sync.py&quot;, line 205, in
+</I>&gt;<i> episode_on_device
+</I>&gt;<i> AttributeError: 'iPodDevice' object has no attribute '_Device__track_on_device'
+</I>&gt;<i>
+</I>&gt;<i> ... I'd report this on bugzilla, but:
+</I>&gt;<i>
+</I>&gt;<i> DBD::mysql::db do failed: Duplicate entry 'IzVX9K6Ymr' for key 1 at
+</I>&gt;<i> Bugzilla/Token.pm line 372
+</I>&gt;<i>        Bugzilla::Token::_create_token(11, 'session', 'createbug:') called at
+</I>&gt;<i> Bugzilla/Token.pm line 171
+</I>&gt;<i>        Bugzilla::Token::issue_session_token('createbug:') called at
+</I>&gt;<i> /var/www/html/gpodder/bugzilla/enter_bug.cgi line 359
+</I>&gt;<i>
+</I>&gt;<i> As always, thanks to everyone for their diligence and passion for gPodder!
+</I>&gt;<i>
+</I>&gt;<i> -FB
+</I>
+Sorry, I forgot to rename _track_on_device in the Device class :(
+
+It's fixed in the current trunk,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001633.html">[gpodder-devel]  Most revision buggy?
+</A></li>
+	<LI>Next message: <A HREF="001634.html">[gpodder-devel] Cannot submit a new bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1636">[ date ]</a>
+              <a href="thread.html#1636">[ thread ]</a>
+              <a href="subject.html#1636">[ subject ]</a>
+              <a href="author.html#1636">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

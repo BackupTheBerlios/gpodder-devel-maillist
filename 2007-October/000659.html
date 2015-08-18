@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Problem with transferring to an iPod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problem%20with%20transferring%20to%20an%20iPod&In-Reply-To=%3C1191829303.5930.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000656.html">
+   <LINK REL="Next"  HREF="000660.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Problem with transferring to an iPod</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problem%20with%20transferring%20to%20an%20iPod&In-Reply-To=%3C1191829303.5930.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Problem with transferring to an iPod">thp at perli.net
+       </A><BR>
+    <I>Mon Oct  8 09:41:43 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000656.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+        <LI>Next message: <A HREF="000660.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#659">[ date ]</a>
+              <a href="thread.html#659">[ thread ]</a>
+              <a href="subject.html#659">[ subject ]</a>
+              <a href="author.html#659">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Artyom!
+
+On Mon, 2007-10-08 at 01:21 +0400, Artyom Sichkar wrote:
+&gt;<i> That would be great if you help me: I have a problem when I am trying
+</I>&gt;<i> to transfer downloaded podcast to my iPod. Error is about trouble
+</I>&gt;<i> connecting to the device, and it says that I have to check that in
+</I>&gt;<i> preferences (I can't give you the text of the error, because I have
+</I>&gt;<i> russian version, and it would probably be difficult for you to
+</I>&gt;<i> understand this). I've checked that several times, mounting point is
+</I>&gt;<i> set correctly. AmaroK connects the ipod successfully. What can be the
+</I>&gt;<i> problem? 
+</I>
+Open up a terminal, and temporarily set the language to English:
+
+export LC_ALL=C
+export LANG=C
+
+Then, start gPodder with the following command:
+
+  gpodder --verbose
+
+Try to reproduce the problem and copy the output from your terminal into
+this mail, maybe this gives some hints on why it doesn't work.
+
+Have you initialized your iPod with gtkpod? Does it work with gtkpod?
+What about write permissions? Maybe it's a HFS+ iPod that you can _read_
+from in AmaroK, but not write.
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000656.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+	<LI>Next message: <A HREF="000660.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#659">[ date ]</a>
+              <a href="thread.html#659">[ thread ]</a>
+              <a href="subject.html#659">[ subject ]</a>
+              <a href="author.html#659">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

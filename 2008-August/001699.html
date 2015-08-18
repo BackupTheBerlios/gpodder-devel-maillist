@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] How do you organize your podcasts on	your	player?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20How%20do%20you%20organize%20your%20podcasts%20on%0A%09your%09player%3F&In-Reply-To=%3C1217670976.13507.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001698.html">
+   <LINK REL="Next"  HREF="001714.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] How do you organize your podcasts on	your	player?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20How%20do%20you%20organize%20your%20podcasts%20on%0A%09your%09player%3F&In-Reply-To=%3C1217670976.13507.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] How do you organize your podcasts on	your	player?">thp at perli.net
+       </A><BR>
+    <I>Sat Aug  2 11:56:16 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001698.html">[gpodder-devel] How do you organize your podcasts on your player?
+</A></li>
+        <LI>Next message: <A HREF="001714.html">[gpodder-devel] How do you organize your podcasts on your	player?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1699">[ date ]</a>
+              <a href="thread.html#1699">[ thread ]</a>
+              <a href="subject.html#1699">[ subject ]</a>
+              <a href="author.html#1699">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Fri, 2008-08-01 at 09:31 +0200, Bernd wrote:
+&gt;<i> I am using a filebased player to listen to my podcasts. At the moment
+</I>&gt;<i> I use the Meizu M6 (<A HREF="http://en.meizu.com/product_m6.asp">http://en.meizu.com/product_m6.asp</A>). Before it I
+</I>&gt;<i> used the Cowon IAudio X5.
+</I>&gt;<i> It's no problem to synchronize my podcasts with gPodder to my devices.
+</I>&gt;<i> But it's very painfull to organize my playlists.
+</I>&gt;<i> 
+</I>&gt;<i> At the moment I use the following workflow:
+</I>&gt;<i> - plug in my device
+</I>&gt;<i> - synchronize the podcasts
+</I>&gt;<i> - open the playlist with a texteditor
+</I>&gt;<i> - open the podcast directory on my device to recognize the correct
+</I>&gt;<i> path and filename
+</I>&gt;<i> - manually write/modify the playlist to organize the episodes in the
+</I>&gt;<i> order I like to listen to it
+</I>&gt;<i> 
+</I>&gt;<i> What's your workflow for listening to podcasts? What do you think
+</I>&gt;<i> about a build in solution in gPodder to manage playlists for devices?
+</I>
+I'm currently using gPodder + Panucci[1] on my N800. This way, I can
+download podcasts wherever I am currently (only WiFi is needed), and I
+can also listen to my podcasts and playback automatically resumes where
+I last stopped it when I didn't finish one episode.
+
+[1] <A HREF="http://thpinfo.com/2008/panucci/">http://thpinfo.com/2008/panucci/</A>
+
+For using a filesystem-based MP3 player, the best way would probably to
+output and maintain a M3U file in the destination folder on the MP3
+player. For this, we need to know if the MP3 player supports things like
+relative paths and if it support both &quot;/&quot; and &quot;\&quot; or just one of them.
+
+&gt;<i> I think there could be a problem with different implementation for
+</I>&gt;<i> playlist support on different devices. The IAudio X5 could read
+</I>&gt;<i> playlists with full path (including my mountpoint) and &quot;/&quot;. But for
+</I>&gt;<i> the Meizu M6 you have to use &quot;\&quot; in your path information. And the
+</I>&gt;<i> Meizu M6 don't support full path information in the playlists. So I
+</I>&gt;<i> couldn't copy&amp;paste this information on linux because I have to modify
+</I>&gt;<i> all &quot;/&quot; to &quot;\&quot; with the texteditor.
+</I>&gt;<i> Could a playlist support in gPodder be usefull for other people too?
+</I>
+You could file a feature request on bugs.gpodder.org. If you tell me how
+M3Us should have their path set on the MP3 player (relative, absolute,
+with / or \), it should not be too difficult to implement something like
+that for Filesystem-based MP3 players.
+
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001698.html">[gpodder-devel] How do you organize your podcasts on your player?
+</A></li>
+	<LI>Next message: <A HREF="001714.html">[gpodder-devel] How do you organize your podcasts on your	player?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1699">[ date ]</a>
+              <a href="thread.html#1699">[ thread ]</a>
+              <a href="subject.html#1699">[ subject ]</a>
+              <a href="author.html#1699">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

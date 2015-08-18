@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Ipod Nano 4G
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Ipod%20Nano%204G&In-Reply-To=%3C78646.5634.qm%40web65510.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001913.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Ipod Nano 4G</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Ipod%20Nano%204G&In-Reply-To=%3C78646.5634.qm%40web65510.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Ipod Nano 4G">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Mon Dec  1 13:40:37 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001913.html">[gpodder-devel] Ipod Nano 4G
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1912">[ date ]</a>
+              <a href="thread.html#1912">[ thread ]</a>
+              <a href="subject.html#1912">[ subject ]</a>
+              <a href="author.html#1912">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> and restarted the application. I adjusted the setting to
+</I>&gt;<i> point to &quot;/media/IPOD&quot; where  the IPOD is mounted
+</I>&gt;<i> on. I can see it through nautilus and through command
+</I>&gt;<i> line(ls /media/IPOD). Further I have successfully uploaded
+</I>&gt;<i> music with SongBird and Rhythmbox so I guess the connection
+</I>&gt;<i> works. The only problem I have is with gpodder.
+</I>&gt;<i> 
+</I>&gt;<i> As you have suggested I run make test and clicked on
+</I>&gt;<i> Transfer button. Here is the output from the console.
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">asilak at casper</A>:~/Downloads/gpodder-0.13.1$ make test
+</I>&gt;<i> bin/gpodder --local --verbose
+</I>&gt;<i> [   0.091] Detected encoding: UTF-8
+</I>&gt;<i> [   0.138] (gPodderLib) Creating gPodderLib()
+</I>&gt;<i> [   0.148] (Storage) Setting up SQLite database
+</I>&gt;<i> [   0.149] (Storage) SQLite connected
+</I>&gt;<i> [   0.187] (ConverterCollection) Could not find
+</I>&gt;<i> &quot;oggdec&quot;, &quot;.ogg&quot; files cannot be
+</I>&gt;<i> converted.
+</I>&gt;<i> [   0.188] (tagupdate) eyed3 not found -- tag update
+</I>&gt;<i> disabled
+</I>&gt;<i> [   0.207] (gpodder.sync) Could not find pymtp.
+</I>&gt;<i> [   0.207] (gpodder.sync) Could not find pymad
+</I>&gt;<i> [   0.207] (gpodder.sync) Could not find eyeD3
+</I>&gt;<i> /home/cvasilak/Downloads/gpodder-0.13.1/src/gpodder/SimpleGladeApp.py:337:
+</I>&gt;<i> GtkWarning: GtkSpinButton: setting an adjustment with
+</I>&gt;<i> non-zero page size is deprecated
+</I>&gt;<i>   return gtk.glade.XML(self.glade_path, root, domain)
+</I>&gt;<i> [   0.347] (GPodderStatusIcon) Creating tray icon
+</I>&gt;<i> [   0.538] (Storage) Channel list read, 20 entries.
+</I>&gt;<i> [   0.539] Stale download directory found:
+</I>&gt;<i> 59c9459aedb2d4019b800ac94ac06305
+</I>&gt;<i> [   0.539] Successfully removed
+</I>&gt;<i> /home/cvasilak/Podcasts/59c9459aedb2d4019b800ac94ac06305.
+</I>&gt;<i> [   0.540] Stale download directory found:
+</I>&gt;<i> 38c01475e51e8a577c275928a386fc4e
+</I>&gt;<i> [   0.540] Successfully removed
+</I>&gt;<i> /home/cvasilak/Podcasts/38c01475e51e8a577c275928a386fc4e.
+</I>&gt;<i> [   0.540] Stale download directory found:
+</I>&gt;<i> a2bc7a9330dfd4142ad212853008a202
+</I>&gt;<i> [   0.540] Successfully removed
+</I>&gt;<i> /home/cvasilak/Podcasts/a2bc7a9330dfd4142ad212853008a202.
+</I>&gt;<i> [   0.541] Stale download directory found:
+</I>&gt;<i> 757757cf23f14141a6d1ff1e93bc4849
+</I>&gt;<i> [   0.541] Successfully removed
+</I>&gt;<i> /home/cvasilak/Podcasts/757757cf23f14141a6d1ff1e93bc4849.
+</I>&gt;<i> [   0.544] (Storage) Channel list read, 20 entries.
+</I>&gt;<i> [   0.658] (podcastChannel) Returning TreeModel for
+</I>&gt;<i> <A HREF="http://www.mevio.com/feeds/dailysourcecode.xml">http://www.mevio.com/feeds/dailysourcecode.xml</A>
+</I>&gt;<i> [   0.758] (gPodder) auto_update_procedure() got called
+</I>&gt;<i> [   3.534] start reader
+</I>&gt;<i> [   3.570] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/totem.desktop
+</I>&gt;<i> [   3.647] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/xine.desktop
+</I>&gt;<i> [   3.652] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/rhythmbox.desktop
+</I>&gt;<i> [   3.675] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/brasero-open-playlist.desktop
+</I>&gt;<i> [   3.695] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/audacious.desktop
+</I>&gt;<i> [   3.701] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/mplayer.desktop
+</I>&gt;<i> [   3.750] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/vlc.desktop
+</I>&gt;<i> [   3.770] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/ghb.desktop
+</I>&gt;<i> [   3.777] end reader (benchmark: 0.2428 seconds)
+</I>&gt;<i> [  24.902] (UserAppsReader) Using cached application list
+</I>&gt;<i> model for audio
+</I>&gt;<i> [  24.904] (UserAppsReader) Using cached application list
+</I>&gt;<i> model for video
+</I>&gt;<i> [  28.294] (podcastChannel) Returning TreeModel for
+</I>&gt;<i> <A HREF="http://www.mevio.com/feeds/dailysourcecode.xml">http://www.mevio.com/feeds/dailysourcecode.xml</A>
+</I>&gt;<i> [  28.500] (podcastChannel) Returning TreeModel for
+</I>&gt;<i> <A HREF="http://www.mevio.com/feeds/dailysourcecode.xml">http://www.mevio.com/feeds/dailysourcecode.xml</A>
+</I>&gt;<i> [  30.378] (podcastChannel) Returning TreeModel for
+</I>&gt;<i> <A HREF="http://leoville.tv/podcasts/floss.xml">http://leoville.tv/podcasts/floss.xml</A>
+</I>
+Weird, I don't see any obvious errors, but there is also no trace of any transfer occurring. I guess this is something for the wizards to take care of.
+
+Cheers,
+Wilfred
+
+
+&gt;<i> 
+</I>&gt;<i> Let me know if you need more information
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Christos
+</I>&gt;<i> 
+</I>&gt;<i> PS I am using Ubuntu Linux 8.10
+</I>
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001913.html">[gpodder-devel] Ipod Nano 4G
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1912">[ date ]</a>
+              <a href="thread.html#1912">[ thread ]</a>
+              <a href="subject.html#1912">[ subject ]</a>
+              <a href="author.html#1912">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

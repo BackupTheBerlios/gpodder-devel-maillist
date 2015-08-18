@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Woodchuck patches
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Woodchuck%20patches&In-Reply-To=%3C87r555w2o9.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002841.html">
+   <LINK REL="Next"  HREF="002843.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Woodchuck patches</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Woodchuck%20patches&In-Reply-To=%3C87r555w2o9.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Woodchuck patches">neal at walfield.org
+       </A><BR>
+    <I>Mon Aug  1 17:51:18 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002841.html">[gpodder-devel] Woodchuck patches: Interface to register...
+</A></li>
+        <LI>Next message: <A HREF="002843.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2842">[ date ]</a>
+              <a href="thread.html#2842">[ thread ]</a>
+              <a href="subject.html#2842">[ subject ]</a>
+              <a href="author.html#2842">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, Thomas,
+
+At Mon, 1 Aug 2011 11:39:24 +0200,
+Thomas Perl wrote:
+&gt;<i> * 9d8223f626b5f7f3e30151b05304da9badc099e8 (Record the attrs that change)
+</I>&gt;<i> 
+</I>&gt;<i>   I don't really like this one, as it involves quite some code each time
+</I>&gt;<i>   an attribute is set. It would be better if you implemented it so that
+</I>&gt;<i>   it only works on save() and there it loads the data from the database
+</I>&gt;<i>   and compares both dictionaries for changes.
+</I>
+Looking at the code: setting an attribute appears to be a heavy-weight
+operation anyways: when an attribute is changed, save is typically
+(always?) called immediately.  In this case, the overhead of the
+__setattr__ implementation (likely a few microseconds) is secondary
+relative to the database transaction (likely tens of milliseconds).
+Moreover, your suggestion adds an additional database interaction for
+most (all?) attribute changes.
+
+&gt;<i>   This way, there's only one
+</I>&gt;<i>   place (the save() method) where the changes are tracked, and it's easy
+</I>&gt;<i>   to maintain and overview this piece of code, while still having the
+</I>&gt;<i>   option to easily disable the change tracking
+</I>
+It's not clear to my why disabling the code in the __setattr__
+function is more difficult to disable than having the code in the save
+method: episode.__setattr__ = object.__setattr__.
+
+&gt;<i> (I don't want to have it
+</I>&gt;<i>   enabled by default, as it does not yet provide an advantage in the
+</I>&gt;<i>   generic case where woodchuck isn't used).
+</I>
+This is reasonable although I maintain that the cost is negligible
+relative to the database transaction that follows.
+
+
+I'm willing to implement what you suggest, but I'm not convinced that
+it is the better way.  I think the __setattr__ implementation is less
+complicated and less expensive than chnaging save, but, if you
+disagree, I won't argue further, but will implement what you suggest.
+
+Thoughts?
+
+Thanks,
+
+Neal
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002841.html">[gpodder-devel] Woodchuck patches: Interface to register...
+</A></li>
+	<LI>Next message: <A HREF="002843.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2842">[ date ]</a>
+              <a href="thread.html#2842">[ thread ]</a>
+              <a href="subject.html#2842">[ subject ]</a>
+              <a href="author.html#2842">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Proposed ipod syncing changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposed%20ipod%20syncing%20changes&In-Reply-To=%3C20090418065155.0193f3aab1db45621a7a7ee5866e9102.f2a0b67d9f.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002101.html">
+   <LINK REL="Next"  HREF="002103.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Proposed ipod syncing changes</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposed%20ipod%20syncing%20changes&In-Reply-To=%3C20090418065155.0193f3aab1db45621a7a7ee5866e9102.f2a0b67d9f.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] Proposed ipod syncing changes">thp at gpodder.org
+       </A><BR>
+    <I>Sat Apr 18 15:51:55 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002101.html">[gpodder-devel] Proposed ipod syncing changes
+</A></li>
+        <LI>Next message: <A HREF="002103.html">[gpodder-devel] Missing string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2102">[ date ]</a>
+              <a href="thread.html#2102">[ thread ]</a>
+              <a href="subject.html#2102">[ subject ]</a>
+              <a href="author.html#2102">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Shane wrote:
+&gt;<i> I am interested in doing some development work on gPodder.
+</I>
+Always good to see some people interested in helping out :)
+
+&gt;<i> I thought I would have a go at making a patch to mark episodes as
+</I>&gt;<i> played in gPodder when they are fully played on an iPod and as an
+</I>&gt;<i> option delete from the database as per bug #402.  From playing with
+</I>&gt;<i> libgpod it seems relatively straightforward, and from my usage I think
+</I>&gt;<i> it will allow more natural syncing of the gPodder and ipod episode
+</I>&gt;<i> lists.
+</I>&gt;<i> 
+</I>&gt;<i> Does this conflict with any other plans or does anyone have additional
+</I>&gt;<i> suggestions on how this should work?  I am hoping to post an initial
+</I>&gt;<i> patch in the next few days.
+</I>
+No, apart from the fact that maybe you should display a confirmation
+dialog to the user before really deleting files. Deleting user files is
+always a tricky thing, and in my opinion should never be fully automated
+(at least not with the default settings).
+
+Apart from that, It would be nice if you could make it to work. Ideally,
+this should also be made to work with iPods in Rockbox-mode (there is
+some code already in there that gets the playcount for files).
+
+Feel free to drop by at #gpodder on FreeNode if you need additional
+assistance or just use this mailing list for open questions. Please post
+discussions about your patch and the patch itself directly as attachment
+to the bug report, so we have an easier way of tracking the progress.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002101.html">[gpodder-devel] Proposed ipod syncing changes
+</A></li>
+	<LI>Next message: <A HREF="002103.html">[gpodder-devel] Missing string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2102">[ date ]</a>
+              <a href="thread.html#2102">[ thread ]</a>
+              <a href="subject.html#2102">[ subject ]</a>
+              <a href="author.html#2102">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

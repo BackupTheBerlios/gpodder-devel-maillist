@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gdfs and non-unicode FS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gdfs%20and%20non-unicode%20FS&In-Reply-To=%3Cop.t2wx2we1wdaj9t%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000859.html">
+   <LINK REL="Next"  HREF="000863.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gdfs and non-unicode FS</H1>
+    <B>PhoeniX</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gdfs%20and%20non-unicode%20FS&In-Reply-To=%3Cop.t2wx2we1wdaj9t%40localhost%3E"
+       TITLE="[gpodder-devel] gdfs and non-unicode FS">leonid.phoenix at gmail.com
+       </A><BR>
+    <I>Thu Dec  6 13:24:22 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000859.html">[gpodder-devel] CLI synchronization
+</A></li>
+        <LI>Next message: <A HREF="000863.html">[gpodder-devel] gdfs and non-unicode FS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#860">[ date ]</a>
+              <a href="thread.html#860">[ thread ]</a>
+              <a href="subject.html#860">[ subject ]</a>
+              <a href="author.html#860">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>When running on non-unicode locales there are possibility to see something
+like that:
+
+Traceback (most recent call last):
+    File &quot;/home/phoenix/temp/1/gpodder-0.10.2/doc/dev/gdfs/gdfs-init.py&quot;,
+line 57, in &lt;module&gt;
+      os.link( filename, episode_file)
+    File &quot;/usr/lib/python2.5/encodings/koi8_r.py&quot;, line 12, in encode
+      return codecs.charmap_encode(input,errors,encoding_table)
+UnicodeEncodeError: 'charmap' codec can't encode character u'\xab' in
+position 117: character maps to &lt;undefined&gt;
+
+That's because not all symbols (even common) mapped utf -&gt; 1 byte codepage
+properly. For example, I use koi8-r (russian locale) and I can't store
+files with umlauts in names. Is there any workaround? Iconv, for example,
+have a -c option to omit any illegal characters. But this script uses  
+python internal routines. Maybe piping through iconv will help...
+-- 
+Best regards
+Leonid &quot;PhoeniX&quot; Ponomarev
+Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">leonid.phoenix at gmail.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000859.html">[gpodder-devel] CLI synchronization
+</A></li>
+	<LI>Next message: <A HREF="000863.html">[gpodder-devel] gdfs and non-unicode FS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#860">[ date ]</a>
+              <a href="thread.html#860">[ thread ]</a>
+              <a href="subject.html#860">[ subject ]</a>
+              <a href="author.html#860">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

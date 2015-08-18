@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Gnome-Do plugin for gPodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gnome-Do%20plugin%20for%20gPodder&In-Reply-To=%3C4AF2D9D8.4020502%40gpodder.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002312.html">
+   <LINK REL="Next"  HREF="002314.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Gnome-Do plugin for gPodder</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gnome-Do%20plugin%20for%20gPodder&In-Reply-To=%3C4AF2D9D8.4020502%40gpodder.org%3E"
+       TITLE="[gpodder-devel] Gnome-Do plugin for gPodder">thp at gpodder.org
+       </A><BR>
+    <I>Thu Nov  5 14:57:44 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002312.html">[gpodder-devel] Gnome-Do plugin for gPodder
+</A></li>
+        <LI>Next message: <A HREF="002314.html">[gpodder-devel] Too many episodes!!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2313">[ date ]</a>
+              <a href="thread.html#2313">[ thread ]</a>
+              <a href="subject.html#2313">[ subject ]</a>
+              <a href="author.html#2313">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Iwan!
+
+Iwan van der Kleijn wrote:
+&gt;<i> I know Mono is probably evil. But if so, then Gnome-Do is definitely
+</I>&gt;<i> deliciously heinous. For that reason I'm interested in creating a
+</I>&gt;<i> Gnome-Do plugin for gPodder (to scratch the proverbial itch). Two
+</I>&gt;<i> questions before I take on that task; I haven't found a trace of it on
+</I>&gt;<i> Google but perhaps someone else has already created one?
+</I>
+As far as I know, nobody has created such as thing. I'd think it would
+be a cool feature to have, though :)   (using Gnome Do myself here..)
+
+&gt;<i> If not, then my question would be: what would be the recommended way
+</I>&gt;<i> to interface with gPodder? Would that be gpo or can I use d-Bus? I
+</I>&gt;<i> don't want to touch the db.
+</I>
+D-Bus would probably be the way to go (when gPodder is running). I
+suggest you simply add the D-Bus methods that you need to the gPodder
+source code (src/gpodder/gui.py) as you go and send patches that
+we can then integrate into the gPodder codebase.
+
+Tell me if you need anything, or if the codebase is unclear, and I'll
+try to help where I can :)
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002312.html">[gpodder-devel] Gnome-Do plugin for gPodder
+</A></li>
+	<LI>Next message: <A HREF="002314.html">[gpodder-devel] Too many episodes!!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2313">[ date ]</a>
+              <a href="thread.html#2313">[ thread ]</a>
+              <a href="subject.html#2313">[ subject ]</a>
+              <a href="author.html#2313">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

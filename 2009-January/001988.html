@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [patch] make test: build translations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20make%20test%3A%20build%20translations&In-Reply-To=%3C1231796618.6939.8.camel%40poytakone.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001985.html">
+   <LINK REL="Next"  HREF="001991.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [patch] make test: build translations</H1>
+    <B>Ville-Pekka Vainio</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20make%20test%3A%20build%20translations&In-Reply-To=%3C1231796618.6939.8.camel%40poytakone.lan%3E"
+       TITLE="[gpodder-devel] [patch] make test: build translations">vpivaini at cs.helsinki.fi
+       </A><BR>
+    <I>Mon Jan 12 22:43:38 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001985.html">[gpodder-devel] Portuguese translation updated
+</A></li>
+        <LI>Next message: <A HREF="001991.html">[gpodder-devel] [patch] make test: build translations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1988">[ date ]</a>
+              <a href="thread.html#1988">[ thread ]</a>
+              <a href="subject.html#1988">[ subject ]</a>
+              <a href="author.html#1988">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+The attached patch generates .mo files from .po files before starting
+gPodder with &quot;make test&quot;. I think it would make testing the translations
+a bit easier. Also note that this is not running msgmerge, so it's quick
+and it doesn't change the local git clone in any way.
+
+We could make a separate make target such as test-l10n or something if
+you think this would bother the English-only users too much.
+
+
+-- 
+Ville-Pekka Vainio
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_make_test_translations.patch
+Type: text/x-patch
+Size: 297 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090112/2d9597ef/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090112/2d9597ef/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001985.html">[gpodder-devel] Portuguese translation updated
+</A></li>
+	<LI>Next message: <A HREF="001991.html">[gpodder-devel] [patch] make test: build translations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1988">[ date ]</a>
+              <a href="thread.html#1988">[ thread ]</a>
+              <a href="subject.html#1988">[ subject ]</a>
+              <a href="author.html#1988">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

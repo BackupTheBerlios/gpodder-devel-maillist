@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] About the notification icon.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20About%20the%20notification%20icon.&In-Reply-To=%3C1201129949.9799.3.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001113.html">
+   <LINK REL="Next"  HREF="001112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] About the notification icon.</H1>
+    <B>Shane Donohoe</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20About%20the%20notification%20icon.&In-Reply-To=%3C1201129949.9799.3.camel%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] About the notification icon.">priestoftime at googlemail.com
+       </A><BR>
+    <I>Thu Jan 24 00:12:29 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001113.html">[gpodder-devel] Changes to the tray icon (was: Re:	gpodder-devel	Digest, Vol 19, Issue 29)
+</A></li>
+        <LI>Next message: <A HREF="001112.html">[gpodder-devel] About the notification icon.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1111">[ date ]</a>
+              <a href="thread.html#1111">[ thread ]</a>
+              <a href="subject.html#1111">[ subject ]</a>
+              <a href="author.html#1111">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>OK, firstly I apologise for not changing the topic from the default. I
+only noticed afterwards and maybe changing it now is actually a bad
+idea.
+
+Anyway, I agree with you about not having too many buttons on the
+notification bar, but I do think that the downloading should still be
+automatic when gpodder is minimized to the tray. It is nice to open it
+again later and have all your episodes there. Maybe adding a download
+automatically option is a good idea.
+
+On Thu, 2008-01-24 at 00:07 +0100, Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> On Wed, 2008-01-23 at 16:10 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jerome.chabod at ifrance.com</A> wrote:
+</I>&gt;<i> &gt; I agree completly with you. 
+</I>&gt;<i> &gt; I propose to modify the tray icon this way:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; When new episodes are found:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; * the option &quot;auto-dowload new episodes&quot; is ON: 
+</I>&gt;<i> &gt;     - notify &quot;x new episodes where found. Download will start
+</I>&gt;<i> &gt; immediatly...&quot;
+</I>&gt;<i> &gt;     - notification as 2 buttons &quot;cancel&quot; and &quot;show&quot;
+</I>&gt;<i> &gt;     - after 5 s, if cancel wasn't pressed, download starts
+</I>&gt;<i> &gt; automaticaly
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; * the option &quot;auto-dowload new episodes&quot; is OFF: 
+</I>&gt;<i> &gt;     - notify &quot;x new episodes where found&quot;
+</I>&gt;<i> &gt;     - notification as 3 buttons &quot;download all news&quot;, &quot;select episodes&quot;
+</I>&gt;<i> &gt; and &quot;show&quot; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; What do you and other people thing about that?
+</I>&gt;<i> 
+</I>&gt;<i> I think all these special cases make configuring and using gPodder
+</I>&gt;<i> harder than it should be. I agree with you on the problems with gPodder
+</I>&gt;<i> popping up randomly.
+</I>&gt;<i> 
+</I>&gt;<i> The purpose of &quot;auto-download new episodes&quot; is that a user that wants to
+</I>&gt;<i> download new episodes doesn't have to click on &quot;download new episodes&quot;
+</I>&gt;<i> after clicking &quot;refresh feeds&quot;, so the menu item would better be
+</I>&gt;<i> described as &quot;auto-download new episodes after a manual feed update&quot;,
+</I>&gt;<i> which would already tell us the way to go. In my opinion, when gPodder
+</I>&gt;<i> is minimized to the tray icon, it should only tell the user that new
+</I>&gt;<i> episodes are available or that downloads have been finished. Although
+</I>&gt;<i> the buttons in the notification bubble are nice, I think they are a bad
+</I>&gt;<i> idea for interacting the way we use it currently. The buttons in the
+</I>&gt;<i> notification area are more useful for things like &quot;don't show me this
+</I>&gt;<i> again&quot; or in case of an error &quot;show the logfile&quot; or such things.
+</I>&gt;<i> 
+</I>&gt;<i> Interaction with gPodder should only happen when it is not minimized. If
+</I>&gt;<i> you are letting yourself be distracted by the notification bubble (and
+</I>&gt;<i> try to read and click on it), you might as well only get a notification
+</I>&gt;<i> and if you want to act upon it, open gPodder and carry out the actions
+</I>&gt;<i> you want to do.
+</I>&gt;<i> 
+</I>&gt;<i> The timeout in the notification bubbles with action buttons also gives a
+</I>&gt;<i> &quot;hurry, hurry - you have to do something now!&quot; kind of feeling - same
+</I>&gt;<i> with instant messengers - that surely interrupt the normal workflow.
+</I>&gt;<i> 
+</I>&gt;<i> In my opinion, we should throw out the action buttons completely and
+</I>&gt;<i> make gPodder behave nice and non-intrusive when minimized. This means:
+</I>&gt;<i> only notification bubbles for the following scenarios:
+</I>&gt;<i> 
+</I>&gt;<i>  * New episodes are available
+</I>&gt;<i>  * Downloads have been finished
+</I>&gt;<i>  (did I forget something here?)
+</I>&gt;<i> 
+</I>&gt;<i> Also, the &quot;new episodes are available&quot; notification should only be shown
+</I>&gt;<i> once, not every time the feed cache gets updated.
+</I>&gt;<i> 
+</I>&gt;<i> When gPodder is minimized, updating the feed cache (automatically or
+</I>&gt;<i> manually) should never trigger an automatic download. The option
+</I>&gt;<i> mentioned above should only come into effect when the feed update was
+</I>&gt;<i> initiated manually and gPodder was not minimized.
+</I>&gt;<i> 
+</I>&gt;<i> What do you think? Anybody willing to implement it this way? I still
+</I>&gt;<i> want to do the new sync code, so any help with fixing the tray icon
+</I>&gt;<i> problems is really appreciated!
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001113.html">[gpodder-devel] Changes to the tray icon (was: Re:	gpodder-devel	Digest, Vol 19, Issue 29)
+</A></li>
+	<LI>Next message: <A HREF="001112.html">[gpodder-devel] About the notification icon.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1111">[ date ]</a>
+              <a href="thread.html#1111">[ thread ]</a>
+              <a href="subject.html#1111">[ subject ]</a>
+              <a href="author.html#1111">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

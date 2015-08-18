@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] python core when display not correctly set
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20python%20core%20when%20display%20not%20correctly%20set&In-Reply-To=%3C20070325210634.0f1e709c.contrib%40maisondubonheur.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000139.html">
+   <LINK REL="Next"  HREF="000141.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] python core when display not correctly set</H1>
+    <B>Alain TAUCH</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20python%20core%20when%20display%20not%20correctly%20set&In-Reply-To=%3C20070325210634.0f1e709c.contrib%40maisondubonheur.com%3E"
+       TITLE="[gpodder-devel] python core when display not correctly set">contrib at maisondubonheur.com
+       </A><BR>
+    <I>Sun Mar 25 21:06:34 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000139.html">[gpodder-devel] filename encoding breaks sync
+</A></li>
+        <LI>Next message: <A HREF="000141.html">[gpodder-devel] python core when display not correctly set
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#140">[ date ]</a>
+              <a href="thread.html#140">[ thread ]</a>
+              <a href="subject.html#140">[ subject ]</a>
+              <a href="author.html#140">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi (again),
+
+I thought a 2nd message for a 2nd problem would be better ...
+
+I'm not sure this should be handled by gpodder, but I'd prefer if it was
+graciously catched by gpodder.
+
+The trace talks for itself:
+
+%make test
+bin/gpodder --local --verbose
+Xlib: connection to &quot;:0.0&quot; refused by server
+Xlib: No protocol specified
+
+/usr/local/lib/python2.4/site-packages/gtk-2.0/gtk/__init__.py:69: GtkWarning: could not open display
+  warnings.warn(str(e), _gtk.Warning)
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) gpod and/or (mad|eyeD3) not found
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover art
+(ipodsync) Found mplayer, using it to find track length of video files
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: Warning: invalid (NULL) pointer instance
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: Warning: g_signal_connect_data: assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: GtkWarning: gtk_settings_get_for_screen: assertion `GDK_IS_SCREEN (screen)' failed
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: Warning: g_object_get: assertion `G_IS_OBJECT (object)' failed
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: Warning: value &quot;TRUE&quot; of type `gboolean' is invalid or out of range for property `visible' of type `gboolean'
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: GtkWarning: Screen for GtkWindow not set; you must always set
+a screen for a GtkWindow before using the window
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: GtkWarning: gtk_icon_theme_get_for_screen: assertion `GDK_IS_SCREEN (screen)' failed
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: GtkWarning: gtk_icon_size_lookup_for_settings: assertion `GTK_IS_SETTINGS (settings)' failed
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: GtkWarning: Invalid icon size 1
+
+  return gtk.glade.XML(self.glade_path, root, domain)
+/usr/home/test/gpodder/src/gpodder/SimpleGladeApp.py:335: GtkWarning: gtk_icon_theme_load_icon: assertion `GTK_IS_ICON_THEME (icon_theme)' failed
+  return gtk.glade.XML(self.glade_path, root, domain)
+*** Signal 11
+
+Stop in /usr/home/test/gpodder.
+%
+
+-- 
+Alain
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000139.html">[gpodder-devel] filename encoding breaks sync
+</A></li>
+	<LI>Next message: <A HREF="000141.html">[gpodder-devel] python core when display not correctly set
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#140">[ date ]</a>
+              <a href="thread.html#140">[ thread ]</a>
+              <a href="subject.html#140">[ subject ]</a>
+              <a href="author.html#140">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.10.0 released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.10.0%20released&In-Reply-To=%3C1190335115.6978.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000610.html">
+   <LINK REL="Next"  HREF="000616.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.10.0 released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.10.0%20released&In-Reply-To=%3C1190335115.6978.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.10.0 released">thp at perli.net
+       </A><BR>
+    <I>Fri Sep 21 02:38:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000610.html">[gpodder-devel] fixed it myself
+</A></li>
+        <LI>Next message: <A HREF="000616.html">[gpodder-devel] gPodder 0.10.0 released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#611">[ date ]</a>
+              <a href="thread.html#611">[ thread ]</a>
+              <a href="subject.html#611">[ subject ]</a>
+              <a href="author.html#611">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2007-09-21: gPodder 0.10.0 &quot;Hier spricht Frank Drebin&quot; released
+
+Web Announcement: <A HREF="http://gpodder.berlios.de/news.html">http://gpodder.berlios.de/news.html</A>
+Downloads: <A HREF="http://gpodder.berlios.de/downloads.html">http://gpodder.berlios.de/downloads.html</A>
+Screenshots: <A HREF="http://gpodder.berlios.de/screenshots.html">http://gpodder.berlios.de/screenshots.html</A> 
+
+After one month of hard work, I'm very proud to announce the greatest
+release of gPodder so far: gPodder 0.10.0 is here :) We have been busy
+preparing the new release, which is a huge step forward compared to the 
+previous releases. Highlights of this release include the support for
+all RSS dialects and Atom feeds by utilizing the Universal Feedparser.
+The download system was also updated to use urllib, so we don't depend
+on wget anymore and downloads should appear smoother in the GUI now.
+
+If you are tracking our codebase, you will notice that there has been a
+big wave of re-structuring and re-organization in the last few weeks.
+This makes the gPodder codebase more maintainable and also makes adding
+features easier. For example, we now have a live download status in
+episode info dialogs. Context (&quot;right-click&quot;) menus were also added to
+the available episodes view and the channel navigator. The GUI has once
+more been slipstreamed - have a look at the new screenshots!
+
+Well, really - there has been a lot going on in the last few weeks, so I
+am very happy to present you this new version now. Grab it, install it
+and tell us how you like it, the gpodder-devel mailing list is always
+waiting to hear about your experience with gPodder. If you like gPodder
+and want to show your appreciation, please have a look at my wishlist.
+As with every release, donations are always welcome. You are still
+reading the release notes? Download gPodder 0.10.0 now!
+
+
+Dependencies
+      * Added: python-feedparser (adds support for Atom and all RSS
+        &quot;dialects&quot;)
+      * Removed: wget (we're using our own download library based on
+        urllib now)
+      * Removed: python-xml (we're now using xml.dom.minidom from the
+        Python standard library)
+      * Removed: tepache (not needed, I've even improved SimpleGladeApp
+        to be easier to use)
+
+Features
+      * New feed caching code, based on Doug Hellmann's feedcache
+      * Channel settings are now saved in a shelve-based database
+        (faster, more reliable)
+      * Using DOM for processing XML where SAX has been used previously
+      * Default format for gPodder's channel list is now OPML :)
+      * TreeModel caching for the available episodes list makes the GUI
+        more responsive
+      * Re-structured internal module names in the gpodder package
+      * Reworked DownloadStatusManager to be more reliable (in
+        gpodder.service module)
+      * Merge status/played column into one &quot;status&quot; column in available
+        episodes view
+      * Support for videos with .divx extension (thanks to Alistair
+        Sutton)
+      * Episode dialog now shows live download progress (very helpful
+        for tracking download status)
+      * Removed obsolete documentation from source distribution
+      * Context menu for available episodes list and channel list
+        (possible actions)
+      * Make it possible to cancel downloads directly in the available
+        episodes view
+      * Warn user when she hasn't got python-feedparser installed (hard
+        dependency now)
+      * Use Python's webbrowser module to open URLs (works even without
+        gnome-open installed)
+      * Intelligent enclosure chooser algorithm when there are multiple
+        enclosures
+      * Support for customized file names in MP3 player sync code
+      * Mark episodes as downloaded/deleted when deleting episodes (as
+        suggested by Holger Leskien)
+      * New DOM-based LocalDB writer/reader (more reliable, faster and
+        even cooler!)
+      * Offline support for feedcache, faster startup (threaded .desktop
+        file loading)
+      * gPodder now sends a correct User-Agent when downloading feeds,
+        OPML files and episodes
+      * Replaced libwget with new, urllib-based download module (faster
+        GUI updates, more reliable transfers)
+      * Center feed update dialog on main window
+      * Reset scroll position to previous position when refreshing the
+        channel list (thanks to Alistair Sutton for reporting)
+      * New channel cover editor: Supports dragging images into the
+        cover window to set custom cover, etc..
+      * Usability: Center the episode info dialog on the available
+        episodes list (less mouse movements)
+      * Improved drag'n'drop support for dragging feed URLs to the
+        channel navigator
+      * Removed channel combobox and made the channel navigator
+        unhideable, removed channel button
+
+Bugfixes
+      * Fix episode metadata for really buggy feeds (thanks to )
+      * Utilize feedparser's date parsing to fix some bugs with strange
+        pubDate formats
+      * Fix a bug when traversing directories with loop symlinks
+        (reported by Bj&#248;rn Rasmussen)
+      * Lots of old bugs fixed by replacing SAX with DOM, by adding
+        feedparser and new downloader
+
+Thanks
+      * Andy Busch for the PayPal donation
+      * Alistair Sutton (divx, bug reports, mailing list conversations)
+      * Nick (nikosapi) for feedback and help on the mailing list
+      * Holger Leskien for suggestions and bug reports on the Debian BTS
+      * Bj&#248;rn Rasmussen for a bug report + related testing
+      * Vladimir Zemlyakov (Russian translation)
+      * FFranci72 (Italian translation)
+      * Roel Groeneveld (Dutch translation)
+      * Julio Acu&#241;a (Spanish translation)
+      * Joel Calado (Portuguese translation)
+
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000610.html">[gpodder-devel] fixed it myself
+</A></li>
+	<LI>Next message: <A HREF="000616.html">[gpodder-devel] gPodder 0.10.0 released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#611">[ date ]</a>
+              <a href="thread.html#611">[ thread ]</a>
+              <a href="subject.html#611">[ subject ]</a>
+              <a href="author.html#611">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

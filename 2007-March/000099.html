@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] treeAvailable reordering
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20treeAvailable%20reordering&In-Reply-To=%3C20070312122438.6e6e94d4%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000098.html">
+   <LINK REL="Next"  HREF="000100.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] treeAvailable reordering</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20treeAvailable%20reordering&In-Reply-To=%3C20070312122438.6e6e94d4%40macbook%3E"
+       TITLE="[gpodder-devel] treeAvailable reordering">thp at perli.net
+       </A><BR>
+    <I>Mon Mar 12 12:24:38 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000098.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+        <LI>Next message: <A HREF="000100.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Michel,
+
+On Sun, 11 Mar 2007 17:56:39 -0400 Michel Salim wrote:
+&gt;<i> I just started using gPodder, and I'm noticing that the treeAvailable
+</I>&gt;<i> TreeView cannot be reordered.
+</I>&gt;<i> 
+</I>&gt;<i> This is no problem for most of my podcasts, which are ordered
+</I>&gt;<i> newest-to-oldest, apart from this one:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://www.clfuu.net/podcasts/CLF_Quest.xml">http://www.clfuu.net/podcasts/CLF_Quest.xml</A>
+</I>
+I've had a look at this podcast feed and it indeed has a &quot;wrong&quot;
+ordering of the episodes (oldest-to-newest). I've modified the code in
+the current svn trunk, which now checks if the channel can be sorted
+and sorts if from newest-to-oldest when parsing the RSS file. This
+should stop your bug from appearing. Please check if it does, and if
+there is any problem, just mail again :)
+
+&gt;<i> Another change I'd like to propose is to make the dialog box for
+</I>&gt;<i> downloading all new episodes for a given podcast use a scrolled
+</I>&gt;<i> window, to avoid the height going over the screen height. I could
+</I>&gt;<i> provide a patch for gpodder.glade if people are interested.
+</I>
+I've added code to omit the output of some episodes (with info on how
+moch episodes have been omitted) to gPodder's svn trunk.
+
+If you're currently not using the svn version, have a look at the
+download/development pages on the gPodder website to get information on
+how to obtain the latest svn source.
+
+
+Enjoy.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000098.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+	<LI>Next message: <A HREF="000100.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

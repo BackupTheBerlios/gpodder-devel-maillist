@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] model.py and Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20model.py%20and%20Woodchuck&In-Reply-To=%3C87zklezuh8.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002817.html">
+   <LINK REL="Next"  HREF="002819.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] model.py and Woodchuck</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20model.py%20and%20Woodchuck&In-Reply-To=%3C87zklezuh8.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] model.py and Woodchuck">neal at walfield.org
+       </A><BR>
+    <I>Sat Jun 18 23:43:15 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002817.html">[gpodder-devel] gpodder hook script repository
+</A></li>
+        <LI>Next message: <A HREF="002819.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2818">[ date ]</a>
+              <a href="thread.html#2818">[ thread ]</a>
+              <a href="subject.html#2818">[ subject ]</a>
+              <a href="author.html#2818">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>model.py appears to be the model part of the model-view-controller
+pattern.  I say appears as it does not quite fulfill the role of the
+model.  If model.py were a proper model, I think adding support for
+Woodchuck would be much easier.  Currently, I'm having to add code
+directly to the frontend, which seems inelegant.
+
+The first limitation is that when the database is updated, it is the
+responsibility of the controller to update any views: model.py does
+not signal changes.  Currently, the controller and the frontend are
+the same entity, so has not yet been a significant problem.
+
+Second, model.py assumes that there is only a single user.  This
+manifests itself in how object lifetimes are managed: the frontend is
+required to manage cache coherency (e.g., model.py does not prevent
+the same object from being instantiated multiple times).  Also, the DB
+model only exists implicitly: instead of instantiating a model with a
+DB, the DB need to be passed explicitly to routines, e.g.,
+load_postcast.
+
+These problems make integrating Woodchuck unnecessarily invasive.
+Woodchuck needs to be able to snoop changes to the underlying data to
+be able to update the state on the Woodchuck server.  Second,
+Woodchuck needs to be able to update streams and download objects.
+Currently, it can do so, but there is no way to signal the frontend
+that data has changed.  If model.py were a proper model and Woodchuck
+a view, support for Woodchuck could largely be relegated to a single
+file.
+
+To this end, I'd like to propose that the Model class be made a proper
+class.  The init function would then take a database as a parameter.
+get_podcasts (among others) would then be invoked against the instance
+and not the class and its DB parameter disappears.
+
+Likewise, PodcastChannels.load would not take a db.  Instead, one
+would invoke Model.podcast_channels_load () (the same signature as
+PodcastChannels.load but without the db) to get a populated
+PodcastChannel instance.
+
+model.py would become responsible for managing object lifetimes.  I
+propose that channels and episodes become singletons and that weak
+references be used to avoid having the whole DB in memory.
+Alternative, a shell class that contains just an object's key and a
+pointer to the real data could be used.  model.py could forcefully
+destroy the real data and reduce memory use.  This would reduce the
+impact of any reference leaks, a concern that Thomas raised on IRC.
+
+Finally, I propose that a new hook be added when a new model is
+instantiated.  Woodchuck would use this to attach to the real
+database.
+
+
+I'm prepared to make these changes, however, before I do so, I'd like
+confirmation that this is the right approach.
+
+Thanks,
+
+Neal
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002817.html">[gpodder-devel] gpodder hook script repository
+</A></li>
+	<LI>Next message: <A HREF="002819.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2818">[ date ]</a>
+              <a href="thread.html#2818">[ thread ]</a>
+              <a href="subject.html#2818">[ subject ]</a>
+              <a href="author.html#2818">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

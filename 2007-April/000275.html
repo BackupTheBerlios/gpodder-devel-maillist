@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Installing on Fiesty Fawn
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Installing%20on%20Fiesty%20Fawn&In-Reply-To=%3C1177253929.12991.9.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000274.html">
+   <LINK REL="Next"  HREF="000277.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Installing on Fiesty Fawn</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Installing%20on%20Fiesty%20Fawn&In-Reply-To=%3C1177253929.12991.9.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Installing on Fiesty Fawn">thp at perli.net
+       </A><BR>
+    <I>Sun Apr 22 16:58:49 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000274.html">[gpodder-devel] Installing on Fiesty Fawn
+</A></li>
+        <LI>Next message: <A HREF="000277.html">[gpodder-devel] Installing on Fiesty Fawn
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#275">[ date ]</a>
+              <a href="thread.html#275">[ thread ]</a>
+              <a href="subject.html#275">[ subject ]</a>
+              <a href="author.html#275">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Darren!
+
+On Sun, 2007-04-22 at 10:26 -0400, Darren O'Neil wrote:
+&gt;<i> The main web site for gpodder seems to be down. Perhaps this will
+</I>&gt;<i> work...
+</I>
+Yes, I can't access the svn repository over ssh, seems like there are
+some problems over at berlios.. hopefully these will be fixed soon :/
+
+&gt;<i> Upgraded to Fiesty Fawn in Ubuntu. How in the world do I get Gpodder
+</I>&gt;<i> to install now. During the upgrade process, the install program
+</I>&gt;<i> removed Gpodder and I have no idea why.
+</I>&gt;<i> 
+</I>&gt;<i> Do I need to add a particular source link? 
+</I>
+I have not yet tried Feisty Fawn, as I'm happily using Debian
+testing/unstable here. You should be able to build a gPodder package for
+Ubuntu by using the Debian sources:
+
+mkdir ~/tmp-build &amp;&amp; cd ~/tmp-build
+dget
+<A HREF="http://mentors.debian.net/debian/pool/main/g/gpodder/gpodder_0.9.1-1.dsc">http://mentors.debian.net/debian/pool/main/g/gpodder/gpodder_0.9.1-1.dsc</A>
+dpkg-source -x gpodder_0.9.1-1.dsc
+cd gpodder-0.9.1
+debuild
+cd ..
+dpkg -i gpodder_*.deb
+
+You will have to install some build dependencies if it tells you to.
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000274.html">[gpodder-devel] Installing on Fiesty Fawn
+</A></li>
+	<LI>Next message: <A HREF="000277.html">[gpodder-devel] Installing on Fiesty Fawn
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#275">[ date ]</a>
+              <a href="thread.html#275">[ thread ]</a>
+              <a href="subject.html#275">[ subject ]</a>
+              <a href="author.html#275">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

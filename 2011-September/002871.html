@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20Gpodder%20on%20both%20Windows%20and%20Linux%20on%20same%0A%09laptop&In-Reply-To=%3CCAO_2OxXsihYiTtneJfkzX6vd2SnAhZLe4suq2-s5v-woROjVqQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002868.html">
+   <LINK REL="Next"  HREF="002869.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop</H1>
+    <B>richardvoigt at gmail.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20Gpodder%20on%20both%20Windows%20and%20Linux%20on%20same%0A%09laptop&In-Reply-To=%3CCAO_2OxXsihYiTtneJfkzX6vd2SnAhZLe4suq2-s5v-woROjVqQ%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop">richardvoigt at gmail.com
+       </A><BR>
+    <I>Sun Sep 11 07:31:35 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002868.html">[gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop
+</A></li>
+        <LI>Next message: <A HREF="002869.html">[gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2871">[ date ]</a>
+              <a href="thread.html#2871">[ thread ]</a>
+              <a href="subject.html#2871">[ subject ]</a>
+              <a href="author.html#2871">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On the first line (that's why I put it in my reply above the export
+commands).  That makes sure that linux will use the sh (or bash)
+shell, which understands export, and not some other shell like tcsh.
+
+On Sat, Sep 10, 2011 at 8:05 PM,
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">simplicitasetmusica39.amabel at recursor.net</A>&gt; wrote:
+&gt;<i> Richard:
+</I>&gt;<i> Where do you recommend I put the hasg-bang line
+</I>&gt;<i> (#!/bin/sh)
+</I>&gt;<i> In line 1 or the last line?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Tue, Sep 6, 2011 at 7:21 AM, Richard Voigt&#160;wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Tue, Sep 6, 2011 at 3:59 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+</I>&gt;&gt;<i> &gt; Hi,
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; On Mon, Sep 05, 2011 at 11:27:34AM -0700,
+</I>&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">simplicitasetmusica39.amabel at recursor.net</A> wrote:
+</I>&gt;&gt;<i> &gt;&gt; It was hard for me to find the gpodder Win7 folders while logged into
+</I>&gt;&gt;<i> &gt;&gt; Linux,
+</I>&gt;&gt;<i> &gt;&gt; but I found them. For some reason they're in
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; /media/TI106049W0B/Users/simplicitasetmusica/Downloads/gpodder-2.16-win32
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; the downloads folder is in
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; media/TI106049W0B/Users/simplicitasetmusica/Downloads/gpodder-2.16-win32/gpodder-2.16-win32
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; Not sure what to do now...
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; This should work (you can put these three lines into a text file named
+</I>&gt;&gt;<i> &gt; &quot;gpodder-windows.sh&quot;, then make it executable with &quot;chmod +x&quot; and then
+</I>&gt;&gt;<i> &gt; just run it or even double-click it to start gPodder with these
+</I>&gt;&gt;<i> &gt; settings):
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (maybe a hash-bang line would be good, i.e.)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> #!/bin/sh
+</I>&gt;&gt;<i> &gt; export
+</I>&gt;&gt;<i> &gt; GPODDER_HOME=/media/TI106049W0B/Users/simplicitasetmusica/Downloads/gpodder-2.16-win32/gpodder-2.16-win32/config/
+</I>&gt;&gt;<i> &gt; export
+</I>&gt;&gt;<i> &gt; GPODDER_DOWNLOAD_DIR=/media/TI106049W0B/Users/simplicitasetmusica/Downloads/gpodder-2.16-win32/gpodder-2.16-win32/downloads/
+</I>&gt;&gt;<i> &gt; gpodder -v
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; HTH :)
+</I>&gt;&gt;<i> &gt; Thomas
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; _______________________________________________
+</I>&gt;&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002868.html">[gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop
+</A></li>
+	<LI>Next message: <A HREF="002869.html">[gpodder-devel] Using Gpodder on both Windows and Linux on same	laptop
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2871">[ date ]</a>
+              <a href="thread.html#2871">[ thread ]</a>
+              <a href="subject.html#2871">[ subject ]</a>
+              <a href="author.html#2871">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

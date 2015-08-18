@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.10.3 &quot;A Stop at Willoughby&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.10.3%20%22A%20Stop%20at%20Willoughby%22%20released&In-Reply-To=%3C4760EDFF.3040908%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000900.html">
+   <LINK REL="Next"  HREF="000902.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.10.3 &quot;A Stop at Willoughby&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.10.3%20%22A%20Stop%20at%20Willoughby%22%20released&In-Reply-To=%3C4760EDFF.3040908%40perli.net%3E"
+       TITLE="[gpodder-devel] gPodder 0.10.3 &quot;A Stop at Willoughby&quot; released">thp at perli.net
+       </A><BR>
+    <I>Thu Dec 13 09:31:59 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000900.html">[gpodder-devel] Feature Requests, new TODO list
+</A></li>
+        <LI>Next message: <A HREF="000902.html">[gpodder-devel] gPodder 0.10.3 &quot;A Stop at Willoughby&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#901">[ date ]</a>
+              <a href="thread.html#901">[ thread ]</a>
+              <a href="subject.html#901">[ subject ]</a>
+              <a href="author.html#901">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I've just released a new version of gPodder. This release adds a bunch
+of features that have appeared in our SVN repository after the last
+release and also adds an important bugfix.
+
+Compared to the previous releases, this release has happened a bit early
+into the month, which should give us some more time to prepare the new
+sync code (which will allow more features and CLI sync) until late
+January (at least that's what I hope :).
+
+Below are the release notes from the gPodder website. You can find
+download links on <A HREF="http://gpodder.berlios.de/downloads.html">http://gpodder.berlios.de/downloads.html</A>
+
+Enjoy!
+Thomas
+
+==================
+gPodder 0.10.3 &quot;A Stop at Willoughby&quot; released
+
+It's not yet the end of December, but as the week between christmas and
+my birthday tends to be busy, I decided to push out this release earlier
+in the month. After all, this release contains an important bug fix for
+a bug that appeared in 0.10.2 and prevented first-time users from adding
+a new channel. Still, in these few weeks, we've added a bunch of good
+features that will make your gPodder experience even better (or at least
+that's what we hope..).
+
+Highlights of this release include the new pill in the channel
+navigator: A graphical representation of the numer of unplayed vs.
+downloaded episodes. This feature is based on an idea by Paul Rudkin
+from November. Another change to make life with strange podcast authors
+easier is the ability to directly add iTunes Podcast links (the ones
+starting with <A HREF="http://phobos.apple.com/...">http://phobos.apple.com/...</A>) to the channel list - gPodder
+will take care of &quot;resolving&quot; the correct podcast RSS URL. You can now
+delete single episodes from your iPod from within gPodder (not yet
+available for MP3 players, though). A very cool feature has been
+suggested by Paul Rudkin, who also did the initial patch: Episodes can
+now be locked, so they can not be removed from the gPodder GUI. These
+&quot;locked&quot; episode will also be hidden from the Delete old episodes
+dialog. See below for the complete list of new features and changes.
+
+Teo Ramirez was kind enough to take the time to translate gPodder to
+Galician, so we now have gPodder translatins for English and 10 other
+languages. PayPal donations are always very nice. This month, John
+Charrette sent a donation - Thanks! And don't forget to visit the new
+gPodder Wiki that is updated more often and now also hosts our Feature
+Requests list.
+
+As always, you can grab your tarball from the downloads page, view new
+screenshots on the screenshots page or wait for your distribution vendor
+to update the gPodder package. Enjoy!
+Features
+
+    * Statistics (&quot;the pill&quot;) in channel navigator: Unplayed/downloaded
+episodes (idea and initial patch by Paul Rudkin)
+    * iTunes support: <A HREF="itpc://">itpc://</A> and <A HREF="itms://">itms://</A> URLs, support for adding
+iTunes Podcast links (<A HREF="http://phobos.apple.com/...">http://phobos.apple.com/...</A>)
+    * The channel list is now sorted alphabetically (requested by
+FriedBunny)
+    * Selectively clean up episodes on iPod with the episode selector
+    * Episode locking: Protect your favourite episodes from being
+deleted (initial patch by Paul Rudkin)
+    * New option: Mark episodes as played after transfer to iPod/MP3 player
+    * New option: Automatically remove played old episodes on gPodder
+startup (suggested by Pieter de Decker)
+    * Delete old episodes dialog (Ctrl+K): Select all episodes older
+before X days (configurable, defaults to 7)
+    * Link the gPodder Documentation Wiki from the help pages
+    * Galician translation (thanks to Teo Ramirez)
+
+Code changes
+
+    * Update channel navigator when iPod/MP3 player sync has finished
+    * Make has_converter() a bit more intelligent in detecting extensions
+    * Move observer code out of DownloadStatusManager into ObservableService
+    * TODO list moved from our source repository into the gPodder Wiki
+
+Bugfixes
+
+    * Fix a fatal bug with first-run that prevents channel list saving
+    * Fix pre-setting code for filechooser buttons in preferences dialog
+(patch by Paul Rudkin)
+
+Thanks
+
+    * Paul Rudkin sent in many patches and good ideas (Channel navigator
+statistics, bugfix, episode locking)
+    * FriedBunny requested the alphabetic sorting of the channel list
+    * Teo Ramirez translated gPodder into Galician and updated the
+Spanish translation
+    * Pieter de Decker suggested the automatic removal of old episodes
+feature
+    * John Charrette: PayPal donation - thanks!
+
+==================
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000900.html">[gpodder-devel] Feature Requests, new TODO list
+</A></li>
+	<LI>Next message: <A HREF="000902.html">[gpodder-devel] gPodder 0.10.3 &quot;A Stop at Willoughby&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#901">[ date ]</a>
+              <a href="thread.html#901">[ thread ]</a>
+              <a href="subject.html#901">[ subject ]</a>
+              <a href="author.html#901">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

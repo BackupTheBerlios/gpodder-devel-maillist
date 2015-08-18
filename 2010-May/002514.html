@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod touch support (was: Re: Podcast played status	get reset when	syncing)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20support%20%28was%3A%20Re%3A%20Podcast%20played%20status%0A%09get%20reset%20when%09syncing%29&In-Reply-To=%3C20100503134544.GA10830%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002513.html">
+   <LINK REL="Next"  HREF="002516.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod touch support (was: Re: Podcast played status	get reset when	syncing)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20support%20%28was%3A%20Re%3A%20Podcast%20played%20status%0A%09get%20reset%20when%09syncing%29&In-Reply-To=%3C20100503134544.GA10830%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] iPod touch support (was: Re: Podcast played status	get reset when	syncing)">thp at gpodder.org
+       </A><BR>
+    <I>Mon May  3 15:45:44 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002513.html">[gpodder-devel] Podcast played status get reset when syncing
+</A></li>
+        <LI>Next message: <A HREF="002516.html">[gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2514">[ date ]</a>
+              <a href="thread.html#2514">[ thread ]</a>
+              <a href="subject.html#2514">[ subject ]</a>
+              <a href="author.html#2514">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, May 01, 2010 at 11:05:30PM -0500, Matthew Bauer wrote:
+&gt;<i> Podcast played status get reset when syncing.
+</I>&gt;<i> 
+</I>&gt;<i> This happens on my iPod Touch like in this wiki page:
+</I>&gt;<i> <A HREF="http://wiki.gpodder.org/wiki/IPod_Touch#What.27s_not_working_quite_right_yet">http://wiki.gpodder.org/wiki/IPod_Touch#What.27s_not_working_quite_right_yet</A>
+</I>&gt;<i> 
+</I>&gt;<i> Is there any way to fix this?
+</I>&gt;<i> Is it a problem with libgpod, gpodder, or the iPhone OS?
+</I>
+Talking from a very high-level perspective, it's an issue with Apple not
+allowing third-party applications to talk to their devices. All that the
+community knows about the iTunesDB has been reverse-engineered.
+
+I personally don't have an iPod touch, so I can't help you with it. I'm
+always open for patches improving support for these devices, but it's a
+very unsatisfying job to get things working with such a closed system.
+
+What you can try, however, is to play with the code in
+set_podcast_flags() in src/gpodder/sync.py, which contains the code to
+set the playcount, some flags (again, as it has been reverse engineered,
+the flags are called &quot;flag1&quot;, &quot;flag2&quot; and &quot;flag3&quot;, and the values have
+been determined by looking at podcasts synced to iPods from iTunes).
+
+It might also help if you could provide us with the values for the flags
+mentioned in set_podcast_flags() before and after playing them on the
+iPod touch, maybe this way we can find out a way to set the values
+correctly for the iPod touch.
+
+If you want to help fixing this, please get in touch, and I'll provide
+you with information on what to try out and which values to determine,
+and we should be able to figure something out and maybe come up with a
+working solution for iPod touch users.
+
+What you can try out right now is to comment out all calls to
+&quot;set_podcast_flags()&quot; in src/gpodder/sync.py and synchronize, which
+should make the synchronized files appear as normal songs on the iPod.
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002513.html">[gpodder-devel] Podcast played status get reset when syncing
+</A></li>
+	<LI>Next message: <A HREF="002516.html">[gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2514">[ date ]</a>
+              <a href="thread.html#2514">[ thread ]</a>
+              <a href="subject.html#2514">[ subject ]</a>
+              <a href="author.html#2514">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

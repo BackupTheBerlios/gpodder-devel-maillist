@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] mygpoclient 1.2 &quot;Lighthouse&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20mygpoclient%201.2%20%22Lighthouse%22%20released&In-Reply-To=%3C20100315134555.GA26640%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002456.html">
+   <LINK REL="Next"  HREF="002459.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] mygpoclient 1.2 &quot;Lighthouse&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20mygpoclient%201.2%20%22Lighthouse%22%20released&In-Reply-To=%3C20100315134555.GA26640%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] mygpoclient 1.2 &quot;Lighthouse&quot; released">thp at gpodder.org
+       </A><BR>
+    <I>Mon Mar 15 14:45:55 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002456.html">[gpodder-devel] Transifex my.gpodder.org
+</A></li>
+        <LI>Next message: <A HREF="002459.html">[gpodder-devel] Any interest in hooking into packagekit for pulling	optional functionality on demand?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2458">[ date ]</a>
+              <a href="thread.html#2458">[ thread ]</a>
+              <a href="subject.html#2458">[ subject ]</a>
+              <a href="author.html#2458">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+A new version of the mygpoclient library is out, which fixes some bugs
+that have appeared since the last release in February. Below you will
+find the annoucement. The source can be downloaded from:
+
+  <A HREF="http://thpinfo.com/2010/mygpoclient/mygpoclient-1.2.tar.gz">http://thpinfo.com/2010/mygpoclient/mygpoclient-1.2.tar.gz</A>
+
+More information on the mygpoclient website:
+
+  <A HREF="http://thpinfo.com/2010/mygpoclient/">http://thpinfo.com/2010/mygpoclient/</A>
+
+If you are packaging mygpoclient for a distribution, please update your
+packages to the latest release.
+
+Thanks,
+Thomas Perl
+
+-----
+2010-03-15 mygpoclient 1.2 &quot;Lighthouse&quot; released
+
+This release adds Windows compatibility and includes a fix for a bug
+that happened with relative imports when simplejson was not installed.
+This update is recommended for all users. If you cannot upgrade to 1.2
+at the moment, please make sure to install python-simplejson so that the
+relative import bug in version 1.1 will not affect you.
+
+Please note that version 1.1 was generating wrong URLs in Windows, as it
+was using os.path.join to construct URLs, which does not work under
+Windows, because the URLs contained backslashes. This has been fixed in
+version 1.2. The version of mygpoclient that is bundled with gPodder 2.3
+for Windows already has this fix included as a hotfix. Future versions
+will simply ship with 1.2 and later.
+-----
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002456.html">[gpodder-devel] Transifex my.gpodder.org
+</A></li>
+	<LI>Next message: <A HREF="002459.html">[gpodder-devel] Any interest in hooking into packagekit for pulling	optional functionality on demand?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2458">[ date ]</a>
+              <a href="thread.html#2458">[ thread ]</a>
+              <a href="subject.html#2458">[ subject ]</a>
+              <a href="author.html#2458">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

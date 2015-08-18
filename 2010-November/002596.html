@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod nano syncing problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20nano%20syncing%20problem&In-Reply-To=%3C298417.84875.qm%40web120715.mail.ne1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002595.html">
+   <LINK REL="Next"  HREF="002597.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod nano syncing problem</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20nano%20syncing%20problem&In-Reply-To=%3C298417.84875.qm%40web120715.mail.ne1.yahoo.com%3E"
+       TITLE="[gpodder-devel] iPod nano syncing problem">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sun Nov  7 12:40:19 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002595.html">[gpodder-devel] iPod nano syncing problem
+</A></li>
+        <LI>Next message: <A HREF="002597.html">[gpodder-devel] Automatically Modifying id3 tags for Podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2596">[ date ]</a>
+              <a href="thread.html#2596">[ thread ]</a>
+              <a href="subject.html#2596">[ subject ]</a>
+              <a href="author.html#2596">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I also have some (minor) issues with sync'ing to an iPod (a 5th generation nano). In all cases, you can start gpodder from the command line with the '--verbose' option, that will give you more output to identify problems.
+
+&gt;<i>  ~ 50% of the time gPodder tells me that it can't open the
+</I>&gt;<i> device and to &#8220;check my preferences&#8221; (real helpful if it
+</I>&gt;<i> doesn't tell me what to look for).
+</I>
+This usually means that the ipod is not mounted at the point where gpodder expects it to be. gpodder uses a &quot;hard-coded&quot; path for the ipod, but it may be that UDEV/HAL assigns a different name. For example, my USB thumbdrive is sometimes mounted as &quot;/media/disk&quot; and sometimes &quot;/media/disk-1&quot;. I cannot find any pattern in these occurences, but something similar may happen to your ipod.
+
+&gt;<i> ~30% it starts syncing to the iPod and I can see the files
+</I>&gt;<i> in dolphin in the file system but when I disconnect the iPod
+</I>&gt;<i> and try to play them they just don't show up (ie the podcast
+</I>&gt;<i> folder is empty, although it does tell me that the amount of
+</I>&gt;<i> free space has gone down the appropriate amount -&gt; the
+</I>&gt;<i> episodes are somewhere on the device, I just can't access
+</I>&gt;<i> them.) if I connect the iPod to iTunes back on Windows it
+</I>&gt;<i> tells that it can't access the device and resets it to
+</I>&gt;<i> factory defaults. 
+</I>
+I have the same thing happening. In my case, all episodes will be transferred, they show up in rhythmbox, but when I disconnect the ipod will say &quot;0 podcasts&quot;. If I re-connect, view in rhythmbox and then eject from rhythmbox, the ipods are playable.
+
+I have not been able to tell any error from the gpodder output. I blame it on libgpod (or whatever other software is used to transfer files to the ipod). Also note that if you have a completely fresh Gen-V Nano, you can transfer files with rhythmbox or gpodder, and nothing will show up on the player, although rhythmbox will list the files. In that case, you must connect the ipod to iTunes, and (re)set to factory setting, and transfer at least one file. After that, it will work fine with gpodder or rhythmbox. 
+
+I think the database system on the ipod is complicated and prone to sync'ing errors. Just the way Apple wants it to be.
+
+Cheers,
+Wilfred
+
+&gt;<i> ~15% it will transfer files, when I open the podcast folder
+</I>&gt;<i> there is just one podcast folder inside (should be several),
+</I>&gt;<i> the displayed cover art is of one of the podcast I put on
+</I>&gt;<i> there (I think it was always the Twit cover art, but I'm not
+</I>&gt;<i> 100% sure there) but the name of the podcast is always
+</I>&gt;<i> &#8220;Root&#8221;. Inside there is the&#160; correct episode and I
+</I>&gt;<i> can play it, but the other podcasts are missing (ie I
+</I>&gt;<i> transfered ~ 40 episodes from 4-5 different podcasts, only
+</I>&gt;<i> the twit one shows up). Again iTunes will reset the iPod to
+</I>&gt;<i> factory default.
+</I>&gt;<i> ~5% it simply works. I can listen to the episodes on it but
+</I>&gt;<i> when I come back home and reconnect to get new ones I run a
+</I>&gt;<i> high risk of getting it fubared again.
+</I>&gt;<i> Syncing from rhythmbox works fine (haven't tried any
+</I>&gt;<i> other).
+</I>&gt;<i> Anybody seen this before or know whats going on here?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> So Long
+</I>&gt;<i> Manuel
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002595.html">[gpodder-devel] iPod nano syncing problem
+</A></li>
+	<LI>Next message: <A HREF="002597.html">[gpodder-devel] Automatically Modifying id3 tags for Podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2596">[ date ]</a>
+              <a href="thread.html#2596">[ thread ]</a>
+              <a href="subject.html#2596">[ subject ]</a>
+              <a href="author.html#2596">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

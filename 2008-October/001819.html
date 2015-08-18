@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.13.1 stabilization phase:	translations and testing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.13.1%20stabilization%20phase%3A%0A%09translations%20and%20testing&In-Reply-To=%3Ctfm9O1mHVtEML000-402339-1224812901-80274-1748530131%40emailias.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001818.html">
+   <LINK REL="Next"  HREF="001820.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.13.1 stabilization phase:	translations and testing</H1>
+    <B>daggpod at emailias.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.13.1%20stabilization%20phase%3A%0A%09translations%20and%20testing&In-Reply-To=%3Ctfm9O1mHVtEML000-402339-1224812901-80274-1748530131%40emailias.com%3E"
+       TITLE="[gpodder-devel] gPodder 0.13.1 stabilization phase:	translations and testing">daggpod at emailias.com
+       </A><BR>
+    <I>Fri Oct 24 03:48:16 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001818.html">[gpodder-devel] gPodder 0.13.1 stabilization phase: translations	and testing
+</A></li>
+        <LI>Next message: <A HREF="001820.html">[gpodder-devel] gPodder 0.13.1 stabilization phase:	translations and testing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1819">[ date ]</a>
+              <a href="thread.html#1819">[ thread ]</a>
+              <a href="subject.html#1819">[ subject ]</a>
+              <a href="author.html#1819">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey Thomas,
+
+I'm new to Git, so I must be missing something.  Trying to test the 0.13.1
+branch, I renamed my old tree and ran
+$ git clone <A HREF="git://repo.or.cz/gpodder.git">git://repo.or.cz/gpodder.git</A>
+which gave me a new copy of the gpodder source.  Then I ran
+$ cd gpodder
+$ git checkout gpodder-0.13.1
+error: pathspec 'gpodder-0.13.1' did not match any file(s) known to git.
+
+I tried these commands and don't seem to have access to the 0.13.1 branch:
+$ git branch
+* master
+$ git status
+# On branch master
+nothing to commit (working directory clean)
+
+What am I missing?
+
+Thanks,
+Dave
+
+On Thu, Oct 23, 2008 at 7:40 AM, Thomas Perl (<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>) (Emailias:
+REPLY-MASKED) &lt;reply-402339-f32e-gpodder-devel-bounces=-lists.berlios.de@
+emailias.com&gt; wrote:
+
+&gt;<i> Original Sender:  &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A>&gt;
+</I>&gt;<i> Given To:  lists.berlios.de: gpodder-devel Info Page
+</I>&gt;<i> <A HREF="http://www.emailias.com/mailclick/?id=402339">http://www.emailias.com/mailclick/?id=402339</A>
+</I>&gt;<i> &lt;--------------------end emailias header--------------------&gt;
+</I>&gt;<i>
+</I>&gt;<i> Hello there!
+</I>&gt;<i>
+</I>&gt;<i> I've just branched 0.13.1 from 0.13.0 and cherry-picked all bug fixes
+</I>&gt;<i> from the current development branch to it. Please test this branch
+</I>&gt;<i> (normal &quot;git clone&quot; and then &quot;git checkout gpodder-0.13.1&quot;) and report
+</I>&gt;<i> any problems found. This will get to be what 0.13.1 is when we release
+</I>&gt;<i> it (in a week or so if everything works out as expected).
+</I>&gt;<i>
+</I>&gt;<i> Also, if you are a translator, please send me updated translations for
+</I>&gt;<i> gPodder now (please &quot;make messages&quot; before sending the translation file,
+</I>&gt;<i> so you can be sure to update the latest strings for 0.13.1).
+</I>&gt;<i>
+</I>&gt;<i> If you have some bugfix patch sitting around somewhere that you think
+</I>&gt;<i> should get into 0.13.1, please get in touch soon!
+</I>&gt;<i>
+</I>&gt;<i> As with the 0.12.x release series, the 0.13.1 release will only contain
+</I>&gt;<i> bugfixes and usability improvements that have been found since the
+</I>&gt;<i> 0.13.0 release. Feature patches can live happily in the development
+</I>&gt;<i> branch until 0.14.0 comes out.
+</I>&gt;<i>
+</I>&gt;<i> But before that, we want to make 0.13.x as solid as possible - please
+</I>&gt;<i> help testing:
+</I>&gt;<i>
+</I>&gt;<i>   See <A HREF="http://wiki.gpodder.org/wiki/Running_gPodder_from_Git">http://wiki.gpodder.org/wiki/Running_gPodder_from_Git</A> for how to
+</I>&gt;<i>   get the latest development version and then switch to the release
+</I>&gt;<i>   branch with the command &quot;git checkout gpodder-0.13.1&quot; and test it
+</I>&gt;<i>   with &quot;make test&quot;.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20081023/0d8737c0/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20081023/0d8737c0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001818.html">[gpodder-devel] gPodder 0.13.1 stabilization phase: translations	and testing
+</A></li>
+	<LI>Next message: <A HREF="001820.html">[gpodder-devel] gPodder 0.13.1 stabilization phase:	translations and testing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1819">[ date ]</a>
+              <a href="thread.html#1819">[ thread ]</a>
+              <a href="subject.html#1819">[ subject ]</a>
+              <a href="author.html#1819">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

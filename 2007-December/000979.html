@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] how to set new/played status on episodes?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20how%20to%20set%20new/played%20status%20on%20episodes%3F&In-Reply-To=%3C1198662555.28189.20.camel%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000978.html">
+   <LINK REL="Next"  HREF="000981.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] how to set new/played status on episodes?</H1>
+    <B>Bernd</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20how%20to%20set%20new/played%20status%20on%20episodes%3F&In-Reply-To=%3C1198662555.28189.20.camel%40localhost%3E"
+       TITLE="[gpodder-devel] how to set new/played status on episodes?">schlaber at gmail.com
+       </A><BR>
+    <I>Wed Dec 26 10:49:15 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000978.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+        <LI>Next message: <A HREF="000981.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#979">[ date ]</a>
+              <a href="thread.html#979">[ thread ]</a>
+              <a href="subject.html#979">[ subject ]</a>
+              <a href="author.html#979">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Thomas,
+
+thanks for the fast and helpful reply! Both solutions worked for me.
+After working a little bit with gPodder I have found one error and 3
+feature wishes (my gPodder version is 0.10.1):
+
+1)
+The error occur if you define a SMB/CIF directory for &quot;download_dir&quot; in
+the settings Dialog. Every tested local dir worked, but no SMB-dir. I
+tried to set the SMB-dir directly in the settings-file
+(~/.config/gpodder/gpodder.conf) and this solution worked. But so you
+are losing the functionality, that gPodder copies all channel-files
+(downloaded episodes, channel-cover, channel-xml) to the new location.
+It would be great if you could review this error. I think it's an
+important feature, because there are sure a few people out there, who
+are stored there data directly on a NAS or SMB-Share.
+
+2)
+Would be great if there is the possibility to sort the channel list by
+alphabet.
+
+3)
+Would be great if there is the possibility to classify the channels in
+the channel list by categories. If you have a big list of channels, it's
+difficult to keep track of.
+
+4)
+Would be great if there is the possibility to sort the episodes by
+Status/Episode/Size/Released/Description.
+
+
+~Bernd
+
+On Wed, 2007-12-26 at 03:09 +0100, Thomas Perl wrote:
+&gt;<i> Hello, Bernd!
+</I>&gt;<i> 
+</I>&gt;<i> Bernd wrote:
+</I>&gt;<i> &gt; Today I installed gpodder and imported my feeds. I tried a lot of other 
+</I>&gt;<i> &gt; programs, but I think gpodder suits my needs best!
+</I>&gt;<i> 
+</I>&gt;<i> I'm glad you like it :) We're actively improving gPodder, and the 
+</I>&gt;<i> discussions take place here on the mailing list, so any annoyances you 
+</I>&gt;<i> have with gPodder can be discussed (and hopefully fixed) here :)
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Is it possible to mark an episode as new. I added a new feed and only the last 
+</I>&gt;<i> &gt; episode is marked as new. But I would like to mark all episodes in a new added 
+</I>&gt;<i> &gt; feed as new How can I do this? I didn't found an option in the GUI. Is there
+</I>&gt;<i> &gt; a chance to do this in a &quot;config file&quot; or &quot;behind the scenes&quot;?
+</I>&gt;<i> 
+</I>&gt;<i> Open ~/.config/gpodder/gpodder.conf and set the &quot;default_new&quot; 
+</I>&gt;<i> configuration option from 1 to some insanely high value (1000). gPodder 
+</I>&gt;<i> will then mark the 1000 newest episodes of a channel as &quot;new&quot;, which 
+</I>&gt;<i> practically means that gPodder will consider all episodes as &quot;new&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; The second question is similar. I would like to mark an non downloaded episode 
+</I>&gt;<i> &gt; as played? I listened a lot of episodes in another podcatcher - program before 
+</I>&gt;<i> &gt; and now I would like to mark these episodes as played. Is this possible? Here I 
+</I>&gt;<i> &gt; also didn't find any option in the GUI.
+</I>&gt;<i> 
+</I>&gt;<i> Either download the episodes, select all relevant episodes, then 
+</I>&gt;<i> right-click and &quot;mark selected episodes as played&quot; or add the download 
+</I>&gt;<i> URLs of the corresponding episodes to the 
+</I>&gt;<i> ~/.config/gpodder/playback-history.txt file, which is a simple text file 
+</I>&gt;<i> that contains the download URLs of an episode (the URL in the 
+</I>&gt;<i> &lt;enclosure&gt; tag) - one per line.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Good luck!
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000978.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+	<LI>Next message: <A HREF="000981.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#979">[ date ]</a>
+              <a href="thread.html#979">[ thread ]</a>
+              <a href="subject.html#979">[ subject ]</a>
+              <a href="author.html#979">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

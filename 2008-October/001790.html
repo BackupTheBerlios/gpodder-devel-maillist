@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Switch UI languages
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Switch%20UI%20languages&In-Reply-To=%3C20081009101025.40dda63d%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001789.html">
+   <LINK REL="Next"  HREF="001791.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Switch UI languages</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Switch%20UI%20languages&In-Reply-To=%3C20081009101025.40dda63d%40macbook%3E"
+       TITLE="[gpodder-devel] Switch UI languages">thp at perli.net
+       </A><BR>
+    <I>Thu Oct  9 10:10:25 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001789.html">[gpodder-devel] Switch UI languages
+</A></li>
+        <LI>Next message: <A HREF="001791.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1790">[ date ]</a>
+              <a href="thread.html#1790">[ thread ]</a>
+              <a href="subject.html#1790">[ subject ]</a>
+              <a href="author.html#1790">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Silvio!
+
+On Thu, 9 Oct 2008 03:48:12 -0200
+&quot;Silvio Sisto&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sisto.silvio at gmail.com</A>&gt; wrote:
+&gt;<i> Can anyone help me change gpodder's language to spanish without
+</I>&gt;<i> changing the whole's system language?
+</I>&gt;<i> I use Ubuntu in English but would like to run gpodder in spanish just
+</I>&gt;<i> to test translation.
+</I>
+That's a good question. Based on your question, I've now added a
+&quot;Testing your translation&quot; to the gPodder Wiki that answers your
+question:
+
+<A HREF="http://wiki.gpodder.org/wiki/Translator%27s_Guide#Testing_your_translation">http://wiki.gpodder.org/wiki/Translator%27s_Guide#Testing_your_translation</A>
+
+===========
+If the language you translate for is the language set in your
+system/session, all you need to do in your Git checkout is run &quot;make messages&quot; in your source folder (which will compile the translations to be usable by gettext), followed by &quot;make test&quot;, which will run gPodder from the source checkout folder.
+
+Testing translations with different system language
+
+Thanks to Silvio Sisto for the initial idea of testing the language
+this way and for asking on the Mailing List.
+
+Problem: You have your system running in, say, English and want to test
+your translation into, say, Spanish.
+
+Solution:
+
+    * Check if the command sudo dpkg-reconfigure locales already
+generates the files for es_ES.UTF-8 (or similiar). If it does, you can
+skip the next step.
+    * If es_ES.UTF-8 has not been generated, install Spanish language
+support via sudo aptitude install language-support-es. This will
+install the whole language support for Spanish for all apps
+    * In your Git checkout, now run: 
+
+make messages
+export LANG=es_ES.UTF-8
+make test
+
+    * Because you have entered export LANG=es_ES.UTF-8 in an
+interactive shell, the rest of the system will not be affected, and
+closing down that session will also forget the language setting for
+this session.
+    * If you don't need the Spanish translation files anymore, and
+because you have installed with aptitude, it will remove the dependencies when uninstalled: sudo aptitude remove language-support-es. This frees up the space taken by langugage-support-es + its dependencies (as of writing this guide, that's 66MB) 
+===========
+
+Feel free to edit the Wiki page to add anything that seems useful for
+other translators.
+
+Enjoy,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001789.html">[gpodder-devel] Switch UI languages
+</A></li>
+	<LI>Next message: <A HREF="001791.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1790">[ date ]</a>
+              <a href="thread.html#1790">[ thread ]</a>
+              <a href="subject.html#1790">[ subject ]</a>
+              <a href="author.html#1790">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

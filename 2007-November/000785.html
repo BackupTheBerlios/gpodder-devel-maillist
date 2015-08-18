@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] The mighty episode selection dialog :)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20The%20mighty%20episode%20selection%20dialog%20%3A%29&In-Reply-To=%3C1194599342.28416.12.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000784.html">
+   <LINK REL="Next"  HREF="000786.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] The mighty episode selection dialog :)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20The%20mighty%20episode%20selection%20dialog%20%3A%29&In-Reply-To=%3C1194599342.28416.12.camel%40macbook%3E"
+       TITLE="[gpodder-devel] The mighty episode selection dialog :)">thp at perli.net
+       </A><BR>
+    <I>Fri Nov  9 10:09:02 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000784.html">[gpodder-devel] The mighty episode selection dialog :)
+</A></li>
+        <LI>Next message: <A HREF="000786.html">[gpodder-devel] Incorrect extension detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#785">[ date ]</a>
+              <a href="thread.html#785">[ thread ]</a>
+              <a href="subject.html#785">[ subject ]</a>
+              <a href="author.html#785">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+On Fri, 2007-11-09 at 08:37 +0100, Pieter De Decker wrote:
+&gt;<i> That *is* pretty cool. I did notice however that gPodder now suddenly
+</I>&gt;<i> uses &quot;MiB&quot; instead of &quot;MB&quot; and &quot;KiB&quot; instead of &quot;KB&quot;, even outside the
+</I>&gt;<i> selection dialog. Have you implemented a more accurate Python file size
+</I>&gt;<i> calculation algorithm by any chance?
+</I>
+Well, as Gerrit Sangel initially pointed out in late October[1], we were
+using SI units (MB, GB, ...) that should be 10^x (i.e. 1.000.000 bytes)
+instead of binary 2^(10*x) (i.e. 1.024 bytes or 1.048.576 bytes).
+
+Binary units are perfectly fine, but their official standard names are
+described in [2], i.e. KiB, MiB, GiB, etc..
+
+So, what we decided[3] to do is to default to binary units (as these
+will lead the same numbers as 0.10.1 and before), fix the unit names
+(therefore you now see MiB instead of the previously wrongly-used MB)
+and add the option to switch to SI units (10^x, MB, kB, ...).
+
+As we consider this an &quot;expert setting&quot;, I don't want to add support for
+it in the preferences dialog as to not bloat the settings unnecessarily.
+
+If you want to switch to SI units, you can do the following:
+
+  1.) Close gPodder if it's running
+  2.) Open ~/.config/gpodder/gpodder.conf in your favourite editor
+  3.) Set the setting &quot;use_si_units = False&quot; to &quot;use_si_units = True&quot;
+  4.) Save and start gPodder again - all units will be displayed
+
+Oh, and what I just saw thanks to your question -- I've forgot to use
+the correct (config-using) format_filesize() function, so the episode
+dialog would always display binary units, regardless of what you set as
+your preference. This should be fixed in the latest SVN revision, so the
+setting you choose in gpodder.conf should affect all size displays in
+the gPodder GUI :) Thanks for asking, I wouldn't have looked at that
+again and the bug would have probably stayed in there for some more
+weeks =)
+
+Thomas
+
+[1] <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-October/001115.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-October/001115.html</A>
+[2] <A HREF="http://physics.nist.gov/cuu/Units/binary.html">http://physics.nist.gov/cuu/Units/binary.html</A>
+[3] <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-November/001139.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-November/001139.html</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000784.html">[gpodder-devel] The mighty episode selection dialog :)
+</A></li>
+	<LI>Next message: <A HREF="000786.html">[gpodder-devel] Incorrect extension detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#785">[ date ]</a>
+              <a href="thread.html#785">[ thread ]</a>
+              <a href="subject.html#785">[ subject ]</a>
+              <a href="author.html#785">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

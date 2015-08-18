@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] what gets synchronized?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20what%20gets%20synchronized%3F&In-Reply-To=%3C1207381885.6537.11.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001350.html">
+   <LINK REL="Next"  HREF="001354.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] what gets synchronized?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20what%20gets%20synchronized%3F&In-Reply-To=%3C1207381885.6537.11.camel%40macbook%3E"
+       TITLE="[gpodder-devel] what gets synchronized?">thp at perli.net
+       </A><BR>
+    <I>Sat Apr  5 09:51:25 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001350.html">[gpodder-devel] what gets synchronized?
+</A></li>
+        <LI>Next message: <A HREF="001354.html">[gpodder-devel] icons and instructions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1351">[ date ]</a>
+              <a href="thread.html#1351">[ thread ]</a>
+              <a href="subject.html#1351">[ subject ]</a>
+              <a href="author.html#1351">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Fri, 2008-04-04 at 21:00 -0500, Mark Alford wrote:
+&gt;<i> (a) I am delighted. Thomas, I would buy you a book but grappling with 
+</I>&gt;<i> Amazon auf Deutsch is too much for me. Can I just send money using 
+</I>&gt;<i> paypal?
+</I>
+That's nice of you :) Didn't think about English-speaking users having
+problems with Amazon.de, as I thought they could probably switch to
+Amazon.com or another English-speaking Amazon site. Just tried it and it
+seems like they're really all separate. Anyway, I've found this page
+that might be helpful (Amazon.de for English-speaking users):
+
+<A HREF="http://www.amazon.de/gp/help/customer/display.html?nodeId=505532">http://www.amazon.de/gp/help/customer/display.html?nodeId=505532</A>
+
+If you don't want to go through the hassle, you can PayPal to
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net.</A> Thanks for your support!
+
+&gt;<i> (b) Not all podcasts got synced. Episodes with a yellow star seem to
+</I>&gt;<i> have been ignored. Any idea why?
+</I>
+If you mean this icon with the &quot;yellow star&quot;, it means that this episode
+is &quot;new in the feed&quot;, i.e. you have to download it first, so it gets a
+icon that looks like a file (music, audio, document - depending on which
+file you downloaded):
+
+<A HREF="http://img517.imageshack.us/img517/8016/iconstocknewli3.png">http://img517.imageshack.us/img517/8016/iconstocknewli3.png</A>
+
+&gt;<i>From a usability point of view, do you think that the &quot;yellow star&quot; icon
+</I>is misleading and looks like the episode is already downloaded? Maybe we
+should use a icon that has a yellow star (or something that means &quot;new&quot;)
+on it, but no &quot;file&quot; icon, so people can understand better that the
+&quot;file&quot; is not on their computer, but that the item is &quot;new&quot;?
+
+&gt;<i> (c) syncing in the GUI did not work: the whole gpodder interface just 
+</I>&gt;<i> froze up. But the command line gpodder --sync worked well.
+</I>
+Which iPod are you using? Can you please post the console output when
+running gpodder with the &quot;--verbose&quot; switch, i.e. open a terminal and
+enter:
+
+gpodder --verbose 2&gt;&amp;1 | tee ~/Desktop/gpodder-log.txt
+
+Try to reproduce the bug and then post the &quot;gpodder-log.txt&quot; file that
+should appear on your Desktop. Before posting, make you you check the
+logfile for any sensitive information (if any) and remove/anonymize it
+from the logfile, if you think it's irrelevant for the bug.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001350.html">[gpodder-devel] what gets synchronized?
+</A></li>
+	<LI>Next message: <A HREF="001354.html">[gpodder-devel] icons and instructions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1351">[ date ]</a>
+              <a href="thread.html#1351">[ thread ]</a>
+              <a href="subject.html#1351">[ subject ]</a>
+              <a href="author.html#1351">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

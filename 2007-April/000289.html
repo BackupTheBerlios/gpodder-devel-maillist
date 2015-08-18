@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Two Problems with gpodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Two%20Problems%20with%20gpodder&In-Reply-To=%3C1177878928.6862.6.camel%40sumsi.homelinux.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000288.html">
+   <LINK REL="Next"  HREF="000290.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Two Problems with gpodder</H1>
+    <B>Juergen Schinker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Two%20Problems%20with%20gpodder&In-Reply-To=%3C1177878928.6862.6.camel%40sumsi.homelinux.net%3E"
+       TITLE="[gpodder-devel] Two Problems with gpodder">ba1020 at homie.homelinux.net
+       </A><BR>
+    <I>Sun Apr 29 22:35:28 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000288.html">[gpodder-devel] Two Problems with gpodder
+</A></li>
+        <LI>Next message: <A HREF="000290.html">[gpodder-devel] Two Problems with gpodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 2007-04-29 at 16:52 +0200, Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> On Sun, 2007-04-29 at 16:01 +0200, Unknown wrote:
+</I>&gt;<i> &gt; Hello i have two major Problems with gpodder
+</I>&gt;<i> &gt; always whan i start gpodder it starts up with empty channels
+</I>&gt;<i> 
+</I>&gt;<i> You have to subscribe to channels to see podcasts in gPodder. Just
+</I>&gt;<i> search around the net to find a RSS podcast URL, and add it in gPodder
+</I>&gt;<i> (you can even drag-and-drop RSS links to the gPodder window).
+</I>
+are you making fun of me?
+&gt;<i> 
+</I>&gt;<i> &gt; when i start in debug mode
+</I>&gt;<i> &gt; RuntimeError: could not create GladeXML object
+</I>&gt;<i> 
+</I>&gt;<i> What version/revision of gPodder are you using? Can you paste the full
+</I>&gt;<i> debug output here, please?
+</I>&gt;<i> 
+</I> sumsi ~ # gpodder --debug
+
+(gpodder:6123): libglade-WARNING **: could not find glade file
+'/usr/bin/../data/gpodder.glade'
+Traceback (most recent call last):
+  File &quot;/usr/bin/gpodder&quot;, line 139, in ?
+    sys.exit(main())
+  File &quot;/usr/bin/gpodder&quot;, line 135, in main
+    gpodder.main( __version__)
+  File &quot;/usr/lib64/python2.4/site-packages/gpodder/gpodder.py&quot;, line
+1415, in main
+    g_podder = Gpodder()
+  File &quot;/usr/lib64/python2.4/site-packages/gpodder/gpodder.py&quot;, line 97,
+in __init__
+    SimpleGladeApp.__init__(self, path, root, domain, **kwargs)
+  File &quot;/usr/lib64/python2.4/site-packages/gpodder/SimpleGladeApp.py&quot;,
+line 101, in __init__
+    self.glade = self.create_glade(self.glade_path, root, domain)
+  File &quot;/usr/lib64/python2.4/site-packages/gpodder/SimpleGladeApp.py&quot;,
+line 335, in create_glade
+    return gtk.glade.XML(self.glade_path, root, domain)
+RuntimeError: could not create GladeXML object
+sumsi ~ # eix gpodder
+[D] media-sound/gpodder
+     Available versions:  (~)0.7 (~)0.8.0 (~)0.8.9
+     Installed versions:  0.9.0(00:52:07 04/09/07)(-ipod)
+     Homepage:            <A HREF="http://gpodder.berlios.de/">http://gpodder.berlios.de/</A>
+     Description:         gPodder is a Podcast receiver/catcher written
+in Python, using GTK.
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000288.html">[gpodder-devel] Two Problems with gpodder
+</A></li>
+	<LI>Next message: <A HREF="000290.html">[gpodder-devel] Two Problems with gpodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

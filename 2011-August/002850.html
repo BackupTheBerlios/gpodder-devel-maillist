@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Closing gPodder after a Woodchuck-triggered update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Closing%20gPodder%20after%20a%20Woodchuck-triggered%20update&In-Reply-To=%3C87pqklp3om.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002848.html">
+   <LINK REL="Next"  HREF="002853.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Closing gPodder after a Woodchuck-triggered update</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Closing%20gPodder%20after%20a%20Woodchuck-triggered%20update&In-Reply-To=%3C87pqklp3om.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Closing gPodder after a Woodchuck-triggered update">neal at walfield.org
+       </A><BR>
+    <I>Thu Aug  4 18:00:25 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002848.html">[gpodder-devel] gPodder 2.17 &quot;Take Seven&quot; released
+</A></li>
+        <LI>Next message: <A HREF="002853.html">[gpodder-devel] Closing gPodder after a Woodchuck-triggered update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2850">[ date ]</a>
+              <a href="thread.html#2850">[ thread ]</a>
+              <a href="subject.html#2850">[ subject ]</a>
+              <a href="author.html#2850">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+If Woodchuck decides that gPodder should update a channel or download
+an episode and gPodder is not running, Woodchuck will start gPodder.
+
+If, after the updates are finished, the user has not interacted with
+gPodder, then gPodder can quit and free resources.  The question,
+then, is how to best determine whether the user interacted with
+gPodder.  In FeedingIt, I added a flag that the top-level widget
+callbacks set.  This is a bit dirty.
+
+On IRC, Thomas suggested not starting the GUI if gPodder was started
+by Woodchuck.  In this case, we need to figure out how to start the
+GUI if the user decides to use gPodder during such an update.  I'm not
+sure how to best do this.
+
+Another solution would be to put something like a transparent eventbox
+on top of gpodder and, on the first user interaction, set a flag,
+destroy the event box and pass the event through to the GUI.
+
+Thoughts?
+
+Thanks,
+
+Neal
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002848.html">[gpodder-devel] gPodder 2.17 &quot;Take Seven&quot; released
+</A></li>
+	<LI>Next message: <A HREF="002853.html">[gpodder-devel] Closing gPodder after a Woodchuck-triggered update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2850">[ date ]</a>
+              <a href="thread.html#2850">[ thread ]</a>
+              <a href="subject.html#2850">[ subject ]</a>
+              <a href="author.html#2850">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

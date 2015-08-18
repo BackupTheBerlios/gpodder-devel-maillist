@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Issues with special characters in file names?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Issues%20with%20special%20characters%20in%20file%20names%3F&In-Reply-To=%3C200704040900.57367.pdedecker%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000189.html">
+   <LINK REL="Next"  HREF="000193.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Issues with special characters in file names?</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Issues%20with%20special%20characters%20in%20file%20names%3F&In-Reply-To=%3C200704040900.57367.pdedecker%40gmail.com%3E"
+       TITLE="[gpodder-devel] Issues with special characters in file names?">pdedecker at gmail.com
+       </A><BR>
+    <I>Wed Apr  4 09:00:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000189.html">[gpodder-devel] Issues with special characters in file names?
+</A></li>
+        <LI>Next message: <A HREF="000193.html">[gpodder-devel] Issues with special characters in file names?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Version 0.8.9 is an old version of gPodder, the most recent one is v0.9.0. 
+However, v0.9.0 doesn't contain a fix for this so you'll have to wait for 
+v0.9.1 to come out.
+
+There is a bugfix available though, but it's only available in the SVN 
+version, which might be unstable sometimes (but it has worked fine for me 
+until now).
+
+Here's how to install it:
+- Install SVN. On Ubuntu, do the command 'sudo apt-get install svn' in a 
+terminal (without the quotes)
+- Open a terminal if you haven't already done so. 'cd' to the directory where 
+you want to store the SVN version of gPodder (for 
+example: /home/pdedecker/Desktop). Don't make the program folder itself yet, 
+we'll do that in just a second.
+- Enter the command 'svn co <A HREF="http://svn.berlios.de/svnroot/repos/gpodder/trunk">http://svn.berlios.de/svnroot/repos/gpodder/trunk</A> 
+gpodder' (without the quotes). Wait for the download to finish, SVN is now 
+downloading the development version of gPodder.
+- When done, 'cd' to the program directory. Do 'make test'. gPodder should 
+start now.
+
+You can also create a shortcut to gPodder if you want. Create a new shortcut 
+in KDE/GNOME, choose to enter the path to the program by yourself and locate 
+the gPodder executable (it's in gpodder/bin). Behind the program path, 
+type --local --verbose. It should look something like this:
+/home/pdedecker/Desktop/gpodderSVN/bin/gpodder --local --verbose
+
+If you want to upgrade gPodder SVN, go to the directory where you keep it 
+using the 'cd' command (for me, that's /home/pdedecker/Desktop/gpodderSVN/) 
+and execute the command 'svn update' (again, without the quotes).
+If you decide to remove gPodder SVN, just remove the gpodder folder.
+
+Good luck! If you still have questions, just send them to the mailing list.
+
+Pieter De Decker
+
+---
+Op Tuesday 03 April 2007 21:10:20 schreef Johann Uhrmann:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> I just discovered that gPodder gets stuck while synching
+</I>&gt;<i> to a directory if the file name of the file to write
+</I>&gt;<i> contains German Umlauts (like &#228;&#246;&#252;).
+</I>&gt;<i>
+</I>&gt;<i> I am using Version 0.8.9 of gPodder.
+</I>&gt;<i>
+</I>&gt;<i> Is this a known issue?
+</I>&gt;<i>
+</I>&gt;<i> Kind regards,
+</I>&gt;<i>
+</I>&gt;<i> J. Uhrmann
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000189.html">[gpodder-devel] Issues with special characters in file names?
+</A></li>
+	<LI>Next message: <A HREF="000193.html">[gpodder-devel] Issues with special characters in file names?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

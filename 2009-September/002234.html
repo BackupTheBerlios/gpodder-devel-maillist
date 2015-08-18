@@ -1,0 +1,643 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel]  Add the possibility to change on_quit_systray
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%20Add%20the%20possibility%20to%20change%20on_quit_systray&In-Reply-To=%3C1fce283b0909150621v3759b7faj68389f5aa15f28b9%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002243.html">
+   <LINK REL="Next"  HREF="002237.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel]  Add the possibility to change on_quit_systray</H1>
+    <B>Andreas B&#246;ttger</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%20Add%20the%20possibility%20to%20change%20on_quit_systray&In-Reply-To=%3C1fce283b0909150621v3759b7faj68389f5aa15f28b9%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel]  Add the possibility to change on_quit_systray">andreas.boettger at gmx.de
+       </A><BR>
+    <I>Tue Sep 15 15:21:41 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002243.html">[gpodder-devel] Don't check on_quit_ask if on_quit_systray is	set
+</A></li>
+        <LI>Next message: <A HREF="002237.html">[gpodder-devel] ukrainian translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2234">[ date ]</a>
+              <a href="thread.html#2234">[ thread ]</a>
+              <a href="subject.html#2234">[ subject ]</a>
+              <a href="author.html#2234">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>data/ui/desktop/gpodderpreferences.ui    |   56
+++++++++++++++++++++++-------
+ src/gpodder/config.py                    |   20 +++++-----
+ src/gpodder/gtkui/desktop/preferences.py |   23 +++++++-----
+ src/gpodder/gui.py                       |   54
+++++++++++++++--------------
+ 4 files changed, 92 insertions(+), 61 deletions(-)
+
+diff --git a/data/ui/desktop/gpodderpreferences.ui
+b/data/ui/desktop/gpodderpreferences.ui
+index af8bf5e..4f20170 100644
+--- a/data/ui/desktop/gpodderpreferences.ui
++++ b/data/ui/desktop/gpodderpreferences.ui
+@@ -1,5 +1,6 @@
+ &lt;?xml version=&quot;1.0&quot;?&gt;
+ &lt;interface&gt;
++  &lt;requires lib=&quot;gtk+&quot; version=&quot;2.16&quot;/&gt;
+   &lt;!-- interface-naming-policy toplevel-contextual --&gt;
+   &lt;object class=&quot;GtkAdjustment&quot; id=&quot;adjustment1&quot;&gt;
+     &lt;property name=&quot;value&quot;&gt;20&lt;/property&gt;
+@@ -1114,6 +1115,15 @@
+                 &lt;child&gt;
+                   &lt;placeholder/&gt;
+                 &lt;/child&gt;
++                &lt;child&gt;
++                  &lt;placeholder/&gt;
++                &lt;/child&gt;
++                &lt;child&gt;
++                  &lt;placeholder/&gt;
++                &lt;/child&gt;
++                &lt;child&gt;
++                  &lt;placeholder/&gt;
++                &lt;/child&gt;
+               &lt;/object&gt;
+               &lt;packing&gt;
+                 &lt;property name=&quot;position&quot;&gt;2&lt;/property&gt;
+@@ -1153,7 +1163,7 @@
+               &lt;object class=&quot;GtkTable&quot; id=&quot;table12&quot;&gt;
+                 &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
+                 &lt;property name=&quot;border_width&quot;&gt;10&lt;/property&gt;
+-                &lt;property name=&quot;n_rows&quot;&gt;9&lt;/property&gt;
++                &lt;property name=&quot;n_rows&quot;&gt;10&lt;/property&gt;
+                 &lt;property name=&quot;n_columns&quot;&gt;2&lt;/property&gt;
+                 &lt;property name=&quot;column_spacing&quot;&gt;5&lt;/property&gt;
+                 &lt;property name=&quot;row_spacing&quot;&gt;5&lt;/property&gt;
+@@ -1213,7 +1223,7 @@
+                   &lt;/object&gt;
+                   &lt;packing&gt;
+                     &lt;property name=&quot;top_attach&quot;&gt;1&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;4&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;5&lt;/property&gt;
+                     &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                   &lt;/packing&gt;
+@@ -1230,8 +1240,8 @@
+                   &lt;packing&gt;
+                     &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
+                     &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
+-                    &lt;property name=&quot;top_attach&quot;&gt;3&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;4&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;4&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;5&lt;/property&gt;
+                     &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
+                   &lt;/packing&gt;
+@@ -1245,8 +1255,8 @@
+                   &lt;/object&gt;
+                   &lt;packing&gt;
+                     &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
+-                    &lt;property name=&quot;top_attach&quot;&gt;5&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;6&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;6&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;7&lt;/property&gt;
+                     &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
+                   &lt;/packing&gt;
+@@ -1257,8 +1267,8 @@
+                   &lt;/object&gt;
+                   &lt;packing&gt;
+                     &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
+-                    &lt;property name=&quot;top_attach&quot;&gt;4&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;5&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;5&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;6&lt;/property&gt;
+                     &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_padding&quot;&gt;3&lt;/property&gt;
+@@ -1276,8 +1286,8 @@
+                   &lt;packing&gt;
+                     &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
+                     &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
+-                    &lt;property name=&quot;top_attach&quot;&gt;6&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;7&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;7&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;8&lt;/property&gt;
+                     &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
+                   &lt;/packing&gt;
+@@ -1289,8 +1299,8 @@
+                     &lt;property name=&quot;icon-size&quot;&gt;6&lt;/property&gt;
+                   &lt;/object&gt;
+                   &lt;packing&gt;
+-                    &lt;property name=&quot;top_attach&quot;&gt;6&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;8&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;7&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;9&lt;/property&gt;
+                     &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                   &lt;/packing&gt;
+@@ -1309,12 +1319,30 @@
+                   &lt;packing&gt;
+                     &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
+                     &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
+-                    &lt;property name=&quot;top_attach&quot;&gt;7&lt;/property&gt;
+-                    &lt;property name=&quot;bottom_attach&quot;&gt;8&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;8&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;9&lt;/property&gt;
+                     &lt;property name=&quot;y_options&quot;&gt;GTK_FILL&lt;/property&gt;
+                   &lt;/packing&gt;
+                 &lt;/child&gt;
+                 &lt;child&gt;
++                  &lt;object class=&quot;GtkCheckButton&quot; id=&quot;on_quit_systray&quot;&gt;
++                    &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Close to
+sytem notification area&lt;/property&gt;
++                    &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++                    &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++                    &lt;property name=&quot;receives_default&quot;&gt;False&lt;/property&gt;
++                    &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++                    &lt;property name=&quot;draw_indicator&quot;&gt;True&lt;/property&gt;
++                  &lt;/object&gt;
++                  &lt;packing&gt;
++                    &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
++                    &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
++                    &lt;property name=&quot;top_attach&quot;&gt;3&lt;/property&gt;
++                    &lt;property name=&quot;bottom_attach&quot;&gt;4&lt;/property&gt;
++                    &lt;property name=&quot;x_options&quot;&gt;GTK_FILL&lt;/property&gt;
++                    &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++                  &lt;/packing&gt;
++                &lt;/child&gt;
++                &lt;child&gt;
+                   &lt;placeholder/&gt;
+                 &lt;/child&gt;
+                 &lt;child&gt;
+diff --git a/src/gpodder/config.py b/src/gpodder/config.py
+index daa6021..ec5fb72 100644
+--- a/src/gpodder/config.py
++++ b/src/gpodder/config.py
+@@ -43,7 +43,7 @@ else:
+
+ gPodderSettings = {
+     # General settings
+-    'player': (str, 'default',
++    'player': (str, 'default',
+       _(&quot;The default player for all media, if set to 'default' this will &quot;
+         &quot;attempt to use xdg-open on linux or the built-in media player on
+maemo.&quot;)),
+     'videoplayer': (str, 'default',
+@@ -62,7 +62,7 @@ gPodderSettings = {
+       _(&quot;The maximum number of simultaneous downloads allowed at a single &quot;
+         &quot;time. Requires 'max_downloads_enabled'.&quot;)),
+     'max_downloads_enabled': ( bool, True,
+-      _(&quot;The 'max_downloads' setting will only work if this is set to
+'True'.&quot;)),
++      _(&quot;The 'max_downloads' setting will only work if this is set to
+'True'.&quot;)),
+     'limit_rate': ( bool, False,
+       _(&quot;The 'limit_rate_value' setting will only work if this is set to
+'True'.&quot;)),
+     'limit_rate_value': ( float, 500.0,
+@@ -111,13 +111,13 @@ gPodderSettings = {
+     'disable_pre_sync_conversion': (bool, False,
+       _(&quot;Disable pre-synchronization conversion of OGG files. This should
+be &quot;
+         &quot;enabled for deviced that natively support OGG. Eg. Rockbox,
+iAudio&quot;)),
+-
++
+     # Tray icon and notification settings
+     'display_tray_icon': (bool, False,
+       _(&quot;Whether or not gPodder should display an icon in the system
+tray.&quot;)),
+     'minimize_to_tray': (bool, False,
+       _(&quot;If 'display_tray_icon' is enabled, when gPodder is minimized it
+will &quot;
+-        &quot;not be visible in the window list.&quot;)),
++        &quot;not be visible in the window list.&quot;)),
+     'start_iconified': (bool, False,
+       _(&quot;When gPodder starts, send it to the tray immediately.&quot;)),
+     'enable_notifications': (bool, True,
+@@ -130,6 +130,8 @@ gPodderSettings = {
+     'do_not_show_new_episodes_dialog': (bool, False,
+       _(&quot;Do not show the new episodes dialog after updating feed cache when
+&quot;
+         &quot;gPodder is not minimized&quot;)),
++    'on_quit_systray': (bool, False,
++      _(&quot;When the 'X' button is clicked do not quit, send gPodder to the
+tray.&quot;)),
+
+
+     # Settings that are updated directly in code
+@@ -152,8 +154,6 @@ gPodderSettings = {
+       _(&quot;Whether or not the player requires Windows-style paths in the
+playlist.&quot;)),
+
+     # Special settings (not in preferences)
+-    'on_quit_systray': (bool, False,
+-      _(&quot;When the 'X' button is clicked do not quit, send gPodder to the
+tray.&quot;)),
+     'max_episodes_per_feed': (int, 200,
+       _(&quot;The maximum number of episodes that gPodder will display in the
+episode &quot;
+         &quot;list. Note: Set this to a lower value on slower hardware to speed
+up &quot;
+@@ -242,7 +242,7 @@ gPodderSettings.update(window_props('episode_window',
+width=500, height=400))
+
+ class Config(dict):
+     Settings = gPodderSettings
+-
++
+     # Number of seconds after which settings are auto-saved
+     WRITE_TO_DISK_TIMEOUT = 60
+
+@@ -264,7 +264,7 @@ class Config(dict):
+         if '{channel' in self.custom_sync_name:
+             log('Fixing OLD syntax {channel.*} =&gt; {podcast.*} in
+custom_sync_name.', sender=self)
+             self.custom_sync_name =
+self.custom_sync_name.replace('{channel.', '{podcast.')
+-
++
+     def __getattr__(self, name):
+         if name in self.Settings:
+             return self[name]
+@@ -273,7 +273,7 @@ class Config(dict):
+
+     def get_description(self, option_name):
+         description = _('No description available.')
+-
++
+         if self.Settings.get(option_name) is not None:
+             row = self.Settings[option_name]
+             if len(row) &gt;= 3:
+@@ -284,7 +284,7 @@ class Config(dict):
+     def add_observer(self, callback):
+         &quot;&quot;&quot;
+         Add a callback function as observer. This callback
+-        will be called when a setting changes. It should
++        will be called when a setting changes. It should
+         have this signature:
+
+             observer(name, old_value, new_value)
+diff --git a/src/gpodder/gtkui/desktop/preferences.py
+b/src/gpodder/gtkui/desktop/preferences.py
+index c87995d..e04d297 100644
+--- a/src/gpodder/gtkui/desktop/preferences.py
++++ b/src/gpodder/gtkui/desktop/preferences.py
+@@ -46,15 +46,18 @@ class gPodderPreferences(BuilderWidget):
+         self._config.connect_gtk_spinbutton('auto_update_frequency',
+self.auto_update_frequency)
+         self._config.connect_gtk_togglebutton('display_tray_icon',
+self.display_tray_icon)
+         self._config.connect_gtk_togglebutton('minimize_to_tray',
+self.minimize_to_tray)
++        self._config.connect_gtk_togglebutton('on_quit_systray',
+self.on_quit_systray)
+         self._config.connect_gtk_togglebutton('enable_notifications',
+self.enable_notifications)
+         self._config.connect_gtk_togglebutton('start_iconified',
+self.start_iconified)
+         self._config.connect_gtk_togglebutton('ipod_delete_played_from_db',
+self.ipod_delete_played_from_db)
+         self._config.connect_gtk_togglebutton('mp3_player_delete_played',
+self.delete_episodes_marked_played)
+
+self._config.connect_gtk_togglebutton('disable_pre_sync_conversion',
+self.player_supports_ogg)
+-
+-
+self.enable_notifications.set_sensitive(self.display_tray_icon.get_active())
+
+-
+self.minimize_to_tray.set_sensitive(self.display_tray_icon.get_active())
+-
++
++
+self.enable_notifications.set_sensitive(self.display_tray_icon.get_active())
++
+self.minimize_to_tray.set_sensitive(self.display_tray_icon.get_active())
++
++
+self.on_quit_systray.set_sensitive(self.display_tray_icon.get_active())
++
+         self.entryCustomSyncName.set_sensitive(
+self.cbCustomSyncName.get_active())
+
+         self.iPodMountpoint.set_label( self._config.ipod_mount)
+@@ -63,7 +66,7 @@ class gPodderPreferences(BuilderWidget):
+
+         self.on_sync_delete.set_sensitive(not
+self.delete_episodes_marked_played.get_active())
+         self.on_sync_mark_played.set_sensitive(not
+self.delete_episodes_marked_played.get_active())
+-
++
+         # device type
+         self.comboboxDeviceType.set_active( 0)
+         if self._config.device_type == 'ipod':
+@@ -151,14 +154,14 @@ class gPodderPreferences(BuilderWidget):
+             index += 1
+         # return index of custom command or first item
+         return max(0, index_custom)
+-
++
+     def on_auto_update_feeds_toggled( self, widget, *args):
+         self.auto_update_frequency.set_sensitive(widget.get_active())
+-
++
+     def on_display_tray_icon_toggled( self, widget, *args):
+-        self.enable_notifications.set_sensitive(widget.get_active())
+-        self.minimize_to_tray.set_sensitive(widget.get_active())
+-
++        self.enable_notifications.set_sensitive(widget.get_active())
++        self.minimize_to_tray.set_sensitive(widget.get_active())
++
+     def on_cbCustomSyncName_toggled( self, widget, *args):
+         self.entryCustomSyncName.set_sensitive( widget.get_active())
+
+diff --git a/src/gpodder/gui.py b/src/gpodder/gui.py
+index cbbf70f..c3c248e 100644
+--- a/src/gpodder/gui.py
++++ b/src/gpodder/gui.py
+@@ -128,7 +128,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         self.db = Database(gpodder.database_file)
+         self.config = config
+         BuilderWidget.__init__(self, None)
+-
++
+     def new(self):
+         if gpodder.interface == gpodder.MAEMO:
+             self.app = hildon.Program()
+@@ -173,7 +173,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+         self.itemShowToolbar.set_active(self.config.show_toolbar)
+
+self.itemShowDescription.set_active(self.config.episode_list_descriptions)
+-
++
+         self.config.connect_gtk_spinbutton('max_downloads',
+self.spinMaxDownloads)
+         self.config.connect_gtk_togglebutton('max_downloads_enabled',
+self.cbMaxDownloads)
+         self.config.connect_gtk_spinbutton('limit_rate_value',
+self.spinLimitDownloads)
+@@ -1025,7 +1025,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             menu.append( item)
+
+             menu.show_all()
+-            # Disable tooltips while we are showing the menu, so
++            # Disable tooltips while we are showing the menu, so
+             # the tooltip will not appear over the menu
+             self.treeview_allow_tooltips(self.treeChannels, False)
+             menu.connect('deactivate', lambda menushell:
+self.treeview_allow_tooltips(self.treeChannels, True))
+@@ -1046,7 +1046,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         have to update our model to reflect this change.
+         &quot;&quot;&quot;
+         self.podcast_list_model.delete_cover_by_url(channel_url)
+-
++
+     def cover_download_finished(self, channel_url, pixbuf):
+         &quot;&quot;&quot;
+         The Cover Downloader calls this when it has finished
+@@ -1257,7 +1257,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+item.set_image(gtk.image_new_from_icon_name(ICON('web-browser'),
+gtk.ICON_SIZE_MENU))
+                 item.connect('activate', lambda w:
+util.open_website(episodes[0].link))
+                 menu.append(self.set_finger_friendly(item))
+-
++
+             if gpodder.interface == gpodder.MAEMO:
+                 # Because we open the popup on left-click for Maemo,
+                 # we also include a non-action to close the menu
+@@ -1267,7 +1267,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 menu.append(self.set_finger_friendly(item))
+
+             menu.show_all()
+-            # Disable tooltips while we are showing the menu, so
++            # Disable tooltips while we are showing the menu, so
+             # the tooltip will not appear over the menu
+             self.treeview_allow_tooltips(self.treeAvailable, False)
+             menu.connect('deactivate', lambda menushell:
+self.treeview_allow_tooltips(self.treeAvailable, True))
+@@ -1427,7 +1427,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         selection = self.treeAvailable.get_selection()
+         if selection.count_selected_rows() &gt; 0:
+             (model, paths) = selection.get_selected_rows()
+-
++
+             for path in paths:
+                 episode = model.get_value(model.get_iter(path),
+EpisodeListModel.C_EPISODE)
+
+@@ -1577,7 +1577,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             threading.Thread(target=do_update_episode_list_model).start()
+         else:
+             self.episode_list_model.clear()
+-
++
+     def offer_new_episodes(self, channels=None):
+         new_episodes = self.get_new_episodes(channels)
+         if new_episodes:
+@@ -1791,10 +1791,10 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                     self.new_episodes_show(episodes, notification=True)
+                 else:
+                     if len(episodes) == 1:
+-                        message = _('One new episode is available for
+download')
++                        message = _('One new episode is available for
+download')
+                     else:
+                         message = _('%i new episodes are available for
+download' % len(episodes))
+-
++
+                     self.pbFeedUpdate.set_text(message)
+
+     def _update_cover(self, channel):
+@@ -1859,7 +1859,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             self.show_update_feeds_buttons()
+
+     def update_feed_cache(self, channels=None, force_update=True,
+select_url_afterwards=None):
+-        if self.updating_feed_cache:
++        if self.updating_feed_cache:
+             return
+
+         if not force_update:
+@@ -1867,14 +1867,14 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             self.channel_list_changed = True
+
+self.update_podcast_list_model(select_url=select_url_afterwards)
+             return
+-
++
+         self.updating_feed_cache = True
+         self.itemUpdate.set_sensitive(False)
+         self.itemUpdateChannel.set_sensitive(False)
+
+         if self.tray_icon:
+
+self.tray_icon.set_status(self.tray_icon.STATUS_UPDATING_FEED_CACHE)
+-
++
+         if channels is None:
+             channels = self.channels
+
+@@ -1910,7 +1910,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+         # Only iconify if we are using the window's &quot;X&quot; button,
+         # but not when we are using &quot;Quit&quot; in the menu or toolbar
+-        if not self.config.on_quit_ask and self.config.on_quit_systray and
+self.tray_icon and widget.get_name() not in ('toolQuit', 'itemQuit'):
++        if self.config.on_quit_systray and self.tray_icon and
+widget.get_name() not in ('toolQuit', 'itemQuit'):
+             self.iconify_main_window()
+         elif self.config.on_quit_ask or downloading:
+             if gpodder.interface == gpodder.MAEMO:
+@@ -2334,12 +2334,12 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 return False
+
+         return True
+-
++
+     def my_gpodder_offer_autoupload(self):
+         if not self.config.my_gpodder_autoupload:
+             if self.show_confirmation(_('gPodder can automatically upload
+your subscription list to my.gpodder.org when you close it. Do you want to
+enable this feature?'), _('Upload subscriptions on quit')):
+                 self.config.my_gpodder_autoupload = True
+-
++
+     def on_download_from_mygpo(self, widget):
+         if self.require_my_gpodder_authentication():
+             client = my.MygPodderClient(self.config.my_gpodder_username,
+self.config.my_gpodder_password)
+@@ -2420,10 +2420,10 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+                 title = _('Remove podcast and episodes?')
+                 message = _('Do you really want to remove &lt;b&gt;%s&lt;/b&gt; and all
+downloaded episodes?') % saxutils.escape(self.active_channel.title)
+-
++
+                 dialog.set_title(title)
+                 dialog.set_markup('&lt;span weight=&quot;bold&quot;
+size=&quot;larger&quot;&gt;%s&lt;/span&gt;\n\n%s'%(title, message))
+-
++
+                 cb_ask = gtk.CheckButton(_('Do not delete my downloaded
+episodes'))
+                 dialog.vbox.pack_start(cb_ask)
+                 cb_ask.show_all()
+@@ -2461,7 +2461,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                     # there is a podcast after the deleted one, so
+                     # we simply select the one that comes after it
+                     select_url = self.channels[position+1].url
+-
++
+                 # Remove the channel
+                 self.active_channel.delete(purge=not keep_episodes)
+                 self.channels.remove(self.active_channel)
+@@ -2583,7 +2583,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+dlg.set_logo(gtk.gdk.pixbuf_new_from_file(gpodder.icon_file))
+             except:
+                 dlg.set_logo_icon_name('gpodder')
+-
++
+         dlg.run()
+
+     def on_wNotebook_switch_page(self, widget, *args):
+@@ -2674,13 +2674,13 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         &quot;&quot;&quot;Double-click/enter action handler for treeAvailable&quot;&quot;&quot;
+         # We should only have one one selected as it was double clicked!
+         e = self.get_selected_episodes()[0]
+-
++
+         if (self.config.double_click_episode_action == 'download'):
+             # If the episode has already been downloaded and exists then
+play it
+             if e.was_downloaded(and_exists=True):
+                 self.playback_episodes(self.get_selected_episodes())
+             # else download it if it is not already downloading
+-            elif not self.episode_is_downloading(e):
++            elif not self.episode_is_downloading(e):
+                 self.download_episode_list([e])
+                 self.update_episode_list_icons([e.url])
+                 self.play_or_download()
+@@ -2688,7 +2688,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             # If we happen to have downloaded this episode simple play it
+             if e.was_downloaded(and_exists=True):
+                 self.playback_episodes(self.get_selected_episodes())
+-            # else if streaming is possible stream it
++            # else if streaming is possible stream it
+             elif self.streaming_possible():
+                 self.playback_episodes(self.get_selected_episodes())
+             else:
+@@ -2734,7 +2734,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 self.enable_download_list_update()
+             elif task.status == task.DONE:
+                 model.remove(model.get_iter(tree_row_reference.get_path()))
+-
++
+         self.play_or_download()
+
+         # Update the tab title and downloads list
+@@ -2780,7 +2780,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         # so if we are not a Maemo app, we don't do anything
+         if gpodder.interface != gpodder.MAEMO:
+             return False
+-
++
+         diff = 0
+         if event.keyval == gtk.keysyms.F7: #plus
+             diff = 1
+@@ -2816,10 +2816,10 @@ class gPodder(BuilderWidget, dbus.service.Object):
+     def uniconify_main_window(self):
+         if self.is_iconified():
+             self.gPodder.present()
+-
++
+     def iconify_main_window(self):
+         if not self.is_iconified():
+-            self.gPodder.iconify()
++            self.gPodder.iconify()
+
+     def update_podcasts_tab(self):
+         if len(self.channels):
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090915/e62bedab/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090915/e62bedab/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002243.html">[gpodder-devel] Don't check on_quit_ask if on_quit_systray is	set
+</A></li>
+	<LI>Next message: <A HREF="002237.html">[gpodder-devel] ukrainian translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2234">[ date ]</a>
+              <a href="thread.html#2234">[ thread ]</a>
+              <a href="subject.html#2234">[ subject ]</a>
+              <a href="author.html#2234">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

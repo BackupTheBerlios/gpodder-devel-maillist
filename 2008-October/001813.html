@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] HOWTO: Run gPodder in Mac OS X
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20HOWTO%3A%20Run%20gPodder%20in%20Mac%20OS%20X&In-Reply-To=%3CE8DC510F-828D-4F2C-AEEF-9F725556F013%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001812.html">
+   <LINK REL="Next"  HREF="001815.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] HOWTO: Run gPodder in Mac OS X</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20HOWTO%3A%20Run%20gPodder%20in%20Mac%20OS%20X&In-Reply-To=%3CE8DC510F-828D-4F2C-AEEF-9F725556F013%40perli.net%3E"
+       TITLE="[gpodder-devel] HOWTO: Run gPodder in Mac OS X">thp at perli.net
+       </A><BR>
+    <I>Mon Oct 20 23:14:55 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001812.html">[gpodder-devel] feed stopped working since 0.13
+</A></li>
+        <LI>Next message: <A HREF="001815.html">[gpodder-devel] feed stopped working since 0.13 (patch 225)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1813">[ date ]</a>
+              <a href="thread.html#1813">[ thread ]</a>
+              <a href="subject.html#1813">[ subject ]</a>
+              <a href="author.html#1813">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there!
+
+After I tried out writing a C app using the native OS X port of Gtk+,  
+I though I'll look for a way to run PyGTK apps (like gPodder) in OS X.  
+The helpful post that I found is this one: <A HREF="http://www.daa.com.au/pipermail/pygtk/2008-October/016036.html">http://www.daa.com.au/pipermail/pygtk/2008-October/016036.html</A>
+
+So, here are the instructions to get you going in case you are  
+interested:
+
+1.) Grab the package <A HREF="http://www.immunityinc.com/downloads/CANVAS_OSX_SUPPORT.dmg">http://www.immunityinc.com/downloads/CANVAS_OSX_SUPPORT.dmg</A> 
+  and move the &quot;CANVAS_OSX&quot; folder it contains to /Applications/
+
+2.) Get a recent Git snapshot of gPodder, either by using &quot;git clone&quot;  
+or (if you don't have that handy) by grabbing a tarball from this URL: <A HREF="http://repo.or.cz/w/gpodder.git?a=snapshot;h=HEAD;sf=tgz">http://repo.or.cz/w/gpodder.git?a=snapshot;h=HEAD;sf=tgz</A>
+
+3.) Get feedparser-4.1.zip from <A HREF="http://code.google.com/p/feedparser/downloads/list">http://code.google.com/p/feedparser/downloads/list</A> 
+  and extract the &quot;feedparser.py&quot; file from it and copy it to &quot;src/&quot;  
+in your gPodder snapshot
+
+4.) cd into your gPodder snapshot and enter the following command in  
+one line in a Terminal:
+
+PYTHONPATH=src/ /Applications/CANVAS_OSX/bin/python bin/gpodder --local
+
+5.) Go to preferences and change &quot;xdg-open&quot; to simply &quot;open&quot; to open  
+all files with the default OS X app for their filetype (seems to be  
+iTunes for me; use Finder to select an MP3/OGG/... and press Apple+i  
+and then in &quot;Open with&quot; select VLC or something sane and there you go ;)
+
+6.) Start using gPodder on Mac OS X ;)
+
+Subscribing, downloading and playing all works. MP3 player sync should  
+work (it's just file operations), but MTP and libgpod support is  
+currently impossible until someone builds libgpod/libmtp plus their  
+Python bindings for OS X. The missing icons (only a cosmetic thingie)  
+can probably be fixed easily by copying a full icon theme into the GTK  
+&quot;share/icons&quot; folder - haven't tried this yet.
+
+And here is the obligatory screenshot: <A HREF="http://khan.thpinfo.com/~thp/images/gpodder_on_mac_os_x.jpg">http://khan.thpinfo.com/~thp/images/gpodder_on_mac_os_x.jpg</A>
+
+
+Enjoy,
+Thomas
+
+PS: Fun fact: A bit more than a year ago, I got gPodder to run on  
+Windows.. <A HREF="http://thpinfo.com/2007/09/pygtk-applications-on-">http://thpinfo.com/2007/09/pygtk-applications-on-</A> 
+windows.html So, theoretically, we are now supporting the three major  
+OSes. Practically, I haven't tested gPodder in Windows since September  
+2007.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001812.html">[gpodder-devel] feed stopped working since 0.13
+</A></li>
+	<LI>Next message: <A HREF="001815.html">[gpodder-devel] feed stopped working since 0.13 (patch 225)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1813">[ date ]</a>
+              <a href="thread.html#1813">[ thread ]</a>
+              <a href="subject.html#1813">[ subject ]</a>
+              <a href="author.html#1813">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

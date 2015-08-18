@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] new version downloads new episodes,	but screen	empty
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%09but%20screen%09empty&In-Reply-To=%3C1186426562.2791.17.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000436.html">
+   <LINK REL="Next"  HREF="000444.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] new version downloads new episodes,	but screen	empty</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%09but%20screen%09empty&In-Reply-To=%3C1186426562.2791.17.camel%40macbook%3E"
+       TITLE="[gpodder-devel] new version downloads new episodes,	but screen	empty">thp at perli.net
+       </A><BR>
+    <I>Mon Aug  6 20:56:02 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000436.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+        <LI>Next message: <A HREF="000444.html">[gpodder-devel] new version downloads new episodes,	but screen empty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Richard!
+
+Included are some explanations, hints and things you can try out to get
+gPodder 0.9.4 running. As you're using a Gentoo ebuild, it might be
+related to this, bug it might as well be a yet-undetected bug in the
+current codebase.
+
+Please try renaming/removing your ~/.config/gpodder/ directory and/or
+try the latest SVN trunk version. If the problem still persists, please
+also provide debugging output you can get by using &quot;gpodder --verbose&quot;.
+
+
+On Sun, 2007-08-05 at 23:08 -0500, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">richardvoigt at gmail.com</A> wrote:
+&gt;<i> Since upgrading to 0.9.4, gpodder is pretty much useless for me.  It's
+</I>&gt;<i> been awesome in the past, so I'm hoping to see it fixed rather than
+</I>&gt;<i> find a new client.
+</I>
+It works fine for many people, and the functional and bug-fixing
+improvements are worth an upgrade, for sure :)
+
+&gt;<i> Basically, it still knows about my subscribed feeds and still
+</I>&gt;<i> downloads new episodes using the check for new... download all new...
+</I>&gt;<i> functions.  But, the dropdown of channels is empty, so I can't see or
+</I>&gt;<i> play what I've downloaded. 
+</I>
+I've tried subscribing to all your channels from the OPML you sent,
+starting out with a &quot;fresh&quot; gPodder directory (rename or remove your
+~/.config/gpodder/ folder), and it works for me, have a look:
+
+<A HREF="http://spock.thpinfo.com/~thp/images/gpodder-richard-voigt.png">http://spock.thpinfo.com/~thp/images/gpodder-richard-voigt.png</A>
+
+&gt;<i> I tried renaming my channels.xml file and readding the channels, it
+</I>&gt;<i> just tells me I already have the latest episodes and sometimes
+</I>&gt;<i> displays the list from one channel, but the channel dropdown is still
+</I>&gt;<i> empty, and after restarting the program the screen is blank again.  I
+</I>&gt;<i> also tried renaming the cache directory -- no improvement. 
+</I>
+Please run gPodder with the &quot;--verbose&quot; command in a terminal window and
+mail the output of gPodder's verbose mode (debugging output, etc..).
+
+&gt;<i> Maybe the feeds I'm subscribed to don't have cover art.  Could that
+</I>&gt;<i> confuse gpodder?  I've attached the feed list which gpodder exported
+</I>&gt;<i> -- it clearly still has all the feed information.
+</I>
+I'm using feeds without cover art myself, and I'm sure many users are
+subscribed to some feeds without cover art.
+
+&gt;<i> If there's any more information I can supply, please let me know.
+</I>&gt;<i> This is gentoo linux, 64-bit on a core 2 duo, installed using the
+</I>&gt;<i> ebuild. 
+</I>
+Please try out the latest SVN release of gPodder. gPodder has a build
+infrastructure that enables you to run the SVN version of gPodder from a
+local directory without the need to install it into system directories,
+and it doesn't interfere with installed gPodder versions (in fact, these
+are ignored ;).
+
+Here's how you can try out the latest SVN version:
+
+$ svn co <A HREF="http://svn.berlios.de/svnroot/repos/gpodder/trunk">http://svn.berlios.de/svnroot/repos/gpodder/trunk</A> gpodder
+$ cd gpodder
+$ make test
+
+This checks out the latest source code, changes into the source tree,
+and runs the local version of gPodder with verbosity turned on.
+
+&gt;<i> Thanks for the (previously) great software! 
+</I>
+I hope we can help you get it running for you again, as gPodder 0.9.4 is
+really one of our shiniest releases today, and it really works well for
+many users :) Although, if there IS a bug in gPodder which you've just
+spotted, I'd be very glad if you could help us investigate and get rid
+of that bug, as it might happen to someone else, too.
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000436.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+	<LI>Next message: <A HREF="000444.html">[gpodder-devel] new version downloads new episodes,	but screen empty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

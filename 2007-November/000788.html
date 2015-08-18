@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Incorrect extension detection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Incorrect%20extension%20detection&In-Reply-To=%3C1194787829.7076.6.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000787.html">
+   <LINK REL="Next"  HREF="000789.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Incorrect extension detection</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Incorrect%20extension%20detection&In-Reply-To=%3C1194787829.7076.6.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Incorrect extension detection">thp at perli.net
+       </A><BR>
+    <I>Sun Nov 11 14:30:29 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000787.html">[gpodder-devel] Incorrect extension detection
+</A></li>
+        <LI>Next message: <A HREF="000789.html">[gpodder-devel] Incorrect extension detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#788">[ date ]</a>
+              <a href="thread.html#788">[ thread ]</a>
+              <a href="subject.html#788">[ subject ]</a>
+              <a href="author.html#788">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Nicolas!
+
+On Fri, 2007-11-09 at 19:34 +0100, Nicolas Quienot wrote:
+&gt;<i> I have noticed a problem with extension detection for the videos from
+</I>&gt;<i> this podcast :
+</I>&gt;<i> <A HREF="http://www.lemonde.fr/pod/sequence/0,2-811987,1-0,0.xml">http://www.lemonde.fr/pod/sequence/0,2-811987,1-0,0.xml</A> 
+</I>&gt;<i> 
+</I>&gt;<i> video files are stored with a &quot;.xiti&quot; extension, that's not a problem,
+</I>&gt;<i> my video player don't care about extension.
+</I>&gt;<i> 
+</I>&gt;<i> but this podcast is never synchronized to my ipod, because video
+</I>&gt;<i> podcast detection is based on extension. 
+</I>&gt;<i> 
+</I>&gt;<i> url of one episode :
+</I>&gt;<i> <A HREF="http://get.xiti.com/url.xiti?medias.lemonde.fr/mmpub/edt/vi/20071108/976236_tlzp_081107lg_prog.mp4?xts=43260&amp;amp;type=Podcast&amp;amp;flux=Le+Podcast+du+T%E9l%E9zapping&amp;amp;pod=le+podcast+du+t%E9l%E9zapping_07_11_2007">http://get.xiti.com/url.xiti?medias.lemonde.fr/mmpub/edt/vi/20071108/976236_tlzp_081107lg_prog.mp4?xts=43260&amp;type=Podcast&amp;flux=Le+Podcast+du+T%E9l%E9zapping&amp;pod=le+podcast+du+t%E9l%E9zapping_07_11_2007</A> 
+</I>
+I've updated the file_extension_from_url() function (that is responsible
+for extracting the extension from a given URL) to check for known-good
+extensions (video, audio, torrent) and if none is found, try to recurse
+into the query string and find a known-good extension there.
+
+This should provide a better extension detection algorithm. The code is
+in gPodder's SVN trunk, if you are currently not working with the SVN
+version, have a look at <A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+or wait for the next release.
+
+I've also tested the new code with the feed you mentioned and the &quot;.mp4&quot;
+extension is detected correctly now.
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000787.html">[gpodder-devel] Incorrect extension detection
+</A></li>
+	<LI>Next message: <A HREF="000789.html">[gpodder-devel] Incorrect extension detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#788">[ date ]</a>
+              <a href="thread.html#788">[ thread ]</a>
+              <a href="subject.html#788">[ subject ]</a>
+              <a href="author.html#788">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

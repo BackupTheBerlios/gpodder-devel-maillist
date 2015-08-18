@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder crashing after recent libgpod updates
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%20crashing%20after%20recent%20libgpod%20updates&In-Reply-To=%3C483CA87C.2080601%40speakeasy.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001481.html">
+   <LINK REL="Next"  HREF="001488.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder crashing after recent libgpod updates</H1>
+    <B>Andy Busch</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%20crashing%20after%20recent%20libgpod%20updates&In-Reply-To=%3C483CA87C.2080601%40speakeasy.net%3E"
+       TITLE="[gpodder-devel] gpodder crashing after recent libgpod updates">apblist at speakeasy.net
+       </A><BR>
+    <I>Wed May 28 02:34:04 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001481.html">[gpodder-devel] Results of the Usability evaluation
+</A></li>
+        <LI>Next message: <A HREF="001488.html">[gpodder-devel] [Gtkpod-devel] gpodder crashing after recent	libgpod updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1487">[ date ]</a>
+              <a href="thread.html#1487">[ thread ]</a>
+              <a href="subject.html#1487">[ subject ]</a>
+              <a href="author.html#1487">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>gpodder is crashing on iPod sync since the updates to libgpod for 
+writing MHOD 53.
+
+It copies the files fine, but segfaults when it tries to write the 
+iTunesDB.  gtkpod can find the orphaned files and remove them, and works 
+otherwise.
+
+I've attached a backtrace of the sync operation.
+
+This happens with the svn or most recent release of gpodder.  Did 
+something change (or need to be changed) with the python bindings?
+
+Thanks,
+Andy
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gdb-gpodder.txt.gz
+Type: application/x-gzip
+Size: 3297 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080527/82823c2b/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080527/82823c2b/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001481.html">[gpodder-devel] Results of the Usability evaluation
+</A></li>
+	<LI>Next message: <A HREF="001488.html">[gpodder-devel] [Gtkpod-devel] gpodder crashing after recent	libgpod updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1487">[ date ]</a>
+              <a href="thread.html#1487">[ thread ]</a>
+              <a href="subject.html#1487">[ subject ]</a>
+              <a href="author.html#1487">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

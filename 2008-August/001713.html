@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] More Detail on the File Conversion Script
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20More%20Detail%20on%20the%20File%20Conversion%20Script&In-Reply-To=%3C1217831174.7394.89.camel%40Jingjiang%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001703.html">
+   <LINK REL="Next"  HREF="001701.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] More Detail on the File Conversion Script</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20More%20Detail%20on%20the%20File%20Conversion%20Script&In-Reply-To=%3C1217831174.7394.89.camel%40Jingjiang%3E"
+       TITLE="[gpodder-devel] More Detail on the File Conversion Script">Paul at thegithouse.com
+       </A><BR>
+    <I>Mon Aug  4 08:26:14 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001703.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+        <LI>Next message: <A HREF="001701.html">[gpodder-devel] feature request: Time stretching /	audio	playback speed up
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1713">[ date ]</a>
+              <a href="thread.html#1713">[ thread ]</a>
+              <a href="subject.html#1713">[ subject ]</a>
+              <a href="author.html#1713">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ooops, my bad.  I should have already created the wiki entry for the
+cmd_download_complete etc
+
+I will get onto this in the next day or so!
+
+Sorry, forgot all about it.
+
+Paul
+
+On Sun, 2008-08-03 at 16:29 +0200, Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> On Aug 3, 2008, at 4:06 AM, Clark Burbidge wrote:
+</I>&gt;<i> &gt; I would like to know more about the &quot;File Conversion Script&quot; option in
+</I>&gt;<i> &gt; the preferences. I searched the mailing list archive and the wiki but
+</I>&gt;<i> &gt; was not able to find anything.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; When is the &quot;File Conversion Script&quot; called? After download? On  
+</I>&gt;<i> &gt; transfer?
+</I>&gt;<i> &gt; What files are passed to it?
+</I>&gt;<i> 
+</I>&gt;<i> The conversion script used to convert files after download is  
+</I>&gt;<i> &quot;documented&quot; in this part of the gPodder sources:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/download.py#l185">http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/download.py#l185</A>
+</I>&gt;<i> 
+</I>&gt;<i> The &quot;conversion script&quot; command is used to convert files for sending  
+</I>&gt;<i> over bluetooth and is documented here:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/gui.py;h=72eee32b488da48a80582b2c9f6a6e5c84f4f71b;hb=HEAD#l801">http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/gui.py;h=72eee32b488da48a80582b2c9f6a6e5c84f4f71b;hb=HEAD#l801</A>
+</I>&gt;<i> 
+</I>&gt;<i> It should accept two filename parameters, one that is the file to be  
+</I>&gt;<i> sent and the second that is the converted file that should be written  
+</I>&gt;<i> to. If you don't need to convert a file, you should copy the source  
+</I>&gt;<i> file to the destination file in the script.
+</I>&gt;<i> 
+</I>&gt;<i> This only works for sending files via bluetooth, however. For  
+</I>&gt;<i> conversion after download, you should use &quot;cmd_download_complete&quot; that  
+</I>&gt;<i> is documented in the first link above.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; My media player does not like .mov, only .avi and I would like to
+</I>&gt;<i> &gt; convert any and all podcasts that come in as .mov to avi. I have a
+</I>&gt;<i> &gt; command I use to do this manually but need some direction on getting
+</I>&gt;<i> &gt; this command into a script that will convert with some level of
+</I>&gt;<i> &gt; magical automaticitude. Is the &quot;File Conversion Script&quot; what I want to
+</I>&gt;<i> &gt; do or should I cron something? I'd love to see gpodder managed (not
+</I>&gt;<i> &gt; synced or redownloaded) the orriginal and converted files so that I
+</I>&gt;<i> &gt; don't have to deal with them on the player side or in the random name
+</I>&gt;<i> &gt; by which they are stored on my computer by gpodder.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The command:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; mencoder filename.mov -quiet -ovc lavc -lavcopts
+</I>&gt;<i> &gt; vcodec=mpeg4:v4mv:mbd=2:trell -vf expand=:::::4/3,scale=320:-3,harddup
+</I>&gt;<i> &gt; -oac mp3lame -lameopts fast:preset=medium -ffourcc DX50 -o
+</I>&gt;<i> &gt; filename.avi
+</I>&gt;<i> 
+</I>&gt;<i> It would be very helpful if you could start a Wiki document  
+</I>&gt;<i> documenting working conversion or &quot;cmd_download_complete&quot; scripts for  
+</I>&gt;<i> specific media players, so others can participate and download known- 
+</I>&gt;<i> working scripts ready to be used.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001703.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+	<LI>Next message: <A HREF="001701.html">[gpodder-devel] feature request: Time stretching /	audio	playback speed up
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1713">[ date ]</a>
+              <a href="thread.html#1713">[ thread ]</a>
+              <a href="subject.html#1713">[ subject ]</a>
+              <a href="author.html#1713">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

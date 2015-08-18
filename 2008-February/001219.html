@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Invalid feed: can gPodder handle it?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%20%3D%3Futf-8%3Fq%3FInvalid_feed%3D3A_can_gPodder_handle_it%3F%3D%20%3D%3Futf-8%3Fq%3F%3D3F%3F%3D&In-Reply-To=%3C20080222074859.2CE3AA3538%40ifrance01.ifrance.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001224.html">
+   <LINK REL="Next"  HREF="001225.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Invalid feed: can gPodder handle it?</H1>
+    <B>jerome.chabod at ifrance.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%20%3D%3Futf-8%3Fq%3FInvalid_feed%3D3A_can_gPodder_handle_it%3F%3D%20%3D%3Futf-8%3Fq%3F%3D3F%3F%3D&In-Reply-To=%3C20080222074859.2CE3AA3538%40ifrance01.ifrance.com%3E"
+       TITLE="[gpodder-devel] Invalid feed: can gPodder handle it?">jerome.chabod at ifrance.com
+       </A><BR>
+    <I>Fri Feb 22 08:48:59 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001224.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+        <LI>Next message: <A HREF="001225.html">[gpodder-devel] gPodder 0.11.0 &quot;Walking for a change makes me feel	normal&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1219">[ date ]</a>
+              <a href="thread.html#1219">[ thread ]</a>
+              <a href="subject.html#1219">[ subject ]</a>
+              <a href="author.html#1219">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Tanks Thomas
+
+The a) does not work, since the feed should'nt be public... one should normaly register and log in to the web site and watch the videos from there. Somebody as found the trick, but it's better not to tell them ;)
+
+The b) is a very good idea, I will try it.
+J&#233;r&#244;me
+
+De : <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>
+Date : 21/02/08 19:55:23
+A : Development for gPodder
+
+Sujet : Re: [gpodder-devel] Invalid feed: can gPodder handle it?
+Hello, &#65279;J&#233;r&#244;me!
+ 
+ On Wed, 2008-02-20 at 22:17 +0100, J&#233;r&#244;me Chabod wrote:
+ &gt; This feed
+ &gt; <A HREF="http://www.rss-one.com/rss-3950-Canal-Plus---Le-Zapping">http://www.rss-one.com/rss-3950-Canal-Plus---Le-Zapping</A> stores 
+ &gt; its episodes url in  tag instead of  and thus
+ &gt; can't be handled by gPodder.
+ &gt; I imagine this is invalid, but is there a way to read it in gpodder?
+ 
+ I think you would have to mess with feedparser. In short: It's not a
+ valid feed. Possible solutions:
+ 
+ a) Write to them they should fix their INVALID, BUGGY RSS feed
+ 
+ b) Write an XSLT transformation (or a Python script that modifies the
+    XML document using DOM or something) that you put on your server that
+    corrects the buggy RSS feed and outputs a valid podcast RSS feed,
+    and subscribe to that URL
+ 
+ For &quot;b)&quot;, it would be nice if you could send in the resulting script or
+ xslt file, because I think many people could profit from such a script
+ that they can customize on their server and make buggy feeds working.
+ That said, podcast authors should really fix their RSS feeds. After all,
+ that's why we have standards (and why it's so easy for gPodder to
+ subscribe to feeds from so many different sites and authors).
+ 
+ 
+ Thomas
+ 
+ _______________________________________________
+ gpodder-devel mailing list
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+ 
+
+________________________________________________________________________
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080222/13e65013/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080222/13e65013/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001224.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+	<LI>Next message: <A HREF="001225.html">[gpodder-devel] gPodder 0.11.0 &quot;Walking for a change makes me feel	normal&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1219">[ date ]</a>
+              <a href="thread.html#1219">[ thread ]</a>
+              <a href="subject.html#1219">[ subject ]</a>
+              <a href="author.html#1219">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GUI Proposal
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GUI%20Proposal&In-Reply-To=%3C20080201144843.0A37611D267%40ifrance02.ifrance.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001154.html">
+   <LINK REL="Next"  HREF="001157.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GUI Proposal</H1>
+    <B>jerome.chabod at ifrance.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GUI%20Proposal&In-Reply-To=%3C20080201144843.0A37611D267%40ifrance02.ifrance.com%3E"
+       TITLE="[gpodder-devel] GUI Proposal">jerome.chabod at ifrance.com
+       </A><BR>
+    <I>Fri Feb  1 15:48:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001154.html">[gpodder-devel] GUI Proposal
+</A></li>
+        <LI>Next message: <A HREF="001157.html">[gpodder-devel] GUI Proposal
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1155">[ date ]</a>
+              <a href="thread.html#1155">[ thread ]</a>
+              <a href="subject.html#1155">[ subject ]</a>
+              <a href="author.html#1155">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>A few other reflexions:
+* instead of adding other option to the preference dialog, why not have a &quot;view&quot; menu like other application with 2 options: &quot;show/hide toolbar&quot;, &quot;show/hide description&quot;
+* I also find the description under the episodes title provides by Thomas better as a description block on the bottom
+* I like Rafael's progress bar near the episodes information. I thing it's not incompatible with the &quot;download&quot; tab and we could have both of them.
+
+De : <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>
+Date : 01/02/08 14:44:07
+A : Development for gPodder
+
+Sujet : Re: [gpodder-devel] GUI Proposal
+Hello, Rafael!
+ 
+ On Thu, 2008-01-31 at 16:19 -0200, Rafael Proen&#231;a wrote:
+ &gt; I've made a mockup of how I think the GUI should look like (there is
+ &gt; nothing radical, just some few changes):
+ 
+ Wow, these look really good with some nice, fresh ideas :)
+ 
+ &gt; * I don't like the toolbar, so I would rather prefer an option to hide
+ &gt; it (View &gt; Toolbar).
+ 
+ That's nice. A toolbar on/off toggle should be easy to implement. If you
+ want, please grab the current SVN trunk head (see the Wiki for
+ instructions), make a patch (including src/gpodder/config.py
+ configuration option) and send it to the mailing list.
+ 
+ &gt; * Also, there is no need of an exclusive tab just to show the download
+ &gt; progress-- it can be shown in the same main window.
+ 
+ The reason for this (also already mentioned in a reply by Shane) is that
+ it is a way to quickly have an overview over all episodes that are
+ downloaded at the moment.
+ 
+ The way you did it in your mockup robs much screen space from the right
+ side that could be used to display more text from the
+ description/episode title (see the third screenshot on the wiki page).
+ 
+ &gt; * The short description of the episode would be shown in the bottom
+ &gt; when the item is selected.
+ 
+ I think we can remove this, as with the new episode list patch, the
+ description would be shown just beneath the title. Again, see the
+ screenshot for how it would look like.
+ 
+ &gt; * The &quot;Info&quot; togglebutton would show/hide the information about the
+ &gt; episode (including the full description and other pieces of
+ &gt; information).
+ 
+ What speaks against the episode info dialog? We could make the episode
+ info dialog non-modal if you want, but I think the info dialog is just
+ fine. What do we gain by placing the episode details in the bottom part
+ of the window?
+ 
+ &gt; I've implemented part of these changes to myself, but I think that
+ &gt; maybe someone else would appreciate that. But at the very least, the
+ &gt; show/hide toolbar should be available, if someone want to I could send
+ &gt; a patch for that, as well help with the implementation of the other
+ &gt; things.
+ 
+ Please, by all means send in patches if you have them. It would be
+ really good if you could send them in small pieces (i.e. only the
+ toolbar show/hide, then another patch for this and another one for that,
+ so I can commit and review them one by one).
+ 
+ &gt; So, what do you guys think about that?
+ 
+ Combining the other people's comments, I've created a Wiki page
+ summarizing the current discussion status:
+ 
+ <A HREF="http://gpodderwiki.jottit.com/gui-proposal-discussion">http://gpodderwiki.jottit.com/gui-proposal-discussion</A>
+ 
+ Maybe we can combine the good ideas to another set of GUI mockups and
+ also make sure that there is a way to view all current downloads?
+ 
+ 
+ Thanks,
+ Thomas
+ 
+ _______________________________________________
+ gpodder-devel mailing list
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+ 
+
+________________________________________________________________________
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080201/72cdab2c/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080201/72cdab2c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001154.html">[gpodder-devel] GUI Proposal
+</A></li>
+	<LI>Next message: <A HREF="001157.html">[gpodder-devel] GUI Proposal
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1155">[ date ]</a>
+              <a href="thread.html#1155">[ thread ]</a>
+              <a href="subject.html#1155">[ subject ]</a>
+              <a href="author.html#1155">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

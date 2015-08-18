@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20BUG%3A%20I%20can%27t%20see%20the%20podcasts%20after%20sync%20to%20my%0A%092G%20ipod%20nano%20ipod&In-Reply-To=%3Ce5a2633b0701271334r2d7150b8l2e3801f0faa82d67%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000054.html">
+   <LINK REL="Next"  HREF="000058.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod</H1>
+    <B>Joel Calado</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20BUG%3A%20I%20can%27t%20see%20the%20podcasts%20after%20sync%20to%20my%0A%092G%20ipod%20nano%20ipod&In-Reply-To=%3Ce5a2633b0701271334r2d7150b8l2e3801f0faa82d67%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod">joelcalado at gmail.com
+       </A><BR>
+    <I>Sat Jan 27 22:34:05 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000054.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+        <LI>Next message: <A HREF="000058.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#57">[ date ]</a>
+              <a href="thread.html#57">[ thread ]</a>
+              <a href="subject.html#57">[ subject ]</a>
+              <a href="author.html#57">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi :)
+
+I tested it now, i was able to build it into my home PC. It does work :)
+
+Thank you so much for thix fix Jos&#233; Luis Fustel!
+
+I think I should have brought up this issue long time ago, sorry for that ;)
+
+Bye!
+
+On 1/27/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello Joel,
+</I>&gt;<i>
+</I>&gt;<i> On Fri, 26 Jan 2007 23:47:00 +0000 Joel Calado wrote:
+</I>&gt;<i> &gt; I will check this out when i get back home, that is sunday ;)
+</I>&gt;<i>
+</I>&gt;<i> Please try it out and if you succeed, write a short notice to the list
+</I>&gt;<i> so I can incorporate this into the mainline.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> &gt; On 1/26/07, Jos&#233; Luis Fustel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dr_psy at terra.es</A>&gt; wrote:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; -----BEGIN PGP SIGNED MESSAGE-----
+</I>&gt;<i> &gt; &gt; Hash: SHA1
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I think I fixed it.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I added the line
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;         track.mediatype = 0x00000004
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; to the
+</I>&gt;<i> &gt; &gt; set_podcast_flags( self, track) in libipodsync.py
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; and it seems to work ok.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+______________
+&quot;Os jovens se cansar&#227;o e se fatigar&#227;o, e os mancebos cair&#227;o,
+mas os que esperam no Senhor renovar&#227;o as suas for&#231;as;
+subir&#227;o com asas como &#225;guias; correr&#227;o, e n&#227;o se cansar&#227;o;
+andar&#227;o, e n&#227;o se fatigar&#227;o.&quot;
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070127/fc806d93/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070127/fc806d93/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000054.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+	<LI>Next message: <A HREF="000058.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#57">[ date ]</a>
+              <a href="thread.html#57">[ thread ]</a>
+              <a href="subject.html#57">[ subject ]</a>
+              <a href="author.html#57">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

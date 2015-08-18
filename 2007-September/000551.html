@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GPLv3 licensing change
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPLv3%20licensing%20change&In-Reply-To=%3C1188927362.4920.9.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000550.html">
+   <LINK REL="Next"  HREF="000552.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GPLv3 licensing change</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPLv3%20licensing%20change&In-Reply-To=%3C1188927362.4920.9.camel%40macbook%3E"
+       TITLE="[gpodder-devel] GPLv3 licensing change">thp at perli.net
+       </A><BR>
+    <I>Tue Sep  4 19:36:02 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000550.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+        <LI>Next message: <A HREF="000552.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#551">[ date ]</a>
+              <a href="thread.html#551">[ thread ]</a>
+              <a href="subject.html#551">[ subject ]</a>
+              <a href="author.html#551">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jeff!
+
+On Mon, 2007-09-03 at 21:07 -0800, Jeff Spaleta wrote:
+&gt;<i> Have you checked to make sure that the codebases you are using as
+</I>&gt;<i> dependencies, even optional deps are licensed compatibly with GPLv3?
+</I>
+I haven't checked the optional dependencies, but some of them are just
+called with popen/subprocess/os.system, so I suppose the licenses don't
+have to be compatible, as it's not considered linking(??).
+
+I have yet to check the license of the dependencies (python-xml,
+python-feedparser), but I suppose these are compatible. It would be very
+helpful if you could check the licenses of the dependencies and report
+back if you find any problems, the dependencies are listed here:
+
+<A HREF="http://gpodder.berlios.de/dependencies.html">http://gpodder.berlios.de/dependencies.html</A>
+
+&gt;<i> If there are any codebases which are licensed under the GPLv2 without
+</I>&gt;<i> the option of using a later version then you have a compatibility
+</I>&gt;<i> issue which could end up biting anyone who wants to distribute this. 
+</I>
+Here's what I've checked about the code that is _directly_ used in the
+gPodder codebase and therefore currently distributed with gPodder:
+
+The SimpleGladeApp.py file (which is used by gPodder &quot;directly&quot;) is
+Copyright 2004 Sandino Flores Moreno, and licensed under &quot;LGPL 2.1 or
+later&quot;, which should be compatible with GPLv3 and if not can be upgraded
+to LGPLv3 (as it's &quot;or later&quot;, right?).
+
+The cache.py file (which is used by SVN gPodder) is Copyright 2007 Doug
+Hellman which looks like a BSD-style license without advertising clause,
+therefore being (to my knowledge) GPL-compatible, the exact license text
+follows here:
+
+=====================
+# Copyright 2007 Doug Hellmann.
+#
+#
+#                         All Rights Reserved
+#
+# Permission to use, copy, modify, and distribute this software and
+# its documentation for any purpose and without fee is hereby
+# granted, provided that the above copyright notice appear in all
+# copies and that both that copyright notice and this permission
+# notice appear in supporting documentation, and that the name of Doug
+# Hellmann not be used in advertising or publicity pertaining to
+# distribution of the software without specific, written prior
+# permission.
+#
+# DOUG HELLMANN DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+# INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN
+# NO EVENT SHALL DOUG HELLMANN BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+# CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+# OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+# NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+# CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+=====================
+
+All other things are implemented either by me or as a patch to the
+&quot;GPLv2 or later&quot; gPodder source, which makes all patches and
+contributions &quot;GPLv2 or later&quot;, so this can be upgraded to GPLv3, or did
+I miss something here?
+
+Of course, IANAL, so any help and corrections are welcome :)
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000550.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+	<LI>Next message: <A HREF="000552.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#551">[ date ]</a>
+              <a href="thread.html#551">[ thread ]</a>
+              <a href="subject.html#551">[ subject ]</a>
+              <a href="author.html#551">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

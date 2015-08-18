@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4766C021.807%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000943.html">
+   <LINK REL="Next"  HREF="000945.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 crash</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4766C021.807%40perli.net%3E"
+       TITLE="[gpodder-devel] 0.10.3 crash">thp at perli.net
+       </A><BR>
+    <I>Mon Dec 17 19:29:53 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000943.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+        <LI>Next message: <A HREF="000945.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#944">[ date ]</a>
+              <a href="thread.html#944">[ thread ]</a>
+              <a href="subject.html#944">[ subject ]</a>
+              <a href="author.html#944">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Chris!
+
+Chris Arnold wrote:
+&gt;<i> Thomas Perl wrote:
+</I>&gt;&gt;<i> Chris Arnold wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> Thomas Perl wrote:
+</I>&gt;&gt;&gt;<i> As the error message suggests, you have to type &quot;patch -p0&quot; as in &quot;dash, 
+</I>&gt;&gt;&gt;<i> P, zero&quot;, not &quot;dash, P, uppercase-o&quot;.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;<i> Oooppsss, OK ran with a 0 and it appears to work. I can not reproduce
+</I>&gt;<i> the crash with the patch. Do you need me to paste anything here? What do
+</I>&gt;<i> i do next?
+</I>
+Please find out the package version of python-cairo that you have 
+installed (you have to query the &quot;rpm&quot; tool for this information, there 
+are lots of guides on the web, I do not use a RPM-based system, so I 
+don't know the exact syntax). I believe that the older version of 
+PyCairo has a different parameter signature, so we would have to pass 
+our arguments differently to the write_to_png() function. Alternatively, 
+maybe we can find an even more straightforward way to transform a cairo 
+surface to a gtk pixbuf.
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000943.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+	<LI>Next message: <A HREF="000945.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#944">[ date ]</a>
+              <a href="thread.html#944">[ thread ]</a>
+              <a href="subject.html#944">[ subject ]</a>
+              <a href="author.html#944">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Proposed gPodder Bugzilla Changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposed%20gPodder%20Bugzilla%20Changes&In-Reply-To=%3C479DA3E4.7060207%40uberChicGeekChick.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001122.html">
+   <LINK REL="Next"  HREF="001129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Proposed gPodder Bugzilla Changes</H1>
+    <B>Kaity G. B.</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposed%20gPodder%20Bugzilla%20Changes&In-Reply-To=%3C479DA3E4.7060207%40uberChicGeekChick.com%3E"
+       TITLE="[gpodder-devel] Proposed gPodder Bugzilla Changes">uberChick at uberChicGeekChick.com
+       </A><BR>
+    <I>Mon Jan 28 10:44:04 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001122.html">[gpodder-devel] Proposed gPodder Bugzilla Changes
+</A></li>
+        <LI>Next message: <A HREF="001129.html">[gpodder-devel] Proposed gPodder Bugzilla Changes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1126">[ date ]</a>
+              <a href="thread.html#1126">[ thread ]</a>
+              <a href="subject.html#1126">[ subject ]</a>
+              <a href="author.html#1126">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>  **Ditto**
+
+High, Med, Low is much simlier.  Though won't we need a closed/resolved 
+option as well?
+
+BTW, I'm anxious to begin working on the sqlite3 integration, so how's 
+the new sync code going?  What version do you have it planned for.
+
+Than I'll be posting my PHP script(for cron jobs &amp;etc) later today.  My 
+script Automatically creates .m3u files.  So who ever's needing the old 
+playlist support can rely on my script while we switch to our new sync 
+code, sqlite3 storage, and
+
+I'll be adding my playlist manager patch as well which allows for full 
+custom playlists..  It works simular to like Firefox's bookmarks toolbar 
+&amp;manager.  I don't want to release any patch for my playlist manager 
+right now though; until sqlite3's been implemented.
+
+Lastly, Thomas will you be adding command line support for auto-syncing 
+to mp3_player_folder or will I get the priviledge of writing that?
+
+Latestly, as always, thnx to everyone who's worked so hard on this 
+project.  Esp. your dedication Thomas.  Rock on!
+
+I feel obligated to mention/repeat/babble that despite my health issues 
+taking me away from time to time - for more time than I've liked.  
+Luckily the logistical stuff is mostly dealt with.  As much as it can be 
+at the moment.  Anyways, just like OSS its all moment be moment.  Not to 
+mention my online new media OSS project &amp;podcasts.  Plus other projects 
+I'll be happy to announce more about soon enough.
+
+Okay babbling.  Thnx again everyone, I'll be posting my script later 
+today.  I had to add some new features, chuck some unfinished ones, &amp;do 
+a lil house cleaning.  But its o its way &quot;AS IS&quot;.  *wink*
+
+------------------------------------------------------------------------
+/Blessed Be,/
+/Kaity G. B.-&gt;<A HREF="http://uberChicGeekChick.Com">http://uberChicGeekChick.Com</A> 
+&lt;<A HREF="http://uberChicGeekChick.com/">http://uberChicGeekChick.com/</A>&gt; &amp;<A HREF="http://uberChicks.Net">http://uberChicks.Net</A> 
+&lt;<A HREF="http://uberChicks.Net/">http://uberChicks.Net/</A>&gt;/
+/What ever your level of errors to show - 'E_ALL | E_STRICT', 'use 
+strict', or 'gcc -Wextra -Wall' - May never an exception your code 
+through! (^_^)/
+
+
+/Generalized Dystonia/ &lt;<A HREF="http://dystonia-dreams.org/">http://dystonia-dreams.org/</A>&gt;: I have /'it'/ 
+thousands do! /'Its'/ taken my choice, /'its'/ taken my voice, /'its'/ 
+taken my life, &amp;taken my limbs!
+What it cannot take is my DREAMS &lt;<A HREF="http://dystonia-dreams.org/">http://dystonia-dreams.org/</A>&gt;!
+Though spastic &twisted; I'll not give up! <A HREF="http://Dystonia-DREAMS.Org/">http://Dystonia-DREAMS.Org/</A>
+
+
+Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i>
+</I>&gt;<i> On Sat, 2008-01-26 at 12:15 +0000, Paul Rudkin wrote:
+</I>&gt;<i>    
+</I>&gt;&gt;<i> Currently there is a priority list for P1...P5.  I personally think this
+</I>&gt;&gt;<i> is a little misleading (for example which is the highest priority?)  I
+</I>&gt;&gt;<i> propose that we change them to the following:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> * high
+</I>&gt;&gt;<i> * medium
+</I>&gt;&gt;<i> * low
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Let me know your thoughts and if we are all in agreement I will make the
+</I>&gt;&gt;<i> necessary changes.
+</I>&gt;&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i> I vote +1 :)
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>    
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080128/e07509d9/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080128/e07509d9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001122.html">[gpodder-devel] Proposed gPodder Bugzilla Changes
+</A></li>
+	<LI>Next message: <A HREF="001129.html">[gpodder-devel] Proposed gPodder Bugzilla Changes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1126">[ date ]</a>
+              <a href="thread.html#1126">[ thread ]</a>
+              <a href="subject.html#1126">[ subject ]</a>
+              <a href="author.html#1126">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

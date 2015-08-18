@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Using mimetype for better file extension detection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20mimetype%20for%20better%20file%20extension%20detection&In-Reply-To=%3C200806152238.26420.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001517.html">
+   <LINK REL="Next"  HREF="001519.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Using mimetype for better file extension detection</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20mimetype%20for%20better%20file%20extension%20detection&In-Reply-To=%3C200806152238.26420.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] Using mimetype for better file extension detection">me at nikosapi.org
+       </A><BR>
+    <I>Mon Jun 16 04:38:26 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001517.html">[gpodder-devel] 'old pubDate in your LocalDB' when running	in	verbose mode
+</A></li>
+        <LI>Next message: <A HREF="001519.html">[gpodder-devel] Using mimetype for better file	extension	detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1518">[ date ]</a>
+              <a href="thread.html#1518">[ thread ]</a>
+              <a href="subject.html#1518">[ subject ]</a>
+              <a href="author.html#1518">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello everybody,
+
+The attached patch allows gPodder to use the mimetype found in the episode's 
+feed to guess the file extension if none is found using the current method 
+(parsing the url). 
+
+This fixes an annoying bug with feeds that have urls that don't actually map 
+to real files. For instance, mininova.org urls look 
+like &quot;<A HREF="http://mininova.org/get/123456">http://mininova.org/get/123456</A>&quot;.  The filenames are tucked away in the 
+Content-Disposition http header (see RFC 1806) which makes it impossible for 
+gPodder to find out the filetype.
+
+I added an extension() function to the libpodcasts.podcastItem class which 
+takes care of getting the file extension and I had to modify a bunch of the 
+code to adapt to this change. So testing and feedback would be greatly 
+appreciated. 
+
+Once the patch is applied gPodder should run exactly the same unless you are 
+subscribed to a feed with weird urls like the mininova ones mentioned above. 
+
+Thanks,
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gPodder-r743-extension_from_mimetype.patch
+Type: text/x-diff
+Size: 9219 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080615/d71866ea/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080615/d71866ea/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001517.html">[gpodder-devel] 'old pubDate in your LocalDB' when running	in	verbose mode
+</A></li>
+	<LI>Next message: <A HREF="001519.html">[gpodder-devel] Using mimetype for better file	extension	detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1518">[ date ]</a>
+              <a href="thread.html#1518">[ thread ]</a>
+              <a href="subject.html#1518">[ subject ]</a>
+              <a href="author.html#1518">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

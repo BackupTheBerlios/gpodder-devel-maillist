@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Different episodes from the same channel, ends	up as the same file with different headings
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FDifferent_episodes_from_the_same_c%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fhannel%3D2C_ends%3D09up_as_the_same_file_with_different%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3F_headings%3F%3D&In-Reply-To=%3C200709032208.54970.bjoernr%40sensewave.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000583.html">
+   <LINK REL="Next"  HREF="000560.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Different episodes from the same channel, ends	up as the same file with different headings</H1>
+    <B>Bj&#248;rn Rasmussen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FDifferent_episodes_from_the_same_c%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fhannel%3D2C_ends%3D09up_as_the_same_file_with_different%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3F_headings%3F%3D&In-Reply-To=%3C200709032208.54970.bjoernr%40sensewave.com%3E"
+       TITLE="[gpodder-devel] Different episodes from the same channel, ends	up as the same file with different headings">bjoernr at sensewave.com
+       </A><BR>
+    <I>Mon Sep  3 22:08:54 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000583.html">[gpodder-devel] Hangs when trying to	close	the	user-settings	dialog
+</A></li>
+        <LI>Next message: <A HREF="000560.html">[gpodder-devel] Different episodes from the same channel,	ends	up as the same file with different headings
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#547">[ date ]</a>
+              <a href="thread.html#547">[ thread ]</a>
+              <a href="subject.html#547">[ subject ]</a>
+              <a href="author.html#547">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Saturday 25 August 2007 07:53:39 Thomas Perl wrote:
+&gt;<i> Hello, Bj&#195;&#184;rn!
+</I>&gt;<i>
+</I>&gt;<i> On Wed, 2007-08-22 at 22:58 +0200, Bj&#195;&#184;rn Rasmussen wrote:
+</I>&gt;<i> &gt; When I download multiple episodes from the same channel, most of them
+</I>&gt;<i> &gt; ends up as the same mp3 file, but with correct titles/headings.  It's
+</I>&gt;<i> &gt; not likely that this problem is caused by the channel.  It's the most
+</I>&gt;<i> &gt; importent radiostation in Norway.  If its caused by the station, you
+</I>&gt;<i> &gt; should also get the same problem.  You can try subscribing to
+</I>&gt;<i> &gt; <A HREF="http://podkast.nrk.no/program/saann_er_livet.rss">http://podkast.nrk.no/program/saann_er_livet.rss</A> for example.
+</I>&gt;<i>
+</I>&gt;<i> What do you mean with &quot;most of them ends up as the same mp3 file&quot;? Are
+</I>&gt;<i> they saved to one file, essentially overwriting each other on downloads?
+</I>&gt;<i> How can they have the correct titles/headings then?
+</I>
+Hi Thomas, again sorry for the late repons!
+
+1. I check for new episodes.
+2. I answer yes to download them, for all channels.
+3. gpodder downloads all episodes according to the list I got when I checked.
+4. I reallize that many of the episodes have equal file length.
+5. When I play those of equal lenth from the gui, I can confirm they are the 
+same files, even the titles are different.  The titles are correct according 
+to the list I got, prior to downloading.
+
+Hope this helps :-)
+
+&gt;<i>
+</I>&gt;<i> &gt; I've running gpodder 0.9.4, installed from the newest Fedora 7 rpm.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I've tried to remove all gpodder related files from the users
+</I>&gt;<i> &gt; homedirectory, before I removed the package (because it whas an
+</I>&gt;<i> &gt; upgraded version) and reinstalled it again.  All other Fedora packages
+</I>&gt;<i> &gt; are the newest.
+</I>&gt;<i>
+</I>&gt;<i> Maybe you mean the MD5-summed filenames look strange to you? gPodder
+</I>&gt;<i> uses directory names and file names that look like
+</I>&gt;<i> &quot;f8eda9e8d18cee72ac3105096bdd9568&quot; or
+</I>&gt;<i> &quot;a961d6c6e6b0993617f1b3282439009e.mp3&quot; (that's the NRK P2 podcast and
+</I>&gt;<i> its newest episode). If you want to have better names, you can use the
+</I>&gt;<i> &quot;sync&quot; feature of gPodder to do a one-way sync of your podcasts to a
+</I>&gt;<i> local directory (filesystem-based MP3 player is the option in question).
+</I>
+I didn't check the real files, only observed them from the gui.  I sync to a 
+mp3-player.  Seem to work ok, because the problem is reflected on the player 
+(different filenames on equal files).  The player see the same thing as the 
+gui.
+&gt;<i>
+</I>&gt;<i> The reason for this is that URLs and filenames of podcast files are so
+</I>&gt;<i> unpredictable that the only good way to differentiate between them is by
+</I>&gt;<i> URL, because if the URL is the same, the file contents should also be
+</I>&gt;<i> the same.
+</I>&gt;<i>
+</I>&gt;<i> Hope that clears things up, or is there a real bug here, unrelated to
+</I>&gt;<i> md5-summed filenames?
+</I>
+To sum up:  After a week, I download about 5 files from one channel.  Sync 
+them to the player.  Typically there are only 2 unique files on the player.  
+The same goes for the gui.
+
+...
+
+I decided to test the svn-version and got the same problems:
+
+1. Removed the old gpodder-files from my home directory, to get a clean start.
+2. Checked the channel <A HREF="http://podkast.nrk.no/program/andakten.rss.">http://podkast.nrk.no/program/andakten.rss.</A>
+3. Got five different episodes in the gui, which I downloaded.
+4. All turned up as the same file:
+
+ls -Rl gpodder-downloads
+gpodder-downloads:
+totalt 4
+drwxrwxr-x 2 bjoern bjoern 4096 2007-09-03 21:54 
+c5bad60281daada37af6aff51c665957
+
+gpodder-downloads/c5bad60281daada37af6aff51c665957:
+totalt 13164
+-rw-rw-r-- 1 bjoern bjoern 2690427 2007-08-29 18:20 
+550487a7fffb7248b2e2cc2e5ad049dd.mp3
+-rw-rw-r-- 1 bjoern bjoern 2690427 2007-08-29 18:20 
+62f80e5b260919e805b5acc5022bc5d8.mp3
+-rw-rw-r-- 1 bjoern bjoern 2690427 2007-08-29 18:20 
+7829c3295608371af0191256d28542a6.mp3
+-rw-rw-r-- 1 bjoern bjoern 2690427 2007-08-29 18:20 
+ad54e43299d7ac8f4faf2c76ee31809c.mp3
+-rw-rw-r-- 1 bjoern bjoern 2690427 2007-08-29 18:20 
+d55442e69e859019a676da7685597580.mp3
+-rw-rw-r-- 1 bjoern bjoern    3193 2007-09-03 21:54 index.xml
+
+As you can see, equal length of them all.  I played the to confirm.  I did 
+this test twice and got the exact same result.
+
+Here's the test output:
+
+$ make test
+bin/gpodder --local --verbose
+(DownloadHistory) Creating new history list.
+(PlaybackHistory) Creating new history list.
+(ipodsync) Could not find pymad.
+(ipodsync) Found eyeD3
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover art
+(ipodsync) Found mplayer, using it to find track length of files
+(Importer) Cannot import OPML from 
+URL: /home/bjoern/.config/gpodder/channels.opml
+Player found: Movie Player (/usr/share/applications/totem.desktop)
+Player found: Rhythmbox Music Player 
+(/usr/share/applications/rhythmbox.desktop)
+Player found: Listen Music Player 
+(/usr/share/applications/fedora-listen.desktop)
+Player found: Audacious 
+(/usr/share/applications/fedora-audacious-plugins.desktop)
+Player found: Xine (/usr/share/applications/rpmforge-xine.desktop)
+Player found: RealPlayer 10 (/usr/share/applications/realplay.desktop)
+Player found: BMPx: Play Files (/usr/share/applications/bmp-play-2.0.desktop)
+Player found: Audacity (/usr/share/applications/fedora-audacity.desktop)
+Player found: GXine Video Player 
+(/usr/share/applications/fedora-gxine.desktop)
+Player found: VLC media player (/usr/share/applications/vlc.desktop)
+Player found: Serpentine Audio-CD Creator 
+(/usr/share/applications/fedora-serpentine.desktop)
+Player found: Wavbreaker (/usr/share/applications/fedora-wavbreaker.desktop)
+Player found: Audacious (/usr/share/applications/fedora-audacious.desktop)
+Player found: Muine Music Player 
+(/usr/share/applications/fedora-muine.desktop)
+Player found: MPlayer (/usr/share/applications/mplayer.desktop)
+Player found: Audio Player 
+(/usr/share/applications/redhat-audio-player.desktop)
+Player found: mkvinfo (/usr/share/applications/livna-mkvinfo.desktop)
+Player found: Exaile Music Player 
+(/usr/share/applications/fedora-exaile.desktop)
+Player found: Sweep (/usr/share/applications/fedora-sweep.desktop)
+Player found: Rosegarden (/usr/share/applications/fedora-rosegarden.desktop)
+Player found: BMPx: Enqueue Files 
+(/usr/share/applications/bmp-enqueue-2.0.desktop)
+Player found: EasyTAG (/usr/share/applications/easytag.desktop)
+Player found: Kaboodle (/usr/share/applications/kde/kaboodle.desktop)
+Player found: Kaffeine (/usr/share/applications/kde/kaffeine.desktop)
+Player found: KMid (/usr/share/applications/kde/kmid.desktop)
+Player found: JuK (/usr/share/applications/kde/juk.desktop)
+Player found: Noatun (/usr/share/applications/kde/noatun.desktop)
+Player found: Amarok (/usr/share/applications/kde/amarok.desktop)
+(Importer) Cannot import OPML from 
+URL: /home/bjoern/.config/gpodder/channels.opml
+Adding new channel: <A HREF="http://podkast.nrk.no/program/andakten.rss">http://podkast.nrk.no/program/andakten.rss</A>
+(podcastChannel) Generating TreeModel for 
+<A HREF="http://podkast.nrk.no/program/andakten.rss">http://podkast.nrk.no/program/andakten.rss</A>
+Trying to 
+delete: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-550487a7fffb7248b2e2cc2e5ad049dd.mp3
+Command: 
+wget --timeout=120 --continue --output-document=&quot;/home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-550487a7fffb7248b2e2cc2e5ad049dd.mp3&quot; &quot;<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0903-0818_13401.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0903-0818_13401.mp3</A>&quot;
+Trying to 
+delete: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-7829c3295608371af0191256d28542a6.mp3
+Command: 
+wget --timeout=120 --continue --output-document=&quot;/home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-7829c3295608371af0191256d28542a6.mp3&quot; &quot;<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0831-0818_13212.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0831-0818_13212.mp3</A>&quot;
+Trying to 
+delete: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-62f80e5b260919e805b5acc5022bc5d8.mp3
+Command: 
+wget --timeout=120 --continue --output-document=&quot;/home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-62f80e5b260919e805b5acc5022bc5d8.mp3&quot; &quot;<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0830-0818_13211.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0830-0818_13211.mp3</A>&quot;
+Trying to 
+delete: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-ad54e43299d7ac8f4faf2c76ee31809c.mp3
+Command: 
+wget --timeout=120 --continue --output-document=&quot;/home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-ad54e43299d7ac8f4faf2c76ee31809c.mp3&quot; &quot;<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0829-0818_13210.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0829-0818_13210.mp3</A>&quot;
+Trying to 
+delete: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-d55442e69e859019a676da7685597580.mp3
+Command: 
+wget --timeout=120 --continue --output-document=&quot;/home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/.tmp-d55442e69e859019a676da7685597580.mp3&quot; &quot;<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0828-0818_13209.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0828-0818_13209.mp3</A>&quot;
+Download thread finished: Adding downloaded item to local database
+Local 
+database: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/index.xml
+(DownloadHistory) Adding: 
+<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0828-0818_13209.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0828-0818_13209.mp3</A>
+(DownloadHistory) Wrote 1 history entries.
+Download thread finished: Adding downloaded item to local database
+Local 
+database: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/index.xml
+(DownloadHistory) Adding: 
+<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0903-0818_13401.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0903-0818_13401.mp3</A>
+(DownloadHistory) Wrote 2 history entries.
+Download thread finished: Adding downloaded item to local database
+Local 
+database: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/index.xml
+(DownloadHistory) Adding: 
+<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0829-0818_13210.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0829-0818_13210.mp3</A>
+(DownloadHistory) Wrote 3 history entries.
+Download thread finished: Adding downloaded item to local database
+Local 
+database: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/index.xml
+(DownloadHistory) Adding: 
+<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0831-0818_13212.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0831-0818_13212.mp3</A>
+(DownloadHistory) Wrote 4 history entries.
+Download thread finished: Adding downloaded item to local database
+Local 
+database: /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/index.xml
+(DownloadHistory) Adding: 
+<A HREF="http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0830-0818_13211.mp3">http://podkast.nrk.no/filer/andakten/nrk_andakten_2007-0830-0818_13211.mp3</A>
+(DownloadHistory) Wrote 5 history entries.
+Trying to get settings for <A HREF="http://podkast.nrk.no/program/andakten.rss">http://podkast.nrk.no/program/andakten.rss</A>
+Downloading cover 
+to /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/cover
+Reading cover 
+from /home/bjoern/gpodder-downloads/c5bad60281daada37af6aff51c665957/cover
+Saving settings for <A HREF="http://podkast.nrk.no/program/andakten.rss">http://podkast.nrk.no/program/andakten.rss</A>
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+
+-- 
+Bj&#248;rn Rasmussen
+
+Adr:	Moneheia 47, 4656 Kristiansand
+Tlf:	38 04 50 05
+Mbl:	911 27367
+Epost:	<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">bjoernr at sensewave.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000583.html">[gpodder-devel] Hangs when trying to	close	the	user-settings	dialog
+</A></li>
+	<LI>Next message: <A HREF="000560.html">[gpodder-devel] Different episodes from the same channel,	ends	up as the same file with different headings
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#547">[ date ]</a>
+              <a href="thread.html#547">[ thread ]</a>
+              <a href="subject.html#547">[ subject ]</a>
+              <a href="author.html#547">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [patch] Rockbox Cover Art
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20Rockbox%20Cover%20Art&In-Reply-To=%3C483DB760.7080409%40debian.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001488.html">
+   <LINK REL="Next"  HREF="001490.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [patch] Rockbox Cover Art</H1>
+    <B>David Spreen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20Rockbox%20Cover%20Art&In-Reply-To=%3C483DB760.7080409%40debian.org%3E"
+       TITLE="[gpodder-devel] [patch] Rockbox Cover Art">netzwurm at debian.org
+       </A><BR>
+    <I>Wed May 28 21:49:52 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001488.html">[gpodder-devel] [Gtkpod-devel] gpodder crashing after recent	libgpod updates
+</A></li>
+        <LI>Next message: <A HREF="001490.html">[gpodder-devel] [patch] Rockbox Cover Art
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1489">[ date ]</a>
+              <a href="thread.html#1489">[ thread ]</a>
+              <a href="subject.html#1489">[ subject ]</a>
+              <a href="author.html#1489">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I wrote a quick patch against the stable branch to sync cover art to
+Rockbox iPods (with the UMS config). However, right now gpodder doesn't
+determine if the player is a rockbox player and the size of the BMP file
+generated is non-configurable.
+
+If this was to make it upstream, what would be the prefered way of
+dealing with this? Should I make a new player-class for rockbox players
+and have cover-size be configurable (I believe that different player
+ports of rockbox use different resolutions for album art)? Or should
+that just be an option for the general UMS class?
+
+Let me know what you think. I am happy to provide a patch against trunk
+too. Right now I'd just like some feedback.
+
+Best,
+
+David
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: rockbox-cover-art.patch
+Type: text/x-diff
+Size: 2093 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080528/f64b01c6/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080528/f64b01c6/attachment.patch</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 252 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080528/f64b01c6/attachment.pgp">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080528/f64b01c6/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001488.html">[gpodder-devel] [Gtkpod-devel] gpodder crashing after recent	libgpod updates
+</A></li>
+	<LI>Next message: <A HREF="001490.html">[gpodder-devel] [patch] Rockbox Cover Art
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1489">[ date ]</a>
+              <a href="thread.html#1489">[ thread ]</a>
+              <a href="subject.html#1489">[ subject ]</a>
+              <a href="author.html#1489">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

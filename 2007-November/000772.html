@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Extracting cover art using eyeD3 and a small bugfix
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extracting%20cover%20art%20using%20eyeD3%20and%20a%20small%20bugfix&In-Reply-To=%3C200711031613.50363.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000770.html">
+   <LINK REL="Next"  HREF="000773.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Extracting cover art using eyeD3 and a small bugfix</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extracting%20cover%20art%20using%20eyeD3%20and%20a%20small%20bugfix&In-Reply-To=%3C200711031613.50363.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Extracting cover art using eyeD3 and a small bugfix">nikosapi at gmail.com
+       </A><BR>
+    <I>Sat Nov  3 21:13:50 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000770.html">[gpodder-devel] New config manager in SVN
+</A></li>
+        <LI>Next message: <A HREF="000773.html">[gpodder-devel] Extracting cover art using eyeD3 and a	small	bugfix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#772">[ date ]</a>
+              <a href="thread.html#772">[ thread ]</a>
+              <a href="subject.html#772">[ subject ]</a>
+              <a href="author.html#772">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I was playing with eyeD3 the other day and realized that it's able to spit out 
+a cover art file. So now we can get rid of the PyID3 dependency and the best 
+part is that eyeD3 will actually extract cover art from files with older ID3 
+tags. Also eyeD3 will give us the mimetype of the cover art file so we can 
+give it a proper file extension instead of making everything use .jpg.
+
+Also while tinkering with some ogg podcasts I noticed that if oggdec or lame 
+is not installed then gPodder will crash after attempting to convert an ogg 
+file. I added some verification to make sure those applications are 
+installed.
+
+Attached are the diffs of the files I modified.
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: libconverter-r448-encoder-decoder-verification.patch
+Type: text/x-diff
+Size: 1786 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071103/31ab0c7b/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071103/31ab0c7b/attachment.patch</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: libipodsync-r448-eyeD3-coverart.patch
+Type: text/x-diff
+Size: 2615 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071103/31ab0c7b/attachment-0001.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071103/31ab0c7b/attachment-0001.patch</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: util-delete-png-cover.patch
+Type: text/x-diff
+Size: 654 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071103/31ab0c7b/attachment-0002.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071103/31ab0c7b/attachment-0002.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000770.html">[gpodder-devel] New config manager in SVN
+</A></li>
+	<LI>Next message: <A HREF="000773.html">[gpodder-devel] Extracting cover art using eyeD3 and a	small	bugfix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#772">[ date ]</a>
+              <a href="thread.html#772">[ thread ]</a>
+              <a href="subject.html#772">[ subject ]</a>
+              <a href="author.html#772">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

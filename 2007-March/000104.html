@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] treeAvailable reordering
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20treeAvailable%20reordering&In-Reply-To=%3C883cfe6d0703121656x115b2d6bva9f2bda93674c5b1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000103.html">
+   <LINK REL="Next"  HREF="000106.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] treeAvailable reordering</H1>
+    <B>Michel Salim</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20treeAvailable%20reordering&In-Reply-To=%3C883cfe6d0703121656x115b2d6bva9f2bda93674c5b1%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] treeAvailable reordering">michel.salim at gmail.com
+       </A><BR>
+    <I>Tue Mar 13 00:56:55 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000103.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+        <LI>Next message: <A HREF="000106.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#104">[ date ]</a>
+              <a href="thread.html#104">[ thread ]</a>
+              <a href="subject.html#104">[ subject ]</a>
+              <a href="author.html#104">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2007/3/12, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt;:
+&gt;<i> Hello Michel,
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 12 Mar 2007 16:41:24 -0400 Michel Salim wrote:
+</I>&gt;<i> &gt; Thanks for such a neat application! Now for a genuine feature request:
+</I>&gt;<i> &gt; a search box?
+</I>&gt;<i>
+</I>&gt;<i> Ok, I've added this to the TODO list. What exactly do you want to
+</I>&gt;<i> search for? Downloaded/available podcasts? Do you want to only search
+</I>&gt;<i> episode titles or also descriptions and URLs?
+</I>&gt;<i>
+</I>Available podcasts, I suppose (in gPodder terminology, this includes
+both the ones listed in the feed and the ones already downloaded, even
+if no longer available, right? I've not used it long enough to notice
+what happens when some episodes were dropped).
+
+Searching descriptions by default would make sense. I don't think the
+URL adds much (assuming the search is done within a channel)
+
+One more thing: I notice this piece of code:
+
+self.channel.sort()
+self.channel.reverse()
+
+in librssreader.py
+
+This should probably be self.channel.sort(reverse=True), to avoid
+going over the list another time.
+
+Regards,
+
+-- 
+Michel Salim
+<A HREF="http://hircus.wordpress.com/">http://hircus.wordpress.com/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: librssreader.diff
+Type: text/x-patch
+Size: 556 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070312/e5850220/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070312/e5850220/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000103.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+	<LI>Next message: <A HREF="000106.html">[gpodder-devel] treeAvailable reordering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#104">[ date ]</a>
+              <a href="thread.html#104">[ thread ]</a>
+              <a href="subject.html#104">[ subject ]</a>
+              <a href="author.html#104">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

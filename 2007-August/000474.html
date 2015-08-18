@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] missing dependency?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20missing%20dependency%3F&In-Reply-To=%3C1186949205.5750.1.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000473.html">
+   <LINK REL="Next"  HREF="000476.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] missing dependency?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20missing%20dependency%3F&In-Reply-To=%3C1186949205.5750.1.camel%40macbook%3E"
+       TITLE="[gpodder-devel] missing dependency?">thp at perli.net
+       </A><BR>
+    <I>Sun Aug 12 22:06:45 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000473.html">[gpodder-devel] missing dependency?
+</A></li>
+        <LI>Next message: <A HREF="000476.html">[gpodder-devel] missing dependency?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#474">[ date ]</a>
+              <a href="thread.html#474">[ thread ]</a>
+              <a href="subject.html#474">[ subject ]</a>
+              <a href="author.html#474">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, enderst!
+
+On Sun, 2007-08-12 at 11:20 -0600, enderst wrote:
+&gt;<i> i maintain the gpodder package for Arch Linux archlinux.org and a user
+</I>&gt;<i> has an error i can't reproduce:
+</I>&gt;<i> 
+</I>&gt;<i> Traceback (most recent call last): 
+</I>&gt;<i> File &quot;/usr/bin/gpodder&quot;, line 145, in 
+</I>&gt;<i> sys.exit( main()) 
+</I>&gt;<i> File &quot;/usr/bin/gpodder&quot;, line 131, in main 
+</I>&gt;<i> gpodder.icon_dir = os.path.join( prefix, *gpodder.icon_dir) 
+</I>&gt;<i> AttributeError: 'module' object has no attribute 'icon_dir'
+</I>
+Which version of Python is Arch Linux running?
+
+You could try patching &quot;/usr/bin/gpodder&quot; to say &quot;from gpodder import
+gpodder&quot; instead of &quot;import gpodder&quot;. I've fixed this error a few days
+ago in SVN by renaming the &quot;gpodder.py&quot; module to &quot;gui.py&quot; and
+re-factoring some things to make it working again.
+
+Will be fixed in next gPodder release, for now, please try &quot;from gpodder
+import gpodder&quot; instead of &quot;import gpodder&quot; and tell me if it works.
+
+
+Thanks,
+Thomas
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000473.html">[gpodder-devel] missing dependency?
+</A></li>
+	<LI>Next message: <A HREF="000476.html">[gpodder-devel] missing dependency?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#474">[ date ]</a>
+              <a href="thread.html#474">[ thread ]</a>
+              <a href="subject.html#474">[ subject ]</a>
+              <a href="author.html#474">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

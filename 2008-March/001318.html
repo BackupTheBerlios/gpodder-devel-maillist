@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Using Audioscrobbler Log Files To Mark Shows	As Played
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FUsing_Audioscrobbler_Log_Files_To_Mark_%3F%3D%0A%09%3D%3Futf-8%3Fq%3FShows%3D09As_Played%3F%3D&In-Reply-To=%3C200803281211.29086.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001317.html">
+   <LINK REL="Next"  HREF="001326.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Using Audioscrobbler Log Files To Mark Shows	As Played</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FUsing_Audioscrobbler_Log_Files_To_Mark_%3F%3D%0A%09%3D%3Futf-8%3Fq%3FShows%3D09As_Played%3F%3D&In-Reply-To=%3C200803281211.29086.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] Using Audioscrobbler Log Files To Mark Shows	As Played">me at nikosapi.org
+       </A><BR>
+    <I>Fri Mar 28 17:11:28 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001317.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark Shows	As	Played
+</A></li>
+        <LI>Next message: <A HREF="001326.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As	Played
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1318">[ date ]</a>
+              <a href="thread.html#1318">[ thread ]</a>
+              <a href="subject.html#1318">[ subject ]</a>
+              <a href="author.html#1318">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On March 28, 2008 09:38:53 Thomas Perl wrote:
+&gt;<i> Hello, Nick!
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 2008-03-27 at 20:54 -0500, nikosapi wrote:
+</I>&gt;<i> &gt; A new gPodder release is out so it's time to start adding features ;)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; If you have a player that is capable of running the Rockbox firmware[1]
+</I>&gt;<i> &gt; you can enable logging everything you play to an audioscrobbler portable
+</I>&gt;<i> &gt; player format logfile[2]. (Go to: Settings--&gt;General
+</I>&gt;<i> &gt; Settings--&gt;Playback--&gt;Last.fm Log and set it to &quot;Yes&quot;)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I wrote a patch that is able to use this logfile to mark episodes that
+</I>&gt;<i> &gt; you've listened to as played in gPodder while you're syncing. For this to
+</I>&gt;<i> &gt; work you must be using gPodder's tag update feature (set update_tags to
+</I>&gt;<i> &gt; True) because the audioscrobbler logfile only reports the metadata of the
+</I>&gt;<i> &gt; tracks you've listened to not an actual filename.
+</I>&gt;<i>
+</I>&gt;<i> Great work! I've looked through your patch and cleaned up some things
+</I>&gt;<i> (moved the find_mount_point function to gpodder.util, rename the config
+</I>&gt;<i> option, so people know this is related to mp3 players, re-structure some
+</I>&gt;<i> other parts of the code, move the list of possible file names to the
+</I>&gt;<i> class instead of having it per-instance, etc..). I have attached the
+</I>&gt;<i> updated patch, please have a look at it and try it out if it doesn't
+</I>&gt;<i> break anything.
+</I>&gt;<i>
+</I>&gt;<i> I'll merge the patch to SVN trunk if everything works and you are happy
+</I>&gt;<i> with the patch. I think this could really be an useful feature. One
+</I>&gt;<i> question remains, however: Which program is supposed to &quot;clean&quot; that
+</I>&gt;<i> file, or is Rockbox keeping it down to a maximum size, so it doesn't
+</I>&gt;<i> grow endlessly?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>
+Hello Thomas,
+
+Thank you for looking over and improving my code :)  
+
+I added one small thing, if find_mount_point() returns '/' then to prevent 
+find_scrobbler_log() from os.walk()'ing your whole root filesystem we simply 
+set mp3_player_mount_point to the the directory that we're syncing to. Appart 
+from that I think the patch is ready.
+
+Ideally the .scrobbler.log file should be cleaned by scrobbler software that 
+submits tracks to last.fm. I wrote a small python module that can scrobble 
+tracks but I don't really think that it belongs in gPodder. (Unless you 
+really think otherwise...)
+
+Have a good day,
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-r643-scrobbler_v3.patch
+Type: text/x-diff
+Size: 5488 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080328/7f69a1eb/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080328/7f69a1eb/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001317.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark Shows	As	Played
+</A></li>
+	<LI>Next message: <A HREF="001326.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As	Played
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1318">[ date ]</a>
+              <a href="thread.html#1318">[ thread ]</a>
+              <a href="subject.html#1318">[ subject ]</a>
+              <a href="author.html#1318">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

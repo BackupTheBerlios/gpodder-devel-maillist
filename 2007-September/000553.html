@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hangs when trying to close	the	user-settings	dialog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hangs%20when%20trying%20to%20close%0A%09the%09user-settings%09dialog&In-Reply-To=%3C1188929026.4920.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000546.html">
+   <LINK REL="Next"  HREF="000557.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hangs when trying to close	the	user-settings	dialog</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hangs%20when%20trying%20to%20close%0A%09the%09user-settings%09dialog&In-Reply-To=%3C1188929026.4920.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Hangs when trying to close	the	user-settings	dialog">thp at perli.net
+       </A><BR>
+    <I>Tue Sep  4 20:03:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000546.html">[gpodder-devel] Hangs when trying to close the user-settings	dialog
+</A></li>
+        <LI>Next message: <A HREF="000557.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#553">[ date ]</a>
+              <a href="thread.html#553">[ thread ]</a>
+              <a href="subject.html#553">[ subject ]</a>
+              <a href="author.html#553">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Bj&#248;rn!
+
+On Mon, 2007-09-03 at 21:08 +0200, Bj&#248;rn Rasmussen wrote:
+&gt;<i> On Friday 24 August 2007 13:16:13 Thomas Perl wrote:
+</I>&gt;<i> &gt; On Thu, 2007-08-23 at 12:01 +0200, Thorsten Scherf wrote:
+</I>&gt;<i> &gt; &gt; On [Wed, 22.08.2007 22:48], Bj&#195;&#184;rn Rasmussen wrote:
+</I>&gt;<i> &gt; &gt; &gt;Hangs when trying to close the user-settings dialog.  I cannot
+</I>&gt;<i> change
+</I>&gt;<i> &gt; &gt; &gt; the user-settings from the gui.  Works if I do the changes in
+</I>&gt;<i> the
+</I>&gt;<i> &gt; &gt; &gt; gpodder.conf file.  At the moment I click the Close button, the
+</I>&gt;<i> program
+</I>&gt;<i> &gt; &gt; &gt; hangs and the process consumes all the available cpu power.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I have exactly the same problem with gpodder in F-7. In addition
+</I>&gt;<i> to
+</I>&gt;<i> &gt; &gt; this, I'm not able to delete files I downloaded before. The files
+</I>&gt;<i> will
+</I>&gt;<i> &gt; &gt; only get the Trash icon in the GUI but will never be deleted.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Any ideas on this?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Can you please provide the output of running &quot;gpodder --verbose&quot; in
+</I>&gt;<i> a
+</I>&gt;<i> &gt; terminal and trying to reproduce the problem?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; It would also be very helpful if you could try running the current
+</I>&gt;<i> SVN
+</I>&gt;<i> &gt; trunk of gPodder to see if the problem still appears there:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> Sorry for the late response Thomas!
+</I>&gt;<i> 
+</I>&gt;<i> I get the same result regarding &quot;close the user-settings dialog&quot; -
+</I>&gt;<i> problem, when running the SVN-version.
+</I>&gt;<i> 
+</I>&gt;<i> Here's the output:
+</I>&gt;<i> 
+</I>&gt;<i> $ yum list python-feedparser
+</I>&gt;<i> Available Packages
+</I>&gt;<i> python-feedparser.noarch                 4.1-3.fc7
+</I>&gt;<i> updates
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">bjoern at nforce4</A> gpodder]$ make test
+</I>&gt;<i> bin/gpodder --local --verbose
+</I>&gt;<i> (ipodsync) Could not find pymad.
+</I>&gt;<i> (ipodsync) Found eyeD3
+</I>&gt;<i> (ipodsync) PyID3 not found - falling back to channel cover for iPod
+</I>&gt;<i> cover art
+</I>&gt;<i> (ipodsync) Found mplayer, using it to find track length of files
+</I>&gt;<i> (Importer) Cannot import OPML from 
+</I>&gt;<i> URL: /home/bjoern/.config/gpodder/channels.opml
+</I>&gt;<i> Player found: Movie Player (/usr/share/applications/totem.desktop)
+</I>&gt;<i> Player found: Rhythmbox Music Player 
+</I>&gt;<i> (/usr/share/applications/rhythmbox.desktop)
+</I>&gt;<i> Player found: Listen Music Player 
+</I>&gt;<i> (/usr/share/applications/fedora-listen.desktop)
+</I>&gt;<i> Player found: Audacious 
+</I>&gt;<i> (/usr/share/applications/fedora-audacious-plugins.desktop)
+</I>&gt;<i> Player found: Xine (/usr/share/applications/rpmforge-xine.desktop)
+</I>&gt;<i> Player found: RealPlayer 10 (/usr/share/applications/realplay.desktop)
+</I>&gt;<i> Player found: BMPx: Play Files
+</I>&gt;<i> (/usr/share/applications/bmp-play-2.0.desktop)
+</I>&gt;<i> Player found: Audacity
+</I>&gt;<i> (/usr/share/applications/fedora-audacity.desktop)
+</I>&gt;<i> Player found: GXine Video Player 
+</I>&gt;<i> (/usr/share/applications/fedora-gxine.desktop)
+</I>&gt;<i> Player found: VLC media player (/usr/share/applications/vlc.desktop)
+</I>&gt;<i> Player found: Serpentine Audio-CD Creator 
+</I>&gt;<i> (/usr/share/applications/fedora-serpentine.desktop)
+</I>&gt;<i> Player found: Wavbreaker
+</I>&gt;<i> (/usr/share/applications/fedora-wavbreaker.desktop)
+</I>&gt;<i> Player found: Audacious
+</I>&gt;<i> (/usr/share/applications/fedora-audacious.desktop)
+</I>&gt;<i> Player found: Muine Music Player 
+</I>&gt;<i> (/usr/share/applications/fedora-muine.desktop)
+</I>&gt;<i> Player found: MPlayer (/usr/share/applications/mplayer.desktop)
+</I>&gt;<i> Player found: Audio Player 
+</I>&gt;<i> (/usr/share/applications/redhat-audio-player.desktop)
+</I>&gt;<i> Player found: mkvinfo (/usr/share/applications/livna-mkvinfo.desktop)
+</I>&gt;<i> Player found: Exaile Music Player 
+</I>&gt;<i> (/usr/share/applications/fedora-exaile.desktop)
+</I>&gt;<i> Player found: Sweep (/usr/share/applications/fedora-sweep.desktop)
+</I>&gt;<i> Player found: Rosegarden
+</I>&gt;<i> (/usr/share/applications/fedora-rosegarden.desktop)
+</I>&gt;<i> Player found: BMPx: Enqueue Files 
+</I>&gt;<i> (/usr/share/applications/bmp-enqueue-2.0.desktop)
+</I>&gt;<i> Player found: EasyTAG (/usr/share/applications/easytag.desktop)
+</I>&gt;<i> Player found: Kaboodle (/usr/share/applications/kde/kaboodle.desktop)
+</I>&gt;<i> Player found: Kaffeine (/usr/share/applications/kde/kaffeine.desktop)
+</I>&gt;<i> Player found: KMid (/usr/share/applications/kde/kmid.desktop)
+</I>&gt;<i> Player found: JuK (/usr/share/applications/kde/juk.desktop)
+</I>&gt;<i> Player found: Noatun (/usr/share/applications/kde/noatun.desktop)
+</I>&gt;<i> Player found: Amarok (/usr/share/applications/kde/amarok.desktop)
+</I>&gt;<i> Stale download directory found: 34f867ea321c1698bc0bb1b92ef3b5a4
+</I>&gt;<i> Successfully 
+</I>&gt;<i> removed /home/bjoern/gpodder-downloads/34f867ea321c1698bc0bb1b92ef3b5a4.
+</I>&gt;<i> (Importer) Cannot import OPML from 
+</I>&gt;<i> URL: /home/bjoern/.config/gpodder/channels.opml
+</I>&gt;<i> /home/bjoern/tmp/gpodder/src/gpodder/gui.py:1338: GtkWarning: 
+</I>&gt;<i> gtk_file_folder_unix_get_info: assertion `strcmp (dirname, 
+</I>&gt;<i> folder_unix-&gt;filename) == 0' failed
+</I>&gt;<i>   if fs.run() == gtk.RESPONSE_OK:
+</I>&gt;<i> Moving downloads from /home/bjoern/gpodder-downloads to /home/bjoern
+</I>&gt;<i> Error while moving /home/bjoern/gpodder-downloads to /home/bjoern. 
+</I>
+Seems like a PyGTK/GTK-related problem to me. Or maybe we're just using
+it in a wrong way? Which version of GTK2 / PyGTK are you using?
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000546.html">[gpodder-devel] Hangs when trying to close the user-settings	dialog
+</A></li>
+	<LI>Next message: <A HREF="000557.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#553">[ date ]</a>
+              <a href="thread.html#553">[ thread ]</a>
+              <a href="subject.html#553">[ subject ]</a>
+              <a href="author.html#553">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

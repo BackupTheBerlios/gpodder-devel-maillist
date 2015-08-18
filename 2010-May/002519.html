@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20support%20%28was%3A%20Re%3A%20Podcast%20played%0A%09status%20get%20reset%20when%20syncing%29&In-Reply-To=%3CAANLkTimDiJIV-miQE8xGRm_k6G0EcT69VevMLXVbhGNA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002516.html">
+   <LINK REL="Next"  HREF="002520.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)</H1>
+    <B>Matthew Bauer</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20support%20%28was%3A%20Re%3A%20Podcast%20played%0A%09status%20get%20reset%20when%20syncing%29&In-Reply-To=%3CAANLkTimDiJIV-miQE8xGRm_k6G0EcT69VevMLXVbhGNA%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)">mjbauer95 at gmail.com
+       </A><BR>
+    <I>Sat May  8 21:29:31 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002516.html">[gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)
+</A></li>
+        <LI>Next message: <A HREF="002520.html">[gpodder-devel] iPod touch support (was: Re: Podcast	played	status get reset when syncing)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2519">[ date ]</a>
+              <a href="thread.html#2519">[ thread ]</a>
+              <a href="subject.html#2519">[ subject ]</a>
+              <a href="author.html#2519">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hate to annoy you but is there a reason that track.flag1 is set to 0x02 and
+the rest are set to 0x01?
+
+According to the itdb.h file on
+gitorious&lt;<A HREF="http://gitorious.org/libgpod/libgpod/blobs/master/src/itdb.h">http://gitorious.org/libgpod/libgpod/blobs/master/src/itdb.h</A>&gt;
+they
+are usually set to 0x00.
+
+On Tue, May 4, 2010 at 8:14 PM, Matthew Bauer &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">mjbauer95 at gmail.com</A>&gt; wrote:
+
+&gt;<i> Is there a reason to set flag1 to 0x02? According to itdb.h&lt;<A HREF="http://gitorious.org/libgpod/libgpod/blobs/master/src/itdb.h">http://gitorious.org/libgpod/libgpod/blobs/master/src/itdb.h</A>&gt;, it
+</I>&gt;<i> should be 0x00.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Mon, May 3, 2010 at 8:45 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> On Sat, May 01, 2010 at 11:05:30PM -0500, Matthew Bauer wrote:
+</I>&gt;&gt;<i> &gt; Podcast played status get reset when syncing.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; This happens on my iPod Touch like in this wiki page:
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> <A HREF="http://wiki.gpodder.org/wiki/IPod_Touch#What.27s_not_working_quite_right_yet">http://wiki.gpodder.org/wiki/IPod_Touch#What.27s_not_working_quite_right_yet</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Is there any way to fix this?
+</I>&gt;&gt;<i> &gt; Is it a problem with libgpod, gpodder, or the iPhone OS?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Talking from a very high-level perspective, it's an issue with Apple not
+</I>&gt;&gt;<i> allowing third-party applications to talk to their devices. All that the
+</I>&gt;&gt;<i> community knows about the iTunesDB has been reverse-engineered.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I personally don't have an iPod touch, so I can't help you with it. I'm
+</I>&gt;&gt;<i> always open for patches improving support for these devices, but it's a
+</I>&gt;&gt;<i> very unsatisfying job to get things working with such a closed system.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> What you can try, however, is to play with the code in
+</I>&gt;&gt;<i> set_podcast_flags() in src/gpodder/sync.py, which contains the code to
+</I>&gt;&gt;<i> set the playcount, some flags (again, as it has been reverse engineered,
+</I>&gt;&gt;<i> the flags are called &quot;flag1&quot;, &quot;flag2&quot; and &quot;flag3&quot;, and the values have
+</I>&gt;&gt;<i> been determined by looking at podcasts synced to iPods from iTunes).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It might also help if you could provide us with the values for the flags
+</I>&gt;&gt;<i> mentioned in set_podcast_flags() before and after playing them on the
+</I>&gt;&gt;<i> iPod touch, maybe this way we can find out a way to set the values
+</I>&gt;&gt;<i> correctly for the iPod touch.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you want to help fixing this, please get in touch, and I'll provide
+</I>&gt;&gt;<i> you with information on what to try out and which values to determine,
+</I>&gt;&gt;<i> and we should be able to figure something out and maybe come up with a
+</I>&gt;&gt;<i> working solution for iPod touch users.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> What you can try out right now is to comment out all calls to
+</I>&gt;&gt;<i> &quot;set_podcast_flags()&quot; in src/gpodder/sync.py and synchronize, which
+</I>&gt;&gt;<i> should make the synchronized files appear as normal songs on the iPod.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> HTH.
+</I>&gt;&gt;<i> Thomas
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20100508/9f1114b2/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20100508/9f1114b2/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002516.html">[gpodder-devel] iPod touch support (was: Re: Podcast played	status get reset when syncing)
+</A></li>
+	<LI>Next message: <A HREF="002520.html">[gpodder-devel] iPod touch support (was: Re: Podcast	played	status get reset when syncing)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2519">[ date ]</a>
+              <a href="thread.html#2519">[ thread ]</a>
+              <a href="subject.html#2519">[ subject ]</a>
+              <a href="author.html#2519">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

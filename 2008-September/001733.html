@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Glade file editor
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Glade%20file%20editor&In-Reply-To=%3C20080901143255.3702272d%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001732.html">
+   <LINK REL="Next"  HREF="001760.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Glade file editor</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Glade%20file%20editor&In-Reply-To=%3C20080901143255.3702272d%40macbook%3E"
+       TITLE="[gpodder-devel] Glade file editor">thp at perli.net
+       </A><BR>
+    <I>Mon Sep  1 14:32:55 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001732.html">[gpodder-devel] Glade file editor
+</A></li>
+        <LI>Next message: <A HREF="001760.html">[gpodder-devel] Glade file editor
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1733">[ date ]</a>
+              <a href="thread.html#1733">[ thread ]</a>
+              <a href="subject.html#1733">[ subject ]</a>
+              <a href="author.html#1733">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 31 Aug 2008 21:00:40 -0400
+nikosapi &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">me at nikosapi.org</A>&gt; wrote:
+&gt;<i> What do you guys use for editing the data/gpodder.glade file?
+</I>&gt;<i> 
+</I>&gt;<i> The reason I ask is because glade-2 seems to have stopped working
+</I>&gt;<i> properly for me. If I load the glade file then save without any
+</I>&gt;<i> modification I end up with a 2200-line diff. I've tried on both the
+</I>&gt;<i> Fedora 9 and Ubuntu Hardy versions (both 2.12.2) but they both yield
+</I>&gt;<i> the same result.
+</I>
+I've been hand-editing the gladefile for the last few months, and
+creating a new glade file and copying over the widget XML if I need to
+design a new window. That way, the diff is always okay and I learn a
+bit the structure of glade files. I believe that in the future, we
+would have to migrate to gtk builder anyway, so depending on glade
+isn't as good as it was some years ago.
+
+The structure of .glade files isn't that hard to understand, although
+it _does_ take a little bit of time getting used to editing them
+without messing something up :)
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001732.html">[gpodder-devel] Glade file editor
+</A></li>
+	<LI>Next message: <A HREF="001760.html">[gpodder-devel] Glade file editor
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1733">[ date ]</a>
+              <a href="thread.html#1733">[ thread ]</a>
+              <a href="subject.html#1733">[ subject ]</a>
+              <a href="author.html#1733">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GPodder bluetooth problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPodder%20bluetooth%20problem&In-Reply-To=%3C4A8AEEC9.2070204%40cnewham.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002208.html">
+   <LINK REL="Next"  HREF="002210.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GPodder bluetooth problem</H1>
+    <B>Chris Newham</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPodder%20bluetooth%20problem&In-Reply-To=%3C4A8AEEC9.2070204%40cnewham.com%3E"
+       TITLE="[gpodder-devel] GPodder bluetooth problem">chris at cnewham.com
+       </A><BR>
+    <I>Tue Aug 18 20:11:21 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002208.html">[gpodder-devel] Multiple directories on ipod
+</A></li>
+        <LI>Next message: <A HREF="002210.html">[gpodder-devel] Problem with download manager
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2209">[ date ]</a>
+              <a href="thread.html#2209">[ thread ]</a>
+              <a href="subject.html#2209">[ subject ]</a>
+              <a href="author.html#2209">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+I recently did a fresh install of 32bit ubuntu 9.04 on my machine did 
+all the patches &amp; updates then installed gpodder 0.17 and all is working 
+fine except the right click &quot;send via bluetooth&quot; function does nothing. 
+The bluetooth system on my computer is working correctly, if I save a 
+file to my desktop I can then right click on it and pick &quot;send to..&quot; and 
+send the file via bluetooth to the device with no problems.
+
+I ran gpodder with the verbose flag and tried the send via bluetooth and 
+got this output.
+
+[  83.058] (gPodder) Distorted View &lt;=&gt; Distorted View
+Traceback (most recent call last):
+  File &quot;/var/lib/python-support/python2.6/gpodder/gui.py&quot;, line 1560, in 
+&lt;lambda&gt;
+    item.connect('activate', lambda w: 
+self.copy_episode_bluetooth(episode_url))
+  File &quot;/var/lib/python-support/python2.6/gpodder/gui.py&quot;, line 1419, in 
+copy_episode_bluetooth
+    Thread(target=convert_and_send_thread, args=[filename, destfile, 
+device, self.notification]).start()
+NameError: global name 'device' is not defined
+
+Can anybody help with this? its a pain I use the bluetooth function 
+daily to send a podcast to my phone to listen to while riding my bike :-)
+
+Anybody else having this problem?
+Is it a bug I need to report?
+
+Thanks Chris.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002208.html">[gpodder-devel] Multiple directories on ipod
+</A></li>
+	<LI>Next message: <A HREF="002210.html">[gpodder-devel] Problem with download manager
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2209">[ date ]</a>
+              <a href="thread.html#2209">[ thread ]</a>
+              <a href="subject.html#2209">[ subject ]</a>
+              <a href="author.html#2209">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

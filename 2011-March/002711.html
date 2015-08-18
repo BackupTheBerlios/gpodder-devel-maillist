@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder.net over IPv6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder.net%20over%20IPv6&In-Reply-To=%3C4D6FD9DA.7020007%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002710.html">
+   <LINK REL="Next"  HREF="002712.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder.net over IPv6</H1>
+    <B>Stefan K&#246;gl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder.net%20over%20IPv6&In-Reply-To=%3C4D6FD9DA.7020007%40gmail.com%3E"
+       TITLE="[gpodder-devel] gpodder.net over IPv6">koeglstefan at gmail.com
+       </A><BR>
+    <I>Thu Mar  3 19:11:38 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002710.html">[gpodder-devel] gpodder-devel Digest, Vol 57, Issue 1
+</A></li>
+        <LI>Next message: <A HREF="002712.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2711">[ date ]</a>
+              <a href="thread.html#2711">[ thread ]</a>
+              <a href="subject.html#2711">[ subject ]</a>
+              <a href="author.html#2711">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've just enabled IPv6-Support for the gpodder.net server. For testing
+purposes, we currently use three different domains that all serve the
+same service
+
+ <A HREF="http://gpodder.net/">http://gpodder.net/</A>         IPv4-only
+ <A HREF="http://ipv46.gpodder.net/">http://ipv46.gpodder.net/</A>   Dual-Stack
+ <A HREF="http://ipv6.gpodder.net/">http://ipv6.gpodder.net/</A>    IPv6-only
+
+If you would like to test, please try to access all three sites. With
+normal IPv4 internet access, you should be able to access the first two
+only.
+
+If you have dual stack internet access (or a IPv6 tunnel broker, etc)
+you should, of course, be able to access all three sites.
+
+If you can spend a bit more time on testing, you can also configure
+gPodder to use one of the servers you can reach (change at Podcasts -&gt;
+Preferences -&gt; Edit config -&gt; Setting &quot;mygpo_server&quot;).
+
+Those that are extremely motivated can also get a IPv6 tunnel (I'd
+recommend SixXS [1]) and try to access the IPv6-only site, too.
+
+If you experience any problems, please let me know!
+
+
+Thanks,
+
+-- Stefan
+
+
+[1] <A HREF="https://www.sixxs.net/">https://www.sixxs.net/</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002710.html">[gpodder-devel] gpodder-devel Digest, Vol 57, Issue 1
+</A></li>
+	<LI>Next message: <A HREF="002712.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2711">[ date ]</a>
+              <a href="thread.html#2711">[ thread ]</a>
+              <a href="subject.html#2711">[ subject ]</a>
+              <a href="author.html#2711">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

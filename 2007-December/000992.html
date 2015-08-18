@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bugreport%20--%20crash%3A%20bsddb.db.DBPageNotFoundError&In-Reply-To=%3C47754467.8060304%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000990.html">
+   <LINK REL="Next"  HREF="001000.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bugreport%20--%20crash%3A%20bsddb.db.DBPageNotFoundError&In-Reply-To=%3C47754467.8060304%40perli.net%3E"
+       TITLE="[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError">thp at perli.net
+       </A><BR>
+    <I>Fri Dec 28 19:45:59 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000990.html">[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError
+</A></li>
+        <LI>Next message: <A HREF="001000.html">[gpodder-devel] deleted items
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#992">[ date ]</a>
+              <a href="thread.html#992">[ thread ]</a>
+              <a href="subject.html#992">[ subject ]</a>
+              <a href="author.html#992">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Ondrej!
+
+Ondrej Vesely wrote:
+&gt;<i> my gpodder 0.10.3_svn version crashs just after start with following
+</I>&gt;<i> messages (just tail):
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/shelve.py&quot;, line 92, in keys
+</I>&gt;<i>     return self.dict.keys()
+</I>&gt;<i>   File &quot;bsddb/__init__.py&quot;, line 252, in keys
+</I>&gt;<i>   File &quot;bsddb/dbutils.py&quot;, line 62, in DeadlockWrap
+</I>&gt;<i> bsddb.db.DBPageNotFoundError: (-30987, 'DB_PAGE_NOTFOUND: Requested page not
+</I>&gt;<i> found')
+</I>&gt;<i> 
+</I>&gt;<i> The same happend to me few weeks before (also with developement version),
+</I>&gt;<i> the solution was removing configuration files and upgrade (not really
+</I>&gt;<i> comfortable). Could you suggest anything better for me?
+</I>
+Temporary fix: rm -f ~/.config/gpodder/*.db
+
+In the long term, we should replace the shelve-based storage method with 
+something more reliable (I'm thinking of SQLite).
+
+Enjoy,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000990.html">[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError
+</A></li>
+	<LI>Next message: <A HREF="001000.html">[gpodder-devel] deleted items
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#992">[ date ]</a>
+              <a href="thread.html#992">[ thread ]</a>
+              <a href="subject.html#992">[ subject ]</a>
+              <a href="author.html#992">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

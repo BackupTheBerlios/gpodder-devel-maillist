@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CCAOAivddzztLLzPFXENoVOXmNHsZeACtcJ1Dt0Xe_SW4xkg-RcA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002832.html">
+   <LINK REL="Next"  HREF="002837.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values</H1>
+    <B>Dov Feldstern</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CCAOAivddzztLLzPFXENoVOXmNHsZeACtcJ1Dt0Xe_SW4xkg-RcA%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values">dovdevel at gmail.com
+       </A><BR>
+    <I>Sun Jul 10 23:28:41 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002832.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+        <LI>Next message: <A HREF="002837.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2834">[ date ]</a>
+              <a href="thread.html#2834">[ thread ]</a>
+              <a href="subject.html#2834">[ subject ]</a>
+              <a href="author.html#2834">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;&gt;<i> I think the API should be updated to reflect the new usage --- not
+</I>&gt;&gt;<i> that we're changing the API in any way, but we are changing its
+</I>&gt;&gt;<i> interpertation. I'm willing to take a stab at this, if you like ---
+</I>&gt;&gt;<i> can you point me to the sources for the API document? This will also
+</I>&gt;&gt;<i> help us make sure that we understand each other, and may help to find
+</I>&gt;&gt;<i> any issues we haven't considered.
+</I>&gt;<i>
+</I>&gt;<i> The relevant documentation is at
+</I>&gt;<i> <A HREF="http://wiki.gpodder.org/wiki/Web_Services/API_2#Uploading_episode_actions">http://wiki.gpodder.org/wiki/Web_Services/API_2#Uploading_episode_actions</A>
+</I>&gt;<i>
+</I>
+There's something that I actually don't understand about the API: why
+does episode action *upload*  return a timestamp? The client shouldn't
+be using *this* timestamp for the next retrieve -- the timestamp that
+should be used as the &quot;since&quot; value for retrieval is that returned by
+the previous *retrieve* request.
+
+I changed the API documentation to reflect my above understanding ---
+please make sure that what I did is correct, feel free to revert if
+not! (<A HREF="http://wiki.gpodder.org/w/index.php?title=Web_Services%2FAPI_2&amp;action=historysubmit&amp;diff=724&amp;oldid=699">http://wiki.gpodder.org/w/index.php?title=Web_Services%2FAPI_2&amp;action=historysubmit&amp;diff=724&amp;oldid=699</A>)
+
+&gt;<i>
+</I>&gt;&gt;<i> I also think we should go over the client implementations, just to
+</I>&gt;&gt;<i> make sure that the changes we propose do not break anything. I'm
+</I>&gt;&gt;<i> willing to look at mygpoclient and gpodder, but I think it would be
+</I>&gt;&gt;<i> good if someone more familiar with the code also double-checks.
+</I>&gt;&gt;<i> (Again, basically I think the clients should be ignoring the
+</I>&gt;&gt;<i> timestamps of received actions altogether.)
+</I>&gt;<i>
+</I>&gt;<i> I think Thomas will be the one who knows the client source well enough
+</I>&gt;<i> to judge this.
+</I>&gt;<i>
+</I>&gt;<i> Thomas, would you mind checking what the implications of the changes
+</I>&gt;<i> discussed here would be for existing gPodder versions?
+</I>&gt;<i>
+</I>
+Sorry, haven't had time to look into this yet, I still hope to look
+this over in the next couple of days...
+
+Dov
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002832.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+	<LI>Next message: <A HREF="002837.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2834">[ date ]</a>
+              <a href="thread.html#2834">[ thread ]</a>
+              <a href="subject.html#2834">[ subject ]</a>
+              <a href="author.html#2834">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

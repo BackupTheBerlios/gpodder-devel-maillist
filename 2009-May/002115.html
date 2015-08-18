@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod Video &quot;Cannot Open Device&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20Video%20%22Cannot%20Open%20Device%22&In-Reply-To=%3C49FFF399.9020604%40manor-farm.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002114.html">
+   <LINK REL="Next"  HREF="002116.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod Video &quot;Cannot Open Device&quot;</H1>
+    <B>Ian Barton</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20Video%20%22Cannot%20Open%20Device%22&In-Reply-To=%3C49FFF399.9020604%40manor-farm.org%3E"
+       TITLE="[gpodder-devel] iPod Video &quot;Cannot Open Device&quot;">lists at manor-farm.org
+       </A><BR>
+    <I>Tue May  5 10:06:49 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002114.html">[gpodder-devel] iPod Video &quot;Cannot Open Device&quot;
+</A></li>
+        <LI>Next message: <A HREF="002116.html">[gpodder-devel] Testers for gPodder Win32 needed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2115">[ date ]</a>
+              <a href="thread.html#2115">[ thread ]</a>
+              <a href="subject.html#2115">[ subject ]</a>
+              <a href="author.html#2115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ian Barton wrote:
+&gt;<i> Marco Antonio Villegas Vega wrote:
+</I>&gt;&gt;<i> Hi Ian,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> El Mon, 04 May 2009 16:36:35 +0100
+</I>&gt;&gt;<i> Ian wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I am getting this error when I try to sync Podcasts to my iPod. I am 
+</I>&gt;&gt;&gt;<i> using gPodder 0.15.2. I have python-gpod and libgpod installed. The
+</I>&gt;&gt;&gt;<i> iPod is mounted correctly on /media/IPOD. I can sync things OK using
+</I>&gt;&gt;&gt;<i> gtkPod and Banshee. The iPod already contains some tracks and
+</I>&gt;&gt;&gt;<i> podcasts.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Using Ubuntu Jaunty.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Any ideas as how to get some more info about why it isn't working?
+</I>&gt;&gt;<i> Maybe the path, I see the default one for ipod is /media/ipod (case
+</I>&gt;&gt;<i> sensitive on *nix).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> so, maybe you only have to change the path on your Podcasts &gt;
+</I>&gt;&gt;<i> Preferences menu(device tab) to point the right path.
+</I>&gt;&gt;<i>
+</I>&gt;<i> Thanks, but it's not that, I have /media/IPOD which is correct for 
+</I>&gt;<i> Ubuntu and I can access files via the terminal. I'll try running gPodder 
+</I>&gt;<i> from a terminal and see if I can get more useful error messages.
+</I>&gt;<i> 
+</I>I have made a bit of progress. I have checked out the source and i think 
+it may be a problem with the python bindings. Just to recap - gtkpod and 
+  Banshee both work OK with this iPod, so the basic libgpod4 library 
+seems to be working correctly.
+
+If I put some debug code in sync.py:
+
+     def open(self):
+         Device.open(self)
+         print &quot;ipod mount point: &quot;, self.mountpoint
+         if not gpod_available or not os.path.isdir(self.mountpoint):
+             print &quot;Error opening gpod or with mount path.&quot;
+             return False
+
+         self.notify('status', _('Opening iPod database'))
+         self.itdb = gpod.itdb_parse(self.mountpoint, None)
+         if self.itdb is None:
+             print &quot;self.itb is none.&quot;
+             return False
+
+
+         self.itdb.mountpoint = self.mountpoint
+         self.podcasts_playlist = gpod.itdb_playlist_podcasts(self.itdb)
+
+         if self.podcasts_playlist:
+             self.notify('status', _('iPod opened'))
+             print &quot;iPod opened.&quot;
+             # build the initial tracks_list
+             self.tracks_list = self.get_all_tracks()
+
+             return True
+         else:
+             print &quot;Unable to get playlist.&quot;
+             return False
+
+The itunes database is opened OK but it fails to get the playlist in:
+self.podcasts_playlist = gpod.itdb_playlist_podcasts(self.itdb) i.e. 
+self.podcasts_playlist returns false.
+
+Ian.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002114.html">[gpodder-devel] iPod Video &quot;Cannot Open Device&quot;
+</A></li>
+	<LI>Next message: <A HREF="002116.html">[gpodder-devel] Testers for gPodder Win32 needed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2115">[ date ]</a>
+              <a href="thread.html#2115">[ thread ]</a>
+              <a href="subject.html#2115">[ subject ]</a>
+              <a href="author.html#2115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Video Features
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Video%20Features&In-Reply-To=%3C20100111200545.GB23424%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002371.html">
+   <LINK REL="Next"  HREF="002372.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Video Features</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Video%20Features&In-Reply-To=%3C20100111200545.GB23424%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] Video Features">thp at gpodder.org
+       </A><BR>
+    <I>Mon Jan 11 21:05:45 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002371.html">[gpodder-devel] Video Features
+</A></li>
+        <LI>Next message: <A HREF="002372.html">[gpodder-devel] Support for multiple devices.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2375">[ date ]</a>
+              <a href="thread.html#2375">[ thread ]</a>
+              <a href="subject.html#2375">[ subject ]</a>
+              <a href="author.html#2375">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Marc!
+
+On Fri, Jan 08, 2010 at 11:54:56AM -0500, Marc Telesha wrote:
+&gt;<i> 1. I would like the ability to select which feeds automatically download
+</I>&gt;<i> when new feeds are available. Would save me the trouble of updating the
+</I>&gt;<i> feeds and clicking dozens of feeds. Certain shows I want to listen maybe
+</I>&gt;<i> once a month though they are daily podcast i.e. Buzz Out Loud.
+</I>
+There is a bug for this somewhere in Bugzilla, I think.
+
+&gt;<i> 2. Decided which feeds are automatically deleted and which feeds I keep the
+</I>&gt;<i> feeds. Fro example I like to keep This American Life and Radio Lab podcast
+</I>&gt;<i> so I can share certain ones with friends and co-workers. Podcast like news
+</I>&gt;<i> shows I want deleted the second they are transfered to my device.
+</I>
+There will be some more intelligent deleting (most likely based on the
+podcast type) in the future. For now, you can use Ctrl+K.
+
+&gt;<i> 3. I would like the option for certain feeds to not be transfered to device.
+</I>
+The &quot;Edit Podcast&quot; dialog has a &quot;Skip this podcast when syncing to my
+device&quot; checkbox that does exactly that.
+
+&gt;<i> 1. The option of downloading Videos to a separate directory.
+</I>
+Probably won't be in upstream. It should be easy for you to change that
+in the code. See the &quot;gpodder.model&quot; module and the &quot;gpodder.download&quot;
+module for ways to insert that.
+
+You could also symlink or hardlink all video files to a separate
+directory. You can do these things via a custom script, no need to put
+that code into gPodder. Most podcasts are video-only or audio-only,
+anyway, and every podcast is put into its own directory, anyway.
+
+&gt;<i> 2. The option to not transfer any videos to device.
+</I>
+Please open a feature reuqest for this on <A HREF="http://bugs.gpodder.org/.">http://bugs.gpodder.org/.</A> This
+sounds like a good idea, and will probably result in a &quot;My device
+supports playing back viddeos&quot; checkbox in the preferences dialog.
+
+&gt;<i> 3. Would be neat to have a conversion tool for videos for device (BUT I know
+</I>&gt;<i> that is a ton of work).
+</I>
+Yes, that's out-of-scope for gPodder. However, you can write your own
+post-download hook script that can convert videos. Please have a look
+at the user manual (&quot;Time stretching&quot; in the advanced topics):
+
+<A HREF="http://wiki.gpodder.org/wiki/User_Manual">http://wiki.gpodder.org/wiki/User_Manual</A>
+
+Also have a look at src/gpodder/libconverter.py
+
+&gt;<i> P.S. KPodder would be cool also with some QT love :)
+</I>
+If you want, you can write your Qt GUI using PyQT or PySide for gPodder.
+
+The backend code is independent of GTK+, you just have to implement some
+model classes (see the &quot;gpodder.gtkui&quot; package for all GTK+-specific
+code) and write a replacement &quot;main&quot; GUI class (in gui.py). Oh yeah -
+you probably have to split some program logic from gui.py in a
+UI-independent class; have not gotten around to do this (yet).
+
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002371.html">[gpodder-devel] Video Features
+</A></li>
+	<LI>Next message: <A HREF="002372.html">[gpodder-devel] Support for multiple devices.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2375">[ date ]</a>
+              <a href="thread.html#2375">[ thread ]</a>
+              <a href="subject.html#2375">[ subject ]</a>
+              <a href="author.html#2375">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

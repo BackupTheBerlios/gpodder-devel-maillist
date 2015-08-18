@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder like podcatcher I'm working on	for	Android
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20like%20podcatcher%20I%27m%20working%20on%0A%09for%09Android&In-Reply-To=%3C20110107210028.GB27890%40gpodder.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002648.html">
+   <LINK REL="Next"  HREF="002646.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder like podcatcher I'm working on	for	Android</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20like%20podcatcher%20I%27m%20working%20on%0A%09for%09Android&In-Reply-To=%3C20110107210028.GB27890%40gpodder.net%3E"
+       TITLE="[gpodder-devel] gPodder like podcatcher I'm working on	for	Android">thp at gpodder.org
+       </A><BR>
+    <I>Fri Jan  7 22:00:28 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002648.html">[gpodder-devel] gPodder like podcatcher I'm working on for	Android
+</A></li>
+        <LI>Next message: <A HREF="002646.html">[gpodder-devel] gPodder like podcatcher I'm working on for	Android
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2654">[ date ]</a>
+              <a href="thread.html#2654">[ thread ]</a>
+              <a href="subject.html#2654">[ subject ]</a>
+              <a href="author.html#2654">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Leif and all,
+
+On Thu, Jan 06, 2011 at 08:25:17AM -0700, Leif Andersen wrote:
+&gt;<i> &gt; On a related note, which might be interesting to both projects: I've
+</I>&gt;<i> &gt; been working on mygpo-feedservice [1] which is a webservice for
+</I>&gt;<i> &gt; parsing podcast feeds and delivering the contents as JSON. This could
+</I>&gt;<i> &gt; offload a bit of the parsing-work from the clients to the service and
+</I>&gt;<i> &gt; hence speed up the applications. Feel free to contact me if you are
+</I>&gt;<i> &gt; interested in using it.
+</I>&gt;<i> 
+</I>&gt;<i> True, but if we need code that does similar things, I would be happy to
+</I>&gt;<i> work with the other person to get both of them out faster.  Also, I'll
+</I>&gt;<i> take a look at your parser, it seems interesting.  I'm not sure how long
+</I>&gt;<i> it takes to parse XML on a device like that (I'm using the built in
+</I>&gt;<i> Document object, combined with NodeList and Element, I based the idea
+</I>&gt;<i> off of a friends piece of code (which was also released under the Apache
+</I>&gt;<i> v2 licence)), but so far it seems like downloading the feed is the
+</I>&gt;<i> bottleneck.  Either way, it does look interesting, and I'll preform some
+</I>&gt;<i> tests to compare speed.
+</I>
+Judging from my experience with gPodder on Maemo devices (which was one
+of the initial motivations for creating the feedservice), offloading the
+parsing and downloading of feeds to a web service is a good idea for
+several reasons:
+
+ * The server-side could implement intelligent caching and only supply
+   differences (not implemented, but a possibility)
+ * Buggy/ugly feeds can be fixed on the server side
+ * The server filters the feeds and returns wonderful, pre-parsed JSON
+   that can be taken by the client as a single entity
+ * One single request to the server can download all podcasts, whereas
+   with client-side parsing you have to contact every web server
+
+I'll be using the feedservice for a future project, and maybe I'll also
+add support for it to gPodder - at least for mobile versions. Of course,
+using the feedservice has the disadvantage of relying on the service to
+be available, but that's about the only disadvantage of it ;)
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002648.html">[gpodder-devel] gPodder like podcatcher I'm working on for	Android
+</A></li>
+	<LI>Next message: <A HREF="002646.html">[gpodder-devel] gPodder like podcatcher I'm working on for	Android
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2654">[ date ]</a>
+              <a href="thread.html#2654">[ thread ]</a>
+              <a href="subject.html#2654">[ subject ]</a>
+              <a href="author.html#2654">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

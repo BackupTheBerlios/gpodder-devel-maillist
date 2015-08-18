@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Help needed for next release of gPodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Help%20needed%20for%20next%20release%20of%20gPodder&In-Reply-To=%3C4c261b0b1003250039i459f9d9ek48593c25e235c67c%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002468.html">
+   <LINK REL="Next"  HREF="002470.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Help needed for next release of gPodder</H1>
+    <B>Justin Forest</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Help%20needed%20for%20next%20release%20of%20gPodder&In-Reply-To=%3C4c261b0b1003250039i459f9d9ek48593c25e235c67c%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Help needed for next release of gPodder">justin.forest at gmail.com
+       </A><BR>
+    <I>Thu Mar 25 08:39:06 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002468.html">[gpodder-devel] Help needed for next release of gPodder
+</A></li>
+        <LI>Next message: <A HREF="002470.html">[gpodder-devel] Help needed for next release of gPodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2469">[ date ]</a>
+              <a href="thread.html#2469">[ thread ]</a>
+              <a href="subject.html#2469">[ subject ]</a>
+              <a href="author.html#2469">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>First, the new config UI looks much better to me. Cleaner and smaller,
+fits the EEE PC 701 screen.
+
+Second, the config UI was a serious problem when I last looked at the
+GVFS integration. It was so because when a device is connected, I had
+to change some config options and restore them when the device was
+disconnected. If more than one device was connected simultaneously, it
+was even more complex.
+
+I think the best way would be to start with adding support for
+multiple devices, as Hilton suggested. As I see it, there would be a
+list of connected devices (e.g., below the list of channels), each
+device type would have its own management module (e.g., ipod, mtp and
+fs). These modules would store and manage device settings on their own
+(if the device has any). gPodder would define a generic Device object,
+with methods to send files and eject the device, and the drivers would
+send new such objects to gPodder when new devices are connected.
+
+There should be more device drivers for those who wish to sync over
+samba, sftp or whatever comes to mind.
+
+On Thu, Mar 25, 2010 at 1:28 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+&gt;<i> Hello there!
+</I>&gt;<i>
+</I>&gt;<i> We're somewhere in the middle of the gPodder 2.4 release cycle, and one
+</I>&gt;<i> of the blockers for this release is the lack of a config UI for portable
+</I>&gt;<i> device synchronization (FS-based, iPod and MTP). The old UI was removed,
+</I>&gt;<i> because the preferences dialog has been re-written (I like the new one
+</I>&gt;<i> much better if I may say so myself ;).
+</I>&gt;<i>
+</I>&gt;<i> Personally, I have not used this feature for a long time, as I've been
+</I>&gt;<i> using gPodder directly on Maemo devices for portable needs. This brings
+</I>&gt;<i> two problems:
+</I>&gt;<i>
+</I>&gt;<i> &#160;a) It's not an itch I need to scratch and
+</I>&gt;<i> &#160;b) others might have better ideas how this feature should work.
+</I>&gt;<i>
+</I>&gt;<i> So, who wants to write a little &quot;portable device config&quot; UI for the new
+</I>&gt;<i> preferences dialog and send a patch to be included for the next release?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+<A HREF="http://umonkey.net/">http://umonkey.net/</A>    PGP Key-ID: 0x6B442D10
+FA5C 5E36 2D30 A180 8FBE 4429 C1F7 DB24 6B44 2D10
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002468.html">[gpodder-devel] Help needed for next release of gPodder
+</A></li>
+	<LI>Next message: <A HREF="002470.html">[gpodder-devel] Help needed for next release of gPodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2469">[ date ]</a>
+              <a href="thread.html#2469">[ thread ]</a>
+              <a href="subject.html#2469">[ subject ]</a>
+              <a href="author.html#2469">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C17060566.228641214470057815.JavaMail.www%40wwinf8202%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001582.html">
+   <LINK REL="Next"  HREF="001585.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure</H1>
+    <B>eric.jauny at laposte.net</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C17060566.228641214470057815.JavaMail.www%40wwinf8202%3E"
+       TITLE="[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure">eric.jauny at laposte.net
+       </A><BR>
+    <I>Thu Jun 26 10:47:37 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001582.html">[gpodder-devel] cannot download podcast over proxy
+</A></li>
+        <LI>Next message: <A HREF="001585.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1584">[ date ]</a>
+              <a href="thread.html#1584">[ thread ]</a>
+              <a href="subject.html#1584">[ subject ]</a>
+              <a href="author.html#1584">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+My computer : Mac Book Pro
+My favorite distro : GNU/Linux BLAG 60001
+My podacast client : gpodder
+
+For information, gpodder version provided by BLAG is 0.9.0 release.
+I did updated&#160; gpodder with 0.11.1 release (tar.gz archive) sucessfully a couple of weeks ago. It has been working like a charm since 22nd June when I decided to install gpodder 0.11.3 (the latest release) : unfortunately, when I launched gpodder with the graphical menu launcher, nothing happened. I therefore tried 'make test' to get some information (I could alternatively have launched manually the installed version by typing /usr/bin/gpodder in an xterm window) :
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at lns-bzn-54-82-251-117-86</A> gpodder-0.11.3]# make test
+bin/gpodder --local --verbose
+Traceback (most recent call last):
+File &quot;bin/gpodder&quot;, line 166, in
+sys.exit( main())
+File &quot;bin/gpodder&quot;, line 125, in main
+from gpodder import console
+File &quot;/opt/gpodder-0.11.3/src/gpodder/console.py&quot;, line 20, in
+from gpodder import util
+File &quot;/opt/gpodder-0.11.3/src/gpodder/util.py&quot;, line 35, in
+import gtk
+ImportError: No module named gtk
+make: *** [test] Error 1
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at lns-bzn-54-82-251-117-86</A> gpodder-0.11.3]#
+
+I've also tried &quot;python setup.py install&quot;, instead of &quot;make install&quot;. But gpodder does not start, reporting the same &quot;gtk&quot; error.
+
+
+I then tried to revert to gpodder 0.11.1, beacuse this version had been working fine. But unfortunately, now, irrespective of the gpodder version I install (from 0.9.5 to 0.11.3) I always got the &quot;ImportError: No module named gtk&quot; error. I've re-installed python and pygtk2 this evening. It did not fix the problem. I've carefully checked the presence of the mandatory dependencies, just in case I would have make a mistake at some stage.
+Thanks for your help. I've tried to find tips&amp;hints on the web , quite extensively, but no one is ok. Obvioulsy I do not blame gpodder developers , but I think they would be in a position to fix the error.
+
+Kind regards
+
+Eric
+experienced Linux user
+
+
+ Cr&#233;ez votre adresse &#233;lectronique pr&#233;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">nom.nom at laposte.net</A> 
+ 1 Go d'espace de stockage, anti-spam et anti-virus int&#233;gr&#233;s.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080626/af782d6c/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080626/af782d6c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001582.html">[gpodder-devel] cannot download podcast over proxy
+</A></li>
+	<LI>Next message: <A HREF="001585.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1584">[ date ]</a>
+              <a href="thread.html#1584">[ thread ]</a>
+              <a href="subject.html#1584">[ subject ]</a>
+              <a href="author.html#1584">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Bug hunt in 0.14.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Bug%20hunt%20in%200.14.0&In-Reply-To=%3C20081220063851.0193f3aab1db45621a7a7ee5866e9102.fbbac999c1.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001947.html">
+   <LINK REL="Next"  HREF="001950.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Bug hunt in 0.14.0</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Bug%20hunt%20in%200.14.0&In-Reply-To=%3C20081220063851.0193f3aab1db45621a7a7ee5866e9102.fbbac999c1.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] Bug hunt in 0.14.0">thp at gpodder.org
+       </A><BR>
+    <I>Sat Dec 20 14:38:51 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001947.html">[gpodder-devel] Sample post processing script to convert videos after download
+</A></li>
+        <LI>Next message: <A HREF="001950.html">[gpodder-devel] Bug hunt in 0.14.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1948">[ date ]</a>
+              <a href="thread.html#1948">[ thread ]</a>
+              <a href="subject.html#1948">[ subject ]</a>
+              <a href="author.html#1948">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks for your feedback. See below..
+
+You wrote:
+&gt;<i> I've spent many hours chasing bugs on 0.14.0 &quot;A Short Drink From
+</I>&gt;<i> a Certain Fountain&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> Here's my list of bugs found. I want to hear out what you think
+</I>&gt;<i> of them before reporting on the bug tracker.
+</I>&gt;<i> 
+</I>&gt;<i> 1 - When you go to iPod -&gt; &quot;Remove episodes from device&quot;, the
+</I>&gt;<i> &quot;Copying files to device window&quot; shows up in addition to the
+</I>&gt;<i> &quot;Delete episodes chooser window&quot;. Screenshot will be posted if
+</I>&gt;<i> needed.
+</I>&gt;<i> Correct behavior would be for the &quot;Copying files to device window&quot;
+</I>&gt;<i> not to show up.
+</I>
+Please file this in the bug tracker. It's an UI bug.
+
+&gt;<i> 2 - Tooltips not showing up on the episode list. When you hover
+</I>&gt;<i> over an episode, a tooltip used to show up with shownotes for the
+</I>&gt;<i> specific episode.
+</I>&gt;<i> Solution: Right click on episode and select &quot;episode details&quot; option.
+</I>
+This change is deliberate. You can over over the icon of the episode
+or podcast to see the tooltip.
+
+&gt;<i> 3 - On some podcasts, &quot;Buzz Out Loud&quot; for example, when right
+</I>&gt;<i> clicking on episode and selecting episode details option, gpodder
+</I>&gt;<i> freezes for several seconds before showing details.
+</I>&gt;<i> Please note that in most podcasts this doesn't happen.
+</I>
+This is because you are probably using the HTML shownotes and the
+podcast in question uses embedded images? This has been fixed in
+the development version already, as that will have a threaded
+downloader for the shownotes that should not freeze.
+
+&gt;<i> 4 - When gpodder is killed by accident instead of gracefuly
+</I>&gt;<i> closed. Podcast list is corrupted and all episodes downloaded
+</I>&gt;<i> before killing it don't show on gpodder's list even though they
+</I>&gt;<i> take up hard drive space.
+</I>&gt;<i> Quick solution: Delete all folders on the gpodder download
+</I>&gt;<i> folder then re-download your episodes.
+</I>&gt;<i> This can probably be avoided by having gpodder save it's database
+</I>&gt;<i> after downloads are finished.
+</I>
+Yep, please file a bug about this in the bug tracker. We do not
+store the database changes during runtime now to have a better
+UI performance on low-end devices. We should save the database
+every now and then, though.
+
+&gt;<i> I really liked the new features added to gpodder.
+</I>&gt;<i> My favorite was my.gpodder.org
+</I>
+:<i>)
+</I>
+Thanks for taking the time to review it and prepare this list 
+of potential bugs.
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001947.html">[gpodder-devel] Sample post processing script to convert videos after download
+</A></li>
+	<LI>Next message: <A HREF="001950.html">[gpodder-devel] Bug hunt in 0.14.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1948">[ date ]</a>
+              <a href="thread.html#1948">[ thread ]</a>
+              <a href="subject.html#1948">[ subject ]</a>
+              <a href="author.html#1948">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

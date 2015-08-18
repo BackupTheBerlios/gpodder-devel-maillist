@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Gpodder is slow / comments on bug #59
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gpodder%20is%20slow%20/%20comments%20on%20bug%20%2359&In-Reply-To=%3Cfa8f05950804231123y59c6cdb3h6bd94a7da98b53bc%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001413.html">
+   <LINK REL="Next"  HREF="001415.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Gpodder is slow / comments on bug #59</H1>
+    <B>Alistair Sutton</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gpodder%20is%20slow%20/%20comments%20on%20bug%20%2359&In-Reply-To=%3Cfa8f05950804231123y59c6cdb3h6bd94a7da98b53bc%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Gpodder is slow / comments on bug #59">alistair.sutton at gmail.com
+       </A><BR>
+    <I>Wed Apr 23 20:23:23 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001413.html">[gpodder-devel] Crash
+</A></li>
+        <LI>Next message: <A HREF="001415.html">[gpodder-devel] Gpodder is slow / comments on bug #59
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1414">[ date ]</a>
+              <a href="thread.html#1414">[ thread ]</a>
+              <a href="subject.html#1414">[ subject ]</a>
+              <a href="author.html#1414">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>All,
+
+I've been experiencing a &quot;gpodder is slow&quot; problem for a month or two now
+and have lived with it (at one point my feed list contained over 100
+podcasts so I thought that possibly had something to do with it). However,
+recently, despite trimming down my list slightly gpodder's gui can still be
+extremely unresponsive and slow.
+
+After starting gpodder with a blank feed list I discovered that the problem
+only seems to appear once the feed list gets to around 30/35 podcasts.
+Before that, there is a slight delay in gui updates but only by a matter of
+a second or two. After this number the delay increases.
+
+I did initially think it was only when downloading podcasts and it was the
+act of updating the downloading list/status that was causing the problem,
+however, I've just opened the preferences dialog, made no changes and
+clicked close. Five minutes or so later I'm still waiting for the gui to
+become available again.
+
+I'm running an up-to-date checkout from svn from a terminal and pressing
+CTRL-C when the gui is &quot;frozen&quot; will generate a traceback and the gui will
+become available again (nearly always including whatever changes had been
+requested, i.e. podcasts that had been selected to be deleted are marked as
+deleted, etc).
+
+While it is entirely possible that there is something weird on my system
+(FreeBSD 7-STABLE, up to date dependencies from the FreeBSD ports system), I
+find it odd that the problem only seems to begin when the feed list contains
+more than 30 feeds.
+
+I've attached the contents of the traceback from the terminal that happens
+when I press CTRL-C in case it helps. Nothing else on that is logged seems
+unsual.
+
+Alistair
+-- 
+WWW: <A HREF="http://ajs.no-dns-yet.org.uk">http://ajs.no-dns-yet.org.uk</A>
+GPG/PGP: <A HREF="http://ajs.no-dns-yet.org.uk/pubkey.gpg">http://ajs.no-dns-yet.org.uk/pubkey.gpg</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080423/bce87a5f/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080423/bce87a5f/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-traceback-ctrl-c
+Type: application/octet-stream
+Size: 1140 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080423/bce87a5f/attachment.obj">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080423/bce87a5f/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001413.html">[gpodder-devel] Crash
+</A></li>
+	<LI>Next message: <A HREF="001415.html">[gpodder-devel] Gpodder is slow / comments on bug #59
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1414">[ date ]</a>
+              <a href="thread.html#1414">[ thread ]</a>
+              <a href="subject.html#1414">[ subject ]</a>
+              <a href="author.html#1414">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

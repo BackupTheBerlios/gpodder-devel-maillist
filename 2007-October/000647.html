@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Latest gPodder: very CPU intensive downloads
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20gPodder%3A%20very%20CPU%20intensive%20downloads&In-Reply-To=%3C1191318257.6805.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000648.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Latest gPodder: very CPU intensive downloads</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20gPodder%3A%20very%20CPU%20intensive%20downloads&In-Reply-To=%3C1191318257.6805.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Latest gPodder: very CPU intensive downloads">thp at perli.net
+       </A><BR>
+    <I>Tue Oct  2 11:44:17 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000648.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#647">[ date ]</a>
+              <a href="thread.html#647">[ thread ]</a>
+              <a href="subject.html#647">[ subject ]</a>
+              <a href="author.html#647">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+On Wed, 2007-09-26 at 04:59 -0700, Wilfred van Rooijen wrote:
+&gt;<i> yes, I'd be willing to help you out on this subject if
+</I>&gt;<i> you want to. I have a cable internet connection.
+</I>&gt;<i> Inside the house, I have wireless, so the max download
+</I>&gt;<i> bandwidth is about 600 KB/s. If I use a wired
+</I>&gt;<i> connection, it can be as high as 1.2 MB/s. I have
+</I>&gt;<i> several feeds with high bandwidth I frequently use.
+</I>&gt;<i> 
+</I>&gt;<i> BTW, I also use DownThemAll on Firefox every once in a
+</I>&gt;<i> while, and that will download @ maximum velocity with
+</I>&gt;<i> status updates and all, but does not take an
+</I>&gt;<i> appreciable amount of CPU time. 
+</I>
+I've tried to limit the updates sent to the download status manager by
+limiting the number of updates per second (currently 3).
+
+Please apply the attached patch to a local checkout of the current SVN
+trunk head, and tell me if this solves your problems. If you run the svn
+gpodder with &quot;make test&quot;, you should see a bunch of &quot;Skipping GUI
+update.&quot; lines when downloading files.
+
+Does this solve the performance/CPU usage bug for you?
+
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r434_limit-gui-updates.patch
+Type: text/x-patch
+Size: 1249 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071002/07cce41d/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071002/07cce41d/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000648.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#647">[ date ]</a>
+              <a href="thread.html#647">[ thread ]</a>
+              <a href="subject.html#647">[ subject ]</a>
+              <a href="author.html#647">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

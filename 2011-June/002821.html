@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Use of gpodder.user_hooks without checking if it is	valid
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Use%20of%20gpodder.user_hooks%20without%20checking%20if%20it%20is%0A%09valid&In-Reply-To=%3C87tybkzcvi.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002824.html">
+   <LINK REL="Next"  HREF="002825.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Use of gpodder.user_hooks without checking if it is	valid</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Use%20of%20gpodder.user_hooks%20without%20checking%20if%20it%20is%0A%09valid&In-Reply-To=%3C87tybkzcvi.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Use of gpodder.user_hooks without checking if it is	valid">neal at walfield.org
+       </A><BR>
+    <I>Mon Jun 20 18:28:01 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002824.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002825.html">[gpodder-devel] Use of gpodder.user_hooks without checking if it is valid
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2821">[ date ]</a>
+              <a href="thread.html#2821">[ thread ]</a>
+              <a href="subject.html#2821">[ subject ]</a>
+              <a href="author.html#2821">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>gui.py calls gpodder.user_hooks.on_episodes_context_menu with checking
+if gpodder.user_hooks is valid.  This results in:
+
+  Traceback (most recent call last):
+    File &quot;/home/us/neal/src/gpodder/src/gpodder/gui.py&quot;, line 824, in
+    on_treeview_episodes_button_released
+      return self.treeview_available_show_context_menu(treeview, event)
+    File &quot;/home/us/neal/src/gpodder/src/gpodder/gui.py&quot;, line 1958, in
+    treeview_available_show_context_menu
+      result = gpodder.user_hooks.on_episodes_context_menu(episodes)
+  AttributeError: 'NoneType' object has no attribute
+    'on_episodes_context_menu'
+
+The attached patch fixes that.
+
+Also, the on_episodes_context_menu function is missing a function
+body.  I've also attached the one line change (as a separate patch) to
+this email.
+
+Thanks,
+
+Neal
+
+
+From e1cf07f68a295c1f1da82edc1e618de0d00a8526 Mon Sep 17 00:00:00 2001
+From: Neal H. Walfield &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">neal at gnu.org</A>&gt;
+Date: Mon, 20 Jun 2011 18:25:08 +0200
+Subject: [PATCH 1/2] Only call user hooks if user_hooks is not None.
+
+---
+ src/gpodder/gui.py |   16 +++++++++-------
+ 1 files changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/src/gpodder/gui.py b/src/gpodder/gui.py
+index f57d88d..ac0fdf0 100644
+--- a/src/gpodder/gui.py
++++ b/src/gpodder/gui.py
+@@ -1955,13 +1955,15 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             item.connect('activate', self.on_btnDownloadedDelete_clicked)
+             menu.append(item)
+ 
+-            result = gpodder.user_hooks.on_episodes_context_menu(episodes)
+-            if result:
+-                menu.append(gtk.SeparatorMenuItem())
+-                for label, callback in result:
+-                    item = gtk.MenuItem(label)
+-                    item.connect('activate', lambda item: callback(episodes))
+-                    menu.append(item)
++            if gpodder.user_hooks is not None:
++                result = gpodder.user_hooks.on_episodes_context_menu(episodes)
++                if result:
++                    menu.append(gtk.SeparatorMenuItem())
++                    for label, callback in result:
++                        item = gtk.MenuItem(label)
++                        item.connect('activate',
++                                     lambda item: callback(episodes))
++                        menu.append(item)
+ 
+             ICON = lambda x: x
+ 
+-- 
+1.7.2.5
+
+
+From ed22225effc95f8c47f24b1689f0340adbd82597 Mon Sep 17 00:00:00 2001
+From: Neal H. Walfield &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">neal at gnu.org</A>&gt;
+Date: Mon, 20 Jun 2011 18:25:35 +0200
+Subject: [PATCH 2/2] Change on_episodes_context_menu to include a proper body.
+
+---
+ src/gpodder/hooks.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/src/gpodder/hooks.py b/src/gpodder/hooks.py
+index cfd5310..7d8f776 100644
+--- a/src/gpodder/hooks.py
++++ b/src/gpodder/hooks.py
+@@ -168,4 +168,5 @@ class HookManager(object):
+ 
+         @param episode: A list of gpodder.model.PodcastEpisode instances
+         &quot;&quot;&quot;
++        pass
+ 
+-- 
+1.7.2.5
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002824.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002825.html">[gpodder-devel] Use of gpodder.user_hooks without checking if it is valid
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2821">[ date ]</a>
+              <a href="thread.html#2821">[ thread ]</a>
+              <a href="subject.html#2821">[ subject ]</a>
+              <a href="author.html#2821">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

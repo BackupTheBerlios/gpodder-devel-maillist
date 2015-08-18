@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] util.remove_html_tags optimizations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20util.remove_html_tags%20optimizations&In-Reply-To=%3C1206008112.11328.5.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001289.html">
+   <LINK REL="Next"  HREF="001292.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] util.remove_html_tags optimizations</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20util.remove_html_tags%20optimizations&In-Reply-To=%3C1206008112.11328.5.camel%40macbook%3E"
+       TITLE="[gpodder-devel] util.remove_html_tags optimizations">thp at perli.net
+       </A><BR>
+    <I>Thu Mar 20 11:15:12 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001289.html">[gpodder-devel] util.remove_html_tags optimizations
+</A></li>
+        <LI>Next message: <A HREF="001292.html">[gpodder-devel] Changes in SVN, 0.11.1 stabilization
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1291">[ date ]</a>
+              <a href="thread.html#1291">[ thread ]</a>
+              <a href="subject.html#1291">[ subject ]</a>
+              <a href="author.html#1291">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Nick!
+
+On Wed, 2008-03-19 at 23:16 -0500, nikosapi wrote:
+&gt;<i> While hunting a bug down today I found some code that was slowing down
+</I>&gt;<i> gPodder's loading time :D
+</I>&gt;<i> 
+</I>&gt;<i> The original bug was that in the episode descriptions I was still
+</I>&gt;<i> seeing stuff like &#8217;. This is because the python codepoint2name
+</I>&gt;<i> dict doesn't include all of the possible unicode characters. So I
+</I>&gt;<i> replaced the old code with a regex that converts the codepoint numbers
+</I>&gt;<i> directly to unicode characters. In a quick benchmark I calculated that
+</I>&gt;<i> using the old code took 3.28 sec worth of load time whereas the new
+</I>&gt;<i> code uses &lt; 0.1 sec of load time :)
+</I>&gt;<i> 
+</I>&gt;<i> Now what's really cool is that when I launch gPodder, it's ready to go
+</I>&gt;<i> in less than 2 seconds! (on an intel E6300)
+</I>
+Really great stuff! Thanks for the patch, I've applied in SVN trunk :)
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001289.html">[gpodder-devel] util.remove_html_tags optimizations
+</A></li>
+	<LI>Next message: <A HREF="001292.html">[gpodder-devel] Changes in SVN, 0.11.1 stabilization
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1291">[ date ]</a>
+              <a href="thread.html#1291">[ thread ]</a>
+              <a href="subject.html#1291">[ subject ]</a>
+              <a href="author.html#1291">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

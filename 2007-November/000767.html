@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New config manager in SVN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20config%20manager%20in%20SVN&In-Reply-To=%3C472B8334.6010007%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000766.html">
+   <LINK REL="Next"  HREF="000768.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New config manager in SVN</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20config%20manager%20in%20SVN&In-Reply-To=%3C472B8334.6010007%40gmail.com%3E"
+       TITLE="[gpodder-devel] New config manager in SVN">pdedecker at gmail.com
+       </A><BR>
+    <I>Fri Nov  2 21:06:12 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000766.html">[gpodder-devel] New config manager in SVN
+</A></li>
+        <LI>Next message: <A HREF="000768.html">[gpodder-devel] New config manager in SVN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#767">[ date ]</a>
+              <a href="thread.html#767">[ thread ]</a>
+              <a href="subject.html#767">[ subject ]</a>
+              <a href="author.html#767">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Whoops, I totally forgot about that patch you sent me a few days ago...
+But what is svn-clean? I get a &quot;command not found&quot; error when I try to
+run it.
+
+Pieter
+
+- ---
+Thomas Perl schreef:
+&gt;<i> Hello, Pieter!
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2007-11-02 at 20:15 +0100, Pieter De Decker wrote:
+</I>&gt;&gt;<i> Gave back this output:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ---
+</I>&gt;&gt;<i> bin/gpodder --local --verbose
+</I>&gt;&gt;<i> Traceback (most recent call last):
+</I>&gt;&gt;<i>   File &quot;bin/gpodder&quot;, line 148, in &lt;module&gt;
+</I>&gt;&gt;<i>     sys.exit( main())
+</I>&gt;&gt;<i>   File &quot;bin/gpodder&quot;, line 122, in main
+</I>&gt;&gt;<i>     from gpodder import gui
+</I>&gt;&gt;<i>   File &quot;/home/pdedecker/gpodderSVN/src/gpodder/gui.py&quot;, line 299
+</I>&gt;&gt;<i>     &lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine
+</I>&gt;&gt;<i>      ^
+</I>&gt;&gt;<i> SyntaxError: invalid syntax
+</I>&gt;&gt;<i> ---
+</I>&gt;<i> 
+</I>&gt;<i> You have had local modifications (maybe a applied patch?). do the
+</I>&gt;<i> following after having made sure you don't have any files that you need
+</I>&gt;<i> in gpodder's working directory that are not under version control:
+</I>&gt;<i> 
+</I>&gt;<i> svn-clean &amp;&amp; svn up
+</I>&gt;<i> 
+</I>&gt;<i> That should fix the problem (svn status should show no output).
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.6 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFHK4MzpMP4s2L9d4gRAiIzAJ98aYFT0WtIU4Vr6uGgMEHkKKNOnACgrP7j
+wwD4DPtpgZU+DD+kITcKdA8=
+=aNYS
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000766.html">[gpodder-devel] New config manager in SVN
+</A></li>
+	<LI>Next message: <A HREF="000768.html">[gpodder-devel] New config manager in SVN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#767">[ date ]</a>
+              <a href="thread.html#767">[ thread ]</a>
+              <a href="subject.html#767">[ subject ]</a>
+              <a href="author.html#767">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

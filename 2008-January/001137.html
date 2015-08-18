@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Changing downloads tab to actions tab?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changing%20downloads%20tab%20to%20actions%20tab%3F&In-Reply-To=%3C59f2bd140801300857t939c13fh9ab9a94e91d82feb%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001132.html">
+   <LINK REL="Next"  HREF="001144.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Changing downloads tab to actions tab?</H1>
+    <B>Daniel Finnie</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changing%20downloads%20tab%20to%20actions%20tab%3F&In-Reply-To=%3C59f2bd140801300857t939c13fh9ab9a94e91d82feb%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Changing downloads tab to actions tab?">dan at danfinnie.com
+       </A><BR>
+    <I>Wed Jan 30 17:57:22 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001132.html">[gpodder-devel] todo: items under discussion
+</A></li>
+        <LI>Next message: <A HREF="001144.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1137">[ date ]</a>
+              <a href="thread.html#1137">[ thread ]</a>
+              <a href="subject.html#1137">[ subject ]</a>
+              <a href="author.html#1137">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've been using gPodder for a few weeks now and it is definitely the best
+podcast client I've used on Linux, but that's not to say the software is
+without flaws.  The biggest thing about gPodder that I would like to see
+improved is the modal feed checking, file downloading, and file transfers to
+an MP3 player.  I don't see a technical reason why the application can't
+transfer an episode to my MP3 player while I click around to find other
+episodes to transfer.
+
+To solve this, I propose changing the downloads tab to an actions tab that
+would list pending actions and their state.
+
+Much like the downloads are handled now, I would add options to select how
+many concurrent transfers are allowed and how many concurrent feed updates
+are allowed.  Possibly, a &quot;total concurrent actions&quot; option could be
+implemented.
+
+I see this as a huge benefit as it allows:
+- Users with fast Internet connections to update multiple feeds at once.
+- Users would be able to pick one file to transfer to an MP3 player and have
+it transfer while browsing around for another file to transfer.
+- Reduce &quot;task bar clutter.&quot;
+
+The only drawback I can see is the additional coding required, however I
+don't think it is too intensive.  When the user requests a feed update, it
+will add itself to the queue and start executing if the max. concurrent feed
+updates has not been reached.  When a feed update completes, it another feed
+update so long as there is one to update.
+
+In addition, threads will probably have to be used if they are not already.
+Because gPodder is not cross-platform, I don't think this will be too much
+of a problem.
+
+So, finally, if I wrote up the code that implemented the above suggestion,
+would it get merged into the gPodder trunk?  Or is there a reason that this
+was not done already?
+
+Best regards,
+Dan Finnie
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dan at danfinnie.com</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080130/07b3e98f/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080130/07b3e98f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001132.html">[gpodder-devel] todo: items under discussion
+</A></li>
+	<LI>Next message: <A HREF="001144.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1137">[ date ]</a>
+              <a href="thread.html#1137">[ thread ]</a>
+              <a href="subject.html#1137">[ subject ]</a>
+              <a href="author.html#1137">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

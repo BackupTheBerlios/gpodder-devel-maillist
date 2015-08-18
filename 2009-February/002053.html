@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New utility: gpodder-backup
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20utility%3A%20gpodder-backup&In-Reply-To=%3C20090214082635.0193f3aab1db45621a7a7ee5866e9102.3d38249904.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002052.html">
+   <LINK REL="Next"  HREF="002054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New utility: gpodder-backup</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20utility%3A%20gpodder-backup&In-Reply-To=%3C20090214082635.0193f3aab1db45621a7a7ee5866e9102.3d38249904.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] New utility: gpodder-backup">thp at gpodder.org
+       </A><BR>
+    <I>Sat Feb 14 16:26:35 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002052.html">[gpodder-devel] Please help testing the resume and &quot;file and folder	naming&quot; patches
+</A></li>
+        <LI>Next message: <A HREF="002054.html">[gpodder-devel] gPodder 0.15.0 tasks; Milestones in Bugzilla
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2053">[ date ]</a>
+              <a href="thread.html#2053">[ thread ]</a>
+              <a href="subject.html#2053">[ subject ]</a>
+              <a href="author.html#2053">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello there!
+
+To ease reproducing bugs and trying out different user configurations,
+I've written a small utility that takes care of creating and extracting
+archives that contain not only the gPodder configuration, but also the
+download folder (optionally making zero-size download files).
+
+The utility is in the git repository (master branch) as
+&quot;bin/gpodder-backup&quot;.
+There is also a manpage (view it with &quot;man doc/man/gpodder-backup.1&quot;)
+You can use it to backup/restore your config + downloads:
+
+gpodder-backup --create backup.gpo.tar.gz
+gpodder-backup --extract backup.gpo.tar.gz --purge
+
+If you're just trying out things and want to remove the gPodder
+configuration
+and downloads, this utility also makes it easy (be sure to BACKUP
+first!):
+
+gpodder-backup --purge
+
+And also use it to create a backup with the download files truncated, so
+a developer can easily extract it without having to download huge
+amounts
+of data:
+
+gpodder-backup --create backup.gpo.tar.gz --fake-downloads
+
+
+I hope this utility will be useful for users who want to backup their
+podcasts and also help us with bugfixing by allowing bug reporters to
+easily attach their config + download folder structure to a report :)
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002052.html">[gpodder-devel] Please help testing the resume and &quot;file and folder	naming&quot; patches
+</A></li>
+	<LI>Next message: <A HREF="002054.html">[gpodder-devel] gPodder 0.15.0 tasks; Milestones in Bugzilla
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2053">[ date ]</a>
+              <a href="thread.html#2053">[ thread ]</a>
+              <a href="subject.html#2053">[ subject ]</a>
+              <a href="author.html#2053">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

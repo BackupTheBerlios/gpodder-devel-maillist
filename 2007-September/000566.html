@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my	system
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Upgrading%20to%200.9.5%20has%20broken%20iPod%20Sync%0A%09on%09my%09system&In-Reply-To=%3C1189213251.4984.19.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000565.html">
+   <LINK REL="Next"  HREF="000567.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my	system</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Upgrading%20to%200.9.5%20has%20broken%20iPod%20Sync%0A%09on%09my%09system&In-Reply-To=%3C1189213251.4984.19.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my	system">thp at perli.net
+       </A><BR>
+    <I>Sat Sep  8 03:00:51 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000565.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync on my system
+</A></li>
+        <LI>Next message: <A HREF="000567.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#566">[ date ]</a>
+              <a href="thread.html#566">[ thread ]</a>
+              <a href="subject.html#566">[ subject ]</a>
+              <a href="author.html#566">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Paul!
+
+On Fri, 2007-09-07 at 19:12 +0100, Paul Rudkin wrote:
+&gt;<i> Many thanks for your prompt response.  This is the output:-
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">paul at Suzhou</A>:~$ gpodder --verbose
+</I>&gt;<i>         (ipodsync) Could not find python-gpod. iPod functions will be
+</I>&gt;<i>         disabled.
+</I>&gt;<i>         (ipodsync) Please install the &quot;python-gpod&quot; package if you
+</I>&gt;<i>         want iPod support.
+</I>&gt;<i>         (ipodsync) Found pymad
+</I>&gt;<i>         (ipodsync) Found eyeD3
+</I>&gt;<i>         (ipodsync) PyID3 not found - falling back to channel cover for
+</I>&gt;<i>         iPod cover art
+</I>&gt;<i>         (ipodsync) Found mplayer, using it to find track length of
+</I>&gt;<i>         files
+</I>&gt;<i>         ....
+</I>&gt;<i>         ....
+</I>&gt;<i> Now I think I may have tracked the issue down, at the same time as
+</I>&gt;<i> updating gPodder, I upgraded Rhythmbox which included an upgrade to
+</I>&gt;<i> python-gpod, which according to Synaptic is now version 0.5.2.   I
+</I>&gt;<i> have just checked on a virgin Ubuntu install and python-gpod version
+</I>&gt;<i> is 0.4.2. 
+</I>&gt;<i> 
+</I>&gt;<i> I notice that libgpod1 also got updated at the same time (0.4.2 -&gt;
+</I>&gt;<i> 0.5.2).   So I guess this is where the problem has come in.  Is this
+</I>&gt;<i> something that can (or should be fixed) or should I roll back some of
+</I>&gt;<i> my application upgrades? 
+</I>
+Please send me the output of the following command:
+-------
+dpkg -L python-gpod
+-------
+
+Then, start the Python interactive shell with &quot;python&quot; and enter the
+following command (without the &quot;&gt;&gt;&gt;&quot;) and send me the output (if any):
+
+&gt;&gt;&gt;<i> import gpod
+</I>
+
+Thanks,
+Thomas
+
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000565.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync on my system
+</A></li>
+	<LI>Next message: <A HREF="000567.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#566">[ date ]</a>
+              <a href="thread.html#566">[ thread ]</a>
+              <a href="subject.html#566">[ subject ]</a>
+              <a href="author.html#566">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

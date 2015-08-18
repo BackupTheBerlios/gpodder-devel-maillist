@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Latest gPodder: very CPU intensive downloads
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20gPodder%3A%20very%20CPU%20intensive%20downloads&In-Reply-To=%3C92779.96065.qm%40web60819.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000628.html">
+   <LINK REL="Next"  HREF="000627.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Latest gPodder: very CPU intensive downloads</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20gPodder%3A%20very%20CPU%20intensive%20downloads&In-Reply-To=%3C92779.96065.qm%40web60819.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] Latest gPodder: very CPU intensive downloads">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Wed Sep 26 13:59:44 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000628.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+        <LI>Next message: <A HREF="000627.html">[gpodder-devel] gPodder 0.10.0 on Windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#630">[ date ]</a>
+              <a href="thread.html#630">[ thread ]</a>
+              <a href="subject.html#630">[ subject ]</a>
+              <a href="author.html#630">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+yes, I'd be willing to help you out on this subject if
+you want to. I have a cable internet connection.
+Inside the house, I have wireless, so the max download
+bandwidth is about 600 KB/s. If I use a wired
+connection, it can be as high as 1.2 MB/s. I have
+several feeds with high bandwidth I frequently use.
+
+BTW, I also use DownThemAll on Firefox every once in a
+while, and that will download @ maximum velocity with
+status updates and all, but does not take an
+appreciable amount of CPU time.
+
+Regards,
+Wilfred
+
+
+--- Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello, Wilfred!
+</I>&gt;<i> 
+</I>&gt;<i> On Tue, 2007-09-25 at 16:40 -0700, Wilfred van
+</I>&gt;<i> Rooijen wrote:
+</I>&gt;<i> &gt; An observation using the latest version of
+</I>&gt;<i> gPodder: downloading is
+</I>&gt;<i> &gt; very resource intensive now (or so it seems). I
+</I>&gt;<i> have a laptop with CPU
+</I>&gt;<i> &gt; throttling. I am downloading 5 streams @ 100 KB/s
+</I>&gt;<i> each, and the CPU
+</I>&gt;<i> &gt; goes to full speed (1.6 GHz), CPU indicator shows
+</I>&gt;<i> close to 100%
+</I>&gt;<i> &gt; constantly and ACPI CPU temp goes up from about 45
+</I>&gt;<i> C (normal idle
+</I>&gt;<i> &gt; temp) to 76 C (normal temp during full use). The
+</I>&gt;<i> older version of
+</I>&gt;<i> &gt; gPodder got the streams at almost the same
+</I>&gt;<i> bandwidth, but did
+</I>&gt;<i> &gt; not use that much CPU-time. Any ideas? I'm
+</I>&gt;<i> convinced that some process
+</I>&gt;<i> &gt; is doing some busy waiting somewhere during the
+</I>&gt;<i> downloads. 
+</I>&gt;<i> 
+</I>&gt;<i> I think the problem is related to gPodder doing
+</I>&gt;<i> status updates more
+</I>&gt;<i> often than previously, and the GTK interface has to
+</I>&gt;<i> keep up with the
+</I>&gt;<i> constant flow of GUI updates (window title and the
+</I>&gt;<i> &quot;downloads&quot; tree
+</I>&gt;<i> model + tree view).
+</I>&gt;<i> 
+</I>&gt;<i> I've tried porting gPodder to Windows yesterday, and
+</I>&gt;<i> running on my
+</I>&gt;<i> 1.7GHz Pentium IV-M, I was able to see these
+</I>&gt;<i> &quot;hanging&quot; problems on Win32
+</I>&gt;<i> when downloading from a local server. It doesn't
+</I>&gt;<i> happen to me on Linux
+</I>&gt;<i> (I'm having my download queue set to 1) and if
+</I>&gt;<i> doesn't happen when
+</I>&gt;<i> downloading _anything_ from the Internet, because
+</I>&gt;<i> with my previous 64k
+</I>&gt;<i> line, I can't get anything beyond 8kb/s, so there
+</I>&gt;<i> cannot possibly be
+</I>&gt;<i> more GUI updates than that :)
+</I>&gt;<i> 
+</I>&gt;<i> That being said, I think I could try to limit the
+</I>&gt;<i> number of GUI updates
+</I>&gt;<i> by filtering the messages sent to the GUI for
+</I>&gt;<i> updating the interface. I
+</I>&gt;<i> would need you to check out the SVN repository,
+</I>&gt;<i> apply patches to it that
+</I>&gt;<i> I send you and you test if things work with a
+</I>&gt;<i> high-speed internet
+</I>&gt;<i> connection. Would you like to help here?
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+      ____________________________________________________________________________________
+Fussy? Opinionated? Impossible to please? Perfect.  Join Yahoo!'s user panel and lay it on us. <A HREF="http://surveylink.yahoo.com/gmrs/yahoo_panel_invite.asp?a=7">http://surveylink.yahoo.com/gmrs/yahoo_panel_invite.asp?a=7</A> 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000628.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+	<LI>Next message: <A HREF="000627.html">[gpodder-devel] gPodder 0.10.0 on Windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#630">[ date ]</a>
+              <a href="thread.html#630">[ thread ]</a>
+              <a href="subject.html#630">[ subject ]</a>
+              <a href="author.html#630">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

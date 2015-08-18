@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] First sync with gpodder.net and getting the device id
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20First%20sync%20with%20gpodder.net%20and%20getting%20the%0A%20device%20id&In-Reply-To=%3C20111018072239.GA18387%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002898.html">
+   <LINK REL="Next"  HREF="002900.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] First sync with gpodder.net and getting the device id</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20First%20sync%20with%20gpodder.net%20and%20getting%20the%0A%20device%20id&In-Reply-To=%3C20111018072239.GA18387%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] First sync with gpodder.net and getting the device id">thp at gpodder.org
+       </A><BR>
+    <I>Tue Oct 18 09:22:39 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002898.html">[gpodder-devel] First sync with gpodder.net and getting the device id
+</A></li>
+        <LI>Next message: <A HREF="002900.html">[gpodder-devel] First sync with gpodder.net and getting the	device id
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2899">[ date ]</a>
+              <a href="thread.html#2899">[ thread ]</a>
+              <a href="subject.html#2899">[ subject ]</a>
+              <a href="author.html#2899">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Tue, Oct 18, 2011 at 06:09:32AM +0000, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ari.hannula at nokia.com</A> wrote:
+&gt;<i> Hi. So, no automatically generated device id as the documentation
+</I>&gt;<i> says? How can I then be sure that the device id I give (e.g. N9) is
+</I>&gt;<i> then unique?
+</I>
+Add some hash + application name (if it's not the original gPodder
+client) + device name, e.g. for a N9 running your Podcasts app:
+
+  podcasts-n9-a6b78d9c
+  ^ App name
+           ^ Device name
+              ^ (possibly cropped) Hash (e.g. hash of IMEI+current time)
+
+Please make sure that you hash or otherwise obfuscate any identifying
+information like the IMEI (ideally with some random data, because
+otherwise people could maybe derive (parts of) the IMEI from the ID.
+
+The device ID is not really visible to the user (apart from the URL in
+the normal website interface), and there's a special field for the
+user-visible string.
+
+Thanks,
+Thomas
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: ext Stefan Derkits [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>] 
+</I>&gt;<i> Sent: 17. lokakuuta 2011 13:49
+</I>&gt;<i> To: Hannula Ari (Nokia-MP/Oulu)
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [gpodder-devel] First sync with gpodder.net and getting the device id
+</I>&gt;<i> 
+</I>&gt;<i> -----BEGIN PGP SIGNED MESSAGE-----
+</I>&gt;<i> Hash: SHA1
+</I>&gt;<i> 
+</I>&gt;<i> Hello Ari,
+</I>&gt;<i> 
+</I>&gt;<i> &gt; The function name &quot;renameDevice&quot; is not very obvious for this purpose 
+</I>&gt;<i> &gt; :) Why am I &quot;renaming&quot; a device that does not exist yet...
+</I>&gt;<i> 
+</I>&gt;<i> Sorry I know, definitly sth that could be made a little bit more clear.
+</I>&gt;<i> It had that name in the gpodder API, now it is only &quot;configure device&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; So if I leave the &quot;const QString&amp; deviceId&quot; parameter empty (or give 
+</I>&gt;<i> &gt; it a reference to a local QString) then that will contain the system 
+</I>&gt;<i> &gt; generated unique device id?
+</I>&gt;<i> 
+</I>&gt;<i> No, you have to set the DeviceID yourself to create a Device.
+</I>&gt;<i> E.g. N9 or PC_N9 (for Podcasts N9) ... sth like that ;)
+</I>&gt;<i> 
+</I>&gt;<i> Stefan
+</I>&gt;<i> -----BEGIN PGP SIGNATURE-----
+</I>&gt;<i> Version: GnuPG v1.4.11 (GNU/Linux)
+</I>&gt;<i> 
+</I>&gt;<i> iEYEARECAAYFAk6cCC8ACgkQlZvAMV/NgGJ4gwCgoZokMd1Euk8o1xpbmDBu3n43
+</I>&gt;<i> n9cAnj+eWlBeNfRoq+qzZZdrcKVHbaWA
+</I>&gt;<i> =CtKH
+</I>&gt;<i> -----END PGP SIGNATURE-----
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002898.html">[gpodder-devel] First sync with gpodder.net and getting the device id
+</A></li>
+	<LI>Next message: <A HREF="002900.html">[gpodder-devel] First sync with gpodder.net and getting the	device id
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2899">[ date ]</a>
+              <a href="thread.html#2899">[ thread ]</a>
+              <a href="subject.html#2899">[ subject ]</a>
+              <a href="author.html#2899">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

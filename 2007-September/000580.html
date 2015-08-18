@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hangs when trying to close	the	user-settings	dialog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FHangs_when_trying_to_close%3D09the%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3F%3D09user-settings%3D09dialog%3F%3D&In-Reply-To=%3C200709121918.27337.bjoernr%40sensewave.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000576.html">
+   <LINK REL="Next"  HREF="000581.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hangs when trying to close	the	user-settings	dialog</H1>
+    <B>Bj&#248;rn Rasmussen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FHangs_when_trying_to_close%3D09the%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3F%3D09user-settings%3D09dialog%3F%3D&In-Reply-To=%3C200709121918.27337.bjoernr%40sensewave.com%3E"
+       TITLE="[gpodder-devel] Hangs when trying to close	the	user-settings	dialog">bjoernr at sensewave.com
+       </A><BR>
+    <I>Wed Sep 12 19:18:27 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000576.html">[gpodder-devel] Hangs when trying to	close	the	user-settings	dialog
+</A></li>
+        <LI>Next message: <A HREF="000581.html">[gpodder-devel] Hangs when trying	to	close	the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#580">[ date ]</a>
+              <a href="thread.html#580">[ thread ]</a>
+              <a href="subject.html#580">[ subject ]</a>
+              <a href="author.html#580">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wednesday 12 September 2007 01:00:56 Thomas Perl wrote:
+&gt;<i> Hello, Bjorn!
+</I>&gt;<i>
+</I>&gt;<i> On Tue, 2007-09-11 at 18:27 +0200, Bj&#195;&#184;rn Rasmussen wrote:
+</I>&gt;<i> &gt; Found the syntax myself.  Installed the gpodder rpm on my i386 based
+</I>&gt;<i> &gt; laptop (rpm = pygtk2-2.10.6-1.i386.fc7).  On this machine I don't have
+</I>&gt;<i> &gt; the &quot;Hangs when trying to close the        user-settings   dialog&quot; -
+</I>&gt;<i> &gt; problem, even though both run Fedora 7, updated at the same time from
+</I>&gt;<i> &gt; the same yum repository.  The difference is that the troubled machine
+</I>&gt;<i> &gt; is a x86_64 architecture (rpm = pygtk2-2.10.6-1.x86_64.fc7).
+</I>&gt;<i>
+</I>&gt;<i> So, the problem is obviously related to the 64-bit platform (or
+</I>&gt;<i> pygtk/gtk package for it), right?
+</I>&gt;<i>
+</I>&gt;<i> Can you provide some more information as to what of the preferences
+</I>&gt;<i> dialog doesn't work or is it that the whole dialog doesn't work and
+</I>&gt;<i> doesn't save settings?
+</I>
+Everything works ok to the point where you close the window.  Then the gpodder 
+freezes consuming all available cpu power.  You cannot quit the normal way, 
+you have to kill the process.
+
+... testing with &quot;strace gpodder&quot; ....
+
+Looks like strace (system call trace) reveals the problem:
+
+futex(0xc6c9b0, FUTEX_WAKE, 1)          = 0
+futex(0xc6c9b0, FUTEX_WAKE, 1)          = 0
+stat(&quot;/home/bjoern/.wine/drive_c/windows/profiles/bjoern/Min      
+musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profile
+s/bjoern/Min musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profil
+es/bjoern/Min musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.wine/drive_c/windows/profiles/bjoern/Min 
+musikk/.xmoto/LCache/i14.blv&quot;, {st
+_mode=S_IFREG|0644, st_size=1947, ...}) = 0
+futex(0xc6c9b0, FUTEX_WAKE, 1)          = 0
+
+Here strace reveals a loop (the very long stat call) in the filesystem.  So 
+gpodder didn't freeze after all.  It's doing an endless file search.
+
+
+Looks like gpodder scans the users homedirectory after the Close-button is 
+clicked for some reason.  My homedirectory contains &quot;.wine&quot;, which includes 
+symbolic links:
+
+$ pwd
+/home/bjoern/.wine/drive_c/windows/profiles
+
+$ ls -l bjoern/
+totalt 100
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 Cookies
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 Favoritter
+drwxrwxr-x 5 bjoern bjoern 4096 2007-07-12 19:59 Lokale innstillinger
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 Maler
+lrwxrwxrwx 1 bjoern bjoern   12 2007-07-12 19:59 Mine bilder -&gt; /home/bjoern
+lrwxrwxrwx 1 bjoern bjoern   12 2007-07-12 19:59 Mine 
+dokumenter -&gt; /home/bjoern
+lrwxrwxrwx 1 bjoern bjoern   12 2007-07-12 19:59 Mine 
+videoklipp -&gt; /home/bjoern
+lrwxrwxrwx 1 bjoern bjoern   12 2007-07-12 19:59 Min musikk -&gt; /home/bjoern
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 NetHood
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 Programdata
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 SendTo
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 Siste
+lrwxrwxrwx 1 bjoern bjoern   20 2007-07-12 19:59 
+Skrivebord -&gt; /home/bjoern/Desktop
+drwxrwxr-x 2 bjoern bjoern 4096 2007-07-12 19:59 Skrivere
+drwxrwxr-x 3 bjoern bjoern 4096 2007-07-12 19:59 Start-meny
+
+As you see, many links that can cause an endless loop.
+
+
+The working i386 machine doesn't contain the .wine directory.  All 
+gpodder-users that have links pointing back in the filesystem, will get the 
+same problem as me.
+
+I guess this must be considered a bug.
+
+
+Best regards Bjoern :-)
+
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+
+-- 
+Bj&#248;rn Rasmussen
+
+Adr:	Moneheia 47, 4656 Kristiansand
+Tlf:	38 04 50 05
+Mbl:	911 27367
+Epost:	<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">bjoernr at sensewave.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000576.html">[gpodder-devel] Hangs when trying to	close	the	user-settings	dialog
+</A></li>
+	<LI>Next message: <A HREF="000581.html">[gpodder-devel] Hangs when trying	to	close	the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#580">[ date ]</a>
+              <a href="thread.html#580">[ thread ]</a>
+              <a href="subject.html#580">[ subject ]</a>
+              <a href="author.html#580">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

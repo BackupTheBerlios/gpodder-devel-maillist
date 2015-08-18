@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] problem w 3gp
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20problem%20w%203gp&In-Reply-To=%3C1206352126.6566.3.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001304.html">
+   <LINK REL="Next"  HREF="001306.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] problem w 3gp</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20problem%20w%203gp&In-Reply-To=%3C1206352126.6566.3.camel%40macbook%3E"
+       TITLE="[gpodder-devel] problem w 3gp">thp at perli.net
+       </A><BR>
+    <I>Mon Mar 24 10:48:46 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001304.html">[gpodder-devel] problem w 3gp
+</A></li>
+        <LI>Next message: <A HREF="001306.html">[gpodder-devel] problem w 3gp
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1305">[ date ]</a>
+              <a href="thread.html#1305">[ thread ]</a>
+              <a href="subject.html#1305">[ subject ]</a>
+              <a href="author.html#1305">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Atte!
+
+On Sun, 2008-03-23 at 21:08 +0100, Atte Andr&#233; Jensen wrote:
+&gt;<i> I'm new to podcasting and gpodder. I subscribed to a few podcasts and
+</I>&gt;<i> it seems to work great.
+</I>&gt;<i> 
+</I>&gt;<i> However there's this podcast I'd like to use: 
+</I>&gt;<i> <A HREF="http://vpodcast.dr.dk/feeds/Den11.time190rss.xml">http://vpodcast.dr.dk/feeds/Den11.time190rss.xml</A> which is 3gp video, 
+</I>&gt;<i> that's supported on my M600i (and looks fine, I checked).
+</I>&gt;<i> 
+</I>&gt;<i> If I download it it does appear on my podcast folder on my computer,
+</I>&gt;<i> but when I synchronize it's never transferred to the M600i. I tried
+</I>&gt;<i> with both 0.11.0 and 0.9.4. Am I doing anything wrong or is something
+</I>&gt;<i> wrong either in gpodder or the podcast?
+</I>
+That's because we didn't have &quot;3gp&quot; in the list of video extensions,
+therefore gPodder would not sync the file to a portable player (because
+if, for example, a podcast contains a PDF, and you sync it, the PDF
+shouldn't be copied to the player).
+
+I have just added &quot;3gp&quot; to the list of video extensions, so the new
+upstream version of gPodder (due out at the end of this week) will
+include this fix. If you want, you can try running the SVN (development)
+version, this already has the fix included now, for more information see
+
+  <A HREF="http://wiki.gpodder.org/running-from-svn">http://wiki.gpodder.org/running-from-svn</A>
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001304.html">[gpodder-devel] problem w 3gp
+</A></li>
+	<LI>Next message: <A HREF="001306.html">[gpodder-devel] problem w 3gp
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1305">[ date ]</a>
+              <a href="thread.html#1305">[ thread ]</a>
+              <a href="subject.html#1305">[ subject ]</a>
+              <a href="author.html#1305">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

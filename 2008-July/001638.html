@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Saving multiple files at once
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Saving%20multiple%20files%20at%20once&In-Reply-To=%3C487CFB8D.9010609%40blueyonder.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001628.html">
+   <LINK REL="Next"  HREF="001621.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Saving multiple files at once</H1>
+    <B>O. Emmerson</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Saving%20multiple%20files%20at%20once&In-Reply-To=%3C487CFB8D.9010609%40blueyonder.co.uk%3E"
+       TITLE="[gpodder-devel] Saving multiple files at once">oe014b3624_3 at blueyonder.co.uk
+       </A><BR>
+    <I>Tue Jul 15 21:33:33 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001628.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+        <LI>Next message: <A HREF="001621.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1638">[ date ]</a>
+              <a href="thread.html#1638">[ thread ]</a>
+              <a href="subject.html#1638">[ subject ]</a>
+              <a href="author.html#1638">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2008-07-11 at 19:57 +0200, Thomas Perl wrote:
+</I>&gt;&gt;<i> On Fri, 2008-07-11 at 00:11 +0100, O. Emmerson wrote:
+</I>&gt;&gt;&gt;<i> When selecting multiple files in a feed and selecting the Save to
+</I>&gt;&gt;<i> disk
+</I>&gt;&gt;&gt;<i> option in the right click menu no save boxes pop up.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Traceback (most recent call last):
+</I>&gt;&gt;&gt;<i>   File &quot;/svn/gpodder/src/gpodder/gui.py&quot;, line 906, in &lt;lambda&gt;
+</I>&gt;&gt;&gt;<i>     item.connect( 'activate', lambda w: self.save_episode_as_file(
+</I>&gt;&gt;&gt;<i> episode_url))
+</I>&gt;&gt;&gt;<i> NameError: free variable 'episode_url' referenced before assignment
+</I>&gt;&gt;<i> in
+</I>&gt;&gt;&gt;<i> enclosing scope
+</I>&gt;&gt;<i> Yes, &quot;Save to disk&quot; should only be visible when only selecting one
+</I>&gt;&gt;<i> single episode. Anyway, it would probably make sense to save multiple
+</I>&gt;&gt;<i> episodes at once by simply selecting a target folder.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please file this as a bug report over at <A HREF="http://bugs.gpodder.org/">http://bugs.gpodder.org/</A> and
+</I>&gt;&gt;<i> include the text of your original mail (see above) and my response in
+</I>&gt;&gt;<i> the bug report, so we don't forget to fix it when we have some free
+</I>&gt;&gt;<i> time!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I've fixed that in SVN trunk. No need to report that bug anymore.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>
+Hi Thomas,
+
+Thanks for fixing it before I could open the bug :)
+
+I tried to sign up for bugzilla anyway and got the below error message
+when I submitted my email address:
+
+Software error:
+
+DBD::mysql::db do failed: Duplicate entry 'IzVX9K6Ymr' for key 1 at
+Bugzilla/Token.pm line 372
+	Bugzilla::Token::_create_token('undef', 'account',
+'<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">oe014b3624_3 at blueyonder.co.uk</A>') called at Bugzilla/Token.pm line 74
+	Bugzilla::Token::issue_new_user_account_token('<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">oe014b3624_3 at blueyonder.co.uk</A>')
+called at /var/www/html/gpodder/bugzilla/createaccount.cgi line 71
+
+For help, please send mail to the webmaster (<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at localhost</A>), giving
+this error message and the time and date of the error.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001628.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+	<LI>Next message: <A HREF="001621.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1638">[ date ]</a>
+              <a href="thread.html#1638">[ thread ]</a>
+              <a href="subject.html#1638">[ subject ]</a>
+              <a href="author.html#1638">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

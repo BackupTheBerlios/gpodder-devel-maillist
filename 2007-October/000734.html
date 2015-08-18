@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-human readable directory and file names
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C4728CBCB.50904%40ideareactor.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000733.html">
+   <LINK REL="Next"  HREF="000736.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-human readable directory and file names</H1>
+    <B>Chris McCabe</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C4728CBCB.50904%40ideareactor.com%3E"
+       TITLE="[gpodder-devel] Non-human readable directory and file names">chrism at ideareactor.com
+       </A><BR>
+    <I>Wed Oct 31 19:39:07 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000733.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+        <LI>Next message: <A HREF="000736.html">[gpodder-devel] Extended format_filesize() function to cover SI	units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#734">[ date ]</a>
+              <a href="thread.html#734">[ thread ]</a>
+              <a href="subject.html#734">[ subject ]</a>
+              <a href="author.html#734">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sorry to comment on my own message, but now that I think of it a bit 
+more, why not just use the entire URL of the actual podcast, instead of 
+the feed.  For example, the podcast downloaded from:
+<A HREF="http://www.hbo.com/video/podcasts/billmaher/637314_dl.mp3">http://www.hbo.com/video/podcasts/billmaher/637314_dl.mp3</A>
+
+would be stored at the following location in the filesystem:
+www.hbo.com/video/podcasts/billmaher/637314_dl.mp3
+
+Every podcast must have a unique URL, so you know it's always unique, 
+and always exists.
+
+Chris
+
+Chris McCabe wrote:
+&gt;<i> Here's a quick thought:
+</I>&gt;<i>
+</I>&gt;<i> How about creating the directory name from the URL of the feed, which 
+</I>&gt;<i> will always exist.  So for example, the podcasts from the feed:
+</I>&gt;<i> <A HREF="http://www.hbo.com/apps/podcasts/podcast.xml?a=2">http://www.hbo.com/apps/podcasts/podcast.xml?a=2</A>
+</I>&gt;<i>
+</I>&gt;<i> would all be saved in the directory (relative to the download directory):
+</I>&gt;<i> www.hbo.com/apps/podcasts/podcast.xml?a=2/
+</I>&gt;<i>
+</I>&gt;<i> It would end up creating a few more directory levels than are really 
+</I>&gt;<i> necessary, but it would be guaranteed to be unique, and would make it 
+</I>&gt;<i> easy to find the podcasts.  It would also automatically group feeds 
+</I>&gt;<i> from the same website together.
+</I>&gt;<i> You would still have the problem of naming each individual podcast 
+</I>&gt;<i> from that feed, but at least half the problem is solved.
+</I>&gt;<i>
+</I>&gt;<i> For naming the podcasts, one easy scheme would be to name it with the 
+</I>&gt;<i> release date of the podcast, or if not available, the download date, 
+</I>&gt;<i> with an extra number to make it unique if necessary.  For example:
+</I>&gt;<i> 2007.10.31.001.mp3
+</I>&gt;<i>
+</I>&gt;<i> This has the advantage that the alphabetical directory listing will 
+</I>&gt;<i> list the podcasts in order.  It has the disadvantage that you wouldn't 
+</I>&gt;<i> be able to match with certainty podcasts to filenames without 
+</I>&gt;<i> additional information.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Just some thoughts.
+</I>&gt;<i>
+</I>&gt;<i> Chris
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas Perl wrote:
+</I>&gt;&gt;<i> Hello, Jay, Ionut and Pieter!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> This mail is not intended to be rude or harsh, I just want to bring up
+</I>&gt;&gt;<i> real problems with using content from RSS files as base for file naming.
+</I>&gt;&gt;<i> If you can come up with a stable, sane and secure scheme for creating
+</I>&gt;&gt;<i> human-readable file names for all possible RSS feeds, please tell me :)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Wed, 2007-10-31 at 11:03 +0000, Jay Bradley wrote:
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i> I was wondering why gpodder stores the downloads in crazily named 
+</I>&gt;&gt;&gt;<i> directories? I realise that it is partly to ensure unique directories
+</I>&gt;&gt;&gt;<i> so there are no clashes but it means that it is impossible to browse 
+</I>&gt;&gt;&gt;<i> through the podcast files manually. I know I can sync to a filesystem
+</I>&gt;&gt;&gt;<i> so I do this for my mp3 player but I also normally use a soft link to
+</I>&gt;&gt;&gt;<i> the podcast downloads directory for my mythtv installation as well. 
+</I>&gt;&gt;&gt;<i> Currently I'm changing the device directory and syncing to my mp3
+</I>&gt;&gt;&gt;<i> player and changing the device directory again to a separate directory
+</I>&gt;&gt;&gt;<i> for mythtv. If the directory names were human readable then it would
+</I>&gt;&gt;&gt;<i> save me a lot of hassle.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I see you have read the mailing list and are aware of the alternatives
+</I>&gt;&gt;<i> (MP3 Player sync).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Anyway, this topic has been discussed several times on this list, I
+</I>&gt;&gt;<i> guess it's time for a FAQ on the gPodder website.. ;)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> First of all, here are some relevant postings related to the topic.
+</I>&gt;&gt;<i> Please read through them to get an overview of what has been proposed
+</I>&gt;&gt;<i> and discussed already:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2006-November/000283.html">https://lists.berlios.de/pipermail/gpodder-devel/2006-November/000283.html</A> 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-June/000723.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-June/000723.html</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-July/000756.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-July/000756.html</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Script that tries to solve that problem:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/000911.html">http://lists.berlios.de/pipermail/gpodder-devel/2007-August/000911.html</A>
+</I>&gt;&gt;<i> I'm going to describe the problem you mention a bit further...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Basically, it's hard to create human-readable names because of the
+</I>&gt;&gt;<i> nature of RSS feeds. It's like with HTML - if browsers were going to
+</I>&gt;&gt;<i> reject non-standard HTML, all documents on the web would adhere to the
+</I>&gt;&gt;<i> standards, but thanks to such &quot;useful&quot; features as quirks mode, browsers
+</I>&gt;&gt;<i> try to fix the shortcomings of bad markup in the parser code.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> But the problems with RSS feeds doesn't lie in bad markup. Most of the
+</I>&gt;&gt;<i> time, fields are not set (no &lt;title&gt; element in &lt;item&gt;), fields have
+</I>&gt;&gt;<i> empty value (&lt;title&gt; exists, but is empty) or very stupid usage of
+</I>&gt;&gt;<i> fields (just recently, we had a feed where &lt;title&gt; contained a
+</I>&gt;&gt;<i> description of the episode, a very long string).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> There are two options here:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  a) reject any feeds that have no title, have a too long title or 
+</I>&gt;&gt;<i> have     some other weird properties that are not usual RSS practice
+</I>&gt;&gt;<i>  b) accept all feeds and try to make the best of &quot;what we have&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> gPodder tries to to the &quot;b)&quot; route and so we have to be prepared to
+</I>&gt;&gt;<i> accept feeds without &lt;title&gt;. As you can read from the november 2006
+</I>&gt;&gt;<i> post above (I think one of the inital thoughts about hashed filenames),
+</I>&gt;&gt;<i> hashing feed and episode URLs always gives us strings that have some
+</I>&gt;&gt;<i> sane and stable properties:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  1.) (high probability of) uniqueness
+</I>&gt;&gt;<i>  2.) sane length (even fixed, but at least not empty or too long)
+</I>&gt;&gt;<i>  3.) sane alphabet (hexadecimal, i.e. only the characters 0-9 and a-f)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> So, for every given URL (and _every_ feed has an URL), we have a sane
+</I>&gt;&gt;<i> &quot;ID&quot; that we can use to identify that feed.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When depending on human-readable strings (i.e. title, etc..) we run into
+</I>&gt;&gt;<i> several problems:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  i.) what is the directory name of feeds with &quot;&lt;title&gt;&lt;/title&gt;&quot;??
+</I>&gt;&gt;<i>  ii.) what is the directory name of feed A with title &quot;radio x 
+</I>&gt;&gt;<i> podcast&quot;       when there already is a feed B with title &quot;radio x 
+</I>&gt;&gt;<i> podcast&quot;?
+</I>&gt;&gt;<i>  iii.) what is the directory name of a feed with a loooong title?
+</I>&gt;&gt;<i>  iv.) what is the directory name of a feed with chinese characters as
+</I>&gt;&gt;<i>       title (from the top of my head, imagine (e.g. &quot;&#12454;&#12455;&#12502;&quot;) when 
+</I>&gt;&gt;<i>       using FAT32 as file system?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> We might be able to create a unique filename for a podcast episode from
+</I>&gt;&gt;<i> the basename of its url, but is there always an unique basename of the
+</I>&gt;&gt;<i> podcast feed? It might be &quot;index.xml&quot; or &quot;podcast.rss&quot;.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i> I never understand why some programs add a layer of complexity which 
+</I>&gt;&gt;&gt;<i> removes the user one step from their files. I believe programs should
+</I>&gt;&gt;&gt;<i> be as transparent as possible to allow people to do what they like
+</I>&gt;&gt;&gt;<i> with the data produced by that program.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> gPodder is transparent in that the user doesn't have to care about the
+</I>&gt;&gt;<i> directory layout, as the user can use the gPodder GUI to browse and
+</I>&gt;&gt;<i> listen to feeds - all feed information is displayed in the GUI.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> You can always determine feed and episode info for given hashes:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  -&gt; Hash (md5) the URLs in ~/.config/gpodder/channels.opml
+</I>&gt;&gt;<i>  -&gt; MD5 of URL = directory name of feed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  -&gt; Open the file &quot;index.xml&quot; in the feed download directory
+</I>&gt;&gt;<i>  -&gt; Hash (md5) the URLs in that file
+</I>&gt;&gt;<i>  -&gt; MD5 of URL + extension of basename of URL = filename of episode
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> In pseuco-code, this is something like:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> opml_file = $HOME + '/.config/gpodder/channels.opml'
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ( ... feed_url is to be obtained from opml_file ... )
+</I>&gt;&gt;<i> feed_directory = gpodder_download_dir + '/' + md5sum( feed_url )
+</I>&gt;&gt;<i> feed_index = feed_directory + '/index.xml'
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ( ... episode_url is to be obtained from feed_index ... )
+</I>&gt;&gt;<i> extension = file_extension_of( basename( episode_url ) )
+</I>&gt;&gt;<i> episode_name = feed_directory + '/' + md5sum ( episode_url ) + extension
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i> Using the non-human readable directory and filenames stops users from
+</I>&gt;&gt;&gt;<i> accessing their files except through one program (gpodder) which is a
+</I>&gt;&gt;&gt;<i> shame.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> You can use the above method to find more information (metadata) for the
+</I>&gt;&gt;<i> files than you can with human readable directories, including the title
+</I>&gt;&gt;<i> and description of episodes.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i> I've looked through the source code but cannot find where the
+</I>&gt;&gt;&gt;<i> directory names are set. I'm an okay programmer so could do this
+</I>&gt;&gt;&gt;<i> myself if someone could point me in the right direction. I'd do it to
+</I>&gt;&gt;&gt;<i> just my local copy if this wasn't something anyone else would be
+</I>&gt;&gt;&gt;<i> interested in.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please, by all means try to do it. If it works for all RSS feeds, I
+</I>&gt;&gt;<i> would be very happy to merge it into gPodder, as it would be the better
+</I>&gt;&gt;<i> solution than what we have now. But because of the reasons I mentioned
+</I>&gt;&gt;<i> above, I am very skeptic if this is possible at all.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The directory name for channels is determined by the &quot;get_filename&quot;
+</I>&gt;&gt;<i> function of the class &quot;podcastChannel&quot; in &quot;src/gpodder/libpodcasts.py&quot;.
+</I>&gt;&gt;<i> The attributes that _should_ be available when this function is called
+</I>&gt;&gt;<i> are &quot;url&quot;, &quot;title&quot; and &quot;description&quot; (i.e. &quot;self.title&quot;).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The filename for an episode is determined by the &quot;local_filename&quot;
+</I>&gt;&gt;<i> function of the class &quot;podcastItem&quot; in &quot;src/gpodder/libpodcasts.py&quot;.
+</I>&gt;&gt;<i> Only the &quot;url&quot; attribute is guranteed to be available, for all other
+</I>&gt;&gt;<i> properties, the best possible value is extracted from the RSS feed, but
+</I>&gt;&gt;<i> you can expect the &quot;title&quot; value to be somewhat identifying, but not
+</I>&gt;&gt;<i> unique. You also have to be aware that the &quot;title&quot; value _could_ be very
+</I>&gt;&gt;<i> long (think of a description field value that has been misplaced).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i> I realise there may be some other reason why the names are non-human 
+</I>&gt;&gt;&gt;<i> readable so if I've missed it then please could someone let me know.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Apart from the practical reasons I mentioned above, there is no real
+</I>&gt;&gt;<i> reason why the hashes are chosen. It was a simple and straightforward
+</I>&gt;&gt;<i> solution to a problem for which we have not yet found a better solution.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It would be quite cool if you could come up with something friendlier :)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you want, please send the modifications you make to make gPodder's
+</I>&gt;&gt;<i> directory structure human-readable. It will be a nice-to-have patch for
+</I>&gt;&gt;<i> interested people :)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks and Good Luck!
+</I>&gt;&gt;<i> Thomas
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>   
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000733.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+	<LI>Next message: <A HREF="000736.html">[gpodder-devel] Extended format_filesize() function to cover SI	units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#734">[ date ]</a>
+              <a href="thread.html#734">[ thread ]</a>
+              <a href="subject.html#734">[ subject ]</a>
+              <a href="author.html#734">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

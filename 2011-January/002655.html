@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] id3 tag library
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20id3%20tag%20library&In-Reply-To=%3C20110107210900.GC27890%40gpodder.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002643.html">
+   <LINK REL="Next"  HREF="002644.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] id3 tag library</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20id3%20tag%20library&In-Reply-To=%3C20110107210900.GC27890%40gpodder.net%3E"
+       TITLE="[gpodder-devel] id3 tag library">thp at gpodder.org
+       </A><BR>
+    <I>Fri Jan  7 22:09:00 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002643.html">[gpodder-devel] id3 tag library
+</A></li>
+        <LI>Next message: <A HREF="002644.html">[gpodder-devel] gPodder like podcatcher I'm working on for Android
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2655">[ date ]</a>
+              <a href="thread.html#2655">[ thread ]</a>
+              <a href="subject.html#2655">[ subject ]</a>
+              <a href="author.html#2655">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+On Wed, Jan 05, 2011 at 09:12:33PM +0100, Bernd wrote:
+&gt;<i> On Wed, 2011-01-05 at 01:25 +0200, Ville-Pekka Vainio wrote:
+</I>&gt;<i> &gt; ti, 2011-01-04 kello 14:49 -0800, Tim Gilbert kirjoitti:
+</I>&gt;<i> &gt; &gt; Sorry, as an addendum this was the library that I found to be the most appealing, mutagen. 
+</I>&gt;<i> &gt; &gt; It is pure python and is available the GPLv2 (which I assume is compatible with gpodder's GPLv3):
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; AFAIK mutagen is GPLv2 only (not GPLv2 or later) which makes it
+</I>&gt;<i> &gt; incompatible with the GPLv3. I guess we could ask someone who actually
+</I>&gt;<i> &gt; knows this stuff, though ;)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> 
+</I>&gt;<i> Today I found another library/programm which seems to handle audio tags
+</I>&gt;<i> <A HREF="http://audiotools.sourceforge.net/programming/index.html">http://audiotools.sourceforge.net/programming/index.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> The License is &quot;GPL v2 or later&quot; as mentioned on pypi
+</I>&gt;<i> <A HREF="http://pypi.python.org/pypi/audiotools/2.13">http://pypi.python.org/pypi/audiotools/2.13</A>
+</I>
+I'd much rather like to have all the tag-editing stuff be implemented
+via the hooks mechanism, which would allow users to combine packages
+with different licenses locally.
+
+Also, now that we have the hooks mechanism, I want to keep the gPodder
+&quot;core&quot; smaller than previously, because I don't want to maintain the
+fully-featured all-included podcast client, but rather a small, stable
+core of your beloved podcatcher where stuff like ID3/Vorbis tagging
+added on top for power users. Ideally, the hooks mechanism (or whatever
+it is it grows into) should become the &quot;plugin&quot; system of gPodder and
+features should be implemented that way.
+
+If anybody wants to start a spin-off project for providing tagging
+functionality as a hooks script, that'd be great :) Maybe this script
+could be a candidate for Bernd's hooks repo?
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002643.html">[gpodder-devel] id3 tag library
+</A></li>
+	<LI>Next message: <A HREF="002644.html">[gpodder-devel] gPodder like podcatcher I'm working on for Android
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2655">[ date ]</a>
+              <a href="thread.html#2655">[ thread ]</a>
+              <a href="subject.html#2655">[ subject ]</a>
+              <a href="author.html#2655">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

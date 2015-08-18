@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] build error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20build%20error&In-Reply-To=%3Cd1e5d5da0704101138p10bc5fe5p7cd1b99ad3f703ce%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000239.html">
+   <LINK REL="Next"  HREF="000232.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] build error</H1>
+    <B>enderst</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20build%20error&In-Reply-To=%3Cd1e5d5da0704101138p10bc5fe5p7cd1b99ad3f703ce%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] build error">enderst at gmail.com
+       </A><BR>
+    <I>Tue Apr 10 20:38:21 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000239.html">[gpodder-devel] build error
+</A></li>
+        <LI>Next message: <A HREF="000232.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>wahooo, that was it. i was going to start diff'n Makefiles, etc...
+weird that 0.9.0 built fine.
+thank you for your help
+enderst
+
+On 4/10/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello, enderst!
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 2007-04-09 at 23:31 -0600, enderst wrote:
+</I>&gt;<i> &gt; Hello Thomas,
+</I>&gt;<i> &gt; same issue:
+</I>&gt;<i> &gt; intltool 0.35.5
+</I>&gt;<i> &gt; gettext 0.16.1
+</I>&gt;<i> &gt; 0.9.0 built fine and was trying to keep the package up to date.
+</I>&gt;<i>
+</I>&gt;<i> Reading: <A HREF="http://aur.archlinux.org/packages/gpodder/gpodder/PKGBUILD">http://aur.archlinux.org/packages/gpodder/gpodder/PKGBUILD</A>
+</I>&gt;<i>
+</I>&gt;<i> The part
+</I>&gt;<i>
+</I>&gt;<i>     build() {
+</I>&gt;<i>       cd $startdir/src/gpodder-$pkgver
+</I>&gt;<i>       python setup.py install --root=$startdir/pkg
+</I>&gt;<i>     }
+</I>&gt;<i>
+</I>&gt;<i> should probably be something like
+</I>&gt;<i>
+</I>&gt;<i>     build() {
+</I>&gt;<i>       cd $startdir/src/gpodder-$pkgver
+</I>&gt;<i>       DESTDIR=$startdir/pkg make install
+</I>&gt;<i>     }
+</I>&gt;<i>
+</I>&gt;<i> If you simply run setup.py, it won't generate the gettext translations
+</I>&gt;<i> (and some other things..). Use the makefile target &quot;install&quot;. The
+</I>&gt;<i> destination directory can be specified with the variable &quot;DESTDIR&quot;. The
+</I>&gt;<i> make script then calls the setup.py script after running preparations.
+</I>&gt;<i>
+</I>&gt;<i> Strangely enough, this has been the case for some releases now, so 0.9.0
+</I>&gt;<i> shouldn't really have worked with only running setup.py (without make).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070410/61ebc7c7/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070410/61ebc7c7/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000239.html">[gpodder-devel] build error
+</A></li>
+	<LI>Next message: <A HREF="000232.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

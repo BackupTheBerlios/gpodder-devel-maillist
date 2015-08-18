@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder.net Amarok Integration - Design Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder.net%20Amarok%20Integration%20-%20Design%20Issues&In-Reply-To=%3C4EAFF856.9070401%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="002910.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder.net Amarok Integration - Design Issues</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder.net%20Amarok%20Integration%20-%20Design%20Issues&In-Reply-To=%3C4EAFF856.9070401%40derkits.at%3E"
+       TITLE="[gpodder-devel] gpodder.net Amarok Integration - Design Issues">stefan at derkits.at
+       </A><BR>
+    <I>Tue Nov  1 14:47:02 CET 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="002910.html">[gpodder-devel] gpodder.net Amarok Integration - Design Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2907">[ date ]</a>
+              <a href="thread.html#2907">[ thread ]</a>
+              <a href="subject.html#2907">[ subject ]</a>
+              <a href="author.html#2907">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hey,
+
+as Amarok 2.5 Release (and with it hopefully the gpodder.net
+Integration) is soon, we need to fix the Service.
+
+As discussed with Stefan K&#246;gl &amp; Thomas Perl, I forward this discussion
+also to the gpodder Mailinglist (and hope that maybe some people who
+use gpodder want to help a little bit with testing).
+
+Known problems atm:
+- -) Episode Actions are sent every 30 seconds always including the last
+position (and also not sent for skipped parts)
+- -) Episode Actions are not correctly sent if a podcast includes a
+&quot;last stop postion&quot; mark but user starts to play from position 0
+- -) Annoying popup related to KIO (wrapper around QNetworkAccessManager)
+
+This Popup is related to the isPossibleSpoofingAttack Method in
+<A HREF="https://projects.kde.org/projects/kde/kdelibs/repository/revisions/master/entry/kioslave/http/http.cpp">https://projects.kde.org/projects/kde/kdelibs/repository/revisions/master/entry/kioslave/http/http.cpp</A>
+&amp; libmygpo-qt setting the data for http basic auth in the url.
+
+@thp: Could you maybe explain how you handle the Episode Actions in
+the gpodder App? This could maybe be a good way also for amarok.
+
+@skoegl: Any chance to implement some other Auth Mechanism than basic
+auth (I know there is the auth api, but that too needs basic auth) in
+gpodder.net really soon?
+
+Stefan
+
+On 10/18/2011 11:30 AM, Stefan Derkits wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;&gt;&gt;<i> we can do this way, but I think it isn't efficient. We only
+</I>&gt;&gt;&gt;<i> want to know where we stopped, so there is no need to make more
+</I>&gt;&gt;&gt;<i> than one episode action. Unless something like play history is
+</I>&gt;&gt;&gt;<i> a to-do for Amarok (Bart should know ^^).
+</I>&gt;<i> 
+</I>&gt;&gt;<i> It is, we already keep playback position markers automatically to
+</I>&gt;&gt;<i>  start playing where amarok stopped before. Full history is not 
+</I>&gt;&gt;<i> really required, unless it is used for chaptering of podcast 
+</I>&gt;&gt;<i> episodes. This could enhance the podcast listening experience on 
+</I>&gt;&gt;<i> Amarok.
+</I>&gt;<i> 
+</I>&gt;<i> so probably at first we don't want to send Playlist Actions also
+</I>&gt;<i> for skips (I will explain in a few Minutes what this could be good
+</I>&gt;<i> for).
+</I>&gt;<i> 
+</I>&gt;<i> Still we need to change the existing implementation. Without
+</I>&gt;<i> sending skips and only wanting to know where we stopped, only 1
+</I>&gt;<i> EpisodeAction for Play should be uploaded to the Server (and not
+</I>&gt;<i> one every Minute or half Minute). This Episode Action should
+</I>&gt;<i> probably be sent when the user clicks pause or stop and doesn't
+</I>&gt;<i> resume listening in e.g. 1 minute.
+</I>&gt;<i> 
+</I>&gt;<i> Of course we know the gpodder.net service can be unreliable from
+</I>&gt;<i> time to time, but I also think the case where a user stops
+</I>&gt;<i> listening a Podcast, shuts down Amarok &amp; his computer (and
+</I>&gt;<i> gpodder.net didn't work and the episode action couldn't be sent in
+</I>&gt;<i> time) and then wants to continue listening the Podcast on his
+</I>&gt;<i> mobile is not soo common.
+</I>&gt;<i> 
+</I>&gt;<i> Why it makes sense to upload (and it isn't that inefficient,
+</I>&gt;<i> keeping some data structures in memory and uploading them as a
+</I>&gt;<i> bunch if nothing [related to this episode or podcast in general]
+</I>&gt;<i> happened for 1 Minute doesn't &quot;cost&quot; much more then uploading a
+</I>&gt;<i> single action) also skips?
+</I>&gt;<i> 
+</I>&gt;<i> Atm this Data is only used (and visible) internally in gpodder.net
+</I>&gt;<i> for Podcast Producers. But Bart made a good point,
+</I>&gt;<i> (crowd-sourcing) chaptering of podcast episodes would be a cool
+</I>&gt;<i> feature for gpodder.net.
+</I>&gt;<i> 
+</I>&gt;<i> Stefan _______________________________________________ Amarok-devel
+</I>&gt;<i> mailing list <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Amarok-devel at kde.org</A> 
+</I>&gt;<i> <A HREF="https://mail.kde.org/mailman/listinfo/amarok-devel">https://mail.kde.org/mailman/listinfo/amarok-devel</A>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk6v+FYACgkQlZvAMV/NgGI7owCfXbSEBA+Wuubl4vAGLh5H7Jwg
+Z4AAn1IicNHk/JWcfZmJ3kTkGKT9+MsC
+=ne/2
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="002910.html">[gpodder-devel] gpodder.net Amarok Integration - Design Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2907">[ date ]</a>
+              <a href="thread.html#2907">[ thread ]</a>
+              <a href="subject.html#2907">[ subject ]</a>
+              <a href="author.html#2907">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder + Tray Icon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20%2B%20Tray%20Icon&In-Reply-To=%3C640160.33111.qm%40web60816.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001036.html">
+   <LINK REL="Next"  HREF="001038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder + Tray Icon</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20%2B%20Tray%20Icon&In-Reply-To=%3C640160.33111.qm%40web60816.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] gPodder + Tray Icon">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Wed Jan  9 04:11:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001036.html">[gpodder-devel] Tray Icon Patch for r508
+</A></li>
+        <LI>Next message: <A HREF="001038.html">[gpodder-devel] gPodder + Tray Icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1037">[ date ]</a>
+              <a href="thread.html#1037">[ thread ]</a>
+              <a href="subject.html#1037">[ subject ]</a>
+              <a href="author.html#1037">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey Thomas,
+
+I ran gPodder + tray icon, and got this error when all
+downloads were finished. gPodder did not crash, BTW.
+System: gentoo linux.
+
+Later,
+Wilfred
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ (podcastChannel)
+Setting localdb channel data =&gt;
+/home/rooijen/gpodder-downloads/e1d90e396ef9e7b8ff6419760128c3a2/index.xml
+(HistoryStore) Adding:
+<A HREF="http://podcast.kxradio.nl/kxpodcast/podcast/freakolympics/week50-151207-freakolympics.mp3">http://podcast.kxradio.nl/kxpodcast/podcast/freakolympics/week50-151207-freakolympics.mp3</A>
+(HistoryStore) Wrote 311 history entries.
+(GPodderStatusIcon) Notification: 11 episodes
+downloaded:
+Jan. 5, 2008: The News from Lake Wobegon
+NPR: 01-06-2008 Wait Wait... Don't Tell Me!
+Skepticality #068 - The Candidates on Church and State
+- Interview: Lori Lipman Brown
+2008-01-04-bambiopjacht
+2008-01-06-Zegellak2
+2008-01-06-Zegellak1
+2008-01-06-albumdossier2
+2008-01-05-slashdotdash
+2008-01-06-leukemuziekliedjes
+2008-01-06-albumdossier1
+(...one more episode...)
+Traceback (most recent call last):
+  File
+&quot;/home/rooijen/gpodder/src/gpodder/trayicon.py&quot;, line
+208, in __download_progress_changed
+    self.send_notification(message, _('gPodder
+downloads finished'), [self.ACTION_SHOW,
+self.ACTION_QUIT, self.ACTION_IGNORE])
+  File
+&quot;/home/rooijen/gpodder/src/gpodder/trayicon.py&quot;, line
+267, in send_notification
+    notification.attach_to_status_icon(self)
+AttributeError: 'pynotify.Notification' object has no
+attribute 'attach_to_status_icon'
+(gPodder) auto_update_procedure() got called
+
+
+
+      ____________________________________________________________________________________
+Looking for last minute shopping deals?  
+Find them fast with Yahoo! Search.  <A HREF="http://tools.search.yahoo.com/newsearch/category.php?category=shopping">http://tools.search.yahoo.com/newsearch/category.php?category=shopping</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001036.html">[gpodder-devel] Tray Icon Patch for r508
+</A></li>
+	<LI>Next message: <A HREF="001038.html">[gpodder-devel] gPodder + Tray Icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1037">[ date ]</a>
+              <a href="thread.html#1037">[ thread ]</a>
+              <a href="subject.html#1037">[ subject ]</a>
+              <a href="author.html#1037">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

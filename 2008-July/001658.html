@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Not able to sync iPod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Not%20able%20to%20sync%20iPod&In-Reply-To=%3C16485520.11216491809794.JavaMail.javamailuser%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001656.html">
+   <LINK REL="Next"  HREF="001659.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Not able to sync iPod</H1>
+    <B>Chris Arnold</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Not%20able%20to%20sync%20iPod&In-Reply-To=%3C16485520.11216491809794.JavaMail.javamailuser%40localhost%3E"
+       TITLE="[gpodder-devel] Not able to sync iPod">carnold at electrichendrix.com
+       </A><BR>
+    <I>Sat Jul 19 20:23:32 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001656.html">[gpodder-devel] How to add a property to channels without	beaking everything?
+</A></li>
+        <LI>Next message: <A HREF="001659.html">[gpodder-devel] Not able to sync iPod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1658">[ date ]</a>
+              <a href="thread.html#1658">[ thread ]</a>
+              <a href="subject.html#1658">[ subject ]</a>
+              <a href="author.html#1658">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Upgraded to 12.0 and now i am not able to sync my video ipod. Here is gpodder -v:
+gpodder -v
+[   0.196] Detected encoding: UTF-8
+[   0.237] (gPodderLib) Creating gPodderLib()
+[   0.248] (Storage) Setting up SQLite database
+[   0.249] SQLite connection for thread 139996177868528 opened.
+[   0.255] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert &quot;.ogg&quot; files.
+[   0.326] (gpodder.sync) Could not find Python Imaging Library (PIL)
+[   0.329] Patching feedparser module... (mapContentType bugfix)
+[   0.521] (GPodderStatusIcon) Creating tray icon
+[   0.714] (Storage) Channel list read, 14 entries.
+[   0.723] Stale download directory found: 27c762c4594d0eae95592032a2fabc54
+[   0.723] Successfully removed /home/ELECTRICHENDRIX/carnold/iPod/Podcasts/27c762c4594d0eae95592032a2fabc54.
+[   0.727] SQLite connection for thread 1085913424 opened.
+[   0.729] (gPodder) auto_update_procedure() got called
+[   0.734] (Storage) Channel list read, 14 entries.
+[   1.310] (CoverDownloader) Trying to download: <A HREF="http://www.ligonier.org/images/rym-itunes.jpg">http://www.ligonier.org/images/rym-itunes.jpg</A>
+[   1.429] (podcastChannel) Generating TreeModel for <A HREF="http://www.desiringgod.org/feeds/SermonVideo/">http://www.desiringgod.org/feeds/SermonVideo/</A>
+[   1.525] (CoverDownloader) Cannot get image from <A HREF="http://www.ligonier.org/images/rym-itunes.jpg">http://www.ligonier.org/images/rym-itunes.jpg</A>
+[   3.712] start reader
+[   3.776] (UserAppsReader) Player found: /usr/share/applications/realplay-gnome.desktop
+[   3.779] (UserAppsReader) Player found: /usr/share/applications/realplay.desktop
+[   3.832] (UserAppsReader) Player found: /usr/share/applications/mplayer.desktop
+[   3.847] end reader (benchmark: 0.1348 seconds)
+[   4.775] (Config) Update: main_window_x = 260
+[   4.777] (Config) Update: main_window_y = 353
+Exception in thread Thread-18:
+Traceback (most recent call last):
+  File &quot;/usr/lib64/python2.5/threading.py&quot;, line 486, in __bootstrap_inner
+    self.run()
+  File &quot;/usr/lib64/python2.5/threading.py&quot;, line 446, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/usr/lib64/python2.5/site-packages/gpodder/gui.py&quot;, line 1705, in sync_to_ipod_thread
+    if not device.episode_on_device(episode):
+  File &quot;/usr/lib64/python2.5/site-packages/gpodder/sync.py&quot;, line 205, in episode_on_device
+    return self.__track_on_device(episode)
+AttributeError: 'iPodDevice' object has no attribute '_Device__track_on_device'
+
+Thanks for all your effort and help!
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001656.html">[gpodder-devel] How to add a property to channels without	beaking everything?
+</A></li>
+	<LI>Next message: <A HREF="001659.html">[gpodder-devel] Not able to sync iPod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1658">[ date ]</a>
+              <a href="thread.html#1658">[ thread ]</a>
+              <a href="subject.html#1658">[ subject ]</a>
+              <a href="author.html#1658">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

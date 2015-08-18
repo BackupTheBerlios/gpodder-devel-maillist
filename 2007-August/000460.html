@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Old Icon Theme support (was: Re: new version	downloads new episodes, but screen empty)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Old%20Icon%20Theme%20support%20%28was%3A%20Re%3A%20new%20version%0A%09downloads%20new%20episodes%2C%20but%20screen%20empty%29&In-Reply-To=%3C2e59e6970708071615o47241865uc5e2bbcb58cbbeeb%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000459.html">
+   <LINK REL="Next"  HREF="000461.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Old Icon Theme support (was: Re: new version	downloads new episodes, but screen empty)</H1>
+    <B>richardvoigt at gmail.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Old%20Icon%20Theme%20support%20%28was%3A%20Re%3A%20new%20version%0A%09downloads%20new%20episodes%2C%20but%20screen%20empty%29&In-Reply-To=%3C2e59e6970708071615o47241865uc5e2bbcb58cbbeeb%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Old Icon Theme support (was: Re: new version	downloads new episodes, but screen empty)">richardvoigt at gmail.com
+       </A><BR>
+    <I>Wed Aug  8 01:15:21 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000459.html">[gpodder-devel] Old Icon Theme support (was: Re: new version	downloads new	episodes, but screen empty)
+</A></li>
+        <LI>Next message: <A HREF="000461.html">[gpodder-devel] Old Icon Theme support (was: Re: new	version	downloads new episodes, but screen empty)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#460">[ date ]</a>
+              <a href="thread.html#460">[ thread ]</a>
+              <a href="subject.html#460">[ subject ]</a>
+              <a href="author.html#460">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 8/7/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello, Richard!
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 2007-08-06 at 19:52 -0500, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">richardvoigt at gmail.com</A> wrote:
+</I>&gt;<i> &gt; You probably want to emit an appropriate warning before eating the
+</I>&gt;<i> &gt; exception.  Notably, I had gotten two distinct exceptions while
+</I>&gt;<i> &gt; troubleshooting:
+</I>&gt;<i>
+</I>&gt;<i> &gt;From your (very good!) bug report, screenshot and patch, I now suspect
+</I>&gt;<i> that you are probably using an old version of the gnome/hicolor icon
+</I>&gt;<i> theme, which does not yet include the &quot;applications-internet&quot; icon.
+</I>&gt;<i> Because this icon is loaded when gPodder generates the ListStore for the
+</I>&gt;<i> channel list, this could make the channel list not initialize properly.
+</I>&gt;<i>
+</I>&gt;<i> Please have a look in /usr/share/icons/hicolor/ to find a globe-like
+</I>&gt;<i> icon that looks like the globes on the left side of this screenshot:
+</I>
+
+I'll take a look when I get back home, but I suspect I haven't an older
+version either.  I use kde, not gnome.
+
+<A HREF="http://spock.thpinfo.com/~thp/images/gpodder-richard-voigt.png">http://spock.thpinfo.com/~thp/images/gpodder-richard-voigt.png</A>
+&gt;<i>
+</I>&gt;<i> Then, try to replace the &quot;applications-internet&quot; string in the
+</I>&gt;<i> corresponding function with the base name of your globe-like icon. If
+</I>&gt;<i> gPodder works for you now, I can come up with some fallback code to use
+</I>&gt;<i> the old icon name instead of the new one. Just tell me the base name of
+</I>&gt;<i> the icon you've found to be working.
+</I>
+
+The last patch I sent includes what I believe to be a better fallback -- a
+try/except around the icon loading code.  No matter how many secondary icon
+names you have, someday they will all be missing.  And of course, the
+failover to an alternate icon wouldn't solve the problem of cover art with
+an unrecognized format.
+
+
+&gt;<i> gobject.GError - Icon 'applications-internet' not present in theme
+</I>
+
+This is what I got first, and worked around by eating the exception from
+loading 'applications-internet'.
+
+&gt;<i> gobject.GError - Unrecognized image file format
+</I>
+
+After doing that, it progressed to another channel, which caused this
+error.  That's why I determined to move the try/except around the whole icon
+assignment block.
+
+Thanks,
+&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070807/fd7deef4/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070807/fd7deef4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000459.html">[gpodder-devel] Old Icon Theme support (was: Re: new version	downloads new	episodes, but screen empty)
+</A></li>
+	<LI>Next message: <A HREF="000461.html">[gpodder-devel] Old Icon Theme support (was: Re: new	version	downloads new episodes, but screen empty)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#460">[ date ]</a>
+              <a href="thread.html#460">[ thread ]</a>
+              <a href="subject.html#460">[ subject ]</a>
+              <a href="author.html#460">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

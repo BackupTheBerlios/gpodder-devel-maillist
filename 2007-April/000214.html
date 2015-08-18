@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod synchronization error: &quot;No access	to	device &quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FiPod_synchronization_error%3D3A_%3D22N%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fo_access%3D09to%3D09device_%3D22%3F%3D&In-Reply-To=%3C200704061641.43304.pdedecker%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000213.html">
+   <LINK REL="Next"  HREF="000199.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod synchronization error: &quot;No access	to	device &quot;</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FiPod_synchronization_error%3D3A_%3D22N%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fo_access%3D09to%3D09device_%3D22%3F%3D&In-Reply-To=%3C200704061641.43304.pdedecker%40gmail.com%3E"
+       TITLE="[gpodder-devel] iPod synchronization error: &quot;No access	to	device &quot;">pdedecker at gmail.com
+       </A><BR>
+    <I>Fri Apr  6 16:41:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000213.html">[gpodder-devel] iPod synchronization error: &quot;No	access	to	device &quot;
+</A></li>
+        <LI>Next message: <A HREF="000199.html">[gpodder-devel] gPodder 0.9.1 released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#214">[ date ]</a>
+              <a href="thread.html#214">[ thread ]</a>
+              <a href="subject.html#214">[ subject ]</a>
+              <a href="author.html#214">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> The Python bindings can usually be found in &quot;bindings/python&quot; in the
+</I>&gt;<i> libgpod source directory. Run &quot;make&quot; and then &quot;make install&quot; - this
+</I>&gt;<i> should install the right version of the bindings on your system.
+</I>I have a feeling that there's something wrong. I'm sorry, the output is Dutch, 
+but there's no quick way to change my system language.
+
+Here's a quick translation for the most important strings:
+&gt;<i> Er is niets te doen voor '(...)' = Nothing to do for '(...)'
+</I>&gt;<i> Map (...) wordt binnengegaan = Entering folder (...)
+</I>&gt;<i> Map (...) wordt verlaten = Exiting folder (...)
+</I>
+---
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at BETAubuntu</A>:~/Desktop/Downloads/libgpod-0.4.2/bindings/python$ make
+make  all-recursive
+make[1]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt binnengegaan
+Making all in examples
+make[2]: 
+Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python/examples' 
+wordt binnengegaan
+make[2]: Er is niets te doen voor 'all'.
+make[2]: 
+Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python/examples' 
+wordt verlaten
+make[2]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt binnengegaan
+make[2]: Er is niets te doen voor 'all-am'.
+make[2]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt verlaten
+make[1]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt verlaten
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at BETAubuntu</A>:~/Desktop/Downloads/libgpod-0.4.2/bindings/python$ sudo 
+make install
+make  install-recursive
+make[1]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt binnengegaan
+Making install in examples
+make[2]: 
+Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python/examples' 
+wordt binnengegaan
+make[3]: 
+Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python/examples' 
+wordt binnengegaan
+make[3]: Er is niets te doen voor 'install-exec-am'.
+make[3]: Er is niets te doen voor 'install-data-am'.
+make[3]: 
+Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python/examples' 
+wordt verlaten
+make[2]: 
+Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python/examples' 
+wordt verlaten
+make[2]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt binnengegaan
+make[3]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt binnengegaan
+make[3]: Er is niets te doen voor 'install-exec-am'.
+test -z &quot;&quot; || mkdir -p -- &quot;&quot;
+test -z &quot;&quot; || mkdir -p -- &quot;&quot;
+test -z &quot;&quot; || mkdir -p -- &quot;&quot;
+make[3]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt verlaten
+make[2]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt verlaten
+make[1]: Map '/home/pdedecker/Desktop/Downloads/libgpod-0.4.2/bindings/python' 
+wordt verlaten
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at BETAubuntu</A>:~/Desktop/Downloads/libgpod-0.4.2/bindings/python$
+---
+
+&gt;<i> That could indeed be the cause of the problem.
+</I>Then how can I force dpkg to remove the package? The --force flag didn't work. 
+I tried 'sudo dpkg -r libgpod0 --force', 'sudo dpkg -r --force libgpod0' 
+and 'sudo dpkg --force -r libgpod0'.
+
+&gt;<i> &gt; OK, so now I'm able to perform a synchronization (I only tested it
+</I>&gt;<i> &gt; twice with one podcast at a time) but the files don't show up on my
+</I>&gt;<i> &gt; iPod in either the Podcasts or Artists menu. I can see them in gtkpod
+</I>&gt;<i> &gt; though (see attached screenshot).
+</I>&gt;<i>
+</I>&gt;<i> Since when did this happen? Has it worked on the same iPod, same libgpod
+</I>&gt;<i> version before?
+</I>No, before this I just got the error &quot;No access to device&quot;. If 'sudo make 
+install' worked with the old libgpod0 package installed, I'm using version 
+0.4.2 now.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000213.html">[gpodder-devel] iPod synchronization error: &quot;No	access	to	device &quot;
+</A></li>
+	<LI>Next message: <A HREF="000199.html">[gpodder-devel] gPodder 0.9.1 released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#214">[ date ]</a>
+              <a href="thread.html#214">[ thread ]</a>
+              <a href="subject.html#214">[ subject ]</a>
+              <a href="author.html#214">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

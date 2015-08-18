@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] svn issues with Ubuntu Edgy.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20svn%20issues%20with%20Ubuntu%20Edgy.&In-Reply-To=%3C200701161111.06269.nikosapi%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000021.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] svn issues with Ubuntu Edgy.</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20svn%20issues%20with%20Ubuntu%20Edgy.&In-Reply-To=%3C200701161111.06269.nikosapi%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] svn issues with Ubuntu Edgy.">nikosapi at gmail.com
+       </A><BR>
+    <I>Tue Jan 16 17:11:06 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[gpodder-devel] pt_PT upgrade
+</A></li>
+        <LI>Next message: <A HREF="000021.html">[gpodder-devel] svn issues with Ubuntu Edgy.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I just noticed that on my FC6 box PyID3 wasn't loading. I built mine from the 
+source at: <A HREF="http://icepick.info/projects_old/pyid3/">http://icepick.info/projects_old/pyid3/</A> and it uses id3 instead of 
+ID3. Attached is a patch to check for both cases.
+
+nick
+
+On Sunday 31 December 2006 09:32, Thomas Perl wrote:
+&gt;<i> Hello Jon,
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 28 Dec 2006 09:14:42 -0600 Jon Ferguson wrote:
+</I>&gt;<i> &gt; libipodsync.py does not detect PyID3 on Ubuntu Edgy due to case
+</I>&gt;<i> &gt; conflict.  Changing import id3 to import ID3 fixed the issue.  Perhaps
+</I>&gt;<i> &gt; there should be a check for both cases.
+</I>&gt;<i>
+</I>&gt;<i> Thanks for the hint, same for me in Debian. Fixed in current svn trunk
+</I>&gt;<i> head.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Enjoy.
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: libipodsync-pyid3-lowercase.patch
+Type: text/x-diff
+Size: 662 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070116/3e2c4097/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070116/3e2c4097/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[gpodder-devel] pt_PT upgrade
+</A></li>
+	<LI>Next message: <A HREF="000021.html">[gpodder-devel] svn issues with Ubuntu Edgy.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

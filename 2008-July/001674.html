@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] feature request: Time stretching / audio playback	speed up
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20feature%20request%3A%20Time%20stretching%20/%20audio%20playback%0A%09speed%20up&In-Reply-To=%3C48872C02.1060309%40sagire.fi%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001682.html">
+   <LINK REL="Next"  HREF="001675.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] feature request: Time stretching / audio playback	speed up</H1>
+    <B>Lari Hotari</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20feature%20request%3A%20Time%20stretching%20/%20audio%20playback%0A%09speed%20up&In-Reply-To=%3C48872C02.1060309%40sagire.fi%3E"
+       TITLE="[gpodder-devel] feature request: Time stretching / audio playback	speed up">lari.hotari at sagire.fi
+       </A><BR>
+    <I>Wed Jul 23 15:02:58 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001682.html">[gpodder-devel] Q: Switching mainline development to Git?
+</A></li>
+        <LI>Next message: <A HREF="001675.html">[gpodder-devel] feature request: Time stretching / audio	playback speed up
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1674">[ date ]</a>
+              <a href="thread.html#1674">[ thread ]</a>
+              <a href="subject.html#1674">[ subject ]</a>
+              <a href="author.html#1674">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I'd like to listen to podcasts using faster playback (45%).
+
+I have tested processing podcasts using soundtouch/soundstretch and it
+seems to be a usefull feature to be able to speed up playback without
+changing the pitch. This process is generally called &quot;time stretching&quot;
+(<A HREF="http://en.wikipedia.org/wiki/Audio_timescale-pitch_modification">http://en.wikipedia.org/wiki/Audio_timescale-pitch_modification</A>).
+
+Currently I'm processing the audio files downloaded by gpodder before
+transfering them to my ipod.
+
+This is the script I have for speeding up a single mp3 file by 45%.
+
+#!/bin/bash
+mp3-decoder --wav &quot;$1.wav&quot; &quot;$1&quot;
+soundstretch &quot;$1.wav&quot; &quot;$1.fast.wav&quot; -tempo=+45
+lame --preset fast medium &quot;$1.fast.wav&quot; &quot;$1.2.mp3&quot;
+id3cp &quot;$1&quot; &quot;$1.2.mp3&quot;
+rm &quot;$1.wav&quot; &quot;$1.fast.wav&quot;
+mv &quot;$1&quot; &quot;$1.bak&quot;
+mv &quot;$1.2.mp3&quot; &quot;$1&quot;
+
+Would it be possible to implement the playback speed up (time
+stretching) directly in gpodder using the soundtouch library
+(<A HREF="http://www.surina.net/soundtouch/">http://www.surina.net/soundtouch/</A>)? Alternatively there could be a
+general script hook for processing the downloaded mp3 files.
+
+I wasn't able to add this feature request to the gpodder bugtracker
+because creating a new account failed.
+
+
+Regards,
+
+Lari
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001682.html">[gpodder-devel] Q: Switching mainline development to Git?
+</A></li>
+	<LI>Next message: <A HREF="001675.html">[gpodder-devel] feature request: Time stretching / audio	playback speed up
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1674">[ date ]</a>
+              <a href="thread.html#1674">[ thread ]</a>
+              <a href="subject.html#1674">[ subject ]</a>
+              <a href="author.html#1674">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

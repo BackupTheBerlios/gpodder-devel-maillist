@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] bug, cli
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bug%2C%20cli&In-Reply-To=%3C1180871699.4461.2.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000331.html">
+   <LINK REL="Next"  HREF="000333.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] bug, cli</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bug%2C%20cli&In-Reply-To=%3C1180871699.4461.2.camel%40macbook%3E"
+       TITLE="[gpodder-devel] bug, cli">thp at perli.net
+       </A><BR>
+    <I>Sun Jun  3 13:54:59 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000331.html">[gpodder-devel] bug, cli
+</A></li>
+        <LI>Next message: <A HREF="000333.html">[gpodder-devel] bug, cli
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#332">[ date ]</a>
+              <a href="thread.html#332">[ thread ]</a>
+              <a href="subject.html#332">[ subject ]</a>
+              <a href="author.html#332">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Thomas!
+
+Please re-run gPodder with this patch applied so we can debug this:
+
+Index: src/gpodder/liblogger.py
+===================================================================
+--- src/gpodder/liblogger.py	(revision 332)
++++ src/gpodder/liblogger.py	(working copy)
+@@ -44,6 +44,9 @@
+ 
+ 
+ def msg( type, message, *args):
+-    s = message % args
++    try:
++        s = message % args
++    except:
++        print 'Error: String is &quot;%s&quot; and args are [ %s ]' % ( message,
+', '.join( args),  )
+     print '%c\t%s' % ( type[0].upper(), s )
+
+
+Thanks,
+Thomas
+
+
+On Sun, 2007-06-03 at 13:15 +0200, Thomas Matthijs wrote:
+&gt;<i> $ gpodder --version
+</I>&gt;<i> gpodder 0.9.2
+</I>&gt;<i> $ gpodder -v -u
+</I>&gt;<i> (PlaybackHistory) Creating new history list.
+</I>&gt;<i> U       <A HREF="http://www.wcradio.com/feeds/FS.xml">http://www.wcradio.com/feeds/FS.xml</A>
+</I>&gt;<i> deleteFilename: /home/axxo/.config/gpodder/cache/ea32ff0abfc3e23fce49ec6b5fa47a2e.xml
+</I>&gt;<i> Command: 
+</I>&gt;<i> wget --timeout=120 --continue --tries=inf
+</I>&gt;<i> --output-document=&quot;/home/axxo/.config/gpodder/cache/.tmp-ea32ff0abfc3e23fce49ec6b5fa47a2e.xml&quot; &quot;<A HREF="http://www.wcradio.com/feeds/FS.xml">http://www.wcradio.com/feeds/FS.xml</A>&quot;
+</I>&gt;<i> Reading metadata 
+</I>&gt;<i> from /home/axxo/gpodder-downloads/ea32ff0abfc3e23fce49ec6b5fa47a2e/index.xml
+</I>&gt;<i> U       <A HREF="http://www.wcradio.com/feeds/VT.xml">http://www.wcradio.com/feeds/VT.xml</A>
+</I>&gt;<i> deleteFilename: /home/axxo/.config/gpodder/cache/8392f3d0a833ed8604a49eaef56f8916.xml
+</I>&gt;<i> Command: 
+</I>&gt;<i> wget --timeout=120 --continue --tries=inf
+</I>&gt;<i> --output-document=&quot;/home/axxo/.config/gpodder/cache/.tmp-8392f3d0a833ed8604a49eaef56f8916.xml&quot; &quot;<A HREF="http://www.wcradio.com/feeds/VT.xml">http://www.wcradio.com/feeds/VT.xml</A>&quot;
+</I>&gt;<i> Reading metadata 
+</I>&gt;<i> from /home/axxo/gpodder-downloads/8392f3d0a833ed8604a49eaef56f8916/index.xml
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/bin/gpodder&quot;, line 145, in ?
+</I>&gt;<i>     sys.exit( main())
+</I>&gt;<i>   File &quot;/usr/bin/gpodder&quot;, line 113, in main
+</I>&gt;<i>     console.update()
+</I>&gt;<i>   File &quot;/usr/lib64/python2.4/site-packages/gpodder/console.py&quot;, line
+</I>&gt;<i> 107, in 
+</I>&gt;<i> update
+</I>&gt;<i>     return gPodderChannelReader().read( True, callback_url =
+</I>&gt;<i> urlcallback, 
+</I>&gt;<i> callback_error = errorcallback)
+</I>&gt;<i>   File &quot;/usr/lib64/python2.4/site-packages/gpodder/libgpodder.py&quot;,
+</I>&gt;<i> line 593, 
+</I>&gt;<i> in read
+</I>&gt;<i>     callback_url( channel.url)
+</I>&gt;<i>   File &quot;/usr/lib64/python2.4/site-packages/gpodder/console.py&quot;, line
+</I>&gt;<i> 104, in 
+</I>&gt;<i> &lt;lambda&gt;
+</I>&gt;<i>     urlcallback = lambda url: msg( 'update', url)
+</I>&gt;<i>   File &quot;/usr/lib64/python2.4/site-packages/gpodder/liblogger.py&quot;, line
+</I>&gt;<i> 47, in 
+</I>&gt;<i> msg
+</I>&gt;<i>     s = message % args
+</I>&gt;<i> TypeError: not enough arguments for format string 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000331.html">[gpodder-devel] bug, cli
+</A></li>
+	<LI>Next message: <A HREF="000333.html">[gpodder-devel] bug, cli
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#332">[ date ]</a>
+              <a href="thread.html#332">[ thread ]</a>
+              <a href="subject.html#332">[ subject ]</a>
+              <a href="author.html#332">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

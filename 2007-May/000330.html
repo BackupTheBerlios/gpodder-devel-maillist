@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] impressions after first use
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20impressions%20after%20first%20use&In-Reply-To=%3C985F9892-9E99-4F03-AED7-57B5AE094986%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000329.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] impressions after first use</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20impressions%20after%20first%20use&In-Reply-To=%3C985F9892-9E99-4F03-AED7-57B5AE094986%40perli.net%3E"
+       TITLE="[gpodder-devel] impressions after first use">thp at perli.net
+       </A><BR>
+    <I>Wed May 30 21:33:34 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000329.html">[gpodder-devel] impressions after first use
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#330">[ date ]</a>
+              <a href="thread.html#330">[ thread ]</a>
+              <a href="subject.html#330">[ subject ]</a>
+              <a href="author.html#330">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Tim!
+
+On May 29, 2007, at 6:05 PM, Tim Michelsen wrote:
+&gt;&gt;<i> Currently not, but this item is on the TODO list, which means it will
+</I>&gt;&gt;<i> get into gPodder when somebody finds the time to implement this  
+</I>&gt;&gt;<i> feature.
+</I>&gt;<i> I don't know Python (yet) so I cannot help.
+</I>
+Contributing to gPodder doesn't always involve coding only. A few  
+possibilities are outlined here: <A HREF="http://gpodder.berlios.de/">http://gpodder.berlios.de/</A> 
+contribute.html
+
+You can also do a totally voluntary donation, here are two links you  
+might find helpful: <A HREF="http://gpodder.berlios.de/donate.html">http://gpodder.berlios.de/donate.html</A> and <A HREF="http://">http://</A> 
+www.amazon.de/gp/registry/2PD2MYGHE6857
+
+&gt;<i> Where can I find the to do list?
+</I>
+The current gPodder TODO list can always be found here:
+
+<A HREF="http://svn.berlios.de/svnroot/repos/gpodder/trunk/TODO">http://svn.berlios.de/svnroot/repos/gpodder/trunk/TODO</A>
+
+&gt;<i> Shall I file a bugreport for my wishes or improvement ideas?
+</I>
+For wishlist items, you can send a mail to the gpodder-devel mailing  
+list and I'll add it to the todo list if nobody else is doing it.
+
+For real bugs, it's better to file a bugreport on gPodder's  
+berlios.de project page and bug tracker: <A HREF="http://developer.berlios.de/">http://developer.berlios.de/</A> 
+projects/gpodder, but many people find it easier to simply send the  
+bug report to the gpodder-devel mailing list, which is also fine (but  
+a bug may be overlooked for some time..).
+
+&gt;&gt;<i> I don't have the time to implement this feature currently, and I  
+</I>&gt;&gt;<i> am also
+</I>&gt;&gt;<i> not totally sure how to best implement this feature so that it  
+</I>&gt;&gt;<i> will be
+</I>&gt;&gt;<i> easy to use without having to configure many things.
+</I>&gt;<i> At least we are on linux. We could use a
+</I>&gt;<i> call like
+</I>&gt;<i> find $download_dir -ctime 7 |xargs /bin/rm -f
+</I>
+gPodder doesn't only run on Linux, there is at least one active user  
+I know of that uses some flavour of BSD. Also, gPodder keeps a local  
+database of the downloaded podcasts' metadata, so just removing the  
+downloaded files is not enough.
+
+&gt;&gt;<i> Combined with this feature is also a &quot;delete locally-deleted  
+</I>&gt;&gt;<i> podcasts on
+</I>&gt;&gt;<i> the iPod/MP3 player&quot; feature wishlist item, which would also help in
+</I>&gt;&gt;<i> keeping the portable player clean.
+</I>&gt;<i> looks as if this could be solved with rsync or unison.
+</I>
+Maybe this would work for filesystem-based MP3 players (but then  
+again, gPodder's download directory structure isn't the same as the  
+current &quot;synched&quot; format, which basically sorts files into folders  
+and easily-readable file names.
+
+And of course this method would not work at all for iPods, as we have  
+to update the iTunesDB, etc..
+
+&gt;<i> Here are some more ideas/suggestions:
+</I>&gt;<i>
+</I>&gt;<i> * I would like to have playlists build automatically or a third tab
+</I>&gt;<i> where gPodder presents the user with all un-listended Podcast. I have
+</I>&gt;<i> some 30 feeds on the list so it would be easier than checking ervy
+</I>&gt;<i> singel feed for downloads.
+</I>
+What kind of interaction features would you wish from such a &quot;New  
+Episodes&quot; tab? Also, will the episode disappear as soon as it is  
+played the first time? It surely sounds like a nice idea, don't know  
+how you would imagine it to look and act like to be useful. I'd also  
+like to have input from other users here :)
+
+&gt;<i> * gPodder selects the last 3 episodes of a new feed for download. Can
+</I>&gt;<i> this be changed to only the laste one?
+</I>
+Currently not, but it would be trivial to implement if the desire is  
+here. I just thought 3 is a good default and have not yet made it a  
+preference, as I try to keep the user-configurable preferences down  
+to a minimum (think &quot;ugh, Emacs&quot;).
+
+&gt;<i> Anywany for playing unlistened podcasts rythmbox has better  
+</I>&gt;<i> capabilities
+</I>&gt;<i> since it supports dynaimc playlists. But gPodder's feed control is  
+</I>&gt;<i> much
+</I>&gt;<i> better. A integration of both would be nice.
+</I>
+Do you think a &quot;unplayed.m3u&quot; feature in gPodder (adding file names  
+of unplayed items to a playlist file that Rhythmbox can read) would  
+solve that problem?
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000329.html">[gpodder-devel] impressions after first use
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#330">[ date ]</a>
+              <a href="thread.html#330">[ thread ]</a>
+              <a href="subject.html#330">[ subject ]</a>
+              <a href="author.html#330">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

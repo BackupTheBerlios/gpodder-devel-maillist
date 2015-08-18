@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Managing Downloads with Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C87ipsm0xhe.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="002789.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Managing Downloads with Woodchuck</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C87ipsm0xhe.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Managing Downloads with Woodchuck">neal at walfield.org
+       </A><BR>
+    <I>Sat Jun  4 11:14:37 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="002789.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2788">[ date ]</a>
+              <a href="thread.html#2788">[ thread ]</a>
+              <a href="subject.html#2788">[ subject ]</a>
+              <a href="author.html#2788">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+I'm working on a project (called Woodchuck) to improve download
+management.  I'd like gPodder (as well as my RSS reader, my social
+network program, my email client, my calendaring program, my weather
+widget, etc.) to automatically update and download new content when
+convenient, for instance, when my N900 is connected to power, there is
+a good WiFi connection and I'm not currently using the device.
+
+I've spent some time reading gPodder's source code, but I'm unsure
+what the best approach to integrating Woodchuck into gPodder is.
+Should I modify download.py?  Should I add a plug-in using the hook
+API?  Should I modify gui.py?
+
+To help you help me, here is a very brief description of Woodchuck's
+architecture and intended programming model.
+
+Woodchuck is based on three object types: managers, streams and
+objects.  An application registers itself as a manager.  It registers
+one stream for each subscription, e.g., podcast feed, and one object
+corresponding to each piece of content, e.g., podcast episode.  When
+Woodchuck determines that it is a good opportunity to update streams
+or objects, it makes an upcall to the application (starting it if
+required) indicating which streams to update and which objects to
+download.
+
+Woodchuck learns which streams a user users, how (e.g., in a serial
+like watching a TV series or only newest, like watching the news) and
+in what context the user accesses the objects (think: time and
+location).  It then responds appropriately.  To help this learning
+process, an application should indicate when objects are used and what
+parts (e.g., the first 5 minutes of a 25 minute episode).
+
+You can read more about Woodchuck here:
+
+  <A HREF="http://hssl.cs.jhu.edu/~neal/woodchuck">http://hssl.cs.jhu.edu/~neal/woodchuck</A>
+
+The python module, pywoodchuck, which I intend to use with gPodder, is
+described in detail here:
+
+  <A HREF="http://hssl.cs.jhu.edu/~neal/woodchuck/doc/html/woodchuck.html#python-modules">http://hssl.cs.jhu.edu/~neal/woodchuck/doc/html/woodchuck.html#python-modules</A>
+
+I'd appreciate any advice you have about integrating Woodchuck into
+gPodder.  If you have any questions, I'll be happy to answer them.
+
+Neal
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="002789.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2788">[ date ]</a>
+              <a href="thread.html#2788">[ thread ]</a>
+              <a href="subject.html#2788">[ subject ]</a>
+              <a href="author.html#2788">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

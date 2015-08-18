@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] File sanity check -- Is it really an mp3?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20File%20sanity%20check%20--%20Is%20it%20really%20an%20mp3%3F&In-Reply-To=%3C474E817E.3090709%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000820.html">
+   <LINK REL="Next"  HREF="000822.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] File sanity check -- Is it really an mp3?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20File%20sanity%20check%20--%20Is%20it%20really%20an%20mp3%3F&In-Reply-To=%3C474E817E.3090709%40perli.net%3E"
+       TITLE="[gpodder-devel] File sanity check -- Is it really an mp3?">thp at perli.net
+       </A><BR>
+    <I>Thu Nov 29 10:08:14 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000820.html">[gpodder-devel] File sanity check -- Is it really an mp3?
+</A></li>
+        <LI>Next message: <A HREF="000822.html">[gpodder-devel] Announcing: gPodder Documentation Wiki
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#821">[ date ]</a>
+              <a href="thread.html#821">[ thread ]</a>
+              <a href="subject.html#821">[ subject ]</a>
+              <a href="author.html#821">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Andy!
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">apblist at speakeasy.net</A> wrote:
+&gt;<i> It's a good point, and I meant to say that I know it's not really
+</I>&gt;<i> the podcatcher's problem to handle this.  
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Does the feed return a 404 page or simply some static served
+</I>&gt;&gt;<i> placeholder? I think this bug should be adressed by the podcast feed
+</I>&gt;&gt;<i> author by simply not adding the enclosure tag to the RSS feed until the
+</I>&gt;&gt;<i> file is available. gPodder already handles &quot;mixed&quot; podcasts (RSS feeds
+</I>&gt;&gt;<i> with some items that don't have enclosures) gracefully by ignoring the
+</I>&gt;&gt;<i> episodes without enclosure.
+</I>&gt;<i> 
+</I>&gt;<i> I think it serves a placeholder page.  Though I didn't prod enough on
+</I>&gt;<i> Sunday.  I'll try to grab it in time this Sunday just to see what it
+</I>&gt;<i> does for sure.
+</I>
+Make sure you also watch the HTTP response closely (if you can't get to
+see it, try with Wireshark) and see if the status code is 404 or 200 or
+so. On the command line, you should also have a &quot;HEAD&quot; command if you
+installed the &quot;libwww-perl&quot; package on Debian. The &quot;HEAD&quot; command also
+gives you the HTTP status code.
+
+&gt;&gt;<i> What kind of sanity check do you expect? It would be hard to implement
+</I>&gt;<i> I wasn't sure if the things you use to pull things like track length
+</I>&gt;<i> from the mp3 toss an error when given an HTML file.  It gets onto the
+</I>&gt;<i> iPod as a 1139-hour file that then doesn't play.
+</I>
+Can you please zip up and send me your channels.opml (or URL of the
+feed) and the following files:
+
+ * the (broken?) mp3 file in gPodder's download directory for that
+   channel
+ * the index.xml file in gPodder's download directory for that channel
+
+&gt;<i> But like you said, it's really an issue of the feed, and probably best
+</I>&gt;<i> not to get too wrapped up in kludging around for one bad apple. I'll
+</I>&gt;<i> still take a deeper look this coming Sunday and see if anything jumps
+</I>&gt;<i> out at me.
+</I>
+Thanks :)
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000820.html">[gpodder-devel] File sanity check -- Is it really an mp3?
+</A></li>
+	<LI>Next message: <A HREF="000822.html">[gpodder-devel] Announcing: gPodder Documentation Wiki
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#821">[ date ]</a>
+              <a href="thread.html#821">[ thread ]</a>
+              <a href="subject.html#821">[ subject ]</a>
+              <a href="author.html#821">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

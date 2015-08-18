@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C604aa7910807011713v114aad6m6ced7165db87eb1b%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001601.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure</H1>
+    <B>Jeff Spaleta</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C604aa7910807011713v114aad6m6ced7165db87eb1b%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure">jspaleta at gmail.com
+       </A><BR>
+    <I>Wed Jul  2 02:13:28 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001601.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1597">[ date ]</a>
+              <a href="thread.html#1597">[ thread ]</a>
+              <a href="subject.html#1597">[ subject ]</a>
+              <a href="author.html#1597">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jun 26, 2008 at 2:34 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i> Sorry for sounding like a distro nazi here, but we cannot support every
+</I>&gt;<i> freakin' distro out there, and I sadly cannot give you any hints on how
+</I>&gt;<i> to fix these problems on &quot;BLAG&quot;. Either ask the BLAG maintainers or fix
+</I>&gt;<i> the problem yourself - as I said, the ImportError means that PyGTK is
+</I>&gt;<i> not installed. This problem is out-of-scope for gPodder to support, as
+</I>&gt;<i> it states in its README file that PyGTK needs to be installed.
+</I>
+I'm not sure this is related... but import gtk can fail if the display
+is not accessible. I've seen this happen several times now in
+configure scripts which attempt to import gtk as a check to make sure
+that pygtk is available.  The init process for the gtk module load
+attempts to access the graphical display and if it can not, falls over
+and dies.  I'm not sure if this is the underlying problem, but this is
+what I see sometimes when doing python application builds for Fedora
+which want to test for the gtk module. gpodder's make test may fail in
+the same way.. if done under a chroot for example.
+
+-jef
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001601.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1597">[ date ]</a>
+              <a href="thread.html#1597">[ thread ]</a>
+              <a href="subject.html#1597">[ subject ]</a>
+              <a href="author.html#1597">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

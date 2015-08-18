@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Tray Icon Patch for r508
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Tray%20Icon%20Patch%20for%20r508&In-Reply-To=%3C631847.87609.qm%40web60824.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001028.html">
+   <LINK REL="Next"  HREF="001031.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Tray Icon Patch for r508</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Tray%20Icon%20Patch%20for%20r508&In-Reply-To=%3C631847.87609.qm%40web60824.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] Tray Icon Patch for r508">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sat Jan  5 18:20:50 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001028.html">[gpodder-devel] Tray Icon Patch for r508
+</A></li>
+        <LI>Next message: <A HREF="001031.html">[gpodder-devel] Tray Icon Patch for r508
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1029">[ date ]</a>
+              <a href="thread.html#1029">[ thread ]</a>
+              <a href="subject.html#1029">[ subject ]</a>
+              <a href="author.html#1029">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I installed the patch, and started gpodder:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ bin/gpodder
+--local --verbose
+(HistoryStore) Creating new history list.
+Patching feedparser module... (mapContentType bugfix)
+(tagupdate) eyed3 not found -- tag update disabled
+Traceback (most recent call last):
+  File &quot;bin/gpodder&quot;, line 148, in ?
+    sys.exit( main())
+  File &quot;bin/gpodder&quot;, line 122, in main
+    from gpodder import gui
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 40, in ?
+    from gpodder import trayicon
+  File
+&quot;/home/rooijen/gpodder/src/gpodder/trayicon.py&quot;, line
+32, in ?
+    log('Cannot find pynotify. Please install the
+python-notify package.')
+NameError: name 'log' is not defined
+make: *** [test] Error 1
+
+[1]+  Exit 2                  make test
+
+Since I'm using gentoo, I need to emerge the
+'notify-python' package:
+
+love206a-rooijen ~ # emerge -v notify-python
+
+Then gpodder starts up OK.
+
+Just exactly what is this patch supposed to do? I
+don't see any icons appearing anywhere (?). I use
+GNOME, where is the icon supposed to show up?
+
+Wilfred
+
+
+--- Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> J&#233;r&#244;me Chabod has been busy improving and adding to
+</I>&gt;<i> the tray icon patch. 
+</I>&gt;<i> I've again reviewed the patch and simplified some
+</I>&gt;<i> things which I think 
+</I>&gt;<i> should keep gPodder simple and usable while
+</I>&gt;<i> providing advanced 
+</I>&gt;<i> functionality for power users. The attached patch
+</I>&gt;<i> should be applied to 
+</I>&gt;<i> r508 of gPodder SVN and should add the tray icon and
+</I>&gt;<i> notifications.
+</I>&gt;<i> 
+</I>&gt;<i> Please test this patch and report any problems and
+</I>&gt;<i> feedback here on the 
+</I>&gt;<i> mailing list.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+      ____________________________________________________________________________________
+Never miss a thing.  Make Yahoo your home page. 
+<A HREF="http://www.yahoo.com/r/hs">http://www.yahoo.com/r/hs</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001028.html">[gpodder-devel] Tray Icon Patch for r508
+</A></li>
+	<LI>Next message: <A HREF="001031.html">[gpodder-devel] Tray Icon Patch for r508
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1029">[ date ]</a>
+              <a href="thread.html#1029">[ thread ]</a>
+              <a href="subject.html#1029">[ subject ]</a>
+              <a href="author.html#1029">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

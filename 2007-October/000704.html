@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder corrupts iPod menus
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%20corrupts%20iPod%20menus&In-Reply-To=%3C1193396263.5125.3.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000703.html">
+   <LINK REL="Next"  HREF="000701.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder corrupts iPod menus</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%20corrupts%20iPod%20menus&In-Reply-To=%3C1193396263.5125.3.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gpodder corrupts iPod menus">thp at perli.net
+       </A><BR>
+    <I>Fri Oct 26 12:57:43 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000703.html">[gpodder-devel] gpodder corrupts iPod menus
+</A></li>
+        <LI>Next message: <A HREF="000701.html">[gpodder-devel] Ipod podcast video patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#704">[ date ]</a>
+              <a href="thread.html#704">[ thread ]</a>
+              <a href="subject.html#704">[ subject ]</a>
+              <a href="author.html#704">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Chris!
+
+On Thu, 2007-10-25 at 17:26 +0200, Chris McCabe wrote:
+&gt;<i>   Well I just tried gtkpod (I didn't get that far before.  I tried 
+</I>&gt;<i> gPodder first), and it does exactly the same thing.  I was able to 
+</I>&gt;<i> successfully load an mp3 file without corruption, but creating a new 
+</I>&gt;<i> playlist without doing anything else will corrupt it the same way.  I 
+</I>&gt;<i> haven't done any more testing than that, so I can't be too sure of 
+</I>&gt;<i> exactly what causes it and what doesn't.  I will play around with it 
+</I>&gt;<i> some more to see if I can narrow it down.
+</I>&gt;<i> 
+</I>&gt;<i>  Any ideas?  I wonder if wiping out the whole thing and using only 
+</I>&gt;<i> gtkpod and gPodder to reload things would work.  I would rather not if
+</I>&gt;<i> I 
+</I>&gt;<i> can avoid it, but I don't want to be stuck with iTunes either.
+</I>&gt;<i> (Actually 
+</I>&gt;<i> it's Windows that I don't want to use).
+</I>
+First, make sure you have the latest libraries and use &quot;official&quot;
+versions of these libraries (i.e. directly from the Fedora repositories,
+if possible).
+
+Then, try to re-initialize your iPod's FS, as you described above. You
+can always revert your ipod by tarring up its directory structure, or
+even make a copy of the partition (the iPodLinux website has some ideas
+on backing up an iPod, although it's more targetet towards backing up
+the Apple OS partition, but the methods work for the &quot;data&quot; partition as
+well).
+
+After you have &quot;wiped&quot; your iPod, initialize it with gtkpod (you'll find
+the necessary command in the menu) and then try to use it with gPodder
+without ever touching iTunes.
+
+Tell me if this works for you or if the problem still persists.
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000703.html">[gpodder-devel] gpodder corrupts iPod menus
+</A></li>
+	<LI>Next message: <A HREF="000701.html">[gpodder-devel] Ipod podcast video patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#704">[ date ]</a>
+              <a href="thread.html#704">[ thread ]</a>
+              <a href="subject.html#704">[ subject ]</a>
+              <a href="author.html#704">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

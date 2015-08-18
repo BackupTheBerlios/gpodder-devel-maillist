@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] UI discussion: Update button to top bar? Status bar?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20UI%20discussion%3A%20Update%20button%20to%20top%20bar%3F%20Status%0A%20bar%3F&In-Reply-To=%3C20110430121836.GJ5634%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002763.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] UI discussion: Update button to top bar? Status bar?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20UI%20discussion%3A%20Update%20button%20to%20top%20bar%3F%20Status%0A%20bar%3F&In-Reply-To=%3C20110430121836.GJ5634%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] UI discussion: Update button to top bar? Status bar?">thp at gpodder.org
+       </A><BR>
+    <I>Sat Apr 30 14:18:36 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002763.html">[gpodder-devel] UI discussion: Update button to top bar? Status bar?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2764">[ date ]</a>
+              <a href="thread.html#2764">[ thread ]</a>
+              <a href="subject.html#2764">[ subject ]</a>
+              <a href="author.html#2764">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Sat, Apr 30, 2011 at 12:19:31PM +0200, Jorge Su&#225;rez de Lis wrote:
+&gt;<i> I don't understand why the Update button is on the bottom. I always
+</I>&gt;<i> found that strange to some extent. Also, showing the status update by
+</I>&gt;<i> hiding the button seems even more strange to me.
+</I>
+The update button is on the bottom to be visually grouped with the
+podcast list (principle of proximity) and because the toolbar does not
+have to be visible all the time (you can use the main menu or Ctrl+T to
+toggle the toolbar's visibility).
+
+The reason for having the status area there while the feed is updating
+is to save space on netbook-sized displays and also because the button
+would be disabled while an update is taking place, anyway.
+
+&gt;<i> Why are some controls on the top and another one on the bottom? Yes, the
+</I>&gt;<i> controls on the top are applied only to the selected items, but there's
+</I>&gt;<i> already some exceptions, Preferences and Exit.
+</I>
+The controls on the top are not that important and can be accessed via
+the menu, and just provide shortcuts, while the &quot;Update&quot; button is
+deemed important enough to have its own place, even when the toolbar is
+hidden.
+
+&gt;<i> Also, why ditching the status bar? It's a component found on almost
+</I>&gt;<i> every piece of software and users will fastly know it's use: show the
+</I>&gt;<i> status information.
+</I>
+We didn't ditch the status bar - there never was one in the first place.
+As you can see from your Chromium and Firefox examples, the status bar
+is going away, because it's taking up too much screen space. The
+implementation of Chromium and Firefox is nice for mouseover information
+(target URL), but it's pretty pointless for progress information - for
+this, a progressbar is better suited as opposed to text-only.
+
+We're currently working on some major overhaul of the codebase and also
+some parts of the UI (including a new QML UI for future touch-based
+devices), so it's probably better to postpone this discussion until 3.x
+is out. Feel free to create a bug report on bugs.gpodder.org for
+discussion and brainstorming of this, though.
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002763.html">[gpodder-devel] UI discussion: Update button to top bar? Status bar?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2764">[ date ]</a>
+              <a href="thread.html#2764">[ thread ]</a>
+              <a href="subject.html#2764">[ subject ]</a>
+              <a href="author.html#2764">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

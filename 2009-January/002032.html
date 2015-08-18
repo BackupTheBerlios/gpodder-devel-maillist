@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GnomeVFS volume detector
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C4c261b0b0901310154k13a26b39n7eb1bba4b9550879%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002031.html">
+   <LINK REL="Next"  HREF="002028.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GnomeVFS volume detector</H1>
+    <B>Justin Forest</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C4c261b0b0901310154k13a26b39n7eb1bba4b9550879%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] GnomeVFS volume detector">justin.forest at gmail.com
+       </A><BR>
+    <I>Sat Jan 31 10:54:24 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002031.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+        <LI>Next message: <A HREF="002028.html">[gpodder-devel] Dutch translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2032">[ date ]</a>
+              <a href="thread.html#2032">[ thread ]</a>
+              <a href="subject.html#2032">[ subject ]</a>
+              <a href="author.html#2032">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> All vfat devices?
+</I>
+Yes, because I have two old fs based players which are detected as
+vfat volumes, not multimedia devices. I had to create some
+/media/xyz/.dotfile for Rhythmbox to recognize it. I don't want
+gpodder users to do this. Besides, if I want to plug in a MicroSD card
+then plug it back into my mobile phone, why not? Sometimes it's much
+faster than using the USB connection.
+
+&gt;<i> Just vfat devices?
+</I>
+Yes, because I have never seen a PMP which would not use vfat, except
+for old HFS iPods, which are detected specifically. If you know some,
+tell me.
+
+Also, gPodder currently only supports two types of devices with
+different syncing mechanisms: fs and iPods. I don't think we need to
+detect other devices specifically, if we can use them as regular fs
+based devices. MTP devices aren't mounted as volumes anyway, as far as
+I know.
+
+The only reason to detect other devices using the information you
+provided would be to use supported output formats, but I've seen
+irrelevant values for some of my devices (e.g., audio/aac reported
+when the device didn't actually support it). Also, my .fdi file that
+you pointed me to says that iPods only support audio/aac, which is not
+true: they support MP3s and MP4 video, too. There's no information
+about video capabilities at all, so the information is both incomplete
+and not reliable.
+
+Also, even if there were ways to detect real device capabilities using
+DBus or HAL, we could use them to:
+
+ - Convert audio while syncins,
+ - Download video in a more appropriate format (YouTube offers: flv, mp4, 3gp).
+
+But gPodder can't do that currently. This has to be worked on, and can
+be worked on separately from the capability detection process. For
+example, we could use a gpodder.conf file in the root of the device to
+store capabilities which the user would be asked to describe using a
+dialog with check boxes, when she first plugs in the device. Actually,
+I think that all syncing options should be removed from the global
+gPodder config file and moved to that file stored on the device, if we
+chose to actually use HAL.
+
+I'd be glad to work more on the detection process when we can actually
+use that information.
+
+&gt;<i> gthumb for example looks for a DCIM folder to indicate its a
+</I>&gt;<i> filesystem from a digital camera.
+</I>
+That's one specific type of devices that gthumb works with, with a
+standard fs layout. Which is not the case for gPodder.
+
+&gt;<i> I don't necessarily want my 2 gig sd card from my camera
+</I>&gt;<i> popping up a gpodder sync request window as well as
+</I>&gt;<i> a gthumb request.
+</I>
+This is an interface problem. I added a popup dialog box because it
+was the easiest way for me. Ideally there would be an unobtrusive
+notification area inside gPodder, like the one you see in Firefox for
+blocked popups and new extensions. I couldn't implement this because
+I'm not friends with .glade guts and the current glade file is not
+editable with GUI tools.
+
+Thomas?
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002031.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+	<LI>Next message: <A HREF="002028.html">[gpodder-devel] Dutch translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2032">[ date ]</a>
+              <a href="thread.html#2032">[ thread ]</a>
+              <a href="subject.html#2032">[ subject ]</a>
+              <a href="author.html#2032">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

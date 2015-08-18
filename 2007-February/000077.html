@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] One liner for feeds with malformed pubdates
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20One%20liner%20for%20feeds%20with%20malformed%20pubdates&In-Reply-To=%3C20070218134918.1000712f%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000076.html">
+   <LINK REL="Next"  HREF="000078.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] One liner for feeds with malformed pubdates</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20One%20liner%20for%20feeds%20with%20malformed%20pubdates&In-Reply-To=%3C20070218134918.1000712f%40macbook%3E"
+       TITLE="[gpodder-devel] One liner for feeds with malformed pubdates">thp at perli.net
+       </A><BR>
+    <I>Sun Feb 18 13:49:18 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000076.html">[gpodder-devel] One liner for feeds with malformed pubdates
+</A></li>
+        <LI>Next message: <A HREF="000078.html">[gpodder-devel] Requests / wishlist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello nikosapi,
+
+On Fri, 16 Feb 2007 13:10:26 -0500 nikosapi wrote:
+&gt;<i> This happens when you try doing &quot;Download all new episodes&quot;:
+</I>&gt;<i> One feed I have decided to spell February as Febuary so
+</I>
+The feed seems to be broken. I'd really like to fix it in gPodder, but
+there is no easy way to do this. Of course, if this bug would persist
+over several feeds because there is some widely-adopted podcasting tool
+that writes the wrong data, we could workaround this in gPodder. But
+this seems like an error from a hand-crafted RSS feed.
+
+&gt;<i> parsedate_tz() gave up and caused an exception but since it's return
+</I>&gt;<i> value was 1 the line: if episode.compare_pubdate( last_pubdate) &gt;= 0
+</I>&gt;<i> in gpodder.py thought that there were new episodes to be downloaded
+</I>&gt;<i> (154 total) when there was infact nothing new. Changing the return
+</I>&gt;<i> value when an exception happens with parsedate_tz() to &lt; 0 fixes this.
+</I>
+Does this really fix all possible exceptions like when there's just one
+broken episode pubDate or the whole feed? Does it also take into
+considerations the time when the feed moves on from &quot;Febuary&quot; to March?
+
+I'd like to fix this, but currently don't know how to do this in an
+easy way.
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000076.html">[gpodder-devel] One liner for feeds with malformed pubdates
+</A></li>
+	<LI>Next message: <A HREF="000078.html">[gpodder-devel] Requests / wishlist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

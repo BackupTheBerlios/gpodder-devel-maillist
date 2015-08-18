@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] non-ascii character support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20non-ascii%20character%20support&In-Reply-To=%3C853248.99369.qm%40web25601.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000298.html">
+   <LINK REL="Next"  HREF="000300.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] non-ascii character support</H1>
+    <B>Jonathan Charnas</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20non-ascii%20character%20support&In-Reply-To=%3C853248.99369.qm%40web25601.mail.ukl.yahoo.com%3E"
+       TITLE="[gpodder-devel] non-ascii character support">goeland_86 at yahoo.fr
+       </A><BR>
+    <I>Wed May  9 02:32:03 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000298.html">[gpodder-devel] Feed updating in the background	(feature	request)
+</A></li>
+        <LI>Next message: <A HREF="000300.html">[gpodder-devel] non-ascii character support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#299">[ date ]</a>
+              <a href="thread.html#299">[ thread ]</a>
+              <a href="subject.html#299">[ subject ]</a>
+              <a href="author.html#299">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+I just recently started using gpodder (as in, today!). It's great, but I'm having issues, since I listen to French podcasts, to syncronize my FS-based mp3 player with podcasts that have non-ascii characters anywhere in the filename (i.e track title or feed description). It plays fine on the computer, just doesn't seem to transfer them to the player. Console reveals python log akin to these errors:
+Exception in thread Thread-9:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/usr/lib/python2.4/site-packages/gpodder/gpodder.py&quot;, line 368, in sync_to_fs_proc
+    sync.sync_channel( channel)
+  File &quot;/usr/lib/python2.4/site-packages/gpodder/libipodsync.py&quot;, line 142, in sync_channel
+    self.add_episode_from_channel( channel, episode)
+  File &quot;/usr/lib/python2.4/site-packages/gpodder/libipodsync.py&quot;, line 431, in add_episode_from_channel
+    if not os.path.exists( to_file):
+  File &quot;/usr/lib/python2.4/posixpath.py&quot;, line 171, in exists
+    st = os.stat(path)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe8' in position 24: ordinal not in range(128) 
+
+
+I have a feeling it's not a gpodder issue per-se, but it is relatively frustrating not being able to transfer all files seamlessly to my vfat filesystem. Could it be something to do with the vfat module itself?
+Thanks for any help regarding the issue.
+Goeland
+
+
+
+__________________________________________________
+Do You Yahoo!?
+Tired of spam?  Yahoo! Mail has the best spam protection around 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070509/c12cdbce/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070509/c12cdbce/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000298.html">[gpodder-devel] Feed updating in the background	(feature	request)
+</A></li>
+	<LI>Next message: <A HREF="000300.html">[gpodder-devel] non-ascii character support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#299">[ date ]</a>
+              <a href="thread.html#299">[ thread ]</a>
+              <a href="subject.html#299">[ subject ]</a>
+              <a href="author.html#299">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

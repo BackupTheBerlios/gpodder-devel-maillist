@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Multiple directories on ipod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Multiple%20directories%20on%20ipod&In-Reply-To=%3Cc5e54b30908170548j25f44960kc685df514b289002%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002207.html">
+   <LINK REL="Next"  HREF="002209.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Multiple directories on ipod</H1>
+    <B>Paul Holt</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Multiple%20directories%20on%20ipod&In-Reply-To=%3Cc5e54b30908170548j25f44960kc685df514b289002%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Multiple directories on ipod">pcholt at gmail.com
+       </A><BR>
+    <I>Mon Aug 17 14:48:04 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002207.html">[gpodder-devel] Feature request: copy metadata from RSS feed to mp3 file
+</A></li>
+        <LI>Next message: <A HREF="002209.html">[gpodder-devel] GPodder bluetooth problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2208">[ date ]</a>
+              <a href="thread.html#2208">[ thread ]</a>
+              <a href="subject.html#2208">[ subject ]</a>
+              <a href="author.html#2208">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have an ipod with a linux partition and an ipod-os partition, and so it
+gets mounted as /media/disk and /media/disk-2.  Trouble is, they're randomly
+allocated to the linux or the ipod-os partition.
+
+I wrote this little patch so I can specify both directories on ipod_mount
+configuration, separated by semicolons.
+
+
+-- 
+Paul Holt
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090817/7f4988a5/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090817/7f4988a5/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Handle-ipods-with-more-than-one-partition.patch
+Type: text/x-patch
+Size: 2163 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090817/7f4988a5/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090817/7f4988a5/attachment.bin</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0002-Removed-unused-variable.patch
+Type: text/x-patch
+Size: 1088 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090817/7f4988a5/attachment-0001.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090817/7f4988a5/attachment-0001.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002207.html">[gpodder-devel] Feature request: copy metadata from RSS feed to mp3 file
+</A></li>
+	<LI>Next message: <A HREF="002209.html">[gpodder-devel] GPodder bluetooth problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2208">[ date ]</a>
+              <a href="thread.html#2208">[ thread ]</a>
+              <a href="subject.html#2208">[ subject ]</a>
+              <a href="author.html#2208">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

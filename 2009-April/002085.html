@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [GSOC Proposal] gPodder and Panucci integration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BGSOC%20Proposal%5D%20gPodder%20and%20Panucci%20integration&In-Reply-To=%3C1238725616.3013.7.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002084.html">
+   <LINK REL="Next"  HREF="002086.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [GSOC Proposal] gPodder and Panucci integration</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BGSOC%20Proposal%5D%20gPodder%20and%20Panucci%20integration&In-Reply-To=%3C1238725616.3013.7.camel%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] [GSOC Proposal] gPodder and Panucci integration">me at nikosapi.org
+       </A><BR>
+    <I>Fri Apr  3 04:26:56 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002084.html">[gpodder-devel] Italian translation of gPodder
+</A></li>
+        <LI>Next message: <A HREF="002086.html">[gpodder-devel] Spanish translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2085">[ date ]</a>
+              <a href="thread.html#2085">[ thread ]</a>
+              <a href="subject.html#2085">[ subject ]</a>
+              <a href="author.html#2085">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I know it's late to submitting a proposal but I didn't think I'd be able
+to participate in the GSOC until today.
+
+Please let me know what you think,
+
+nick
+
+------------------------------------------------------------------------
+
+gPodder and Panucci integration for Maemo
+
+As it stands downloading and listening to podcasts on Maemo is a tad 
+sketchy. The two best suited tools for the job at the moment are 
+gPodder and Panucci. gPodder is a very feature-rich podcast aggregator 
+and Panucci is a small, bookmarking media player built specifically 
+with podcast and audiobook listeners in mind. The problem is that they 
+don't play very well with each other; this proposal will change that. I 
+intend to make gPodder, Panucci, and a NIT the best combination of 
+hardware and software that a podcast listener can use to enjoy their 
+shows.
+
+
+What major things need to be done in order to achieve this goal?
+
+01) gPodder needs more of an MVC architecture so that changes to the
+    database can easily be propagated to the GUI.
+02) gPodder needs a rich API that can be accessed over d-bus.
+03) Panucci will have to be able to interact with this new API.
+
+Things that are necessary for proper Maemo integration:
+
+04) gPodder should be aware of Maemo's network layer and pause
+    downloads when the network connection is interrupted.
+05) Maemo backup integration (gPodder bug #321)
+06) Add a gPodder option to restrict downloading of large files when
+    the user is on a cellular Internet connection (gPodder bug #273)
+07) In gPodder, delete episodes in a separate thread as not to lock
+    up the GUI (gPodder bug #268)
+08) Panucci should support streaming of podcasts (now that gPodder
+    supports streaming)
+09) Scrolling metadata labels for Panucci.
+10) Translations for Panucci.
+
+
+The specifics:
+
+For the longest time gPodder has been relying on code in the GUI to do 
+things that really should be taking place behind the scenes. Lately 
+Thomas Perl (the gPodder lead developer) and others have started moving 
+chunks of code into their own respective modules but it's far from 
+complete. I propose to finish off where they left off and make gPodder 
+a prime example of MVC. This mundane task is necessary for the 
+completion of the next step, the d-bus API. I predict that this task 
+will take the longest to complete, on the order of 3 to 4 weeks.
+
+The gPodder d-bus API will be relatively large to make it easier for 
+other application developers to interface with gPodder in a 
+language-neutral way. Although it is currently possible to import 
+gPodder's python modules this method doesn't really work while gPodder 
+is running. Features of this API will be things like adding/removing 
+feeds, accessing all sorts of metadata and remotely being able to 
+change settings. This will take on the order of 1 to 2 weeks to 
+complete.
+
+The most important step is finally integrating both gPodder and 
+Panucci. Once the gPodder d-bus API is complete it should be fairly 
+trivial to connect the two. Some already community-requested features 
+(from ITT) include marking episodes as played in gPodder (once a 
+certain threshold has been reached in Panucci), getting cover art and 
+episode metadata to be displayed in Panucci and being able to delete 
+episodes from Panucci and propagating that change to the gPodder 
+database. Also, gPodder would be able to detect whether Panucci is 
+installed and if it is there would be additional menu items to allow 
+the user to add the file to a Panucci playlist. This step will probably 
+take on the order of 1 to 2 weeks to complete.
+
+Since Panucci is still a pretty young project it still needs a bit of 
+polish when it comes to the Maemo platform. One of the biggest requests 
+is scrolling labels (much like on an iPod) for artist and title 
+information. Since there is no native scrolling-label widget in GTK 
+I'll have to come up with something to make this happen. The label will 
+have to be aware of the state of the device's screen in order to save 
+power by not moving the label if the screen is off. This should take no 
+more than a week.
+
+In order to fully take advantage of the Maemo platform I intend to make 
+gPodder network-aware thus if the network connection is lost while 
+downloading episodes or refreshing the feed cache gPodder can pause the 
+downloads in question and abort the feed cache update gracefully. The 
+&quot;pausing&quot; of downloads will be very simple thanks to some new download 
+manager code that Thomas is working on at the moment, all I'd have to 
+do is interface with the Maemo network stack. This should take a day or 
+two at the most.
+
+Another problem with downloading podcasts on an Internet tablet is the 
+large amounts of bandwidth required for long episodes. If the user is 
+on a cellular connection this can be quite costly and for that reason I 
+plan to implement a configuration option to restrict downloading of 
+large episodes unless the user is on a wifi connection (this will of 
+course be optional and up to the user to enable). This will take a day 
+to complete.
+
+Keeping with the network-related theme, it would also be very nice to 
+make Panucci capable of playing network streams since gPodder is now 
+able to report stream URLs to the 'player' application instead of 
+having to first download the file. To make this work gPodder would have 
+an extra menu item that is titled something like &quot;stream this episode&quot; 
+which would just pass the download URL to Panucci. This will take 2 to 
+3 days to complete.
+
+Backing up gPodder should also be done in a Maemo-centric way (using 
+the backup manager of course!). This is a trivial task but an important 
+one for most Maemo users. I'll have to find out exactly how to set this 
+up and then add it. This will take no more than a day to complete.
+
+Deleting episodes using gPodder is also not the most pleasant 
+experience on Maemo, when deleting anything over a few megabytes the 
+GUI tends to lock up for a bit of time which is annoying for the user. 
+I will add a small progress dialog to let the user know the overall 
+progress of their file deletion and all deleting will be done in a 
+separate thread to prevent the GUI from locking up. This will take a 
+day to complete.
+
+Finally it would be very nice to have Panucci translated into multiple 
+languages just like gPodder. I could probably take care of the French 
+translation and hopefully members of the gPodder project would lend a 
+hand to fill in the most popular languages. This would take about two 
+days to complete.
+
+
+Project schedule:
+
+May 1st to 23rd:
+    Discuss with Thomas and the rest of the gPodder team about how
+    to implement all of these changes.
+May 23rd to June 16th:
+    Make gPodder use more of an MVC architecture. (1)
+June 17th to June 26th:
+    Implement the gPodder d-bus API. (2)
+June 27th to July 10th:
+    Integrate gPodder and Panucci. (3)
+July 11th to July 17th:
+    Develop scrolling labels and implement them in Panucci. (9)
+July 18th to July 29th:
+    Complete network-related tasks: 4, 6 and 8
+July 30th to August 10th:
+    Make deleting threaded on gPodder (7)
+    Maemo backup integration (5)
+    Translations for Panucci (10)
+August 11th to August 17th:
+    Work on API documentation
+    Squash bugs from the gPodder and Panucci bug trackers
+
+
+Benefit to the Maemo community:
+
+This work will benefit both the Maemo and podcasting communities by 
+offering top-notch podcasting software that isn't even available from a 
+non-free platform at the present time. As well as improving both the 
+gPodder and Panucci codebases which makes it easier for newcomers to 
+start hacking on these projects.
+
+
+Short biography:
+
+I'm a 19 year old Computer Engineering student at Concordia University 
+in Montreal, Quebec. I've been involved in contributing to free 
+software projects for about 3 years now. My favorite programming 
+language is Python but I've dabbled in C and am currently learning C++ 
+as part of my courses at the university.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002084.html">[gpodder-devel] Italian translation of gPodder
+</A></li>
+	<LI>Next message: <A HREF="002086.html">[gpodder-devel] Spanish translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2085">[ date ]</a>
+              <a href="thread.html#2085">[ thread ]</a>
+              <a href="subject.html#2085">[ subject ]</a>
+              <a href="author.html#2085">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

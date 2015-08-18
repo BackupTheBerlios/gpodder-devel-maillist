@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] PATCH] implementation of the &quot;delete episodes in gPodder after sync to MP3 player&quot; feature
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20PATCH%5D%20implementation%20of%20the%20%22delete%20episodes%0A%20in%20gPodder%20after%20sync%20to%20MP3%20player%22%20feature&In-Reply-To=%3C476505E8.6040909%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000932.html">
+   <LINK REL="Next"  HREF="000947.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] PATCH] implementation of the &quot;delete episodes in gPodder after sync to MP3 player&quot; feature</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20PATCH%5D%20implementation%20of%20the%20%22delete%20episodes%0A%20in%20gPodder%20after%20sync%20to%20MP3%20player%22%20feature&In-Reply-To=%3C476505E8.6040909%40perli.net%3E"
+       TITLE="[gpodder-devel] PATCH] implementation of the &quot;delete episodes in gPodder after sync to MP3 player&quot; feature">thp at perli.net
+       </A><BR>
+    <I>Sun Dec 16 12:03:04 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000932.html">[gpodder-devel] PATCH] implementation of the &quot;delete episodes in gPodder after sync to MP3 player&quot; feature
+</A></li>
+        <LI>Next message: <A HREF="000947.html">[gpodder-devel] systray icon with notification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#934">[ date ]</a>
+              <a href="thread.html#934">[ thread ]</a>
+              <a href="subject.html#934">[ subject ]</a>
+              <a href="author.html#934">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, J&#233;r&#244;me!
+
+J&#233;r&#244;me Chabod wrote:
+&gt;<i> I'm quite new with python and glade, and as a exercice, I tried to
+</I>&gt;<i> implement the &quot;delete episodes in gPodder after sync to MP3 player&quot;
+</I>&gt;<i> feature as I really need it.
+</I>
+After reviewing your patch, I'd say pretty good for a Python and Glade
+newbie. I've changed some things, but most of your patch was fine :)
+
+&gt;<i> You'll find a patch in attachment and inline after this mail (I hope it
+</I>&gt;<i> is OK), the patch apply to revision 495 from today. Fill free to include
+</I>&gt;<i> it into the svn or to throw it away if you think so, but comments are
+</I>&gt;<i> welcome, I could send you more patches on the future.
+</I>
+The patch was okay, but it was ~400k. Next time when the patch is
+equally large, you might want to gzip it before attaching it to the
+mail. If the patch is just some kbs, you can attach it directly.
+
+I've attached a modified and stripped-down version of your patch in this
+e-mail. If you want to try it, please svn revert -R your gPodder working
+copy (possibly after backing up your changes with &quot;svn diff &gt;
+~/gpodder-patch-backup&quot;) and then apply the attached patch.
+
+My modifications re-arrange the widgets in the glade file a bit and also
+make gPodder use the delete_from_disk() method of podcastItem. The
+deletion is also not carried out before the episode gets copied to the
+MP3 player/iPod, but only after a successful sync (this way, the episode
+does not get deleted when sync fails for whatever reason).
+
+The configuration option and GUI glue-ing was done very well, I didn't
+have to change anything there.
+
+In the preferences dialog, I also hided the &quot;on_sync_leave&quot; and
+&quot;label_after_sync&quot; widgets when &quot;None&quot; was selected in the device
+combobox, so all sync options (and their labels) are hidden when the
+user has no device configured.
+
+&gt;<i> I choose to replace the &quot;mark as played&quot; check box with 3 radio boxes
+</I>&gt;<i> (&quot;leave episodes&quot;, &quot;mark episodes as played&quot;, &quot;delete episodes from
+</I>&gt;<i> download directory&quot;) since only one of this 3 actions can be performed
+</I>&gt;<i> simutaneously, but I might be wrong.
+</I>
+A very good idea! Even the configuration glue works with the
+radiobuttons, so the configuration items are always set correctly and
+the radio buttons perform their function well.
+
+I'll give the patch some time to be reviewed here on the list, and after
+that, I'm going to merge it into our SVN repository. Thank you very much
+for your time and effort and for the patch :) And of course, you are
+welcome to send in more patches if you decide to.
+
+
+Thanks,
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r497_delete_episode_after_sync.patch
+Type: text/x-patch
+Size: 11184 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071216/b226fc7e/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071216/b226fc7e/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000932.html">[gpodder-devel] PATCH] implementation of the &quot;delete episodes in gPodder after sync to MP3 player&quot; feature
+</A></li>
+	<LI>Next message: <A HREF="000947.html">[gpodder-devel] systray icon with notification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#934">[ date ]</a>
+              <a href="thread.html#934">[ thread ]</a>
+              <a href="subject.html#934">[ subject ]</a>
+              <a href="author.html#934">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

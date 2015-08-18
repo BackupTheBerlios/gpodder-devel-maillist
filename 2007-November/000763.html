@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New config manager in SVN
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20config%20manager%20in%20SVN&In-Reply-To=%3Cc97968170711021107x1e42f08bo7f060f807cc7d8df%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000759.html">
+   <LINK REL="Next"  HREF="000765.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New config manager in SVN</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20config%20manager%20in%20SVN&In-Reply-To=%3Cc97968170711021107x1e42f08bo7f060f807cc7d8df%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] New config manager in SVN">nikosapi at gmail.com
+       </A><BR>
+    <I>Fri Nov  2 19:07:59 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000759.html">[gpodder-devel] New config manager in SVN
+</A></li>
+        <LI>Next message: <A HREF="000765.html">[gpodder-devel] New config manager in SVN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#763">[ date ]</a>
+              <a href="thread.html#763">[ thread ]</a>
+              <a href="subject.html#763">[ subject ]</a>
+              <a href="author.html#763">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 11/2/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i> Hello!
+</I>&gt;<i>
+</I>&gt;<i> I've just finished a migration step that I wanted to do for some time
+</I>&gt;<i> now. Previously, configuration and settings has been managed by
+</I>&gt;<i> gPodderLibClass in gpodder.libgpodder. I've now written a more
+</I>&gt;<i> sophisticated and automated settings manager that will allow us to
+</I>&gt;<i> &quot;subscribe&quot; to GTK widgets and update configuration in real time without
+</I>&gt;<i> writing lots of code.
+</I>&gt;<i>
+</I>&gt;<i> If you are interested in looking at the code, it can be found in
+</I>&gt;<i> src/gpodder/config.py.
+</I>&gt;<i>
+</I>&gt;<i> Please test the code in SVN to see if there are any regressions. It's a
+</I>&gt;<i> big commit, so some bug might have slipped through, although I did a
+</I>&gt;<i> review of the diff before sending it to the repository.
+</I>&gt;<i>
+</I>&gt;<i> Here's what diffstat says about the svn diff:
+</I>&gt;<i>
+</I>&gt;<i>  ChangeLog                  |   26 +++
+</I>&gt;<i>  src/gpodder/config.py      |  224 ++++++++++++++++++++++++++++++
+</I>&gt;<i>  src/gpodder/download.py    |   14 -
+</I>&gt;<i>  src/gpodder/gui.py         |  134 +++++++-----------
+</I>&gt;<i>  src/gpodder/libgpodder.py  |  331 ++++++-----------------------[...]
+</I>&gt;<i>  src/gpodder/libipodsync.py |    4
+</I>&gt;<i>  src/gpodder/libplayers.py  |   22 --
+</I>&gt;<i>  src/gpodder/libpodcasts.py |   19 +-
+</I>&gt;<i>  src/gpodder/services.py    |    8 -
+</I>&gt;<i>  src/gpodder/util.py        |   24 +++
+</I>&gt;<i>  10 files changed, 400 insertions(+), 406 deletions(-)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>
+Hey Thomas,
+
+I just downloaded the latest svn and played with it. It seemed to work
+perfectly, the new config manager is really cool :)
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000759.html">[gpodder-devel] New config manager in SVN
+</A></li>
+	<LI>Next message: <A HREF="000765.html">[gpodder-devel] New config manager in SVN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#763">[ date ]</a>
+              <a href="thread.html#763">[ thread ]</a>
+              <a href="subject.html#763">[ subject ]</a>
+              <a href="author.html#763">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod keeps on crashing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20keeps%20on%20crashing&In-Reply-To=%3C1184705832.5627.43.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000417.html">
+   <LINK REL="Next"  HREF="000420.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod keeps on crashing</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20keeps%20on%20crashing&In-Reply-To=%3C1184705832.5627.43.camel%40macbook%3E"
+       TITLE="[gpodder-devel] iPod keeps on crashing">thp at perli.net
+       </A><BR>
+    <I>Tue Jul 17 22:57:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000417.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+        <LI>Next message: <A HREF="000420.html">[gpodder-devel] [PATCH] PyID3 fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#416">[ date ]</a>
+              <a href="thread.html#416">[ thread ]</a>
+              <a href="subject.html#416">[ subject ]</a>
+              <a href="author.html#416">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Stephan and Nick!
+
+On Tue, 2007-07-17 at 07:31 -0400, nikosapi wrote:
+&gt;<i> On July 17, 2007 02:32:59 am Stephan Buys wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; When using gpodder, after a sync my iPod has a tendency to crash when I hit
+</I>&gt;<i> &gt; &quot;play&quot;. I have to then cold-boot it to get it back, but it normally
+</I>&gt;<i> &gt; functions ok after that.
+</I>&gt;<i> &gt; I am using the latest gpodder with Ubuntu 7.04.
+</I>&gt;<i> 
+</I>&gt;<i> Does &quot;lastest&quot; mean 0.4.2-0ubuntu2 or 0.5.2 (compiled from source) or the 
+</I>&gt;<i> latest from svn?  You should be fine with the ubuntu packages as they do 
+</I>&gt;<i> support your iPod, so if you're not using the latest ubuntu packages you 
+</I>&gt;<i> might want to try that
+</I>
+I think Nick is talking about libgpod here. Make sure you have a recent
+stable version of the library and its Python bindings. All iPod-related
+issues are most likely related to libgpod, as this library is
+responsible for writing/updating the iTunesDB.
+
+&gt;<i> &gt; Also, my iPod doesn't seem to work &quot;out of the box&quot;? (It is a 6th
+</I>&gt;<i> &gt; generation iPod Nano). I first have to &quot;Create iPod Folders&quot; using gtkpod
+</I>&gt;<i> &gt; before I can start using it?
+</I>&gt;<i> 
+</I>&gt;<i> I believe this is a known limitation of gPodder, I wonder how hard it would be 
+</I>&gt;<i> to implement?
+</I>
+It's a known limitation, that's right. If you completely erase your
+iPod, you have to &quot;init&quot; it again using gtkpod. If this functionality
+can be provided by libgpod (please ask there), it'd be easy for gPodder
+to simply do something like (in pseudocode):
+
+if gpod.ipod_has_not_been_inited(ipod_path):
+    gpod.create_ipod_folders(ipod_path)
+
+Re-implementing this functionality in gPodder is not what I want to do,
+as I only have an old iPod mini, and it Works For Me(tm). Initialization
+of an iPod is what belongs in gtkpod or libgpod. And if in libgpod, we
+should utilize the functionality to automagically initialize the iPod.
+
+I'll gladly accept patches to support newer-generation iPods where
+possible, though.
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000417.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+	<LI>Next message: <A HREF="000420.html">[gpodder-devel] [PATCH] PyID3 fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#416">[ date ]</a>
+              <a href="thread.html#416">[ thread ]</a>
+              <a href="subject.html#416">[ subject ]</a>
+              <a href="author.html#416">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

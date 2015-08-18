@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Close buttons not working and problems	fetching	feed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Close%20buttons%20not%20working%20and%20problems%09fetching%0A%09feed&In-Reply-To=%3C1216215885.7775.38.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001642.html">
+   <LINK REL="Next"  HREF="001645.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Close buttons not working and problems	fetching	feed</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Close%20buttons%20not%20working%20and%20problems%09fetching%0A%09feed&In-Reply-To=%3C1216215885.7775.38.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Close buttons not working and problems	fetching	feed">thp at perli.net
+       </A><BR>
+    <I>Wed Jul 16 15:44:45 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001642.html">[gpodder-devel] Close buttons not working and problems fetching	feed
+</A></li>
+        <LI>Next message: <A HREF="001645.html">[gpodder-devel] Close buttons not working and problems fetching	feed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1643">[ date ]</a>
+              <a href="thread.html#1643">[ thread ]</a>
+              <a href="subject.html#1643">[ subject ]</a>
+              <a href="author.html#1643">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Bruno!
+
+On Wed, 2008-07-16 at 14:23 +0100, Bruno Miguel wrote:
+&gt;<i> When running gPodder with make test, it works perfectly. But when I
+</I>&gt;<i> install it, it can't fetch the subscription I mentioned in the
+</I>&gt;<i> previous email.
+</I>
+Please make sure that you remove all gPodder installations (distribution
+packages, manual installations into /usr and /usr/local) so that there
+is no sign of gPodder packages in both /usr/ and /usr/local/. Then,
+after you have made sure that there are no leftovers from previous
+installations, do a &quot;make install&quot; if you really want to install it
+system-wide.
+
+gPodder also runs fine and without problems locally. Simply create a
+script that calls &quot;bin/gpodder --local&quot; in your source folder (put it
+somewhere in your home folder) and create a shortcut icon for it. This
+way, you don't pollute your system folders with manual installations
+(it's easier if one leaves /usr to the distribution's package manager)
+and have a working gPodder in your home directory. You can then even use
+the SVN version without problems, in case you are in for some new
+features and new bugs ;)
+
+Hope that helps!
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001642.html">[gpodder-devel] Close buttons not working and problems fetching	feed
+</A></li>
+	<LI>Next message: <A HREF="001645.html">[gpodder-devel] Close buttons not working and problems fetching	feed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1643">[ date ]</a>
+              <a href="thread.html#1643">[ thread ]</a>
+              <a href="subject.html#1643">[ subject ]</a>
+              <a href="author.html#1643">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

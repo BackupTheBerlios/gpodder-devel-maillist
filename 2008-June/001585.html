@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C1214476495.29828.17.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001584.html">
+   <LINK REL="Next"  HREF="001587.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C1214476495.29828.17.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure">thp at perli.net
+       </A><BR>
+    <I>Thu Jun 26 12:34:55 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001584.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+        <LI>Next message: <A HREF="001587.html">[gpodder-devel] sqlite database, channel update slows to a crawl?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1585">[ date ]</a>
+              <a href="thread.html#1585">[ thread ]</a>
+              <a href="subject.html#1585">[ subject ]</a>
+              <a href="author.html#1585">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Thu, 2008-06-26 at 10:47 +0200, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">eric.jauny at laposte.net</A> wrote:
+&gt;<i> My computer : Mac Book Pro
+</I>&gt;<i> My favorite distro : GNU/Linux BLAG 60001
+</I>&gt;<i> My podacast client : gpodder
+</I>&gt;<i> [...]
+</I>&gt;<i> File &quot;/opt/gpodder-0.11.3/src/gpodder/util.py&quot;, line 35, in 
+</I>&gt;<i> import gtk
+</I>&gt;<i> ImportError: No module named gtk
+</I>&gt;<i> make: *** [test] Error 1
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at lns-bzn-54-82-251-117-86</A> gpodder-0.11.3]# 
+</I>&gt;<i> 
+</I>&gt;<i> I've also tried &quot;python setup.py install&quot;, instead of &quot;make install&quot;.
+</I>&gt;<i> But gpodder does not start, reporting the same &quot;gtk&quot; error.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I then tried to revert to gpodder 0.11.1, beacuse this version had
+</I>&gt;<i> been working fine. But unfortunately, now, irrespective of the gpodder
+</I>&gt;<i> version I install (from 0.9.5 to 0.11.3) I always got the
+</I>&gt;<i> &quot;ImportError: No module named gtk&quot; error. I've re-installed python and
+</I>&gt;<i> pygtk2 this evening. It did not fix the problem. I've carefully
+</I>&gt;<i> checked the presence of the mandatory dependencies, just in case I
+</I>&gt;<i> would have make a mistake at some stage.
+</I>&gt;<i> Thanks for your help. I've tried to find tips&amp;hints on the web , quite
+</I>&gt;<i> extensively, but no one is ok. Obvioulsy I do not blame gpodder
+</I>&gt;<i> developers , but I think they would be in a position to fix the error.
+</I>
+&quot;ImportError: No module named gtk&quot; means you have not set up your
+Python/PyGTK installation correctly. This is not a problem with gPodder,
+but with your system/distro. You will notice that other pygtk-based
+applications also do not work on your system.
+
+Sorry for sounding like a distro nazi here, but we cannot support every
+freakin' distro out there, and I sadly cannot give you any hints on how
+to fix these problems on &quot;BLAG&quot;. Either ask the BLAG maintainers or fix
+the problem yourself - as I said, the ImportError means that PyGTK is
+not installed. This problem is out-of-scope for gPodder to support, as
+it states in its README file that PyGTK needs to be installed.
+
+I understand the value of choice and freedom, but as an upstream
+maintainer, it's difficult to deal with people that report problems that
+lie not with the software, but with the distribution. In that case,
+having Ubuntu/Debian/Fedora users with a known distribution state is
+much easier for upstream projects to support.
+
+I'm sorry that I can't really help you here (because I don't know BLAG)
+and hope that you will be able to fix that problems. Please contact the
+BLAG mailing list which (I presume from googling around) can be found at
+<A HREF="https://www.autistici.org/mailman/listinfo/blag-users">https://www.autistici.org/mailman/listinfo/blag-users</A>
+
+If there are still problems with gPodder _after_ you got PyGTK working
+on your system, please, by all means report the problem or send a mail
+to the gpodder-devel mailing list - that's what it's are here for :)
+
+
+Good luck!
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001584.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+	<LI>Next message: <A HREF="001587.html">[gpodder-devel] sqlite database, channel update slows to a crawl?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1585">[ date ]</a>
+              <a href="thread.html#1585">[ thread ]</a>
+              <a href="subject.html#1585">[ subject ]</a>
+              <a href="author.html#1585">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Fwd: Consistent use of Quit
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Fwd%3A%20Consistent%20use%20of%20Quit&In-Reply-To=%3C1207448821.28337.4.camel%40debian-desktop%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001352.html">
+   <LINK REL="Next"  HREF="001350.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Fwd: Consistent use of Quit</H1>
+    <B>Harley Laue</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Fwd%3A%20Consistent%20use%20of%20Quit&In-Reply-To=%3C1207448821.28337.4.camel%40debian-desktop%3E"
+       TITLE="[gpodder-devel] Fwd: Consistent use of Quit">losinggeneration at aim.com
+       </A><BR>
+    <I>Sun Apr  6 04:27:01 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001352.html">[gpodder-devel] Fwd: Consistent use of Quit
+</A></li>
+        <LI>Next message: <A HREF="001350.html">[gpodder-devel] what gets synchronized?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1359">[ date ]</a>
+              <a href="thread.html#1359">[ thread ]</a>
+              <a href="subject.html#1359">[ subject ]</a>
+              <a href="author.html#1359">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On Sat, 2008-04-05 at 10:09 +0200, Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> In this post, I'm referring to the Gnome HIG, especially section
+</I>&gt;<i> 4.4.1.5., which can be found on this URL:
+</I>&gt;<i> 
+</I>&gt;<i> &#65279;<A HREF="http://library.gnome.org/devel/hig-book/stable/menus-standard.html.en">http://library.gnome.org/devel/hig-book/stable/menus-standard.html.en</A>
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2008-04-04 at 20:46 -0500, nikosapi wrote:
+</I>&gt;<i> &gt; Attached is a patch (from svn) to change the Close menu item's label
+</I>&gt;<i> &gt; to Quit. This way it's more consistent with the toolbar button label.
+</I>&gt;<i> &gt; This is only a proposed fix. Changing the Quit button to Close would
+</I>&gt;<i> &gt; also be fine. This patch is just to add a bit of consistency.
+</I>&gt;<i> 
+</I>&gt;<i> According to the Gnome HIG, we should probably only have a &quot;Quit&quot; button
+</I>&gt;<i> (as you suggested), and have the &quot;Ctrl+Q&quot; button assigned to it.
+</I>&gt;<i> 
+</I>&gt;<i> We might want to add a &quot;Close&quot; menu item (&quot;Ctrl+W&quot;) as seen in this
+</I>&gt;<i> screenshot:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://library.gnome.org/devel/hig-book/stable/images/file-menu.png.en">http://library.gnome.org/devel/hig-book/stable/images/file-menu.png.en</A>
+</I>&gt;<i> 
+</I>&gt;<i> This &quot;Close&quot; menu item, the &quot;Quit&quot; menu item and the window's &quot;X&quot; button
+</I>&gt;<i> should probably react this way:
+</I>&gt;<i> 
+</I>&gt;<i>               Tray icon enabled  |  Tray icon disabled
+</I>&gt;<i> --------------------------------------------------------------
+</I>&gt;<i> Close         Minimize to tray   |  Ask &quot;Quit?&quot;
+</I>&gt;<i> Quit          Ask &quot;Quit?&quot;        |  Ask &quot;Quit?&quot;
+</I>&gt;<i> &quot;X&quot;           Minimize to tray   |  Ask &quot;Quit?&quot;
+</I>&gt;<i> 
+</I>&gt;<i> The 'Ask &quot;Quit?&quot;' means:
+</I>&gt;<i> 
+</I>&gt;<i>  * If downloads are active, always ask
+</I>&gt;<i>  * If downloads are not active:
+</I>&gt;<i>      * If &quot;on_quit_ask&quot; is True, ask user
+</I>&gt;<i>      * If &quot;on_quit_ask&quot; is False, quit without asking
+</I>&gt;<i> 
+</I>&gt;<i> I'm not yet sure about the &quot;X&quot; -&gt; &quot;Minimize to tray&quot; action. Maybe this
+</I>&gt;<i> should be the Ask dialog with the option to hide to the systray, so
+</I>&gt;<i> users get to decide if they want &quot;X&quot; to close gPodder (even with tray
+</I>&gt;<i> icon enabled) or if they want &quot;X&quot; to minimize to tray.
+</I>&gt;<i> 
+</I>&gt;<i> This would make &quot;Close&quot; and &quot;Quit&quot; be consistent over the UI, but still
+</I>&gt;<i> make it possible for the user to decide what to do on &quot;X&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> What do you think? Would that sound reasonable and logical to you?
+</I>
+It may be better yet to have the Close menu hidden when the systray is
+disabled. The rational here is that when the tray is disabled Close and
+Quit (as described above) do the exact same thing. So, I would say to
+try and set the visibility of Close to false in this case. Otherwise I
+think that looks fine. 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001352.html">[gpodder-devel] Fwd: Consistent use of Quit
+</A></li>
+	<LI>Next message: <A HREF="001350.html">[gpodder-devel] what gets synchronized?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1359">[ date ]</a>
+              <a href="thread.html#1359">[ thread ]</a>
+              <a href="subject.html#1359">[ subject ]</a>
+              <a href="author.html#1359">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

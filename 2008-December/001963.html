@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] patch for using hashlib instead of md5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20patch%20for%20using%20hashlib%20instead%20of%20md5&In-Reply-To=%3C1230396480.19766.28.camel%40kubuntubox%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001961.html">
+   <LINK REL="Next"  HREF="001962.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] patch for using hashlib instead of md5</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20patch%20for%20using%20hashlib%20instead%20of%20md5&In-Reply-To=%3C1230396480.19766.28.camel%40kubuntubox%3E"
+       TITLE="[gpodder-devel] patch for using hashlib instead of md5">me at nikosapi.org
+       </A><BR>
+    <I>Sat Dec 27 17:48:00 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001961.html">[gpodder-devel] patch for using hashlib instead of md5
+</A></li>
+        <LI>Next message: <A HREF="001962.html">[gpodder-devel] patch for using hashlib instead of md5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1963">[ date ]</a>
+              <a href="thread.html#1963">[ thread ]</a>
+              <a href="subject.html#1963">[ subject ]</a>
+              <a href="author.html#1963">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, 2008-12-27 at 23:49 +1100, Alex Ghitza wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> I have been using gpodder for a while now and I'm very happy with it.
+</I>&gt;<i> Many thanks for everybody's work!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I recently noticed the following warning at start-up:
+</I>&gt;<i> 
+</I>&gt;<i> /usr/lib/python2.6/site-packages/gpodder/libpodcasts.py:58:
+</I>&gt;<i> DeprecationWarning: the md5 module is deprecated; use hashlib instead
+</I>&gt;<i>   import md5
+</I>&gt;<i> 
+</I>&gt;<i> Following the wiki instructions, I'm attaching a patch that replaces
+</I>&gt;<i> the use of the md5 module with the recommended hashlib module.  I can
+</I>&gt;<i> also easily attach it to the bug tracker if that is a preferred
+</I>&gt;<i> alternative.
+</I>
+Thanks for the fix :)
+
+&gt;<i> Best,
+</I>&gt;<i> Alex
+</I>&gt;<i> 
+</I>&gt;<i> PS: Is there a way to do a full-text search in the gpodder-devel
+</I>&gt;<i> mailing list archives?
+</I>&gt;<i> 
+</I>
+I generally use google's &quot;site&quot; keyword:
+  site:<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/">https://lists.berlios.de/pipermail/gpodder-devel/</A> &lt;query&gt;
+
+This works provided that you're not trying to find something that's too
+new. I'll add this to the wiki.
+
+&gt;<i> -- 
+</I>&gt;<i> Alex Ghitza -- Lecturer in Mathematics -- The University of Melbourne
+</I>&gt;<i> -- Australia -- <A HREF="http://www.ms.unimelb.edu.au/~aghitza/">http://www.ms.unimelb.edu.au/~aghitza/</A>
+</I>
+Happy holidays,
+
+nick
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001961.html">[gpodder-devel] patch for using hashlib instead of md5
+</A></li>
+	<LI>Next message: <A HREF="001962.html">[gpodder-devel] patch for using hashlib instead of md5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1963">[ date ]</a>
+              <a href="thread.html#1963">[ thread ]</a>
+              <a href="subject.html#1963">[ subject ]</a>
+              <a href="author.html#1963">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

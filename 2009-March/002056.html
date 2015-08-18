@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GnomeVFS volume detector
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C1236202899.8584.18.camel%40taylor%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002055.html">
+   <LINK REL="Next"  HREF="002057.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GnomeVFS volume detector</H1>
+    <B>Bernd</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C1236202899.8584.18.camel%40taylor%3E"
+       TITLE="[gpodder-devel] GnomeVFS volume detector">brot at gmx.info
+       </A><BR>
+    <I>Wed Mar  4 22:41:39 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002055.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+        <LI>Next message: <A HREF="002057.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2056">[ date ]</a>
+              <a href="thread.html#2056">[ thread ]</a>
+              <a href="subject.html#2056">[ subject ]</a>
+              <a href="author.html#2056">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I downloaded and tested your changes and I have to say, that there is a
+problem now for me in the playlist and sync functionality.
+
+In the &quot;old&quot; version there was the &quot;mp3-player-folder&quot; which is missing
+in your new version.
+As far as I can see you use the device mountpoint instead of this
+setting. But this could be a different location 
+
+I am using a Meizu filebased player with the following file-structure:
+
+mountpoint: /media/MEIZU-M6
+
+directories:
+MUSIC
+PICTURES
+PLAYLISTS
+RECORD
+SYSTEM
+VIDEO
+
+For my podcasts I created the folder &quot;/media/MEIZU-M6/MUSIC/Podcast&quot;.
+This was my value for the &quot;mp3-player-folder&quot; setting.
+So the playlist-function only searches in this folder and their
+subfolders. Also the sync process takes care of this location.
+
+But now the file-sync and playlist function only use the folder
+/media/MEIZU-M6/MUSIC.
+So all my podcasts was synchronized to the device on another place and
+the playlist-function reads all folders under MUSIC and listed all
+content and not only my podcast?!
+
+What could we do to solve this issue?
+
+
+~ Bernd
+
+
+
+
+On Wed, 2009-03-04 at 14:34 +0300, Justin Forest wrote:
+&gt;<i> Hello.
+</I>&gt;<i> 
+</I>&gt;<i> There's an update on HAL integration.  It no longer uses GnomeVFS and
+</I>&gt;<i> should detect MTP devices.  However, I don't have one, so I'm unable
+</I>&gt;<i> to test.  I'd like someone to report on this.
+</I>&gt;<i> 
+</I>&gt;<i> I also cleaned up the GUI from all device specific settings which are
+</I>&gt;<i> now automatically detected.
+</I>&gt;<i> 
+</I>&gt;<i> I tested this with an iPod and 3 different FS based devices. Works
+</I>&gt;<i> well so far, but please test it with whatever devices you have.
+</I>&gt;<i> 
+</I>&gt;<i> The new snapshot can be downloaded from:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://repo.or.cz/w/gpodder/umonkey.git?a=snapshot;h=hal;sf=tgz">http://repo.or.cz/w/gpodder/umonkey.git?a=snapshot;h=hal;sf=tgz</A>
+</I>&gt;<i> 
+</I>&gt;<i> Instructions on how to run, just in case:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://wiki.gpodder.org/wiki/Running_gPodder_from_Git#Quicker">http://wiki.gpodder.org/wiki/Running_gPodder_from_Git#Quicker</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002055.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+	<LI>Next message: <A HREF="002057.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2056">[ date ]</a>
+              <a href="thread.html#2056">[ thread ]</a>
+              <a href="subject.html#2056">[ subject ]</a>
+              <a href="author.html#2056">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

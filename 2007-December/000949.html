@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4769B5B7.8080607%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000946.html">
+   <LINK REL="Next"  HREF="000950.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 crash</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4769B5B7.8080607%40perli.net%3E"
+       TITLE="[gpodder-devel] 0.10.3 crash">thp at perli.net
+       </A><BR>
+    <I>Thu Dec 20 01:22:15 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000946.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+        <LI>Next message: <A HREF="000950.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#949">[ date ]</a>
+              <a href="thread.html#949">[ thread ]</a>
+              <a href="subject.html#949">[ subject ]</a>
+              <a href="author.html#949">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Chris!
+
+Chris Arnold wrote:
+&gt;<i> Thomas Perl wrote:
+</I>&gt;&gt;<i> our arguments differently to the write_to_png() function. Alternatively, 
+</I>&gt;&gt;<i> maybe we can find an even more straightforward way to transform a cairo 
+</I>&gt;&gt;<i> surface to a gtk pixbuf.
+</I>&gt;<i> Hi Thomas and list! I just wanted to see if you got my last email about
+</I>&gt;<i> the cairo version?
+</I>
+Looking at
+
+<A HREF="http://webcvs.cairographics.org/pycairo/NEWS?revision=1.20&amp;view=markup">http://webcvs.cairographics.org/pycairo/NEWS?revision=1.20&amp;view=markup</A>
+
+I see that in &quot;Overview of changes from pycairo 1.0.2 to pycairo 1.1.6&quot;, 
+write_to_png() has been changed to write to file-like objects:
+
+     surface.write_to_png() and ImageSurface.create_from_png() can
+     now write to file-like objects (like StringIO).
+
+This means that starting from pycairo 1.1.6, gPodder will work as 
+expected. Unfortunately, I can't provide support for a commercial 
+distribution like SuSE Linux, where I wouldn't be able to get some code 
+to test things, and I believe OpenSuSE already has newer versions of 
+these packages.
+
+Things will work with the patch I sent you some days ago, if you decide 
+to stick with the old pycairo version. As soon as you update your 
+distribution to a newer release (or pycairo is updated for your 
+release), things should start working without problems.
+
+If you don't miss the new features and can live with the bugs, you can 
+also downgrade to gPodder 0.10.2. Please note this is not really a &quot;bug&quot; 
+in gPodder, but simply a downwards compatibility issue of pycairo. 
+gPodder uses a feature (write_to_png being able to write to a StringIO 
+object) that has only been added to pycairo in version 1.1.6).
+
+Maybe upgrading to pycairo 1.1.6 is possible for you without breaking 
+other PyGTK apps, compared to upgrading to 1.4.x? If you can find a 
+pycairo package &gt;= 1.1.6 for your distribution, and it works, you win :)
+
+I hope this kind of answers your question, although it surely isn't the 
+answer you were probably hoping for :/
+
+
+Enjoy,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000946.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+	<LI>Next message: <A HREF="000950.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#949">[ date ]</a>
+              <a href="thread.html#949">[ thread ]</a>
+              <a href="subject.html#949">[ subject ]</a>
+              <a href="author.html#949">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

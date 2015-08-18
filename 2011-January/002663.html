@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] secure gpodder.net
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20secure%20gpodder.net&In-Reply-To=%3CAANLkTi%3D3fgO2MBBe5LUcN8k2egtEDHbHVhkJVFUVgGoS%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002662.html">
+   <LINK REL="Next"  HREF="002660.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] secure gpodder.net</H1>
+    <B>Stefan K&#246;gl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20secure%20gpodder.net&In-Reply-To=%3CAANLkTi%3D3fgO2MBBe5LUcN8k2egtEDHbHVhkJVFUVgGoS%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] secure gpodder.net">koeglstefan at gmail.com
+       </A><BR>
+    <I>Mon Jan 10 08:24:58 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002662.html">[gpodder-devel] secure gpodder.net
+</A></li>
+        <LI>Next message: <A HREF="002660.html">[gpodder-devel] secure gpodder.net
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2663">[ date ]</a>
+              <a href="thread.html#2663">[ thread ]</a>
+              <a href="subject.html#2663">[ subject ]</a>
+              <a href="author.html#2663">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, Jan 9, 2011 at 4:14 PM, Bernd Schlapsi &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brot at gmx.info</A>&gt; wrote:
+
+&gt;<i> Would be nice to see some access/user statistics and some information
+</I>&gt;<i> about the server gpodder.net is running on at the moment.
+</I>
+gpodder.net is currently running on a virtual server from Host Europe
+(see [1], unfortunately just in German)
+
+Currently we have a bit more than 16,000 registered users. In December
+2010 we've served a total of 7,520,856 requests (API and website)
+which is about 2.8 requests per second on average. Additionally we
+might have initiated about 5,000 outgoing requests per day for feed
+updates.
+
+
+
+&gt;&gt;<i> Some time ago an Authentication API has been implemented (but no yet
+</I>&gt;&gt;<i> documented). Once finished, we could use it so that at least the
+</I>&gt;&gt;<i> authentication is done via https.
+</I>&gt;<i>
+</I>&gt;<i> This would be a step in the right direction, but wouldn't secure the
+</I>&gt;<i> service that much.
+</I>&gt;<i> A few month ago the Firefox extension Firesheep demonstrated that only a
+</I>&gt;<i> https connection could secure the Authentication and Session
+</I>&gt;<i> information.
+</I>&gt;<i> I'm aware that the information on gpodder.net isn't that sensitive, but
+</I>&gt;<i> I prefer to use https with cloud services.
+</I>
+I've added a very rough description of the current implementation in
+[2]. You can do some testing against the production webservice if you
+want to. If you do, please report any bugs you might encounter.
+
+
+-- Stefan
+
+
+[1] <A HREF="http://www.hosteurope.de/produkt/Virtual-Server-Linux-XL">http://www.hosteurope.de/produkt/Virtual-Server-Linux-XL</A>
+[2] <A HREF="http://wiki.gpodder.org/wiki/Web_Services/API/Drafts">http://wiki.gpodder.org/wiki/Web_Services/API/Drafts</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002662.html">[gpodder-devel] secure gpodder.net
+</A></li>
+	<LI>Next message: <A HREF="002660.html">[gpodder-devel] secure gpodder.net
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2663">[ date ]</a>
+              <a href="thread.html#2663">[ thread ]</a>
+              <a href="subject.html#2663">[ subject ]</a>
+              <a href="author.html#2663">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

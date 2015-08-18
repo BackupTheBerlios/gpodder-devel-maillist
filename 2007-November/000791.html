@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Error: &quot;Could not load channel feed&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Error%3A%20%22Could%20not%20load%20channel%20feed%22&In-Reply-To=%3C1194987632.6989.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000790.html">
+   <LINK REL="Next"  HREF="000793.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Error: &quot;Could not load channel feed&quot;</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Error%3A%20%22Could%20not%20load%20channel%20feed%22&In-Reply-To=%3C1194987632.6989.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Error: &quot;Could not load channel feed&quot;">thp at perli.net
+       </A><BR>
+    <I>Tue Nov 13 22:00:32 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000790.html">[gpodder-devel] Error: &quot;Could not load channel feed&quot;
+</A></li>
+        <LI>Next message: <A HREF="000793.html">[gpodder-devel]  Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#791">[ date ]</a>
+              <a href="thread.html#791">[ thread ]</a>
+              <a href="subject.html#791">[ subject ]</a>
+              <a href="author.html#791">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Paul!
+
+On Tue, 2007-11-13 at 07:33 -0600, Paul Dunbar wrote:
+&gt;<i> I had this same problem.  Removing ~/.config/gpodder/feedcache.db and 
+</I>&gt;<i> restarting gpodder fixed the issue.
+</I>
+It would be good if you could send me your feedcache.db the next time
+this problem appears. (the file contains a dict of the feed URLs you are
+subscribed to and the RSS/Atom contents of these URLs from the last
+&quot;update&quot; run, so if you have subscribed to some feeds you might rather
+not let me know about, don't send me that file)
+
+&gt;<i> I'm wondering if the feedcache.db layout had changed during a recent
+</I>&gt;<i> upgrade.  I didn't have this problem until upgrading to 0.10.1 from
+</I>&gt;<i> 0.9.5.  Downgrading back to 0.9.5 also resolved the issue.
+</I>
+feedcache.db only came into gPodder with 0.10.0. Before that, feeds were
+&quot;cached&quot; in a subdir of ~/.config/gpodder/.
+
+I've fixed some feedcache-related problems in one of the latest commits,
+so you might want to look out for the next release of try out the SVN
+version of gPodder, it's development code and changes more often, but
+most of the time it's fine:
+
+<A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A> 
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000790.html">[gpodder-devel] Error: &quot;Could not load channel feed&quot;
+</A></li>
+	<LI>Next message: <A HREF="000793.html">[gpodder-devel]  Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#791">[ date ]</a>
+              <a href="thread.html#791">[ thread ]</a>
+              <a href="subject.html#791">[ subject ]</a>
+              <a href="author.html#791">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

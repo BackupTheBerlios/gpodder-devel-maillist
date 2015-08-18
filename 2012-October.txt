@@ -1,0 +1,69 @@
+From stefan at derkits.at  Sat Oct 13 18:19:28 2012
+From: stefan at derkits.at (Stefan Derkits)
+Date: Sat, 13 Oct 2012 18:19:28 +0200
+Subject: [gpodder-devel] libmygpo-qt Release of v1.0.6
+In-Reply-To: <4EB9BBB5.5010609@derkits.at>
+References: <4EB9BBB5.5010609@derkits.at>
+Message-ID: <50799490.20809@derkits.at>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Dear Amarok, Clementine & gPodder Community,
+
+long time (nearly a year) passed since the last libmygpo-qt release.
+Today there was the first gPodder hackday (of many more to come) and
+so it was time to fix some bugs, test the library a little bit and
+make a new release ;)
+
+I'm looking for contributors, so if you wanna work on a
+interesting library used atm by Amarok, Clementine & Nokia Podcasts,
+drop me a line ;)
+
+Changes in 1.0.6:
+- -) added support for DeviceSync API [0]. This API makes it possible to
+set up synchronization with existing gpodder.net devices from inside
+your application
+- -) set Contenttype Header to avoid warnings with Qt 4.8
+- -) some fixes & enhancements to CMake build system
+
+Where to get libmygpo-qt?
+
+Tarball:
+http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.6.tar.gz
+md5sum: dd07ccc88eac954a3860aeda96aab7b1
+sha1sum: 7970c4c43cab4862e220b4239491f2bac2c36f75
+
+Some more important Links for libmygpo-qt:
+
+Project Website: http://wiki.gpodder.org/wiki/Libmygpo-qt
+Git Repo: https://github.com/gpodder/libmygpo-qt
+Doxygen Documentation: http://stefan.derkits.at/libmygpo-doc/
+gpodder.net API: http://wiki.gpodder.org/wiki/Web_Services/API_2
+Bugreports: http://bugs.gpodder.org
+Contact: gpodder at freelists.org
+
+- - --- Infos about libmygpo-qt ---
+
+What is libmygpo-qt?
+
+libmygpo-qt is a Qt/C++ Library wrapping the gPodder.net Webservice. It
+was created as part of a University Course & it is used in
+Amarok (since 2.4.1) with the new gpodder.net
+Service, that makes the gpodder.net Podcast Directory available from
+within Amarok. Also it is used in Nokia Podcasts and will be used in
+Clementine from v1.1 onwards.
+
+
+Greetings,
+Stefan
+
+[0] http://wiki.gpodder.org/wiki/Web_Services/API_2#Device_Synchronisation
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAlB5lJAACgkQlZvAMV/NgGItewCfcTsV3rJtlrEM3UxS5iiNNhP3
+5QUAoNKmG4AoCYIdRUavLOP9voeAqcWi
+=aGBb
+-----END PGP SIGNATURE-----
+

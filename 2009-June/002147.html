@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Playlist handling on devices with gPodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Playlist%20handling%20on%20devices%20with%20gPodder&In-Reply-To=%3C1244203664.8811.35.camel%40taylor.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002146.html">
+   <LINK REL="Next"  HREF="002148.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Playlist handling on devices with gPodder</H1>
+    <B>Bernd</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Playlist%20handling%20on%20devices%20with%20gPodder&In-Reply-To=%3C1244203664.8811.35.camel%40taylor.lan%3E"
+       TITLE="[gpodder-devel] Playlist handling on devices with gPodder">brot at gmx.info
+       </A><BR>
+    <I>Fri Jun  5 14:07:44 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002146.html">[gpodder-devel] Playlist handling on devices with gPodder
+</A></li>
+        <LI>Next message: <A HREF="002148.html">[gpodder-devel] gPodder 0.16.1 &quot;Adrift&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2147">[ date ]</a>
+              <a href="thread.html#2147">[ thread ]</a>
+              <a href="subject.html#2147">[ subject ]</a>
+              <a href="author.html#2147">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I wrote the &quot;manage device playlist&quot; feature, which includes the
+following tasks:
+- after synchronize to the filebased device you are able to open a
+window which shows all episodes on the device. 
+
+- deleted episodes are automatically removed from the list. I remove my
+episodes from the device with the following option:
+&quot;Delete episodes on device that have been marked played in gPodder&quot;
+
+- new episodes are on the top of the list but they are marked as &quot;not
+used&quot;. &quot;Not used&quot; episodes are marked with the comment character # in
+the m3u file and are not playable on the device.
+
+- Now you are able to order the episodes and mark them as used or
+unused.
+
+
+For this usecase I added the following settings, which you can find in
+the Advanced gPodder Configuration Editor:
+- mp3_player_playlist_absolute_path
+- mp3_player_playlist_file
+- mp3_player_playlist_win_path
+
+You find my added &quot;gPodderPlaylist&quot; class in src/gpodder/gui.py.
+I also added a new menu entry to open the Playlist Editor Window.
+
+
+There is another playlist feature in gPodder, which creates a m3u-file
+for every channel if the advanced option &quot;create_m3u_playlists&quot; is true.
+(&quot;PodcastChannel.update_m3u_playlist&quot; in src/gpodder/libpodcast.py)
+But I didn't wrote this feature. Also I doesn't know anything about
+gPodder in combination with an iPod.
+
+
+If you would like to add one playlist per feed automatically you should
+- in my opinion - add a new setting for mtp devices and add some
+functionality to the sync process.
+My usecase - and playlist handling - is different because I would like
+to have only one playlist in which I can handle the ordering manually.
+
+@Thomas: What do you think how to implement this feature for the
+mtp-based devices?
+
+
+~ Bernd
+
+
+On Fri, 2009-06-05 at 03:23 -0700, Thomas Perl wrote:
+&gt;<i> You wrote:
+</I>&gt;<i> &gt; I synchronize to an mtp-based mp3 player and I would like to have my
+</I>&gt;<i> &gt; podcasts automatically added to one playlist per feed after synchronizing.
+</I>&gt;<i> &gt; I'm ready to implement a patch for mtp, but I'm a little confused reading
+</I>&gt;<i> &gt; the code and differents configuration options about what has already be done
+</I>&gt;<i> &gt; to handle playlists on other devices (fs-based and iPods). Could somebody
+</I>&gt;<i> &gt; details what exists and how I should integrate with it?
+</I>&gt;<i> 
+</I>&gt;<i> AFAIK Bernd Schlapsi has written some nice code + UI for
+</I>&gt;<i> filesystem-based
+</I>&gt;<i> MP3 players that allows you to even organize the playlists afterwards.
+</I>&gt;<i> Maybe
+</I>&gt;<i> you should contact him directly if he's not following this list, I am
+</I>&gt;<i> sure
+</I>&gt;<i> he can help out here! :)
+</I>&gt;<i> 
+</I>&gt;<i> HTH.
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002146.html">[gpodder-devel] Playlist handling on devices with gPodder
+</A></li>
+	<LI>Next message: <A HREF="002148.html">[gpodder-devel] gPodder 0.16.1 &quot;Adrift&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2147">[ date ]</a>
+              <a href="thread.html#2147">[ thread ]</a>
+              <a href="subject.html#2147">[ subject ]</a>
+              <a href="author.html#2147">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

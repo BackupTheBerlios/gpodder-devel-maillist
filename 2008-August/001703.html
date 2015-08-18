@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] More Detail on the File Conversion Script
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20More%20Detail%20on%20the%20File%20Conversion%20Script&In-Reply-To=%3C65E094A7-7E5D-43D2-951C-EC737967579E%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001700.html">
+   <LINK REL="Next"  HREF="001713.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] More Detail on the File Conversion Script</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20More%20Detail%20on%20the%20File%20Conversion%20Script&In-Reply-To=%3C65E094A7-7E5D-43D2-951C-EC737967579E%40perli.net%3E"
+       TITLE="[gpodder-devel] More Detail on the File Conversion Script">thp at perli.net
+       </A><BR>
+    <I>Sun Aug  3 16:29:56 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001700.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+        <LI>Next message: <A HREF="001713.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1703">[ date ]</a>
+              <a href="thread.html#1703">[ thread ]</a>
+              <a href="subject.html#1703">[ subject ]</a>
+              <a href="author.html#1703">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Aug 3, 2008, at 4:06 AM, Clark Burbidge wrote:
+&gt;<i> I would like to know more about the &quot;File Conversion Script&quot; option in
+</I>&gt;<i> the preferences. I searched the mailing list archive and the wiki but
+</I>&gt;<i> was not able to find anything.
+</I>&gt;<i>
+</I>&gt;<i> When is the &quot;File Conversion Script&quot; called? After download? On  
+</I>&gt;<i> transfer?
+</I>&gt;<i> What files are passed to it?
+</I>
+The conversion script used to convert files after download is  
+&quot;documented&quot; in this part of the gPodder sources:
+
+<A HREF="http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/download.py#l185">http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/download.py#l185</A>
+
+The &quot;conversion script&quot; command is used to convert files for sending  
+over bluetooth and is documented here:
+
+<A HREF="http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/gui.py;h=72eee32b488da48a80582b2c9f6a6e5c84f4f71b;hb=HEAD#l801">http://repo.or.cz/w/gpodder.git?a=blob;f=src/gpodder/gui.py;h=72eee32b488da48a80582b2c9f6a6e5c84f4f71b;hb=HEAD#l801</A>
+
+It should accept two filename parameters, one that is the file to be  
+sent and the second that is the converted file that should be written  
+to. If you don't need to convert a file, you should copy the source  
+file to the destination file in the script.
+
+This only works for sending files via bluetooth, however. For  
+conversion after download, you should use &quot;cmd_download_complete&quot; that  
+is documented in the first link above.
+
+&gt;<i> My media player does not like .mov, only .avi and I would like to
+</I>&gt;<i> convert any and all podcasts that come in as .mov to avi. I have a
+</I>&gt;<i> command I use to do this manually but need some direction on getting
+</I>&gt;<i> this command into a script that will convert with some level of
+</I>&gt;<i> magical automaticitude. Is the &quot;File Conversion Script&quot; what I want to
+</I>&gt;<i> do or should I cron something? I'd love to see gpodder managed (not
+</I>&gt;<i> synced or redownloaded) the orriginal and converted files so that I
+</I>&gt;<i> don't have to deal with them on the player side or in the random name
+</I>&gt;<i> by which they are stored on my computer by gpodder.
+</I>&gt;<i>
+</I>&gt;<i> The command:
+</I>&gt;<i>
+</I>&gt;<i> mencoder filename.mov -quiet -ovc lavc -lavcopts
+</I>&gt;<i> vcodec=mpeg4:v4mv:mbd=2:trell -vf expand=:::::4/3,scale=320:-3,harddup
+</I>&gt;<i> -oac mp3lame -lameopts fast:preset=medium -ffourcc DX50 -o
+</I>&gt;<i> filename.avi
+</I>
+It would be very helpful if you could start a Wiki document  
+documenting working conversion or &quot;cmd_download_complete&quot; scripts for  
+specific media players, so others can participate and download known- 
+working scripts ready to be used.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001700.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+	<LI>Next message: <A HREF="001713.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1703">[ date ]</a>
+              <a href="thread.html#1703">[ thread ]</a>
+              <a href="subject.html#1703">[ subject ]</a>
+              <a href="author.html#1703">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Mutagen metadata editing support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Mutagen%20metadata%20editing%20support&In-Reply-To=%3C200709230159.06528.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000625.html">
+   <LINK REL="Next"  HREF="000634.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Mutagen metadata editing support</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Mutagen%20metadata%20editing%20support&In-Reply-To=%3C200709230159.06528.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Mutagen metadata editing support">nikosapi at gmail.com
+       </A><BR>
+    <I>Sun Sep 23 07:59:06 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000625.html">[gpodder-devel] iPod synchronization problem with	some	NPR	feeds
+</A></li>
+        <LI>Next message: <A HREF="000634.html">[gpodder-devel] Mutagen metadata editing support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#620">[ date ]</a>
+              <a href="thread.html#620">[ thread ]</a>
+              <a href="subject.html#620">[ subject ]</a>
+              <a href="author.html#620">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I found a really cool python library called mutagen than can edit the metadata 
+of almost any filetype! The best part is that it appends to the tags, you 
+don't have to completely erase them to write new tags (this is much more 
+useful than vorbiscomment).
+
+I've re-written libtagupdate.py using mutagen and it seems to work quite well. 
+As a consequence it removes the need for the vorbis-tools and eyeD3 
+dependencies.
+
+I also quickly implemented it in libipodsync.py to detect filelengths, the 
+only filetype I've found so far that it can't detect is avi but that's not 
+playable on the iPod anyway. I think it might also be possible to do cover 
+art extraction with this tool so that would potentially eliminate the need 
+for pymad and of-course, mplayer as well.
+
+This seemed (at least to me) too good to be true and sadly it might be... The 
+problem is that it's licensed under the GPLv2. I've spoken with the lead 
+developer and he's not too fond of the GPLv3. Here's what he had to say:
+
+&lt;piman&gt; You can use Mutagen in a program licensed under &quot;GPLv2 or later&quot;, but 
+then only under the terms of GPLv2. We don't have plans to switch to GPLv3.
+
+Attached is the new libtagupdate.py and the patch for libipodsync, I hope you 
+guys like it!
+
+nick
+
+P.S. mutagen is available as python-mutagen under debian, fedora and ubuntu.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: libtagupdate.py
+Type: application/x-python
+Size: 2268 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070923/e29ecebf/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070923/e29ecebf/attachment.bin</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: libipodsync-r431-mutagen.patch
+Type: text/x-diff
+Size: 1836 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070923/e29ecebf/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070923/e29ecebf/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000625.html">[gpodder-devel] iPod synchronization problem with	some	NPR	feeds
+</A></li>
+	<LI>Next message: <A HREF="000634.html">[gpodder-devel] Mutagen metadata editing support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#620">[ date ]</a>
+              <a href="thread.html#620">[ thread ]</a>
+              <a href="subject.html#620">[ subject ]</a>
+              <a href="author.html#620">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

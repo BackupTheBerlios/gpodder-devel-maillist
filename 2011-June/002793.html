@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Can't subscribe to new podcasts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%27t%20subscribe%20to%20new%20podcasts&In-Reply-To=%3C20110605133946.7d31e240%40gaston.baronie.vez%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002792.html">
+   <LINK REL="Next"  HREF="002794.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Can't subscribe to new podcasts</H1>
+    <B>Nicolas FRANCOIS</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%27t%20subscribe%20to%20new%20podcasts&In-Reply-To=%3C20110605133946.7d31e240%40gaston.baronie.vez%3E"
+       TITLE="[gpodder-devel] Can't subscribe to new podcasts">nicolas.francois at free.fr
+       </A><BR>
+    <I>Sun Jun  5 13:39:46 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002792.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002794.html">[gpodder-devel] Can't subscribe to new podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2793">[ date ]</a>
+              <a href="thread.html#2793">[ thread ]</a>
+              <a href="subject.html#2793">[ subject ]</a>
+              <a href="author.html#2793">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.
+
+I don't know if this is the right place to post my question, if not,
+feel free to inform me.
+
+I'm an old gpodder user, I started a few years ago on a LFS distro,
+then used it on an Ubuntu distro. I'm subscribe to more than 40
+podcasts, mainly from a few french radios. I never had to complain
+about it, which is what I like.
+
+As I didn't like the way Ubuntu is evolving, I got back to Debian,
+about a month ago. Everything went fine, I could import my
+configuration to my new installation, and I can retreive all my old
+podcasts.
+
+But I can't subscribe to a new one. This is the sort of messages I get
+when I launch gpodder from a console with -v option :
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">nico at gaston</A>:~/.config$ gpodder -v
+[   0.068] Detected encoding: utf8
+[   0.131] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert
+&quot;.ogg&quot; files. Plugin loaded: gpodder.soundcloud
+[   0.255] (GPodderStatusIcon) Creating tray icon
+[   0.307] (Database) load_channels()
+[   0.307] (Database) Connected
+[   0.307] (Database) Setting up tables and views
+[   0.328] (MygPoClient) Reloading settings.
+[   0.329] (Database) load_channels()
+[   0.334] start reader
+[   0.343] (UserAppsReader) Player
+found: /usr/share/applications/gnome-mplayer.desktop [   0.359]
+(UserAppsReader) Player found: /usr/share/applications/vlc.desktop
+[   0.394] (UserAppsReader) Player
+found: /usr/share/applications/totem.desktop [   0.398]
+(UserAppsReader) Player found: /usr/share/applications/mplayer.desktop
+[   0.405] (UserAppsReader) Player
+found: /usr/share/applications/rhythmbox.desktop [   0.481]
+(UserAppsReader) Player found: /usr/share/applications/brasero.desktop
+[   0.502] end reader (benchmark: 0.1677 seconds) [   1.097] (Database)
+Loading all episodes from the database [   1.097] (gPodder) Setting up
+auto update timer with interval 60. [   1.244] (MygPoClient) Flush
+requested, but sync disabled. [  12.021] (UIConfig) Update
+main_window_x: 166 =&gt; -1338 [  17.081] (UIConfig) Update main_window_x:
+-1338 =&gt; 166 [  21.435] (gPodder) QUEUE RUNNER:
+<A HREF="http://radiofrance-podcast.net/podcast09/rss_11481.xml">http://radiofrance-podcast.net/podcast09/rss_11481.xml</A> [  21.435]
+(Database) load_channels() [  21.572] Found cover art in href:
+<A HREF="http://media.radiofrance-podcast.net/podcast09/RF_OMM_0000001433_ITE.jpg">http://media.radiofrance-podcast.net/podcast09/RF_OMM_0000001433_ITE.jpg</A>
+[  21.572] Found cover art in url:
+<A HREF="http://media.radiofrance-podcast.net/podcast09/RF_OMM_0000001433_ITE.jpg">http://media.radiofrance-podcast.net/podcast09/RF_OMM_0000001433_ITE.jpg</A>
+[  21.572] (Database) Cannot save &lt;gpodder.model.PodcastChannel object
+at 0xa6bc2ec&gt; to channels: channels.foldername may not be NULL
+Traceback (most recent call last): File
+&quot;/usr/lib/pymodules/python2.6/gpodder/dbsqlite.py&quot;, line 507, in
+_save_object cur.execute(sql, values) IntegrityError:
+channels.foldername may not be NULL
+
+[  21.573] (gPodder) Subscription error: 
+Traceback (most recent call last):
+  File &quot;/usr/lib/pymodules/python2.6/gpodder/gui.py&quot;, line 2515, in
+thread_proc allow_empty_feeds=self.config.allow_empty_feeds)
+  File &quot;/usr/lib/pymodules/python2.6/gpodder/model.py&quot;, line 149, in
+load tmp.update(max_episodes)
+  File &quot;/usr/lib/pymodules/python2.6/gpodder/model.py&quot;, line 323, in
+update self._consume_updated_feed(feed, max_episodes)
+  File &quot;/usr/lib/pymodules/python2.6/gpodder/model.py&quot;, line 216, in
+_consume_updated_feed existing = self.get_all_episodes()
+  File &quot;/usr/lib/pymodules/python2.6/gpodder/model.py&quot;, line 546, in
+get_all_episodes return self.db.load_episodes(self,
+factory=self.episode_factory) File
+&quot;/usr/lib/pymodules/python2.6/gpodder/dbsqlite.py&quot;, line 392, in
+load_episodes assert channel.id is not None AssertionError
+
+[  30.287] (MygPoClient) Flush requested, but sync disabled.
+[  36.445] (Database) COMMIT
+[  36.559] (Database) Optimizing database for faster startup.
+[  36.724] (MygPoClient) Worker thread may not execute (disabled).
+[  36.724] (UIConfig) Flushing settings to disk
+
+If I try to launch gpodder from a fresh install, I have no problem 
+subscribing to new podcasts. As I mentionned, I have a lot of
+subscriptions, so it would be nice if I didn't have to configure it all
+over again !
+
+I inspected the gpodder.conf file, compared it with a fresh one, and
+didn't see any significant difference (except for some window sizes).
+
+Can you help me on this one ?
+
+\bye
+
+PS : the Debian Squeeze version of gpodder is :
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">nico at gaston</A>:~/.config$ gpodder --version
+gpodder 2.7
+
+-- 
+
+Nicolas FRANCOIS                      |  /\ 
+<A HREF="http://nicolas.francois.free.fr">http://nicolas.francois.free.fr</A>       | |__|
+				      X--/\\
+We are the Micro$oft.		        _\_V
+Resistance is futile.		    
+You will be assimilated.         darthvader penguin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002792.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002794.html">[gpodder-devel] Can't subscribe to new podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2793">[ date ]</a>
+              <a href="thread.html#2793">[ thread ]</a>
+              <a href="subject.html#2793">[ subject ]</a>
+              <a href="author.html#2793">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

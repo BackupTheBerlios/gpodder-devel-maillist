@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Is it possible to define a default set of	feeds	for all users on a system?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Is%20it%20possible%20to%20define%20a%20default%20set%20of%09feeds%0A%09for%20all%20users%20on%20a%20system%3F&In-Reply-To=%3C1215080006.7020.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001599.html">
+   <LINK REL="Next"  HREF="001614.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Is it possible to define a default set of	feeds	for all users on a system?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Is%20it%20possible%20to%20define%20a%20default%20set%20of%09feeds%0A%09for%20all%20users%20on%20a%20system%3F&In-Reply-To=%3C1215080006.7020.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Is it possible to define a default set of	feeds	for all users on a system?">thp at perli.net
+       </A><BR>
+    <I>Thu Jul  3 12:13:26 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001599.html">[gpodder-devel] Is it possible to define a default set of feeds for	all users on a system?
+</A></li>
+        <LI>Next message: <A HREF="001614.html">[gpodder-devel] Is it possible to define a default set of feeds	for all users on a system?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1602">[ date ]</a>
+              <a href="thread.html#1602">[ thread ]</a>
+              <a href="subject.html#1602">[ subject ]</a>
+              <a href="author.html#1602">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Wed, 2008-07-02 at 09:57 -0800, Jeff Spaleta wrote:
+&gt;<i> So for the Fedora gpodder packages, I was wondering if it would be
+</I>&gt;<i> possible to include a system wide default channel definitions to be
+</I>&gt;<i> included by default when a user runs gpodder for the first time.  If
+</I>&gt;<i> so, where would a place such a default channel list, such that it
+</I>&gt;<i> propogates into a users gpodder config on the first run of gpodder by
+</I>&gt;<i> that user?
+</I>
+I think the easiest way is to patch the default value for the &quot;opml_url&quot;
+configuration variable in &quot;src/gpodder/config.py&quot; (it's currently set to
+directory.opml on gpodder.org). This way, no big changes need to be
+done, and Fedora users will get a list of fedora-specific podcasts
+listed.
+
+I could add some Fedora-related podcasts to &quot;directory.opml&quot; on
+gpodder.org if that is what you want. If not, just patch that one line
+with a Fedora-specific URL which will be set as default for new
+installations while leaving existing installations as they are.
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001599.html">[gpodder-devel] Is it possible to define a default set of feeds for	all users on a system?
+</A></li>
+	<LI>Next message: <A HREF="001614.html">[gpodder-devel] Is it possible to define a default set of feeds	for all users on a system?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1602">[ date ]</a>
+              <a href="thread.html#1602">[ thread ]</a>
+              <a href="subject.html#1602">[ subject ]</a>
+              <a href="author.html#1602">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

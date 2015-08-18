@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4763E8C1.90403%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000925.html">
+   <LINK REL="Next"  HREF="000935.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 crash</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20crash&In-Reply-To=%3C4763E8C1.90403%40perli.net%3E"
+       TITLE="[gpodder-devel] 0.10.3 crash">thp at perli.net
+       </A><BR>
+    <I>Sat Dec 15 15:46:25 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000925.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+        <LI>Next message: <A HREF="000935.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#922">[ date ]</a>
+              <a href="thread.html#922">[ thread ]</a>
+              <a href="subject.html#922">[ subject ]</a>
+              <a href="author.html#922">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Chris!
+
+Chris Arnold wrote:
+&gt;<i> Thomas Perl wrote:
+</I>&gt;&gt;<i> Hello, Chris!
+</I>&gt;&gt;<i>   
+</I>&gt;<i> Hi Thomas!
+</I>&gt;&gt;<i> What do you mean with &quot;artwork support&quot;? 
+</I>&gt;<i> I just mean that the channel also shows the feed artwork ( i thought
+</I>&gt;<i> this might be related to this error, TypeError: Surface.write_to_png
+</I>&gt;<i> takes one argument which must be a filename (str) or file object) .
+</I>
+Oh, ok. The error with write_to_png is not related to the channel
+covers. It's related to the drawing of the &quot;pill&quot; graphics that are put
+onto the channel navigator.
+
+&gt;&gt;<i> Do you have the URL of the
+</I>&gt;&gt;<i> channel that does not work? 
+</I>&gt;<i> There isn't a particular channel that does not work. I have, right now,
+</I>&gt;<i> about 5 podcasts/channels. As soon as i launch gpodder, it opens and
+</I>&gt;<i> starts to &quot;update channels&quot;, after this it crashes. If i click &quot;cancel&quot;
+</I>&gt;<i> while &quot;updating channels&quot;, it crashes.
+</I>&gt;&gt;<i> Does gPodder work when started as the new
+</I>&gt;&gt;<i> test user when adding the channel that didn't work for your initial user?
+</I>&gt;&gt;<i>   
+</I>&gt;<i> I can add channels/podcasts to the test user and it does work.
+</I>
+Do you also see the &quot;pill&quot; graphic in the channel navigator? It should
+look something like the black spots on the right-hand side of this image:
+
+<A HREF="http://gpodder.berlios.de/releases/0.10.3/gpodder-0.10.3-channel_pill.png">http://gpodder.berlios.de/releases/0.10.3/gpodder-0.10.3-channel_pill.png</A>
+
+&gt;<i> Traceback (most recent call last):
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 203, in new
+</I>&gt;<i> TypeError: the object does not support the given parameter
+</I>
+This looks strange and shouldn't happen on PyGTK &gt;= 2.12. But even if it
+does, it should't make any difference, as this just means that tooltips
+are disabled for the channel navigator.
+
+&gt;<i> Trying to get settings for <A HREF="http://www.desiringgod.org/feeds/SermonAudio/">http://www.desiringgod.org/feeds/SermonAudio/</A>
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i> File &quot;/usr/bin/gpodder&quot;, line 148, in ?
+</I>&gt;<i> sys.exit( main())
+</I>&gt;<i> File &quot;/usr/bin/gpodder&quot;, line 144, in main
+</I>&gt;<i> gui.main()
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 2196, in main
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 77, in __init__
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/SimpleGladeApp.py&quot;, line
+</I>&gt;<i> 110, in __init__
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 283, in new
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 811, in
+</I>&gt;<i> update_feed_cache
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/gui.py&quot;, line 605, in
+</I>&gt;<i> updateComboBox
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/libpodcasts.py&quot;, line 726,
+</I>&gt;<i> in channels_to_model
+</I>&gt;<i> File &quot;usr/lib/python2.4/site-packages/gpodder/draw.py&quot;, line 130, in
+</I>&gt;<i> draw_pill_pixbuf
+</I>&gt;<i> TypeError: Surface.write_to_png takes one argument which must be a
+</I>&gt;<i> filename (str) or file object
+</I>
+The code that is mentioned here is related to the new &quot;pill&quot; pixbuf code
+that will draw a nice graphical representation of the unplayed and
+download episodes.
+
+If you want to help debugging, you would have to checkout the latest SVN
+release of gPodder, tell me, I'll send you a patch, you apply it to your
+SVN check-out, run &quot;make test&quot; to run gPodder locally from your SVN
+check-out and see if the problem persists. Can we do that?
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000925.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+	<LI>Next message: <A HREF="000935.html">[gpodder-devel] 0.10.3 crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#922">[ date ]</a>
+              <a href="thread.html#922">[ thread ]</a>
+              <a href="subject.html#922">[ subject ]</a>
+              <a href="author.html#922">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

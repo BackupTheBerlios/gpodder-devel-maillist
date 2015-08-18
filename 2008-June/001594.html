@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Script not working	with	cmd_all_downloads_complete.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Script%20not%20working%0A%09with%09cmd_all_downloads_complete.&In-Reply-To=%3C1214853546.19461.3.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001592.html">
+   <LINK REL="Next"  HREF="001595.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Script not working	with	cmd_all_downloads_complete.</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Script%20not%20working%0A%09with%09cmd_all_downloads_complete.&In-Reply-To=%3C1214853546.19461.3.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Script not working	with	cmd_all_downloads_complete.">thp at perli.net
+       </A><BR>
+    <I>Mon Jun 30 21:19:06 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001592.html">[gpodder-devel] Script not working with cmd_all_downloads_complete.
+</A></li>
+        <LI>Next message: <A HREF="001595.html">[gpodder-devel] Script not	working	with	cmd_all_downloads_complete.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1594">[ date ]</a>
+              <a href="thread.html#1594">[ thread ]</a>
+              <a href="subject.html#1594">[ subject ]</a>
+              <a href="author.html#1594">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Shane!
+
+On Mon, 2008-06-30 at 19:48 +0100, Shane Donohoe wrote:
+&gt;<i> I tried using the cmd_all_downloads_complete option in the advanced
+</I>&gt;<i> configuration with a bash script I made myself. The script adds all
+</I>&gt;<i> new music files to the mpd playlist by doing a diff of the playlist
+</I>&gt;<i> before and after synching. However, the script does not work with the
+</I>&gt;<i> option. Sometimes the script does run, but not correctly and other
+</I>&gt;<i> times, I get a message saying the script can not be found. The script
+</I>&gt;<i> does perform the expected functionality when run manually.
+</I>
+Scripting - yay!
+
+What is &quot;mpc listall &amp;&gt;/tmp/mpd-old&quot; supposed to do? Don't you mean &quot;mpc
+listall &gt;/tmp/mpd-old&quot;?
+
+Instead of diff'ing mpd-old and mpd-new, you can use this simply python
+script which will read all lines in both files, leaving only files that
+are in new_files but not in old_files. It will then call &quot;mpdadd&quot; for
+all files found.
+
+==================
+#!/usr/bin/python
+
+import os
+
+old_files = set(open('/tmp/mpd-old').readlines())
+new_files = set(open('/tmp/mpd-new').readlines())
+
+for filename in new_files.difference(old_files):
+    os.system('echo mpdadd &quot;%s&quot;' % filename.strip())
+&#65279;==================
+
+This should make your script simpler and hopefully working with
+gPodder :)
+
+
+Good luck!
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001592.html">[gpodder-devel] Script not working with cmd_all_downloads_complete.
+</A></li>
+	<LI>Next message: <A HREF="001595.html">[gpodder-devel] Script not	working	with	cmd_all_downloads_complete.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1594">[ date ]</a>
+              <a href="thread.html#1594">[ thread ]</a>
+              <a href="subject.html#1594">[ subject ]</a>
+              <a href="author.html#1594">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

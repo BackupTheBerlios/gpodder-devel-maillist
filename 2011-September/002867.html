@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] libmygpo-qt Release of v1.0.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20Release%20of%20v1.0.4&In-Reply-To=%3C4E6A4910.6090802%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002874.html">
+   <LINK REL="Next"  HREF="002875.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] libmygpo-qt Release of v1.0.4</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20Release%20of%20v1.0.4&In-Reply-To=%3C4E6A4910.6090802%40derkits.at%3E"
+       TITLE="[gpodder-devel] libmygpo-qt Release of v1.0.4">stefan at derkits.at
+       </A><BR>
+    <I>Fri Sep  9 19:12:48 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002874.html">[gpodder-devel] Using Gpodder on both Windows and Linux on same laptop
+</A></li>
+        <LI>Next message: <A HREF="002875.html">[gpodder-devel] gPodder 2.19 &quot;The Toast Derivation&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2867">[ date ]</a>
+              <a href="thread.html#2867">[ thread ]</a>
+              <a href="subject.html#2867">[ subject ]</a>
+              <a href="author.html#2867">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Dear Amarok &amp; gPodder Community,
+
+Summer (and with it Google Summer of Code) is over and Lucas Lira
+Gomes sucessfully finished his GSoC Project (Integration of
+gpodder.net into Amarok), so expect to be able to synchronize your
+podcasts between Amarok &amp; gpodder.net soon ;)
+
+In addition to that, Ari Hannula from Nokia created &quot;Podcasts&quot; for the
+Nokia N9, which also utilizes libmygpo-qt for synchronizing and
+searching podcasts.
+
+Thanks to Lucas &amp; Ari, we found (and fixed ;) ) some Bugs in
+libmygpo-qt, so we announce hereby the availability of libmygpo-qt v1.0.4
+
+Changes in 1.0.4:
+- -) fixed a bug with an invalid timestamp when uploading EpisodeActions
+- -) fixed a bug with a wrong url when retrieving EpisodeActions by Podcast
+- -) fixed a crash happening on MeeGo because of the deletion of
+QNetworkReply Pointers
+
+Where to get libmygpo-qt?
+
+Tarball:
+<A HREF="http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.4.tar.gz">http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.4.tar.gz</A>
+md5sum: 9c840d6a7dc96055c6eb5a7d36d02a7c
+sha1sum: 7d46fcbcc3c0177bc353f8e15b0bff9fd19013e6
+
+Some more important Links for libmygpo-qt:
+
+Project Website: <A HREF="http://wiki.gpodder.org/wiki/Libmygpo-qt">http://wiki.gpodder.org/wiki/Libmygpo-qt</A>
+Git Repo: <A HREF="https://github.com/gpodder/libmygpo-qt">https://github.com/gpodder/libmygpo-qt</A>
+Doxygen Documentation: <A HREF="http://stefan.derkits.at/libmygpo-doc/">http://stefan.derkits.at/libmygpo-doc/</A>
+gpodder.net API: <A HREF="http://wiki.gpodder.org/wiki/Web_Services/API_2">http://wiki.gpodder.org/wiki/Web_Services/API_2</A>
+Bugreports: <A HREF="http://bugs.gpodder.org">http://bugs.gpodder.org</A>
+Contact: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+
+- - --- Infos about libmygpo-qt ---
+
+What is libmygpo-qt?
+
+libmygpo-qt is a Qt/C++ Library wrapping the gPodder.net Webservice. It
+was created as part of a University Course &amp; it is used in
+Amarok (since 2.4.1) with the new gpodder.net
+Service, that makes the gpodder.net Podcast Directory available from
+within Amarok.
+
+One of the next Versions of Amarok require libmygpo-qt 1.0.4 for the
+gPodder PodcastProvider, with which you can synchronize your local
+Podcasts between Amarok and gpodder.net (and other podcatchers with
+gpodder.net integration).
+
+Greetings,
+Stefan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk5qSRAACgkQlZvAMV/NgGKUnACg1VSXY3MKjzw4LLJ5FHzqI6kQ
++tcAoIrIzF90NRjGHrOps1m+Ck5+sfr+
+=bj1P
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002874.html">[gpodder-devel] Using Gpodder on both Windows and Linux on same laptop
+</A></li>
+	<LI>Next message: <A HREF="002875.html">[gpodder-devel] gPodder 2.19 &quot;The Toast Derivation&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2867">[ date ]</a>
+              <a href="thread.html#2867">[ thread ]</a>
+              <a href="subject.html#2867">[ subject ]</a>
+              <a href="author.html#2867">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

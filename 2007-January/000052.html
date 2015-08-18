@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20BUG%3A%20I%20can%27t%20see%20the%20podcasts%20after%20sync%20to%20my%0A%202G%20ipod%20nano%20ipod&In-Reply-To=%3C45BA6E12.2060907%40terra.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000044.html">
+   <LINK REL="Next"  HREF="000053.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod</H1>
+    <B>Jos&#233; Luis Fustel</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20BUG%3A%20I%20can%27t%20see%20the%20podcasts%20after%20sync%20to%20my%0A%202G%20ipod%20nano%20ipod&In-Reply-To=%3C45BA6E12.2060907%40terra.es%3E"
+       TITLE="[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod">dr_psy at terra.es
+       </A><BR>
+    <I>Fri Jan 26 22:09:38 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000044.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+        <LI>Next message: <A HREF="000053.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I think I fixed it.
+
+I added the line
+
+	track.mediatype = 0x00000004
+
+to the
+set_podcast_flags( self, track) in libipodsync.py
+
+and it seems to work ok.
+
+can anybody else corroborate it?
+
+
+
+Thomas Perl wrote:
+
+&gt;<i> iPod sync support mostly depends on libgpod here. As gtkpod uses
+</I>&gt;<i> libgpod too, maybe some special flags have to set in the iTunesDB on
+</I>&gt;<i> iPod nanos. Maybe you want to investigate on the libgpod mailing list
+</I>&gt;<i> and check back here if you get any information on what's the difference
+</I>&gt;<i> between iPod nano iTunesDB properties for Podcasts and the other iPods.
+</I>&gt;<i> I personally don't have an iPod nano, so I can't check and test if it
+</I>&gt;<i> works. If you would volunteer, this would surely be great :)
+</I>&gt;<i> 
+</I>
+- --
+
+Jos&#233; Luis Fustel
+Linux Register user: #343906
+PGP KeyID: FC197C5F ( <A HREF="http://barrapunto.com/~Dr_PsY/pubkey/">http://barrapunto.com/~Dr_PsY/pubkey/</A> )
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.2.1 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFum4RRhdPd/wZfF8RAnsOAJ0TL7tRGPFR8pFclWt6uag78YPibACfYrGV
+EZqtexakp5uMcJVqL3JrZiE=
+=UqZ3
+-----END PGP SIGNATURE-----
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: libipodsync.py
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070126/39e5d0fa/attachment.ksh">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070126/39e5d0fa/attachment.ksh</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000044.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+	<LI>Next message: <A HREF="000053.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

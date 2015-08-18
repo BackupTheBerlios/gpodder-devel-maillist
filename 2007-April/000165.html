@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New toolbar strings not added to the .po	files?	/ gPodder not remembering column sizes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20toolbar%20strings%20not%20added%20to%20the%20.po%09files%3F%0A%09/%20gPodder%20not%20remembering%20column%20sizes&In-Reply-To=%3C1175450149.4136.5.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000181.html">
+   <LINK REL="Next"  HREF="000169.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New toolbar strings not added to the .po	files?	/ gPodder not remembering column sizes</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20toolbar%20strings%20not%20added%20to%20the%20.po%09files%3F%0A%09/%20gPodder%20not%20remembering%20column%20sizes&In-Reply-To=%3C1175450149.4136.5.camel%40macbook%3E"
+       TITLE="[gpodder-devel] New toolbar strings not added to the .po	files?	/ gPodder not remembering column sizes">thp at perli.net
+       </A><BR>
+    <I>Sun Apr  1 19:55:49 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000181.html">[gpodder-devel] Icon not showing up?
+</A></li>
+        <LI>Next message: <A HREF="000169.html">[gpodder-devel] New toolbar strings not added to the .po	files? / gPodder not remembering column sizes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#165">[ date ]</a>
+              <a href="thread.html#165">[ thread ]</a>
+              <a href="subject.html#165">[ subject ]</a>
+              <a href="author.html#165">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, 2007-03-31 at 10:38 +0200, Pieter De Decker wrote:
+&gt;<i> I noticed that gPodder's interface got a minor design update
+</I>&gt;<i> yesterday. I also saw some new (and therefore untranslated) strings in
+</I>&gt;<i> the toolbar, but I couldn't find them in the .po file.
+</I>&gt;<i> Have you, perhaps, forgotten to mark these strings as 'translatable'
+</I>&gt;<i> or is this somehow my fault? The affected strings are 'Update feeds' 
+</I>&gt;<i> and 'Transfer'.
+</I>
+Correct, I've forgotten to mark these strings as translatable. This has
+been fixed in current svn, and you should be able to update the
+translation file accordingly and send in a patch (&quot;svn diff &gt;
+patchfile&quot;)
+
+&gt;<i> I also want to report a minor annoyance. Every time I start gPodder, I
+</I>&gt;<i> have to resize the 'Episode' column in order for me to be able to see
+</I>&gt;<i> the episode title. When I restart gPodder, that column is small again.
+</I>&gt;<i> It appears that gPodder doesn't remember the column sizes. Can you
+</I>&gt;<i> look into this please? 
+</I>
+I've looked into this issue and have made the following changes to
+(hopefully) fit your needs and make all users a bit happier:
+
+* Window size and position of the gPodder main window are now saved on
+close and restored on startup, so you don't have to resize the gPodder
+main window all the time if you're used to working with a bigger gPodder
+window
+
+* The episode title column is always auto-sized so that the text fits
+into it; as long as you don't resize it manually, it will resize
+automatically on channel switches. If you start resizing it manually, it
+will keep the set width until gPodder is closed. Hope that's what you
+wanted to accomplish :)
+
+
+Enjoy,
+Thomas
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000181.html">[gpodder-devel] Icon not showing up?
+</A></li>
+	<LI>Next message: <A HREF="000169.html">[gpodder-devel] New toolbar strings not added to the .po	files? / gPodder not remembering column sizes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#165">[ date ]</a>
+              <a href="thread.html#165">[ thread ]</a>
+              <a href="subject.html#165">[ subject ]</a>
+              <a href="author.html#165">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

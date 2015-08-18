@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Performance issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Performance%20issues&In-Reply-To=%3C4785E458.9040205%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001053.html">
+   <LINK REL="Next"  HREF="001060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Performance issues</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Performance%20issues&In-Reply-To=%3C4785E458.9040205%40perli.net%3E"
+       TITLE="[gpodder-devel] Performance issues">thp at perli.net
+       </A><BR>
+    <I>Thu Jan 10 10:24:40 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001053.html">[gpodder-devel] Performance issues
+</A></li>
+        <LI>Next message: <A HREF="001060.html">[gpodder-devel] Performance issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1059">[ date ]</a>
+              <a href="thread.html#1059">[ thread ]</a>
+              <a href="subject.html#1059">[ subject ]</a>
+              <a href="author.html#1059">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, hex!
+
+hex wrote:
+&gt;<i> On 1/10/08, hex &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">justin.forest at gmail.com</A>&gt; wrote:
+</I>&gt;&gt;<i> I'm using version 0.10.3 in Ubuntu Gutsy and the performance is
+</I>&gt;&gt;<i> ridiculously bad.  I have 6 feeds, 3 of them have less than 20 episodes, 3
+</I>&gt;&gt;<i> others have more than a hundred each.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When gPodder starts, it updates all channels, that's ok even if that's
+</I>&gt;&gt;<i> slow and takes all CPU.  When I double-click a channel, then just hit
+</I>&gt;&gt;<i> &quot;Cancel&quot; (or the [X] button), it updates them all again.  Even when I select
+</I>&gt;&gt;<i> one episode and click &quot;Download...&quot;, it still updates all feeds.  This is
+</I>&gt;&gt;<i> very inconvenient and slow.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I ran `time gpodder -v 2&gt;&amp;1 &gt;gpodder.log`, which I attach to this message.
+</I>&gt;&gt;<i>  The messages are not too descriptive and there are no timestamps, but
+</I>&gt;&gt;<i> basically, there's 881 message starting with &quot;Loading downloaded episodes&quot;.
+</I>&gt;&gt;<i>  There is zero network activity during these loadings, but the CPU is at
+</I>&gt;&gt;<i> 100%.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The output (of `time`) was, excluding an exception-during-shutdown
+</I>&gt;&gt;<i> warning:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> real    0m38.423s
+</I>&gt;&gt;<i> user    0m32.278s
+</I>&gt;&gt;<i> sys     0m0.952s
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> This is, again, (1) launching gpodder, (2) selecting a new episode when
+</I>&gt;&gt;<i> the list becomes available, (3) clicking the &quot;download&quot; button on the
+</I>&gt;&gt;<i> toolbar, and (4) clicking the &quot;exit&quot; button as soon as it becomes
+</I>&gt;&gt;<i> available.  38 seconds on a Pentium 4 (Celeron) 1.7GHz with nothing else
+</I>&gt;&gt;<i> running in the background.
+</I>
+I've did the same here with gPodder SVN trunk and get different results 
+on a 2GHz Core Duo:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at macbook</A>:~/src/gpodder$ time make test 2&gt;&amp;1 &gt;gpodder.log
+
+real    1m10.093s
+user    0m4.392s
+sys     0m0.580s
+
+Can you please try the SVN trunk version of gPodder and see if this 
+works better?
+
+Instructions: <A HREF="http://gpodderwiki.jottit.com/running-from-svn">http://gpodderwiki.jottit.com/running-from-svn</A>
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001053.html">[gpodder-devel] Performance issues
+</A></li>
+	<LI>Next message: <A HREF="001060.html">[gpodder-devel] Performance issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1059">[ date ]</a>
+              <a href="thread.html#1059">[ thread ]</a>
+              <a href="subject.html#1059">[ subject ]</a>
+              <a href="author.html#1059">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Managing Downloads with Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C20110604161023.GZ32476%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002790.html">
+   <LINK REL="Next"  HREF="002792.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Managing Downloads with Woodchuck</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C20110604161023.GZ32476%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] Managing Downloads with Woodchuck">thp at gpodder.org
+       </A><BR>
+    <I>Sat Jun  4 18:10:23 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002790.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002792.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2791">[ date ]</a>
+              <a href="thread.html#2791">[ thread ]</a>
+              <a href="subject.html#2791">[ subject ]</a>
+              <a href="author.html#2791">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Sat, Jun 04, 2011 at 05:42:03PM +0200, Neal H. Walfield wrote:
+&gt;<i> At Sat, 4 Jun 2011 15:14:29 +0400,
+</I>&gt;<i> Justin Forest wrote:
+</I>&gt;<i> &gt; I think it is a good idea to use an external download manager.  Not
+</I>&gt;<i> &gt; only for mobile devices, but in general.  So that gPodder would focus
+</I>&gt;<i> &gt; on podcasting and not deal with bandwidth throttling, etc.
+</I>&gt;<i> 
+</I>&gt;<i> Woodchuck isn't so much about performing downloads as it is about
+</I>&gt;<i> scheduling them.  That is, Woodchuck's primary goal is to determine
+</I>&gt;<i> when it is a good time to download data and which data to download.
+</I>&gt;<i> (That said, it does provide a simple downloader for objects accessible
+</I>&gt;<i> over http and https.)
+</I>
+So, to what extend does it differ in functionality from iphbd / the
+&quot;Hearbeat Daemon&quot; on Maemo 5, which is used to make sure that all
+network-using applications do network-intensive requests at the same
+time to save power?
+
+<A HREF="http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/Architecture/System_Software#Heartbeat_Daemon_.28Heartbeatd.29">http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/Architecture/System_Software#Heartbeat_Daemon_.28Heartbeatd.29</A>
+
+&gt;<i> &gt; My understanding is that there would need to be an API to queue an URL
+</I>&gt;<i> &gt; for downloading,
+</I>&gt;<i> 
+</I>&gt;<i> Right.  The basic idea is that gPodder registers a stream for each
+</I>&gt;<i> podcast subscription (pywoodchuck.stream_register).  At some point,
+</I>&gt;<i> Woodchuck makes an upcall telling gPodder that it is a good time to
+</I>&gt;<i> update one or more streams (pywoodchuck.stream_update_cb).  (If
+</I>&gt;<i> gPodder is not running, Woodchuck first starts it using
+</I>&gt;<i> org.freedesktop.DBus.StartServiceByName.)  gPodder then updates the
+</I>&gt;<i> feeds and reports whether the update was successful
+</I>&gt;<i> (pywoodchuck.stream_updated).  For each new episode, gPodder registers
+</I>&gt;<i> a new object (pywoodchuck.object_register).
+</I>
+Why does Woodchuck have to know so much domain-specific information
+about a given application? The &quot;good time to update a stream&quot; call in my
+opinion doesn't need to know about this - just make sure you have a good
+interval and do the online/offline checking and maybe have some minimum
+and maximum interval, and try to sync this interval as good as possible
+between the registered apps.
+
+Also, what does Woodchuck do with the information whether or not an
+update is successful?
+
+For the episodes, I again don't really get the point - why does gPodder
+need to register each episode with Woodchuck? Isn't a more simpler
+interface like &quot;I've got a total of 120MB of data that I want to
+download, can I download now or will you tell me when I can?&quot; more
+suitable and not so object-specific? What do you gain (apart from API
+complexity ;) by having all these objects floating around between an
+application and Woodchuck?
+
+&gt;<i> When the user listens to a podcast, gPodder reports this to Woodchuck
+</I>&gt;<i> (pywoodchuck.object_used).  That way, Woodchuck can learn the user's
+</I>&gt;<i> preferences.
+</I>
+Isn't that something that requires knowledge of the data in question? If
+you know that object 01abcd has been listened to, how can Woodchuck
+determine whether or not the user is interested in object bb0a256?
+
+Also, isn't downloading detached from consuming/listening to files? I
+might listen to a given episode the first time two weeks after it has
+been downloaded - what kind of use would this be to Woodchuck? Does
+Woodchuck keep track of all downloads all of the time? What influence
+does this have on memory consumption and performance when looking up a
+given download in a local database?
+
+Also, does this model take streaming of episodes into account? It's
+basically a simultaneous download + consumption, as far as managing
+network traffic and usage are concerned.
+
+Will Woodchuck be aware of and take into account things like traffic
+limits of 3G connections (e.g. my current plan offers 3GB of traffic per
+month, and the operator charges a premium for every MB above that).
+
+&gt;<i> Nevertheless, gPodder should still report that it was downloaded
+</I>&gt;<i> (pywoodchuck.object_downloaded) so that Woodchuck can improve its
+</I>&gt;<i> model of the user's preferences.
+</I>
+Again, I'm interested to hear about some examples what kind of
+preferences these could be and how they could be used to do something
+useful and provide value to the user or application.
+
+
+I'm interested in this project, and can see some good use cases, but I'm
+also not sure if Woodchuck tries to do too much than what it's supposed
+to do, and if maybe all that micro-mangement of data is really something
+that will be an advantage in the long run.
+
+I think the interesting problems here are:
+
+ * If and when to download a given file of a certain size
+ * Priorities for downloads (the user explicitly wants do download
+   something vs. &quot;if I'm on home WiFi + the device is charging + it's
+   3 AM, then also try to download/cache other files&quot;)
+ * Management of traffic limits (i.e. 3G connection with a limited
+   traffic allowance)
+ * Management of power (i.e. download when on charger, but avoid
+   everything - including feed updates - when the battery goes below a
+   certain threshold)
+ * Awareness of other applications (i.e. don't download if the user is
+   using a web browser, to increase the web browser's responsiveness)
+ * Awareness of other machines (i.e. limit the bandwidth if a user on
+   the same network is browsing the web - maybe using Bonjour/Zeroconf?)
+ * Notification interface for &quot;pause all your downloads&quot; / &quot;resume all
+   your download&quot; (i.e. pause download when leaving home and network
+   connectivity changes from WiFi to 3G, etc..)
+
+The great thing about this is that we could then have a system-wide
+&quot;Download preferences&quot; configuration where the user can configure the
+preferences (e.g. &quot;download even on 3G, because I have a flat rate&quot;) and
+these preferences would be implemented by the Woodchuck policy / daemon
+and automatically used by all the applications.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002790.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002792.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2791">[ date ]</a>
+              <a href="thread.html#2791">[ thread ]</a>
+              <a href="subject.html#2791">[ subject ]</a>
+              <a href="author.html#2791">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

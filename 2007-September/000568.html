@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FUpgrading_to_0%3D2E9%3D2E5_has_broken_iPod_%3F%3D%0A%09%3D%3Futf-8%3Fq%3FSync%3D09on%3D09my_system%3F%3D&In-Reply-To=%3C200709080309.35037.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000567.html">
+   <LINK REL="Next"  HREF="000569.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FUpgrading_to_0%3D2E9%3D2E5_has_broken_iPod_%3F%3D%0A%09%3D%3Futf-8%3Fq%3FSync%3D09on%3D09my_system%3F%3D&In-Reply-To=%3C200709080309.35037.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system">nikosapi at gmail.com
+       </A><BR>
+    <I>Sat Sep  8 09:09:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000567.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system
+</A></li>
+        <LI>Next message: <A HREF="000569.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync on my system
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#568">[ date ]</a>
+              <a href="thread.html#568">[ thread ]</a>
+              <a href="subject.html#568">[ subject ]</a>
+              <a href="author.html#568">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On September 8, 2007 02:41:55 Paul Rudkin wrote:
+&gt;<i>  Hello Again Thomas
+</I>&gt;<i>
+</I>&gt;<i>  Here is the output of the commands you asked be to run:-
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">paul at Suzhou</A>:~$ dpkg -L python-gpod
+</I>&gt;<i>  /.
+</I>&gt;<i>  /usr
+</I>&gt;<i>  /usr/share
+</I>&gt;<i>  /usr/share/doc
+</I>&gt;<i>  /usr/share/doc/python-gpod
+</I>&gt;<i>  /usr/share/doc/python-gpod/changelog.gz
+</I>&gt;<i>  /usr/share/doc/python-gpod/changelog.Debian.gz
+</I>&gt;<i>  /usr/share/doc/python-gpod/README.gz
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/toy_around.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/play_with_ipod_api.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/play_with_smart_playlists.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/coverart_fetch.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/tag_genre_from_audioscrobber.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/create_mp3_tags_from_itdb.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/examples/add_song.py
+</I>&gt;<i>  /usr/share/doc/python-gpod/AUTHORS
+</I>&gt;<i>  /usr/share/doc/python-gpod/copyright
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">paul at Suzhou</A>:~$
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  and
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">paul at Suzhou</A>:~$ python
+</I>&gt;<i>  Python 2.5.1 (r251:54863, May&#160; 2 2007, 16:56:35)
+</I>&gt;<i>  [GCC 4.1.2 (Ubuntu 4.1.2-0ubuntu4)] on linux2
+</I>&gt;<i>  Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</I>&gt;<i>
+</I>&gt;<i>  &gt;&gt;&gt; import gpod
+</I>&gt;<i>
+</I>&gt;<i>  Traceback (most recent call last):
+</I>&gt;<i>  &#160; File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+</I>&gt;<i>  ImportError: No module named gpod
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  I hope this helps.
+</I>&gt;<i>
+</I>&gt;<i>  Many thanks
+</I>&gt;<i>
+</I>&gt;<i>  Paul
+</I>&gt;<i>
+</I>
+Hi Paul,
+
+According to your 'dpkg -L python-gpod' output you are missing files, most 
+importantly the gpod.py python module, which is confirmed when you try to do 
+an 'import' of the non-existant module.
+
+Try re-installing the python-gpod package, this should do the trick: 
+sudo apt-get --reinstall install python-gpod
+
+
+Hope it works,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000567.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync	on	my system
+</A></li>
+	<LI>Next message: <A HREF="000569.html">[gpodder-devel] Upgrading to 0.9.5 has broken iPod Sync on my system
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#568">[ date ]</a>
+              <a href="thread.html#568">[ thread ]</a>
+              <a href="subject.html#568">[ subject ]</a>
+              <a href="author.html#568">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

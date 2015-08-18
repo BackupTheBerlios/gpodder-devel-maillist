@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Podcast Folder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Podcast%20Folder&In-Reply-To=%3C1183485794.5325.19.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000375.html">
+   <LINK REL="Next"  HREF="000380.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Podcast Folder</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Podcast%20Folder&In-Reply-To=%3C1183485794.5325.19.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Podcast Folder">thp at perli.net
+       </A><BR>
+    <I>Tue Jul  3 20:03:14 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000375.html">[gpodder-devel] Podcast Folder
+</A></li>
+        <LI>Next message: <A HREF="000380.html">[gpodder-devel] Podcast Folder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#377">[ date ]</a>
+              <a href="thread.html#377">[ thread ]</a>
+              <a href="subject.html#377">[ subject ]</a>
+              <a href="author.html#377">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Carlos!
+
+On Mon, 2007-07-02 at 14:11 -0400, Carlos Moffat wrote:
+&gt;<i> On Mon, 2007-07-02 at 19:55 +0200, Thomas Perl wrote:
+</I>&gt;<i> &gt; Hello, Carlos!
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Carlos Moffat schrie
+</I>&gt;<i> &gt; &gt; I'd like to use gpodder as a podcast catcher, but I don't want to
+</I>&gt;<i> use it
+</I>&gt;<i> &gt; &gt; to play the podcasts. The problem is that with the way the
+</I>&gt;<i> &gt; &gt; folder/filename naming scheme (using some kind of hash), it's
+</I>&gt;<i> quite hard
+</I>&gt;<i> &gt; &gt; to find anything using the file manager or a music player (without
+</I>&gt;<i> &gt; &gt; reading all the files into the library). It would be great if one
+</I>&gt;<i> could
+</I>&gt;<i> &gt; &gt; store the podcast into folders/filenames that are human-readable.
+</I>&gt;<i> &gt; First, the explanation: The reason gPodder uses a hash of the URL
+</I>&gt;<i> to 
+</I>&gt;<i> &gt; store its channels and episodes is because you can't rely on titles
+</I>&gt;<i> of 
+</I>&gt;<i> &gt; channels and episodes from RSS feeds (i.e. two episodes with the
+</I>&gt;<i> same 
+</I>&gt;<i> &gt; name or two different podcasts of the same radio station both named 
+</I>&gt;<i> &gt; &quot;Radio Foo Podcast&quot;). Using hashes of URLs resolves this problem -
+</I>&gt;<i> if an 
+</I>&gt;<i> &gt; episode URL is the same, there is no problem with the file name
+</I>&gt;<i> also 
+</I>&gt;<i> &gt; being the same (the same URL should resolve to the same content).
+</I>&gt;<i> &gt; 
+</I>&gt;<i> 
+</I>&gt;<i> I see. Although the client I'm trying to migrate from (castpodder,
+</I>&gt;<i> which
+</I>&gt;<i> will die any time now as is no longer being mantained) correctly
+</I>&gt;<i> creates
+</I>&gt;<i> a folder/episode structure.
+</I>
+I don't know about castpodder, but maybe it's just a one-way downloader
+without the ability to manage, synchronize and browse podcast episodes.
+
+We had title-based file and folder naming before, but it resulted in
+many problems with buggy feeds. Well, we even had a bug in the Debian
+BTS about a user complaining about missing titles - the RSS feed in
+question had no &lt;title&gt; tags. Therefore, gPodder tries to avoid these
+problems and to accept any RSS file it gets thrown at it.
+
+&gt;<i> &gt; Now, here's the solution to your problem: gPodder has a &quot;sync&quot;
+</I>&gt;<i> feature. 
+</I>&gt;<i> &gt; If you set the sync target to &quot;FS-based MP3 player&quot; and select a
+</I>&gt;<i> local 
+</I>&gt;<i> &gt; folder where you want to store the podcasts, and start the 
+</I>&gt;<i> &gt; synchronization, gPodder will create a &quot;Channel Name/Episode
+</I>&gt;<i> Name.ext&quot; 
+</I>&gt;<i> &gt; directory structure there and copy all files over. This way, you
+</I>&gt;<i> can 
+</I>&gt;<i> &gt; easily browse your podcasts on the filesystem.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> 
+</I>&gt;<i> MMhh. Doesn't this mean that podcasts will use twice as much space in
+</I>&gt;<i> my hard drive? This is big no-no as they're already taking 5.2GB. 
+</I>
+Yes, but if you're not needing the podcast management functions of
+gPodder, you will be able to delete the episodes from gPodder after
+sync. gPodder will remember which episodes have been downloaded and
+deleted, and will skip these episodes when searching for new episodes.
+
+A feature that hard-links these files could be implemented, but I don't
+have time to do this right now, as the function as it is now serves me
+and many others well.
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000375.html">[gpodder-devel] Podcast Folder
+</A></li>
+	<LI>Next message: <A HREF="000380.html">[gpodder-devel] Podcast Folder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#377">[ date ]</a>
+              <a href="thread.html#377">[ thread ]</a>
+              <a href="subject.html#377">[ subject ]</a>
+              <a href="author.html#377">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

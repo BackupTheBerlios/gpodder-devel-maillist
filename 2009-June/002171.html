@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Episodes Removed from Device are Synced Again
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Episodes%20Removed%20from%20Device%20are%20Synced%20Again&In-Reply-To=%3C4A47386B.6000108%40manor-farm.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002170.html">
+   <LINK REL="Next"  HREF="002172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Episodes Removed from Device are Synced Again</H1>
+    <B>Ian Barton</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Episodes%20Removed%20from%20Device%20are%20Synced%20Again&In-Reply-To=%3C4A47386B.6000108%40manor-farm.org%3E"
+       TITLE="[gpodder-devel] Episodes Removed from Device are Synced Again">lists at manor-farm.org
+       </A><BR>
+    <I>Sun Jun 28 11:31:23 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002170.html">[gpodder-devel] Episodes Removed from Device are Synced Again
+</A></li>
+        <LI>Next message: <A HREF="002172.html">[gpodder-devel] Episodes Removed from Device are Synced Again
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2171">[ date ]</a>
+              <a href="thread.html#2171">[ thread ]</a>
+              <a href="subject.html#2171">[ subject ]</a>
+              <a href="author.html#2171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Bill, that sounds like the explanation. However, I am still 
+confused:) I am using 0.16.0. If I right click on an episode the pop up 
+menu, which has a music note with a green tick on it, the pop up says 
+Mark as Played, but the pop up also has a green tick on it.
+
+If I choose &quot;Mark as Played&quot; the green tick disappears. Now if I right 
+click again I get &quot;Mark as Unplayed&quot; with a red cross on the pop up. 
+Selecting this gives me the music note icon with a green tick next to it.
+
+The reference to the icons in the wiki is out of date, so I am not sure 
+what they mean.
+
+If I were to guess I would assume the following:
+
+Music icon with green tick - it's got a tick, so it's been played.
+Music icon with no tick - it's unplayed.
+
+In the pop up menu:
+
+&quot;Mark as Played&quot; should have a green tick.
+
+&quot;Mark as Unplayed&quot; shouldn't have a red cross, but should either have 
+nothing or another icon that is the same as whatever will be displayed 
+next to the music note in the list view.
+
+Somewhere obvious in the app, the user should be able to find help on 
+what the various icons mean.
+
+If someone can enlighten me as to what the various icon/pop up states 
+should be, I'll attempt to write a patch that makes it more obvious to 
+the user and amend the wiki.
+
+Ian.
+
+Bill Peters wrote:
+&gt;<i> Sounds like they are not being marked as played. I usually just mark 
+</I>&gt;<i> them as played and then the next time I sync, those episodes are removed 
+</I>&gt;<i> from the device. I'm not sure it makes sense to have them automatically 
+</I>&gt;<i> marked as read, because you may be removing it from the device because 
+</I>&gt;<i> the file is corrupt or something and you want it to be re-synced.
+</I>&gt;<i> 
+</I>&gt;<i> -Bill
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, Jun 26, 2009 at 8:33 AM, Ian Barton &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">lists at manor-farm.org</A> 
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">lists at manor-farm.org</A>&gt;&gt; wrote:
+</I>&gt;<i> 
+</I>&gt;<i>     I don't know if this is a feature or a bug:) If I choose &quot;Select and
+</I>&gt;<i>     remove episodes from device&quot; and remove some episodes, those episodes
+</I>&gt;<i>     are synced back to the device next time I choose &quot;Sync episodes to
+</I>&gt;<i>     device&quot;. If I remove them via gPodder I expect them to stay removed.
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002170.html">[gpodder-devel] Episodes Removed from Device are Synced Again
+</A></li>
+	<LI>Next message: <A HREF="002172.html">[gpodder-devel] Episodes Removed from Device are Synced Again
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2171">[ date ]</a>
+              <a href="thread.html#2171">[ thread ]</a>
+              <a href="subject.html#2171">[ subject ]</a>
+              <a href="author.html#2171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

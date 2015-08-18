@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [patch] make test: build translations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20make%20test%3A%20build%20translations&In-Reply-To=%3C20090114053054.0193f3aab1db45621a7a7ee5866e9102.7cd601b275.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001988.html">
+   <LINK REL="Next"  HREF="001992.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [patch] make test: build translations</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20make%20test%3A%20build%20translations&In-Reply-To=%3C20090114053054.0193f3aab1db45621a7a7ee5866e9102.7cd601b275.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] [patch] make test: build translations">thp at gpodder.org
+       </A><BR>
+    <I>Wed Jan 14 13:30:54 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001988.html">[gpodder-devel] [patch] make test: build translations
+</A></li>
+        <LI>Next message: <A HREF="001992.html">[gpodder-devel] New Years time bug?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1991">[ date ]</a>
+              <a href="thread.html#1991">[ thread ]</a>
+              <a href="subject.html#1991">[ subject ]</a>
+              <a href="author.html#1991">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks. I think it's better to have it as a &quot;test-l10n&quot; target, though,
+because otherwise &quot;normal&quot; users that are running the Git version would
+have to get the package that includes &quot;msgfmt&quot; (I think some gettext dev
+package IIRC).
+
+I'll gladly apply the modified patch if you send it to me :) We probably
+should update the Wiki page to include instructions how to use this
+target
+for testing translations once the patch is merged.
+
+Thomas
+
+&gt;<i> The attached patch generates .mo files from .po files before starting
+</I>&gt;<i> gPodder with &quot;make test&quot;. I think it would make testing the translations
+</I>&gt;<i> a bit easier. Also note that this is not running msgmerge, so it's quick
+</I>&gt;<i> and it doesn't change the local git clone in any way.
+</I>&gt;<i> 
+</I>&gt;<i> We could make a separate make target such as test-l10n or something if
+</I>&gt;<i> you think this would bother the English-only users too much.
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001988.html">[gpodder-devel] [patch] make test: build translations
+</A></li>
+	<LI>Next message: <A HREF="001992.html">[gpodder-devel] New Years time bug?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1991">[ date ]</a>
+              <a href="thread.html#1991">[ thread ]</a>
+              <a href="subject.html#1991">[ subject ]</a>
+              <a href="author.html#1991">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

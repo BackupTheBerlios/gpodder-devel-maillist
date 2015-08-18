@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Tagging
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Tagging&In-Reply-To=%3C1258975894.1967.46.camel%40poytakone.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002322.html">
+   <LINK REL="Next"  HREF="002324.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Tagging</H1>
+    <B>Ville-Pekka Vainio</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Tagging&In-Reply-To=%3C1258975894.1967.46.camel%40poytakone.lan%3E"
+       TITLE="[gpodder-devel] Tagging">vpivaini at cs.helsinki.fi
+       </A><BR>
+    <I>Mon Nov 23 12:31:34 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002322.html">[gpodder-devel] New my.gpodder.org online
+</A></li>
+        <LI>Next message: <A HREF="002324.html">[gpodder-devel] Tagging
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2323">[ date ]</a>
+              <a href="thread.html#2323">[ thread ]</a>
+              <a href="subject.html#2323">[ subject ]</a>
+              <a href="author.html#2323">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Bringing back the tagging functionality into gPodder is discussed in
+&lt;<A HREF="https://bugs.gpodder.org/show_bug.cgi?id=533">https://bugs.gpodder.org/show_bug.cgi?id=533</A>&gt;. This interests me,
+because I'd need the ability to clear the genre tag, as having a
+&quot;Podcast&quot; genre tag in a file causes special handling on a Sansa Clip
+and I don't like that.
+
+I'd like to know what kind of tagging features would you like to see in
+gPodder. In my opinion gPodder shouldn't be made into a full-featured
+tag editor, there are many of those available already. I think what
+gPodder needs are basic tagging features which make it easier for people
+to organize and listen to the podcasts they download.
+
+The features I think are needed are:
+ - Setting the title tag to the episode title
+ - Setting the album tag to the channel title
+ - Setting the artist tag to either the contents of the author tag or
+   the itunes:author tag of the feed
+ - Setting the genre tag to a value which is given in the gPodder 
+   configuration
+
+An existing tagging library should probably be used. Mutagen was
+suggested in the bug report, but I don't think we can use that. Mutagen
+is GPLv2 only and AFAIK that's incompatible with GPLv3+, which is
+gPodder's license. TagPy &lt;<A HREF="http://mathema.tician.de/software/tagpy">http://mathema.tician.de/software/tagpy</A>&gt; could
+probably be used, though. Since it is a binding for TagLib, it seems to
+be an arch-specific package in Fedora, whereas Mutagen is apparently
+pure Python and is a noarch package in Fedora.
+
+Any opinions, ideas or suggestions?
+
+
+-- 
+Ville-Pekka Vainio
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002322.html">[gpodder-devel] New my.gpodder.org online
+</A></li>
+	<LI>Next message: <A HREF="002324.html">[gpodder-devel] Tagging
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2323">[ date ]</a>
+              <a href="thread.html#2323">[ thread ]</a>
+              <a href="subject.html#2323">[ subject ]</a>
+              <a href="author.html#2323">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

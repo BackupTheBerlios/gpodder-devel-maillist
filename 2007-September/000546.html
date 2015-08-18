@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hangs when trying to close the user-settings	dialog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FHangs_when_trying_to_close_the_use%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fr-settings%3D09dialog%3F%3D&In-Reply-To=%3C200709032108.50957.bjoernr%40sensewave.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000559.html">
+   <LINK REL="Next"  HREF="000553.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hangs when trying to close the user-settings	dialog</H1>
+    <B>Bj&#248;rn Rasmussen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FHangs_when_trying_to_close_the_use%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fr-settings%3D09dialog%3F%3D&In-Reply-To=%3C200709032108.50957.bjoernr%40sensewave.com%3E"
+       TITLE="[gpodder-devel] Hangs when trying to close the user-settings	dialog">bjoernr at sensewave.com
+       </A><BR>
+    <I>Mon Sep  3 21:08:50 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000559.html">[gpodder-devel] Where is the test version of gpodder
+</A></li>
+        <LI>Next message: <A HREF="000553.html">[gpodder-devel] Hangs when trying to close	the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#546">[ date ]</a>
+              <a href="thread.html#546">[ thread ]</a>
+              <a href="subject.html#546">[ subject ]</a>
+              <a href="author.html#546">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Friday 24 August 2007 13:16:13 Thomas Perl wrote:
+&gt;<i> Hello, Thorsten and Bj&#195;&#184;rn!
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 2007-08-23 at 12:01 +0200, Thorsten Scherf wrote:
+</I>&gt;<i> &gt; On [Wed, 22.08.2007 22:48], Bj&#195;&#184;rn Rasmussen wrote:
+</I>&gt;<i> &gt; &gt;Hangs when trying to close the user-settings dialog.  I cannot change
+</I>&gt;<i> &gt; &gt; the user-settings from the gui.  Works if I do the changes in the
+</I>&gt;<i> &gt; &gt; gpodder.conf file.  At the moment I click the Close button, the program
+</I>&gt;<i> &gt; &gt; hangs and the process consumes all the available cpu power.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I have exactly the same problem with gpodder in F-7. In addition to
+</I>&gt;<i> &gt; this, I'm not able to delete files I downloaded before. The files will
+</I>&gt;<i> &gt; only get the Trash icon in the GUI but will never be deleted.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Any ideas on this?
+</I>&gt;<i>
+</I>&gt;<i> Can you please provide the output of running &quot;gpodder --verbose&quot; in a
+</I>&gt;<i> terminal and trying to reproduce the problem?
+</I>&gt;<i>
+</I>&gt;<i> It would also be very helpful if you could try running the current SVN
+</I>&gt;<i> trunk of gPodder to see if the problem still appears there:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+</I>&gt;<i>
+</I>Sorry for the late response Thomas!
+
+I get the same result regarding &quot;close the user-settings dialog&quot; - problem, 
+when running the SVN-version.
+
+Here's the output:
+
+$ yum list python-feedparser
+Available Packages
+python-feedparser.noarch                 4.1-3.fc7              updates
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">bjoern at nforce4</A> gpodder]$ make test
+bin/gpodder --local --verbose
+(ipodsync) Could not find pymad.
+(ipodsync) Found eyeD3
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover art
+(ipodsync) Found mplayer, using it to find track length of files
+(Importer) Cannot import OPML from 
+URL: /home/bjoern/.config/gpodder/channels.opml
+Player found: Movie Player (/usr/share/applications/totem.desktop)
+Player found: Rhythmbox Music Player 
+(/usr/share/applications/rhythmbox.desktop)
+Player found: Listen Music Player 
+(/usr/share/applications/fedora-listen.desktop)
+Player found: Audacious 
+(/usr/share/applications/fedora-audacious-plugins.desktop)
+Player found: Xine (/usr/share/applications/rpmforge-xine.desktop)
+Player found: RealPlayer 10 (/usr/share/applications/realplay.desktop)
+Player found: BMPx: Play Files (/usr/share/applications/bmp-play-2.0.desktop)
+Player found: Audacity (/usr/share/applications/fedora-audacity.desktop)
+Player found: GXine Video Player 
+(/usr/share/applications/fedora-gxine.desktop)
+Player found: VLC media player (/usr/share/applications/vlc.desktop)
+Player found: Serpentine Audio-CD Creator 
+(/usr/share/applications/fedora-serpentine.desktop)
+Player found: Wavbreaker (/usr/share/applications/fedora-wavbreaker.desktop)
+Player found: Audacious (/usr/share/applications/fedora-audacious.desktop)
+Player found: Muine Music Player 
+(/usr/share/applications/fedora-muine.desktop)
+Player found: MPlayer (/usr/share/applications/mplayer.desktop)
+Player found: Audio Player 
+(/usr/share/applications/redhat-audio-player.desktop)
+Player found: mkvinfo (/usr/share/applications/livna-mkvinfo.desktop)
+Player found: Exaile Music Player 
+(/usr/share/applications/fedora-exaile.desktop)
+Player found: Sweep (/usr/share/applications/fedora-sweep.desktop)
+Player found: Rosegarden (/usr/share/applications/fedora-rosegarden.desktop)
+Player found: BMPx: Enqueue Files 
+(/usr/share/applications/bmp-enqueue-2.0.desktop)
+Player found: EasyTAG (/usr/share/applications/easytag.desktop)
+Player found: Kaboodle (/usr/share/applications/kde/kaboodle.desktop)
+Player found: Kaffeine (/usr/share/applications/kde/kaffeine.desktop)
+Player found: KMid (/usr/share/applications/kde/kmid.desktop)
+Player found: JuK (/usr/share/applications/kde/juk.desktop)
+Player found: Noatun (/usr/share/applications/kde/noatun.desktop)
+Player found: Amarok (/usr/share/applications/kde/amarok.desktop)
+Stale download directory found: 34f867ea321c1698bc0bb1b92ef3b5a4
+Successfully 
+removed /home/bjoern/gpodder-downloads/34f867ea321c1698bc0bb1b92ef3b5a4.
+(Importer) Cannot import OPML from 
+URL: /home/bjoern/.config/gpodder/channels.opml
+/home/bjoern/tmp/gpodder/src/gpodder/gui.py:1338: GtkWarning: 
+gtk_file_folder_unix_get_info: assertion `strcmp (dirname, 
+folder_unix-&gt;filename) == 0' failed
+  if fs.run() == gtk.RESPONSE_OK:
+Moving downloads from /home/bjoern/gpodder-downloads to /home/bjoern
+Error while moving /home/bjoern/gpodder-downloads to /home/bjoern.
+&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+
+-- 
+Bj&#248;rn Rasmussen
+
+Adr:	Moneheia 47, 4656 Kristiansand
+Tlf:	38 04 50 05
+Mbl:	911 27367
+Epost:	<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">bjoernr at sensewave.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000559.html">[gpodder-devel] Where is the test version of gpodder
+</A></li>
+	<LI>Next message: <A HREF="000553.html">[gpodder-devel] Hangs when trying to close	the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#546">[ date ]</a>
+              <a href="thread.html#546">[ thread ]</a>
+              <a href="subject.html#546">[ subject ]</a>
+              <a href="author.html#546">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

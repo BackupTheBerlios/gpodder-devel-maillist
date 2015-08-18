@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Results of the file naming test (your OPML files)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%20test%20%28your%20OPML%20files%29&In-Reply-To=%3C1210261867.27279.10.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001436.html">
+   <LINK REL="Next"  HREF="001438.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Results of the file naming test (your OPML files)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%20test%20%28your%20OPML%20files%29&In-Reply-To=%3C1210261867.27279.10.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Results of the file naming test (your OPML files)">thp at perli.net
+       </A><BR>
+    <I>Thu May  8 17:51:07 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001436.html">[gpodder-devel] gPodder at Linuxwochen 2008
+</A></li>
+        <LI>Next message: <A HREF="001438.html">[gpodder-devel] -2 &quot;Name or service not known&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1437">[ date ]</a>
+              <a href="thread.html#1437">[ thread ]</a>
+              <a href="subject.html#1437">[ subject ]</a>
+              <a href="author.html#1437">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I've finished the script and let it run through all the OPML files that
+have been sent to me. All feeds seem to work great with the current file
+naming scheme, except for two:
+
+<A HREF="http://feeds.themerlinshow.com/TheMerlinShow">http://feeds.themerlinshow.com/TheMerlinShow</A>
+This feed always has &quot;episode.mp4&quot; as file name. The episode URLs are
+redirects to the real files, which resolve to something like this:
+
+&gt;<i> $ HEAD -S <A HREF="http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4">http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4</A>
+</I>&gt;<i> HEAD <A HREF="http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4">http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4</A> --&gt; 302 Moved Temporarily
+</I>&gt;<i> HEAD <A HREF="http://www.podtrac.com/pts/redirect.mp4?http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4">http://www.podtrac.com/pts/redirect.mp4?http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4</A> --&gt; 302 Found
+</I>&gt;<i> HEAD <A HREF="http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4">http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4</A> --&gt; 302 Found
+</I>&gt;<i> HEAD
+</I>&gt;<i> <A HREF="http://cdn2.libsyn.com/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4">http://cdn2.libsyn.com/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4</A>
+</I>&gt;<i> --&gt; 200 OK
+</I>
+This means that for this podcast with &quot;redirect.mp4&quot; as base name for
+every episode, we can use a HTTP head request to determine a valid file
+name. This is a suboptimal solution, so I'm thinking about how we can
+avoid such situations.
+
+
+<A HREF="http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml">http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml</A>
+This one unfortunately constructs its URLs so that episodes from
+different months but same day-of-month collide, e.g.
+
+<A HREF="http://download.publicradio.org/podcast/phc/2008/01/26_nflw_64.mp3">http://download.publicradio.org/podcast/phc/2008/01/26_nflw_64.mp3</A>
+and
+<A HREF="http://download.publicradio.org/podcast/phc/2008/04/26_nflw_64.mp3">http://download.publicradio.org/podcast/phc/2008/04/26_nflw_64.mp3</A>
+
+I have to think about what we can do in such a situation. I am thinking
+about adding a dictionary of filename =&gt; url pairs that can be used to
+check if a downloaded file has been downloaded from a specific URL or
+not. If so, we know that the filename corresponds to the URL. If not, we
+have to rename the file and (after downloading it) save the file name in
+the dictionary. The only problem is that we also have to look in our
+dictionary if there is a generated filename for every URL for which a
+downloaded file doesn't exist in the default location. Another problem
+is that we want to be downwards-compatible with previous versions (i.e.
+downloads from previous versions should be detected and used).
+
+Any ideas?
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001436.html">[gpodder-devel] gPodder at Linuxwochen 2008
+</A></li>
+	<LI>Next message: <A HREF="001438.html">[gpodder-devel] -2 &quot;Name or service not known&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1437">[ date ]</a>
+              <a href="thread.html#1437">[ thread ]</a>
+              <a href="subject.html#1437">[ subject ]</a>
+              <a href="author.html#1437">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

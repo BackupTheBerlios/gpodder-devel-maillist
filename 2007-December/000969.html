@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [PATCH] systray icon with notification
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20systray%20icon%20with%20notification&In-Reply-To=%3C476CE52B.6030108%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000968.html">
+   <LINK REL="Next"  HREF="000973.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [PATCH] systray icon with notification</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20systray%20icon%20with%20notification&In-Reply-To=%3C476CE52B.6030108%40perli.net%3E"
+       TITLE="[gpodder-devel] [PATCH] systray icon with notification">thp at perli.net
+       </A><BR>
+    <I>Sat Dec 22 11:21:31 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000968.html">[gpodder-devel] [PATCH] systray icon with notification
+</A></li>
+        <LI>Next message: <A HREF="000973.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#969">[ date ]</a>
+              <a href="thread.html#969">[ thread ]</a>
+              <a href="subject.html#969">[ subject ]</a>
+              <a href="author.html#969">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jerome!
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jerome.chabod at ifrance.com</A> wrote:
+&gt;<i> Here it is. After diving into python and gPodder code ( I must say gPodder is 
+</I>&gt;<i> often nicely implemented so it wasn't too hard, maybe comments are sometime 
+</I>&gt;<i> missing) and spending hours seaking on internet, I'm able to deliver you a patch 
+</I>&gt;<i> with a first implentation of a status icon on the sytem tray.
+</I>&gt;<i> 
+</I>&gt;<i> Please, try it, test it and/or review its code (it should be easy to review 
+</I>&gt;<i> since it almost consist of one class), and share you comments, suggestions, 
+</I>&gt;<i> critisms with us.
+</I>
+I've just quickly scanned through the diff, and have some comments:
+
+  * You could use python-notify instead of directly accessing d-bus
+
+For the python-notify (pynotify) usage: I think you can then use the 
+&quot;set_timeout()&quot; function on a Notification object to add the &quot;coutdown 
+timer&quot; to the notification windows, as Pieter De Decker suggested in his 
+mail.
+
+&gt;<i> TODO:
+</I>&gt;<i> -----
+</I>&gt;<i> * status and notification for mp3 device synchronisation
+</I>
+We might be able to to this after the new sync code, which is a bit more 
+abstract and doesn't depend on its own dialog.
+
+&gt;<i> * add a status symbol to the icon: dowloading, checking for new episodes, 
+</I>&gt;<i> synchronising (if somebody could help here)
+</I>
+get_tree_icon() from gpodder.util could be helpful here. This is the 
+function that is used to add the bullet or padlock to the icons in the 
+episode list. You could extend this function and be able to get the 
+gPodder icon with some &quot;downloading&quot; (e.g. arrow down) or checking (e.g. 
+the &quot;refresh&quot; icon) in the lower right-hand corner of the icon.
+
+&gt;<i> * error handling: what to do in case of error? 
+</I>&gt;<i>     - critical errors where the use can't help (bug, missing dependency...).
+</I>&gt;<i>     - troubleshouting where the user might do something (server down, xml 
+</I>&gt;<i> invalid, disk full, ...).
+</I>
+Basically, the user is already notified about errors. What needs to be 
+done is to redirect the show_notification() (and probably also 
+show_confirmation()?) calls to the tray icon (and therefore libnotify) 
+if the gPodder window has been hidden and only the tray icon is visible.
+
+Thanks for your patch so far, I think I'll let it float around on the 
+mailing list a bit more to get some more comments and then I'll apply 
+the latest version of the patch with all corrections to my working copy 
+and maybe do some cosmetic changes before applying it to our SVN repository.
+
+
+Really great work, btw :)
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000968.html">[gpodder-devel] [PATCH] systray icon with notification
+</A></li>
+	<LI>Next message: <A HREF="000973.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#969">[ date ]</a>
+              <a href="thread.html#969">[ thread ]</a>
+              <a href="subject.html#969">[ subject ]</a>
+              <a href="author.html#969">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

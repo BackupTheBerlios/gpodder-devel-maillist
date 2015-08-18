@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder-devel%20Digest%2C%20Vol%2019%2C%20Issue%2029&In-Reply-To=%3C20080123151027.D74EACACEA%40ifrance00.ifrance.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001106.html">
+   <LINK REL="Next"  HREF="001108.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29</H1>
+    <B>jerome.chabod at ifrance.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder-devel%20Digest%2C%20Vol%2019%2C%20Issue%2029&In-Reply-To=%3C20080123151027.D74EACACEA%40ifrance00.ifrance.com%3E"
+       TITLE="[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29">jerome.chabod at ifrance.com
+       </A><BR>
+    <I>Wed Jan 23 16:10:26 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001106.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+        <LI>Next message: <A HREF="001108.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1107">[ date ]</a>
+              <a href="thread.html#1107">[ thread ]</a>
+              <a href="subject.html#1107">[ subject ]</a>
+              <a href="author.html#1107">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Shane, 
+ 
+ I agree completly with you. 
+I propose to modify the tray icon this way:
+ 
+ When new episodes are found:
+ 
+ * the option &quot;auto-dowload new episodes&quot; is ON: 
+ &#160;&#160;&#160; - notify &quot;x new episodes where found. Download will start immediatly...&quot;
+ &#160;&#160;&#160; - notification as 2 buttons &quot;cancel&quot; and &quot;show&quot;
+  &#160;&#160;&#160; - after 5 s, if cancel wasn't pressed, download starts automaticaly
+ 
+ * the option &quot;auto-dowload new episodes&quot; is OFF: 
+  &#160;&#160;&#160; - notify &quot;x new episodes where found&quot;
+ &#160;&#160;&#160; - notification as 3 buttons &quot;download all news&quot;, &quot;select episodes&quot; and &quot;show&quot; 
+ 
+ What do you and other people thing about that?
+ 
+ J&#233;r&#244;me
+
+De : <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">priestoftime at googlemail.com</A>
+Date : 23/01/08 13:15:49
+A : <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+
+Sujet : Re: [gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+Thanks a lot, this is brilliant. The messages are no longer in the way.
+ 
+ I don't want to keep asking for more, but would the other suggestion be
+ possible? I mean, could the window that asks you what new episodes to
+ download be bypassed? It would be even nicer to have even less windows
+ in the way.
+ 
+ Thanks again for the patch, Jerome!
+ 
+ On Wed, 2008-01-23 at 12:03 +0100, Jerome wrote:
+ &gt; I send you a first patch:
+ &gt; 
+ &gt; Description:
+ &gt; * When &quot;auto-update feeds&quot; and &quot;auto-dowload new episodes&quot; are set and 
+ &gt; gPodder is iconified, an ugly message box pops up every x minutes to say 
+ &gt; &quot;no new episode found&quot;. Worse, If you let your computer alone for a few 
+ &gt; hours, you'll have dozen of this messages to close when you'll come back.
+ &gt; This patch should fix it.
+ &gt; 
+ &gt; * when gPodder is iconified and send a message (for exemple when gPodder 
+ &gt; is not able to read channel), a message box pops up on the screen. This 
+ &gt; patch send a notification instead.
+ &gt; 
+ &gt; J?r?me
+ &gt; 
+ &gt; Shane Donohoe a ?crit :
+ &gt; &gt; Loving the systray, but I have a few problems.
+ &gt; &gt;
+ &gt; &gt; When gpodder is hidden to the system tray, the verbosity of everything
+ &gt; &gt; should be a lot lower. It is nice to have it update automatically and
+ &gt; &gt; check for episodes every so often. It is not nice having pop up windows,
+ &gt; &gt; such as the ones confirming which episodes are to be downloaded and
+ &gt; &gt; errors like not being able to load a channel feed. When the gpodder
+ &gt; &gt; window is hidden, these messages should also be hid, or shown as
+ &gt; &gt; libnotify notifications. It is pretty annoying having the window I am
+ &gt; &gt; working on lose focus due to a new pop up window from gpodder.
+ &gt; &gt;
+ &gt; &gt; I suggest that the new episodes libnotify notification should get an
+ &gt; &gt; extra button if possible. This new button should allow the user to
+ &gt; &gt; choose which episodes are downloaded, with the normal download button
+ &gt; &gt; downloading all new episodes.
+ &gt; &gt;
+ &gt; &gt; Thank you.
+ &gt; &gt;
+ 
+ _______________________________________________
+ gpodder-devel mailing list
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+ 
+
+________________________________________________________________________
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080123/5780a167/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080123/5780a167/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001106.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+	<LI>Next message: <A HREF="001108.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1107">[ date ]</a>
+              <a href="thread.html#1107">[ thread ]</a>
+              <a href="subject.html#1107">[ subject ]</a>
+              <a href="author.html#1107">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

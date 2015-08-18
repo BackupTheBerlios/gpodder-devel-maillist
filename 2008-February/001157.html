@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GUI Proposal
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GUI%20Proposal&In-Reply-To=%3Cccd39b770802011727h18c661anfb758b98912f6235%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001155.html">
+   <LINK REL="Next"  HREF="001158.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GUI Proposal</H1>
+    <B>Rafael Proen&#231;a</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GUI%20Proposal&In-Reply-To=%3Cccd39b770802011727h18c661anfb758b98912f6235%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] GUI Proposal">cypherbios at gmail.com
+       </A><BR>
+    <I>Sat Feb  2 02:27:32 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001155.html">[gpodder-devel] GUI Proposal
+</A></li>
+        <LI>Next message: <A HREF="001158.html">[gpodder-devel] GUI Proposal
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1157">[ date ]</a>
+              <a href="thread.html#1157">[ thread ]</a>
+              <a href="subject.html#1157">[ subject ]</a>
+              <a href="author.html#1157">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I have to say that I am really impressed how active and collaborative people
+are around here, and I am thankful for that.
+
+So, let's do this by parts. Seems that everyone agree that the show/hide
+feature should be included, so I have made a patch for that. I have also
+added the &quot;update all&quot; button on bottom of the channels list, removed the
+&quot;Update Feeds&quot; button from toolbar and changed the position of the
+entryAddChannel box.
+
+For those wondering why to change the position of the entryAddChannel,
+besides IMO being more intuitive and clean, as a very general guideline, in
+left-to-right languages, we should avoid having a selection in one control
+change a control above it or to its left.
+
+Here is the patch:
+<A HREF="http://www.cypherbios.org/files/gpodder_viewtoolbar_addfeedposition.patch">http://www.cypherbios.org/files/gpodder_viewtoolbar_addfeedposition.patch</A>
+
+So, to sum up the contents of this little patch:
+* Add a menu View &gt; Toolbar (checkbox item to show hide the toolbar);
+* Change the position of entryAddChannel;
+* Add a &quot;Update all&quot; button into the bottom of the channels list;
+* Remove the &quot;Update Feeds&quot; from the toolbar.
+
+These changes can be seen in this screenshot:
+<A HREF="http://img209.imageshack.us/img209/7018/gpodderviewmenuej3.png">http://img209.imageshack.us/img209/7018/gpodderviewmenuej3.png</A>
+
+PS.: The patch is based on the latest revision (554).
+Files changed were just data/gpodder.glade and src/gpodder/gui.py
+
+Every feedback is greatly appreciated.
+
+Regards,
+
+-- 
+Rafael Proen&#231;a
+<A HREF="https://launchpad.net/~cypherbios">https://launchpad.net/~cypherbios</A>
+<A HREF="http://www.cypherbios.org/blog">http://www.cypherbios.org/blog</A>
+<A HREF="http://www.ubuntu-br.org">http://www.ubuntu-br.org</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080201/e24130f7/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080201/e24130f7/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001155.html">[gpodder-devel] GUI Proposal
+</A></li>
+	<LI>Next message: <A HREF="001158.html">[gpodder-devel] GUI Proposal
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1157">[ date ]</a>
+              <a href="thread.html#1157">[ thread ]</a>
+              <a href="subject.html#1157">[ subject ]</a>
+              <a href="author.html#1157">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

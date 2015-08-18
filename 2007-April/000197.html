@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Issues with special characters in file names?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Issues%20with%20special%20characters%20in%20file%20names%3F&In-Reply-To=%3C1175757188.4140.27.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000195.html">
+   <LINK REL="Next"  HREF="000194.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Issues with special characters in file names?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Issues%20with%20special%20characters%20in%20file%20names%3F&In-Reply-To=%3C1175757188.4140.27.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Issues with special characters in file names?">thp at perli.net
+       </A><BR>
+    <I>Thu Apr  5 09:13:07 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000195.html">[gpodder-devel] Issues with special characters in file names?
+</A></li>
+        <LI>Next message: <A HREF="000194.html">[gpodder-devel] Updated pt translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#197">[ date ]</a>
+              <a href="thread.html#197">[ thread ]</a>
+              <a href="subject.html#197">[ subject ]</a>
+              <a href="author.html#197">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Johann!
+
+On Wed, 2007-04-04 at 19:42 +0200, Johann Uhrmann wrote:
+&gt;<i> synching to a subfolder of my home folder does not work either.
+</I>&gt;<i> (My home folder is ext3-based with utf8-encoding.).
+</I>&gt;<i> 
+</I>&gt;<i> Stripping non-ASCII characters might solve that issue, so I guess
+</I>&gt;<i> that' worth a try. I will also try the current SVN release and provide
+</I>&gt;<i> a feedback for You. (Big thanks to Pieter De Decker for the manual.) 
+</I>
+I've fixed the code so that it now only allows alphanumeric characters,
+space, dot, dash and underscore. This should (hopefully ;) fix all our
+problems with the charset and filesystems. Please try out the latest svn
+trunk head.
+
+You might want to check and clean up the folder of your MP3 player, as
+gPodder might now sync to a different location than before, so you have
+to remove the old sync folders (with special characters) manually.
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000195.html">[gpodder-devel] Issues with special characters in file names?
+</A></li>
+	<LI>Next message: <A HREF="000194.html">[gpodder-devel] Updated pt translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#197">[ date ]</a>
+              <a href="thread.html#197">[ thread ]</a>
+              <a href="subject.html#197">[ subject ]</a>
+              <a href="author.html#197">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Icon not showing up?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Icon%20not%20showing%20up%3F&In-Reply-To=%3C883cfe6d0704011339w7d5363c8qdeac8dc23e91dec8%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000164.html">
+   <LINK REL="Next"  HREF="000172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Icon not showing up?</H1>
+    <B>Michel Salim</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Icon%20not%20showing%20up%3F&In-Reply-To=%3C883cfe6d0704011339w7d5363c8qdeac8dc23e91dec8%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Icon not showing up?">michel.salim at gmail.com
+       </A><BR>
+    <I>Sun Apr  1 22:39:10 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000164.html">[gpodder-devel] Icon not showing up?
+</A></li>
+        <LI>Next message: <A HREF="000172.html">[gpodder-devel] Icon not showing up?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Here's a simple test case: for normal PyGTK applications,
+window_set_default_icon_name works fine. So the icon not showing up is
+probably something specific to SimpleGladeApp?
+
+
+
+2007/3/31, Michel Salim &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">michel.salim at gmail.com</A>&gt;:
+&gt;<i> This might be a Python 2.5 bug, at least as it is shipped by Fedora's
+</I>&gt;<i> Rawhide, but after updating today the application icon no longer
+</I>&gt;<i> showed up.
+</I>&gt;<i>
+</I>&gt;<i> I added a debugging print call after the default icon was set, in gpodder.py
+</I>&gt;<i>
+</I>&gt;<i>     gtk.window_set_default_icon_name( 'gpodder')
+</I>&gt;<i> +  print(gtk.window_get_default_icon_list())
+</I>&gt;<i>
+</I>&gt;<i> and to my surprise, it printed 'None'
+</I>&gt;<i>
+</I>&gt;<i> and I had to resort to using gtk.window_set_default_icon (please see
+</I>&gt;<i> attached diff). Is this a gpodder bug, or a Python bug? Thomas, If it
+</I>&gt;<i> can't be replicated on your system, I'll file the bug report for
+</I>&gt;<i> Fedora's Python set-up.
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Michel Salim
+</I>&gt;<i> <A HREF="http://hircus.wordpress.com/">http://hircus.wordpress.com/</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+Michel Salim
+<A HREF="http://hircus.wordpress.com/">http://hircus.wordpress.com/</A>
+
+My theology, briefly, is that the universe was dictated but not signed.
+                -- Christopher Morley
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: icontest.py
+Type: text/x-python
+Size: 465 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070401/01dc32e4/attachment.py">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070401/01dc32e4/attachment.py</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000164.html">[gpodder-devel] Icon not showing up?
+</A></li>
+	<LI>Next message: <A HREF="000172.html">[gpodder-devel] Icon not showing up?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

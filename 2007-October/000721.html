@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] File name too long error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20File%20name%20too%20long%20error&In-Reply-To=%3C1193669213.7688.3.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000715.html">
+   <LINK REL="Next"  HREF="000718.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] File name too long error</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20File%20name%20too%20long%20error&In-Reply-To=%3C1193669213.7688.3.camel%40macbook%3E"
+       TITLE="[gpodder-devel] File name too long error">thp at perli.net
+       </A><BR>
+    <I>Mon Oct 29 15:46:53 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000715.html">[gpodder-devel] File name too long error
+</A></li>
+        <LI>Next message: <A HREF="000718.html">[gpodder-devel] problems running 0.10.0 of gPodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#721">[ date ]</a>
+              <a href="thread.html#721">[ thread ]</a>
+              <a href="subject.html#721">[ subject ]</a>
+              <a href="author.html#721">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Aravind!
+
+On Sun, 2007-10-28 at 22:05 -0500, Aravind Seshadri wrote:
+&gt;<i> Has anyone come across the problem of file name being too long. 
+</I>&gt;<i> 
+</I>&gt;<i> The guys in WSJ (Wall Street Journal) have a podcast which can be
+</I>&gt;<i> found
+</I>&gt;<i> here <A HREF="http://feeds.wsjonline.com/wsj/podcast_the_journal_report">http://feeds.wsjonline.com/wsj/podcast_the_journal_report</A>
+</I>&gt;<i> 
+</I>&gt;<i> I am able to download the podcasts but I cannot sync it to my iPod.
+</I>&gt;<i> For
+</I>&gt;<i> some reason WSJ has the title of the podcast as a very long string (in
+</I>&gt;<i> fact a paragraph of words). So when I try to sync my iPod using the FS
+</I>&gt;<i> based synchronization I get the following error.
+</I>&gt;<i> 
+</I>&gt;<i> ``Error opening /media/IPOD/Podcasts/The Journal Report/When companies
+</I>&gt;<i> form alliances with other businesses, opportunities -- and perils --
+</I>&gt;<i> abound. Dr. Nancy Nix, Director of the Supply and Value Chain Center
+</I>&gt;<i> at
+</I>&gt;<i> Texas Christian University tells the Wall Street Journal's George
+</I>&gt;<i> Anders
+</I>&gt;<i> what it takes to make collaboration more effective..mp3: File name too
+</I>&gt;<i> long.''
+</I>&gt;<i> 
+</I>&gt;<i> What can I do to get around this problem?
+</I>
+Try the following:
+
+Open up the preferences window, go to the &quot;Player&quot; tab and in the
+&quot;Synchronization Options&quot;, check &quot;Custom filename:&quot; and enter
+&quot;{episode.basename}&quot; (without the quotes). This should give you the file
+names as they appear in the episode's download URL.
+
+Does this fix your problem?
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000715.html">[gpodder-devel] File name too long error
+</A></li>
+	<LI>Next message: <A HREF="000718.html">[gpodder-devel] problems running 0.10.0 of gPodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#721">[ date ]</a>
+              <a href="thread.html#721">[ thread ]</a>
+              <a href="subject.html#721">[ subject ]</a>
+              <a href="author.html#721">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

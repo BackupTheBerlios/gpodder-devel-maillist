@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CBANLkTi%3DR33maGxbdzeEimVw1rC6xzpXqxA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002828.html">
+   <LINK REL="Next"  HREF="002830.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values</H1>
+    <B>Dov Feldstern</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CBANLkTi%3DR33maGxbdzeEimVw1rC6xzpXqxA%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values">dovdevel at gmail.com
+       </A><BR>
+    <I>Fri Jul  1 16:54:46 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002828.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+        <LI>Next message: <A HREF="002830.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2829">[ date ]</a>
+              <a href="thread.html#2829">[ thread ]</a>
+              <a href="subject.html#2829">[ subject ]</a>
+              <a href="author.html#2829">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Jul 1, 2011 at 16:54, Dov Feldstern &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dovdevel at gmail.com</A>&gt; wrote:
+&gt;<i> On Fri, Jul 1, 2011 at 16:29, Neal H. Walfield &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">neal at walfield.org</A>&gt; wrote:
+</I>&gt;&gt;<i> At Fri, 1 Jul 2011 15:35:52 +0300,
+</I>&gt;&gt;<i> Dov Feldstern wrote:
+</I>&gt;&gt;&gt;<i> 3. <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">n900 at 9</A>:18 : connects to network, stored actions are uploaded; so
+</I>&gt;&gt;&gt;<i> the action from step (1) is now uploaded, *but its timestamp is still
+</I>&gt;&gt;&gt;<i> &quot;9:14&quot;*! Since &quot;9:14&quot; is earlier than the new &quot;since&quot; value (&quot;9:16&quot;),
+</I>&gt;&gt;&gt;<i> the episode action will never get synced back to the desktop...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> So, I think that the &quot;timestamp&quot; stored with actions is *not* the
+</I>&gt;&gt;&gt;<i> value which should be used for purposes of comparing with &quot;since&quot;
+</I>&gt;&gt;&gt;<i> values and syncing; rather, an &quot;upload-timestamp&quot; should be stored
+</I>&gt;&gt;&gt;<i> server-side, which would serve for this purpose.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Why not use Lamport timestamps to do the ordering?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &#160;<A HREF="http://en.wikipedia.org/wiki/Lamport_timestamps">http://en.wikipedia.org/wiki/Lamport_timestamps</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Neal
+</I>&gt;<i>
+</I>&gt;<i> Hmmm, first of all, because I was not familiar with Lamport timestamps ;) .
+</I>&gt;<i>
+</I>&gt;<i> However, after skimming over the article, I think they solve a
+</I>&gt;<i> different problem than the one we're facing. In our case, there's a
+</I>&gt;<i> single point of reference (the server), so we really don't have a
+</I>&gt;<i> problem of ordering events -- we can *know* the *exact* order in which
+</I>&gt;<i> the events happen on the server, which is what's important for
+</I>&gt;<i> syncing.
+</I>&gt;<i>
+</I>&gt;<i> Our problem is that there are really two different events happening
+</I>&gt;<i> (the actions themselves, and the actions upload) at two different
+</I>&gt;<i> times (action-time, upload-time). For sync purposes, only the
+</I>&gt;<i> upload-time is interesting; however, we're confusing the two times,
+</I>&gt;<i> and using action-times for dync purposes, which is what's causing the
+</I>&gt;<i> problem.
+</I>&gt;<i>
+</I>&gt;<i> So, I don't really think that Lamport timestamps can help us out here,
+</I>&gt;<i> though they may be useful if some kind of client-to-client
+</I>&gt;<i> synchronization, which does not go through a central server, is ever
+</I>&gt;<i> implemented...
+</I>&gt;<i>
+</I>&gt;<i> Thanks!
+</I>&gt;<i> Dov
+</I>&gt;<i>
+</I>
+Thinking about this a bit more, I think that using server-based
+action-upload times would also solve / obviate the need for solving
+<A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1366">https://bugs.gpodder.org/show_bug.cgi?id=1366</A> .
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002828.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+	<LI>Next message: <A HREF="002830.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2829">[ date ]</a>
+              <a href="thread.html#2829">[ thread ]</a>
+              <a href="subject.html#2829">[ subject ]</a>
+              <a href="author.html#2829">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

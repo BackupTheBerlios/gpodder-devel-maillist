@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [patch] Add_option_to_clear_ the_genre_tag_when_updating_tags
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%3D%3Futf-8%3Fb%3FW3BhdGNoXSBBZGRfb3B0aW9uX3RvX2NsZWFy%3F%3D%0A%20%3D%3Futf-8%3Fq%3F%3D5F_the%3D5Fgenre%3D5Ftag%3D5Fwhen%3D5Fupdating%3D5Ftags%3F%3D&In-Reply-To=%3C20090105054258.0193f3aab1db45621a7a7ee5866e9102.d3da4ba719.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001977.html">
+   <LINK REL="Next"  HREF="001987.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [patch] Add_option_to_clear_ the_genre_tag_when_updating_tags</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%3D%3Futf-8%3Fb%3FW3BhdGNoXSBBZGRfb3B0aW9uX3RvX2NsZWFy%3F%3D%0A%20%3D%3Futf-8%3Fq%3F%3D5F_the%3D5Fgenre%3D5Ftag%3D5Fwhen%3D5Fupdating%3D5Ftags%3F%3D&In-Reply-To=%3C20090105054258.0193f3aab1db45621a7a7ee5866e9102.d3da4ba719.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] [patch] Add_option_to_clear_ the_genre_tag_when_updating_tags">thp at gpodder.org
+       </A><BR>
+    <I>Mon Jan  5 13:42:58 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001977.html">[gpodder-devel] [patch] Add a message to AttributeError in	config.py
+</A></li>
+        <LI>Next message: <A HREF="001987.html">[gpodder-devel] [patch] Add_option_to_clear_ the_genre_tag_when_updating_tags
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1978">[ date ]</a>
+              <a href="thread.html#1978">[ thread ]</a>
+              <a href="subject.html#1978">[ subject ]</a>
+              <a href="author.html#1978">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>You wrote:
+&gt;<i> With the attched patch libtagupdate won't write the genre tag if an
+</I>&gt;<i> option called clear_genre_tag is true. I prevented writing the tag at
+</I>&gt;<i> all in libtagupdate just to be sure. It might be enough to pass genre=''
+</I>&gt;<i> in libpodcasts, but that way at least the ogg files would actually have
+</I>&gt;<i> an empty genre tag, whereas with this patch there won't be one at all.
+</I>&gt;<i> 
+</I>&gt;<i> The reason I wrote this patch is that the Sandisk Sansa players'
+</I>&gt;<i> firmware handles files tagged with &quot;podcast&quot; differently from any others
+</I>&gt;<i> and I want to be able to prevent that.
+</I>&gt;<i> 
+</I>&gt;<i> Here are the bugs (or features) of the firmware's podcast tag handling
+</I>&gt;<i> I'm trying to avoid:
+</I>&gt;<i>  - If the album tags of the media files differ, you specifically have to
+</I>&gt;<i> choose an album to play, you can't just select all the podcasts at once.
+</I>&gt;<i>  - The files are played in such an order that the files which have a
+</I>&gt;<i> &quot;higher alphanumeric order&quot; get played first. For example foocast2.ogg
+</I>&gt;<i> is played before foocast1.ogg and I really don't like that, I want to
+</I>&gt;<i> play the podcasts in the order they were recorded.
+</I>&gt;<i>  - Both of these bugs can be avoided by using a playlist, but the device
+</I>&gt;<i> won't show any files on the playlist which have been tagged with the
+</I>&gt;<i> &quot;podcast&quot; genre, because the special podcast handling takes precedence.
+</I>&gt;<i> This is why I'd like to be able to remove the genre tag altogether and
+</I>&gt;<i> make a playlist with the gPodder device playlist feature so I can
+</I>&gt;<i> control which files are played and in which order.
+</I>&gt;<i> 
+</I>&gt;<i> If needed, I could make a bug report about this patch and we could
+</I>&gt;<i> discuss this more there, the mailing list is fine too. If you think this
+</I>&gt;<i> patch isn't that useful in general, I could maintain it just for myself
+</I>&gt;<i> as well.
+</I>
+Please open a bug report for this patch and attach it to the bug report.
+I don't yet know what is the best way to achieve this (set no tag and
+remove any existing tags if they exist or simply remove the tag).
+
+Also, the configuration variable name probably has to be renamed to be a
+bit more self-explanatory when being looked at without context.
+
+More on that at the bug discussion page once created. Thanks for your
+effort in making gPodder work perfectly with that specific MP3 player!
+:<i>)
+</I>
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001977.html">[gpodder-devel] [patch] Add a message to AttributeError in	config.py
+</A></li>
+	<LI>Next message: <A HREF="001987.html">[gpodder-devel] [patch] Add_option_to_clear_ the_genre_tag_when_updating_tags
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1978">[ date ]</a>
+              <a href="thread.html#1978">[ thread ]</a>
+              <a href="subject.html#1978">[ subject ]</a>
+              <a href="author.html#1978">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

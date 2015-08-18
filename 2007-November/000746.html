@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Extended format_filesize() function to	cover	SI units
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FExtended_format%3D5Ffilesize%3D28%3D29_functi%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fon_to%3D09cover%3D09SI_units%3F%3D&In-Reply-To=%3C200711011621.05636.z0idberg%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000745.html">
+   <LINK REL="Next"  HREF="000760.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Extended format_filesize() function to	cover	SI units</H1>
+    <B>Gerrit Sangel</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FExtended_format%3D5Ffilesize%3D28%3D29_functi%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fon_to%3D09cover%3D09SI_units%3F%3D&In-Reply-To=%3C200711011621.05636.z0idberg%40gmx.de%3E"
+       TITLE="[gpodder-devel] Extended format_filesize() function to	cover	SI units">z0idberg at gmx.de
+       </A><BR>
+    <I>Thu Nov  1 16:21:05 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000745.html">[gpodder-devel] Extended format_filesize() function to	cover	SI	units
+</A></li>
+        <LI>Next message: <A HREF="000760.html">[gpodder-devel] Extended format_filesize() function	to	cover	SI	units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#746">[ date ]</a>
+              <a href="thread.html#746">[ thread ]</a>
+              <a href="subject.html#746">[ subject ]</a>
+              <a href="author.html#746">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am Donnerstag 01 November 2007 schrieb Thomas Perl:
+
+&gt;<i> I think, gPodder's behaviour should be the following:
+</I>&gt;<i>
+</I>&gt;<i> - default to SI prefixes (decimal, 1000 bytes = 1 kB)
+</I>&gt;<i> - optional: binary prefixes; &quot;1024 et al.&quot; (and display &quot;KiB, MiB, ...&quot;)
+</I>&gt;<i>
+</I>&gt;<i> Are there any objections?
+</I>
+Hm, I wouldn&#8217;t recommend it. The problem is that the users expect kB as 1024, 
+not as 1000.
+
+If they see kB, they expect 1024. I guess it wouldn&#8217;t be a problem if they see 
+KiB instead of kB. I think they will know that kB is meant, they just wonder 
+what the i does there :D
+
+The problem with SI prefixes is the file becomes &#8220;bigger&#8221;. I guess some people 
+would be confused by that.
+
+I would vote for binary prefixes as default and SI as optional. Binary 
+prefixes aren&#8217;t wrong. It&#8217;s just that if SI units are used correctly, but the 
+user doesn&#8217;t know it, he could wonder why the filesize is different than in 
+the file browser.
+
+&gt;<i> That would change the values displayed (without changing the unit's
+</I>&gt;<i> name), but as gPodder currently displays &quot;wrong&quot; values, I guess this is
+</I>&gt;<i> okay. If people want the current calculation (binary), they can switch
+</I>&gt;<i> to it in the config file and have KiB, MiB, etc.. displayed).
+</I>&gt;<i>
+</I>&gt;<i> That would be the Right Thing(tm) when looking at standards. The changed
+</I>&gt;<i> behaviour of gPodder is justified by the fact that currently gPodder
+</I>&gt;<i> displays non-standard units/values.
+</I>
+Just again, binary prefixes are not wrong. What&#8217;s wrong is just if kilo is 
+used as 2^10 or mega as 2^20. A kibibyte with 1024 Byte is completely 
+correct. I just believe that some people would rather like the correct SI 
+units (But I don&#8217;t think that some &#8212;sorry&#8211; unknown apps like gpodder could 
+change the way the users use kilo if Microsoft and Apple do not adapt them) 
+if they know the difference.
+
+So in summary (in my opinion) the way would be:
+default: leave the way it is now, but change KB, MB and so on to KiB, MiB, GiB
+optional: offer SI units with kB as 10^3, MB as 10^6 and so on.
+
+Gerrit
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000745.html">[gpodder-devel] Extended format_filesize() function to	cover	SI	units
+</A></li>
+	<LI>Next message: <A HREF="000760.html">[gpodder-devel] Extended format_filesize() function	to	cover	SI	units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#746">[ date ]</a>
+              <a href="thread.html#746">[ thread ]</a>
+              <a href="subject.html#746">[ subject ]</a>
+              <a href="author.html#746">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feature Request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20Request&In-Reply-To=%3C49221.26570.qm%40web65516.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001897.html">
+   <LINK REL="Next"  HREF="001899.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feature Request</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20Request&In-Reply-To=%3C49221.26570.qm%40web65516.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Feature Request">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Fri Nov 21 14:43:26 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001897.html">[gpodder-devel] Feature Request
+</A></li>
+        <LI>Next message: <A HREF="001899.html">[gpodder-devel] Feature Request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1898">[ date ]</a>
+              <a href="thread.html#1898">[ thread ]</a>
+              <a href="subject.html#1898">[ subject ]</a>
+              <a href="author.html#1898">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>But gPodder already allows you to make a separate sub-directory for each podcast channel, so why not use that to filter video from audio? Another solution that comes to mind would be to have something like:
+
+select podcast -&gt; right-click on mouse -&gt; menu comes up, and one of the options is 'sync to custom folder...' -&gt; select folder to sync -&gt; sync.
+
+I don't know how difficult it would be to program something like that.
+
+Cheerio,
+Wilfred
+
+
+--- On Fri, 11/21/08, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+
+&gt;<i> From: Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt;
+</I>&gt;<i> Subject: Re: [gpodder-devel] Feature Request
+</I>&gt;<i> To: &quot;Development for gPodder&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+</I>&gt;<i> Date: Friday, November 21, 2008, 6:06 AM
+</I>&gt;<i> You wrote:
+</I>&gt;<i> &gt; Sorry about the long delay in response. However
+</I>&gt;<i> transcode isn't exactly what
+</I>&gt;<i> &gt; I want. I have an Archos 605 and I would like to
+</I>&gt;<i> filter video files into the
+</I>&gt;<i> &gt; directory &quot;/media/A605/Video&quot; instead of
+</I>&gt;<i> &quot;/media/A605/Podcasts&quot; which is my
+</I>&gt;<i> &gt; default. I currently run a script to handle it after
+</I>&gt;<i> the fact but I'd like
+</I>&gt;<i> &gt; to see something like with an email client. Filter
+</I>&gt;<i> what to do with a file
+</I>&gt;<i> &gt; based on a parameter such as file type.
+</I>&gt;<i> 
+</I>&gt;<i> I don't want to put too much functionality into gPodder
+</I>&gt;<i> that should be
+</I>&gt;<i> placed
+</I>&gt;<i> elsewhere, but I can understand your need for this feature
+</I>&gt;<i> due to the
+</I>&gt;<i> way your
+</I>&gt;<i> portable player works.
+</I>&gt;<i> 
+</I>&gt;<i> Would a configure post-synchronization script help? I.e.
+</I>&gt;<i> you enter the
+</I>&gt;<i> name of
+</I>&gt;<i> your script, the script gets some info via environment
+</I>&gt;<i> variables and
+</I>&gt;<i> carries
+</I>&gt;<i> out whatever action you want? (i.e. move files around)
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; 2008/11/13 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">daggpod at emailias.com</A>&gt;
+</I>&gt;<i> &gt; &gt; Perhaps transcoding when copying to the MP3
+</I>&gt;<i> device is what you're looking
+</I>&gt;<i> &gt; &gt; for.  This is an interest of mine also.  Although
+</I>&gt;<i> I've not laid out a design
+</I>&gt;<i> &gt; &gt; (or put an entry in the bug database), I've
+</I>&gt;<i> thought this should be tied to
+</I>&gt;<i> &gt; &gt; the MP3 device type so gPodder would know what
+</I>&gt;<i> file formats are supported by
+</I>&gt;<i> &gt; &gt; your device and which need to be transcoded.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Does that sound good to you?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; On Thu, Nov 13, 2008 at 11:17 AM, 'Alan
+</I>&gt;<i> Clements' (<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">alan.clements at gmail.com</A>)
+</I>&gt;<i> &gt; &gt; (Emailias: REPLY-MASKED)
+</I>&gt;<i> &lt;reply-402339-f32e-gpodder-devel-bounces=-
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">lists.berlios.de at emailias.com</A>&gt; wrote:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;&gt; *Original Sender:*
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A>&gt;
+</I>&gt;<i> &gt; &gt;&gt; *Given To:* lists.berlios.de: gpodder-devel
+</I>&gt;<i> Info Page
+</I>&gt;<i> &gt; &gt;&gt;  ------------------------------
+</I>&gt;<i> &gt; &gt;&gt; I would really like to see gpodder be a able
+</I>&gt;<i> to filter the downloaded
+</I>&gt;<i> &gt; &gt;&gt; files when exporting.  It's frustrating
+</I>&gt;<i> to transfer a file to my Archos only
+</I>&gt;<i> &gt; &gt;&gt; to find out later that it's at a
+</I>&gt;<i> resolution or format that I can't play. If
+</I>&gt;<i> &gt; &gt;&gt; a could filter by type then shuffle it off to
+</I>&gt;<i> another directory and to the
+</I>&gt;<i> &gt; &gt;&gt; necessary transcoding.
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; -Alan
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; Original Sender: 
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A>&gt;
+</I>&gt;<i> &gt; &gt;&gt; Given To:  lists.berlios.de: gpodder-devel
+</I>&gt;<i> Info Page
+</I>&gt;<i> &gt; &gt;&gt; <A HREF="http://www.emailias.com/mailclick/?id=402339">http://www.emailias.com/mailclick/?id=402339</A>
+</I>&gt;<i> &gt; &gt;&gt; &lt;--------------------end emailias
+</I>&gt;<i> header--------------------&gt;
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> &gt; &gt;&gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&lt;hr&gt;_______________________________________________
+</I>&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001897.html">[gpodder-devel] Feature Request
+</A></li>
+	<LI>Next message: <A HREF="001899.html">[gpodder-devel] Feature Request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1898">[ date ]</a>
+              <a href="thread.html#1898">[ thread ]</a>
+              <a href="subject.html#1898">[ subject ]</a>
+              <a href="author.html#1898">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

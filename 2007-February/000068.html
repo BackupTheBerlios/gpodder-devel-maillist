@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Minor bugfix for startup with Python &lt; 2.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Minor%20bugfix%20for%20startup%20with%20Python%20%3C%202.4&In-Reply-To=%3C1cb92620702042216g155432a6g2dab5f9353735413%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000067.html">
+   <LINK REL="Next"  HREF="000069.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Minor bugfix for startup with Python &lt; 2.4</H1>
+    <B>Mike Coulson</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Minor%20bugfix%20for%20startup%20with%20Python%20%3C%202.4&In-Reply-To=%3C1cb92620702042216g155432a6g2dab5f9353735413%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Minor bugfix for startup with Python &lt; 2.4">miketcoulson at gmail.com
+       </A><BR>
+    <I>Mon Feb  5 07:16:41 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000067.html">[gpodder-devel] Updated pt.po
+</A></li>
+        <LI>Next message: <A HREF="000069.html">[gpodder-devel] Minor bugfix for startup with Python &lt; 2.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#68">[ date ]</a>
+              <a href="thread.html#68">[ thread ]</a>
+              <a href="subject.html#68">[ subject ]</a>
+              <a href="author.html#68">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Thomas,
+
+When trying to start gPodder on a Python without `lexists' in os.path,
+it will fail with a NameError for `log' since liblogger.py's log
+definition isn't imported until after checking for lexsists.
+
+The following patch imports `log' a little earlier.
+
+Thanks for the great application!
+
+-Mikey
+
+------------------------------------
+--- libgpodder.py
++++ libgpodder.py
+@@ -37,6 +37,8 @@
+ from string import strip
+ from os.path import expanduser
+ from os.path import exists
++
++from liblogger import log
+ try:
+     from os.path import lexists
+ except:
+@@ -67,7 +69,6 @@
+ from libpodcasts import podcastChannel
+ from libpodcasts import DownloadHistory
+ from libplayers import dotdesktop_command
+-from liblogger import log
+
+ from gtk.gdk import PixbufLoader
+
+------------------------------------
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000067.html">[gpodder-devel] Updated pt.po
+</A></li>
+	<LI>Next message: <A HREF="000069.html">[gpodder-devel] Minor bugfix for startup with Python &lt; 2.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#68">[ date ]</a>
+              <a href="thread.html#68">[ thread ]</a>
+              <a href="subject.html#68">[ subject ]</a>
+              <a href="author.html#68">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

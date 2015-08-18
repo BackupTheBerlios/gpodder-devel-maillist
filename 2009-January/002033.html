@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GnomeVFS volume detector
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C20090131045423.0193f3aab1db45621a7a7ee5866e9102.2198d0f07e.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002030.html">
+   <LINK REL="Next"  HREF="002034.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GnomeVFS volume detector</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C20090131045423.0193f3aab1db45621a7a7ee5866e9102.2198d0f07e.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] GnomeVFS volume detector">thp at gpodder.org
+       </A><BR>
+    <I>Sat Jan 31 12:54:23 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002030.html">[gpodder-devel] Dutch translation
+</A></li>
+        <LI>Next message: <A HREF="002034.html">[gpodder-devel] Dumping YouTube episode size detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2033">[ date ]</a>
+              <a href="thread.html#2033">[ thread ]</a>
+              <a href="subject.html#2033">[ subject ]</a>
+              <a href="author.html#2033">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey there. Very interesting ideas, I'm happy to see developer interest
+in this area :) There has been some code back in April 2006 that worked
+with the then-new D-Bus and was able to detect iPods:
+
+<A HREF="http://repo.or.cz/w/gpodder.git?a=commitdiff;h=7c66f8080eb542d8cfa530ab89ecc859cf104532">http://repo.or.cz/w/gpodder.git?a=commitdiff;h=7c66f8080eb542d8cfa530ab89ecc859cf104532</A>
+
+Look at the class &quot;iPodManager&quot;, where we received the &quot;DeviceAdded&quot; and
+&quot;DeviceRemoved&quot; signals. I don't know if this would still work with the
+current versions of HAL/D-Bus (that was nearly 3 years ago ;).
+
+Anyway, on to your mail...
+
+You wrote:
+&gt;<i> &gt; All vfat devices?
+</I>&gt;<i> 
+</I>&gt;<i> Yes, because I have two old fs based players which are detected as
+</I>&gt;<i> vfat volumes, not multimedia devices. I had to create some
+</I>&gt;<i> /media/xyz/.dotfile for Rhythmbox to recognize it. I don't want
+</I>&gt;<i> gpodder users to do this. Besides, if I want to plug in a MicroSD card
+</I>&gt;<i> then plug it back into my mobile phone, why not? Sometimes it's much
+</I>&gt;<i> faster than using the USB connection.
+</I>
+The dotfile is &quot;.is_audio_player&quot; and is used to override
+(wrong/missing)
+HAL device information. See here:
+
+<A HREF="http://live.gnome.org/Rhythmbox/FAQ">http://live.gnome.org/Rhythmbox/FAQ</A>
+
+This means that everyone that is using this dotfile should be reporting
+a bug against HAL so that the device will be detected correctly in the
+next release. I think things like that really belong into HAL, and we as
+an application should be able to ask HAL &quot;is this a audio player?&quot; and
+it
+should take care of finding out if this is the case.
+
+I also understand that there are use cases where your audio device
+storage
+is only accessed via a card reader (i.e. my mobile phone has a MicroSD
+card
+and i sometimes pop that out and use a card reader to work on the card).
+
+Cases like this are easily fixed by creating the &quot;.is_audio_player&quot; file
+on
+such a card. Maybe a command that creates this file on a normal mass
+storage
+device can be added to gPodder, so we can &quot;solve&quot; the card reader cases.
+
+&gt;<i> &gt; Just vfat devices?
+</I>&gt;<i> 
+</I>&gt;<i> Yes, because I have never seen a PMP which would not use vfat, except
+</I>&gt;<i> for old HFS iPods, which are detected specifically. If you know some,
+</I>&gt;<i> tell me.
+</I>&gt;<i> 
+</I>&gt;<i> Also, gPodder currently only supports two types of devices with
+</I>&gt;<i> different syncing mechanisms: fs and iPods. I don't think we need to
+</I>&gt;<i> detect other devices specifically, if we can use them as regular fs
+</I>&gt;<i> based devices. MTP devices aren't mounted as volumes anyway, as far as
+</I>&gt;<i> I know.
+</I>
+I think the HAL-based method (DeviceAdded and DeviceRemoved or whatever
+they are called nowadays) would also &quot;see&quot; MTP devices and I also think
+that we could find out if a device is an MTP device. The only problem I
+could think of is that MTP and PTP (the protocol that some digital
+cameras use to transfer photos, think &quot;gphoto2&quot;) are somehow related (I
+think one is a superset of the other), so we might have false positives
+there in the form of a digital camera being detected as an MTP device.
+
+Still, I don't think these problems would be show-stoppers. Just some
+unknown factors that we will learn to deal with in the course of
+introducing and polishing this feature, so it works for (nearly)
+everyone.
+
+&gt;<i> The only reason to detect other devices using the information you
+</I>&gt;<i> provided would be to use supported output formats, but I've seen
+</I>&gt;<i> irrelevant values for some of my devices (e.g., audio/aac reported
+</I>&gt;<i> when the device didn't actually support it). Also, my .fdi file that
+</I>&gt;<i> you pointed me to says that iPods only support audio/aac, which is not
+</I>&gt;<i> true: they support MP3s and MP4 video, too. There's no information
+</I>&gt;<i> about video capabilities at all, so the information is both incomplete
+</I>&gt;<i> and not reliable.
+</I>&gt;<i> 
+</I>&gt;<i> Also, even if there were ways to detect real device capabilities using
+</I>&gt;<i> DBus or HAL, we could use them to:
+</I>&gt;<i> 
+</I>&gt;<i>  - Convert audio while syncins,
+</I>&gt;<i>  - Download video in a more appropriate format (YouTube offers: flv, mp4, 3gp).
+</I>
+As I said above, if HAL gives wrong information about a device, this is
+a bug in the .fdi files, and you should report a bug there and get the
+.fdi files fixed, so other users can profit from the corrected
+information.
+
+Also, the more accurate HAL is with describing a device's capability,
+the
+more applications will use that information and the less code will be
+duplicated
+in application-specific detection code and &quot;capability databases&quot;.
+
+&gt;<i> But gPodder can't do that currently. This has to be worked on, and can
+</I>&gt;<i> be worked on separately from the capability detection process. For
+</I>&gt;<i> example, we could use a gpodder.conf file in the root of the device to
+</I>&gt;<i> store capabilities which the user would be asked to describe using a
+</I>&gt;<i> dialog with check boxes, when she first plugs in the device. Actually,
+</I>&gt;<i> I think that all syncing options should be removed from the global
+</I>&gt;<i> gPodder config file and moved to that file stored on the device, if we
+</I>&gt;<i> chose to actually use HAL.
+</I>
+Yes, I think saving the sync-related options on the device instead of in
+the local gPodder database would be a good idea and also magically fix
+the &quot;support multiple devices for sync&quot; feature request, because that
+would be possible by design.
+
+As iPods are also just mass storage devices, we can store our config
+file
+on there, too (probably in the same folder as the iTunesDB, so users
+won't
+really notice it cluttering up the root directory of their iPod).
+
+&gt;<i> &gt; gthumb for example looks for a DCIM folder to indicate its a
+</I>&gt;<i> &gt; filesystem from a digital camera.
+</I>&gt;<i> 
+</I>&gt;<i> That's one specific type of devices that gthumb works with, with a
+</I>&gt;<i> standard fs layout. Which is not the case for gPodder.
+</I>
+If we decide against HAL (which I think is a bad idea, because we have
+to do much work on our own, again), we could use simple things like
+detecting the existence of the iTunesDB file on an iPod to &quot;detect&quot;
+iPods. We would still need some hack-ish mechanism to be able to detect
+normal devices.
+
+An option we would have: Add a &quot;setup new device&quot; menu item that will
+list all currently mounted removable storage devices and allow the user
+to configure one of them, which will result in a gpodder.conf file being
+written onto that storage device, which we can use to detect this device
+in the future.
+
+..but zero-configuration HAL integration would be even more &quot;wow&quot; ;)
+
+&gt;<i> &gt; I don't necessarily want my 2 gig sd card from my camera
+</I>&gt;<i> &gt; popping up a gpodder sync request window as well as
+</I>&gt;<i> &gt; a gthumb request.
+</I>&gt;<i> 
+</I>&gt;<i> This is an interface problem. I added a popup dialog box because it
+</I>&gt;<i> was the easiest way for me. Ideally there would be an unobtrusive
+</I>&gt;<i> notification area inside gPodder, like the one you see in Firefox for
+</I>&gt;<i> blocked popups and new extensions. I couldn't implement this because
+</I>&gt;<i> I'm not friends with .glade guts and the current glade file is not
+</I>&gt;<i> editable with GUI tools.
+</I>
+The &quot;yellow bars&quot; are getting annoying, too, I think :) Maybe just
+notify the user for the first time and then show a &quot;Sync to &lt;device&gt;&quot;
+at the bottom of the main window that will disappear when the device
+is disconnected.
+
+I'd be happy to get together with you and work on this. We should
+probably be using D-Bus and HAL integration to do it right. I guess
+D-Bus is now more stable/mature than in 2006 when we did the first
+experiments with device auto-detection, so that it will work on every
+distro and &quot;desktop system&quot; available today :)
+
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002030.html">[gpodder-devel] Dutch translation
+</A></li>
+	<LI>Next message: <A HREF="002034.html">[gpodder-devel] Dumping YouTube episode size detection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2033">[ date ]</a>
+              <a href="thread.html#2033">[ thread ]</a>
+              <a href="subject.html#2033">[ subject ]</a>
+              <a href="author.html#2033">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

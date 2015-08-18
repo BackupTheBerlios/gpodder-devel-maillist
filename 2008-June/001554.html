@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Auto retry downloads
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Auto%20retry%20downloads&In-Reply-To=%3C6b36610d0806232014m7326d4bev9c729da5412b73c3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001550.html">
+   <LINK REL="Next"  HREF="001555.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Auto retry downloads</H1>
+    <B>Silvio Sisto</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Auto%20retry%20downloads&In-Reply-To=%3C6b36610d0806232014m7326d4bev9c729da5412b73c3%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Auto retry downloads">sisto.silvio at gmail.com
+       </A><BR>
+    <I>Tue Jun 24 05:14:39 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001550.html">[gpodder-devel] Auto retry downloads
+</A></li>
+        <LI>Next message: <A HREF="001555.html">[gpodder-devel] Auto retry downloads
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1554">[ date ]</a>
+              <a href="thread.html#1554">[ thread ]</a>
+              <a href="subject.html#1554">[ subject ]</a>
+              <a href="author.html#1554">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I tried again now but wrote the e-mail wrong.
+It worked the firste time.
+When I retried again with the correct e-mail I got this:
+
+Software error:
+
+DBD::mysql::db do failed: Duplicate entry 'Zk1VbN4Mgg' for key 1 at
+Bugzilla/Token.pm line 372
+	Bugzilla::Token::_create_token('undef', 'account',
+'<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sisto.silvio at gmail.com</A>') called at Bugzilla/Token.pm line 74
+	Bugzilla::Token::issue_new_user_account_token('<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sisto.silvio at gmail.com</A>')
+called at /var/www/html/gpodder/bugzilla/createaccount.cgi line 71
+
+For help, please send mail to the webmaster (<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at localhost</A>), giving this
+error message and the time and date of the error.
+
+
+
+
+
+On Mon, Jun 23, 2008 at 5:35 PM, Paul Rudkin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Paul at thegithouse.com</A>&gt; wrote:
+
+&gt;<i> This should be fixed now.  Please try again.
+</I>&gt;<i>
+</I>&gt;<i> Paul
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 2008-06-23 at 12:26 -0300, Silvio Sisto wrote:
+</I>&gt;<i> &gt; I've just tried to create an account on the bug tracker and got this
+</I>&gt;<i> &gt; error:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Software error:
+</I>&gt;<i> &gt; DBD::mysql::db do failed: Duplicate entry '2MA8Bhd7w2' for key 1 at
+</I>&gt;<i> Bugzilla/Token.pm line 372
+</I>&gt;<i> &gt;       Bugzilla::Token::_create_token('undef', 'account', '
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sisto.silvio at gmail.com</A>') called at Bugzilla/Token.pm line 74
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;       Bugzilla::Token::issue_new_user_account_token('
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sisto.silvio at gmail.com</A>') called at
+</I>&gt;<i> /var/www/html/gpodder/bugzilla/createaccount.cgi line 71
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; For help, please send mail to the webmaster (<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at localhost</A>), giving
+</I>&gt;<i> &gt; this error message and the time and date of the error.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; That error made me think I might have already registered before. But
+</I>&gt;<i> &gt; when I tried to recover the password I got this:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; There is no gPodder Bug Tracker account with that login name.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On Mon, Jun 23, 2008 at 4:07 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+</I>&gt;<i> &gt;         On Jun 23, 2008, at 1:49 AM, Silvio Sisto wrote:
+</I>&gt;<i> &gt;         &gt; Is it possible to auto retry downloads on failure?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;         No, please search for this on bugs.gpodder.org and file a new
+</I>&gt;<i> &gt;         bug if
+</I>&gt;<i> &gt;         you can't find anything.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;         Thomas
+</I>&gt;<i> &gt;         _______________________________________________
+</I>&gt;<i> &gt;         gpodder-devel mailing list
+</I>&gt;<i> &gt;         <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt;         <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080624/dfcaf43c/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080624/dfcaf43c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001550.html">[gpodder-devel] Auto retry downloads
+</A></li>
+	<LI>Next message: <A HREF="001555.html">[gpodder-devel] Auto retry downloads
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1554">[ date ]</a>
+              <a href="thread.html#1554">[ thread ]</a>
+              <a href="subject.html#1554">[ subject ]</a>
+              <a href="author.html#1554">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Translators: Please update your translations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Translators%3A%20Please%20update%20your%20translations&In-Reply-To=%3C1229028857.14885.13.camel%40lightweight%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001923.html">
+   <LINK REL="Next"  HREF="001928.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Translators: Please update your translations</H1>
+    <B>Ville-Pekka Vainio</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Translators%3A%20Please%20update%20your%20translations&In-Reply-To=%3C1229028857.14885.13.camel%40lightweight%3E"
+       TITLE="[gpodder-devel] Translators: Please update your translations">vpivaini at cs.helsinki.fi
+       </A><BR>
+    <I>Thu Dec 11 21:54:16 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001923.html">[gpodder-devel] Translators: Please update your translations
+</A></li>
+        <LI>Next message: <A HREF="001928.html">[gpodder-devel] gPodder 0.14 not working for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1924">[ date ]</a>
+              <a href="thread.html#1924">[ thread ]</a>
+              <a href="subject.html#1924">[ subject ]</a>
+              <a href="author.html#1924">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm part of the Fedora L10n team, but not a Transifex developer, I'll
+try to answer some of these questions.
+
+to, 2008-12-11 kello 08:55 -0700, Thomas Perl kirjoitti:
+&gt;<i> That sounds nice. Is it possible to set up translations for gPodder
+</I>&gt;<i> on the translate.fedoraproject.org or some other server?
+</I>
+It should be. To my knowledge translate.fedoraproject.org is the only
+widely used public Transifex installation so far.
+
+&gt;<i> How would the
+</I>&gt;<i> translators be able to update their translations then? Simply register
+</I>&gt;<i> an account on translate.fedoraproject.org and edit the translation files
+</I>&gt;<i> via a web-based interface?
+</I>
+There's not a web-based editor for translations (yet) in Transifex, it's
+a submission system. So the translators would get themselves a Fedora
+Account System account (which should be fairly simple), they would edit
+the po file with their favorite local editor and then they would submit
+the po file with Transifex to your git repo. You'd need to set up a
+special user to your git repo which would have commit rights to the
+directory containing the po files and Transifex would use that user for
+actually making the commits.
+
+With Transifex you wouldn't need to handle the commits of new po files
+yourself and you might even get more translations/translators from the
+existing translate.fedoraproject.org contributors.
+
+BTW, I've also been working on a Finnish translation of gPodder, but
+it's still too incomplete to be added. I hope to have more time to work
+on it during the upcoming holidays.
+
+
+-- 
+Ville-Pekka Vainio
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001923.html">[gpodder-devel] Translators: Please update your translations
+</A></li>
+	<LI>Next message: <A HREF="001928.html">[gpodder-devel] gPodder 0.14 not working for me
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1924">[ date ]</a>
+              <a href="thread.html#1924">[ thread ]</a>
+              <a href="subject.html#1924">[ subject ]</a>
+              <a href="author.html#1924">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.11.1 &quot;Attacked by Killer Tomatoes&quot;	released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.1%20%22Attacked%20by%20Killer%20Tomatoes%22%0A%09released&In-Reply-To=%3C1206624299.28999.1.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001307.html">
+   <LINK REL="Next"  HREF="001313.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.11.1 &quot;Attacked by Killer Tomatoes&quot;	released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.1%20%22Attacked%20by%20Killer%20Tomatoes%22%0A%09released&In-Reply-To=%3C1206624299.28999.1.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.11.1 &quot;Attacked by Killer Tomatoes&quot;	released">thp at perli.net
+       </A><BR>
+    <I>Thu Mar 27 14:24:59 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001307.html">[gpodder-devel] problem w 3gp
+</A></li>
+        <LI>Next message: <A HREF="001313.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark Shows As	Played
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1312">[ date ]</a>
+              <a href="thread.html#1312">[ thread ]</a>
+              <a href="subject.html#1312">[ subject ]</a>
+              <a href="author.html#1312">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+A new gPodder release is out. Get it from gpodder.org or continue using
+the SVN version :) As always, packages in distributions should be
+available soon. Thanks to all who were involved in this release =)
+
+Release notes from the gPodder website follow.
+
+Thanks,
+Thomas
+
+============
+
+This month, we have seen our 600th commit in the SVN repository, which
+means our version history is growing every month and we can consider
+ourselves quite a mature project now. Of course, this doesn't mean that
+development is slowing down. On the contrary: We're here to announce the
+immediate availability of gPodder 0.11.1, the release that has been
+attacked by Killer Tomatoes! We got rid of a huge number of bugs and
+fulfilled nearly all of our release goals.
+
+About the not-fulfilled release goals: We can't reproduce the &quot;Moving
+download directory doesn't work bug (#8), so if you experience this bug,
+please leave a comment in our Bug tracker. Some other feature goals have
+been moved out of the way, because after we conducted our &quot;What's your
+gPodder workflow?&quot; survey, we found that gPodder's users would rather
+have a rock-solid, stable gPodder than tons of features that are not
+really needed. Of course, we will continue adding useful features and
+extend existing ones, but we try to focus on stable releases.
+
+That's it for this month - please download the new release or try the
+SVN version of you feel brave. Packages in distributions will appear in
+the upcoming days or weeks, as usual.
+
+
+Release goals (see Roadmap)
+      * Disable TrayIcon when gtk.StatusIcon is not available (#63)
+      * Write M3U files after download (#25)
+      * Support for gtkpod extended iTunesDB (#61)
+      * Crash with KeyError in selection button clicked (LP: #192918)
+      * Make channel URL editable (#42)
+      * Get pubDate/length from HTTP HEAD request (#24)
+      * Add website links to episode/channel (#43)
+      * Replace shelve with dumbshelve (#47)
+      * Move open_folder() to gpodder.util; use &quot;gl&quot; (#30)
+      * &quot;What is your gPodder workflow?&quot; - Mailing list (sent, finished
+        and results)
+      * Not reproducible: Moving download directory doesn't work (#8)
+Feature improvements
+      * Tray icon improvements by J&#233;r&#244;me Chabod: Extimated time left,
+        synchronization support, Cairo-based progress bar, Notify user
+        about no new episodes when updating from tray icon (Patch from
+        J&#233;r&#244;me Chabod, #3)
+      * Add option to write gtkpod extended database on sync
+      * Add &quot;Go to website&quot; buttons to episode and channel (bug #43)
+      * Show more description text in episode list (suggested by J&#233;r&#244;me
+        Chabod)
+      * Add support for video file types: flv, wmv and 3gp (thanks to
+        Atte Andr&#233; Jensen)
+      * Add support for new &quot;bluetooth-sendto&quot; utility (patch by Leonid
+        Ponomarev)
+      * Add support for changing the URL of a subscribed channel (bug
+        #42)
+      * Add support for creating M3U playlist files in download folders
+        (#25)
+      * Performance improvements: HTML entity replacement (by Nick,
+        nikosapi.org); conditional DumbShelve serialization
+      * Updated translations: Swedish (Anders Kvist), Czech (Ondrej
+        Vesely), Russian (Leonid Ponomarev), German
+Bug fixes and code changes
+      * Pickle-based storage method (dumbshelve); HTTP HEAD requests;
+        buggy feed fixes
+      * Fix AttributeError bug in updateTreeView (thanks to red26wings);
+        LP: #183667
+      * Fix KeyError bug in custom_selection_button_clicked (thanks to
+        Pavel Ml&#269;och); LP: #192918
+      * Fix bug with unneeded download directory being created
+      * Fix a bug when loading invalid image data (delete cover file
+        then)
+      * Filter &quot;None&quot; filenames from GtkFileChooser widgets (fixes a
+        config annoyance)
+      * Patch from Nikosapi to fix MP3 player sync progress (thanks
+        nikosapi)
+      * Be less verbose, consider episodes with length&lt;=100 to have
+        invalid length (thanks to Bernd Schlapsi)
+      * Fix problem with old PyGTK versions when importing
+        gpodder.trayicon (patch from Bill Barnard; based on a patch from
+        J&#233;r&#244;me Chabod)
+      * Fix &quot;Podcasts not being marked as new when synced to iPod&quot; (bug
+        #70)
+      * Fix problem with pickle when there is a feed parsing exception
+        (thanks to VladDrac in FreeNode's #python)
+      * When sending via Bluetooth, always rename/copy the file (thanks
+        to Chris, #49)
+      * Use xdg-open for files that we don't know the file type of
+      * Python-feedparser is a dependency, so mention it in the README
+        (thanks Alain Tauch)
+      * Various Bluetooth-related fixes (icon name, logging error,
+        command line arguments)
+      * Move gPodderLib().open_folder to util.gui_open
+      * Make &quot;gl&quot; a global-accessible object in libgpodder
+      * Move webbrowser code to util.open_website; fix URLs to
+        gpodder.org
+      * Various code changes an development improvements
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001307.html">[gpodder-devel] problem w 3gp
+</A></li>
+	<LI>Next message: <A HREF="001313.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark Shows As	Played
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1312">[ date ]</a>
+              <a href="thread.html#1312">[ thread ]</a>
+              <a href="subject.html#1312">[ subject ]</a>
+              <a href="author.html#1312">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

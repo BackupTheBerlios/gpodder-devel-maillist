@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%0A%09happened%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3C1180005854.4446.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000319.html">
+   <LINK REL="Next"  HREF="000321.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%0A%09happened%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3C1180005854.4446.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)">thp at perli.net
+       </A><BR>
+    <I>Thu May 24 13:24:14 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000319.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+        <LI>Next message: <A HREF="000321.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#320">[ date ]</a>
+              <a href="thread.html#320">[ thread ]</a>
+              <a href="subject.html#320">[ subject ]</a>
+              <a href="author.html#320">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, G&#246;tz!
+
+On Thu, 2007-05-24 at 07:37 +0200, G&#246;tz Waschk wrote:
+&gt;<i> I still have this problem with gpodder 0.9.2. From .xsession-errors:
+</I>&gt;<i> Exception in thread Thread-10:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/threading.py&quot;, line 460, in __bootstrap
+</I>&gt;<i>     self.run()
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/threading.py&quot;, line 440, in run
+</I>&gt;<i>     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/site-packages/gpodder/libwget.py&quot;, line
+</I>&gt;<i> 131, in thread_function
+</I>&gt;<i>     move( self.tempname, self.filename)
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/shutil.py&quot;, line 199, in move
+</I>&gt;<i>     copy2(src,dst)
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/shutil.py&quot;, line 91, in copy2
+</I>&gt;<i>     copyfile(src, dst)
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/shutil.py&quot;, line 46, in copyfile
+</I>&gt;<i>     fsrc = open(src, 'rb')
+</I>&gt;<i> IOError: [Errno 2] Datei oder Verzeichnis nicht gefunden:
+</I>&gt;<i> u'/home/goetz/gpodder-downloads/0969cf93214c026ce56f4ba55b694d10/.tmp-c42f288b5a8942883e26716a952cbbbb.mp3'
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> When I click on 'No' on startup and download the new podcast episode
+</I>&gt;<i> manually, there is no error. 
+</I>
+Is anyone else having problems like that with Python2.5? I'm using
+Python2.4 here, so I can't test it with 2.5 here. I've tried downloading
+episodes with the automatic feature like you do, but the bug doesn't
+appear here.
+
+I think you already mentioned that the bug isn't related to any specific
+channel or podcast episode, but only happens with the automatic question
+at gPodder startup, right?
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000319.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+	<LI>Next message: <A HREF="000321.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#320">[ date ]</a>
+              <a href="thread.html#320">[ thread ]</a>
+              <a href="subject.html#320">[ subject ]</a>
+              <a href="author.html#320">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

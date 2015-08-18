@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [PATCH] PyID3 fix
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20PyID3%20fix&In-Reply-To=%3C200707202236.13201.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000416.html">
+   <LINK REL="Next"  HREF="000423.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [PATCH] PyID3 fix</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20PyID3%20fix&In-Reply-To=%3C200707202236.13201.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] [PATCH] PyID3 fix">nikosapi at gmail.com
+       </A><BR>
+    <I>Sat Jul 21 04:36:13 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000416.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+        <LI>Next message: <A HREF="000423.html">[gpodder-devel] [PATCH] PyID3 fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#420">[ date ]</a>
+              <a href="thread.html#420">[ thread ]</a>
+              <a href="subject.html#420">[ subject ]</a>
+              <a href="author.html#420">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+I've been playing with [K]ubuntu (7.04, not that it matters) and I noticed 
+that the python-id3 package in their repos is not PyID3!
+It's some old ID3 tag manipulation module that can't even do coverart. So 
+attached is just a patch to remove the import code for the ID3 module seeing 
+as it's not used. What people need to be using is PyID3-0.5.5.
+
+There is a bit of a problem though, I went looking for the Py-ID3 source 
+tonight and the server that was hosting it no longer has the file :(
+Luckily I found a copy in an old backup of my laptop and I have it here: 
+<A HREF="http://nikosapi.org/gpodder/PyID3-0.5.5.tar.gz">http://nikosapi.org/gpodder/PyID3-0.5.5.tar.gz</A>
+
+I think it's safe to say it's not being supported or developed anymore, but it 
+still works so I'll host it and maybe Thomas, you can put it up on the 
+project page.
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: libipodsync-pyid3-fix.patch
+Type: text/x-diff
+Size: 766 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070720/7fd8e3ef/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070720/7fd8e3ef/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000416.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+	<LI>Next message: <A HREF="000423.html">[gpodder-devel] [PATCH] PyID3 fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#420">[ date ]</a>
+              <a href="thread.html#420">[ thread ]</a>
+              <a href="subject.html#420">[ subject ]</a>
+              <a href="author.html#420">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Proposition: progress bar on the tray icon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposition%3A%20progress%20bar%20on%20the%20tray%20icon&In-Reply-To=%3C1203621507.6235.16.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001215.html">
+   <LINK REL="Next"  HREF="001218.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Proposition: progress bar on the tray icon</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposition%3A%20progress%20bar%20on%20the%20tray%20icon&In-Reply-To=%3C1203621507.6235.16.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Proposition: progress bar on the tray icon">thp at perli.net
+       </A><BR>
+    <I>Thu Feb 21 20:18:27 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001215.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+        <LI>Next message: <A HREF="001218.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1217">[ date ]</a>
+              <a href="thread.html#1217">[ thread ]</a>
+              <a href="subject.html#1217">[ subject ]</a>
+              <a href="author.html#1217">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, &#65279;J&#233;r&#244;me!
+
+On Wed, 2008-02-20 at 22:18 +0100, J&#233;r&#244;me Chabod wrote:
+&gt;<i> You'll find in attachement a patch which add a progress bar to the tray
+</I>&gt;<i> icon during download (you'll also find a small screenshot).
+</I>&gt;<i> 
+</I>&gt;<i> I'm not a great designer, so it's quite simple. It consists of 2 svg
+</I>&gt;<i> images: one &quot;gPodder&quot; green rectangle for the background, one dark green
+</I>&gt;<i> rectangle for the progress.
+</I>&gt;<i> I'm open for any comment or suggestion (horizontal, vertical, diagonal,
+</I>&gt;<i> left, right, blue, red, ...), but keep it light...
+</I>
+I think using seperate SVG images for the tray icon is a bit overkill
+and strange. You can easily do the same thing using a bit of PyCairo
+coding, see src/gpodder/draw.py for examples on how to do it. Basically,
+you would load the icon (maybe compose it with the downloading arrow),
+then find out where you want to draw the progress bar, draw a rectangle,
+set the fill color and fill it and then draw the second rectangle.
+
+That should make the patch smaller, easier and faster. It also allows
+for easy customization (black border around the progress bar, maybe even
+some fancy 3D effect, and if we are really cool, we can find out the
+theme colors and draw the progress bar in the real theme colors. I can
+help you with that, if you want.
+
+The last time I did PyCairo and GTK theme stuff, it was really fun and
+interesting (because you can do wonderful things with little cairo
+code), so I won't take the task of messing a bit with cairo off you ;)
+
+
+Enjoy,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001215.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+	<LI>Next message: <A HREF="001218.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1217">[ date ]</a>
+              <a href="thread.html#1217">[ thread ]</a>
+              <a href="subject.html#1217">[ subject ]</a>
+              <a href="author.html#1217">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hangs when trying to close the	user-settings	dialog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hangs%20when%20trying%20to%20close%20the%0A%09user-settings%09dialog&In-Reply-To=%3C1187954593.9029.13.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000503.html">
+   <LINK REL="Next"  HREF="000506.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hangs when trying to close the	user-settings	dialog</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hangs%20when%20trying%20to%20close%20the%0A%09user-settings%09dialog&In-Reply-To=%3C1187954593.9029.13.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Hangs when trying to close the	user-settings	dialog">thp at perli.net
+       </A><BR>
+    <I>Fri Aug 24 13:23:13 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000503.html">[gpodder-devel] Hangs when trying to close the user-settings	dialog
+</A></li>
+        <LI>Next message: <A HREF="000506.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#507">[ date ]</a>
+              <a href="thread.html#507">[ thread ]</a>
+              <a href="subject.html#507">[ subject ]</a>
+              <a href="author.html#507">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Bj&#248;rn!
+
+On Thu, 2007-08-23 at 22:38 +0200, Bj&#248;rn Rasmussen wrote:
+&gt;<i> Looks like deleting files works for me right now, but I'm not shure it
+</I>&gt;<i> has worked correctly allways.  I think there have been some strange
+</I>&gt;<i> things, or perhaps I just have misunderstood how it works.  I'll come
+</I>&gt;<i> back when I'm shure what really happens.
+</I>
+Ok. Please provide info on which feeds (feed URLs) it happens and
+possibly the output of running gPodder with the &quot;--verbose&quot; command line
+switch (or simply running the SVN version).
+
+&gt;<i> Anybody that can confirm that gpodder really works on Fedora 7 on the
+</I>&gt;<i> x86_64 platform?  I've a feeling that there's something wrong with the
+</I>&gt;<i> Python dependencies.  Does gpodder work with python-2.5-12.fc7,
+</I>&gt;<i> pygtk2-2.10.6-1.fc7, pygtk2-libglade-2.10.6-1.fc7,
+</I>&gt;<i> python-eyed3-0.6.12-1.fc7 and python-gpod-0.4.2-1.fc7?  Theese are the
+</I>&gt;<i> dependencies that is accepted by my gpodder rpm package.
+</I>
+It should work with the mentioned packages. For Python2.5, it could be a
+problem with package-level relative imports and absolute imports,
+because until 0.9.4, we have had the package named &quot;gpodder&quot; and the GUI
+module inside named &quot;gpodder&quot; as well. In the current development
+version, this has been corrected. Try out the SVN version and if your
+problem persists, send me the output of &quot;make test&quot; and your
+subscription list:
+
+<A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000503.html">[gpodder-devel] Hangs when trying to close the user-settings	dialog
+</A></li>
+	<LI>Next message: <A HREF="000506.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#507">[ date ]</a>
+              <a href="thread.html#507">[ thread ]</a>
+              <a href="subject.html#507">[ subject ]</a>
+              <a href="author.html#507">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

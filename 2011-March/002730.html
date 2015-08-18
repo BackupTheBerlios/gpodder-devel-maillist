@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] mPodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20mPodder&In-Reply-To=%3CAANLkTin5_M97Pcjv2jjycMNtxMXQ118Jdbua0KNh2O8L%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002729.html">
+   <LINK REL="Next"  HREF="002731.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] mPodder</H1>
+    <B>Li-Hsuan Lung</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20mPodder&In-Reply-To=%3CAANLkTin5_M97Pcjv2jjycMNtxMXQ118Jdbua0KNh2O8L%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] mPodder">lihsuan at 8thlight.com
+       </A><BR>
+    <I>Fri Mar 25 03:26:14 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002729.html">[gpodder-devel] mPodder
+</A></li>
+        <LI>Next message: <A HREF="002731.html">[gpodder-devel] gpodder @ GSoC (well a little bit at least)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2730">[ date ]</a>
+              <a href="thread.html#2730">[ thread ]</a>
+              <a href="subject.html#2730">[ subject ]</a>
+              <a href="author.html#2730">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, Thomas!
+
+I built this application mainly to play with a new language I'm
+picking up, mobl (<A HREF="http://www.mobl-lang.org/">http://www.mobl-lang.org/</A>). The application is
+targeted at iPad as well as mobile devices. You can resize the browser
+and it will adapt to a layout more appropriate for smart phones. This
+is a built-in behavior for mobl applications :).  You can compile the
+source code with mobl's command line tool, or Eclipse plugin, and the
+compiled down code is all in www/ folder. You can host www/ on your
+own server, or run it on top of fileserver.jar with command &quot;java -jar
+fileserver.jar 3000 www&quot;. There are some tutorials and screen casts
+you can follow easily on mobl's website, and if you have any problem
+running the app locally, feel free to drop me an email!
+
+I don't have any big plan for it, so far it's just a proof of concept
+thing. But I'm open to feature requests :).
+
+
+Li-Hsuan
+
+On Thu, Mar 24, 2011 at 9:46 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+&gt;<i> Hi Li-Hsuan,
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Mar 24, 2011 at 08:37:08AM -0500, Li-Hsuan Lung wrote:
+</I>&gt;&gt;<i> I'd just like to showcase a very light mobile application I built on
+</I>&gt;&gt;<i> top of gPodder's web service. Comments or suggestions are welcomed. :)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Source code: <A HREF="https://github.com/naush/mobl-podder">https://github.com/naush/mobl-podder</A>
+</I>&gt;&gt;<i> Demo: <A HREF="http://184.106.186.229:3002/mpodder.html">http://184.106.186.229:3002/mpodder.html</A>
+</I>&gt;<i>
+</I>&gt;<i> Wow, that's really, really nice :) I've just played around with it. Is
+</I>&gt;<i> that targetting the iPad (as I see there are some meta tags suggesting
+</I>&gt;<i> that it's at least special-cased for these devices)?
+</I>&gt;<i>
+</I>&gt;<i> For the source, it would probably be good to have a README file with
+</I>&gt;<i> instructions on how to try it out on one's own machine. Is the source
+</I>&gt;<i> code to the code in fileserver.jar available somewhere, or is that just
+</I>&gt;<i> available in binary form?
+</I>&gt;<i>
+</I>&gt;<i> What I've also noticed is that time is weirdly formatted in the playback
+</I>&gt;<i> view (i.e. one minute and 4 seconds is displayed as &quot;1:4&quot; instead of
+</I>&gt;<i> &quot;01:04&quot;).
+</I>&gt;<i>
+</I>&gt;<i> Right now, this just searches the public podcast directory, right? Are
+</I>&gt;<i> there plans to integrate this with the login area/user accounts, so that
+</I>&gt;<i> users logged into gpodder.net can only show their subscriptions and also
+</I>&gt;<i> update their playback status in gpodder.net when playing episodes in
+</I>&gt;<i> mPodder.
+</I>&gt;<i>
+</I>&gt;<i> Anyway, great work so far, looking really forward to see more of your
+</I>&gt;<i> project there :) Tell us if you need any help with the web service!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002729.html">[gpodder-devel] mPodder
+</A></li>
+	<LI>Next message: <A HREF="002731.html">[gpodder-devel] gpodder @ GSoC (well a little bit at least)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2730">[ date ]</a>
+              <a href="thread.html#2730">[ thread ]</a>
+              <a href="subject.html#2730">[ subject ]</a>
+              <a href="author.html#2730">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

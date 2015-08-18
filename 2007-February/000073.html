@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] upgrade downloads from 0.8.0 to 0.8.9?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20upgrade%20downloads%20from%200.8.0%20to%200.8.9%3F&In-Reply-To=%3C20070210135147.218323e5%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000072.html">
+   <LINK REL="Next"  HREF="000074.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] upgrade downloads from 0.8.0 to 0.8.9?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20upgrade%20downloads%20from%200.8.0%20to%200.8.9%3F&In-Reply-To=%3C20070210135147.218323e5%40macbook%3E"
+       TITLE="[gpodder-devel] upgrade downloads from 0.8.0 to 0.8.9?">thp at perli.net
+       </A><BR>
+    <I>Sat Feb 10 13:51:47 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000072.html">[gpodder-devel] upgrade downloads from 0.8.0 to 0.8.9?
+</A></li>
+        <LI>Next message: <A HREF="000074.html">[gpodder-devel] 0.8.9 fedora packages are now building for fedora	development tree.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Paul,
+
+On Thu, 08 Feb 2007 22:21:45 +0100 paul wrote:
+&gt;<i> If you think it is not a too complicated job, I can try. So maybe it 
+</I>&gt;<i> cost me more time to program than to download them again, but I have 
+</I>&gt;<i> some time available. It is extremely slow at my work at the
+</I>&gt;<i> moment.... So yes, I think I would appreciate some instructions.
+</I>
+The filesystem structure from gPodder 0.8.0 to 0.8.9 changed like this:
+
+0.8.0:
+~/.config/gpodder/downloads/[short-name]/[filename].[ext]
+
+where [short-name] is the name with spaces and special characters
+stripped, also found in &quot;channels.xml&quot; in the gPodder config dir. The
+[filename] part is the md5sum of the filename download URL.
+
+
+0.8.9:
+[gpodder-download-dir]/[md5-channel]/[filename].[ext]
+
+Where [md5-channel] is the md5sum of the channel feed URL and
+[filename] is the same as in 0.8.0.
+
+
+To convert the old file naming scheme to the new one, you would have to
+
+1) get a list of all channel URLs from channels.xml plus
+   their correspondent &quot;short-name&quot; values
+2) calculate the md5sum of the channel URL
+3) create the new channel downloads folder (md5sum of channel URL)
+4) move all downloads + index.xml (local podcast database) to the new 
+   download folder
+5) manually move any leftover podcasts, probably from pre-0.7 gpodder 
+   filenaming system (was: filename on server)
+
+
+If you really come around to working out a script, I'd be glad to add
+it to the gPodder distribution :)
+
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000072.html">[gpodder-devel] upgrade downloads from 0.8.0 to 0.8.9?
+</A></li>
+	<LI>Next message: <A HREF="000074.html">[gpodder-devel] 0.8.9 fedora packages are now building for fedora	development tree.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

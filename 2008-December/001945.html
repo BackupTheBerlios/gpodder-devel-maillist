@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Bug hunt in 0.14.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Bug%20hunt%20in%200.14.0&In-Reply-To=%3C6b36610d0812180723q3b687d4bnb8f023a6269a8092%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001944.html">
+   <LINK REL="Next"  HREF="001946.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Bug hunt in 0.14.0</H1>
+    <B>Silvio Sisto</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Bug%20hunt%20in%200.14.0&In-Reply-To=%3C6b36610d0812180723q3b687d4bnb8f023a6269a8092%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Bug hunt in 0.14.0">sisto.silvio at gmail.com
+       </A><BR>
+    <I>Thu Dec 18 16:23:57 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001944.html">[gpodder-devel] Sample post processing script to convert videos	after download
+</A></li>
+        <LI>Next message: <A HREF="001946.html">[gpodder-devel] Sample post processing script to convert videos after download
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1945">[ date ]</a>
+              <a href="thread.html#1945">[ thread ]</a>
+              <a href="subject.html#1945">[ subject ]</a>
+              <a href="author.html#1945">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I've spent many hours chasing bugs on 0.14.0 &quot;A Short Drink From
+a Certain Fountain&quot;.
+
+Here's my list of bugs found. I want to hear out what you think
+of them before reporting on the bug tracker.
+
+1 - When you go to iPod -&gt; &quot;Remove episodes from device&quot;, the
+&quot;Copying files to device window&quot; shows up in addition to the
+&quot;Delete episodes chooser window&quot;. Screenshot will be posted if
+needed.
+Correct behavior would be for the &quot;Copying files to device window&quot;
+not to show up.
+
+2 - Tooltips not showing up on the episode list. When you hover
+over an episode, a tooltip used to show up with shownotes for the
+specific episode.
+Solution: Right click on episode and select &quot;episode details&quot; option.
+
+3 - On some podcasts, &quot;Buzz Out Loud&quot; for example, when right
+clicking on episode and selecting episode details option, gpodder
+freezes for several seconds before showing details.
+Please note that in most podcasts this doesn't happen.
+
+4 - When gpodder is killed by accident instead of gracefuly
+closed. Podcast list is corrupted and all episodes downloaded
+before killing it don't show on gpodder's list even though they
+take up hard drive space.
+Quick solution: Delete all folders on the gpodder download
+folder then re-download your episodes.
+This can probably be avoided by having gpodder save it's database
+after downloads are finished.
+
+I really liked the new features added to gpodder.
+My favorite was my.gpodder.org
+
+Best regards,
+Silvio Sisto
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001944.html">[gpodder-devel] Sample post processing script to convert videos	after download
+</A></li>
+	<LI>Next message: <A HREF="001946.html">[gpodder-devel] Sample post processing script to convert videos after download
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1945">[ date ]</a>
+              <a href="thread.html#1945">[ thread ]</a>
+              <a href="subject.html#1945">[ subject ]</a>
+              <a href="author.html#1945">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

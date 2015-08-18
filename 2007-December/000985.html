@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod touch update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C4773DB7B.60303%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000984.html">
+   <LINK REL="Next"  HREF="000991.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod touch update</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C4773DB7B.60303%40perli.net%3E"
+       TITLE="[gpodder-devel] iPod touch update">thp at perli.net
+       </A><BR>
+    <I>Thu Dec 27 18:06:03 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000984.html">[gpodder-devel] iPod touch update
+</A></li>
+        <LI>Next message: <A HREF="000991.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#985">[ date ]</a>
+              <a href="thread.html#985">[ thread ]</a>
+              <a href="subject.html#985">[ subject ]</a>
+              <a href="author.html#985">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+Pieter De Decker wrote:
+&gt;<i> I installed libgpod v0.6.0 manually today. Guess what, I finally have write
+</I>&gt;<i> access!
+</I>
+That's great. Now gPodder has experimental support for the iPod Touch :)
+
+&gt;<i> On the downside, the track processing is slow as hell because of the whole
+</I>&gt;<i> SSH thing. I also tried transferring a podcast to my player using gPodder.
+</I>&gt;<i> The app was stuck on the &quot;Completed: podcast x&quot; screen for some time but I
+</I>&gt;<i> eventually got a message saying that my podcasts were copied to my device. I
+</I>&gt;<i> then found out that libgpod had reset some of the artwork in my database (on
+</I>&gt;<i> which I had spent a few days customizing) to its defaults. Ah well, that's
+</I>&gt;<i> the price of using beta software I guess. :)
+</I>
+The delay after sync is caused by gPodder when it calls the &quot;sync&quot; 
+command from the OS. This is done so all caches get flushed and all data 
+written to disk. In case someone disconnects the MP3 player or iPod from 
+the USB port, the data will not be lost, because all pending writes have 
+been flushed to the disk.
+
+libgpod is to blame for the broken artwork (I guess ;).
+
+&gt;<i> So, in conclusion: gPodder can copy podcasts to my device, but it takes a
+</I>&gt;<i> little longer than usual. I haven't been able to fully test gPodder's
+</I>&gt;<i> functionality yet but I'll try to do that over the next couple of days as I
+</I>&gt;<i> go about my usual podcast listening routines.
+</I>
+Neat. Sounds interesting. If you mount the iPod via ssh, does this mean 
+that you can wirelessly copy podcasts to your iPod or is it still 
+connected via USB?
+
+&gt;<i> By the way, gPodder doesn't seem to handle enhanced podcasts (
+</I>&gt;<i> <A HREF="http://en.wikipedia.org/wiki/Enhanced_podcast">http://en.wikipedia.org/wiki/Enhanced_podcast</A>) such as
+</I>&gt;<i> <A HREF="http://www.cbcradio3.com/podcast/trackoftheday/">http://www.cbcradio3.com/podcast/trackoftheday/</A> the proper way. Why is that?
+</I>
+The link you sent from cbcradio3 only contains MP3 files, maybe the 
+enhanced podcast feed is something different? From what I read on the 
+Wikipedia page, an enhanced podcast is simply a Quicktime movie file, 
+which I guess should work on the iPod just normally. Try syncing the 
+feed via iTunes and then via gPodder, and if there is a difference, 
+gPodder has to set some flags in the iTunesDB for the iPod to recognize 
+the new &quot;type&quot; of podcast (btw: wikipedia also states that this 
+&quot;enhanced podcast&quot; thing is quite new and unsupported. I could imagine 
+the videos to not even play correctly/at all when one does not have the 
+quicktime player installed).
+
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000984.html">[gpodder-devel] iPod touch update
+</A></li>
+	<LI>Next message: <A HREF="000991.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#985">[ date ]</a>
+              <a href="thread.html#985">[ thread ]</a>
+              <a href="subject.html#985">[ subject ]</a>
+              <a href="author.html#985">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] python core when display not correctly set
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20python%20core%20when%20display%20not%20correctly%20set&In-Reply-To=%3C20070325222631.2e545605.contrib%40maisondubonheur.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000142.html">
+   <LINK REL="Next"  HREF="000144.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] python core when display not correctly set</H1>
+    <B>Alain TAUCH</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20python%20core%20when%20display%20not%20correctly%20set&In-Reply-To=%3C20070325222631.2e545605.contrib%40maisondubonheur.com%3E"
+       TITLE="[gpodder-devel] python core when display not correctly set">contrib at maisondubonheur.com
+       </A><BR>
+    <I>Sun Mar 25 22:26:31 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000142.html">[gpodder-devel] python core when display not correctly set
+</A></li>
+        <LI>Next message: <A HREF="000144.html">[gpodder-devel] Feature request: color indicator for unsynchronized	podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, again,
+
+On Sun, 25 Mar 2007 22:22:52 +0200
+Alain TAUCH [Alain] wrote:
+
+Alain&gt; On Sun, 25 Mar 2007 21:56:12 +0200
+Alain&gt; Thomas Perl [Thomas] wrote:
+Alain&gt; 
+Alain&gt; Thomas&gt; Hello Alain!
+Alain&gt; Thomas&gt; 
+Alain&gt; Thomas&gt; On Sun, 2007-03-25 at 21:06 +0200, Alain TAUCH wrote:
+Alain&gt; Thomas&gt; &gt; I'm not sure this should be handled by gpodder, but I'd prefer if it
+Alain&gt; Thomas&gt; &gt; was
+Alain&gt; Thomas&gt; &gt; graciously catched by gpodder. 
+Alain&gt; Thomas&gt; 
+Alain&gt; Thomas&gt; I've added some code to check for a set $DISPLAY variable and stop with
+Alain&gt; Thomas&gt; a nonzero return code and message if it's not set.
+Alain&gt; 
+Alain&gt; not sure this will be enough, since even with a $DISPLAY, XOpenDisplay
+Alain&gt; may still fail. I'll check this.
+Alain&gt; 
+
+Indeed, this is not enough, moreover the current code does not work as expected ;-)
+
+%make test
+bin/gpodder --local --verbose
+/usr/local/lib/python2.4/site-packages/gtk-2.0/gtk/__init__.py:69: GtkWarning: c
+ould not open display
+  warnings.warn(str(e), _gtk.Warning)
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) gpod and/or (mad|eyeD3) not found
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover art
+(ipodsync) Found mplayer, using it to find track length of video files
+Traceback (most recent call last):
+  File &quot;bin/gpodder&quot;, line 145, in ?
+    sys.exit( main())
+  File &quot;bin/gpodder&quot;, line 126, in main
+    if not environ['DISPLAY']:
+  File &quot;/usr/local/lib/python2.4/UserDict.py&quot;, line 17, in __getitem__
+    def __getitem__(self, key): return self.data[key]
+KeyError: 'DISPLAY'
+*** Error code 1
+
+Stop in /usr/home/test/gpodder.
+
+-- 
+Alain
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000142.html">[gpodder-devel] python core when display not correctly set
+</A></li>
+	<LI>Next message: <A HREF="000144.html">[gpodder-devel] Feature request: color indicator for unsynchronized	podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

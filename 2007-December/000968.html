@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [PATCH] systray icon with notification
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20systray%20icon%20with%20notification&In-Reply-To=%3C1198316369.8196.0.camel%40Suzhou%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000967.html">
+   <LINK REL="Next"  HREF="000969.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [PATCH] systray icon with notification</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20systray%20icon%20with%20notification&In-Reply-To=%3C1198316369.8196.0.camel%40Suzhou%3E"
+       TITLE="[gpodder-devel] [PATCH] systray icon with notification">paul at thegithouse.com
+       </A><BR>
+    <I>Sat Dec 22 10:39:29 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000967.html">[gpodder-devel] [PATCH] systray icon with notification +	autoupdate
+</A></li>
+        <LI>Next message: <A HREF="000969.html">[gpodder-devel] [PATCH] systray icon with notification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>J&#233;r&#244;me
+
+I love this, thanks for the time and effort you put into creating this
+patch.
+
+Paul
+
+
+On Fri, 2007-12-21 at 14:17 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jerome.chabod at ifrance.com</A> wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> Here it is. After diving into python and gPodder code ( I must say
+</I>&gt;<i> gPodder is often nicely implemented so it wasn't too hard, maybe
+</I>&gt;<i> comments are sometime missing) and spending hours seaking on internet,
+</I>&gt;<i> I'm able to deliver you a patch with a first implentation of a status
+</I>&gt;<i> icon on the sytem tray.
+</I>&gt;<i> 
+</I>&gt;<i> Please, try it, test it and/or review its code (it should be easy to
+</I>&gt;<i> review since it almost consist of one class), and share you comments,
+</I>&gt;<i> suggestions, critisms with us.
+</I>&gt;<i> 
+</I>&gt;<i> regard,
+</I>&gt;<i> J&#233;r&#244;me Chabod
+</I>&gt;<i> 
+</I>&gt;<i> -------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> WHAT IT DOES:
+</I>&gt;<i> -------------
+</I>&gt;<i> It displays an icon in the sytem tray after gPodder starts. This icon
+</I>&gt;<i> allows following features:
+</I>&gt;<i> * hide/show gpodder
+</I>&gt;<i>     left clicking several times on this icon will respectively bring
+</I>&gt;<i> gPodder to front (if not already), hide gPodder (only the icon will
+</I>&gt;<i> remain visible), show gPodder again.
+</I>&gt;<i> * popup menu
+</I>&gt;<i>     right clicking on the icon will popup a menu for quick access to
+</I>&gt;<i> some gPodder functionality (&quot;update feed&quot;, &quot;download all episodes&quot;,
+</I>&gt;<i> &quot;pr&#233;ferences&quot;, &quot;about&quot; and &quot;exit&quot;)
+</I>&gt;<i> * download status and notification
+</I>&gt;<i>     during gPodder is downloading, the icons's tooltip will display
+</I>&gt;<i> how many files are currently dowloading and the progression
+</I>&gt;<i> percentage.
+</I>&gt;<i>     Once all downloads are finished (terminated or canceled), a
+</I>&gt;<i> notification message is poped up
+</I>&gt;<i> 
+</I>&gt;<i> GOAL:
+</I>&gt;<i> -----
+</I>&gt;<i> My idea behind this icon is to have gPodder starting automaticaly and
+</I>&gt;<i> running in background for its daily job. To achieve that, gPodder
+</I>&gt;<i> should be able to:
+</I>&gt;<i> 1. start hidden, only the icon should be visible (activated by a
+</I>&gt;<i> configuration option)
+</I>&gt;<i> 2. check for new episodes (either automaticaly at startup  - a
+</I>&gt;<i> configuration flag already exists -, triggered by the icon's popup
+</I>&gt;<i> menu or even periodically)
+</I>&gt;<i> 3. inform: status in tooltip and special icon, notification after
+</I>&gt;<i> update
+</I>&gt;<i> 4. download new episodes (either automaticaly when new episodes where
+</I>&gt;<i> found - a configuration flag already exists - or triggered by the
+</I>&gt;<i> popup menu)
+</I>&gt;<i> 5. inform: status in tooltip and special icon, notification after
+</I>&gt;<i> download
+</I>&gt;<i> 6. notify errors and troubleshouting
+</I>&gt;<i> 
+</I>&gt;<i> TODO:
+</I>&gt;<i> -----
+</I>&gt;<i> * add configuration options: 
+</I>&gt;<i>     - show icon in systray (on by default)
+</I>&gt;<i>     - display notification (on by default)
+</I>&gt;<i>     - start gPodder iconified (off by default)
+</I>&gt;<i>     - 4 options when exiting gPodder: &quot;exit&quot;, &quot;run in systray&quot;, &quot;run
+</I>&gt;<i> in systray until all downloads finished&quot;, &quot;ask me&quot; (&quot;ask me&quot; by
+</I>&gt;<i> default)
+</I>&gt;<i> * status and notification for channel updates (check for new episodes)
+</I>&gt;<i> * status and notification for mp3 device synchronisation
+</I>&gt;<i> * add a status symbol to the icon: dowloading, checking for new
+</I>&gt;<i> episodes, synchronising (if somebody could help here)
+</I>&gt;<i> * check periodically for new episode (peridiodicity should be
+</I>&gt;<i> configurable)
+</I>&gt;<i> * error handling: what to do in case of error?  
+</I>&gt;<i>     - critical errors where the use can't help (bug, missing
+</I>&gt;<i> dependency...).
+</I>&gt;<i>     - troubleshouting where the user might do something (server down,
+</I>&gt;<i> xml invalid, disk full, ...). 
+</I>&gt;<i>     Maybe send a notification popup and make icon blinking
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i> My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre
+</I>&gt;<i> vous-m&#234;me ?
+</I>&gt;<i> Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o
+</I>&gt;<i> <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000967.html">[gpodder-devel] [PATCH] systray icon with notification +	autoupdate
+</A></li>
+	<LI>Next message: <A HREF="000969.html">[gpodder-devel] [PATCH] systray icon with notification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

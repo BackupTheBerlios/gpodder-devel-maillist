@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GPLv3 licensing change
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPLv3%20licensing%20change&In-Reply-To=%3C604aa7910709041131m1380b8e5k48b170391651a74d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000554.html">
+   <LINK REL="Next"  HREF="000555.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GPLv3 licensing change</H1>
+    <B>Jeff Spaleta</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPLv3%20licensing%20change&In-Reply-To=%3C604aa7910709041131m1380b8e5k48b170391651a74d%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] GPLv3 licensing change">jspaleta at gmail.com
+       </A><BR>
+    <I>Tue Sep  4 20:31:32 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000554.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+        <LI>Next message: <A HREF="000555.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#556">[ date ]</a>
+              <a href="thread.html#556">[ thread ]</a>
+              <a href="subject.html#556">[ subject ]</a>
+              <a href="author.html#556">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 9/4/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i> python-pymad: GPL, version 2
+</I>&gt;<i> python-eyed3: GPL, version 2 or later
+</I>&gt;<i>
+</I>&gt;<i> I don't know if pymad will become a problem, but if it does, simply
+</I>&gt;<i> remove the dependency or if it's even impossible to distribute the
+</I>&gt;<i> source this way, I can remove support for pymad, as the functionality
+</I>&gt;<i> provided by pymad can also be provided by eyed3 or mplayer.
+</I>
+For me, its not an issue, since Fedora isn't distributing pymad.
+Honestly, I don't know where the line is drawn in respect to runtime
+optional python modules. You aren't using the codebase at all at
+buildtime.  It's important to note however. Perhaps the developers for
+python-pymad would be willing to re-license as GPLv2+ and make this
+issue..evaporate.
+
+&gt;<i> mplayer: GPL, version 2
+</I>&gt;<i>
+</I>&gt;<i> But again, mplayer is only used through &quot;os.popen&quot;, and only its stdout
+</I>&gt;<i> output gets parsed by gPodder, so IIRC this is not considered &quot;linking&quot;
+</I>&gt;<i> and therefore is no licensing problem(???).
+</I>
+I'm somewhat confident that this sort of usage of the binary
+application isn't a problem. Then again, its not an immediate concern
+for me since Fedora doesn't distribute mplayer either, so I'm not in a
+panic about it.
+
+-jef
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000554.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+	<LI>Next message: <A HREF="000555.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#556">[ date ]</a>
+              <a href="thread.html#556">[ thread ]</a>
+              <a href="subject.html#556">[ subject ]</a>
+              <a href="author.html#556">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

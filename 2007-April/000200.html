@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%0A%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3Cb63520a30704050303k180868c4u7e72139e5b49bb81%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000191.html">
+   <LINK REL="Next"  HREF="000202.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)</H1>
+    <B>Stephan Buys</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%0A%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3Cb63520a30704050303k180868c4u7e72139e5b49bb81%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)">stephan.buys at gmail.com
+       </A><BR>
+    <I>Thu Apr  5 12:03:44 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000191.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+        <LI>Next message: <A HREF="000202.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#200">[ date ]</a>
+              <a href="thread.html#200">[ thread ]</a>
+              <a href="subject.html#200">[ subject ]</a>
+              <a href="author.html#200">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This error re-appeared today
+
+On 4/4/07, Stephan Buys &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stephan.buys at gmail.com</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> This seems to be resolved by running: make clean in the svn checkout
+</I>&gt;<i> before running make test again.
+</I>&gt;<i>
+</I>&gt;<i> On 4/3/07, Stephan Buys &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stephan.buys at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; When trying to update my podcasts with the latest SVN version:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Error happened during moving tempfile :/
+</I>&gt;<i> &gt; Exception in thread Thread-17:
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;threading.py &quot;, line 460, in __bootstrap
+</I>&gt;<i> &gt;     self.run()
+</I>&gt;<i> &gt;   File &quot;threading.py&quot;, line 440, in run
+</I>&gt;<i> &gt;     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i> &gt;   File &quot;/home/stephanb/Coding/gpodder/src/gpodder/libwget.py&quot;, line 122,
+</I>&gt;<i> &gt; in thread_function
+</I>&gt;<i> &gt;     move( self.tempname, self.filename)
+</I>&gt;<i> &gt;   File &quot;shutil.py&quot;, line 199, in move
+</I>&gt;<i> &gt;     copy2(src,dst)
+</I>&gt;<i> &gt;   File &quot;shutil.py&quot;, line 91, in copy2
+</I>&gt;<i> &gt;     copyfile(src, dst)
+</I>&gt;<i> &gt;   File &quot;shutil.py&quot;, line 46, in copyfile
+</I>&gt;<i> &gt;     fsrc = open(src, 'rb')
+</I>&gt;<i> &gt; IOError: [Errno 2] No such file or directory:
+</I>&gt;<i> &gt; u'/home/stephanb/gpodder-downloads/05c6c09b9e16068ce89c4bf0c53eaf5a/.tmp-
+</I>&gt;<i> &gt; c2ea3933335046d33e9d66b3f26f9a29.mp3'
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/home/stephanb/Coding/gpodder/src/gpodder/gpodder.py&quot;, line 532,
+</I>&gt;<i> &gt; in close_gpodder
+</I>&gt;<i> &gt;     self.download_status_manager.cancelAll()
+</I>&gt;<i> &gt;   File &quot;/home/stephanb/Coding/gpodder/src/gpodder/libwget.py&quot;, line 242,
+</I>&gt;<i> &gt; in cancelAll
+</I>&gt;<i> &gt;     self.status_list[element]['thread'].cancel()
+</I>&gt;<i> &gt;   File &quot;/home/stephanb/Coding/gpodder/src/gpodder/libwget.py&quot;, line 151,
+</I>&gt;<i> &gt; in cancel
+</I>&gt;<i> &gt;     kill( self.pid, signal.SIGKILL)
+</I>&gt;<i> &gt; OSError: [Errno 3] No such process
+</I>&gt;<i> &gt; deleteFilename:
+</I>&gt;<i> &gt; /home/stephanb/gpodder-downloads/c611e99550618299a1022fa747055fe4/.tmp-
+</I>&gt;<i> &gt; e3340ff1354f862d3c3d9cd9b5960021.mp3
+</I>&gt;<i> &gt; make: *** [test] Segmentation fault (core dumped)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I'll send some more info when I'm able to track the bug.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards,
+</I>&gt;<i> &gt; Stephan
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070405/da832b7c/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070405/da832b7c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000191.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+	<LI>Next message: <A HREF="000202.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#200">[ date ]</a>
+              <a href="thread.html#200">[ thread ]</a>
+              <a href="subject.html#200">[ subject ]</a>
+              <a href="author.html#200">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

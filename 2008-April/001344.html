@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] import gl error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20import%20gl%20error&In-Reply-To=%3C1207289893.1787.2.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001342.html">
+   <LINK REL="Next"  HREF="001348.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] import gl error</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20import%20gl%20error&In-Reply-To=%3C1207289893.1787.2.camel%40macbook%3E"
+       TITLE="[gpodder-devel] import gl error">thp at perli.net
+       </A><BR>
+    <I>Fri Apr  4 08:18:13 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001342.html">[gpodder-devel] import gl error
+</A></li>
+        <LI>Next message: <A HREF="001348.html">[gpodder-devel] import gl error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1344">[ date ]</a>
+              <a href="thread.html#1344">[ thread ]</a>
+              <a href="subject.html#1344">[ subject ]</a>
+              <a href="author.html#1344">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Thu, 2008-04-03 at 22:12 -0500, Mark Alford wrote:
+&gt;<i> For me gdfs-check.py fails with:
+</I>&gt;<i> 
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;/usr/local/bin/gdfs-check.py&quot;, line 13, in &lt;module&gt;
+</I>&gt;<i>      from gpodder.libgpodder import gl
+</I>&gt;<i> ImportError: cannot import name gl
+</I>&gt;<i> 
+</I>&gt;<i> If I cd to the gpodder/src directory then under python I get:
+</I>&gt;<i> &gt;&gt;&gt; from gpodder.libgpodder import gPodderLib   # works OK
+</I>&gt;<i> &gt;&gt;&gt; from gpodder.libgpodder import gl
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+</I>&gt;<i> ImportError: cannot import name gl
+</I>&gt;<i> 
+</I>&gt;<i> Sorry if this has already been asked---I couldn't find any way to
+</I>&gt;<i> search the archives.
+</I>
+Sounds like you have an old version of gPodder installed as a package
+in /usr/ and a recent version installed manually to /usr/local/, and
+the /usr/local/ version tries to import from the older version
+in /usr/. 
+
+Please try to remove the unnecessary versions and only keep one version
+of gPodder installed. You can even run gPodder and gdfs from an SVN
+checkout, if you use the &quot;--local&quot; switch for &quot;bin/gpodder&quot; (in the
+checkout) and set the $PYTHONPATH variable to
+{path-to-gpodder-svn-checkout}/src.
+
+
+Good luck!
+Thomas
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001342.html">[gpodder-devel] import gl error
+</A></li>
+	<LI>Next message: <A HREF="001348.html">[gpodder-devel] import gl error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1344">[ date ]</a>
+              <a href="thread.html#1344">[ thread ]</a>
+              <a href="subject.html#1344">[ subject ]</a>
+              <a href="author.html#1344">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

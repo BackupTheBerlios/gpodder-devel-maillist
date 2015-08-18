@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Updating podcast played status based on	scrobbler data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Updating%20podcast%20played%20status%20based%20on%0A%09scrobbler%20data&In-Reply-To=%3Cb2cdc9f30911020531v5d9d0273i1277060d125100e1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="002309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Updating podcast played status based on	scrobbler data</H1>
+    <B>Alex Bennee</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Updating%20podcast%20played%20status%20based%20on%0A%09scrobbler%20data&In-Reply-To=%3Cb2cdc9f30911020531v5d9d0273i1277060d125100e1%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Updating podcast played status based on	scrobbler data">kernel-hacker at bennee.com
+       </A><BR>
+    <I>Mon Nov  2 14:31:29 CET 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="002309.html">[gpodder-devel] Updating podcast played status based on	scrobbler data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2308">[ date ]</a>
+              <a href="thread.html#2308">[ thread ]</a>
+              <a href="subject.html#2308">[ subject ]</a>
+              <a href="author.html#2308">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2009/10/30 Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt;:
+&gt;<i> Hello, Alex!
+</I>&gt;<i>
+</I>&gt;<i> You wrote:
+</I>&lt; snip&gt;
+&gt;&gt;<i>
+</I>&gt;&gt;<i> So there are two possible approaches I can think of to make the
+</I>&gt;&gt;<i> handling better:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 1. Re-tag the file when copied onto the device (maybe hi-jacking the
+</I>&gt;&gt;<i> album position field?) with a unique ID we can the look up.
+</I>&gt;<i>
+</I>&gt;<i> That's what the following bug is about:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://bugs.gpodder.org/show_bug.cgi?id=533">https://bugs.gpodder.org/show_bug.cgi?id=533</A>
+</I>&gt;<i>
+</I>&gt;<i> I'd appreciate it if you could jump in and help implementing a proper
+</I>&gt;<i> metadata module for gPodder that can be used to update tags for all
+</I>&gt;<i> different kinds of audio and video files (configurable via gPodder's
+</I>&gt;<i> settings).
+</I>
+Cool, I'll have a look into that when I get a chance.
+
+&gt;&gt;<i> 2. Expose the tag meta-data in the gPodder API (so ogg/mp3 difference
+</I>&gt;&gt;<i> can be hidden) and use that to match scrobble log-&gt;podcast
+</I>&gt;<i>
+</I>&gt;<i> That's probably also something that could be added to the metadata
+</I>&gt;<i> module in gPodder, so that you can read back the metadata and compare
+</I>&gt;<i> it with the metadata of the specific episode.
+</I>&gt;<i>
+</I>&gt;&gt;<i> I posted a patch earlier this month that slightly improves the
+</I>&gt;&gt;<i> situation but no one has given me feedback on it. Any comments? I
+</I>&gt;&gt;<i> would appreciate any feedback.
+</I>&gt;<i>
+</I>&gt;<i> Have you posted the patch as bug on bugs.gpodder.org? If so, please
+</I>&gt;<i> tell me the bug ID, and I will have a look at it. If not, please
+</I>&gt;<i> submit the patch as a new bug there.
+</I>
+I didn't (only the mailing list) but have now:
+
+<A HREF="https://bugs.gpodder.org/show_bug.cgi?id=631">https://bugs.gpodder.org/show_bug.cgi?id=631</A>
+
+I think it improves the situation a little in lieu of the full fix
+later on.
+
+-- 
+Alex, homepage: <A HREF="http://www.bennee.com/~alex/">http://www.bennee.com/~alex/</A>
+<A HREF="http://www.half-llama.co.uk">http://www.half-llama.co.uk</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="002309.html">[gpodder-devel] Updating podcast played status based on	scrobbler data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2308">[ date ]</a>
+              <a href="thread.html#2308">[ thread ]</a>
+              <a href="subject.html#2308">[ subject ]</a>
+              <a href="author.html#2308">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

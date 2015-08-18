@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod touch update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C40c47c780712280141p1c223bdcv198e028afd611f65%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000985.html">
+   <LINK REL="Next"  HREF="000993.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod touch update</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C40c47c780712280141p1c223bdcv198e028afd611f65%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] iPod touch update">pdedecker at gmail.com
+       </A><BR>
+    <I>Fri Dec 28 10:41:13 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000985.html">[gpodder-devel] iPod touch update
+</A></li>
+        <LI>Next message: <A HREF="000993.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#991">[ date ]</a>
+              <a href="thread.html#991">[ thread ]</a>
+              <a href="subject.html#991">[ subject ]</a>
+              <a href="author.html#991">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+&gt;<i> If you mount the iPod via ssh, does this mean
+</I>&gt;<i> that you can wirelessly copy podcasts to your iPod
+</I>&gt;<i> or is it still connected via USB?
+</I>Nope, it's all wireless. My computer connects to my iPod through its IP
+address on my wireless network.
+
+&gt;<i> The link you sent from cbcradio3 only contains MP3 files, maybe the
+</I>&gt;<i> enhanced podcast feed is something different?
+</I>iTunes recognized it as enhanced, how strange... Here's the correct URL:
+<A HREF="http://www.cbcradio3.com/podcast/trackoftheday/enhanced/">http://www.cbcradio3.com/podcast/trackoftheday/enhanced/</A>
+
+I don't think that you quite understand what an enhanced podcast is. I'll
+try to explain it using screenshots in a bit. First, here's how podcasts
+work on the iPod touch:
+<A HREF="http://img247.imageshack.us/img247/9706/1000799tc8.jpg">http://img247.imageshack.us/img247/9706/1000799tc8.jpg</A> (podcast menu)
+<A HREF="http://img149.imageshack.us/img149/3479/1000798bg0.jpg">http://img149.imageshack.us/img149/3479/1000798bg0.jpg</A> (podcast submenu)
+
+When I listen to a regular podcast, this is what happens when I bring up the
+playlist:
+<A HREF="http://img184.imageshack.us/img184/6164/1000795ra4.jpg">http://img184.imageshack.us/img184/6164/1000795ra4.jpg</A>
+
+With enhanced podcasts however, this happens:
+<A HREF="http://img184.imageshack.us/img184/9130/1000793gw6.jpg">http://img184.imageshack.us/img184/9130/1000793gw6.jpg</A>
+
+I can then quickly skip parts of a podcast that I don't like. Neat, eh? You
+should be able to try the enhanced podcast thing in iTunes and on any iPod
+supporting podcasts (you do have to copy the enhanced podcast to your iPod
+using iTunes though). It comes in really handy with longer podcasts such as
+the Best of Chris Moyles Show Podcast (
+<A HREF="http://downloads.bbc.co.uk/podcasts/radio1/moylesen/rss.xml">http://downloads.bbc.co.uk/podcasts/radio1/moylesen/rss.xml</A>).
+
+Pieter
+
+On Dec 27, 2007 6:06 PM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello, Pieter!
+</I>&gt;<i>
+</I>&gt;<i> Pieter De Decker wrote:
+</I>&gt;<i> &gt; I installed libgpod v0.6.0 manually today. Guess what, I finally have
+</I>&gt;<i> write
+</I>&gt;<i> &gt; access!
+</I>&gt;<i>
+</I>&gt;<i> That's great. Now gPodder has experimental support for the iPod Touch :)
+</I>&gt;<i>
+</I>&gt;<i> &gt; On the downside, the track processing is slow as hell because of the
+</I>&gt;<i> whole
+</I>&gt;<i> &gt; SSH thing. I also tried transferring a podcast to my player using
+</I>&gt;<i> gPodder.
+</I>&gt;<i> &gt; The app was stuck on the &quot;Completed: podcast x&quot; screen for some time but
+</I>&gt;<i> I
+</I>&gt;<i> &gt; eventually got a message saying that my podcasts were copied to my
+</I>&gt;<i> device. I
+</I>&gt;<i> &gt; then found out that libgpod had reset some of the artwork in my database
+</I>&gt;<i> (on
+</I>&gt;<i> &gt; which I had spent a few days customizing) to its defaults. Ah well,
+</I>&gt;<i> that's
+</I>&gt;<i> &gt; the price of using beta software I guess. :)
+</I>&gt;<i>
+</I>&gt;<i> The delay after sync is caused by gPodder when it calls the &quot;sync&quot;
+</I>&gt;<i> command from the OS. This is done so all caches get flushed and all data
+</I>&gt;<i> written to disk. In case someone disconnects the MP3 player or iPod from
+</I>&gt;<i> the USB port, the data will not be lost, because all pending writes have
+</I>&gt;<i> been flushed to the disk.
+</I>&gt;<i>
+</I>&gt;<i> libgpod is to blame for the broken artwork (I guess ;).
+</I>&gt;<i>
+</I>&gt;<i> &gt; So, in conclusion: gPodder can copy podcasts to my device, but it takes
+</I>&gt;<i> a
+</I>&gt;<i> &gt; little longer than usual. I haven't been able to fully test gPodder's
+</I>&gt;<i> &gt; functionality yet but I'll try to do that over the next couple of days
+</I>&gt;<i> as I
+</I>&gt;<i> &gt; go about my usual podcast listening routines.
+</I>&gt;<i>
+</I>&gt;<i> Neat. Sounds interesting. If you mount the iPod via ssh, does this mean
+</I>&gt;<i> that you can wirelessly copy podcasts to your iPod or is it still
+</I>&gt;<i> connected via USB?
+</I>&gt;<i>
+</I>&gt;<i> &gt; By the way, gPodder doesn't seem to handle enhanced podcasts (
+</I>&gt;<i> &gt; <A HREF="http://en.wikipedia.org/wiki/Enhanced_podcast">http://en.wikipedia.org/wiki/Enhanced_podcast</A>) such as
+</I>&gt;<i> &gt; <A HREF="http://www.cbcradio3.com/podcast/trackoftheday/">http://www.cbcradio3.com/podcast/trackoftheday/</A> the proper way. Why is
+</I>&gt;<i> that?
+</I>&gt;<i>
+</I>&gt;<i> The link you sent from cbcradio3 only contains MP3 files, maybe the
+</I>&gt;<i> enhanced podcast feed is something different? From what I read on the
+</I>&gt;<i> Wikipedia page, an enhanced podcast is simply a Quicktime movie file,
+</I>&gt;<i> which I guess should work on the iPod just normally. Try syncing the
+</I>&gt;<i> feed via iTunes and then via gPodder, and if there is a difference,
+</I>&gt;<i> gPodder has to set some flags in the iTunesDB for the iPod to recognize
+</I>&gt;<i> the new &quot;type&quot; of podcast (btw: wikipedia also states that this
+</I>&gt;<i> &quot;enhanced podcast&quot; thing is quite new and unsupported. I could imagine
+</I>&gt;<i> the videos to not even play correctly/at all when one does not have the
+</I>&gt;<i> quicktime player installed).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071228/d08ff6dd/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071228/d08ff6dd/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000985.html">[gpodder-devel] iPod touch update
+</A></li>
+	<LI>Next message: <A HREF="000993.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#991">[ date ]</a>
+              <a href="thread.html#991">[ thread ]</a>
+              <a href="subject.html#991">[ subject ]</a>
+              <a href="author.html#991">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

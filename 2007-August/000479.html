@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Sync to iPod with empty 'episode' field
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Sync%20to%20iPod%20with%20empty%20%27episode%27%20field&In-Reply-To=%3C1187038893.4956.6.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000477.html">
+   <LINK REL="Next"  HREF="000482.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Sync to iPod with empty 'episode' field</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Sync%20to%20iPod%20with%20empty%20%27episode%27%20field&In-Reply-To=%3C1187038893.4956.6.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Sync to iPod with empty 'episode' field">thp at perli.net
+       </A><BR>
+    <I>Mon Aug 13 23:01:33 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000477.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+        <LI>Next message: <A HREF="000482.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#479">[ date ]</a>
+              <a href="thread.html#479">[ thread ]</a>
+              <a href="subject.html#479">[ subject ]</a>
+              <a href="author.html#479">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+On Sun, 2007-08-12 at 16:50 -0700, Wilfred van Rooijen wrote:
+&gt;<i> &gt; Seems obvious. The only unique string I can derive
+</I>&gt;<i> &gt; on a per-episode basis from _every_ RSS podcast is a hash of the URL.
+</I>&gt;<i> &gt; This makes the file names unreadable in standard directory browsers
+</I>&gt;<i> &gt; (that's how gPodder stores the episodes in its download directory, btw).
+</I>&gt;<i> 
+</I>&gt;<i> I don't read the file name, so some md5 string would
+</I>&gt;<i> be fine with me.
+</I>
+Ok, I've implemented this in the current svn trunk head, please check
+out the svn version of gPodder (see the gPodder-devel mailing list
+archives for a guide on how to do it). You can then run the SVN version
+of gPodder with &quot;make test&quot; in the checked out working copy. If all
+works well, gPodder should sync with md5-hashed filenames, based on the
+URL of the episode.
+
+Tell me if this works for you now!
+
+&gt;<i> &gt; To be honest, this is a bug that the RSS feed author
+</I>&gt;<i> &gt; should fix (I mean, empty episode titles...HELLO?!), but if we find a
+</I>&gt;<i> &gt; nice, hack-ish workaround, I might be ready to commit it to our
+</I>&gt;<i> &gt; codebase :)
+</I>&gt;<i> 
+</I>&gt;<i> Okay, I'll send then an email about this. 
+</I>
+That would be really helpful, as it's better to have working podcasts
+than to come up with many client-side fixes for problems that are
+related to a malformed (or odd-structured) RSS file.
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000477.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+	<LI>Next message: <A HREF="000482.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#479">[ date ]</a>
+              <a href="thread.html#479">[ thread ]</a>
+              <a href="subject.html#479">[ subject ]</a>
+              <a href="author.html#479">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

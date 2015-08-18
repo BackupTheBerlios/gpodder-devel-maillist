@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Gpodder is slow / comments on bug #59
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gpodder%20is%20slow%20/%20comments%20on%20bug%20%2359&In-Reply-To=%3C3e8fd0440804231145w418cab1fy4e2af899f7e1483e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001414.html">
+   <LINK REL="Next"  HREF="001416.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Gpodder is slow / comments on bug #59</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gpodder%20is%20slow%20/%20comments%20on%20bug%20%2359&In-Reply-To=%3C3e8fd0440804231145w418cab1fy4e2af899f7e1483e%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Gpodder is slow / comments on bug #59">me at nikosapi.org
+       </A><BR>
+    <I>Wed Apr 23 20:45:30 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001414.html">[gpodder-devel] Gpodder is slow / comments on bug #59
+</A></li>
+        <LI>Next message: <A HREF="001416.html">[gpodder-devel] Gpodder is slow / comments on bug #59
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1415">[ date ]</a>
+              <a href="thread.html#1415">[ thread ]</a>
+              <a href="subject.html#1415">[ subject ]</a>
+              <a href="author.html#1415">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Apr 23, 2008 at 2:23 PM, Alistair Sutton
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">alistair.sutton at gmail.com</A>&gt; wrote:
+&gt;<i> All,
+</I>&gt;<i>
+</I>&gt;<i> I've been experiencing a &quot;gpodder is slow&quot; problem for a month or two now
+</I>&gt;<i> and have lived with it (at one point my feed list contained over 100
+</I>&gt;<i> podcasts so I thought that possibly had something to do with it). However,
+</I>&gt;<i> recently, despite trimming down my list slightly gpodder's gui can still be
+</I>&gt;<i> extremely unresponsive and slow.
+</I>&gt;<i>
+</I>&gt;<i> After starting gpodder with a blank feed list I discovered that the problem
+</I>&gt;<i> only seems to appear once the feed list gets to around 30/35 podcasts.
+</I>&gt;<i> Before that, there is a slight delay in gui updates but only by a matter of
+</I>&gt;<i> a second or two. After this number the delay increases.
+</I>&gt;<i>
+</I>&gt;<i> I did initially think it was only when downloading podcasts and it was the
+</I>&gt;<i> act of updating the downloading list/status that was causing the problem,
+</I>&gt;<i> however, I've just opened the preferences dialog, made no changes and
+</I>&gt;<i> clicked close. Five minutes or so later I'm still waiting for the gui to
+</I>&gt;<i> become available again.
+</I>&gt;<i>
+</I>&gt;<i> I'm running an up-to-date checkout from svn from a terminal and pressing
+</I>&gt;<i> CTRL-C when the gui is &quot;frozen&quot; will generate a traceback and the gui will
+</I>&gt;<i> become available again (nearly always including whatever changes had been
+</I>&gt;<i> requested, i.e. podcasts that had been selected to be deleted are marked as
+</I>&gt;<i> deleted, etc).
+</I>&gt;<i>
+</I>&gt;<i> While it is entirely possible that there is something weird on my system
+</I>&gt;<i> (FreeBSD 7-STABLE, up to date dependencies from the FreeBSD ports system), I
+</I>&gt;<i> find it odd that the problem only seems to begin when the feed list contains
+</I>&gt;<i> more than 30 feeds.
+</I>&gt;<i>
+</I>&gt;<i> I've attached the contents of the traceback from the terminal that happens
+</I>&gt;<i> when I press CTRL-C in case it helps. Nothing else on that is logged seems
+</I>&gt;<i> unsual.
+</I>&gt;<i>
+</I>&gt;<i> Alistair
+</I>&gt;<i> --
+</I>&gt;<i> WWW: <A HREF="http://ajs.no-dns-yet.org.uk">http://ajs.no-dns-yet.org.uk</A>
+</I>&gt;<i>  GPG/PGP: <A HREF="http://ajs.no-dns-yet.org.uk/pubkey.gpg">http://ajs.no-dns-yet.org.uk/pubkey.gpg</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i>  gpodder-devel mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+Are you using the latest gPodder? Thomas recently added some
+improvements that dramatically increased gPodder's load time.
+
+Try checking out the latest SVN[1] version and let us know if you see
+any improvements.
+
+nick
+
+[1] <A HREF="http://gpodderwiki.jottit.com/running-from-svn">http://gpodderwiki.jottit.com/running-from-svn</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001414.html">[gpodder-devel] Gpodder is slow / comments on bug #59
+</A></li>
+	<LI>Next message: <A HREF="001416.html">[gpodder-devel] Gpodder is slow / comments on bug #59
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1415">[ date ]</a>
+              <a href="thread.html#1415">[ thread ]</a>
+              <a href="subject.html#1415">[ subject ]</a>
+              <a href="author.html#1415">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

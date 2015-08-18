@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New option for FS-based syncing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20option%20for%20FS-based%20syncing&In-Reply-To=%3C1194520323.7420.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000781.html">
+   <LINK REL="Next"  HREF="000782.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New option for FS-based syncing</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20option%20for%20FS-based%20syncing&In-Reply-To=%3C1194520323.7420.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] New option for FS-based syncing">thp at perli.net
+       </A><BR>
+    <I>Thu Nov  8 12:12:03 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000781.html">[gpodder-devel] gPodder 0.10.1 &quot;Nukular, das Wort hei&#223;t Nukular&quot; released
+</A></li>
+        <LI>Next message: <A HREF="000782.html">[gpodder-devel] The mighty episode selection dialog :)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#780">[ date ]</a>
+              <a href="thread.html#780">[ thread ]</a>
+              <a href="subject.html#780">[ subject ]</a>
+              <a href="author.html#780">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+Based on a suggestion by Paul Elliot in early October[1], and thanks to
+the comfort the new config manager brings us, I've now implemented a new
+option for FS-based MP3 player synchronizing:
+
+ * Create a subfolder for each channel (default = Yes)
+
+If you unset this option in the preferences dialog, gPodder will sync
+all episodes directly in the folder specified by &quot;Sync to folder:&quot;,
+without any subdirectories. This is useful for users with MP3 players
+that do not support subfolders or for users with many channels and only
+a few episodes per channel.
+
+As an added bonus, the preferences dialog now hides all settings from
+the &quot;Player&quot; tab that are not relevant for the currently selected
+device, making it more intuitive and usable (hopefully ;).
+
+The changes are now available in SVN trunk and in the next release.
+
+
+Thomas
+
+[1] <A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-October/001029.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-October/001029.html</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000781.html">[gpodder-devel] gPodder 0.10.1 &quot;Nukular, das Wort hei&#223;t Nukular&quot; released
+</A></li>
+	<LI>Next message: <A HREF="000782.html">[gpodder-devel] The mighty episode selection dialog :)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#780">[ date ]</a>
+              <a href="thread.html#780">[ thread ]</a>
+              <a href="subject.html#780">[ subject ]</a>
+              <a href="author.html#780">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Changing downloads tab to actions tab?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changing%20downloads%20tab%20to%20actions%20tab%3F&In-Reply-To=%3C3e8fd0440801301250l487abebch9d55a2bdc2022f4f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001137.html">
+   <LINK REL="Next"  HREF="001145.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Changing downloads tab to actions tab?</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changing%20downloads%20tab%20to%20actions%20tab%3F&In-Reply-To=%3C3e8fd0440801301250l487abebch9d55a2bdc2022f4f%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Changing downloads tab to actions tab?">me at nikosapi.org
+       </A><BR>
+    <I>Wed Jan 30 21:50:13 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001137.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+        <LI>Next message: <A HREF="001145.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1144">[ date ]</a>
+              <a href="thread.html#1144">[ thread ]</a>
+              <a href="subject.html#1144">[ subject ]</a>
+              <a href="author.html#1144">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Jan 30, 2008 11:57 AM, Daniel Finnie &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dan at danfinnie.com</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I've been using gPodder for a few weeks now and it is definitely the best
+</I>&gt;<i> podcast client I've used on Linux, but that's not to say the software is
+</I>&gt;<i> without flaws.  The biggest thing about gPodder that I would like to see
+</I>&gt;<i> improved is the modal feed checking, file downloading, and file transfers to
+</I>&gt;<i> an MP3 player.  I don't see a technical reason why the application can't
+</I>&gt;<i> transfer an episode to my MP3 player while I click around to find other
+</I>&gt;<i> episodes to transfer.
+</I>&gt;<i>
+</I>&gt;<i> To solve this, I propose changing the downloads tab to an actions tab that
+</I>&gt;<i> would list pending actions and their state.
+</I>&gt;<i>
+</I>&gt;<i> Much like the downloads are handled now, I would add options to select how
+</I>&gt;<i> many concurrent transfers are allowed and how many concurrent feed updates
+</I>&gt;<i> are allowed.  Possibly, a &quot;total concurrent actions&quot; option could be
+</I>&gt;<i> implemented.
+</I>&gt;<i>
+</I>&gt;<i> I see this as a huge benefit as it allows:
+</I>&gt;<i> - Users with fast Internet connections to update multiple feeds at once.
+</I>&gt;<i> - Users would be able to pick one file to transfer to an MP3 player and have
+</I>&gt;<i> it transfer while browsing around for another file to transfer.
+</I>&gt;<i> - Reduce &quot;task bar clutter.&quot;
+</I>&gt;<i>
+</I>&gt;<i> The only drawback I can see is the additional coding required, however I
+</I>&gt;<i> don't think it is too intensive.  When the user requests a feed update, it
+</I>&gt;<i> will add itself to the queue and start executing if the max. concurrent feed
+</I>&gt;<i> updates has not been reached.  When a feed update completes, it another feed
+</I>&gt;<i> update so long as there is one to update.
+</I>&gt;<i>
+</I>&gt;<i> In addition, threads will probably have to be used if they are not already.
+</I>&gt;<i> Because gPodder is not cross-platform, I don't think this will be too much
+</I>&gt;<i> of a problem.
+</I>&gt;<i>
+</I>&gt;<i> So, finally, if I wrote up the code that implemented the above suggestion,
+</I>&gt;<i> would it get merged into the gPodder trunk?  Or is there a reason that this
+</I>&gt;<i> was not done already?
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Dan Finnie
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dan at danfinnie.com</A>
+</I>
+
+What about an option to only sync &quot;selected&quot; episodes? You could
+select everything that you want to sync through a right click option
+(or a checkbox column) then transfer them in one big batch like it's
+done now.
+
+I think you're idea is pretty cool but it might be hard to implement.
+In the meantime you could use the &quot;only sync unplayed episodes&quot; option
+to do something similar, albeit in a much hackier way. Just mark all
+the episodes as played, then mark the ones you want to sync as
+unplayed and sync away! You should also enable the &quot;Mark episode as
+played after synchronization&quot; option.
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001137.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+	<LI>Next message: <A HREF="001145.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1144">[ date ]</a>
+              <a href="thread.html#1144">[ thread ]</a>
+              <a href="subject.html#1144">[ subject ]</a>
+              <a href="author.html#1144">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

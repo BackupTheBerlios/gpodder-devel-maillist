@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Can't get a podcast
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%27t%20get%20a%20podcast&In-Reply-To=%3C1203169497.6369.2.camel%40Suzhou%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001205.html">
+   <LINK REL="Next"  HREF="001207.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Can't get a podcast</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%27t%20get%20a%20podcast&In-Reply-To=%3C1203169497.6369.2.camel%40Suzhou%3E"
+       TITLE="[gpodder-devel] Can't get a podcast">Paul at thegithouse.com
+       </A><BR>
+    <I>Sat Feb 16 14:44:57 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001205.html">[gpodder-devel] Can't get a podcast
+</A></li>
+        <LI>Next message: <A HREF="001207.html">[gpodder-devel] Can't get a podcast
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1206">[ date ]</a>
+              <a href="thread.html#1206">[ thread ]</a>
+              <a href="subject.html#1206">[ subject ]</a>
+              <a href="author.html#1206">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Chris
+
+I have been able to subscribe to this podcast OK with the current 0.11
+release.  I wonder if for some reason your feedcache.db is corrupt.  I
+have had similar issues in the past and I deleted this file and
+afterwards all was well.  This file is located under your home directory
+in .conf/gpodder - good luck!  Let us know how you get on.
+
+Paul
+
+On Sat, 2008-02-16 at 08:25 -0500, Chris Arnold wrote:
+&gt;<i> On Friday 15 February 2008 01:07:52 pm Chris Arnold wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Yea, i have done that and i do not get anything from the GUI or the CL when
+</I>&gt;<i> &gt; entering the podcast. I do get this not long after starting gpodder but
+</I>&gt;<i> &gt; this does not happen as a result of putting in the podcast:
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 308, in
+</I>&gt;<i> &gt; treeview_channels_query_tooltip
+</I>&gt;<i> &gt;     tooltip.set_icon(channel.get_cover_pixbuf())
+</I>&gt;<i> &gt; AttributeError: 'gtk.Tooltip' object has no attribute 'set_icon'
+</I>&gt;<i> This is in fact what appears when i put in that podcast that does not show up 
+</I>&gt;<i> in gpodder. Itsn't that list in a file somewhere? The opml file does not 
+</I>&gt;<i> contain the podcast in question. If i use the podcast link in my browser, i 
+</I>&gt;<i> get there, so i know it is up and available. Can other subscribe to that link 
+</I>&gt;<i> in gpoodder 10.4?
+</I>&gt;<i> <A HREF="http://podcast.oneplace.com/love_worth_finding/podcast.xml">http://podcast.oneplace.com/love_worth_finding/podcast.xml</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001205.html">[gpodder-devel] Can't get a podcast
+</A></li>
+	<LI>Next message: <A HREF="001207.html">[gpodder-devel] Can't get a podcast
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1206">[ date ]</a>
+              <a href="thread.html#1206">[ thread ]</a>
+              <a href="subject.html#1206">[ subject ]</a>
+              <a href="author.html#1206">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

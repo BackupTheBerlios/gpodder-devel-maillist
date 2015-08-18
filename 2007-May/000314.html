@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] non-ascii character support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20non-ascii%20character%20support&In-Reply-To=%3C724721.72425.qm%40web25612.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000312.html">
+   <LINK REL="Next"  HREF="000315.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] non-ascii character support</H1>
+    <B>Jonathan Charnas</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20non-ascii%20character%20support&In-Reply-To=%3C724721.72425.qm%40web25612.mail.ukl.yahoo.com%3E"
+       TITLE="[gpodder-devel] non-ascii character support">goeland_86 at yahoo.fr
+       </A><BR>
+    <I>Mon May 14 23:24:32 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000312.html">[gpodder-devel] non-ascii character support
+</A></li>
+        <LI>Next message: <A HREF="000315.html">[gpodder-devel] gPodder + libgpod CVS = borked
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#314">[ date ]</a>
+              <a href="thread.html#314">[ thread ]</a>
+              <a href="subject.html#314">[ subject ]</a>
+              <a href="author.html#314">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Thomas,
+I have some sad news for you.
+I ran into issues with trying to update that ebuild, it seems that the usual thing of just copying it over to a new name and verifying that it doesn't call specific version files hardcoded in doesn't work.
+I get an error about a .mo file for german that shouldn't even matter, and someone on #gentoo confirmed it. However, a manual install did reveal that the ascii problem is fixed in 0.9.1. So thank you for that. I'm going to try hard to get the gentoo devs to see that as a problem and update it.
+I'll post back when I know that there has been a fix to the ebuild.
+Jonathan
+
+----- Original Message ----
+From: Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt;
+To: Development for gPodder &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+Sent: Monday, May 14, 2007 12:10:24 PM
+Subject: Re: [gpodder-devel] non-ascii character support
+
+Hello, Jonathan!
+
+On Mon, 2007-05-14 at 18:59 +0000, Jonathan Charnas wrote:
+&gt;<i> I think I can do you one better. I can modify the current ebuild to
+</I>&gt;<i> accept 0.9.1 and then use it in the overlay, and submit the new ebuild
+</I>&gt;<i> for inclusion.
+</I>
+That sounds really good =) I think some other Gentoo users on this list
+will also be very happy to hear a new ebuild for the latest version
+appearing :)
+
+&gt;<i> I don't think there has been any difference in building 0.9.1 since
+</I>&gt;<i> 0.9.0, has there?
+</I>
+No, the build process is the same. You should call
+&quot;gtk-update-icon-cache&quot; to update the hicolor icon theme icon cache (I'm
+sure the code for this can be found in other ebuilds that add
+application icons to the hicolor icon theme folder.
+
+In the Debian package, I have the following code in the postinst script:
+
+if [ -x /usr/bin/gtk-update-icon-cache ]
+then
+  /usr/bin/gtk-update-icon-cache -f /usr/share/icons/hicolor
+fi
+
+
+Enjoy,
+Thomas
+
+
+_______________________________________________
+gpodder-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+
+
+
+
+
+
+
+      ____________________________________________________________________________________
+Park yourself in front of a world of choices in alternative vehicles. Visit the Yahoo! Auto Green Center.
+<A HREF="http://autos.yahoo.com/green_center/">http://autos.yahoo.com/green_center/</A> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070514/d0aaae18/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070514/d0aaae18/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000312.html">[gpodder-devel] non-ascii character support
+</A></li>
+	<LI>Next message: <A HREF="000315.html">[gpodder-devel] gPodder + libgpod CVS = borked
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#314">[ date ]</a>
+              <a href="thread.html#314">[ thread ]</a>
+              <a href="subject.html#314">[ subject ]</a>
+              <a href="author.html#314">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

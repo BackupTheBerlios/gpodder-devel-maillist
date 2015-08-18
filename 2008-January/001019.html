@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Standalone Conversion Tool: channels.xml to	channels.opml
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Standalone%20Conversion%20Tool%3A%20channels.xml%20to%0A%09channels.opml&In-Reply-To=%3C477BA731.3010206%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001032.html">
+   <LINK REL="Next"  HREF="001023.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Standalone Conversion Tool: channels.xml to	channels.opml</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Standalone%20Conversion%20Tool%3A%20channels.xml%20to%0A%09channels.opml&In-Reply-To=%3C477BA731.3010206%40perli.net%3E"
+       TITLE="[gpodder-devel] Standalone Conversion Tool: channels.xml to	channels.opml">thp at perli.net
+       </A><BR>
+    <I>Wed Jan  2 16:01:05 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001032.html">[gpodder-devel] Co-maintainers, gPodder team and SVN/Git
+</A></li>
+        <LI>Next message: <A HREF="001023.html">[gpodder-devel] Standalone Conversion Tool: channels.xml	to	channels.opml
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1019">[ date ]</a>
+              <a href="thread.html#1019">[ thread ]</a>
+              <a href="subject.html#1019">[ subject ]</a>
+              <a href="author.html#1019">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+After we had another issue with Ubuntu upgrades, and because that was on 
+our TODO list anyway, I decided to implement a channels.xml =&gt; 
+channels.opml migration function in gPodder. The code is in SVN already, 
+and I have sent in a patch to the Ubuntu package[1].
+
+For all of you who have not yet got the new package, but already 
+upgraded, here's the standalone tool which should also work. It simply 
+converts the channels.xml file to channels.opml and then exists. After 
+that, you can use gPodder 0.10.0 or newer with the migrated channel list 
+from gPodder 0.9.4 or earlier.
+
+
+Thanks,
+Thomas
+
+[1] <A HREF="https://bugs.launchpad.net/ubuntu/+source/gpodder/+bug/179256">https://bugs.launchpad.net/ubuntu/+source/gpodder/+bug/179256</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: channels_xml2opml.py
+Type: text/x-python
+Size: 1323 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080102/183de761/attachment.py">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080102/183de761/attachment.py</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001032.html">[gpodder-devel] Co-maintainers, gPodder team and SVN/Git
+</A></li>
+	<LI>Next message: <A HREF="001023.html">[gpodder-devel] Standalone Conversion Tool: channels.xml	to	channels.opml
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1019">[ date ]</a>
+              <a href="thread.html#1019">[ thread ]</a>
+              <a href="subject.html#1019">[ subject ]</a>
+              <a href="author.html#1019">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

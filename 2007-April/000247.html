@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Likely obvious... can't see podcasts in ipod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Likely%20obvious...%20can%27t%20see%20podcasts%20in%20ipod&In-Reply-To=%3C1176336033.4971.12.camel%40danger.oawh3.on.cogeco.ca%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000243.html">
+   <LINK REL="Next"  HREF="000248.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Likely obvious... can't see podcasts in ipod</H1>
+    <B>Darren O'Neil</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Likely%20obvious...%20can%27t%20see%20podcasts%20in%20ipod&In-Reply-To=%3C1176336033.4971.12.camel%40danger.oawh3.on.cogeco.ca%3E"
+       TITLE="[gpodder-devel] Likely obvious... can't see podcasts in ipod">darrenoneil at gmail.com
+       </A><BR>
+    <I>Thu Apr 12 02:00:33 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000243.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+        <LI>Next message: <A HREF="000248.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#247">[ date ]</a>
+              <a href="thread.html#247">[ thread ]</a>
+              <a href="subject.html#247">[ subject ]</a>
+              <a href="author.html#247">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Okay, I have libgpod0 version 0.3.2-1.1ubuntu1 installed. I do not have
+libgpod-dev installed. python-gpod installed is version 0.3.2-1.1ubuntu1
+as well. gpodder is 0.9.1-1
+
+Really don't know what top or htop is. Using latest ubuntu distro. It is
+a slower machine I am running on. My internet is not super snappy
+either. Any way I can limit the concurrent downloads to say three or
+four?
+
+Thanks again for the help. This is the first time I have troubleshot
+something in a community fashion. It is very cool. Liking Linux more and
+more.
+
+There does look like some interesting stuff below. I deleted one
+repetitive section Gpodder actually crashed at the end of the sync. This
+is what it was saying:
+
+Thanks,
+Darren
+
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) Found pymad
+(ipodsync) Found PyID3, will try to extract cover art from mp3 metadata
+(ipodsync) mplayer not found - length of video files will be guessed
+(PlaybackHistory) Creating new history list.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/0cb248c2ce45bc17727e79bd84f42ca2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/4c5c338196ef4b6e930c07b45bc67a44/index.xml
+Episode Welcome From Ongoing History Host, Alan Cross has non-parseable
+pubDate. Sorting disabled.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/75b7f83bb3e547cce64ae5bb87a7ece2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/8ce717803a430ecfcc6087344907a3b8/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/7d2b16ee288eaf119c5d08e04ad575e2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/7656b18eccc8eed2f93bac429d435c2e/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/05e8ef42ad902b2830556a5d402c5dc2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/70fa487448debe44860b398014233b05/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/8add31c476c7205318f93ec63d355b2d/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/4ced58cb99631500efbc37b999b3faaf/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/e2adf36b71cb1dc16d70db2c4d009773/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/6d16769b1f7336ce51af49f8ce0dbb2e/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/68942bcea13242d76298744ac999c268/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/e1ab97b36046f8700397bd4d344d29ec/index.xml
+deleteFilename: /home/ubuntu/.config/gpodder/cache/0cb248c2ce45bc17727e79bd84f42ca2.xml
+Command: wget --timeout=120 --continue --tries=inf
+--output-document=&quot;/home/ubuntu/.config/gpodder/cache/.tmp-0cb248c2ce45bc17727e79bd84f42ca2.xml&quot; &quot;<A HREF="http://www.npr.org/rss/podcast.php?id=510053">http://www.npr.org/rss/podcast.php?id=510053</A>&quot;
+Reading metadata
+from /home/ubuntu/gpodder-downloads/0cb248c2ce45bc17727e79bd84f42ca2/index.xml
+deleteFilename: /home/ubuntu/.config/gpodder/cache/4c5c338196ef4b6e930c07b45bc67a44.xml
+
+... deleted stuff here...
+
+Episode &quot;The Imus Controversy&quot; is newer.
+Episode &quot;New Debate On Trade:  Blinder on Globalization&quot; is newer.
+Episode &quot;Early Primaries&quot; is newer.
+Episode &quot;The Art of Acting&quot; is newer.
+Downloading newest three episodes.
+Downloading newest three episodes.
+Episode &quot;April 11th: Nude Food&quot; is newer.
+Episode &quot;April 10th: The Pressure is On&quot; is newer.
+Episode &quot;Listener's Choice - April 6th, 2007 - Peter Gzowski Classics&quot;
+is newer.
+Episode &quot;QQ-070407- 02-Corals and Climate&quot; is newer.
+Episode &quot;QQ-070407- 03-Shark Decline&quot; is newer.
+Episode &quot;QQ-070407- 04-Rats and Fungicide&quot; is newer.
+Episode &quot;QQ-070407- 06-Question of the Week-Bird Bones&quot; is newer.
+Downloading newest three episodes.
+Episode &quot;BBC Digital Planet April 10 2007&quot; is newer.
+/var/lib/python-support/python2.4/gpodder/gpodder.py:317: GtkWarning:
+Failed to set text from markup due to error parsing markup: Error on
+line 10: Character ' ' is not valid at the start of an entity name; the
+&amp; character begins an entity; if this ampersand isn't supposed to be an
+entity, escape it as &amp;
+  dlg.set_markup( markup)
+Player found: gxine (/usr/share/applications/gxine.desktop)
+Stale download directory found: 7d2b16ee288eaf119c5d08e04ad575e2
+Successfully
+removed /home/ubuntu/gpodder-downloads/7d2b16ee288eaf119c5d08e04ad575e2.
+Stale download directory found: 7656b18eccc8eed2f93bac429d435c2e
+Successfully
+removed /home/ubuntu/gpodder-downloads/7656b18eccc8eed2f93bac429d435c2e.
+Stale download directory found: 68942bcea13242d76298744ac999c268
+Successfully
+removed /home/ubuntu/gpodder-downloads/68942bcea13242d76298744ac999c268.
+Command: wget --timeout=120 --continue --tries=inf
+--output-document=&quot;/home/ubuntu/gpodder-downloads/05e8ef42ad902b2830556a5d402c5dc2/.tmp-b05060c83457c51a74e002c5b3277b1e.mp3&quot; &quot;<A HREF="http://podcast.cbc.ca/mp3/editorschoice_20070410_2023.mp3">http://podcast.cbc.ca/mp3/editorschoice_20070410_2023.mp3</A>&quot;
+Download thread finished: Adding downloaded item to local database
+Local
+database: /home/ubuntu/gpodder-downloads/05e8ef42ad902b2830556a5d402c5dc2/index.xml
+(DownloadHistory) Adding:
+<A HREF="http://podcast.cbc.ca/mp3/editorschoice_20070410_2023.mp3">http://podcast.cbc.ca/mp3/editorschoice_20070410_2023.mp3</A>
+(DownloadHistory) Wrote 44 history entries.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/0cb248c2ce45bc17727e79bd84f42ca2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/4c5c338196ef4b6e930c07b45bc67a44/index.xml
+Episode Welcome From Ongoing History Host, Alan Cross has non-parseable
+pubDate. Sorting disabled.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/75b7f83bb3e547cce64ae5bb87a7ece2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/8ce717803a430ecfcc6087344907a3b8/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/7d2b16ee288eaf119c5d08e04ad575e2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/7656b18eccc8eed2f93bac429d435c2e/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/05e8ef42ad902b2830556a5d402c5dc2/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/70fa487448debe44860b398014233b05/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/8add31c476c7205318f93ec63d355b2d/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/4ced58cb99631500efbc37b999b3faaf/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/e2adf36b71cb1dc16d70db2c4d009773/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/6d16769b1f7336ce51af49f8ce0dbb2e/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/68942bcea13242d76298744ac999c268/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/e1ab97b36046f8700397bd4d344d29ec/index.xml
+Reading metadata
+from /home/ubuntu/gpodder-downloads/0cb248c2ce45bc17727e79bd84f42ca2/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/4c5c338196ef4b6e930c07b45bc67a44/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/75b7f83bb3e547cce64ae5bb87a7ece2/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/8ce717803a430ecfcc6087344907a3b8/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/05e8ef42ad902b2830556a5d402c5dc2/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Adding item: April 10th: The Pressure is On from CBC Radio:
+Editor's Choice
+(ipodsync) Using pymad to get file length
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Error reading ID3v2 information
+for /home/ubuntu/gpodder-downloads/05e8ef42ad902b2830556a5d402c5dc2/b05060c83457c51a74e002c5b3277b1e.mp3
+(ipodsync) Added April 10th: The Pressure is On
+Reading metadata
+from /home/ubuntu/gpodder-downloads/70fa487448debe44860b398014233b05/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/8add31c476c7205318f93ec63d355b2d/index.xml
+/var/lib/python-support/python2.4/gpodder/gpodder.py:1516: GtkWarning:
+Failed to set text from markup due to error parsing markup: Error on
+line 1: Character ' ' is not valid at the start of an entity name; the &amp;
+character begins an entity; if this ampersand isn't supposed to be an
+entity, escape it as &amp;
+  self.labelChannel.set_markup( '&lt;i&gt;%s&lt;/i&gt;' % channel)
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/4ced58cb99631500efbc37b999b3faaf/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/e2adf36b71cb1dc16d70db2c4d009773/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/6d16769b1f7336ce51af49f8ce0dbb2e/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+Reading metadata
+from /home/ubuntu/gpodder-downloads/e1ab97b36046f8700397bd4d344d29ec/index.xml
+(ipodsync) Seems like your python-gpod is out-of-date.
+
+
+&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/milman/listinfo/gpodder-devel">https://lists.berlios.de/milman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>&gt;<i> Could you try running &quot;gpodder --verbose&quot; and do a sync. Then paste your 
+</I>&gt;<i> terminal's output to the list (or pastebin.ca if there's a lot). 
+</I>&gt;<i> 
+</I>&gt;<i> Also what version of libgpod are you using? 
+</I>&gt;<i> On an rpm based distro you can find out via something like this: 
+</I>&gt;<i> &quot;rpm -qa | grep gpod&quot; 
+</I>&gt;<i> and on a deb based distro find out via something like this: 
+</I>&gt;<i> &quot;dpkg -l | grep gpod&quot;
+</I>&gt;<i> 
+</I>&gt;<i> For the downloads problem I'm not quite sure, have you tried looking at top 
+</I>&gt;<i> (or htop) while it's downloading? 15 wget instances on a slow machine is a 
+</I>&gt;<i> lot of work!
+</I>&gt;<i> 
+</I>&gt;<i> nick
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000243.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+	<LI>Next message: <A HREF="000248.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#247">[ date ]</a>
+              <a href="thread.html#247">[ thread ]</a>
+              <a href="subject.html#247">[ subject ]</a>
+              <a href="author.html#247">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

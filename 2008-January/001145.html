@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Changing downloads tab to actions tab?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changing%20downloads%20tab%20to%20actions%20tab%3F&In-Reply-To=%3C1201776183.9914.15.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001144.html">
+   <LINK REL="Next"  HREF="001138.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Changing downloads tab to actions tab?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changing%20downloads%20tab%20to%20actions%20tab%3F&In-Reply-To=%3C1201776183.9914.15.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Changing downloads tab to actions tab?">thp at perli.net
+       </A><BR>
+    <I>Thu Jan 31 11:43:03 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001144.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+        <LI>Next message: <A HREF="001138.html">[gpodder-devel] Feedback wanted: New episode list?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1145">[ date ]</a>
+              <a href="thread.html#1145">[ thread ]</a>
+              <a href="subject.html#1145">[ subject ]</a>
+              <a href="author.html#1145">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Daniel!
+
+On Wed, 2008-01-30 at 11:57 -0500, Daniel Finnie wrote:
+&gt;<i> I've been using gPodder for a few weeks now and it is definitely the
+</I>&gt;<i> best podcast client I've used on Linux, but that's not to say the
+</I>&gt;<i> software is without flaws.  The biggest thing about gPodder that I
+</I>&gt;<i> would like to see improved is the modal feed checking, file
+</I>&gt;<i> downloading, and file transfers to an MP3 player.  I don't see a
+</I>&gt;<i> technical reason why the application can't transfer an episode to my
+</I>&gt;<i> MP3 player while I click around to find other episodes to transfer.
+</I>
+I can see some reasons:
+
+ * Delete episodes in the GUI while they are being transferred
+ * Selecting episodes in the GUI, then lose the selection, because
+   the tree model is updated as a result of a feed cache update
+
+Also, downloading isn't modal and never was - you can close the episode
+dialog and the download continues in the background.
+ 
+&gt;<i> Much like the downloads are handled now, I would add options to select
+</I>&gt;<i> how many concurrent transfers are allowed and how many concurrent feed
+</I>&gt;<i> updates are allowed.  Possibly, a &quot;total concurrent actions&quot; option
+</I>&gt;<i> could be implemented.
+</I>
+I don't see the point in &quot;total concurrent actions&quot;, because limits are
+there to make up for bandwidth and processing restrictions (only one
+download because of small bandwidth, only one transfer, because the
+bottleneck is the USB device's storage, not the copy algorithm).
+
+I see the point for a &quot;total concurrent downloads&quot; if we decide to make
+the channel feed update parallel (something that is planned for the
+April 2008 release). Do we really need to transfer episodes in parallel?
+
+&gt;<i> I see this as a huge benefit as it allows:
+</I>&gt;<i> - Users with fast Internet connections to update multiple feeds at
+</I>&gt;<i> once.
+</I>
+Sure, updating the feed cache in parallel is something I wanted to
+implement for some time now (and has also been requested), but due to
+lack of time, there has not been an implementation yet. Also, I thought
+about not displaying the feed update in the &quot;Downloads&quot; tab but directly
+in the channel navigator (the left panel), maybe with an animation or
+the &quot;refresh&quot; icon as emblem on the channel cover, just as we do now
+with the &quot;played&quot; and &quot;locked&quot; status on episode icons.
+
+&gt;<i> - Users would be able to pick one file to transfer to an MP3 player
+</I>&gt;<i> and have it transfer while browsing around for another file to
+</I>&gt;<i> transfer.
+</I>
+The code can get much more complicated and buggy, because we have to
+make sure to avoid race conditions, such as the one mentioned above
+(sync A, B, and C; while A is still syncing, delete B in GUI; what does
+the sync process do?). The &quot;Ctrl+S&quot; sync mode automatically syncs all
+your unplayed episodes (if you have configured it do to so) to your
+player without having to manually select which episodes to transfer.
+
+&gt;<i> The only drawback I can see is the additional coding required, however
+</I>&gt;<i> I don't think it is too intensive.  When the user requests a feed
+</I>&gt;<i> update, it will add itself to the queue and start executing if the
+</I>&gt;<i> max. concurrent feed updates has not been reached.  When a feed update
+</I>&gt;<i> completes, it another feed update so long as there is one to update.
+</I>&gt;<i>  
+</I>&gt;<i> In addition, threads will probably have to be used if they are not
+</I>&gt;<i> already.  Because gPodder is not cross-platform, I don't think this
+</I>&gt;<i> will be too much of a problem.
+</I>
+Threads are already used for some parts of the code. As much as
+possible, I want to avoid threading, as it brings in many nasty problems
+and invisible bugs.
+
+I don't know if a possible buggy and hard-to-debug gPodder is not a too
+high price to pay for small things like non-modal MP3 player sync.
+ 
+&gt;<i> So, finally, if I wrote up the code that implemented the above
+</I>&gt;<i> suggestion, would it get merged into the gPodder trunk?  Or is there a
+</I>&gt;<i> reason that this was not done already?
+</I>
+If the implementation is nice and clean, and if you keep sending the
+patches while you are developing, why not? Best would be if you could
+send your changes step by step, so that we can review it and give some
+comments and maybe partially merge it into the codebase.
+
+If you develop three weeks or so behind closed doors and then come up
+with a huge patch, it is a PITA to apply and merge the patch, because
+it probably grew huge in the meantime.
+
+Please, feel free to try to implement the features you requested (apart
+from the &quot;total concurrent actions&quot; feature for reasons mentioned above)
+and send in patches. I'd really love to see this in gPodder! :)
+
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001144.html">[gpodder-devel] Changing downloads tab to actions tab?
+</A></li>
+	<LI>Next message: <A HREF="001138.html">[gpodder-devel] Feedback wanted: New episode list?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1145">[ date ]</a>
+              <a href="thread.html#1145">[ thread ]</a>
+              <a href="subject.html#1145">[ subject ]</a>
+              <a href="author.html#1145">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

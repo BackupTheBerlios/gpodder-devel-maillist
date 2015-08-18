@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] bug, cli
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bug%2C%20cli&In-Reply-To=%3C200706031528.34364.axxo%40gentoo.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000332.html">
+   <LINK REL="Next"  HREF="000334.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] bug, cli</H1>
+    <B>Thomas Matthijs</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bug%2C%20cli&In-Reply-To=%3C200706031528.34364.axxo%40gentoo.org%3E"
+       TITLE="[gpodder-devel] bug, cli">axxo at gentoo.org
+       </A><BR>
+    <I>Sun Jun  3 15:28:34 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000332.html">[gpodder-devel] bug, cli
+</A></li>
+        <LI>Next message: <A HREF="000334.html">[gpodder-devel] bug, cli
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#333">[ date ]</a>
+              <a href="thread.html#333">[ thread ]</a>
+              <a href="subject.html#333">[ subject ]</a>
+              <a href="author.html#333">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sunday 03 June 2007 13:54:59 Thomas Perl wrote:
+&gt;<i> Hello, Thomas!
+</I>&gt;<i>
+</I>&gt;<i> Please re-run gPodder with this patch applied so we can debug this:
+</I>&gt;<i>
+</I>&gt;<i> Index: src/gpodder/liblogger.py
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> --- src/gpodder/liblogger.py	(revision 332)
+</I>&gt;<i> +++ src/gpodder/liblogger.py	(working copy)
+</I>&gt;<i> @@ -44,6 +44,9 @@
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  def msg( type, message, *args):
+</I>&gt;<i> -    s = message % args
+</I>&gt;<i> +    try:
+</I>&gt;<i> +        s = message % args
+</I>&gt;<i> +    except:
+</I>&gt;<i> +        print 'Error: String is &quot;%s&quot; and args are [ %s ]' % ( message,
+</I>&gt;<i> ', '.join( args),  )
+</I>&gt;<i>      print '%c\t%s' % ( type[0].upper(), s )
+</I>&gt;<i>
+</I>
+Applied above with the last print inside the try-except block
+Going over the code quickly i can't figure out why/where msg can get called 
+like this
+
+$ gpodder -v -u
+(PlaybackHistory) Creating new history list.
+U&#160;&#160;&#160;&#160;&#160;&#160;&#160;<A HREF="http://www.wcradio.com/feeds/FS.xml">http://www.wcradio.com/feeds/FS.xml</A>
+deleteFilename: /home/axxo/.config/gpodder/cache/ea32ff0abfc3e23fce49ec6b5fa47a2e.xml
+Command: 
+wget --timeout=120 --continue --tries=inf &#160;--output-document=&quot;/home/axxo/.config/gpodder/cache/.tmp-ea32ff0abfc3e23fce49ec6b5fa47a2e.xml&quot; &quot;<A HREF="http://www.wcradio.com/feeds/FS.xml">http://www.wcradio.com/feeds/FS.xml</A>&quot;
+Reading metadata 
+from /home/axxo/gpodder-downloads/ea32ff0abfc3e23fce49ec6b5fa47a2e/index.xml
+U&#160;&#160;&#160;&#160;&#160;&#160;&#160;<A HREF="http://www.wcradio.com/feeds/VT.xml">http://www.wcradio.com/feeds/VT.xml</A>
+deleteFilename: /home/axxo/.config/gpodder/cache/8392f3d0a833ed8604a49eaef56f8916.xml
+Command: 
+wget --timeout=120 --continue --tries=inf &#160;--output-document=&quot;/home/axxo/.config/gpodder/cache/.tmp-8392f3d0a833ed8604a49eaef56f8916.xml&quot; &quot;<A HREF="http://www.wcradio.com/feeds/VT.xml">http://www.wcradio.com/feeds/VT.xml</A>&quot;
+Reading metadata 
+from /home/axxo/gpodder-downloads/8392f3d0a833ed8604a49eaef56f8916/index.xml
+
+Error: String is &quot;<A HREF="http://www.wcradio.com/feeds/%5BEPIC%5D.xml">http://www.wcradio.com/feeds/%5BEPIC%5D.xml</A>&quot; and args are 
+[ &#160;]
+
+deleteFilename: /home/axxo/.config/gpodder/cache/7b4f912e0a7867a826c2c5f7faa93978.xml
+Command: 
+wget --timeout=120 --continue --tries=inf &#160;--output-document=&quot;/home/axxo/.config/gpodder/cache/.tmp-7b4f912e0a7867a826c2c5f7faa93978.xml&quot; &quot;<A HREF="http://www.wcradio.com/feeds/%5BEPIC%5D.xml">http://www.wcradio.com/feeds/%5BEPIC%5D.xml</A>&quot;
+Reading metadata 
+from /home/axxo/gpodder-downloads/7b4f912e0a7867a826c2c5f7faa93978/index.xml
+U&#160;&#160;&#160;&#160;&#160;&#160;&#160;<A HREF="http://www.wcradio.com/feeds/MS.xml">http://www.wcradio.com/feeds/MS.xml</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000332.html">[gpodder-devel] bug, cli
+</A></li>
+	<LI>Next message: <A HREF="000334.html">[gpodder-devel] bug, cli
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#333">[ date ]</a>
+              <a href="thread.html#333">[ thread ]</a>
+              <a href="subject.html#333">[ subject ]</a>
+              <a href="author.html#333">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

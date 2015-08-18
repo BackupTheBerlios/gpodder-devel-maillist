@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [PATCH] GUID matching.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20GUID%20matching.&In-Reply-To=%3C4616ADB7.9030004%40sd-6.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000221.html">
+   <LINK REL="Next"  HREF="000210.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [PATCH] GUID matching.</H1>
+    <B>Jon</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20GUID%20matching.&In-Reply-To=%3C4616ADB7.9030004%40sd-6.org%3E"
+       TITLE="[gpodder-devel] [PATCH] GUID matching.">jon at sd-6.org
+       </A><BR>
+    <I>Fri Apr  6 22:29:43 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000221.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+        <LI>Next message: <A HREF="000210.html">[gpodder-devel] Bug while downloading a podcast without an audio	file
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Thomas Perl wrote:
+&gt;<i> Hello Jon!
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2007-04-06 at 12:48 -0500, Jon wrote:
+</I>&gt;&gt;<i> I was able to find a podcast without the guid...it went horribly
+</I>&gt;&gt;<i> wrong. It downloaded the podcast, then showed all podcasts as
+</I>&gt;&gt;<i> downloaded but it couldn't find the file to play it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> This one checks for guid first, then falls back the the url.  This one
+</I>&gt;&gt;<i> will only break previous downloads that have a guid tag.
+</I>&gt;<i> 
+</I>&gt;<i> Breaking previous downloads is not a good thing, so I've implemented
+</I>&gt;<i> another way to circumvent the GUID problem. I haven't tested this
+</I>&gt;<i> throughout, but short tests with my local test podcast have worked (i.e.
+</I>&gt;<i> gpodder now ignores new episodes with the same GUID as
+</I>&gt;<i> already-downloaded episodes).
+</I>&gt;<i> 
+</I>&gt;<i> Please test the current svn trunk head and tell me if this fixes your
+</I>&gt;<i> problems :)
+</I>
+It appears to be working now.  However it introduces the secondary
+problem from before.  The feed in question has three podcasts per day
+with the same pubDate.  They are listed out of order and synced out of
+order.  Can you make it sort by the pubDate then title?
+
+Thanks
+-Jon
+
+
+&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000221.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+	<LI>Next message: <A HREF="000210.html">[gpodder-devel] Bug while downloading a podcast without an audio	file
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

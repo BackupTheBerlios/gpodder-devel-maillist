@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [OT] Starting to develop on a N900 in python
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BOT%5D%20Starting%20to%20develop%20on%20a%20N900%20in%20python&In-Reply-To=%3C20110415173052.GN7641%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002744.html">
+   <LINK REL="Next"  HREF="002745.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [OT] Starting to develop on a N900 in python</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BOT%5D%20Starting%20to%20develop%20on%20a%20N900%20in%20python&In-Reply-To=%3C20110415173052.GN7641%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] [OT] Starting to develop on a N900 in python">thp at gpodder.org
+       </A><BR>
+    <I>Fri Apr 15 19:30:52 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002744.html">[gpodder-devel] [OT] Starting to develop on a N900 in python
+</A></li>
+        <LI>Next message: <A HREF="002745.html">[gpodder-devel] gpodder not showing Podcast Episode list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2750">[ date ]</a>
+              <a href="thread.html#2750">[ thread ]</a>
+              <a href="subject.html#2750">[ subject ]</a>
+              <a href="author.html#2750">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+On Fri, Apr 15, 2011 at 08:36:32AM +0100, Thomas Preissler wrote:
+&gt;<i> sorry for this, its completely OT, but could you give any pointers
+</I>&gt;<i> for somebody who has programming and OOP experience to start
+</I>&gt;<i> developing Python apps for a N900 (Maemo) device?
+</I>
+Basically you have two options:
+
+ * PyMaemo: GTK+/Hildon, &quot;native&quot; on N900, lightweight, not
+   really useful if you plan to port your application to any
+   MeeGo device, but good if you already have existing GTK+
+   code or already know PyGTK. gPodder's Maemo 5 UI currently
+   uses PyMaemo (GTK+/Hildon). Check out the code and play around :)
+
+* PySide: Qt/QML. Native looking on the N900, more powerful but
+  also more resource hungry. Useful if you want to support MeeGo
+  devices as well. Great if you want to create QML UIs.
+
+For PyMaemo (GTK+/Hildon), see: <A HREF="http://pymaemo.garage.maemo.org/">http://pymaemo.garage.maemo.org/</A>
+For PySide (Qt/QML), see: <A HREF="http://www.pyside.org/">http://www.pyside.org/</A>
+
+You can also check out my PySide/MeeGo tutorial that also applies to the
+N900/Maemo:
+
+    <A HREF="http://thp.io/2010/meego-python/">http://thp.io/2010/meego-python/</A>
+
+Also checkout the resources on Maemo.org and join the PyMaemo/PySide
+mailing lists. Especially the PyMaemo mailing list is interesting if you
+want to write Python applications for Maemo 5, even if it's low-traffic,
+and PySide-related questions are better posted at the PySide mailing
+lists.
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002744.html">[gpodder-devel] [OT] Starting to develop on a N900 in python
+</A></li>
+	<LI>Next message: <A HREF="002745.html">[gpodder-devel] gpodder not showing Podcast Episode list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2750">[ date ]</a>
+              <a href="thread.html#2750">[ thread ]</a>
+              <a href="subject.html#2750">[ subject ]</a>
+              <a href="author.html#2750">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] File sanity check -- Is it really an mp3?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20File%20sanity%20check%20--%20Is%20it%20really%20an%20mp3%3F&In-Reply-To=%3C474B4DA2.9020708%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000813.html">
+   <LINK REL="Next"  HREF="000814.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] File sanity check -- Is it really an mp3?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20File%20sanity%20check%20--%20Is%20it%20really%20an%20mp3%3F&In-Reply-To=%3C474B4DA2.9020708%40perli.net%3E"
+       TITLE="[gpodder-devel] File sanity check -- Is it really an mp3?">thp at perli.net
+       </A><BR>
+    <I>Mon Nov 26 23:50:10 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000813.html">[gpodder-devel] File sanity check -- Is it really an mp3?
+</A></li>
+        <LI>Next message: <A HREF="000814.html">[gpodder-devel] File sanity check -- Is it really an mp3?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#815">[ date ]</a>
+              <a href="thread.html#815">[ thread ]</a>
+              <a href="subject.html#815">[ subject ]</a>
+              <a href="author.html#815">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Andy!
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">apblist at speakeasy.net</A> wrote:
+&gt;<i> I only know of one podcast where this is a problem, but it's a weird one.
+</I>&gt;<i> 
+</I>&gt;<i> The &quot;This American Life&quot; podcast
+</I>&gt;<i> (<A HREF="http://feeds.thisamericanlife.org/talpodcast">http://feeds.thisamericanlife.org/talpodcast</A>) claims to update at 7 PM
+</I>&gt;<i> Eastern on Sundays.  And it's true that the feed updates, but the mp3
+</I>&gt;<i> doesn't get posted until later.  So gpodder grabs a small HTML error
+</I>&gt;<i> file, and dutifully loads it onto my iPod, which, of course, doesn't
+</I>&gt;<i> play.
+</I>
+Does the feed return a 404 page or simply some static served
+placeholder? I think this bug should be adressed by the podcast feed
+author by simply not adding the enclosure tag to the RSS feed until the
+file is available. gPodder already handles &quot;mixed&quot; podcasts (RSS feeds
+with some items that don't have enclosures) gracefully by ignoring the
+episodes without enclosure.
+
+&gt;<i> It's minimal trouble to delete the file and redownload on Monday, but
+</I>&gt;<i> is there any kind of sanity check to make sure it's actually a playable
+</I>&gt;<i> file before loading?
+</I>
+What kind of sanity check do you expect? It would be hard to implement
+sanity checks for all kinds of different media types, although it might
+not be so difficult do implement checks for the most common types. After
+all, it could theoretically be possible that a podcast has plain HTML
+pages as enclosure, although this might not be a good use case :)
+
+As far as the downloading goes, I think 404 errors are not &quot;seen&quot; by
+gPodder, so we could try to intercept these and make the download fail.
+Would this kind of solve your problem?
+
+Again, best thing would be to talk to the podcast authors to fix their
+podcasts, really.
+
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000813.html">[gpodder-devel] File sanity check -- Is it really an mp3?
+</A></li>
+	<LI>Next message: <A HREF="000814.html">[gpodder-devel] File sanity check -- Is it really an mp3?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#815">[ date ]</a>
+              <a href="thread.html#815">[ thread ]</a>
+              <a href="subject.html#815">[ subject ]</a>
+              <a href="author.html#815">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

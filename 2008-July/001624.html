@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Most revision buggy?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C588451.56398.qm%40web65505.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001623.html">
+   <LINK REL="Next"  HREF="001625.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Most revision buggy?</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C588451.56398.qm%40web65505.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Most revision buggy?">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Mon Jul 14 06:59:05 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001623.html">[gpodder-devel] Most revision buggy?
+</A></li>
+        <LI>Next message: <A HREF="001625.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1624">[ date ]</a>
+              <a href="thread.html#1624">[ thread ]</a>
+              <a href="subject.html#1624">[ subject ]</a>
+              <a href="author.html#1624">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I am having severe difficulty with version 768 of gpodder (I get all kinds of xlib errors). This is what I found on the internet, maybe it helps:
+
+<A HREF="http://www.faqs.org/faqs/x-faq/part7/section-15.html">http://www.faqs.org/faqs/x-faq/part7/section-15.html</A>
+
+Sometimes, I also get a weirder error:
+
+Exception in thread Thread-125:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/rooijen/gpodder/src/gpodder/services.py&quot;, line 169, in __get_cover
+    loader.write(open(channel.cover_file, 'rb').read())
+GError: Unrecognized image file format
+
+[  58.478] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+[  58.479] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[  58.524] (podcastChannel) Generating TreeModel for <A HREF="http://pod.j-wave.co.jp/blog/wakeuptokyo/pym.xml">http://pod.j-wave.co.jp/blog/wakeuptokyo/pym.xml</A>
+[  58.850] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[  58.874] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+Xlib: unexpected async reply (sequence 0x10ee1)!
+*** glibc detected *** python: double free or corruption (!prev): 0x08feee50 ***
+make: *** [test] Killed
+
+The 'glibc detected' thingie shows up on several fora but nothing seems to point in a specific direction.
+
+I think this bug may have to do with 
+
+<A HREF="http://bugs.gpodder.org/show_bug.cgi?id=150">http://bugs.gpodder.org/show_bug.cgi?id=150</A>
+
+but I'm not sure.
+
+The error occurs when syncing episodes. It occurs more easily if I sync multiple episodes at once (select a few, then click 'transfer'). It usually happens after one or two successful syncs. But then again, sometimes gpodder fails even before the sync waitbar is on the screen :-)). It also occurs when syncing single episodes, but with a (slightly) lower frequency.
+
+This bug happens so frequently now that I've given up syncing for today. Maybe tomorrow the stars will align better and it'll work, don't know. All I can you now, is that every time I start gpodder, it crashes on the first, second, or third sync, quite reliably :-)).
+
+Cheerio,
+Wilfred
+
+
+
+
+--- On Sun, 7/13/08, nikosapi &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">me at nikosapi.org</A>&gt; wrote:
+
+&gt;<i> From: nikosapi &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">me at nikosapi.org</A>&gt;
+</I>&gt;<i> Subject: Re: [gpodder-devel] Most revision buggy?
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">wvanrooijen at yahoo.com</A>, &quot;Development for gPodder&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+</I>&gt;<i> Date: Sunday, July 13, 2008, 3:38 PM
+</I>&gt;<i> On July 13, 2008 14:18:53 Wilfred van Rooijen wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I updated to the latest SVN version of gpodder and I
+</I>&gt;<i> am experiencing some
+</I>&gt;<i> &gt; hickups:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 1. gpodder doesn't start, but gives a syntax error
+</I>&gt;<i> in draw.py, line 47:
+</I>&gt;<i> &gt; offset = 0.5 if close else 0
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I 'patched' using some ugly code, because
+</I>&gt;<i> I'm unfamiliar with Python
+</I>&gt;<i> &gt; syntax.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2. Now gpodder starts, but when I try to sync an
+</I>&gt;<i> episode, I get:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 442, in __bootstrap
+</I>&gt;<i> &gt;     self.run()
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 422, in run
+</I>&gt;<i> &gt;     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line
+</I>&gt;<i> 1695, in
+</I>&gt;<i> &gt; sync_to_ipod_thread if not
+</I>&gt;<i> device.episode_on_device(episode):
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/sync.py&quot;, line
+</I>&gt;<i> 598, in
+</I>&gt;<i> &gt; episode_on_device return self.__track_on_device(e)
+</I>&gt;<i> &gt; AttributeError: 'MP3PlayerDevice' object has
+</I>&gt;<i> no attribute
+</I>&gt;<i> &gt; '_MP3PlayerDevice__track_on_device'
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Exception in thread Thread-714:
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 442, in __bootstrap
+</I>&gt;<i> &gt;     self.run()
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 422, in run
+</I>&gt;<i> &gt;     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line
+</I>&gt;<i> 1695, in
+</I>&gt;<i> &gt; sync_to_ipod_thread if not
+</I>&gt;<i> device.episode_on_device(episode):
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/sync.py&quot;, line
+</I>&gt;<i> 598, in
+</I>&gt;<i> &gt; episode_on_device return self.__track_on_device(e)
+</I>&gt;<i> &gt; AttributeError: 'MP3PlayerDevice' object has
+</I>&gt;<i> no attribute
+</I>&gt;<i> &gt; '_MP3PlayerDevice__track_on_device'
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I don't know what this means :-)).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Cheerio,
+</I>&gt;<i> &gt; Wilfred
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>&gt;<i> Both bugs are fixed in the latest trunk, thanks for the
+</I>&gt;<i> report.
+</I>&gt;<i> 
+</I>&gt;<i> The first one is caused because you're using python
+</I>&gt;<i> 2.4, perhaps you should 
+</I>&gt;<i> upgrade to 2.5... The second one is a mistake I made, sorry
+</I>&gt;<i> :S
+</I>&gt;<i> 
+</I>&gt;<i> nick
+</I>
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001623.html">[gpodder-devel] Most revision buggy?
+</A></li>
+	<LI>Next message: <A HREF="001625.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1624">[ date ]</a>
+              <a href="thread.html#1624">[ thread ]</a>
+              <a href="subject.html#1624">[ subject ]</a>
+              <a href="author.html#1624">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

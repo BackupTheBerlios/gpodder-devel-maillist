@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New sync module in SVN - please test :)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20sync%20module%20in%20SVN%20-%20please%20test%20%3A%29&In-Reply-To=%3C1201521083.9751.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001125.html">
+   <LINK REL="Next"  HREF="001130.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New sync module in SVN - please test :)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20sync%20module%20in%20SVN%20-%20please%20test%20%3A%29&In-Reply-To=%3C1201521083.9751.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] New sync module in SVN - please test :)">thp at perli.net
+       </A><BR>
+    <I>Mon Jan 28 12:51:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001125.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+        <LI>Next message: <A HREF="001130.html">[gpodder-devel] todo: items under discussion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1128">[ date ]</a>
+              <a href="thread.html#1128">[ thread ]</a>
+              <a href="subject.html#1128">[ subject ]</a>
+              <a href="author.html#1128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I've just merged my private branch for the sync module with the SVN
+trunk, the changes can be fetched from the repository now.
+
+Highlights:
+ * CLI-based device synchronization (gpodder --sync)
+ * Delete episodes from iPods and MP3 players using the Episode selector
+ * Easy framework to add new sync methods (MTP devices, ...)
+
+Please have a look and stress-test the code to see if there are any
+problems with syncing to your special device.
+
+The functionality to select music playlists (for iPods) has been
+removed, because it was a bad idea to customize the playlist to sync,
+and it proved to be a problem when looking for all podcasts that should
+be deleted from the iPod. The &quot;playlist name&quot; configuration option is
+still available on a per-channel basis, because Ben Wilson said he uses
+it to generate M3Us from podcasts. We might use the playlist name
+configuration option in gPodder, too, to add M3U functionality to the
+MP3 player sync code.
+
+
+Enjoy,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001125.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+	<LI>Next message: <A HREF="001130.html">[gpodder-devel] todo: items under discussion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1128">[ date ]</a>
+              <a href="thread.html#1128">[ thread ]</a>
+              <a href="subject.html#1128">[ subject ]</a>
+              <a href="author.html#1128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

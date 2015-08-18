@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Integrating gPodder into Amarok
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Integrating%20gPodder%20into%20Amarok&In-Reply-To=%3C4CB6187B.3020606%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002585.html">
+   <LINK REL="Next"  HREF="002588.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Integrating gPodder into Amarok</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Integrating%20gPodder%20into%20Amarok&In-Reply-To=%3C4CB6187B.3020606%40derkits.at%3E"
+       TITLE="[gpodder-devel] Integrating gPodder into Amarok">stefan at derkits.at
+       </A><BR>
+    <I>Wed Oct 13 22:37:15 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002585.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+        <LI>Next message: <A HREF="002588.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2587">[ date ]</a>
+              <a href="thread.html#2587">[ thread ]</a>
+              <a href="subject.html#2587">[ subject ]</a>
+              <a href="author.html#2587">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hey,
+
+On 13/10/10 16:24, Thomas Perl wrote:
+&gt;<i> Looks good to me. As Amarok is written in C++ and is using the Qt
+</I>&gt;<i> framework, I wonder if it would be possible to write a reusable library
+</I>&gt;<i> that encapsulates all gpodder.net-related code and provides a nice,
+</I>&gt;<i> Qt-ish API, simliar to what mygpoclient provides in the Python world,
+</I>&gt;<i> and then utilize that library and glue it into the Amarok podcast code.
+</I>&gt;<i> 
+</I>&gt;<i> I'd definitely help you out with that library in case you want to go
+</I>&gt;<i> that route, because such a library for creating native gpodder.net
+</I>&gt;<i> client apps for MeeGo and Symbian3.
+</I>
+ok our Team discussed about it and even though some Amarok Devs advised
+us against it (to make sure we don't have a fully functional lib, but no
+Feature in Amarok ;) ) , we decided to do such a Library ... as it
+shouldn't be thaat much more work then just putting the calls to the
+WebAPI into Amarok and if there would be more use for it why not do it
+... what should we name it ... libgpodder? :)
+Our Priority will stay of Course to integrate gpodder into Amarok, so we
+will try to plan our Project in a Way, that we implement some API Calls
+into the Library, then use them in Amarok and if we didn't wrap the
+whole API and our Amarok Feature is finished we will see further ;)
+
+@Thomas: Your Help is definitly aprreciated, but as this is an ASE
+Project we most probably can't really accept help in the Areas of Coding
+&amp; Design ... but you can definitly look over our Design/Code and find
+Bugs that we're gonna produce :)
+
+Stefan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAky2GHsACgkQlZvAMV/NgGJaeACcDwHrcw/M2yAKvVR1LbM1IPgs
+8dgAoK3sObJ8xtZdgtQsx7dNZmmFJ8kL
+=LROo
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002585.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+	<LI>Next message: <A HREF="002588.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2587">[ date ]</a>
+              <a href="thread.html#2587">[ thread ]</a>
+              <a href="subject.html#2587">[ subject ]</a>
+              <a href="author.html#2587">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

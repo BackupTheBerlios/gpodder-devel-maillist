@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.13.0 on Windows XP
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.13.0%20on%20Windows%20XP&In-Reply-To=%3C76E6768A-A8A1-4DE2-9B8B-60A020AC7A8A%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001824.html">
+   <LINK REL="Next"  HREF="001826.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.13.0 on Windows XP</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.13.0%20on%20Windows%20XP&In-Reply-To=%3C76E6768A-A8A1-4DE2-9B8B-60A020AC7A8A%40perli.net%3E"
+       TITLE="[gpodder-devel] gPodder 0.13.0 on Windows XP">thp at perli.net
+       </A><BR>
+    <I>Sun Oct 26 23:57:18 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001824.html">[gpodder-devel] New website design - feedback requested
+</A></li>
+        <LI>Next message: <A HREF="001826.html">[gpodder-devel] [repost] gpodder seems to cause internet disconnect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1825">[ date ]</a>
+              <a href="thread.html#1825">[ thread ]</a>
+              <a href="subject.html#1825">[ subject ]</a>
+              <a href="author.html#1825">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there!
+
+Last week, we got gPodder running on OS X and this week we have  
+someone on IRC who wants to get gPodder running on Windows, so here  
+are the instructions:
+
+1.) Get the PyGTK all-in-one Win32 installer from Alberto Ruiz from <A HREF="http://osl.ulpgc.es/~arc/gnome/pygtk-setup.exe">http://osl.ulpgc.es/~arc/gnome/pygtk-setup.exe</A>
+2.) Make sure you have msvcr71.dll in c:\windows\system32 (or winnt 
+\system32 or wherever) use www.dll-files.com or google to get it if  
+you don't have it.
+3.) Run pygtk-setup.exe and let it install Gtk, Python and PyGTK
+4.) Grab the development snapshot from <A HREF="http://repo.or.cz/w/gpodder.git?a=snapshot;h=HEAD;sf=tgz">http://repo.or.cz/w/gpodder.git?a=snapshot;h=HEAD;sf=tgz</A>
+5.) Extract the development snapshot... I prefer Total Commander on  
+Windows (www.ghisler.com)
+6.) Get feedparser-4.1.zip from www.feedparser.org
+7.) Copy &quot;feedparser.py&quot; from feedparser-4.1.zip to &quot;src/&quot; in your  
+gpodder development snapshot
+8.) Open a terminal (these exist on windows.. yay!) -&gt; Win+R and enter  
+&quot;cmd&quot;
+9.) cd c:\path\to\your\gpodder\development\snapshot\
+10.) run these commands:
+
+set PYTHONPATH=.\src
+set DISPLAY=blubb
+c:\program files\pygtk\python\python.exe bin\gpodder --local
+
+It should work. It might complain about not being able to save the  
+podcast list when closing, but it does work and the podcast list is  
+saved (the OPML file is not generated, which is probably a problem  
+with the free disk space detection code being too Unix-y at the moment).
+
+Obligatory screenshot:
+<A HREF="http://khan.thpinfo.com/~thp/images/gpodder_0.13.0_win32.png">http://khan.thpinfo.com/~thp/images/gpodder_0.13.0_win32.png</A>
+
+
+Enjoy,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001824.html">[gpodder-devel] New website design - feedback requested
+</A></li>
+	<LI>Next message: <A HREF="001826.html">[gpodder-devel] [repost] gpodder seems to cause internet disconnect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1825">[ date ]</a>
+              <a href="thread.html#1825">[ thread ]</a>
+              <a href="subject.html#1825">[ subject ]</a>
+              <a href="author.html#1825">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

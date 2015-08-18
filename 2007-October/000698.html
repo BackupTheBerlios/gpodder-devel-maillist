@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Can it do a &quot;local podcast&quot;?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%20it%20do%20a%20%22local%20podcast%22%3F&In-Reply-To=%3C1192892069.16281.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000697.html">
+   <LINK REL="Next"  HREF="000699.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Can it do a &quot;local podcast&quot;?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%20it%20do%20a%20%22local%20podcast%22%3F&In-Reply-To=%3C1192892069.16281.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Can it do a &quot;local podcast&quot;?">thp at perli.net
+       </A><BR>
+    <I>Sat Oct 20 16:54:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000697.html">[gpodder-devel] Can it do a &quot;local podcast&quot;?
+</A></li>
+        <LI>Next message: <A HREF="000699.html">[gpodder-devel] Ipod podcast video patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#698">[ date ]</a>
+              <a href="thread.html#698">[ thread ]</a>
+              <a href="subject.html#698">[ subject ]</a>
+              <a href="author.html#698">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jeff!
+
+On Fri, 2007-10-19 at 12:14 -0400, Jeff Simpson wrote:
+&gt;<i> I use mythTV to record TV programs and have scripts set up to
+</I>&gt;<i> re-encode them to iPod-size and create a podcast xml file for them.
+</I>&gt;<i> Problem is, I can't find a decent way to get them onto the iPod
+</I>&gt;<i> without using iTunes.
+</I>
+Well, looking at your e-mail and description of your problem, it gPodder
+is not really suited for that kind of use (it's a podcatcher, not an
+iPod manager, although it manages the podcasts on your iPod that you
+download via gPodder).
+
+I think what you need is a small Python script that uses python-gpod to
+open the iTunesDB and add the video files to your device. This way, you
+can easily add the Python script to your set of other scripts and have a
+neat, working way of copying mythTV recordings to your iPod.
+
+Basically, you want to have a look at src/gpodder/libipodsync.py in the
+gPodder source. If you want me to write the script for you, just get in
+touch via private mail.
+
+If you really want to have a cheap and fast solution, you could simply
+&quot;download&quot; your podcasts from a local HTTP server and sync to your iPod
+then (hard disk space is cheap, and you can remove the episodes from
+gPodder after syncing - gPodder currently won't delete episodes on the
+iPod that have been removed from gPodder's download list).
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000697.html">[gpodder-devel] Can it do a &quot;local podcast&quot;?
+</A></li>
+	<LI>Next message: <A HREF="000699.html">[gpodder-devel] Ipod podcast video patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#698">[ date ]</a>
+              <a href="thread.html#698">[ thread ]</a>
+              <a href="subject.html#698">[ subject ]</a>
+              <a href="author.html#698">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

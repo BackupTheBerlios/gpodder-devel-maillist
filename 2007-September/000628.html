@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Latest gPodder: very CPU intensive downloads
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20gPodder%3A%20very%20CPU%20intensive%20downloads&In-Reply-To=%3C1190797897.5140.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000626.html">
+   <LINK REL="Next"  HREF="000630.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Latest gPodder: very CPU intensive downloads</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Latest%20gPodder%3A%20very%20CPU%20intensive%20downloads&In-Reply-To=%3C1190797897.5140.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Latest gPodder: very CPU intensive downloads">thp at perli.net
+       </A><BR>
+    <I>Wed Sep 26 11:11:37 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000626.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+        <LI>Next message: <A HREF="000630.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#628">[ date ]</a>
+              <a href="thread.html#628">[ thread ]</a>
+              <a href="subject.html#628">[ subject ]</a>
+              <a href="author.html#628">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+On Tue, 2007-09-25 at 16:40 -0700, Wilfred van Rooijen wrote:
+&gt;<i> An observation using the latest version of gPodder: downloading is
+</I>&gt;<i> very resource intensive now (or so it seems). I have a laptop with CPU
+</I>&gt;<i> throttling. I am downloading 5 streams @ 100 KB/s each, and the CPU
+</I>&gt;<i> goes to full speed (1.6 GHz), CPU indicator shows close to 100%
+</I>&gt;<i> constantly and ACPI CPU temp goes up from about 45 C (normal idle
+</I>&gt;<i> temp) to 76 C (normal temp during full use). The older version of
+</I>&gt;<i> gPodder got the streams at almost the same bandwidth, but did
+</I>&gt;<i> not use that much CPU-time. Any ideas? I'm convinced that some process
+</I>&gt;<i> is doing some busy waiting somewhere during the downloads. 
+</I>
+I think the problem is related to gPodder doing status updates more
+often than previously, and the GTK interface has to keep up with the
+constant flow of GUI updates (window title and the &quot;downloads&quot; tree
+model + tree view).
+
+I've tried porting gPodder to Windows yesterday, and running on my
+1.7GHz Pentium IV-M, I was able to see these &quot;hanging&quot; problems on Win32
+when downloading from a local server. It doesn't happen to me on Linux
+(I'm having my download queue set to 1) and if doesn't happen when
+downloading _anything_ from the Internet, because with my previous 64k
+line, I can't get anything beyond 8kb/s, so there cannot possibly be
+more GUI updates than that :)
+
+That being said, I think I could try to limit the number of GUI updates
+by filtering the messages sent to the GUI for updating the interface. I
+would need you to check out the SVN repository, apply patches to it that
+I send you and you test if things work with a high-speed internet
+connection. Would you like to help here?
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000626.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+	<LI>Next message: <A HREF="000630.html">[gpodder-devel] Latest gPodder: very CPU intensive downloads
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#628">[ date ]</a>
+              <a href="thread.html#628">[ thread ]</a>
+              <a href="subject.html#628">[ subject ]</a>
+              <a href="author.html#628">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

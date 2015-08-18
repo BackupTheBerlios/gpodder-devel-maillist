@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Mmmmm....%20sync%27ing%20is%20out%20of%20sync%20%3A-%29%29&In-Reply-To=%3C1207519968.6507.15.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001370.html">
+   <LINK REL="Next"  HREF="001372.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Mmmmm....%20sync%27ing%20is%20out%20of%20sync%20%3A-%29%29&In-Reply-To=%3C1207519968.6507.15.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))">thp at perli.net
+       </A><BR>
+    <I>Mon Apr  7 00:12:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001370.html">[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+</A></li>
+        <LI>Next message: <A HREF="001372.html">[gpodder-devel] A tango artist who wants to help...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1371">[ date ]</a>
+              <a href="thread.html#1371">[ thread ]</a>
+              <a href="subject.html#1371">[ subject ]</a>
+              <a href="author.html#1371">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+On Sun, 2008-04-06 at 10:57 -0700, Wilfred van Rooijen wrote:
+&gt;<i> &gt; Have you recently upgraded your packages?
+</I>&gt;<i> 
+</I>&gt;<i> What packages :-)). gPodder v653 as you've indicated.
+</I>&gt;<i> Otherwise, I use gentoo and I do update all packages
+</I>&gt;<i> every couple of days (I seem to remember that an
+</I>&gt;<i> update to python was compiled recently on my system).
+</I>&gt;<i> 
+</I>&gt;<i> Python:
+</I>&gt;<i> 
+</I>&gt;<i> [ebuild   R   ] dev-lang/python-2.4.4-r9  USE=&quot;berkdb
+</I>&gt;<i> gdbm ipv6 ncurses readline ssl -bootstrap -build -doc
+</I>&gt;<i> -examples -nocxx -nothreads -tk -ucs2&quot; 0 kB 
+</I>
+Maybe you can install python2.5 and use Python 2.5 for gPodder? It
+should work with python2.4, and I don't know if it makes any difference,
+but you could try (I'm using Python 2.5 here, for example).
+
+&gt;<i> pygtk:
+</I>&gt;<i> 
+</I>&gt;<i> [ebuild   R   ] dev-python/pygtk-2.12.0  USE=&quot;opengl
+</I>&gt;<i> -doc -examples&quot; 2,105 kB
+</I>
+Should be recent enough.
+
+&gt;<i> &gt; Have you been successfully using the sync feature
+</I>&gt;<i> &gt; before?
+</I>&gt;<i> 
+</I>&gt;<i> Yes, never had any problem until now.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; When did this bug start to happen? Did you do
+</I>&gt;<i> &gt; anything special?
+</I>&gt;<i> 
+</I>&gt;<i> Yesterday after running 'svn up' in de gpodder dir. I
+</I>&gt;<i> didn't do anything special as far as I can tell.
+</I>
+Yeah, and you said when reverting to the version before the Maemo
+changes you also see the same problems?
+
+&gt;<i> &gt; Does it only affect the sync modules or also other
+</I>&gt;<i> &gt; parts of gPodder?
+</I>&gt;<i> 
+</I>&gt;<i> It seems to only happen on sync, and then it seems
+</I>&gt;<i> more likely to happen if I sync more than 1 file at a
+</I>&gt;<i> time. I've tested a bit today. Sync'ing just 1 file at
+</I>&gt;<i> a time is more stable (i.e. causes less frequent
+</I>&gt;<i> freezes) than sync'ing more than 1 file at a time.
+</I>&gt;<i> Sync'ing more than 1 at a time fails more often than
+</I>&gt;<i> not.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; If it only happens on sync, does it happen with both
+</I>&gt;<i> &gt; iPod and MP3 player
+</I>&gt;<i> &gt; sync?
+</I>&gt;<i> 
+</I>&gt;<i> I always sync to an file-based MP3 player (it is an
+</I>&gt;<i> ipod, but running rockbox - it's just an external
+</I>&gt;<i> hard-drive for gpodder).
+</I>&gt;<i> 
+</I>&gt;<i> Until now I've never had any issues with the sync in
+</I>&gt;<i> gpodder. The error message 'Xlib ...' seems so cryptic
+</I>&gt;<i> to me that I suspect it doesn't come from gpodder
+</I>&gt;<i> itself but rather from somewhere deep within either
+</I>&gt;<i> python or pygtk.
+</I>
+Please apply the enclosed patch to your SVN checkout (it disables the UI
+status updates to the sync dialog) and try to reproduce the bug. I
+suspect that maybe the faster UI updates in the MP3 player sync code
+could cause this problem, but as I said, it's only a guess :)
+
+Thanks,
+Thomas
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r655_disable_sync-ui_updates.patch
+Type: text/x-patch
+Size: 779 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080407/32346445/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080407/32346445/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001370.html">[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+</A></li>
+	<LI>Next message: <A HREF="001372.html">[gpodder-devel] A tango artist who wants to help...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1371">[ date ]</a>
+              <a href="thread.html#1371">[ thread ]</a>
+              <a href="subject.html#1371">[ subject ]</a>
+              <a href="author.html#1371">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

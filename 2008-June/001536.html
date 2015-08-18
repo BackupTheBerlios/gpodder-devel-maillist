@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod does not show when connected
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20does%20not%20show%20when%20connected&In-Reply-To=%3C200806222224.41497.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001533.html">
+   <LINK REL="Next"  HREF="001538.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod does not show when connected</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20does%20not%20show%20when%20connected&In-Reply-To=%3C200806222224.41497.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] iPod does not show when connected">me at nikosapi.org
+       </A><BR>
+    <I>Mon Jun 23 04:24:41 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001533.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+        <LI>Next message: <A HREF="001538.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1536">[ date ]</a>
+              <a href="thread.html#1536">[ thread ]</a>
+              <a href="subject.html#1536">[ subject ]</a>
+              <a href="author.html#1536">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On June 22, 2008 16:54:33 Chris Arnold wrote:
+&gt;<i> On Sunday 22 June 2008 14:14:25 Paul Rudkin wrote:
+</I>&gt;<i> &gt; Have you got python-gpod installed?  Check that you have all the
+</I>&gt;<i> &gt; dependencies installed (see
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://wiki.gpodder.org/wiki/Dependencies">http://wiki.gpodder.org/wiki/Dependencies</A>)
+</I>&gt;<i>
+</I>&gt;<i> Hi Paul,
+</I>&gt;<i> I have
+</I>&gt;<i> rpm -qa libgpod*
+</I>&gt;<i> libgpod-tools-0.6.0-53.1
+</I>&gt;<i> libgpod-python-0.6.0-53.1
+</I>&gt;<i> libgpod3-0.6.0-53.1
+</I>&gt;<i> Installed and
+</I>&gt;<i> rpm -qa python
+</I>&gt;<i> python-2.5.2-26.1
+</I>&gt;<i> and
+</I>&gt;<i> rpm -qa python-gtk
+</I>&gt;<i> python-gtk-2.12.1-18.1
+</I>&gt;<i> and
+</I>&gt;<i> rpm -qa python-feedparser
+</I>&gt;<i> python-feedparser-4.1-0.pm.1 all these are installed. I think in
+</I>&gt;<i> opensuse python-gpod is called libgpod3? If it is, from above, that is
+</I>&gt;<i> installed. Still no way to sync
+</I>&gt;<i>
+</I>
+Run gPodder from the terminal like so: gpodder --verbose
+
+Look near the top of the output for a line that says &quot;(gpodder.sync) Could not 
+find gpod&quot;, if that doesn't appear then you shouldn't be having the problem 
+you described.
+
+You can also try importing  the module from a python shell to make sure it's 
+in the PYTHONPATH.
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">nikosapi at kubuntubox</A>:~$ python
+&gt;&gt;&gt;<i> import gpod
+</I>&gt;&gt;&gt;<i> gpod
+</I>&lt;module 'gpod' 
+from '/usr/local/lib/python2.5/site-packages/gpod/__init__.pyc'&gt;
+&gt;&gt;&gt;<i> gpod.version
+</I>'0.5.3'
+&gt;&gt;&gt;<i>
+</I>
+nick
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001533.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+	<LI>Next message: <A HREF="001538.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1536">[ date ]</a>
+              <a href="thread.html#1536">[ thread ]</a>
+              <a href="subject.html#1536">[ subject ]</a>
+              <a href="author.html#1536">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

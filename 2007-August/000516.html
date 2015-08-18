@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder: Seeking testers of new version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C880376.84053.qm%40web60817.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000515.html">
+   <LINK REL="Next"  HREF="000517.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder: Seeking testers of new version</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C880376.84053.qm%40web60817.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] gPodder: Seeking testers of new version">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sun Aug 26 16:26:30 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000515.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+        <LI>Next message: <A HREF="000517.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+SVN command:
+
+svn co
+<A HREF="http://svn.berlios.de/svnroot/repos/gpodder/thp/gpodder200708">http://svn.berlios.de/svnroot/repos/gpodder/thp/gpodder200708</A>
+gpodder
+
+Checked out okay.
+
+Feedparser: from their website, I dowloaded the zip
+file, unzipped as root, and ran
+
+python setup.py install
+
+it seems to have installed just fine (as far as I can
+tell). I've ran the feedparser tests as normal user,
+result:
+
+Ran 3262 tests in 11.410s
+
+OK
+
+So feedparser seems fine.
+
+&gt;<i> 
+</I>&gt;<i> Which version of Python (python -V) are you using? I
+</I>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~ $ python -V
+Python 2.4.4
+
+&gt;<i> see gPodder wants
+</I>&gt;<i> to create the TreeModel for one of your podcasts -
+</I>&gt;<i> have you tried
+</I>&gt;<i> starting gPodder with an empty channel list also (it
+</I>&gt;<i> shouldn't matter,
+</I>&gt;<i> but just in case..)?
+</I>
+I can start if I delete ~/.config/gpodder. When I add
+a URL, the following happens (note: a lot of output
+follows):
+
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1095, in on_btnDownloadedDelete_clicked
+    channel_url = self.active_channel.url
+AttributeError: 'NoneType' object has no attribute
+'url'
+Adding new channel:
+<A HREF="http://www.vpro.nl/podcastradiobergeijk">http://www.vpro.nl/podcastradiobergeijk</A>
+(podcastChannel) Generating TreeModel for
+<A HREF="http://www.vpro.nl/podcastradiobergeijk">http://www.vpro.nl/podcastradiobergeijk</A>
+make: *** [test] Segmentation fault
+
+The first list of errors is generated when I tried to
+use the 'delete' button in the little 'add URL' line
+at the left bottom of the window. I typed the full
+address, hit 'Add URL', and the crash follows almost
+immediately.
+
+I'm not really familiar with debugging python (much
+better in FORTRAN :-))  ). Is there an option to
+identify where the segfault is triggered?
+
+BTW although gpodder crashes, the config file is
+correctly written, because after restarting gpodder,
+the same error occurs when gpodder tries to
+automatically connect to the channel.
+
+Regards,
+Wilfred
+
+
+&gt;<i> 
+</I>&gt;<i> A segfault is probably not related to gPodder, but
+</I>&gt;<i> to some extension
+</I>&gt;<i> module of Python or Python itself (a bug in gPodder
+</I>&gt;<i> would cause a simple
+</I>&gt;<i> Python backtrace or other strange errors).
+</I>&gt;<i> 
+</I>&gt;<i> How exactly have you installed python-feedparser? If
+</I>&gt;<i> your distribution
+</I>&gt;<i> provides a package, please use that. If not, you
+</I>&gt;<i> might want to use
+</I>&gt;<i> Python's &quot;easy_install&quot; utility.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+       
+____________________________________________________________________________________
+Moody friends. Drama queens. Your life? Nope! - their life, your story. Play Sims Stories at Yahoo! Games.
+<A HREF="http://sims.yahoo.com/">http://sims.yahoo.com/</A>  
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000515.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+	<LI>Next message: <A HREF="000517.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

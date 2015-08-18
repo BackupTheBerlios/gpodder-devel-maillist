@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Downloaded podcasts not recognized.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Downloaded%20podcasts%20not%20recognized.&In-Reply-To=%3C46166324.5050404%40sd-6.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000206.html">
+   <LINK REL="Next"  HREF="000216.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Downloaded podcasts not recognized.</H1>
+    <B>Jon</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Downloaded%20podcasts%20not%20recognized.&In-Reply-To=%3C46166324.5050404%40sd-6.org%3E"
+       TITLE="[gpodder-devel] Downloaded podcasts not recognized.">jon at sd-6.org
+       </A><BR>
+    <I>Fri Apr  6 17:11:32 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000206.html">[gpodder-devel] Downloaded podcasts not recognized.
+</A></li>
+        <LI>Next message: <A HREF="000216.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#215">[ date ]</a>
+              <a href="thread.html#215">[ thread ]</a>
+              <a href="subject.html#215">[ subject ]</a>
+              <a href="author.html#215">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Thomas Perl wrote:
+&gt;<i> Hello, Jon!
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2007-04-06 at 00:21 -0500, Jon wrote:
+</I>&gt;&gt;<i> I've got a strange issue with one of my feeds.  If I download a
+</I>&gt;&gt;<i> podcast and check it the next day.  The downloaded one is at the
+</I>&gt;&gt;<i> bottom of the list.  It is also near the top of the list, where it
+</I>&gt;&gt;<i> would be expected to be but appears as a new podcast to be downloaded.
+</I>&gt;&gt;<i> For some reason it is not associating the downloaded podcast with the
+</I>&gt;&gt;<i> one in the list.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The only thing that really stands out on this particular one is that
+</I>&gt;&gt;<i> it is subscription based.  Access is controlled via http auth.  I have
+</I>&gt;&gt;<i> my feed setup like <A HREF="http://user:pass@url.">http://user:pass@url.</A>  This may or may not be
+</I>&gt;&gt;<i> related.
+</I>&gt;<i> 
+</I>&gt;<i> Should be no problem if the RSS feed adds the authentication data to the
+</I>&gt;<i> links of your podcast.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I'd like to work on a patch if someone can quickly tell me how it
+</I>&gt;&gt;<i> associates downloaded files with xml items. 
+</I>&gt;<i> 
+</I>&gt;<i> gPodder defines episodes as unique by their download URL, because the
+</I>&gt;<i> same URL will always retrieve the same content. The problem with your
+</I>&gt;<i> feed can have two causes I can think of from the top of my head:
+</I>&gt;<i> 
+</I>&gt;<i> * Session ID is passed through the URL
+</I>&gt;<i> * Load balancing changes the URL on every update (mirrors)
+</I>&gt;<i> 
+</I>&gt;<i> It would be nice if you could send me the RSS file in question (you can
+</I>&gt;<i> obfuscate the domain part of the URL and replace any authentication data
+</I>&gt;<i> that might be in the URLs). Please, send me one copy of the RSS file
+</I>&gt;<i> when you're downloading files and then send me another copy when the
+</I>&gt;<i> problem you described appears. The RSS files can be found in
+</I>&gt;<i> ~/.config/gpodder/cache/.
+</I>
+Thanks Tomas,
+
+It appears that they are passing either the sessionid or the encrypted
+password in the url.
+
+Yesterdays update:
+&lt;item&gt;
+	&lt;title&gt;Thu, April 5th, 2007 Hour 1&lt;/title&gt;
+	&lt;link&gt;<A HREF="http://www.glennbeck.com/&lt;/link">http://www.glennbeck.com/&lt;/link</A>&gt;
+	&lt;itunes:author&gt;Glenn Beck&lt;/itunes:author&gt;
+	&lt;itunes:subtitle&gt;The Glenn Beck Program Thu, April 5th, 2007 Hour
+1&lt;/itunes:subtitle&gt;
+	&lt;enclosure type=&quot;audio/mpeg&quot;
+url=&quot;<A HREF="http://rss.premiereradio.net/download/glennbeck/{url-enc-email-addy-aka-username">http://rss.premiereradio.net/download/glennbeck/{url-enc-email-addy-aka-username</A>}/{40-digit-hex-key}/glennbeck/2007/04/Glenn%20Beck%20-%20Apr%2005%202007%20-%20Hour%201.mp3&quot;
+/&gt;
+	&lt;guid&gt;0c153a870fe62a9cecddb2f7c54e2117&lt;/guid&gt;
+	&lt;itunes:explicit&gt;no&lt;/itunes:explicit&gt;
+	&lt;itunes:keywords&gt;Glenn Beck, Sick Freak, Talk&lt;/itunes:keywords&gt;
+	&lt;pubDate&gt;Thu, 05 Apr 2007 13:00:00 GMT&lt;/pubDate&gt;
+&lt;/item&gt;
+
+
+Todays update:
+&lt;item&gt;
+        &lt;title&gt;Thu, April 5th, 2007 Hour 1&lt;/title&gt;
+        &lt;link&gt;<A HREF="http://www.glennbeck.com/&lt;/link">http://www.glennbeck.com/&lt;/link</A>&gt;
+        &lt;itunes:author&gt;Glenn Beck&lt;/itunes:author&gt;
+        &lt;itunes:subtitle&gt;The Glenn Beck Program Thu, April 5th, 2007
+Hour 1&lt;/itunes:subtitle&gt;
+        &lt;enclosure type=&quot;audio/mpeg&quot;
+url=&quot;<A HREF="http://rss.premiereradio.net/download/glennbeck/{url-enc-email-addy-aka-username">http://rss.premiereradio.net/download/glennbeck/{url-enc-email-addy-aka-username</A>}/{40-digit-hex-key}/glennbeck/2007/04/Glenn%20Beck%20-%20Apr%2005%202007%20-%20Hour%201.mp3&quot;
+/&gt;
+	&lt;guid&gt;0c153a870fe62a9cecddb2f7c54e2117&lt;/guid&gt;
+	&lt;itunes:explicit&gt;no&lt;/itunes:explicit&gt;
+	&lt;itunes:keywords&gt;Glenn Beck, Sick Freak, Talk&lt;/itunes:keywords&gt;
+	&lt;pubDate&gt;Thu, 05 Apr 2007 13:00:00 GMT&lt;/pubDate&gt;
+&lt;/item&gt;
+
+
+Not sure why they would do that as I tried downloading the old and
+assumed expired url and it worked fine.  I don't have this problem with
+iTunes.  I assume they look for the guid.  Perhaps gPodder should do the
+same.
+
+Thanks,
+-Jon
+
+
+&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000206.html">[gpodder-devel] Downloaded podcasts not recognized.
+</A></li>
+	<LI>Next message: <A HREF="000216.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#215">[ date ]</a>
+              <a href="thread.html#215">[ thread ]</a>
+              <a href="subject.html#215">[ subject ]</a>
+              <a href="author.html#215">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

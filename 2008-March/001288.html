@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] util.remove_html_tags optimizations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20util.remove_html_tags%20optimizations&In-Reply-To=%3C200803200016.08752.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001290.html">
+   <LINK REL="Next"  HREF="001289.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] util.remove_html_tags optimizations</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20util.remove_html_tags%20optimizations&In-Reply-To=%3C200803200016.08752.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] util.remove_html_tags optimizations">me at nikosapi.org
+       </A><BR>
+    <I>Thu Mar 20 05:16:08 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001290.html">[gpodder-devel] Performance patches / splash screen
+</A></li>
+        <LI>Next message: <A HREF="001289.html">[gpodder-devel] util.remove_html_tags optimizations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1288">[ date ]</a>
+              <a href="thread.html#1288">[ thread ]</a>
+              <a href="subject.html#1288">[ subject ]</a>
+              <a href="author.html#1288">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello again!
+
+While hunting a bug down today I found some code that was slowing down 
+gPodder's loading time :D
+
+The original bug was that in the episode descriptions I was still seeing stuff 
+like &#8217;. This is because the python codepoint2name dict doesn't include 
+all of the possible unicode characters. So I replaced the old code with a 
+regex that converts the codepoint numbers directly to unicode characters. In 
+a quick benchmark I calculated that using the old code took 3.28 sec worth of 
+load time whereas the new code uses &lt; 0.1 sec of load time :)
+
+Here are some examples of feeds which include those weird codepoints:
+- <A HREF="http://feeds.feedburner.com/doctorow_podcast">http://feeds.feedburner.com/doctorow_podcast</A>
+- <A HREF="http://feeds.feedburner.com/nlo">http://feeds.feedburner.com/nlo</A>
+
+Now what's really cool is that when I launch gPodder, it's ready to go in less 
+than 2 seconds! (on an intel E6300)
+
+Let me know what you guys think,
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-r615-remove_html_optimizations.patch
+Type: text/x-diff
+Size: 1118 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080319/a063ea97/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080319/a063ea97/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001290.html">[gpodder-devel] Performance patches / splash screen
+</A></li>
+	<LI>Next message: <A HREF="001289.html">[gpodder-devel] util.remove_html_tags optimizations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1288">[ date ]</a>
+              <a href="thread.html#1288">[ thread ]</a>
+              <a href="subject.html#1288">[ subject ]</a>
+              <a href="author.html#1288">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

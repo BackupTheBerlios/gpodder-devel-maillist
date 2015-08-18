@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] AttributeError - gettext
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20AttributeError%20-%20gettext&In-Reply-To=%3C200906211009.28916.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002161.html">
+   <LINK REL="Next"  HREF="002164.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] AttributeError - gettext</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20AttributeError%20-%20gettext&In-Reply-To=%3C200906211009.28916.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] AttributeError - gettext">me at nikosapi.org
+       </A><BR>
+    <I>Sun Jun 21 16:09:28 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002161.html">[gpodder-devel] AttributeError - gettext
+</A></li>
+        <LI>Next message: <A HREF="002164.html">[gpodder-devel] AttributeError - gettext
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2162">[ date ]</a>
+              <a href="thread.html#2162">[ thread ]</a>
+              <a href="subject.html#2162">[ subject ]</a>
+              <a href="author.html#2162">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On June 21, 2009 09:10:27 am Marc Ferguson wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I'm running Fedora 11 x86_64 and I'm trying to run gpodder 0.16.1. I
+</I>&gt;<i> downloaded and extracted the source file to
+</I>&gt;<i> &quot;/usr/local/share/applications/gpodder-0.16.1&quot; directory.  When I run
+</I>&gt;<i> &quot;gpodder&quot; from the bin folder I get this error.  Thanks for any help.
+</I>&gt;<i>
+</I>&gt;<i> ===================
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">root at fergatron</A> ~]#
+</I>&gt;<i> /usr/local/share/applications/gpodder-0.16.1/bin/gpodder Traceback (most
+</I>&gt;<i> recent call last):
+</I>&gt;<i>   File &quot;/usr/local/share/applications/gpodder-0.16.1/bin/gpodder&quot;, line 79,
+</I>&gt;<i> in &lt;module&gt;
+</I>&gt;<i>     _ = gpodder.gettext
+</I>&gt;<i> AttributeError: 'module' object has no attribute 'gettext'
+</I>&gt;<i> ===================
+</I>
+share/applications is a place to put .desktop files, not entire source 
+directories. Here's the proper way to install gPodder:
+
+wget <A HREF="http://download.berlios.de/gpodder/gpodder-0.16.1.tar.gz">http://download.berlios.de/gpodder/gpodder-0.16.1.tar.gz</A>
+tar xvf gpodder-0.16.1.tar.gz
+cd gpodder-0.16.1
+su -c &quot;make install&quot;
+
+See the README file for a list of dependencies.
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002161.html">[gpodder-devel] AttributeError - gettext
+</A></li>
+	<LI>Next message: <A HREF="002164.html">[gpodder-devel] AttributeError - gettext
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2162">[ date ]</a>
+              <a href="thread.html#2162">[ thread ]</a>
+              <a href="subject.html#2162">[ subject ]</a>
+              <a href="author.html#2162">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] feature proposition
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20feature%20proposition&In-Reply-To=%3C20070226200933.0ad3c30c%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000081.html">
+   <LINK REL="Next"  HREF="000082.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] feature proposition</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20feature%20proposition&In-Reply-To=%3C20070226200933.0ad3c30c%40macbook%3E"
+       TITLE="[gpodder-devel] feature proposition">thp at perli.net
+       </A><BR>
+    <I>Mon Feb 26 20:09:33 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000081.html">[gpodder-devel] feature proposition
+</A></li>
+        <LI>Next message: <A HREF="000082.html">[gpodder-devel] player device options
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#88">[ date ]</a>
+              <a href="thread.html#88">[ thread ]</a>
+              <a href="subject.html#88">[ subject ]</a>
+              <a href="author.html#88">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Mathis,
+
+On Sun, 25 Feb 2007 00:15:21 +0100 Mathis Dirksen-Thedens wrote:
+&gt;<i> I think gPodder is a great tool for keeping up on the latest audio
+</I>&gt;<i> and video podcasts, and I consider making it my default podcatcher.
+</I>&gt;<i> One major drawback is that gPodder does not link itself into the
+</I>&gt;<i> tray. There are many good programs that have certain features
+</I>&gt;<i> regarding the notification area or tray:
+</I>
+Nick wrote in an E-Mail from 2007-01-25:
+
+&quot;I use gpodder with alltray (on FC6: yum install alltray), it does
+almost what you want. It'll minimize gpodder to the tray (I've yet to
+try it on gnome but it works great on KDE) and when you're downloading
+files you can hover over the icon and it'll display the percentage done.
+Once you have it installed get it working like this: &quot;alltray gpodder&quot;
+That's it, type it into your run box or terminal and watch it work!&quot;
+
+&gt;<i> (1) it is possible to start the program minimized to the tray, so no
+</I>&gt;<i> window shows up on the task bar, but the program is accessible via
+</I>&gt;<i> its tray icon
+</I>
+Should work with alltray.
+
+&gt;<i> (2) the tray icon indicates the status (downloading, new podcasts
+</I>&gt;<i> available, idle...)
+</I>
+Might only be implemented in gPodder directly (or by setting the
+application-wide icon).
+
+&gt;<i> (3) if the program window is open, a click on the window's close
+</I>&gt;<i> button in the top right corner does not close the program totally,
+</I>&gt;<i> but resets it to the &quot;minimized in tray only&quot; status described in (1)
+</I>
+Don't know if this is possible with alltray, but again - if we would
+implement trayicon support directly in gPodder, we'd have the
+possibility to do so.
+
+I don't know if trayicon support is in PyGTK already. If I'm going to
+implement tray icon support, I want to do it in an easy and
+uncomplicated manner from within PyGTK if possible :)
+
+Any hints and patches welcome!
+
+
+Enjoy.
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000081.html">[gpodder-devel] feature proposition
+</A></li>
+	<LI>Next message: <A HREF="000082.html">[gpodder-devel] player device options
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#88">[ date ]</a>
+              <a href="thread.html#88">[ thread ]</a>
+              <a href="subject.html#88">[ subject ]</a>
+              <a href="author.html#88">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

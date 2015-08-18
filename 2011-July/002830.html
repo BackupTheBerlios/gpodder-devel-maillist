@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CCAPinO9dMRSkT07avgJL6qX8sJbkq%2Bp%2BJ2uh_1G5fxJQ%2B%2By1Ljg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002829.html">
+   <LINK REL="Next"  HREF="002831.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values</H1>
+    <B>Stefan K&#246;gl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CCAPinO9dMRSkT07avgJL6qX8sJbkq%2Bp%2BJ2uh_1G5fxJQ%2B%2By1Ljg%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values">koeglstefan at gmail.com
+       </A><BR>
+    <I>Sat Jul  2 13:55:47 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002829.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+        <LI>Next message: <A HREF="002831.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2830">[ date ]</a>
+              <a href="thread.html#2830">[ thread ]</a>
+              <a href="subject.html#2830">[ subject ]</a>
+              <a href="author.html#2830">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+First thanks to both of you for sharing your ideas!
+
+
+&gt;&gt;&gt;<i> At Fri, 1 Jul 2011 15:35:52 +0300, Dov Feldstern wrote:
+</I>&gt;&gt;&gt;&gt;<i> So, I think that the &quot;timestamp&quot; stored with actions is *not* the
+</I>&gt;&gt;&gt;&gt;<i> value which should be used for purposes of comparing with &quot;since&quot;
+</I>&gt;&gt;&gt;&gt;<i> values and syncing; rather, an &quot;upload-timestamp&quot; should be stored
+</I>&gt;&gt;&gt;&gt;<i> server-side, which would serve for this purpose.
+</I>
+I totally agree with you that using the client's timestamp for two
+different purposes is a design issue.
+
+
+&gt;&gt;<i> On Fri, Jul 1, 2011 at 16:29, Neal H. Walfield &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">neal at walfield.org</A>&gt; wrote:
+</I>&gt;&gt;&gt;<i> Why not use Lamport timestamps to do the ordering?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> &#160;<A HREF="http://en.wikipedia.org/wiki/Lamport_timestamps">http://en.wikipedia.org/wiki/Lamport_timestamps</A>
+</I>
+I'm currently thinking about a solution that would include both
+approaches. For each action two timestamps are stored, the current one
+from the client and a server-timestamp that is used for
+synchronization. The server-timestamps could be implemented as Lamport
+timestamps to make it possible (in the future) to distribute
+gpodder.net over multiple servers. Additionally when doing the switch
+from the current system, the server-timestamps could be initialized
+with the current UTC timestamp so that we don't break any clients.
+
+What do you think about this solution?
+
+
+On Fri, Jul 1, 2011 at 4:54 PM, Dov Feldstern &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dovdevel at gmail.com</A>&gt; wrote:
+&gt;<i> Thinking about this a bit more, I think that using server-based
+</I>&gt;<i> action-upload times would also solve / obviate the need for solving
+</I>&gt;<i> <A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1366">https://bugs.gpodder.org/show_bug.cgi?id=1366</A> .
+</I>
+That's true, actually. However I'd rather continue the discussion here
+because it has now grown to a much broader topic than what's
+originally discussed in the bug.
+
+
+-- Stefan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002829.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+	<LI>Next message: <A HREF="002831.html">[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2830">[ date ]</a>
+              <a href="thread.html#2830">[ thread ]</a>
+              <a href="subject.html#2830">[ subject ]</a>
+              <a href="author.html#2830">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Installing gpodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Installing%20gpodder&In-Reply-To=%3C20070317140047.17f44207%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000117.html">
+   <LINK REL="Next"  HREF="000119.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Installing gpodder</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Installing%20gpodder&In-Reply-To=%3C20070317140047.17f44207%40macbook%3E"
+       TITLE="[gpodder-devel] Installing gpodder">thp at perli.net
+       </A><BR>
+    <I>Sat Mar 17 14:00:47 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000117.html">[gpodder-devel] Installing gpodder
+</A></li>
+        <LI>Next message: <A HREF="000119.html">[gpodder-devel] Installing gpodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#118">[ date ]</a>
+              <a href="thread.html#118">[ thread ]</a>
+              <a href="subject.html#118">[ subject ]</a>
+              <a href="author.html#118">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Preben,
+
+On Sat, 17 Mar 2007 13:32:46 +0100 Preben Randhol wrote:
+&gt;<i> As I want to experiment with the svn version of gpodder I
+</I>&gt;<i> uninstalled the debian package. Now I want to install the svn
+</I>&gt;<i> in /usr/local but I don't understand how one specify prefix for the
+</I>&gt;<i> install.
+</I>
+You would have had to pass the --prefix parameter to setup.py. I've
+just committed a change to the Makefile to accept a PREFIX variable, so
+you can &quot;svn up&quot; your local working copy now and then set &quot;PREFIX&quot; in
+your Makefile to point to /usr/local and &quot;sudo make install&quot;
+into /usr/local. For testing out things locally, it's easier to simply
+do a &quot;make test&quot; in the working copy - this does not need superuser
+permissions and runs gPodder from the working copy.
+
+
+Enjoy,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000117.html">[gpodder-devel] Installing gpodder
+</A></li>
+	<LI>Next message: <A HREF="000119.html">[gpodder-devel] Installing gpodder
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#118">[ date ]</a>
+              <a href="thread.html#118">[ thread ]</a>
+              <a href="subject.html#118">[ subject ]</a>
+              <a href="author.html#118">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

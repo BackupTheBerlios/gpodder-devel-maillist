@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] new version downloads new episodes, but screen empty w/'over' attachment
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%20but%20screen%20empty%20w/%27over%27%20attachment&In-Reply-To=%3C46C8A817.8050304%40dystonia-dreams.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000499.html">
+   <LINK REL="Next"  HREF="000463.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] new version downloads new episodes, but screen empty w/'over' attachment</H1>
+    <B>Katy G. B.</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%20but%20screen%20empty%20w/%27over%27%20attachment&In-Reply-To=%3C46C8A817.8050304%40dystonia-dreams.org%3E"
+       TITLE="[gpodder-devel] new version downloads new episodes, but screen empty w/'over' attachment">uberChicGeekChick at dystonia-dreams.org
+       </A><BR>
+    <I>Sun Aug 19 22:29:11 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000499.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+        <LI>Next message: <A HREF="000463.html">[gpodder-devel] Quick bug fix for libipodsync
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#498">[ date ]</a>
+              <a href="thread.html#498">[ thread ]</a>
+              <a href="subject.html#498">[ subject ]</a>
+              <a href="author.html#498">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>oops,
+
+       *blush*, i forgot to attach the invalid 'cover' file that i 
+talked about.  its here, i've named it 'cover.html', even though gPodder 
+originally downloads it just as 'cover'.  i renamed it so it could be 
+viewed easier &amp;so that hopefully it won't get logged by anyone's spam 
+filter.
+
+Katy G. B. wrote:
+&gt;<i> *hugs again Thomas*,
+</I>&gt;<i>
+</I>&gt;<i>        i've finally finished my php script, my morning-so a few hours 
+</I>&gt;<i> ago.  i also tried running --verbose and hmmm... huh?  gpodder loaded 
+</I>&gt;<i> fine.  huh?  one lil note, is that while i was writing my php script 
+</I>&gt;<i> i'd delete all of the podcasts 'cover' files and all of my 102 
+</I>&gt;<i> podcasts showed up?  so i started getting podcast's cover image/album 
+</I>&gt;<i> art and when i got to my subscription to an Australian Non-profit 
+</I>&gt;<i> podcast (their feed url is 
+</I>&gt;<i> <A HREF="http://feeds.feedburner.com/Cpns-qut-nonprofitPodcasts">http://feeds.feedburner.com/Cpns-qut-nonprofitPodcasts</A> )  i found 
+</I>&gt;<i> several other of my podcasts that this would happen with.  than when 
+</I>&gt;<i> gpodder tries to download any podcast's cover art gpodder would 
+</I>&gt;<i> download an html, xml, or other document.  i've attached the html 
+</I>&gt;<i> document that gpodder ended up downloading; for the Australian 
+</I>&gt;<i> non-profit podcast.  quiting gpodder, removing that podcasts 'cover' 
+</I>&gt;<i> file, &amp;than restarting gpodder fixes the problem.
+</I>&gt;<i>
+</I>&gt;<i>         so anyone who's having this problem, here's a work around 
+</I>&gt;<i> until there's a perm fix.  you'll need to delete all of your podcasts' 
+</I>&gt;<i> 'cover' files which aren't images, unless you know which podcast 
+</I>&gt;<i> specifically is causing your problem.  my php script, which i'll post 
+</I>&gt;<i> in the next couple of days(under its own thread of course), 
+</I>&gt;<i> automatically checks all the 'cover' files and deletes the ones that 
+</I>&gt;<i> aren't valid images-i'm gonna use the gd or ImageMagick php extensions 
+</I>&gt;<i> to check each file.  most likely i'll use the gd library since its the 
+</I>&gt;<i> one i'm most familiar with &amp;it has the lowest overhead.  lol, and just 
+</I>&gt;<i> to mention it, my php progie/script still relies on gPodder &amp;php's 
+</I>&gt;<i> cli/cgi.
+</I>&gt;<i>
+</I>&gt;<i>         back on topic; my script has a command line option that just 
+</I>&gt;<i> hast it fix each podcast's 'cover' art/image.   and than gpodder can 
+</I>&gt;<i> be restarted and things will work fine.  just make sure not to try and 
+</I>&gt;<i> download those podcasts cover art again.  which happens automatically 
+</I>&gt;<i> when you select 'Podcast' -&gt; 'Edit ...(podcast's name)'.  everyone can 
+</I>&gt;<i> be doubly safe by running gpodder from a terminal window and watching 
+</I>&gt;<i> their terminal for the error message(which i've listed at the end of 
+</I>&gt;<i> my message.
+</I>&gt;<i>
+</I>&gt;<i>        than Thomas, thnx again for helping me with this issue.  i'm 
+</I>&gt;<i> sorry that we've spent so much time chasing it around blindly, only to 
+</I>&gt;<i> find that the issue was something else entirely.  though i'm glad that 
+</I>&gt;<i> we're close to fixing it.  and though i love gPodder and _will_ abs 
+</I>&gt;<i> help work on it in the future(if you want it that is) all my work with 
+</I>&gt;<i> gPodder *wink* has only confirm my dislike of python.  i may just have 
+</I>&gt;<i> ti write my own podcatcher in php-gtk2(joking, mostly), i'd actually 
+</I>&gt;<i> love to help with gPodder - like in my free time i'm writing a play 
+</I>&gt;<i> list manager for it.  hopefully i'll be able to contribute that soon.  
+</I>&gt;<i> lately though- ^_^' *blush* -i've literally been spending almost all 
+</I>&gt;<i> of my time writing my php progie, which i'm super happy with, and now 
+</I>&gt;<i> combined with gpodder i'm actually super happy with linux podcathing.  
+</I>&gt;<i> i actually don't even miss miro(yeah *ick* i know) but until now it 
+</I>&gt;<i> was the best option i had.
+</I>&gt;<i>
+</I>&gt;<i>         now i just _must_ get audacity running again, i'll switch 
+</I>&gt;<i> distros if i have to.  because audacity is something i truly can't 
+</I>&gt;<i> move on without.  that and x.org 7.3 is abs necessary, i need its 
+</I>&gt;<i> vesa/video card display modes fix.  okay, lol, i'm done with my off 
+</I>&gt;<i> topic babbling.  so to close, here's the error that gPodder generates 
+</I>&gt;<i> when it downloads an invalid cover art.  i'm sure all that needs to be 
+</I>&gt;<i> done is that this exception needs caught and to than delete the 
+</I>&gt;<i> 'cover' file.  anyway, i hope my babbling make sense &amp;help.  thnx 
+</I>&gt;<i> again Thomas &amp;i hope that i get to help with gpodder.  *hugs*
+</I>&gt;<i>
+</I>&gt;<i> Exception in thread Thread-3:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/threading.py&quot;, line 460, in __bootstrap
+</I>&gt;<i>     self.run()
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/threading.py&quot;, line 440, in run
+</I>&gt;<i>     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/libgpodder.py&quot;, line 
+</I>&gt;<i> 502, in image_download_thread
+</I>&gt;<i> GError: Unrecognized image file format
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas Perl wrote:
+</I>&gt;&gt;<i> Hello, Katy!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Thu, 2007-08-09 at 02:02 -0600, Katy G. B. wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> i've attached my opml file. 
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've tried importing it, but I'm still on 64k and downloading all RSS
+</I>&gt;&gt;<i> feeds is a bit slow here. Also, I think that gPodder could be made
+</I>&gt;&gt;<i> faster by optimizing feed loading/localdb access. I think having so many
+</I>&gt;&gt;<i> subscriptions is unusual, but I gladly accept performance-increasing
+</I>&gt;&gt;<i> patches (make localdb access on-demand and not on startup, etc..).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> it doesn't happen on any specific one of my podcasts, just number 55. 
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Which RSS URL does your podcast number 55 have? Or do you mean that any
+</I>&gt;&gt;<i> podcast which happens to be on position 55 produces the problem?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> i've mixed and matched which podcasts it has in channels.xml.  no
+</I>&gt;&gt;&gt;<i> matter what i comment out or don't it gets to 56 and than it won't
+</I>&gt;&gt;&gt;<i> display the podcasts.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Can you please provide the output of running &quot;gpodder --verbose&quot; and
+</I>&gt;&gt;<i> trying to reproduce your problem?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> as a note gpodder work for --list, --add, --delete, --run, and
+</I>&gt;&gt;&gt;<i> everything even with all of my podcasts subscribed
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Does this mean you can get more than 55 feeds on the CLI but not in the
+</I>&gt;&gt;<i> GUI? Seems strange to me, although I know that the CLI is more
+</I>&gt;&gt;<i> straightforward than the GUI (it simply reads in some data and processes
+</I>&gt;&gt;<i> the command line switches, no sophisticated caching/downloading/parsing
+</I>&gt;&gt;<i> necessary).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> so i'm using gpodder from the terminal  &amp;i'm writing a php shell
+</I>&gt;&gt;&gt;<i> script (please no flames) that creates readable symlinks to my
+</I>&gt;&gt;&gt;<i> podcasts so i can navigate things easier &amp;i can post that for anyone
+</I>&gt;&gt;&gt;<i> who wants it, once i feel better &amp;i'm done with it.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Yeah, send it in, maybe it's useful for somebody. Or we might convert it
+</I>&gt;&gt;<i> to Python and include it in gPodder's standard distribution as an
+</I>&gt;&gt;<i> additional way of providing a browseable download directory.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> i am using the most up date version of gnome, and hi color &amp;icon
+</I>&gt;&gt;&gt;<i> theme, its all part of my distro's latest packages(i'm using opensuse
+</I>&gt;&gt;&gt;<i> 10.3).  i'm actually using a custom svg icon theme( the Lila theme
+</I>&gt;&gt;&gt;<i> from <A HREF="http://art.gnome.org/">http://art.gnome.org/</A> ), but even with just using the default
+</I>&gt;&gt;&gt;<i> icon theme, or high color, gPodder has the same issues.
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please try out the latest SVN version, instructions on how to check out
+</I>&gt;&gt;<i> the svn trunk head can be found on the gPodder website or on the mailing
+</I>&gt;&gt;<i> list. You can run the SVN version without installing gPodder by using
+</I>&gt;&gt;<i> &quot;make test&quot;.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> i hope you have some luck with this, i'm lost... right now i think i'm
+</I>&gt;&gt;&gt;<i> gonna go back to sleep now ;-).  if you need anything let me know and
+</I>&gt;&gt;&gt;<i> i'll get back as soon as i'm able.  thank you again for your work on
+</I>&gt;&gt;&gt;<i> this project *you rock*. 
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It would be very helpful if you could provide the console output of both
+</I>&gt;&gt;<i> the installed version of gPodder and the SVN version so we can
+</I>&gt;&gt;<i> investigate what could have went wrong. With the installed version, you
+</I>&gt;&gt;<i> have to pass &quot;--verbose&quot; as command line argument, for the development
+</I>&gt;&gt;<i> version, &quot;make test&quot; will automatically enable verbose output.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks,
+</I>&gt;&gt;<i> Thomas
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>   
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>   
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070819/c8d4e696/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070819/c8d4e696/attachment.html</A>&gt;
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070819/c8d4e696/attachment-0001.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070819/c8d4e696/attachment-0001.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000499.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+	<LI>Next message: <A HREF="000463.html">[gpodder-devel] Quick bug fix for libipodsync
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#498">[ date ]</a>
+              <a href="thread.html#498">[ thread ]</a>
+              <a href="subject.html#498">[ subject ]</a>
+              <a href="author.html#498">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

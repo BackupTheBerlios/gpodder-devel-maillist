@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Gpodder on Ubuntu 11.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gpodder%20on%20Ubuntu%2011.10&In-Reply-To=%3C20111012163536.GR24217%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002890.html">
+   <LINK REL="Next"  HREF="002887.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Gpodder on Ubuntu 11.10</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Gpodder%20on%20Ubuntu%2011.10&In-Reply-To=%3C20111012163536.GR24217%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] Gpodder on Ubuntu 11.10">thp at gpodder.org
+       </A><BR>
+    <I>Wed Oct 12 18:35:36 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002890.html">[gpodder-devel] Gpodder on Ubuntu 11.10
+</A></li>
+        <LI>Next message: <A HREF="002887.html">[gpodder-devel] Category and Ratings Information (gpodder.net	Feed-Service)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2892">[ date ]</a>
+              <a href="thread.html#2892">[ thread ]</a>
+              <a href="subject.html#2892">[ subject ]</a>
+              <a href="author.html#2892">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Wed, Oct 12, 2011 at 04:49:37PM +0100, Colin Law wrote:
+&gt;<i> On 5 October 2011 09:15, Colin Law &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">clanlaw at googlemail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; On 5 October 2011 08:58, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+</I>&gt;<i> &gt;&gt; On Tue, Oct 04, 2011 at 09:12:32PM +0100, Colin Law wrote:
+</I>&gt;<i> &gt;&gt;&gt; I am testing gpodder on ubuntu 11.10 beta. Gpodder is installed from
+</I>&gt;<i> &gt;&gt;&gt; the ubuntu repository. I have noticed a couple of problems.
+</I>&gt;<i> &gt;&gt;&gt; 1. When minimised it does not show on the panel
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Have you made sure that the tray icon features are disabled? If they are
+</I>&gt;<i> &gt;&gt; enabled (and I assume Ubuntu 11.10 does not have a systray area
+</I>&gt;<i> &gt;&gt; anymore), you won't be able to see gPodder. It's better to disable all
+</I>&gt;<i> &gt;&gt; the tray icon features for gPodder (see ~/.config/gpodder/gpodder.conf)
+</I>&gt;<i> &gt;&gt; if you are using Ubuntu &gt;= 11.04, since from that version, the tray icon
+</I>&gt;<i> &gt;&gt; is (as far as I know) not correctly supported.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Running gpodder 2.18 on Ubuntu 11.04 with the Unity interface (gpodder
+</I>&gt;<i> &gt; from <A HREF="http://ppa.launchpad.net/thp/gpodder/ubuntu/">http://ppa.launchpad.net/thp/gpodder/ubuntu/</A>) it *does* correctly
+</I>&gt;<i> &gt; minimise to the top panel.
+</I>&gt;<i> 
+</I>&gt;<i> Following further investigation I see I was wrong here (at least
+</I>&gt;<i> partly). Running gpodder (2.16 or 2.18) on Ubuntu 11.04 using the
+</I>&gt;<i> Unity-2D interface I *do* see gpodder minimising to the top panel (if
+</I>&gt;<i> configured in prefs), but when using Unity 3D or either interface on
+</I>&gt;<i> Ubuntu 11.11 it does not minimise to the top panel.  I suspect this
+</I>&gt;<i> was a 'feature' of Unity-2D on 11.04 intended to provide backwards
+</I>&gt;<i> compatibility.
+</I>&gt;<i> 
+</I>&gt;<i> I also note that the minimise ability seems to have been removed from
+</I>&gt;<i> the tres branch completely, is that correct?
+</I>
+Yes, tray icon support has been removed in &quot;tres&quot; for now - probably
+being replaced by Unity's APIs (AppIndicator) or GNOME 3 APIs at some
+point in the future (especially for notifications, that is). The fact
+that GNOME 3 and Ubuntu/Unity seem to go a different way there doesn't
+really help, unfortunately.
+
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002890.html">[gpodder-devel] Gpodder on Ubuntu 11.10
+</A></li>
+	<LI>Next message: <A HREF="002887.html">[gpodder-devel] Category and Ratings Information (gpodder.net	Feed-Service)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2892">[ date ]</a>
+              <a href="thread.html#2892">[ thread ]</a>
+              <a href="subject.html#2892">[ subject ]</a>
+              <a href="author.html#2892">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

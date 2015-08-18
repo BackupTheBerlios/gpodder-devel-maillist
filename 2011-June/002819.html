@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] model.py and Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20model.py%20and%20Woodchuck&In-Reply-To=%3C87wrghzcs5.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002818.html">
+   <LINK REL="Next"  HREF="002820.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] model.py and Woodchuck</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20model.py%20and%20Woodchuck&In-Reply-To=%3C87wrghzcs5.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] model.py and Woodchuck">neal at walfield.org
+       </A><BR>
+    <I>Mon Jun 20 00:17:46 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002818.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002820.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2819">[ date ]</a>
+              <a href="thread.html#2819">[ thread ]</a>
+              <a href="subject.html#2819">[ subject ]</a>
+              <a href="author.html#2819">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>At Sat, 18 Jun 2011 23:43:15 +0200,
+Neal H. Walfield wrote:
+&gt;<i> To this end, I'd like to propose that the Model class be made a proper
+</I>&gt;<i> class.  The init function would then take a database as a parameter.
+</I>&gt;<i> get_podcasts (among others) would then be invoked against the instance
+</I>&gt;<i> and not the class and its DB parameter disappears.
+</I>
+The attached patch does exactly this.  The model is made available
+globally via Core.model (just as db and config are made available
+globally).  The frontend can still customize the model's
+implementation by subclassing it.  In this case, it passes the model's
+desired subclass to Core.__init__ (again, mirroring how the db and
+config classes are treated).
+
+I tested the GTK frontend and it seems to still work.  I couldn't test
+the QML frontend as pyside doesn't seem to be installable on my Debian
+Squeeze installation (the version of python installed is too old and
+I'd have to pull a bunch of packages from unstable).  Also, I didn't
+yet figure out how to use the webui.
+
+I may have missed uses of the model class.  Please double check my
+work.
+
+Thanks,
+
+Neal
+
+
+From 35ca8f69a95212ec0fb2b6bd955c393ef30403f7 Mon Sep 17 00:00:00 2001
+From: Neal H. Walfield &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">neal at gnu.org</A>&gt;
+Date: Mon, 20 Jun 2011 00:06:17 +0200
+Subject: [PATCH 225/225] Make Model a proper class.
+
+ - Add an __init__ method to Model taking the DB to model.
+ - Make get_podcasts and load_podcast instance methods rather than
+   class methods.  Don't require that the caller pass the DB to use.
+ - Update users.
+   - Have Core.__init__ take an additional parameter, model_class.
+     Instantiate a model from self.db using the provided model_class.
+---
+ src/gpodder/api.py            |    8 ++++----
+ src/gpodder/core.py           |    9 ++++++---
+ src/gpodder/gui.py            |   11 ++++++-----
+ src/gpodder/model.py          |   18 ++++++++++--------
+ src/gpodder/qmlui/__init__.py |    7 ++++---
+ src/gpodder/webui/__init__.py |    8 ++++----
+ 6 files changed, 34 insertions(+), 27 deletions(-)
+
+diff --git a/src/gpodder/api.py b/src/gpodder/api.py
+index a8b3464..53972cb 100644
+--- a/src/gpodder/api.py
++++ b/src/gpodder/api.py
+@@ -27,7 +27,6 @@ import gpodder
+ 
+ from gpodder import util
+ from gpodder import core
+-from gpodder import model
+ from gpodder import download
+ 
+ from gpodder import youtube
+@@ -192,6 +191,7 @@ class PodcastClient(object):
+         &quot;&quot;&quot;
+         self.core = core.Core()
+         self._db = self.core.db
++        self._model = self.core.model
+         self._config = self.core.config
+ 
+     def get_podcasts(self):
+@@ -199,7 +199,7 @@ class PodcastClient(object):
+ 
+         Returns all the subscribed podcasts from gPodder.
+         &quot;&quot;&quot;
+-        return [Podcast(p, self) for p in model.Model.get_podcasts(self._db)]
++        return [Podcast(p, self) for p in self._model.get_podcasts()]
+ 
+     def get_podcast(self, url):
+         &quot;&quot;&quot;Get a specific podcast by URL
+@@ -210,7 +210,7 @@ class PodcastClient(object):
+         url = util.normalize_feed_url(url)
+         if url is None:
+             return None
+-        channel = model.Model.load_podcast(self._db, url, create=False)
++        channel = self._model.load_podcast(url, create=False)
+         if channel is None:
+             return None
+         else:
+@@ -224,7 +224,7 @@ class PodcastClient(object):
+         the resulting object.
+         &quot;&quot;&quot;
+         url = util.normalize_feed_url(url)
+-        podcast = model.Model.load_podcast(self._db, url, create=True, \
++        podcast = self._model.load_podcast(url, create=True, \
+                 max_episodes=self._config.max_episodes_per_feed, \
+                 mimetype_prefs=self._config.mimetype_prefs)
+         if podcast is not None:
+diff --git a/src/gpodder/core.py b/src/gpodder/core.py
+index 9998f5e..41390da 100644
+--- a/src/gpodder/core.py
++++ b/src/gpodder/core.py
+@@ -27,12 +27,14 @@ from gpodder import util
+ from gpodder import config
+ from gpodder import dbsqlite
+ from gpodder import hooks
++from gpodder import model
+ 
+ 
+ class Core(object):
+-    def __init__(self, \
+-            config_class=config.Config, \
+-            database_class=dbsqlite.Database):
++    def __init__(self,
++                 config_class=config.Config,
++                 database_class=dbsqlite.Database,
++                 model_class=model.Model):
+         # Initialize the gPodder home directory
+         util.make_directory(gpodder.home)
+ 
+@@ -46,6 +48,7 @@ class Core(object):
+ 
+         # Open the database and configuration file
+         self.db = database_class(gpodder.database_file)
++        self.model = model_class(self.db)
+         self.config = config_class(gpodder.config_file)
+ 
+         # Update the current device in the configuration
+diff --git a/src/gpodder/gui.py b/src/gpodder/gui.py
+index eb743a0..f57d88d 100644
+--- a/src/gpodder/gui.py
++++ b/src/gpodder/gui.py
+@@ -148,6 +148,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         self.core = gpodder_core
+         self.config = self.core.config
+         self.db = self.core.db
++        self.model = self.core.model
+         BuilderWidget.__init__(self, None)
+     
+     def new(self):
+@@ -407,7 +408,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+ 
+         # Subscribed channels
+         self.active_channel = None
+-        self.channels = Model.get_podcasts(self.db)
++        self.channels = self.model.get_podcasts()
+ 
+         # Check if the user has downloaded any podcast with an external program
+         # and mark episodes as downloaded / move them away (bug 902)
+@@ -2604,7 +2605,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 log('QUEUE RUNNER: %s', url, sender=self)
+                 try:
+                     # The URL is valid and does not exist already - subscribe!
+-                    channel = Model.load_podcast(self.db, url=url, create=True, \
++                    channel = self.model.load_podcast(url=url, create=True, \
+                             authentication_tokens=auth_tokens.get(url, None), \
+                             max_episodes=self.config.max_episodes_per_feed, \
+                             mimetype_prefs=self.config.mimetype_prefs)
+@@ -2715,7 +2716,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         self.db.commit()
+         self.updating_feed_cache = False
+ 
+-        self.channels = Model.get_podcasts(self.db)
++        self.channels = self.model.get_podcasts()
+ 
+         # Process received episode actions for all updated URLs
+         self.process_received_episode_actions(updated_urls)
+@@ -2882,7 +2883,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             return
+ 
+         if not force_update:
+-            self.channels = Model.get_podcasts(self.db)
++            self.channels = self.model.get_podcasts()
+             self.channel_list_changed = True
+             self.update_podcast_list_model(select_url=select_url_afterwards)
+             return
+@@ -3922,7 +3923,7 @@ def main(options=None):
+         dlg.destroy()
+         sys.exit(0)
+ 
+-    gp = gPodder(bus_name, core.Core(UIConfig))
++    gp = gPodder(bus_name, core.Core(UIConfig, model_class=Model))
+ 
+     # Handle options
+     if options.subscribe:
+diff --git a/src/gpodder/model.py b/src/gpodder/model.py
+index 7c8077f..fd0d5a3 100644
+--- a/src/gpodder/model.py
++++ b/src/gpodder/model.py
+@@ -1157,15 +1157,17 @@ class PodcastChannel(PodcastModelObject):
+ class Model(object):
+     PodcastClass = PodcastChannel
+ 
+-    @classmethod
+-    def get_podcasts(cls, db):
+-        return cls.PodcastClass.load_from_db(db)
++    def __init__(self, db):
++        self.db = db
+ 
+-    @classmethod
+-    def load_podcast(cls, db, url, create=True, authentication_tokens=None, \
+-            max_episodes=0, mimetype_prefs=''):
+-        return cls.PodcastClass.load(db, url, create, authentication_tokens, \
+-                max_episodes, mimetype_prefs)
++    def get_podcasts(self):
++        return self.PodcastClass.load_from_db (self.db)
++
++    def load_podcast(self, url, create=True, authentication_tokens=None,
++                     max_episodes=0, mimetype_prefs=''):
++        return self.PodcastClass.load(self.db, url, create,
++                                      authentication_tokens,
++                                      max_episodes, mimetype_prefs)
+ 
+     @staticmethod
+     def sort_episodes_by_pubdate(episodes, reverse=False):
+diff --git a/src/gpodder/qmlui/__init__.py b/src/gpodder/qmlui/__init__.py
+index 8276370..c125b32 100644
+--- a/src/gpodder/qmlui/__init__.py
++++ b/src/gpodder/qmlui/__init__.py
+@@ -171,7 +171,7 @@ class Controller(UiData):
+ 
+         def subscribe_proc(self, url):
+             # TODO: Show progress indicator
+-            channel = model.Model.load_podcast(self.root.db, url=url, \
++            channel = self.root.model.load_podcast(url=url, \
+                     create=True, \
+                     max_episodes=self.root.config.max_episodes_per_feed, \
+                     mimetype_prefs=self.root.config.mimetype_prefs)
+@@ -265,6 +265,7 @@ class qtPodder(QObject):
+         self.core = gpodder_core
+         self.config = self.core.config
+         self.db = self.core.db
++        self.model = self.core.model
+ 
+         self.view = DeclarativeView()
+         self.view.closing.connect(self.on_quit)
+@@ -343,7 +344,7 @@ class qtPodder(QObject):
+         self.main.openContextMenu(items)
+ 
+     def reload_podcasts(self):
+-        podcasts = sorted(model.Model.get_podcasts(self.db), \
++        podcasts = sorted(self.model.get_podcasts(), \
+                 key=lambda p: p.qsection)
+         self.podcast_model.set_podcasts(self.db, podcasts)
+ 
+@@ -375,6 +376,6 @@ class qtPodder(QObject):
+         self.main.setCurrentEpisode()
+ 
+ def main(args):
+-    gui = qtPodder(args, core.Core())
++    gui = qtPodder(args, core.Core(model_class=model))
+     return gui.run()
+ 
+diff --git a/src/gpodder/webui/__init__.py b/src/gpodder/webui/__init__.py
+index 9e87abe..e635349 100644
+--- a/src/gpodder/webui/__init__.py
++++ b/src/gpodder/webui/__init__.py
+@@ -107,13 +107,13 @@ class WebUI(BaseHTTPServer.BaseHTTPRequestHandler):
+         &quot;&quot;&quot;
+         if self.path == '/podcast':
+             print &gt;&gt;self.wfile, '&lt;h1&gt;Podcasts&lt;/h1&gt;&lt;ul&gt;'
+-            for podcast in model.Model.get_podcasts(self.core.db):
++            for podcast in self.core.model.get_podcasts():
+                 print &gt;&gt;self.wfile, \
+                         '&lt;li&gt;&lt;a href=&quot;/podcast/%d&quot;&gt;&lt;img src=&quot;/coverart/%d&quot;&gt; %s&lt;/a&gt;&lt;/li&gt;' % \
+                         (podcast.id, podcast.id, podcast.title + ' DLs:' + str(podcast.get_statistics()[3]))
+         elif re.match('/podcast/\d+$', self.path):
+             id = int(self.path[9:])
+-            for podcast in model.Model.get_podcasts(self.core.db):
++            for podcast in self.core.model.get_podcasts():
+                 if podcast.id != id:
+                     continue
+ 
+@@ -132,7 +132,7 @@ class WebUI(BaseHTTPServer.BaseHTTPRequestHandler):
+         elif re.match('/podcast/\d+/\d+', self.path):
+             podcast_id, id= [int(x) for x in self.path[9:].split('/')]
+ 
+-            for podcast in model.Model.get_podcasts(self.core.db):
++            for podcast in self.core.model.get_podcasts():
+                 if podcast.id != podcast_id:
+                     continue
+ 
+@@ -150,7 +150,7 @@ class WebUI(BaseHTTPServer.BaseHTTPRequestHandler):
+ 
+ 
+ def main():
+-    WebUI.core = core.Core()
++    WebUI.core = core.Core(model_class=model)
+     try:
+         import android
+         WebUI.player = android.Android()
+-- 
+1.7.2.5
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002818.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002820.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2819">[ date ]</a>
+              <a href="thread.html#2819">[ thread ]</a>
+              <a href="subject.html#2819">[ subject ]</a>
+              <a href="author.html#2819">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder-2.0 on OpenBSD
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder-2.0%20on%20OpenBSD&In-Reply-To=%3C20091124230721.GD29664%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002330.html">
+   <LINK REL="Next"  HREF="002335.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder-2.0 on OpenBSD</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder-2.0%20on%20OpenBSD&In-Reply-To=%3C20091124230721.GD29664%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] gpodder-2.0 on OpenBSD">thp at gpodder.org
+       </A><BR>
+    <I>Wed Nov 25 00:07:21 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002330.html">[gpodder-devel] gpodder-2.0 on OpenBSD
+</A></li>
+        <LI>Next message: <A HREF="002335.html">[gpodder-devel] gpodder-2.0 on OpenBSD
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2331">[ date ]</a>
+              <a href="thread.html#2331">[ thread ]</a>
+              <a href="subject.html#2331">[ subject ]</a>
+              <a href="author.html#2331">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Rodolfo!
+
+On Tue, Nov 24, 2009 at 05:37:55PM -0500, Rodolfo Gouveia wrote:
+&gt;<i> I'm doing a gpodder port for OpenBSD but hitting on
+</I>&gt;<i> some issues.
+</I>
+Wow, great :) Please notify me when it's finished, so I can link it from
+gpodder.org/downloads.
+
+&gt;<i> First man pages for ports under OpenBSD go under
+</I>&gt;<i> /usr/local/man instead of the /usr/local/share/man.
+</I>&gt;<i> So I patched setup.py and Makefile.
+</I>
+If you can provide a patch that will not change the default behaviour,
+but will allow you to easily change this by using make/environment
+variables, please feel free to send me the patch, so I can apply it.
+
+&gt;<i> Second some icons were missing so I had to add 
+</I>&gt;<i> gtk-icon-theme-name = &quot;gnome&quot; to ~/.gtkrc-2.0
+</I>&gt;<i> Maybe this is not needed when running gnome?
+</I>
+Yes, when running GNOME, it should automatically use the gnome icon
+theme by default (or any other theme that the user has selected) - at
+least the other theme should also provide the icons that are missing by
+default.
+
+&gt;<i> Third and the real problem:
+</I>&gt;<i> I can't choose which directory to save the 
+</I>&gt;<i> podcasts in Preferences (it's grayed out).
+</I>&gt;<i> Any ideas where can I start to debug this?
+</I>
+This is probably related to <A HREF="http://gpodder.org/bug/466">http://gpodder.org/bug/466</A> - we are
+currently not allowing changes to this via the UI, because there have
+been some problems in the past with moving folders, especially in low
+disk space situations, when moving over filesystem boundaries and in
+cases where downloads were paused or active.
+
+You can ignore this for now. If you want, you can manually move the
+download folder and set download_dir in ~/.config/gpodder/gpodder.conf.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002330.html">[gpodder-devel] gpodder-2.0 on OpenBSD
+</A></li>
+	<LI>Next message: <A HREF="002335.html">[gpodder-devel] gpodder-2.0 on OpenBSD
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2331">[ date ]</a>
+              <a href="thread.html#2331">[ thread ]</a>
+              <a href="subject.html#2331">[ subject ]</a>
+              <a href="author.html#2331">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

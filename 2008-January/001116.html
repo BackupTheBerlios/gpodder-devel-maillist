@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Changes to the tray icon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changes%20to%20the%20tray%20icon&In-Reply-To=%3C1201264732.13680.3.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001136.html">
+   <LINK REL="Next"  HREF="001120.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Changes to the tray icon</H1>
+    <B>Shane Donohoe</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changes%20to%20the%20tray%20icon&In-Reply-To=%3C1201264732.13680.3.camel%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] Changes to the tray icon">priestoftime at googlemail.com
+       </A><BR>
+    <I>Fri Jan 25 13:38:52 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001136.html">[gpodder-devel] playlists (m3u)
+</A></li>
+        <LI>Next message: <A HREF="001120.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1116">[ date ]</a>
+              <a href="thread.html#1116">[ thread ]</a>
+              <a href="subject.html#1116">[ subject ]</a>
+              <a href="author.html#1116">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On Fri, 2008-01-25 at 12:03 +0100, Thomas Perl wrote:
+
+This sounds pretty perfect. My main concern is having gpodder do things
+by itself when minimized and I think you realise that. Notifications are
+still good, but only if they don't make you do anything, but just notify
+you.
+
+Thanks Thomas.
+
+&gt;<i> Hello, Jerome, Shane and Paul!
+</I>&gt;<i> 
+</I>&gt;<i> On Wed, 2008-01-23 at 21:55 +0100, J?r?me Chabod wrote:
+</I>&gt;<i> &gt; I understand your point of view and I must honestly say I also won't
+</I>&gt;<i> &gt; need all this extra &quot;buttons&quot;. I also agree to the fact that &quot;new
+</I>&gt;<i> &gt; episode are available&quot; should be notified only once.
+</I>&gt;<i> 
+</I>&gt;<i> Ok, so I think we can add to the list of needed changes:
+</I>&gt;<i> 
+</I>&gt;<i>   * Only show &quot;New episodes are available&quot; once for a set of episodes
+</I>&gt;<i>   * Remove all the buttons on the notification bubbles
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; However, a feature I really, really need is  the ability to
+</I>&gt;<i> &gt; automaticaly download episodes as soon as they are discovered (I
+</I>&gt;<i> &gt; explain it a few paragraph later).
+</I>&gt;<i> 
+</I>&gt;<i> As Paul and Shane also suggested that they would find this feature
+</I>&gt;<i> useful, I think we should add the option, but maybe seperate to the
+</I>&gt;<i> current option (rename the current to &quot;[...] after manual feed updates&quot;
+</I>&gt;<i> and add a new &quot;download new episodes in the background when gPodder is
+</I>&gt;<i> minimized&quot;). Of course, this means that we have to make sure that
+</I>&gt;<i> automatic downloads never bring the gPodder window in the foreground,
+</I>&gt;<i> but always run automatically (errors can still be reported via a
+</I>&gt;<i> notification bubble).
+</I>&gt;<i> 
+</I>&gt;<i> On the other hand, who would manually update the feed cache and then not
+</I>&gt;<i> be asked about new episodes? So maybe we should remove the option to ask
+</I>&gt;<i> for downloading after feed updates and simply make it the default. Then
+</I>&gt;<i> we get:
+</I>&gt;<i> 
+</I>&gt;<i>   * Remove the current automatic download option (default behaviour)
+</I>&gt;<i>   * Add option to download new episodes in the background (minimized)
+</I>&gt;<i>   * Make sure automatic downloads never show the gPodder window
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; To let you understand my motivation, let me explain &quot;my ideal&quot; gPodder
+</I>&gt;<i> &gt; as it tends to become (if you have to few time, you can skip it ;)):
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for sharing your gPodder workflow, it's interesting to read how
+</I>&gt;<i> other people use gPodder. We should probably make a contest in some
+</I>&gt;<i> weeks for people to send in their usage patterns of gPodder - maybe we
+</I>&gt;<i> can get some hints on what could be improved and maybe we can also use
+</I>&gt;<i> this information for writing a &quot;How to best use gPodder for [...]&quot;
+</I>&gt;<i> guide. I'll note that, maybe we can do this when we have the time.
+</I>&gt;<i> 
+</I>&gt;<i> Please have a look at the &quot;*&quot; items that I have tried to sum up in this
+</I>&gt;<i> mail and see if this is what you think is a good thing to do. We should
+</I>&gt;<i> probably have some more discussion before we start implementing the
+</I>&gt;<i> planned changes.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your time and attention to detail. I think with the results
+</I>&gt;<i> of this discussion and a good implementation, we can make your tray icon
+</I>&gt;<i> feature really shine and have a great release in February with the tray
+</I>&gt;<i> icon included.
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001136.html">[gpodder-devel] playlists (m3u)
+</A></li>
+	<LI>Next message: <A HREF="001120.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1116">[ date ]</a>
+              <a href="thread.html#1116">[ thread ]</a>
+              <a href="subject.html#1116">[ subject ]</a>
+              <a href="author.html#1116">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

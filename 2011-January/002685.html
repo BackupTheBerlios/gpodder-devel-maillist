@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] API Versioning?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20API%20Versioning%3F&In-Reply-To=%3C4D418941.7020806%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002684.html">
+   <LINK REL="Next"  HREF="002686.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] API Versioning?</H1>
+    <B>Stefan K&#246;gl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20API%20Versioning%3F&In-Reply-To=%3C4D418941.7020806%40gmail.com%3E"
+       TITLE="[gpodder-devel] API Versioning?">koeglstefan at gmail.com
+       </A><BR>
+    <I>Thu Jan 27 16:03:29 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002684.html">[gpodder-devel] API Versioning?
+</A></li>
+        <LI>Next message: <A HREF="002686.html">[gpodder-devel] API Versioning?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2685">[ date ]</a>
+              <a href="thread.html#2685">[ thread ]</a>
+              <a href="subject.html#2685">[ subject ]</a>
+              <a href="author.html#2685">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 2011-01-27 14:47, schrieb Stefan Derkits:
+&gt;<i> I was thinking ... with more &amp; more People using the gpodder API
+</I>&gt;<i> directly (or writing Libraries for using it ;) ) I was wondering if it
+</I>&gt;<i> could be a good Idea (and if this would be &quot;the way to do it&quot;) to put a
+</I>&gt;<i> Version Number on the API.
+</I>
+We are doing this already, at least for the Advanced API. For any
+particular API Endpoint such as
+
+ GET /api/2/data/podcast.json?url={url}
+
+the &quot;2&quot; refers to the version of the API.
+
+&gt;<i> E.g. say that it is 2.2 at the Moment and every new Feature added to the
+</I>&gt;<i> API (more JSON Data, new API Calls for new Features, ...) increments it
+</I>&gt;<i> (to e.g. 2.3)
+</I>
+Our current approach is to extend the API as needed while keeping it
+stable. Once we have to introduce a change that would break some
+clients, we increase the version number. From that point on, the
+previous version is frozen (and continues to work as before) and changes
+are only made to the next version.
+
+This keeps the number of versions low so that we can easily maintain and
+offer all API versions.
+
+
+-- Stefan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002684.html">[gpodder-devel] API Versioning?
+</A></li>
+	<LI>Next message: <A HREF="002686.html">[gpodder-devel] API Versioning?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2685">[ date ]</a>
+              <a href="thread.html#2685">[ thread ]</a>
+              <a href="subject.html#2685">[ subject ]</a>
+              <a href="author.html#2685">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

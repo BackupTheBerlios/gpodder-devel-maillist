@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Minimum GTK requirements?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Minimum%20GTK%20requirements%3F&In-Reply-To=%3Cb2cdc9f30909140228v57f720e1pf6340d4206d8efb8%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002228.html">
+   <LINK REL="Next"  HREF="002230.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Minimum GTK requirements?</H1>
+    <B>Alex Bennee</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Minimum%20GTK%20requirements%3F&In-Reply-To=%3Cb2cdc9f30909140228v57f720e1pf6340d4206d8efb8%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Minimum GTK requirements?">kernel-hacker at bennee.com
+       </A><BR>
+    <I>Mon Sep 14 11:28:04 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002228.html">[gpodder-devel] podcast feed update failing
+</A></li>
+        <LI>Next message: <A HREF="002230.html">[gpodder-devel] Minimum GTK requirements?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2229">[ date ]</a>
+              <a href="thread.html#2229">[ thread ]</a>
+              <a href="subject.html#2229">[ subject ]</a>
+              <a href="author.html#2229">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've just been playing with gpodder.git on my work machine which is a
+fairly crusty old Hardy LTS machine.
+I was having trouble getting the the preferences dialog to come up
+until I did the following:
+
+10:23 <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ajb at pitcairn</A>/x86_64 [gpodder.git] &gt;git diff
+diff --git a/data/ui/desktop/gpodderpreferences.ui
+b/data/ui/desktop/gpodderpreferences.ui
+index e2c8ee6..26991e2 100644
+--- a/data/ui/desktop/gpodderpreferences.ui
++++ b/data/ui/desktop/gpodderpreferences.ui
+@@ -1,6 +1,6 @@
+ &lt;?xml version=&quot;1.0&quot;?&gt;
+ &lt;interface&gt;
+-  &lt;requires lib=&quot;gtk+&quot; version=&quot;2.14&quot;/&gt;
++&lt;!--  &lt;requires lib=&quot;gtk+&quot; version=&quot;2.14&quot;/&gt; --&gt;
+   &lt;!-- interface-naming-policy toplevel-contextual --&gt;
+   &lt;object class=&quot;GtkAdjustment&quot; id=&quot;adjustment1&quot;&gt;
+     &lt;property name=&quot;value&quot;&gt;20&lt;/property&gt;
+
+Which seemed to allow it to work. Although there are some warnings
+from other parts of the GUI
+in the debug stream I was wandering is GTK+ 2.14 really a hard
+requirement for the preferences
+dialog?
+
+-- 
+Alex, homepage: <A HREF="http://www.bennee.com/~alex/">http://www.bennee.com/~alex/</A>
+<A HREF="http://www.half-llama.co.uk">http://www.half-llama.co.uk</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002228.html">[gpodder-devel] podcast feed update failing
+</A></li>
+	<LI>Next message: <A HREF="002230.html">[gpodder-devel] Minimum GTK requirements?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2229">[ date ]</a>
+              <a href="thread.html#2229">[ thread ]</a>
+              <a href="subject.html#2229">[ subject ]</a>
+              <a href="author.html#2229">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

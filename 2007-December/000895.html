@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] MTP devices synchronisation?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20MTP%20devices%20synchronisation%3F&In-Reply-To=%3C475D7EAE.2010407%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000892.html">
+   <LINK REL="Next"  HREF="000896.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] MTP devices synchronisation?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20MTP%20devices%20synchronisation%3F&In-Reply-To=%3C475D7EAE.2010407%40perli.net%3E"
+       TITLE="[gpodder-devel] MTP devices synchronisation?">thp at perli.net
+       </A><BR>
+    <I>Mon Dec 10 19:00:14 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000892.html">[gpodder-devel] MTP devices synchronisation?
+</A></li>
+        <LI>Next message: <A HREF="000896.html">[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#895">[ date ]</a>
+              <a href="thread.html#895">[ thread ]</a>
+              <a href="subject.html#895">[ subject ]</a>
+              <a href="author.html#895">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+J&#233;r&#244;me Chabod wrote:
+&gt;<i> Do you plan for a future release to synchronize MTP devices.
+</I>&gt;<i> I have to use another program (gnomad2) in order to synchronize the file 
+</I>&gt;<i> on my Samsung YPU3, but before that, I must use the trick of 
+</I>&gt;<i> synchronisation to the file system in order to obtain readable file 
+</I>&gt;<i> names. It a lot of operation to perform, the implementation of MTP 
+</I>&gt;<i> synchronisation would ease the process a lot.
+</I>&gt;<i> 
+</I>&gt;<i> Note: gnomad2 uses the libmtp C library. I don't now if it's something 
+</I>&gt;<i> easy to use a C library within python.
+</I>
+I only have a crufty old iPod mini, which works fine with iPod
+synchronization, although gPodder already depends on contributions and
+patches from other people for more advanced features (video
+synchronization, the &quot;blue dot&quot; for unplayed podcasts, ..). You have to
+understand that my limited amount of free time spent on gPodder is
+integrating features and patches and improving the codebase to be more
+stable. I'm also slowly implementing some features that better fit my
+lifestyle nowadays (all podcasts are listened to on my iPod from/to
+university and I rarely keep episodes around after I listened to them).
+
+That said, if you really want to have MTP support, you should try to get
+your hands dirty on writing Python code, gPodder's codebase isn't that
+hard to understand, and we'll be always glad to help you here on this
+mailing list if you have questions. Another option would be to donate a
+MTP device to some developer who has time and interest in implementing
+this because they want to get their device working.
+
+I'll gladly accept patches and help anyone find their way around the
+gPodder source code if someone's going to try their luck on a MTP device
+synchronization &quot;plug-in&quot;. Maybe you don't even need that, but can
+mash-up pylibmtp with gdfs (gdfs can be found in &quot;doc/dev/&quot; in our
+subversion repository).
+
+Other than that, integrating new &quot;synchronization interfaces&quot; should be
+easier with the new sync code I'm currently working on, which should get
+rid of some poor design decisions I made in libipodsync.py in 2006 :)
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000892.html">[gpodder-devel] MTP devices synchronisation?
+</A></li>
+	<LI>Next message: <A HREF="000896.html">[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#895">[ date ]</a>
+              <a href="thread.html#895">[ thread ]</a>
+              <a href="subject.html#895">[ subject ]</a>
+              <a href="author.html#895">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

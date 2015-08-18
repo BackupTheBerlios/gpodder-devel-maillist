@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.2%20%22Walk%20like%20a%20Panther%22%20released&In-Reply-To=%3C48193C46.2000800%40uberChicGeekChick.Com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001432.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released</H1>
+    <B>Kaity G. B.; et. al.</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.2%20%22Walk%20like%20a%20Panther%22%20released&In-Reply-To=%3C48193C46.2000800%40uberChicGeekChick.Com%3E"
+       TITLE="[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released">uberChick at uberChicGeekChick.Com
+       </A><BR>
+    <I>Thu May  1 05:43:02 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001432.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1431">[ date ]</a>
+              <a href="thread.html#1431">[ thread ]</a>
+              <a href="subject.html#1431">[ subject ]</a>
+              <a href="author.html#1431">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&lt;head&gt; &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; 
+charset=UTF-8&quot;&gt;&lt;head&gt; &lt;meta http-equiv=&quot;content-type&quot; 
+content=&quot;text/html; charset=UTF-8&quot;&gt;
+**I just spent &gt;2hrs writing a much better email**
+
+But, surprise surprise it got nuked.  I've told you I suck @e-mail so 
+badly.  Any ways I'll re-write my complete email later.  Here my short 
+recap. 1.) I've been gonefor so long because of some serious health 
+issues.  Luckily I've finally received a clean bill of health &amp;hospitals 
+should be long out of the future(w/any luck).  A few quick things: I'm 
+ready to post my gPodder helper script for running &amp;syncing gPodder from 
+the command line so it can be ran through a cron job &amp;etc.  But before I 
+post it I'm wondering if, w/gPodder 0.11.2[should be 0.12.0 *wink* 
+lol].  Any ways w/0.11.2 would running `gpodder --run --sync` accomplish 
+what we've been talking?  2.) Is the new sync code in place enough, 
+either in 0.11.2 or subversion, to where I could begin working on 
+converting/adding SQLite support?  3.) Can I a get a link, or @least a 
+reminder as to what coding standard gPodder uses, PYN-9, or what was 
+it?  4.) &amp;The real focus to my e-mail.  I just tried to upgrade to 
+gPodder 0.11.2.  The GUIs awesome &amp;I'm super looking forward to taking 
+advantage of the additional features, not to mention the bug fixes.  
+*Awesome job everyone!*  But when I try to run `gpodder --run` from the 
+cli gPodder dies with the following error:
+
+        /Traceback (most recent call last):
+           File &quot;/usr/bin/gpodder&quot;, line 166, in &lt;module&gt;
+             sys.exit( main())
+           File &quot;/usr/bin/gpodder&quot;, line 125, in main
+             from gpodder import console
+           File &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;,
+        line 21, in &lt;module&gt;
+           File &quot;usr/lib/python2.5/site-packages/gpodder/download.py&quot;,
+        line 29, in &lt;module&gt;
+           File &quot;usr/lib/python2.5/site-packages/gpodder/libgpodder.py&quot;,
+        line 37, in &lt;module&gt;
+           File &quot;usr/lib/python2.5/site-packages/gpodder/config.py&quot;,
+        line 60, in &lt;module&gt;
+        NameError: name 'default_bittorrent_dir' is not defined/
+
+     I hope that this is an easy issue to fix, I'm sure it is.  I've 
+tried adding a default_bittorrent_dir directive to gpodder.conf with no 
+luck.  However the current subversion build(679's what I checked out).  
+So I'm using the subversion build, in addition to coding on it.  My 
+final question, For any bug fixes that I fix, sqlite conversion, 
+playlist manager, &amp;using python-xine to enable media playing right 
+inside gPodder(w/support for all the beautiful codecs, 
+&amp;*cough-ick-gah*).  So question: 4.) Any ways I'm glad to finally be 
+back, glad to be alive, &amp;looking forward to start making some 
+contributions to this project.
+
+I hope you/everyone is doing wonderfully; please take care,
+Kaity G. B.; et. al.
+P.S. I really am working on my websites:
+
+    * <A HREF="http://Dystonia-DREAMS.Org/">http://Dystonia-DREAMS.Org/</A> &lt;<A HREF="http://dystonia-dreams.org/">http://dystonia-dreams.org/</A>&gt;: support
+      group for everyone, like myself, living beyong living with
+      Generalized Dystonia.
+    * <A HREF="http://uberChicGeekChick.Com/">http://uberChicGeekChick.Com/</A> &lt;<A HREF="http://uberchicgeekchick.com/">http://uberchicgeekchick.com/</A>&gt;: My
+      page &amp;podcast about: art &amp;self-expression through&#8211;&gt;OSS-&gt;creating
+      art(graphic design, animation, video, audio, &amp;more).
+    * <A HREF="http://uberChicks.Net/">http://uberChicks.Net/</A> &lt;<A HREF="http://uberchicks.net/">http://uberchicks.net/</A>&gt;: Highlighting
+      womens' OSS contributions &amp;projects.  Includes writings,
+      interviews, &amp;podcast.
+    * <A HREF="http://openSuSE.uberChicks.Net/">http://openSuSE.uberChicks.Net/</A> &lt;<A HREF="http://opensuse.uberchicks.net/">http://opensuse.uberchicks.net/</A>&gt;:
+      openSuSE's official women community.
+            @ <A HREF="irc://irc.opensuse.org/openSuSE-women">irc://irc.opensuse.org/openSuSE-women</A> &amp;
+            <A HREF="irc://irc.opensuse.org/openSuSE-uberChicks">irc://irc.opensuse.org/openSuSE-uberChicks</A> 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080430/1898c46b/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080430/1898c46b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001432.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1431">[ date ]</a>
+              <a href="thread.html#1431">[ thread ]</a>
+              <a href="subject.html#1431">[ subject ]</a>
+              <a href="author.html#1431">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

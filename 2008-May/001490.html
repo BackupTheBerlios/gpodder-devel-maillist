@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [patch] Rockbox Cover Art
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20Rockbox%20Cover%20Art&In-Reply-To=%3C200805281701.50277.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001489.html">
+   <LINK REL="Next"  HREF="001491.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [patch] Rockbox Cover Art</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bpatch%5D%20Rockbox%20Cover%20Art&In-Reply-To=%3C200805281701.50277.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] [patch] Rockbox Cover Art">me at nikosapi.org
+       </A><BR>
+    <I>Wed May 28 23:01:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001489.html">[gpodder-devel] [patch] Rockbox Cover Art
+</A></li>
+        <LI>Next message: <A HREF="001491.html">[gpodder-devel] [patch] Rockbox Cover Art
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1490">[ date ]</a>
+              <a href="thread.html#1490">[ thread ]</a>
+              <a href="subject.html#1490">[ subject ]</a>
+              <a href="author.html#1490">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On May 28, 2008 15:49:52 David Spreen wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I wrote a quick patch against the stable branch to sync cover art to
+</I>&gt;<i> Rockbox iPods (with the UMS config). However, right now gpodder doesn't
+</I>&gt;<i> determine if the player is a rockbox player and the size of the BMP file
+</I>&gt;<i> generated is non-configurable.
+</I>&gt;<i>
+</I>&gt;<i> If this was to make it upstream, what would be the prefered way of
+</I>&gt;<i> dealing with this? Should I make a new player-class for rockbox players
+</I>&gt;<i> and have cover-size be configurable (I believe that different player
+</I>&gt;<i> ports of rockbox use different resolutions for album art)? Or should
+</I>&gt;<i> that just be an option for the general UMS class?
+</I>&gt;<i>
+</I>&gt;<i> Let me know what you think. I am happy to provide a patch against trunk
+</I>&gt;<i> too. Right now I'd just like some feedback.
+</I>&gt;<i>
+</I>&gt;<i> Best,
+</I>&gt;<i>
+</I>&gt;<i> David
+</I>
+Hello David,
+
+That looks pretty good. I added two config settings, one 
+called 'rockbox_copy_coverart' and 'rockbox_coverart_size'. The former 
+enables copying to the device and the latter specifies the size of the image 
+file (we only need one side since it's always a square, right?).
+
+Great work,
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gPodder-r724-rockbox-cover-art-v2.patch
+Type: text/x-diff
+Size: 2726 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080528/8dc3e4fe/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080528/8dc3e4fe/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001489.html">[gpodder-devel] [patch] Rockbox Cover Art
+</A></li>
+	<LI>Next message: <A HREF="001491.html">[gpodder-devel] [patch] Rockbox Cover Art
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1490">[ date ]</a>
+              <a href="thread.html#1490">[ thread ]</a>
+              <a href="subject.html#1490">[ subject ]</a>
+              <a href="author.html#1490">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Missing string
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Missing%20string&In-Reply-To=%3C1240066979.4333.24.camel%40kubuntubox%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002103.html">
+   <LINK REL="Next"  HREF="002105.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Missing string</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Missing%20string&In-Reply-To=%3C1240066979.4333.24.camel%40kubuntubox%3E"
+       TITLE="[gpodder-devel] Missing string">me at nikosapi.org
+       </A><BR>
+    <I>Sat Apr 18 17:02:58 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002103.html">[gpodder-devel] Missing string
+</A></li>
+        <LI>Next message: <A HREF="002105.html">[gpodder-devel] Podcast housekeeping questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2104">[ date ]</a>
+              <a href="thread.html#2104">[ thread ]</a>
+              <a href="subject.html#2104">[ subject ]</a>
+              <a href="author.html#2104">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, 2009-04-18 at 06:53 -0700, Thomas Perl wrote:
+&gt;<i> Jim wrote:
+</I>&gt;<i> &gt; I think the string &quot;Not found&quot; used when gPodder fails downloading an
+</I>&gt;<i> &gt; episode is missing in the messages.pot file.
+</I>&gt;<i> 
+</I>&gt;<i> I believe this error message (404 Not Found?) comes from the remote
+</I>&gt;<i> web server and is just passed-through to the UI, that's why we cannot
+</I>&gt;<i> have these strings translated.
+</I>&gt;<i> 
+</I>&gt;<i> If this is really needed, we have to parse the HTTP status codes and
+</I>&gt;<i> add strings for each (important) code, so this can be translated.
+</I>&gt;<i> 
+</I>&gt;<i> Any comments on whether we should translate the status/error messages?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>
+How about just making it very clear in the dialog that the error message
+came from the server. Something like this:
+
+Error Downloading File
+
+The &lt;b&gt;server&lt;/b&gt; reported the following error code: &lt;i&gt;some error&lt;/i&gt;
+
+If not, it wouldn't be too hard to add custom error messages for the
+more common http error status codes. Looking at the code, the latter
+option might actually be easier to implement.
+
+nick
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002103.html">[gpodder-devel] Missing string
+</A></li>
+	<LI>Next message: <A HREF="002105.html">[gpodder-devel] Podcast housekeeping questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2104">[ date ]</a>
+              <a href="thread.html#2104">[ thread ]</a>
+              <a href="subject.html#2104">[ subject ]</a>
+              <a href="author.html#2104">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

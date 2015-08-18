@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Sync to iPod with empty 'episode' field
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Sync%20to%20iPod%20with%20empty%20%27episode%27%20field&In-Reply-To=%3C1186950042.5750.9.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000472.html">
+   <LINK REL="Next"  HREF="000477.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Sync to iPod with empty 'episode' field</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Sync%20to%20iPod%20with%20empty%20%27episode%27%20field&In-Reply-To=%3C1186950042.5750.9.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Sync to iPod with empty 'episode' field">thp at perli.net
+       </A><BR>
+    <I>Sun Aug 12 22:20:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000472.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+        <LI>Next message: <A HREF="000477.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#475">[ date ]</a>
+              <a href="thread.html#475">[ thread ]</a>
+              <a href="subject.html#475">[ subject ]</a>
+              <a href="author.html#475">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+Late here, read with care ;)
+
+On Sat, 2007-08-11 at 16:56 -0700, Wilfred van Rooijen wrote:
+&gt;<i> I download many podcasts from an internet radio
+</I>&gt;<i> station located in The Netherlands (www.kxradio.nl).
+</I>&gt;<i> These podcasts download fine, but they show up with an
+</I>&gt;<i> empty 'episode' string in gPodder.
+</I>
+Another buggy RSS feed, it seems - yay!
+
+&gt;<i> When I sync these files to my iPod (which runs
+</I>&gt;<i> RockBox), the resulting files transferred have the
+</I>&gt;<i> name '.mp3', i.e. only an extension, no base name.
+</I>&gt;<i> Although the player plays these files without
+</I>&gt;<i> complaining, I can only have 1 file per directory,
+</I>&gt;<i> because obviously, when I sync to files, both named
+</I>&gt;<i> '.mp3' to the same dir, the second one overwrites the? --
+</I>&gt;<i> first one.
+</I>
+Seems obvious. The only unique string I can derive on a per-episode
+basis from _every_ RSS podcast is a hash of the URL. This makes the file
+names unreadable in standard directory browsers (that's how gPodder
+stores the episodes in its download directory, btw).
+
+&gt;<i> I took a look in the file ipodsync.py and noticed that
+</I>&gt;<i> indeed the name 'to_file' is derived from the
+</I>&gt;<i> 'episode'-info. But there is no exception for an empty
+</I>&gt;<i> episode-field.
+</I>
+Should I make an exception for empty episodes that would fill in the md5
+hash of the URL of the episode? It would not be very readable, but at
+least it would sync correctly.
+
+&gt;<i> So could it be possible to make something in this case
+</I>&gt;<i> that yields a file name derived from the channel name,
+</I>&gt;<i> with a counter attached so that the old files are not
+</I>&gt;<i> overwritten when the new ones are sync'd? Something
+</I>&gt;<i> like:
+</I>&gt;<i> 
+</I>&gt;<i> to_file = ${channel_name}_1.${extension}
+</I>&gt;<i> 
+</I>&gt;<i> if( to_file exists on iPod ) then
+</I>&gt;<i>   while( to_file exists on iPod )
+</I>&gt;<i>     i++
+</I>&gt;<i>     to_file = $channel_name_$i.${extension}
+</I>&gt;<i>   end
+</I>&gt;<i> end
+</I>&gt;<i> 
+</I>&gt;<i> I think it should be relatively easy, but I have no
+</I>&gt;<i> experience programming Python. 
+</I>
+Won't work, because after every sync, the files would be duplicated, as
+there is no way to check if an episode has already been synced or not
+(except when comparing file contents, which is expensive).
+
+Would a file name like &quot;76ab760dc7b607607a60d8767cada0687c6ad&quot; be okay
+for you? This would be relatively easy to implement.
+
+To be honest, this is a bug that the RSS feed author should fix (I mean,
+empty episode titles...HELLO?!), but if we find a nice, hack-ish
+workaround, I might be ready to commit it to our codebase :)
+
+
+Thanks,
+Thomas
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000472.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+	<LI>Next message: <A HREF="000477.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#475">[ date ]</a>
+              <a href="thread.html#475">[ thread ]</a>
+              <a href="subject.html#475">[ subject ]</a>
+              <a href="author.html#475">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] libmygpo-qt 1.0 Beta 2 (v0.10) [Call for Testers &amp;	Packaging Helpers]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%201.0%20Beta%202%20%28v0.10%29%20%5BCall%20for%20Testers%20%26%0A%09Packaging%20Helpers%5D&In-Reply-To=%3C4D332B3E.3040600%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002668.html">
+   <LINK REL="Next"  HREF="002678.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] libmygpo-qt 1.0 Beta 2 (v0.10) [Call for Testers &amp;	Packaging Helpers]</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%201.0%20Beta%202%20%28v0.10%29%20%5BCall%20for%20Testers%20%26%0A%09Packaging%20Helpers%5D&In-Reply-To=%3C4D332B3E.3040600%40derkits.at%3E"
+       TITLE="[gpodder-devel] libmygpo-qt 1.0 Beta 2 (v0.10) [Call for Testers &amp;	Packaging Helpers]">stefan at derkits.at
+       </A><BR>
+    <I>Sun Jan 16 18:30:38 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002668.html">[gpodder-devel] gPodder 2.12 &quot;The Odyssey of Flight 33&quot; released
+</A></li>
+        <LI>Next message: <A HREF="002678.html">[gpodder-devel] subscribe to itunes podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2671">[ date ]</a>
+              <a href="thread.html#2671">[ thread ]</a>
+              <a href="subject.html#2671">[ subject ]</a>
+              <a href="author.html#2671">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Dear gPodder &amp; Amarok Community,
+
+we are proud to announce the second Beta of libmygpo-qt.
+
+Changes since last Beta:
+- -) Devices now have their own Class and are no longer only Maps in
+DeviceList
+- -) Authentication is now achieved via adding AuthData to the Request URL
+instead of a Slot in RequestHandler (Advantage: ApiRequest can be
+deleted safely as it is no longer required after the Request Function
+returns an Object)
+- -) We no longer provide any QNetworkAccessManager for you, you now have
+to create one before creating an ApiRequest Object
+- -) Various Code Cleanup &amp; Additions to the Example Application
+
+You can download the Tarball here:
+<A HREF="http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.0.10.tar.gz">http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.0.10.tar.gz</A>
+(md5sum: 3178f843b55f5944c95026955cb69637 ; sha1sum:
+3a89ee80aeb57f547174ea9d422c7f883ee9e3a4)
+
+The first Application to use our Library will be Amarok, where we will
+implement Podcast Synchronisation via gpodder.net.
+You can follow our Progress on that here:
+<A HREF="https://github.com/ase23/amarok-ase/tree/gpodder">https://github.com/ase23/amarok-ase/tree/gpodder</A>
+
+Due to the Fact that we are now Feature Complete we wish for many many
+Testers of this Library, to get a stable 1.0 Release.
+Also we ask for help with packaging, as we have no Idea yet how to get
+our Library into Distributions.
+
+Some Important Links for libmygpo-qt:
+
+Git Repo: <A HREF="https://github.com/ase23/libmygpo-qt">https://github.com/ase23/libmygpo-qt</A>
+Doxygen Documentation: <A HREF="http://stefan.derkits.at/libmygpo-doc/">http://stefan.derkits.at/libmygpo-doc/</A>
+Bugreports: <A HREF="http://bugs.gpodder.org">http://bugs.gpodder.org</A>
+Contact: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+
+
+If you didn't read the last Release Messages or are wondering what
+gpodder has to do with Amarok, below you again find all the Infos.
+
+Greetings,
+Stefan, Christian &amp; Felix
+
+- --- Infos about libmygpo-qt ---
+
+What is libmygpo-qt?
+
+libmygpo-qt is a Qt/C++ Library wrapping the gPodder.net Webservice. We
+are working on it as part of a University Course &amp; it will be used in
+one of the next Versions of Amarok when we integrate the gPodder
+Webservice into Amarok.
+Also it will maybe one Day be used to create a gPodder Client for
+MeeGo/Symbian ;)
+
+What is gpodder.net?
+
+gpodder.net is a Webservice, that can be used for Podcast Discovery
+(Search, Toplists, Tags, ...) and Subscription/Synchronization of
+Podcasts &amp; Podcast Status Synchronization.
+
+You can find a Proposal of the gpodder Integration (to which we will
+mostly stick) into Amarok here:
+<A HREF="http://amarok.kde.org/wiki/Proposals/GPodderNet">http://amarok.kde.org/wiki/Proposals/GPodderNet</A>
+
+
+_______________________________________________
+gpodder-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAk0zKz4ACgkQlZvAMV/NgGJUbgCgzGmPSnuDPg0U3ZsPs4IFDlUr
+NXsAnizC4cvDWlrgT5+rGntV/6NUlQnZ
+=ukwP
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002668.html">[gpodder-devel] gPodder 2.12 &quot;The Odyssey of Flight 33&quot; released
+</A></li>
+	<LI>Next message: <A HREF="002678.html">[gpodder-devel] subscribe to itunes podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2671">[ date ]</a>
+              <a href="thread.html#2671">[ thread ]</a>
+              <a href="subject.html#2671">[ subject ]</a>
+              <a href="author.html#2671">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

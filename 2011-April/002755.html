@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Help! gpodder no longer syncs episodes (?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Help%21%20gpodder%20no%20longer%20syncs%20episodes%20%28%3F%29&In-Reply-To=%3C20110423151610.GJ7814%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002754.html">
+   <LINK REL="Next"  HREF="002743.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Help! gpodder no longer syncs episodes (?)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Help%21%20gpodder%20no%20longer%20syncs%20episodes%20%28%3F%29&In-Reply-To=%3C20110423151610.GJ7814%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] Help! gpodder no longer syncs episodes (?)">thp at gpodder.org
+       </A><BR>
+    <I>Sat Apr 23 17:16:10 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002754.html">[gpodder-devel] Help! gpodder no longer syncs episodes (?)
+</A></li>
+        <LI>Next message: <A HREF="002743.html">[gpodder-devel] Galician Translation Updated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2755">[ date ]</a>
+              <a href="thread.html#2755">[ thread ]</a>
+              <a href="subject.html#2755">[ subject ]</a>
+              <a href="author.html#2755">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Wilfred,
+
+On Tue, Apr 19, 2011 at 05:03:08AM -0700, Wilfred van Rooijen wrote:
+&gt;<i> &gt; If gtkpod works fine, so should libgpod (and in turn
+</I>&gt;<i> &gt; python-gpod). Maybe
+</I>&gt;<i> &gt; there really is a problem with track length detection.
+</I>&gt;<i> &gt; Maybe you could
+</I>&gt;<i> &gt; try uninstalling eyeD3 or Python Imaging and see if this
+</I>&gt;<i> &gt; helps? You
+</I>&gt;<i> &gt; could also try removing mplayer and see if this fixes the
+</I>&gt;<i> &gt; problem.
+</I>&gt;<i> 
+</I>&gt;<i> Aha, this is were the problems are! I installed mplayer recently. I
+</I>&gt;<i> uninstalled it, and tada! gpodder works as before :-)) So indeed,
+</I>&gt;<i> there is some interaction between mplayer and gpodder (?). If so, how
+</I>&gt;<i> can I assist in debugging? 
+</I>
+Yes, gPodder tries to use mplayer (and parse its output) to get the
+length of the file. Please try running the following in a xterm and see
+if it outputs anything that starts with ID_LENGTH:
+
+mplayer -msglevel all=-1 -identify -vo null -ao null -frames 0 $FILE
+
+(where $FILE is the path to a file you have tried to sync)
+
+If everything works correctly, this will simply output some info about
+the file and then quit. Chances are that it doesn't quit for you, and
+this is where you see the hanging. Can you confirm that this is the
+case? If so, what is the output?
+
+&gt;<i> By the way, when syncing I get messages like:
+</I>&gt;<i> [...]
+</I>&gt;<i> ** (gpodder:29543): CRITICAL **: itdb_splr_validate: assertion `at != ITDB_SPLAT_UNKNOWN' failed
+</I>&gt;<i> 
+</I>&gt;<i> ** (gpodder:29543): WARNING **: Unknown action type 1
+</I>&gt;<i> [...]
+</I>
+Seems like debugging output from libgpod. Can you file a bug report with
+them, mentioning gPodder and the version of the Python bindings to
+libgpod? See <A HREF="http://www.gtkpod.org/">http://www.gtkpod.org/</A> for more information.
+
+&gt;<i> &gt; try to
+</I>&gt;<i> &gt; convert the OGG files to MP3? Maybe this is taking a bit
+</I>&gt;<i> &gt; long?
+</I>&gt;<i> 
+</I>&gt;<i> No, when mplayer is present, the little wait bar appears that says
+</I>&gt;<i> &quot;Syncing episode 1 of Y&quot;. Subsequently, CPU activity goes to zero.
+</I>&gt;<i> &quot;top&quot; does not mention any gpodder activity. When I drag the wait bar
+</I>&gt;<i> window across gpodder, the screen is no longer updated. It really
+</I>&gt;<i> shows all the signs of simply not responding. I can click on the X in
+</I>&gt;<i> the window corner, and then I get a dialog that says that the
+</I>&gt;<i> application is not responding and do I want to shut it down by force
+</I>&gt;<i> (yes).
+</I>
+Is there a mplayer process in &quot;ps ax&quot; output?
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002754.html">[gpodder-devel] Help! gpodder no longer syncs episodes (?)
+</A></li>
+	<LI>Next message: <A HREF="002743.html">[gpodder-devel] Galician Translation Updated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2755">[ date ]</a>
+              <a href="thread.html#2755">[ thread ]</a>
+              <a href="subject.html#2755">[ subject ]</a>
+              <a href="author.html#2755">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

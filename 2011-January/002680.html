@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Authentication procedure using web services
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Authentication%20procedure%20using%20web%20services&In-Reply-To=%3C4D3D298C.2070102%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002679.html">
+   <LINK REL="Next"  HREF="002683.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Authentication procedure using web services</H1>
+    <B>Stefan K&#246;gl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Authentication%20procedure%20using%20web%20services&In-Reply-To=%3C4D3D298C.2070102%40gmail.com%3E"
+       TITLE="[gpodder-devel] Authentication procedure using web services">koeglstefan at gmail.com
+       </A><BR>
+    <I>Mon Jan 24 08:26:04 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002679.html">[gpodder-devel] Authentication procedure using web services
+</A></li>
+        <LI>Next message: <A HREF="002683.html">[gpodder-devel] Authentication procedure using web services
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2680">[ date ]</a>
+              <a href="thread.html#2680">[ thread ]</a>
+              <a href="subject.html#2680">[ subject ]</a>
+              <a href="author.html#2680">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Am 2011-01-24 07:50, schrieb Rakesh Dhanya (RBEI/ECV1):
+&gt;<i> Using web services, is it possible to authenticate a user's
+</I>&gt;<i> credentials. I want to be logged in by default, the moment my
+</I>&gt;<i> customized gPodder client app is started (I intend to write a small
+</I>&gt;<i> client for myself). I can encrypt and store my username and password,
+</I>&gt;<i> but how do I reach out to the gPodder server?
+</I>
+gpodder.net uses HTTP Basic Authentication [1]. If you are not logged
+in, it will return status code 401 for user-specific requests. You can
+catch these and request the same resource again, with user credentials
+included. See [1] about the correct syntax.
+
+On [2] you will find an extension of the current authentication. It is
+still listed as a draft, but should already work on the webservice.
+
+
+-- Stefan
+
+
+
+[1] <A HREF="http://en.wikipedia.org/wiki/Basic_access_authentication">http://en.wikipedia.org/wiki/Basic_access_authentication</A>
+[2] <A HREF="http://wiki.gpodder.org/wiki/Web_Wervices/API/Drafts">http://wiki.gpodder.org/wiki/Web_Wervices/API/Drafts</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002679.html">[gpodder-devel] Authentication procedure using web services
+</A></li>
+	<LI>Next message: <A HREF="002683.html">[gpodder-devel] Authentication procedure using web services
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2680">[ date ]</a>
+              <a href="thread.html#2680">[ thread ]</a>
+              <a href="subject.html#2680">[ subject ]</a>
+              <a href="author.html#2680">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] ImportError: cannot import name util
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20ImportError%3A%20cannot%20import%20name%20util&In-Reply-To=%3C46C19715.1080900%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000478.html">
+   <LINK REL="Next"  HREF="000488.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] ImportError: cannot import name util</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20ImportError%3A%20cannot%20import%20name%20util&In-Reply-To=%3C46C19715.1080900%40gmail.com%3E"
+       TITLE="[gpodder-devel] ImportError: cannot import name util">pdedecker at gmail.com
+       </A><BR>
+    <I>Tue Aug 14 13:50:45 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000478.html">[gpodder-devel] missing dependency?
+</A></li>
+        <LI>Next message: <A HREF="000488.html">[gpodder-devel] ImportError: cannot import name util
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#485">[ date ]</a>
+              <a href="thread.html#485">[ thread ]</a>
+              <a href="subject.html#485">[ subject ]</a>
+              <a href="author.html#485">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Just tried to run gPodder's current SVN build:
+
+---
+Traceback (most recent call last):
+  File &quot;/usr/bin/gpodder&quot;, line 145, in &lt;module&gt;
+    sys.exit( main())
+  File &quot;/usr/bin/gpodder&quot;, line 101, in main
+    from gpodder import console
+  File &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;, line 27, in
+&lt;module&gt;
+  File &quot;usr/lib/python2.5/site-packages/gpodder/gpodder.py&quot;, line 43, in
+&lt;module&gt;
+  File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line
+33, in &lt;module&gt;
+ImportError: cannot import name util
+---
+
+What could be wrong? I'm using Ubuntu 7.04.
+
+Pieter De Decker
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000478.html">[gpodder-devel] missing dependency?
+</A></li>
+	<LI>Next message: <A HREF="000488.html">[gpodder-devel] ImportError: cannot import name util
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#485">[ date ]</a>
+              <a href="thread.html#485">[ thread ]</a>
+              <a href="subject.html#485">[ subject ]</a>
+              <a href="author.html#485">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

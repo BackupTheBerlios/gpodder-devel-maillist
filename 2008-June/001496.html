@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Results of the file naming	test	(your	OPML	files)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%0A%09test%09%28your%09OPML%09files%29&In-Reply-To=%3C1212502486.8815.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001495.html">
+   <LINK REL="Next"  HREF="001497.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Results of the file naming	test	(your	OPML	files)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%0A%09test%09%28your%09OPML%09files%29&In-Reply-To=%3C1212502486.8815.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Results of the file naming	test	(your	OPML	files)">thp at perli.net
+       </A><BR>
+    <I>Tue Jun  3 16:14:46 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001495.html">[gpodder-devel] Results of the file naming test	(your	OPML	files)
+</A></li>
+        <LI>Next message: <A HREF="001497.html">[gpodder-devel] gpodder complains that iTunesDB and ArtworkDB have	inconsistent sizes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1496">[ date ]</a>
+              <a href="thread.html#1496">[ thread ]</a>
+              <a href="subject.html#1496">[ subject ]</a>
+              <a href="author.html#1496">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, 2008-06-03 at 13:09 +0100, Paul Rudkin wrote:
+&gt;<i> As the date is not reliable as you pointed out, I think this leaves us
+</I>&gt;<i> with very little option but to implement the dictionary solution.
+</I>&gt;<i> 
+</I>&gt;<i> I don't mind giving this a go if there is no rush! ;)
+</I>
+Of course not, I'm very glad for any help, as I'm currently very busy
+doing other things and don't have so much time for gPodder.
+
+The bug to post patches and discuss things is here:
+
+   <A HREF="http://bugs.gpodder.org/show_bug.cgi?id=57">http://bugs.gpodder.org/show_bug.cgi?id=57</A>
+
+&gt;<i> I haven't looked but is the code you used to test the file naming in
+</I>&gt;<i> SVN?
+</I>
+I have looked, but don't think so. Basically, what the code does is uses
+gPodder's &quot;opml&quot; module to load the OPML file and channels, then for
+each channel do the following:
+
+1) create an empty dict
+2) for each episode:
+   *) call the (modified) local_filename() method, save the return value
+   *) if the return value is not in the dict, add it and continue
+   *) if the return value is in the dict, there has been a collision
+
+Shouldn't be too hard to implement this with the gPodder library
+functions.
+
+You might want to &quot;assign&quot; bug #57 to you, so we know you are working on
+it.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001495.html">[gpodder-devel] Results of the file naming test	(your	OPML	files)
+</A></li>
+	<LI>Next message: <A HREF="001497.html">[gpodder-devel] gpodder complains that iTunesDB and ArtworkDB have	inconsistent sizes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1496">[ date ]</a>
+              <a href="thread.html#1496">[ thread ]</a>
+              <a href="subject.html#1496">[ subject ]</a>
+              <a href="author.html#1496">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

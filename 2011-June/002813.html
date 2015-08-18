@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] improvements to handling of last-played position
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20improvements%20to%20handling%20of%20last-played%20position&In-Reply-To=%3CBANLkTi%3DLuXErnkF3%2BiLNd-xbMq8rmvyv9w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002812.html">
+   <LINK REL="Next"  HREF="002815.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] improvements to handling of last-played position</H1>
+    <B>Dov Feldstern</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20improvements%20to%20handling%20of%20last-played%20position&In-Reply-To=%3CBANLkTi%3DLuXErnkF3%2BiLNd-xbMq8rmvyv9w%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] improvements to handling of last-played position">dovdevel at gmail.com
+       </A><BR>
+    <I>Mon Jun 13 18:09:17 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002812.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+        <LI>Next message: <A HREF="002815.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2813">[ date ]</a>
+              <a href="thread.html#2813">[ thread ]</a>
+              <a href="subject.html#2813">[ subject ]</a>
+              <a href="author.html#2813">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks for the quick responses, Thomas!
+
+&gt;&gt;<i> &#160;(3) works flawlessly for me with the default media player. I believe
+</I>&gt;&gt;<i> &#160; &#160; &#160;that this is acheived by gpodder telling the media player
+</I>&gt;&gt;<i> &#160; &#160; &#160;where to resume using mafw's D-Bus API, so this solution is
+</I>&gt;&gt;<i> &#160; &#160; &#160;specific to the n900/mafw.
+</I>&gt;<i>
+</I>&gt;<i> Yes, but if the player provides an API for resuming, we could add this
+</I>&gt;<i> (I can also imagine something like using a variable/placeholder like
+</I>&gt;<i> $POSITION or __position__, etc.. in the custom command line that would
+</I>&gt;<i> then get replaced with the resuming position).
+</I>&gt;<i>
+</I>
+Yes, that's exactly what the patch that I've added to
+<A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1140">https://bugs.gpodder.org/show_bug.cgi?id=1140</A> does, except that you
+responded before I even got a chance to attach the patch there! ;) But
+it's attached now...
+
+&gt;<i>
+</I>&gt;&gt;<i> [...] Should I open an issue against the web service for this?
+</I>&gt;<i>
+</I>&gt;<i> This question is probably something for our resident gpodder.net master
+</I>&gt;<i> Stefan Koegl. Stefan: What do you think?
+</I>&gt;<i>
+</I>
+Stefan, just to clarify (and so that this section doesn't get lost in
+my response now ;) ): the suggestion is that the json documents
+returned also return &quot;future&quot; actions, similarly to the fact that
+&quot;future&quot; actions are immediately displayed in the web UI.
+
+&gt;&gt;<i> One additional idea I've had, and am interested in hearing feedback, is
+</I>&gt;&gt;<i> to create a standalone application which would stand between gpodder
+</I>&gt;&gt;<i> and the media players, would talk with gpodder via the Media Player
+</I>&gt;&gt;<i> D-Bus API and the command line, and then talk with different media
+</I>&gt;&gt;<i> players via their own APIs. That would allow gpodder to have only
+</I>&gt;&gt;<i> simple, generic, APIs, and move the complexity of dealing with
+</I>&gt;&gt;<i> different media players to a separate, isolated, layer. Any thoughts?
+</I>&gt;<i>
+</I>&gt;<i> Isn't the Media Player D-Bus API already very simple and generic? I'm not sure
+</I>&gt;<i> what additional features the standalone application would provide; maybe you
+</I>&gt;<i> have some examples?
+</I>&gt;<i>
+</I>
+Certainly what I have in mind would build upon the D-Bus API. But
+that's only half the issue, the other half is resuming (which can be
+dealt with by adding the command line option).
+
+But the thing is, these APIs require cooperation from the media
+players, which may or may not be forthcoming. So what I'm suggesting
+is a standalone &quot;glue&quot; application which would talk to gpodder via the
+existing APIs (which I agree are good, and, I think, sufficient) on
+one side, and with different media players using their preferred APIs
+on the other.
+
+I think what I have in mind is very similar to MafwPlaybackMonitor
+which already exists in gpodder. If I understand correctly, it
+&quot;translates&quot; mafw's native D-Bus API to gpodder's D-Bus API. What I'm
+suggesting, I guess, is that such code be moved out of gpodder to a
+totally separate application.
+
+Similarly, for example, with VLC: currently, I have my gpodder custom
+command setup to enqueue new episodes to an existing instance of VLC
+(as explained at
+<A HREF="http://wiki.gpodder.org/wiki/User_Manual#Appending_episodes_to_the_current_playlist">http://wiki.gpodder.org/wiki/User_Manual#Appending_episodes_to_the_current_playlist</A>).
+However, the --start_time option does not play nicely with the enqueue
+option. (This may be a VLC bug which should be solved there, but
+that's beside the point.) Possibly, a better way of interfacing with
+VLC is via pipes (again, I'm not familiar enough with VLC development,
+but I see there is  such an option). If so, it may be useful to have
+this go-between application which would still talk to gpodder via
+D-Bus / custom command line, and *it* would translate to VLC-pipes or
+whatever.
+
+Just throwing this out as an idea to think about, I'm not sure about
+it myself, yet...
+
+
+Again, thanks for the quick responses!
+Dov
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002812.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+	<LI>Next message: <A HREF="002815.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2813">[ date ]</a>
+              <a href="thread.html#2813">[ thread ]</a>
+              <a href="subject.html#2813">[ subject ]</a>
+              <a href="author.html#2813">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

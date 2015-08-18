@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Most revision buggy?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C3e8fd0440807141019i23382a2bl83150d7219e93705%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001624.html">
+   <LINK REL="Next"  HREF="001626.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Most revision buggy?</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C3e8fd0440807141019i23382a2bl83150d7219e93705%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Most revision buggy?">me at nikosapi.org
+       </A><BR>
+    <I>Mon Jul 14 19:19:39 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001624.html">[gpodder-devel] Most revision buggy?
+</A></li>
+        <LI>Next message: <A HREF="001626.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1625">[ date ]</a>
+              <a href="thread.html#1625">[ thread ]</a>
+              <a href="subject.html#1625">[ subject ]</a>
+              <a href="author.html#1625">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 14, 2008 at 12:59 AM, Wilfred van Rooijen
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">wvanrooijen at yahoo.com</A>&gt; wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I am having severe difficulty with version 768 of gpodder (I get all kinds of xlib errors). This is what I found on the internet, maybe it helps:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://www.faqs.org/faqs/x-faq/part7/section-15.html">http://www.faqs.org/faqs/x-faq/part7/section-15.html</A>
+</I>&gt;<i>
+</I>&gt;<i> Sometimes, I also get a weirder error:
+</I>&gt;<i>
+</I>&gt;<i> Exception in thread Thread-125:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+</I>&gt;<i>    self.run()
+</I>&gt;<i>  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+</I>&gt;<i>    self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>  File &quot;/home/rooijen/gpodder/src/gpodder/services.py&quot;, line 169, in __get_cover
+</I>&gt;<i>    loader.write(open(channel.cover_file, 'rb').read())
+</I>&gt;<i> GError: Unrecognized image file format
+</I>&gt;<i>
+</I>&gt;<i> [  58.478] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+</I>&gt;<i> [  58.479] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+</I>&gt;<i> [  58.524] (podcastChannel) Generating TreeModel for <A HREF="http://pod.j-wave.co.jp/blog/wakeuptokyo/pym.xml">http://pod.j-wave.co.jp/blog/wakeuptokyo/pym.xml</A>
+</I>&gt;<i> [  58.850] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+</I>&gt;<i> [  58.874] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+</I>&gt;<i> Xlib: unexpected async reply (sequence 0x10ee1)!
+</I>&gt;<i> *** glibc detected *** python: double free or corruption (!prev): 0x08feee50 ***
+</I>&gt;<i> make: *** [test] Killed
+</I>&gt;<i>
+</I>&gt;<i> The 'glibc detected' thingie shows up on several fora but nothing seems to point in a specific direction.
+</I>&gt;<i>
+</I>&gt;<i> I think this bug may have to do with
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://bugs.gpodder.org/show_bug.cgi?id=150">http://bugs.gpodder.org/show_bug.cgi?id=150</A>
+</I>&gt;<i>
+</I>&gt;<i> but I'm not sure.
+</I>&gt;<i>
+</I>&gt;<i> The error occurs when syncing episodes. It occurs more easily if I sync multiple episodes at once (select a few, then click 'transfer'). It usually happens after one or two successful syncs. But then again, sometimes gpodder fails even before the sync waitbar is on the screen :-)). It also occurs when syncing single episodes, but with a (slightly) lower frequency.
+</I>&gt;<i>
+</I>&gt;<i> This bug happens so frequently now that I've given up syncing for today. Maybe tomorrow the stars will align better and it'll work, don't know. All I can you now, is that every time I start gpodder, it crashes on the first, second, or third sync, quite reliably :-)).
+</I>&gt;<i>
+</I>&gt;<i> Cheerio,
+</I>&gt;<i> Wilfred
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+Hello Wilfred,
+
+Sorry, I didn't mean to offend with my python 2.5 recommendation, I
+was just surprised ;)
+
+For those &quot;Xlib: unexpected async reply&quot; crashes please try the patch
+attached to bug #150 that you mentioned and see if you get better
+results. That's most definitely a threading related issue which is
+what that patch intends to fix.
+
+Thanks,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001624.html">[gpodder-devel] Most revision buggy?
+</A></li>
+	<LI>Next message: <A HREF="001626.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1625">[ date ]</a>
+              <a href="thread.html#1625">[ thread ]</a>
+              <a href="subject.html#1625">[ subject ]</a>
+              <a href="author.html#1625">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

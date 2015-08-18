@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names%3B%0A%20CLI%20synching%3B%20%26cron%20job%20downloading...brb.&In-Reply-To=%3C475F2B14.7080208%40uberChicGeekChick.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000895.html">
+   <LINK REL="Next"  HREF="000897.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.</H1>
+    <B>Kaity G. B.-&gt;uberChicGeekChick();</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names%3B%0A%20CLI%20synching%3B%20%26cron%20job%20downloading...brb.&In-Reply-To=%3C475F2B14.7080208%40uberChicGeekChick.com%3E"
+       TITLE="[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.">uberChick at uberChicGeekChick.com
+       </A><BR>
+    <I>Wed Dec 12 01:28:04 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000895.html">[gpodder-devel] MTP devices synchronisation?
+</A></li>
+        <LI>Next message: <A HREF="000897.html">[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#896">[ date ]</a>
+              <a href="thread.html#896">[ thread ]</a>
+              <a href="subject.html#896">[ subject ]</a>
+              <a href="author.html#896">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>  **hey**
+
+I've been having issues with my laptop over my last two weeks.  On top 
+of my issues with my disease; well its taken me a while to get back to 
+you, Thomas, about some questions you asked me, so here's what I could 
+gather from running `gpodder --run --verbose`.  First off though, with 
+gPodder 0.10.2 seems to have fixed most of my podcast downloading 
+problems.  I had to nuke both .db files but its working much better 
+now.  I do have issues with one feed, at least, still.  It seems to be 
+only on this URL that this happens.  Usually its just the error listed 
+above.  Any ways here are this feed's errors details(from gpodder --run 
+--verbose).
+
+/U 
+<A HREF="http://video.google.com/videofeed?type=search&amp;q=Google+engEDU&amp;so=1&amp;num=50&amp;output=rss">http://video.google.com/videofeed?type=search&amp;q=Google+engEDU&amp;so=1&amp;num=50&amp;output=rss</A>
+Traceback (most recent call last):
+   File &quot;/usr/bin/gpodder&quot;, line 148, in &lt;module&gt;
+     sys.exit( main())
+   File &quot;/usr/bin/gpodder&quot;, line 113, in main
+     console.run()
+   File &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;, line 86, 
+in run
+   File &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;, line 82, 
+in update
+   File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+728, in load_channels
+   File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+163, in create_from_dict
+   File &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;, line 80, 
+in &lt;lambda&gt;
+   File &quot;/usr/lib/python2.5/site-packages/gpodder/liblogger.py&quot;, line 
+48, in msg
+     s = message % args
+TypeError: not enough arguments for format string/
+
+Now for every one looking for something that syncs from the command line 
+&amp;running gpodder through cron, &amp;etc.  I have a PHP progie I've written, 
+&amp;posted before.  I'll post that later today or tomorrow with my latest 
+version.
+
+Again I have plans on working with gPodder, and *ick* python.  Right now 
+&amp;for the foreseeable future I have to many other projects taking 
+president.  Once I can though I'll be contributing some patches I'll add 
+to gPodder.  Unless Miro ever upgrades to using python 2.5, as if, LOL 
+*wink*.  Until I can work on gPodder more directly.  I'm just using my 
+PHP progie.  I'll post it later tonight, or tomorrow.  Sorry, busy day.
+
+&amp;BTW I know my PHP progies kinda a hack, but it is easier to 
+customize/modify/code than gpodder.  Mostly just cause its only PHP 
+&amp;CLI.  But it does integrate fully with gpodder.  But its just kinda a 
+hack so no complaining once I do get a chance to post it.
+
+Until than, ttfn &amp;thnx again Thomas, &amp;everyone else, for working on 
+gPodder.  You rock!
+------------------------------------------------------------------------
+/Blessed be,/
+/Kaity G. B.-&gt;uberChicGeekChick.Com &lt;<A HREF="http://uberChicGeekChick.com/">http://uberChicGeekChick.com/</A>&gt; 
+&amp;uberChicks.Net &lt;<A HREF="http://uberChicks.Net/">http://uberChicks.Net/</A>&gt;/
+/What ever your level of errors to show - 'E_ALL | E_STRICT', 'use 
+strict', or 'gcc -Wextra -Wall' - May never an exception your code 
+through! ^_^/
+
+
+/Generalized Dystonia/ &lt;<A HREF="http://dystonia-dreams.org/">http://dystonia-dreams.org/</A>&gt;: I have /'it'/ 
+thousands do! /'Its'/ taken my choice, /'its'/ taken my voice, /'its'/ 
+taken my life, &amp;taken my limbs!
+What it cannot take is my DREAMS &lt;<A HREF="http://dystonia-dreams.org/">http://dystonia-dreams.org/</A>&gt;!
+Though spastic &twisted; I'll not give up! <A HREF="http://Dystonia-DREAMS.Org/">http://Dystonia-DREAMS.Org/</A>
+Firefox's development version, Gran Paradiso's, iconic globe. help test 
+firefox3 &amp;rediscover the web! &lt;<A HREF="http://www.mozilla.com/en-US/firefox/">http://www.mozilla.com/en-US/firefox/</A>&gt;
+
+
+Thomas Perl wrote:
+&gt;<i> Hello, Katy!
+</I>&gt;<i>
+</I>&gt;<i> Katy G. B. wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Thomas, I'd be fine with the mp3 sync thing if it did two things.  One it needs
+</I>&gt;&gt;<i> like a command line option for &quot;syncing&quot;.  And than right now it copies all
+</I>&gt;&gt;<i> podcasts.  It would be very useful if there were an option to `move podcasts
+</I>&gt;&gt;<i> when syncing` &amp;not just copy them.  I have tons of podcasts and and often don't
+</I>&gt;&gt;<i> have enough hard drive space to two copies - even worse I don't have the time to
+</I>&gt;&gt;<i> manage two copies, except for having tcsh foreach &amp;remove podcasts after
+</I>&gt;&gt;<i> syncing.  But anyways just a wish list.
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> I've added these things to the TODO list.
+</I>&gt;<i>
+</I>&gt;<i> You might also want to try out the &quot;gdfs&quot; progies from gPodder's source
+</I>&gt;<i> directory in doc/dev/gdfs/. You will find instructions in the README
+</I>&gt;<i> file in that directory.
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>   
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071211/ef86ca6e/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071211/ef86ca6e/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Gran Paradiso.png
+Type: image/png
+Size: 1250 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071211/ef86ca6e/attachment.png">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071211/ef86ca6e/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000895.html">[gpodder-devel] MTP devices synchronisation?
+</A></li>
+	<LI>Next message: <A HREF="000897.html">[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#896">[ date ]</a>
+              <a href="thread.html#896">[ thread ]</a>
+              <a href="subject.html#896">[ subject ]</a>
+              <a href="author.html#896">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

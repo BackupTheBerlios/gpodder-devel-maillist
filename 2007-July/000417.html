@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod keeps on crashing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20keeps%20on%20crashing&In-Reply-To=%3C1184706031.5627.48.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000413.html">
+   <LINK REL="Next"  HREF="000416.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod keeps on crashing</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20keeps%20on%20crashing&In-Reply-To=%3C1184706031.5627.48.camel%40macbook%3E"
+       TITLE="[gpodder-devel] iPod keeps on crashing">thp at perli.net
+       </A><BR>
+    <I>Tue Jul 17 23:00:31 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000413.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+        <LI>Next message: <A HREF="000416.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#417">[ date ]</a>
+              <a href="thread.html#417">[ thread ]</a>
+              <a href="subject.html#417">[ subject ]</a>
+              <a href="author.html#417">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Nick!
+
+On Tue, 2007-07-17 at 12:42 -0400, nikosapi wrote:
+&gt;<i> On 7/17/07, Stephan Buys &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stephan.buys at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; Hi have also identified that gPodder does not do sanity checking when you
+</I>&gt;<i> &gt; Synchronize. I have been running out of space on the device without knowing
+</I>&gt;<i> &gt; it, this leads to DB corruption and all sorts of other problems.
+</I>&gt;<i> 
+</I>&gt;<i> That's a definite TODO then ;-)  I'm going to have time near the end
+</I>&gt;<i> of the week so I'll get on it if nothing else comes up.
+</I>
+I've implemented the &quot;out of disk&quot; error handling for FS-based MP3
+players a few days ago, have a look at the changelog and the
+corresponding commit diffs. It wouldn't be too hard to add this
+functionality for iPod sync. AFAIR it's just a matter of adding the rror
+message to the &quot;errors&quot; list and returning &quot;False&quot;, setting &quot;cancelled&quot;
+to true, etc.. See the gPodder_FSSync object for an example.
+
+I currently don't have much time, as it's a busy week, so I'll gladly
+accept patches for this. It'd be a nice addition for 0.9.4, but if we
+don't get the patch in in time, we'd have to release without this
+patched, which would be a bit sad ;)
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000413.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+	<LI>Next message: <A HREF="000416.html">[gpodder-devel] iPod keeps on crashing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#417">[ date ]</a>
+              <a href="thread.html#417">[ thread ]</a>
+              <a href="subject.html#417">[ subject ]</a>
+              <a href="author.html#417">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

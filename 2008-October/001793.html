@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Cover Art for Filesystem-based MP3 Players
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Cover%20Art%20for%20Filesystem-based%20MP3%20Players&In-Reply-To=%3C20081011133330.65c64736%40deckard%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001792.html">
+   <LINK REL="Next"  HREF="001794.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Cover Art for Filesystem-based MP3 Players</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Cover%20Art%20for%20Filesystem-based%20MP3%20Players&In-Reply-To=%3C20081011133330.65c64736%40deckard%3E"
+       TITLE="[gpodder-devel] Cover Art for Filesystem-based MP3 Players">thp at perli.net
+       </A><BR>
+    <I>Sat Oct 11 13:33:30 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001792.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+        <LI>Next message: <A HREF="001794.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1793">[ date ]</a>
+              <a href="thread.html#1793">[ thread ]</a>
+              <a href="subject.html#1793">[ subject ]</a>
+              <a href="author.html#1793">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there!
+
+On Sat, 11 Oct 2008 03:59:03 -0700
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">daggpod at emailias.com</A>&gt; wrote:
+&gt;<i> The Sansa Fuze supports cover art in the form of a file called
+</I>&gt;<i> &quot;folder.jpg&quot; in the directory where the podcasts reside.  There is a
+</I>&gt;<i> restriction on the size of this file.  The Fuze's screen is 220x176,
+</I>&gt;<i> making anything over 176x176 a waste of space.  The player will scale
+</I>&gt;<i> the image to fit the screen, but if it's over a certain size
+</I>&gt;<i> (something like 300x300), the player shows a black box instead.
+</I>
+So, ideally, for your player, you would take the cover file, resize it
+to be exactly 176x176 (crop anything that goes beyond that) and copy it
+to the player as folder.jpg, right?
+
+I suggest you implement the cropping and resizing as a specialized
+function that you can later put into src/gpodder/util.py and that
+utilizes the PIL (python-imaging in Debian/Ubuntu).
+
+See: <A HREF="http://www.pythonware.com/library/pil/handbook/introduction.htm">http://www.pythonware.com/library/pil/handbook/introduction.htm</A>
+
+You can easily create a standalone app that resizes an image to
+176x176, test it that way and then transform it into a function that
+takes two parameters: one is the filename of the source image and one
+of the destination image.
+
+After that works, I suggest you parameterize the side length (176 in
+your case) and add this as third parameter to your function.
+
+When you have got the function correct, you just need to add it to
+src/gpodder/util.py and use it in src/gpodder/sync.py, where you can
+use the iPod code as an example.
+
+For the configuration options, I suggest having three configuration
+options:
+
+mp3_player_copy_coverart  -- boolean (should coverart be copied?)
+mp3_player_cover_filename -- string (how should it be named?
+                                     &quot;folder.jpg&quot; in your case)
+mp3_player_cover_size -- int (maximum image size? 176 in your case)
+
+Add these to src/gpodder/config.py and then you can access is as
+&quot;gl.config.[name of the configuration variable]&quot; in your code.
+
+&gt;<i> I'd imaging each player has its own quirks as to the image file name,
+</I>&gt;<i> its appropriate format or whether it supports the image as an
+</I>&gt;<i> embedded tag (the Fuze doesn't).  So I was considering how best to
+</I>&gt;<i> implement this so other players could be easily supported without
+</I>&gt;<i> adding a few dozen player-specific classes to sync.py.
+</I>
+I suggest you implement it as described above. You don't really care
+for players with embedded tags currently, so it's perfectly fine to
+make your patch so that it works for your MP3 player. If you make it as
+modular as we have seen above, it should be no problem to extend that
+functionality later on, should anybody else care :)
+
+Feel free to come back to me for any questions you might have.
+
+Good luck!
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001792.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+	<LI>Next message: <A HREF="001794.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1793">[ date ]</a>
+              <a href="thread.html#1793">[ thread ]</a>
+              <a href="subject.html#1793">[ subject ]</a>
+              <a href="author.html#1793">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

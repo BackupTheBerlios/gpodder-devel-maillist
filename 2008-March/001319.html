@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Error when writing iTunesDB.ext
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Error%20when%20writing%20iTunesDB.ext&In-Reply-To=%3C20080328132923.53bf76ff%40node1.freeyourmachine.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001316.html">
+   <LINK REL="Next"  HREF="001320.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Error when writing iTunesDB.ext</H1>
+    <B>JoeHill</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Error%20when%20writing%20iTunesDB.ext&In-Reply-To=%3C20080328132923.53bf76ff%40node1.freeyourmachine.org%3E"
+       TITLE="[gpodder-devel] Error when writing iTunesDB.ext">joehill at teksavvy.com
+       </A><BR>
+    <I>Fri Mar 28 18:29:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001316.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+        <LI>Next message: <A HREF="001320.html">[gpodder-devel] Can't get a podcast
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1319">[ date ]</a>
+              <a href="thread.html#1319">[ thread ]</a>
+              <a href="subject.html#1319">[ subject ]</a>
+              <a href="author.html#1319">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thomas Perl wrote: 
+
+&gt;<i> Hello, Joe!
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2008-03-28 at 01:52 -0400, JoeHill wrote:
+</I>&gt;<i> &gt; JoeHill wrote: 
+</I>&gt;<i> &gt;   
+</I>&gt;<i> &gt; &gt; Just did an svn up to Revision: 643, but I'm still getting an unmatched
+</I>&gt;<i> &gt; &gt; checksum error from gtkpod.
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; This is what it shows in the gpodder console:
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; [42270.381] (iPodDevice) Error when writing iTunesDB.ext
+</I>&gt;<i> &gt; &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt; &gt;   File &quot;/home/joehill/svn/gpodder/src/gpodder/sync.py&quot;, line 211, in close
+</I>&gt;<i> &gt; &gt;     db = gpod.ipod.Database(self.mountpoint)
+</I>&gt;<i> &gt; &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/ipod.py&quot;, line 85, in
+</I>&gt;<i> &gt; &gt; __init__ self._load_gtkpod_extended_info()
+</I>&gt;<i> &gt; &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/ipod.py&quot;, line 101, in
+</I>&gt;<i> &gt; &gt; _load_gtkpod_extended_info gtkpod.parse(itdbext_file, self,
+</I>&gt;<i> &gt; &gt; self._itdb_file) File &quot;/usr/lib/python2.4/site-packages/gpod/gtkpod.py&quot;,
+</I>&gt;<i> &gt; &gt; line 108, in parse tracks_by_sha[sha1_hash(track.ipod_filename())] = track
+</I>&gt;<i> &gt; &gt;   File &quot;/usr/lib/python2.4/site-packages/gpod/gtkpod.py&quot;, line 25, in
+</I>&gt;<i> &gt; &gt; sha1_hash size = os.path.getsize(filename)
+</I>&gt;<i> &gt; &gt;   File &quot;/usr/lib/python2.4/posixpath.py&quot;, line 139, in getsize
+</I>&gt;<i> &gt; &gt;     return os.stat(filename).st_size
+</I>&gt;<i> &gt; &gt; TypeError: coercing to Unicode: need string or buffer, NoneType found
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; Googling that last bit got me this:
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; &quot;This may be an indication that in your database you have a record with a
+</I>&gt;<i> &gt; &gt; None value, e. g.
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt;         [('Developmental Neurobiology', 'ANAT2008'),
+</I>&gt;<i> &gt; &gt;          ('Neuroanatomy', 'ANAT2009'),
+</I>&gt;<i> &gt; &gt;          ('Man in black', None)])
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; and most likely the right fix is to correct the database entry and make
+</I>&gt;<i> &gt; &gt; sure that no new such records can be entered into it.&quot;
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; However, I have no idea how I would go about following this advice...  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; sorry, should have given a link to what I found:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; <A HREF="http://mail.python.org/pipermail/python-list/2006-July/395253.html">http://mail.python.org/pipermail/python-list/2006-July/395253.html</A>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for investigating on this problem. Could you please post this
+</I>&gt;<i> information and the bug to <A HREF="http://bugs.gpodder.org/">http://bugs.gpodder.org/</A> where we can deal
+</I>&gt;<i> with it in a better way then here on the development discussion mailing
+</I>&gt;<i> list?
+</I>
+You bet :-) Bug 81 entered.
+
+-- 
+JoeHill
+++++++++++++++++++++
+Bender: Fry, of all the friends I've had, you're the first.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080328/1d6c928f/attachment.pgp">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080328/1d6c928f/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001316.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+	<LI>Next message: <A HREF="001320.html">[gpodder-devel] Can't get a podcast
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1319">[ date ]</a>
+              <a href="thread.html#1319">[ thread ]</a>
+              <a href="subject.html#1319">[ subject ]</a>
+              <a href="author.html#1319">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

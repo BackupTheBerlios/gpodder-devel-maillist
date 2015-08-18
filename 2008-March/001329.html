@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feed Reading Problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feed%20Reading%20Problem&In-Reply-To=%3C7a4208ef0803291842q36035e07pecb741eeb949669e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001325.html">
+   <LINK REL="Next"  HREF="001330.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feed Reading Problem</H1>
+    <B>Ravi Chemudugunta</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feed%20Reading%20Problem&In-Reply-To=%3C7a4208ef0803291842q36035e07pecb741eeb949669e%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Feed Reading Problem">chemuduguntar at gmail.com
+       </A><BR>
+    <I>Sun Mar 30 03:42:35 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001325.html">[gpodder-devel] Feed Reading Problem
+</A></li>
+        <LI>Next message: <A HREF="001330.html">[gpodder-devel] Feed Reading Problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1329">[ date ]</a>
+              <a href="thread.html#1329">[ thread ]</a>
+              <a href="subject.html#1329">[ subject ]</a>
+              <a href="author.html#1329">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, this is my trace:
+
+[ 177.267] Trying to download metainfo for
+<A HREF="http://vixy.net/podcaster/video/7NNZ5Jo51Y8.mp4">http://vixy.net/podcaster/video/7NNZ5Jo51Y8.mp4</A>
+
+<A HREF="http://vixy.net/podcaster/video/7NNZ5Jo51Y8.mp4">http://vixy.net/podcaster/video/7NNZ5Jo51Y8.mp4</A> &lt;- print statement I put in!
+
+[ 177.483] (podcastChannel) Cannot instantiate episode:
+<A HREF="http://vixy.net/podcaster/video/7NNZ5Jo51Y8.mp4.">http://vixy.net/podcaster/video/7NNZ5Jo51Y8.mp4.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/opt/gpodder/src/gpodder/libpodcasts.py&quot;, line 170, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/opt/gpodder/src/gpodder/libpodcasts.py&quot;, line 601, in
+from_feedparser_entry
+    metainfo = episode.get_metainfo()
+  File &quot;/opt/gpodder/src/gpodder/libpodcasts.py&quot;, line 627, in get_metainfo
+    return EpisodeURLMetainfo.get_metadata_by_url(self.url)
+  File &quot;/opt/gpodder/src/gpodder/libpodcasts.py&quot;, line 111, in
+get_metadata_by_url
+    result = util.get_episode_info_from_url(url, gl.config.http_proxy)
+  File &quot;/opt/gpodder/src/gpodder/util.py&quot;, line 807, in
+get_episode_info_from_url
+    conn.request('HEAD', url)
+  File &quot;/usr/lib/python2.5/httplib.py&quot;, line 866, in request
+    self._send_request(method, url, body, headers)
+  File &quot;/usr/lib/python2.5/httplib.py&quot;, line 889, in _send_request
+    self.endheaders()
+  File &quot;/usr/lib/python2.5/httplib.py&quot;, line 860, in endheaders
+    self._send_output()
+  File &quot;/usr/lib/python2.5/httplib.py&quot;, line 732, in _send_output
+    self.send(msg)
+  File &quot;/usr/lib/python2.5/httplib.py&quot;, line 699, in send
+    self.connect()
+  File &quot;/usr/lib/python2.5/httplib.py&quot;, line 667, in connect
+    socket.SOCK_STREAM):
+gaierror: (-2, 'Name or service not known')
+
+service unknown?
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001325.html">[gpodder-devel] Feed Reading Problem
+</A></li>
+	<LI>Next message: <A HREF="001330.html">[gpodder-devel] Feed Reading Problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1329">[ date ]</a>
+              <a href="thread.html#1329">[ thread ]</a>
+              <a href="subject.html#1329">[ subject ]</a>
+              <a href="author.html#1329">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

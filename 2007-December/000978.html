@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] how to set new/played status on episodes?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20how%20to%20set%20new/played%20status%20on%20episodes%3F&In-Reply-To=%3C4771B7E8.3020104%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000977.html">
+   <LINK REL="Next"  HREF="000979.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] how to set new/played status on episodes?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20how%20to%20set%20new/played%20status%20on%20episodes%3F&In-Reply-To=%3C4771B7E8.3020104%40perli.net%3E"
+       TITLE="[gpodder-devel] how to set new/played status on episodes?">thp at perli.net
+       </A><BR>
+    <I>Wed Dec 26 03:09:44 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000977.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+        <LI>Next message: <A HREF="000979.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#978">[ date ]</a>
+              <a href="thread.html#978">[ thread ]</a>
+              <a href="subject.html#978">[ subject ]</a>
+              <a href="author.html#978">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Bernd!
+
+Bernd wrote:
+&gt;<i> Today I installed gpodder and imported my feeds. I tried a lot of other 
+</I>&gt;<i> programs, but I think gpodder suits my needs best!
+</I>
+I'm glad you like it :) We're actively improving gPodder, and the 
+discussions take place here on the mailing list, so any annoyances you 
+have with gPodder can be discussed (and hopefully fixed) here :)
+
+&gt;<i> Is it possible to mark an episode as new. I added a new feed and only the last 
+</I>&gt;<i> episode is marked as new. But I would like to mark all episodes in a new added 
+</I>&gt;<i> feed as new How can I do this? I didn't found an option in the GUI. Is there
+</I>&gt;<i> a chance to do this in a &quot;config file&quot; or &quot;behind the scenes&quot;?
+</I>
+Open ~/.config/gpodder/gpodder.conf and set the &quot;default_new&quot; 
+configuration option from 1 to some insanely high value (1000). gPodder 
+will then mark the 1000 newest episodes of a channel as &quot;new&quot;, which 
+practically means that gPodder will consider all episodes as &quot;new&quot;.
+
+&gt;<i> The second question is similar. I would like to mark an non downloaded episode 
+</I>&gt;<i> as played? I listened a lot of episodes in another podcatcher - program before 
+</I>&gt;<i> and now I would like to mark these episodes as played. Is this possible? Here I 
+</I>&gt;<i> also didn't find any option in the GUI.
+</I>
+Either download the episodes, select all relevant episodes, then 
+right-click and &quot;mark selected episodes as played&quot; or add the download 
+URLs of the corresponding episodes to the 
+~/.config/gpodder/playback-history.txt file, which is a simple text file 
+that contains the download URLs of an episode (the URL in the 
+&lt;enclosure&gt; tag) - one per line.
+
+
+Good luck!
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000977.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+	<LI>Next message: <A HREF="000979.html">[gpodder-devel] how to set new/played status on episodes?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#978">[ date ]</a>
+              <a href="thread.html#978">[ thread ]</a>
+              <a href="subject.html#978">[ subject ]</a>
+              <a href="author.html#978">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

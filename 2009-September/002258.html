@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] August 2009 status update on gPodder development
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20August%202009%20status%20update%20on%20gPodder%20development&In-Reply-To=%3C20090923030347.0193f3aab1db45621a7a7ee5866e9102.51e3e06055.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002257.html">
+   <LINK REL="Next"  HREF="002264.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] August 2009 status update on gPodder development</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20August%202009%20status%20update%20on%20gPodder%20development&In-Reply-To=%3C20090923030347.0193f3aab1db45621a7a7ee5866e9102.51e3e06055.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] August 2009 status update on gPodder development">thp at gpodder.org
+       </A><BR>
+    <I>Wed Sep 23 12:03:47 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002257.html">[gpodder-devel] Where is the source?
+</A></li>
+        <LI>Next message: <A HREF="002264.html">[gpodder-devel] August 2009 status update on gPodder development
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2258">[ date ]</a>
+              <a href="thread.html#2258">[ thread ]</a>
+              <a href="subject.html#2258">[ subject ]</a>
+              <a href="author.html#2258">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>You wrote:
+&gt;<i> On Sun, Sep 20, 2009 at 5:03 AM, Bernd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brot at gmx.info</A>&gt; wrote:
+</I>&gt;<i> &gt; what's the reason why you don't use notify-osd on Ubuntu baseed systems?
+</I>&gt;<i> &gt; I don't like the custom notification windows in gPodder on Ubuntu.
+</I>&gt;<i> 
+</I>&gt;<i> There is nothing custom about gpodder's notifications.  gpodder is
+</I>&gt;<i> using the standard pynotify interface available as part of the python
+</I>&gt;<i> gtk bindings that wraps the libnotify library which implements the
+</I>&gt;<i> freedesktop.org notification specifications.  The traditional
+</I>&gt;<i> notification daemon that comes as part of a standard GNOME desktop
+</I>&gt;<i> handles all possible allowable notifications..including notifications
+</I>&gt;<i> with actions.
+</I>
+The notifications used are still the standard ones on non-Ubuntu systems
+(or if you kill notify-osd and start notification-daemon). As Ubuntu's
+notify-osd does not attach notifications to widgets, it's useless for
+some notifications (i.e. press Ctrl+S when no device is configured).
+
+It's nice to be able to &quot;hint&quot; which button to press when there is an
+error. This is currently not possible with notify-osd (which is sad!).
+
+That's why I decided to do these custom notification pop-ups on Ubuntu
+when notify-osd is active. I agree that they look ugly, and I'm happily
+accepting patches (NotificationWindow in src/gpodder/gtkui/widgets.py).
+
+Also, it seems like notify-osd-based notifications can only fit limited
+amount of text (at least less than notification-daemon).
+
+I think it's a good idea that they are thinking about ways of making
+the notifications system better, but as their changes seem to be more
+radical, they (Canonical) should have left notification-daemon alone
+and create something new (which developers can then start using) instead
+of replacing notification-daemon and changing behaviour.
+
+Also, last time I checked, notify-osd was closed source.. argh!
+
+Maybe a &quot;Conflicts: notify-osd&quot; in the next Ubuntu package could solve
+this problem? ;)
+
+The notify-osd detection is in src/gpodder/gtkui/interface/common.py.
+You can comment it there and try using Ubuntu's notifications.
+
+Suggestions (and patches) as always welcome :)
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002257.html">[gpodder-devel] Where is the source?
+</A></li>
+	<LI>Next message: <A HREF="002264.html">[gpodder-devel] August 2009 status update on gPodder development
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2258">[ date ]</a>
+              <a href="thread.html#2258">[ thread ]</a>
+              <a href="subject.html#2258">[ subject ]</a>
+              <a href="author.html#2258">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

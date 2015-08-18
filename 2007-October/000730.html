@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-human readable directory and file names
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C579174.46116.qm%40web60818.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000729.html">
+   <LINK REL="Next"  HREF="000731.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-human readable directory and file names</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C579174.46116.qm%40web60818.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] Non-human readable directory and file names">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Wed Oct 31 16:15:19 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000729.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+        <LI>Next message: <A HREF="000731.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#730">[ date ]</a>
+              <a href="thread.html#730">[ thread ]</a>
+              <a href="subject.html#730">[ subject ]</a>
+              <a href="author.html#730">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I think there is already a reasonable alternative for
+this, by using the 'copy to file' option of gPodder.
+Double-click on an episode, and a dialog with info
+comes up. You can choose to save a copy of the episode
+to any location on disk, and the copy will have the
+same name as would appear on an FS based player
+(although this option still needs some development, it
+seems to do what the original posters wants it to do,
+i.e. save a copy for use in another player).
+
+I agree with Thomas about the need to come up with an
+absolutely fool-proof way to determine a file name. It
+is good programming practice to make something that is
+*guaranteed* to work, instead of something which *may
+not* work under certain circumstances. As a developer
+one really cannot expect to write a contingency code
+for each perturbation of errors that may occur in an
+input.
+
+Consider as an example the Monte-Carlo software MCNP.
+This package has been under development for several
+decades by some really clever people. When it reads
+its input file, some 1300 checks are performed to
+*make sure* that the user is requesting a valid
+calculation. Because the code has many options, some
+of which are mutually exclusive, some of which
+influencing each other etc, this check is necessary.
+Inspite of making 1300 checks, it is still possible to
+write input that will result in a crash during
+execution, to the annoyance of the user. Moral of this
+story: sometimes it is better to prefer a bullet proof
+solution over something that is (perceived to be)
+easier to use.
+
+Wilfred 
+
+--- Jay Bradley &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jay.bradley at ed.ac.uk</A>&gt; wrote:
+
+&gt;<i> Thanks for your reply Thomas. I should have read
+</I>&gt;<i> more into the mailing 
+</I>&gt;<i> list archives.
+</I>&gt;<i> 
+</I>&gt;<i> I can see why you chose hashes and can also see I'm
+</I>&gt;<i> a bit naive. Things 
+</I>&gt;<i> always look simple until you have to do them
+</I>&gt;<i> yourself. From your 
+</I>&gt;<i> description I can see that gpodder needs guaranteed
+</I>&gt;<i> unique directory and 
+</I>&gt;<i> file names. I presume (but correct me if I'm wrong)
+</I>&gt;<i> that cases when the 
+</I>&gt;<i> title is missing, contains characters unsuitable for
+</I>&gt;<i> file or directory 
+</I>&gt;<i> names, is longer than a desired maximum length or is
+</I>&gt;<i> a duplicate are 
+</I>&gt;<i> outlying cases. That is, the title is only
+</I>&gt;<i> unsuitable quite rarely. If 
+</I>&gt;<i> this is the case then I would advocate using hashes
+</I>&gt;<i> as a fallback 
+</I>&gt;<i> system. So if it's possible to use the title
+</I>&gt;<i> according to some set rules 
+</I>&gt;<i> then the title is used and if not then use a hash.
+</I>&gt;<i> If the set rules are 
+</I>&gt;<i> always used then the program can always tell if it
+</I>&gt;<i> should use the title 
+</I>&gt;<i> or a hash.
+</I>&gt;<i> 
+</I>&gt;<i> That's my idea. I can see some other people are
+</I>&gt;<i> interested too. Can you 
+</I>&gt;<i> see a bad test case for this idea?
+</I>&gt;<i> 
+</I>&gt;<i> Jay
+</I>&gt;<i> 
+</I>&gt;<i> Thomas Perl wrote:
+</I>&gt;<i> &gt; Hello, Pieter!
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On Wed, 2007-10-31 at 15:11 +0100, Pieter De
+</I>&gt;<i> Decker wrote:
+</I>&gt;<i> &gt;   
+</I>&gt;<i> &gt;&gt; How about adding an option to the right-click
+</I>&gt;<i> menu of each channel
+</I>&gt;<i> &gt;&gt; saying &quot;Open channel folder&quot;?
+</I>&gt;<i> &gt;&gt;     
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I've tried to do that, but my solution is a bit
+</I>&gt;<i> dirty (I'm using
+</I>&gt;<i> &gt; &quot;gnome-open&quot; and &quot;os.system()&quot;, which is not a
+</I>&gt;<i> good solution), the patch
+</I>&gt;<i> &gt; is attached, tell me what you think :)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I've also attached a small script I just shuffled
+</I>&gt;<i> together that
+</I>&gt;<i> &gt; &quot;describes&quot; the download folder structure using
+</I>&gt;<i> the &quot;gpodder&quot; Python
+</I>&gt;<i> &gt; module, it's &quot;describe_gpodder_downloads.py&quot; and
+</I>&gt;<i> you can run it using
+</I>&gt;<i> &gt; Python. If you have not installed gPodder onto
+</I>&gt;<i> your system, you have to
+</I>&gt;<i> &gt; set the PYTHONPATH environment variable to &quot;src/&quot;
+</I>&gt;<i> in your local gpodder
+</I>&gt;<i> &gt; working copy.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; HTH.
+</I>&gt;<i> &gt; Thomas
+</I>&gt;<i> &gt;   
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>------------------------------------------------------------------------
+&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+__________________________________________________
+Do You Yahoo!?
+Tired of spam?  Yahoo! Mail has the best spam protection around 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000729.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+	<LI>Next message: <A HREF="000731.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#730">[ date ]</a>
+              <a href="thread.html#730">[ thread ]</a>
+              <a href="subject.html#730">[ subject ]</a>
+              <a href="author.html#730">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

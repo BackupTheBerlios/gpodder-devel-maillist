@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.17.0%20%22Orientation%22%20released&In-Reply-To=%3C20090727063356.0193f3aab1db45621a7a7ee5866e9102.a195f71dea.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002189.html">
+   <LINK REL="Next"  HREF="002191.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.17.0%20%22Orientation%22%20released&In-Reply-To=%3C20090727063356.0193f3aab1db45621a7a7ee5866e9102.a195f71dea.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released">thp at gpodder.org
+       </A><BR>
+    <I>Mon Jul 27 15:33:56 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002189.html">[gpodder-devel] Status update from the gPodder land
+</A></li>
+        <LI>Next message: <A HREF="002191.html">[gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2190">[ date ]</a>
+              <a href="thread.html#2190">[ thread ]</a>
+              <a href="subject.html#2190">[ subject ]</a>
+              <a href="author.html#2190">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey there!
+
+This is just a quick release push for the next version of
+gPodder, so it gets more public exposure. Also, this release
+fixes some annoying bugs that have been in 0.16.1 and have
+not been fixed in a public release since then, so this should
+allow many users to have a better gPodder experience.
+
+Thanks to all who were involved with this release!
+
+Anyone willing to join the release management and learn how
+to package gPodder is invited to write a short mail to me.
+
+
+Thanks,
+Thomas
+
+---
+
+2009-07-27: gPodder 0.17.0 &quot;Orientation&quot; released
+
+Even though the summer is hot, and updates are slow, we are proud to
+give you yet another great gPodder release with some bug fixes and
+improvements to the efficiency of the feed updating code. Here's what's
+happened:
+
+Bernd Schlapsi (1):
+      corrected an error happened in commit 41b6e827c
+
+Bill Peters (1):
+      Changes made to exclude *.dat files from the edit device
+        playlist util. I did this because my Blackberry mp3
+        device creates a BBThumbs.dat file in every podcast
+        folder. Not sure if this is the best way to solve it
+        but it does the job for me.
+
+Jim Nyg&#229;rd (1):
+      Updated Norwegian Bokm&#229;l translation
+
+Marco Antonio Villegas Vega (1):
+      Let add a podcast completely from keyboard
+
+Morten Nygaard &#197;snes (2):
+      Added GPODDER_CHANNEL_TITLE variable to cmd_download_complete
+hook.
+      Monkey-patch feedparser to support Media RSS (bug 507)
+
+Paul Rudkin (3):
+      Bug 406 - Auto download option now available when gPodder
+        is maxmized. Advanced option will allow end user to
+        ihibit display of new episodes dialog
+      Bug 406 Removed code that linked to old check box for
+        auto_download_when_minimized - this is no longer used
+      Added advanced option to allow user to change behaviour when
+        an episode is double clicked (Bug 38)
+
+Philippe Dessante (1):
+      Updated French translation
+
+Silvio Sisto (1):
+      Updated Spanish translation
+
+Thomas Perl (29):
+      Fix another bug with hanging downloads
+      Simplify and clean-up feed update code in gui.py
+      First cut of new feedcore module + related changes
+      Initial work on statistics-based update optimizations
+      Fix a bug with bad episode filenames
+      Do not use &quot;while I&quot;/&quot;while gPodder&quot; in messages
+      Fix feed update bug for password-protected feeds
+      Only depend on GTK for GUI things in util (bug 495)
+      Simplify Bluetooth-related tasks by removing options
+      Remove support for custom HTTP proxy settings
+      Remove libtagupdate + related functionality
+      Remove use_si_units and get length from HTTP header preferences
+      Fix encoding issue with German translation (bug 488)
+      Update list of contributors/donators
+      Do not enable install button in dependency manager
+      Enable streaming when audioplayer is set (bug 93)
+      Fix UnicodeDecodeError on Windows (bug 449)
+      Use proper emblems for the episode list (bug 467)
+      Fix bug in playback with default player
+      Clean and split up on_treeAvailable_row_activated
+      Remove support for writing the gtkpod extended DB (bug 68)
+      Disable &quot;Delete&quot; accelerator in downloads tab
+      Support for playback of multiple files (bug 120)
+      Always create M3U playlists in download folder
+      Fix streaming for deleted episodes
+      Remove podcast_sidebar_save_space config option (bug 508)
+      Update all translation files from source
+      Don't overwrite backup files with gpodder-backup
+      gPodder 0.17.0 &quot;Orientation&quot; released
+
+Tim Gilbert (1):
+      Add free disk space detection on Windows (bug 468)
+
+Enjoy this new release of gPodder! And enjoy the summer.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002189.html">[gpodder-devel] Status update from the gPodder land
+</A></li>
+	<LI>Next message: <A HREF="002191.html">[gpodder-devel] gPodder 0.17.0 &quot;Orientation&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2190">[ date ]</a>
+              <a href="thread.html#2190">[ thread ]</a>
+              <a href="subject.html#2190">[ subject ]</a>
+              <a href="author.html#2190">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

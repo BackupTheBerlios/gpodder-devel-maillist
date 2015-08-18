@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] improvements to handling of last-played position
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20improvements%20to%20handling%20of%20last-played%20position&In-Reply-To=%3C20110613150247.GI27898%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002811.html">
+   <LINK REL="Next"  HREF="002813.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] improvements to handling of last-played position</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20improvements%20to%20handling%20of%20last-played%20position&In-Reply-To=%3C20110613150247.GI27898%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] improvements to handling of last-played position">thp at gpodder.org
+       </A><BR>
+    <I>Mon Jun 13 17:02:47 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002811.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+        <LI>Next message: <A HREF="002813.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2812">[ date ]</a>
+              <a href="thread.html#2812">[ thread ]</a>
+              <a href="subject.html#2812">[ subject ]</a>
+              <a href="author.html#2812">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Dov,
+
+On Mon, Jun 13, 2011 at 05:48:57PM +0300, Dov Feldstern wrote:
+&gt;<i> I vaguely know that the 'tres' branch plans to have a
+</I>&gt;<i> built-in media player, which may make many of the issues that I'm
+</I>&gt;<i> raising here less crucial. However, I hope that 'tres' still allows
+</I>&gt;<i> using external media players as well (one of the things I really
+</I>&gt;<i> like about gpodder is its adherence to the &quot;unix philosophy&quot; of
+</I>&gt;<i> &quot;do one thing and do it well&quot;), in which case the points are
+</I>&gt;<i> still relevant.
+</I>
+Yes, exactly. Also, in &quot;tres&quot;, only the QML UI has built-in playback
+support for now. The GTK+ UI has many improvements and fixes, but it
+still uses the old &quot;play in external player&quot; method.
+
+&gt;<i> Just some background on my &quot;setup&quot;: I run gpodder on my (Linux) desktop
+</I>&gt;<i> and on my n900. On the desktop, currently, my media player of choice is VLC,
+</I>&gt;<i> on the n900 I play the media via the n900's native Media
+</I>&gt;<i> Player. The main use cases I'm interested in
+</I>&gt;<i> having support for are listening to part of an episode and stopping at
+</I>&gt;<i> at some point, and later resuming from the same point, possibly from
+</I>&gt;<i> a different machine.
+</I>
+Yes, that's also the use case that we want to support (and if it doesn't
+work, we'll happily work together with you to fix the issues).
+
+&gt;<i>  (3) works flawlessly for me with the default media player. I believe
+</I>&gt;<i>      that this is acheived by gpodder telling the media player
+</I>&gt;<i>      where to resume using mafw's D-Bus API, so this solution is
+</I>&gt;<i>      specific to the n900/mafw.
+</I>
+Yes, but if the player provides an API for resuming, we could add this
+(I can also imagine something like using a variable/placeholder like
+$POSITION or __position__, etc.. in the custom command line that would
+then get replaced with the resuming position).
+
+&gt;<i>  (1) Only panucci reports back the last-played position using gpodder's
+</I>&gt;<i>      Media Player D-Bus API. I've started looking into writing a VLC
+</I>&gt;<i>      plugin to do this, and it actually looks like it shouldn't be very
+</I>&gt;<i>      difficult, but I'm new to VLC and the going is slow... So for now,
+</I>&gt;<i>      the only &quot;last-played&quot; information available to gpodder on the
+</I>&gt;<i>      desktop is that coming from my.gpodder.net. However, that's good
+</I>&gt;<i>      enough for discussing some further points.
+</I>
+Yep, that's how we plan to support players like VLC, it would be great
+if you could write a plug-in. Here's the documentation of what signals
+you need to post on the D-Bus Session Bus, if gPodder is running, it
+will do the right thing with the information:
+
+    <A HREF="http://wiki.gpodder.org/wiki/Media_Player_D-Bus_API">http://wiki.gpodder.org/wiki/Media_Player_D-Bus_API</A>
+
+&gt;<i> [...] Should I open an issue against the web service for this?
+</I>
+This question is probably something for our resident gpodder.net master
+Stefan Koegl. Stefan: What do you think?
+
+&gt;<i> One additional idea I've had, and am interested in hearing feedback, is
+</I>&gt;<i> to create a standalone application which would stand between gpodder
+</I>&gt;<i> and the media players, would talk with gpodder via the Media Player
+</I>&gt;<i> D-Bus API and the command line, and then talk with different media
+</I>&gt;<i> players via their own APIs. That would allow gpodder to have only
+</I>&gt;<i> simple, generic, APIs, and move the complexity of dealing with
+</I>&gt;<i> different media players to a separate, isolated, layer. Any thoughts?
+</I>
+Isn't the Media Player D-Bus API already very simple and generic? I'm not sure
+what additional features the standalone application would provide; maybe you
+have some examples?
+
+&gt;<i> Anyhow, this was rather long, but I'd be happy to hear any feedback, and
+</I>&gt;<i> I hope that the patches which are mature enough can be applied as is.
+</I>
+Sure, I have commented on the ones that I thought had something to add. Please
+keep bumping the patches every few weeks if I forget to merge/review one of
+them.
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002811.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+	<LI>Next message: <A HREF="002813.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2812">[ date ]</a>
+              <a href="thread.html#2812">[ thread ]</a>
+              <a href="subject.html#2812">[ subject ]</a>
+              <a href="author.html#2812">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

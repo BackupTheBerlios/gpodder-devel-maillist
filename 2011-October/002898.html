@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] First sync with gpodder.net and getting the device id
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20First%20sync%20with%20gpodder.net%20and%20getting%20the%0A%20device%20id&In-Reply-To=%3CAB59F32CE48B0D4E891A5DAD1DE31AF90566569D%40008-AM1MPN1-013.mgdnok.nokia.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002896.html">
+   <LINK REL="Next"  HREF="002899.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] First sync with gpodder.net and getting the device id</H1>
+    <B>ari.hannula at nokia.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20First%20sync%20with%20gpodder.net%20and%20getting%20the%0A%20device%20id&In-Reply-To=%3CAB59F32CE48B0D4E891A5DAD1DE31AF90566569D%40008-AM1MPN1-013.mgdnok.nokia.com%3E"
+       TITLE="[gpodder-devel] First sync with gpodder.net and getting the device id">ari.hannula at nokia.com
+       </A><BR>
+    <I>Tue Oct 18 08:09:32 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002896.html">[gpodder-devel] First sync with gpodder.net and getting the device id
+</A></li>
+        <LI>Next message: <A HREF="002899.html">[gpodder-devel] First sync with gpodder.net and getting the device id
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2898">[ date ]</a>
+              <a href="thread.html#2898">[ thread ]</a>
+              <a href="subject.html#2898">[ subject ]</a>
+              <a href="author.html#2898">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi. So, no automatically generated device id as the documentation says? How can I then be sure that the device id I give (e.g. N9) is then unique?
+
+BR,
+-Ari
+
+
+-----Original Message-----
+From: ext Stefan Derkits [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>] 
+Sent: 17. lokakuuta 2011 13:49
+To: Hannula Ari (Nokia-MP/Oulu)
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+Subject: Re: [gpodder-devel] First sync with gpodder.net and getting the device id
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello Ari,
+
+&gt;<i> The function name &quot;renameDevice&quot; is not very obvious for this purpose 
+</I>&gt;<i> :) Why am I &quot;renaming&quot; a device that does not exist yet...
+</I>
+Sorry I know, definitly sth that could be made a little bit more clear.
+It had that name in the gpodder API, now it is only &quot;configure device&quot;.
+
+&gt;<i> So if I leave the &quot;const QString&amp; deviceId&quot; parameter empty (or give 
+</I>&gt;<i> it a reference to a local QString) then that will contain the system 
+</I>&gt;<i> generated unique device id?
+</I>
+No, you have to set the DeviceID yourself to create a Device.
+E.g. N9 or PC_N9 (for Podcasts N9) ... sth like that ;)
+
+Stefan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk6cCC8ACgkQlZvAMV/NgGJ4gwCgoZokMd1Euk8o1xpbmDBu3n43
+n9cAnj+eWlBeNfRoq+qzZZdrcKVHbaWA
+=CtKH
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002896.html">[gpodder-devel] First sync with gpodder.net and getting the device id
+</A></li>
+	<LI>Next message: <A HREF="002899.html">[gpodder-devel] First sync with gpodder.net and getting the device id
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2898">[ date ]</a>
+              <a href="thread.html#2898">[ thread ]</a>
+              <a href="subject.html#2898">[ subject ]</a>
+              <a href="author.html#2898">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

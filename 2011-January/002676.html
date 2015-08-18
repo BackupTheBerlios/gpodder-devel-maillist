@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [gpodder-devil] Failed to get episode list via	web services
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bgpodder-devil%5D%20Failed%20to%20get%20episode%20list%20via%0A%09web%20services&In-Reply-To=%3C2722D70D65341942857272A84664785219647DFAC8%40SGPMBX02.APAC.bosch.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002675.html">
+   <LINK REL="Next"  HREF="002677.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [gpodder-devil] Failed to get episode list via	web services</H1>
+    <B>Rakesh Dhanya (RBEI/ECV1)</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5Bgpodder-devil%5D%20Failed%20to%20get%20episode%20list%20via%0A%09web%20services&In-Reply-To=%3C2722D70D65341942857272A84664785219647DFAC8%40SGPMBX02.APAC.bosch.com%3E"
+       TITLE="[gpodder-devel] [gpodder-devil] Failed to get episode list via	web services">Rakesh.Dhanya at in.bosch.com
+       </A><BR>
+    <I>Fri Jan 21 13:52:37 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002675.html">[gpodder-devel] Failed to get episode list via web services
+</A></li>
+        <LI>Next message: <A HREF="002677.html">[gpodder-devel] Failed to get episode list via web services
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2676">[ date ]</a>
+              <a href="thread.html#2676">[ thread ]</a>
+              <a href="subject.html#2676">[ subject ]</a>
+              <a href="author.html#2676">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+Thanks. Will surely try out the new mygpo-feedservice. Looks exciting
+
+Rakesh
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A>] On Behalf Of Stefan K&#246;gl
+Sent: Friday, 21. January 2011 3:47 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+Subject: Re: [gpodder-devel] Failed to get episode list via web services
+
+Hi,
+
+Am 2011-01-21 08:18, schrieb Rakesh Dhanya (RBEI/ECV1):
+&gt;<i> I am a newbie in the gpodder world and am aiming to write my own gpodder
+</I>&gt;<i> client. I looked at the web services and they look cool. But I have some
+</I>&gt;<i> questions. I am following these steps but am failing to retrieve the
+</I>&gt;<i> episode list. Can anyone please spare a while to review my steps and
+</I>&gt;<i> suggest corrections
+</I>
+It seams that there is a small misunderstanding here. The API endpoint
+you are using
+
+
+&gt;<i>    4. Trying to retrieve the episodes for each podcast using
+</I>&gt;<i>
+</I>&gt;<i> *         **GET /api/2/episodes/*/*{username}*/*.json?podcast=*/*{url}*/
+</I>
+returns the episode actions (such as play, download, etc) that you have
+previously sent to the webservice using POST [1].
+
+Currently gpodder.net doesn't have an API endpoint to retrieve a list of
+episodes for your podcasts. The regular way would be to parse the
+podcast feeds yourself, but you could also use our new mygpo-feedservice
+[2]. If you do, please note that the API is not yet stable and might
+still change in the future.
+
+
+-- Stefan
+
+
+[1] <A HREF="http://wiki.gpodder.org/wiki/Web_Services/API#Uploading_episode_actions">http://wiki.gpodder.org/wiki/Web_Services/API#Uploading_episode_actions</A>
+[2] <A HREF="http://mygpo-feedservice.appspot.com/">http://mygpo-feedservice.appspot.com/</A>
+_______________________________________________
+gpodder-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002675.html">[gpodder-devel] Failed to get episode list via web services
+</A></li>
+	<LI>Next message: <A HREF="002677.html">[gpodder-devel] Failed to get episode list via web services
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2676">[ date ]</a>
+              <a href="thread.html#2676">[ thread ]</a>
+              <a href="subject.html#2676">[ subject ]</a>
+              <a href="author.html#2676">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

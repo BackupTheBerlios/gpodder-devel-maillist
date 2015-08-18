@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Building gpodder-0.10.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Building%20gpodder-0.10.1&In-Reply-To=%3C1193916306.5183.17.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000737.html">
+   <LINK REL="Next"  HREF="000753.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Building gpodder-0.10.1</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Building%20gpodder-0.10.1&In-Reply-To=%3C1193916306.5183.17.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Building gpodder-0.10.1">thp at perli.net
+       </A><BR>
+    <I>Thu Nov  1 12:25:06 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000737.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+        <LI>Next message: <A HREF="000753.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#741">[ date ]</a>
+              <a href="thread.html#741">[ thread ]</a>
+              <a href="subject.html#741">[ subject ]</a>
+              <a href="author.html#741">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Brian!
+
+On Wed, 2007-10-31 at 23:00 -0700, Brian McNally wrote:
+&gt;<i> I'm trying to fix a bug I've encountered in gpodder 0.9.4 by building
+</I>&gt;<i> and using gpodder 0.10.1, but I'm having some problems testing the new
+</I>&gt;<i> build before I actually install it. Before I describe the build
+</I>&gt;<i> problem, I'll explain the bug I'm trying to avoid.
+</I>&gt;<i> 
+</I>&gt;<i> When I try and change the download location for podcasts, I'm told:
+</I>&gt;<i> 
+</I>&gt;<i> Error moving downloads
+</I>&gt;<i> 
+</I>&gt;<i> There has been an error moving your downloads to the specified
+</I>&gt;<i> location. The old download directory will be used instead.
+</I>&gt;<i> 
+</I>&gt;<i> This only seems to happen when I try and move the downloads to a
+</I>&gt;<i> different physical drive. I can change the download path just fine so
+</I>&gt;<i> long as it's on the same filesystem. Making a symlink on the local
+</I>&gt;<i> filesystem that points to another filesystem does work, but it's a
+</I>&gt;<i> hack. This sounds like a bug to me.
+</I>&gt;<i> 
+</I>&gt;<i> So, I've tried building gpodder 0.10.1 to see if that fixes the
+</I>&gt;<i> problem. After downloading the source I run:
+</I>&gt;<i> 
+</I>&gt;<i> python setup.py build
+</I>&gt;<i> cd ./build/scripts-2.5
+</I>&gt;<i> ./gpodder
+</I>&gt;<i> 
+</I>&gt;<i> And I get:
+</I>&gt;<i> 
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;./gpodder&quot;, line 148, in &lt;module&gt;
+</I>&gt;<i>     sys.exit( main())
+</I>&gt;<i>   File &quot;./gpodder&quot;, line 122, in main
+</I>&gt;<i>     from gpodder import gui
+</I>&gt;<i> ImportError: cannot import name gui
+</I>&gt;<i> 
+</I>&gt;<i> Obviously I'm missing module gui but I'm not sure how I can test
+</I>&gt;<i> 0.10.1 without first installing it with python setup.py install. I did
+</I>&gt;<i> try python setup.py install --prefix=/tmp/dir, but that resulted in
+</I>&gt;<i> the same missing module. Your thoughts?
+</I>
+Run &quot;make test&quot; in the source directory. That runs gPodder without
+installing or building anything. Be aware that upgrading directly from
+0.9.4 to 0.10.1 has not been tested (there is some migration that
+happens between the versions leading up to 0.10.1), so you might have to
+manually re-create the channels list. Be aware of that before running
+gPodder 0.10.1 (making a backup tarball of ~/.config/gpodder/ is a good
+idea).
+
+Run &quot;make&quot; in the source directory of additional commands you can use to
+test/build/install gPodder on your system.
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000737.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+	<LI>Next message: <A HREF="000753.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#741">[ date ]</a>
+              <a href="thread.html#741">[ thread ]</a>
+              <a href="subject.html#741">[ subject ]</a>
+              <a href="author.html#741">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

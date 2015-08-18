@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder-devel%20Digest%2C%20Vol%2019%2C%20Issue%2029&In-Reply-To=%3C1201112228.14534.15.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001107.html">
+   <LINK REL="Next"  HREF="001109.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder-devel%20Digest%2C%20Vol%2019%2C%20Issue%2029&In-Reply-To=%3C1201112228.14534.15.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29">thp at perli.net
+       </A><BR>
+    <I>Wed Jan 23 19:17:08 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001107.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+        <LI>Next message: <A HREF="001109.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1108">[ date ]</a>
+              <a href="thread.html#1108">[ thread ]</a>
+              <a href="subject.html#1108">[ subject ]</a>
+              <a href="author.html#1108">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Wed, 2008-01-23 at 16:10 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jerome.chabod at ifrance.com</A> wrote:
+&gt;<i> I agree completly with you. 
+</I>&gt;<i> I propose to modify the tray icon this way:
+</I>&gt;<i> 
+</I>&gt;<i> When new episodes are found:
+</I>&gt;<i> 
+</I>&gt;<i> * the option &quot;auto-dowload new episodes&quot; is ON: 
+</I>&gt;<i>     - notify &quot;x new episodes where found. Download will start
+</I>&gt;<i> immediatly...&quot;
+</I>&gt;<i>     - notification as 2 buttons &quot;cancel&quot; and &quot;show&quot;
+</I>&gt;<i>     - after 5 s, if cancel wasn't pressed, download starts
+</I>&gt;<i> automaticaly
+</I>&gt;<i> 
+</I>&gt;<i> * the option &quot;auto-dowload new episodes&quot; is OFF: 
+</I>&gt;<i>     - notify &quot;x new episodes where found&quot;
+</I>&gt;<i>     - notification as 3 buttons &quot;download all news&quot;, &quot;select episodes&quot;
+</I>&gt;<i> and &quot;show&quot; 
+</I>&gt;<i> 
+</I>&gt;<i> What do you and other people thing about that?
+</I>
+I think all these special cases make configuring and using gPodder
+harder than it should be. I agree with you on the problems with gPodder
+popping up randomly.
+
+The purpose of &quot;auto-download new episodes&quot; is that a user that wants to
+download new episodes doesn't have to click on &quot;download new episodes&quot;
+after clicking &quot;refresh feeds&quot;, so the menu item would better be
+described as &quot;auto-download new episodes after a manual feed update&quot;,
+which would already tell us the way to go. In my opinion, when gPodder
+is minimized to the tray icon, it should only tell the user that new
+episodes are available or that downloads have been finished. Although
+the buttons in the notification bubble are nice, I think they are a bad
+idea for interacting the way we use it currently. The buttons in the
+notification area are more useful for things like &quot;don't show me this
+again&quot; or in case of an error &quot;show the logfile&quot; or such things.
+
+Interaction with gPodder should only happen when it is not minimized. If
+you are letting yourself be distracted by the notification bubble (and
+try to read and click on it), you might as well only get a notification
+and if you want to act upon it, open gPodder and carry out the actions
+you want to do.
+
+The timeout in the notification bubbles with action buttons also gives a
+&quot;hurry, hurry - you have to do something now!&quot; kind of feeling - same
+with instant messengers - that surely interrupt the normal workflow.
+
+In my opinion, we should throw out the action buttons completely and
+make gPodder behave nice and non-intrusive when minimized. This means:
+only notification bubbles for the following scenarios:
+
+ * New episodes are available
+ * Downloads have been finished
+ (did I forget something here?)
+
+Also, the &quot;new episodes are available&quot; notification should only be shown
+once, not every time the feed cache gets updated.
+
+When gPodder is minimized, updating the feed cache (automatically or
+manually) should never trigger an automatic download. The option
+mentioned above should only come into effect when the feed update was
+initiated manually and gPodder was not minimized.
+
+What do you think? Anybody willing to implement it this way? I still
+want to do the new sync code, so any help with fixing the tray icon
+problems is really appreciated!
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001107.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+	<LI>Next message: <A HREF="001109.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1108">[ date ]</a>
+              <a href="thread.html#1108">[ thread ]</a>
+              <a href="subject.html#1108">[ subject ]</a>
+              <a href="author.html#1108">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

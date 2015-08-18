@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20BUG%3A%20I%20can%27t%20see%20the%20podcasts%20after%20sync%20to%20my%0A%092G%20ipod%20nano%20ipod&In-Reply-To=%3Ce5a2633b0701261547i3d8e12f3na8e45aad93d9a2e8%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000052.html">
+   <LINK REL="Next"  HREF="000054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod</H1>
+    <B>Joel Calado</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20BUG%3A%20I%20can%27t%20see%20the%20podcasts%20after%20sync%20to%20my%0A%092G%20ipod%20nano%20ipod&In-Reply-To=%3Ce5a2633b0701261547i3d8e12f3na8e45aad93d9a2e8%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] BUG: I can't see the podcasts after sync to my	2G ipod nano ipod">joelcalado at gmail.com
+       </A><BR>
+    <I>Sat Jan 27 00:47:00 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000052.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+        <LI>Next message: <A HREF="000054.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#53">[ date ]</a>
+              <a href="thread.html#53">[ thread ]</a>
+              <a href="subject.html#53">[ subject ]</a>
+              <a href="author.html#53">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I will check this out when i get back home, that is sunday ;)
+
+Thanks!
+
+On 1/26/07, Jos&#233; Luis Fustel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">dr_psy at terra.es</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> -----BEGIN PGP SIGNED MESSAGE-----
+</I>&gt;<i> Hash: SHA1
+</I>&gt;<i>
+</I>&gt;<i> I think I fixed it.
+</I>&gt;<i>
+</I>&gt;<i> I added the line
+</I>&gt;<i>
+</I>&gt;<i>         track.mediatype = 0x00000004
+</I>&gt;<i>
+</I>&gt;<i> to the
+</I>&gt;<i> set_podcast_flags( self, track) in libipodsync.py
+</I>&gt;<i>
+</I>&gt;<i> and it seems to work ok.
+</I>&gt;<i>
+</I>&gt;<i> can anybody else corroborate it?
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070126/6f98d8c0/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070126/6f98d8c0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000052.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+	<LI>Next message: <A HREF="000054.html">[gpodder-devel] BUG: I can't see the podcasts after sync to my 2G ipod nano ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#53">[ date ]</a>
+              <a href="thread.html#53">[ thread ]</a>
+              <a href="subject.html#53">[ subject ]</a>
+              <a href="author.html#53">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

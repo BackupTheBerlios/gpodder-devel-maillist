@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Proposed gPodder Bugzilla Changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposed%20gPodder%20Bugzilla%20Changes&In-Reply-To=%3C1201522689.9751.18.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001126.html">
+   <LINK REL="Next"  HREF="001124.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Proposed gPodder Bugzilla Changes</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposed%20gPodder%20Bugzilla%20Changes&In-Reply-To=%3C1201522689.9751.18.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Proposed gPodder Bugzilla Changes">thp at perli.net
+       </A><BR>
+    <I>Mon Jan 28 13:18:09 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001126.html">[gpodder-devel] Proposed gPodder Bugzilla Changes
+</A></li>
+        <LI>Next message: <A HREF="001124.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1129">[ date ]</a>
+              <a href="thread.html#1129">[ thread ]</a>
+              <a href="subject.html#1129">[ subject ]</a>
+              <a href="author.html#1129">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Kaity!
+
+Please try not to write answers to all discissions to a single answer
+e-mail in one thread, but try to send follow-up e-mails with content
+that belongs to a specific discussion thread to the last mail in this
+thread. For a new discussion, never reply but open a new mail.
+
+This way, reading and sorting e-mail is much easier. Thanks :)
+
+On Mon, 2008-01-28 at 02:44 -0700, Kaity G. B. wrote:
+&gt;<i> High, Med, Low is much simlier.  Though won't we need a
+</I>&gt;<i> closed/resolved option as well?
+</I>
+Closed/resolved state is not handled in the priority field, but in
+another special field that already works well.
+
+
+&gt;<i> BTW, I'm anxious to begin working on the sqlite3 integration, so how's
+</I>&gt;<i> the new sync code going?  What version do you have it planned for.
+</I>
+I've just commited the code before reading your mail, I've also sent a
+mail to gpodder-devel, so you should have gotten it, too. It will be
+included in the next release of gPodder in February, together with the
+tray icon and notification support.
+
+
+&gt;<i> Than I'll be posting my PHP script(for cron jobs &amp;etc) later today.
+</I>&gt;<i> My script Automatically creates .m3u files.  So who ever's needing the
+</I>&gt;<i> old playlist support can rely on my script while we switch to our new
+</I>&gt;<i> sync code, sqlite3 storage, and
+</I>
+A temporary M3U generation solution would be nice. This way, we could
+also experiment how MP3 players support relative or absolute paths on
+the MP3 player (i.e. which path separators it accepts, how we should add
+absolute paths if relative paths are not supported, etc..).
+
+
+&gt;<i> Lastly, Thomas will you be adding command line support for
+</I>&gt;<i> auto-syncing to mp3_player_folder or will I get the priviledge of
+</I>&gt;<i> writing that?
+</I>
+CLI sync support comes with the new sync module that is in SVN right now
+- this means that &quot;gpodder --sync&quot; does the same thing as when you click
+the corresponding menu item in the GUI. Feedback about the sync process
+is also provided on the console in CLI mode.
+
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001126.html">[gpodder-devel] Proposed gPodder Bugzilla Changes
+</A></li>
+	<LI>Next message: <A HREF="001124.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1129">[ date ]</a>
+              <a href="thread.html#1129">[ thread ]</a>
+              <a href="subject.html#1129">[ subject ]</a>
+              <a href="author.html#1129">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

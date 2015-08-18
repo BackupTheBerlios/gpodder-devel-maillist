@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feature request (synchronize only	unplayed	podcasts)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20request%20%28synchronize%20only%0A%09unplayed%09podcasts%29&In-Reply-To=%3C1177105842.5816.17.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000269.html">
+   <LINK REL="Next"  HREF="000271.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feature request (synchronize only	unplayed	podcasts)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20request%20%28synchronize%20only%0A%09unplayed%09podcasts%29&In-Reply-To=%3C1177105842.5816.17.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Feature request (synchronize only	unplayed	podcasts)">thp at perli.net
+       </A><BR>
+    <I>Fri Apr 20 23:50:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000269.html">[gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+</A></li>
+        <LI>Next message: <A HREF="000271.html">[gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#270">[ date ]</a>
+              <a href="thread.html#270">[ thread ]</a>
+              <a href="subject.html#270">[ subject ]</a>
+              <a href="author.html#270">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Nick!
+
+On Wed, 2007-04-18 at 22:55 -0400, nikosapi wrote:
+&gt;<i> Ok, I've just spent my evening having some fun with gPodder :-)
+</I>&gt;<i> I added your patch and fixed some libipodsync bugs.
+</I>
+Thanks, I can't test video, so I'm glad you added these fixes. Hopefully
+this makes video podcasts better supported on iPods..
+
+&gt;<i> If you now go into the gPodder sync properties tab there is an option
+</I>&gt;<i> to sync only unplayed episodes (which was a great idea, I'm now using
+</I>&gt;<i> it!). I had to add a bit to your patch so that you can still add
+</I>&gt;<i> episodes to the device while &quot;only sync unplayed ...&quot; is on. This can
+</I>&gt;<i> be achieved by selecting the episode you want to add and clicking the
+</I>&gt;<i> transfer button. The played episodes aren't synced only when you do a
+</I>&gt;<i> full synchronization (CTRL + s). 
+</I>
+Sounds good to me.
+
+&gt;<i> The set_podcast_flags function in libipodsync it would overwrite all
+</I>&gt;<i> the mediatype settings to audio 0x00000004, so when you would sync
+</I>&gt;<i> again after adding a video it would no longer show up as a video. I
+</I>&gt;<i> just moved that code to where the video detection takes place.
+</I>&gt;<i> track.mediatype doesn't need to be reset each time a sync takes place.
+</I>
+Agreed.
+
+&gt;<i> Also, I set the videos filetype to m4v instead of everything as mp3,
+</I>&gt;<i> it seems to have fixed a random bug where some of my videos would be
+</I>&gt;<i> still regarded as audio (but this might not be necessary, my ipod
+</I>&gt;<i> could just be crazy).
+</I>
+Do .mov files (if they even work on an iPod?) also work when this is set
+to m4v?
+
+&gt;<i> Lastly, I made it so that torrent files couldn't be transferred to
+</I>&gt;<i> devices, I don't see why you'd need torrent files on a media device. 
+</I>
+I've changed that part so that it doesn't check for &quot;isn't torrent&quot;, but
+instead checks for &quot;is audio or video&quot;. That should solve problems with
+feeds that provide other kinds of files (I think I've seen a podcast
+feed with a PDF transcript recently..).
+
+Please apply the attached patch to your working copy (r313) and tell me
+if it works as expected. I'll commit it to svn then.
+
+
+Thanks for your work,
+Thomas
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r313_sync-only-unplayed_ipod-bugfixes_thp-v2.patch
+Type: text/x-patch
+Size: 9385 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070420/7008a8ac/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070420/7008a8ac/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000269.html">[gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+</A></li>
+	<LI>Next message: <A HREF="000271.html">[gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#270">[ date ]</a>
+              <a href="thread.html#270">[ thread ]</a>
+              <a href="subject.html#270">[ subject ]</a>
+              <a href="author.html#270">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

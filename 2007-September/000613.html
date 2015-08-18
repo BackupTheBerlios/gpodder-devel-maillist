@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] SVN r431 - ImportError: cannot import name util
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20SVN%20r431%20-%20ImportError%3A%20cannot%20import%20name%20util&In-Reply-To=%3C1190368675.4958.1.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000612.html">
+   <LINK REL="Next"  HREF="000619.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] SVN r431 - ImportError: cannot import name util</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20SVN%20r431%20-%20ImportError%3A%20cannot%20import%20name%20util&In-Reply-To=%3C1190368675.4958.1.camel%40macbook%3E"
+       TITLE="[gpodder-devel] SVN r431 - ImportError: cannot import name util">thp at perli.net
+       </A><BR>
+    <I>Fri Sep 21 11:57:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000612.html">[gpodder-devel] SVN r431 - ImportError: cannot import name util
+</A></li>
+        <LI>Next message: <A HREF="000619.html">[gpodder-devel] SVN r431 - ImportError: cannot import name util
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#613">[ date ]</a>
+              <a href="thread.html#613">[ thread ]</a>
+              <a href="subject.html#613">[ subject ]</a>
+              <a href="author.html#613">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Roel!
+
+On Fri, 2007-09-21 at 09:37 +0200, Roel Groeneveld wrote:
+&gt;<i> I just saw the 0.10.0 release and decided to update SVN. After 'svn
+</I>&gt;<i> up' and running 'make test' I get the following error (on Ubuntu
+</I>&gt;<i> Feisty Fawn):
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">roel at poseidon</A>:~/src/gpodder$ make test
+</I>&gt;<i> bin/gpodder --local --verbose
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;bin/gpodder&quot;, line 148, in &lt;module&gt;
+</I>&gt;<i>     sys.exit( main())
+</I>&gt;<i>   File &quot;bin/gpodder&quot;, line 109, in main
+</I>&gt;<i>     from gpodder import console
+</I>&gt;<i>   File &quot;/home/roel/src/gpodder/src/gpodder/console.py&quot;, line 20, in
+</I>&gt;<i> &lt;module&gt;
+</I>&gt;<i>     from gpodder import util
+</I>&gt;<i>   File &quot;/home/roel/src/gpodder/src/gpodder/gpodder.py&quot;, line 46, in
+</I>&gt;<i> &lt;module&gt;
+</I>&gt;<i>   File &quot;/home/roel/src/gpodder/src/gpodder/libpodcasts.py&quot;, line 35,
+</I>&gt;<i> in &lt;module&gt;
+</I>&gt;<i>     from gpodder import util
+</I>&gt;<i> ImportError: cannot import name util
+</I>&gt;<i> make: *** [test] Error 1
+</I>&gt;<i> 
+</I>&gt;<i> Does anyone have a clue what's wrong here?
+</I>
+You have the old &quot;gpodder.py&quot; file in your local copy. Try running
+&quot;svn-clean&quot; and then &quot;svn update&quot; in &quot;/home/roel/src/gpodder/&quot;. If not,
+remove the folder and do a fresh check-out of the gPodder source.
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000612.html">[gpodder-devel] SVN r431 - ImportError: cannot import name util
+</A></li>
+	<LI>Next message: <A HREF="000619.html">[gpodder-devel] SVN r431 - ImportError: cannot import name util
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#613">[ date ]</a>
+              <a href="thread.html#613">[ thread ]</a>
+              <a href="subject.html#613">[ subject ]</a>
+              <a href="author.html#613">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

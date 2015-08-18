@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GnomeVFS volume detector
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C4c8625aa0901270109o2143040avaf0b74491a66ea50%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002025.html">
+   <LINK REL="Next"  HREF="002031.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GnomeVFS volume detector</H1>
+    <B>jerome chabod</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GnomeVFS%20volume%20detector&In-Reply-To=%3C4c8625aa0901270109o2143040avaf0b74491a66ea50%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] GnomeVFS volume detector">jerome.chabod at gmail.com
+       </A><BR>
+    <I>Tue Jan 27 10:09:04 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002025.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+        <LI>Next message: <A HREF="002031.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2027">[ date ]</a>
+              <a href="thread.html#2027">[ thread ]</a>
+              <a href="subject.html#2027">[ subject ]</a>
+              <a href="author.html#2027">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>It sounds nice. I will try to see what happends with MTP devices and what
+changes are required. (the gpodder.conf part won't work for sure since mtp
+devices don't easily accept files others than medias)
+
+J&#233;r&#244;me
+
+Le 26 janvier 2009 23:24, Justin Forest &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">justin.forest at gmail.com</A>&gt; a &#233;crit :
+
+&gt;<i> Hi.
+</I>&gt;<i>
+</I>&gt;<i> I have a patch that adds support for the GVFS volume monitor.  When a new
+</I>&gt;<i> vfat
+</I>&gt;<i> volume is mounted, gPodder asks if you want to synchronize your podcasts.
+</I>&gt;<i>
+</I>&gt;<i> It detects iPods, everything else is treated like a fs based device. I'm
+</I>&gt;<i> not
+</I>&gt;<i> sure how MTP devices work, so they're not covered by this patch.
+</I>&gt;<i>
+</I>&gt;<i> In the root of the volume there can be a gpodder.conf file, which is
+</I>&gt;<i> applied to
+</I>&gt;<i> the current configuration before syncing.  The file should look like this:
+</I>&gt;<i>
+</I>&gt;<i> [default]
+</I>&gt;<i> on_sync_delete = False
+</I>&gt;<i> bluetooth_use_converter = False
+</I>&gt;<i>
+</I>&gt;<i> And so on.  Later this could be used to tell which types of files the
+</I>&gt;<i> device
+</I>&gt;<i> supports, if we add some GUI.
+</I>&gt;<i>
+</I>&gt;<i> Please test and report any issues here:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://bugs.gpodder.org/show_bug.cgi?id=332#c0">http://bugs.gpodder.org/show_bug.cgi?id=332#c0</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090127/99097ed7/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090127/99097ed7/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002025.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+	<LI>Next message: <A HREF="002031.html">[gpodder-devel] GnomeVFS volume detector
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2027">[ date ]</a>
+              <a href="thread.html#2027">[ thread ]</a>
+              <a href="subject.html#2027">[ subject ]</a>
+              <a href="author.html#2027">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

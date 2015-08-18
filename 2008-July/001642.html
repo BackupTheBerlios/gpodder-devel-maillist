@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Close buttons not working and problems fetching	feed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Close%20buttons%20not%20working%20and%20problems%20fetching%0A%09feed&In-Reply-To=%3C3b8589680807160623y2ed64395lf5923ea98b39ef30%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001641.html">
+   <LINK REL="Next"  HREF="001643.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Close buttons not working and problems fetching	feed</H1>
+    <B>Bruno Miguel</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Close%20buttons%20not%20working%20and%20problems%20fetching%0A%09feed&In-Reply-To=%3C3b8589680807160623y2ed64395lf5923ea98b39ef30%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Close buttons not working and problems fetching	feed">brunoalexandremiguel at gmail.com
+       </A><BR>
+    <I>Wed Jul 16 15:23:38 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001641.html">[gpodder-devel] Close buttons not working and problems	fetching	feed
+</A></li>
+        <LI>Next message: <A HREF="001643.html">[gpodder-devel] Close buttons not working and problems	fetching	feed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1642">[ date ]</a>
+              <a href="thread.html#1642">[ thread ]</a>
+              <a href="subject.html#1642">[ subject ]</a>
+              <a href="author.html#1642">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>When running gPodder with make test, it works perfectly. But when I
+install it, it can't fetch the subscription I mentioned in the
+previous email.
+
+This is what I get with the --verbose option:
+
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brunomiguel at lunix-bruno</A>:/usr/src$ gpodder --verbose &gt; ~/&#193;rea\ de\ Trabalho/gpodder.dbg.installed
+</I>&gt;<i> Exception in thread Thread-2:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/threading.py&quot;, line 486, in __bootstrap_inner
+</I>&gt;<i>     self.run()
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/threading.py&quot;, line 446, in run
+</I>&gt;<i>     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 1324, in update_feed_cache_proc
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 729, in update_channels
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 146, in update
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/dbsqlite.py&quot;, line 236, in save_channel
+</I>&gt;<i> OperationalError: attempt to write a readonly database
+</I>
+The content of the gpodder.dbg.installed, were I try to redirect the output, is:
+
+&gt;<i> [   0.138] Detected encoding: UTF-8
+</I>&gt;<i> [   0.156] (gPodderLib) Creating gPodderLib()
+</I>&gt;<i> [   0.168] (Storage) Setting up SQLite database
+</I>&gt;<i> [   0.169] SQLite connection for thread -1210394960 opened.
+</I>&gt;<i> [   0.173] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert &quot;.ogg&quot; files.
+</I>&gt;<i> [   0.183] (gpodder.sync) Could not find gpod
+</I>&gt;<i> [   0.306] (GPodderStatusIcon) Creating tray icon
+</I>&gt;<i> [   0.450] (Storage) Channel list read, 4 entries.
+</I>&gt;<i> [   0.455] Updating channels....
+</I>&gt;<i> [   0.455] SQLite connection for thread -1232790640 opened.
+</I>&gt;<i> [   0.457] (Storage) Channel list read, 4 entries.
+</I>&gt;<i> [   0.473] (gPodder) auto_update_procedure() got called
+</I>&gt;<i> [   0.999] (Cache) Using cached feed: <A HREF="http://aguaesal.podomatic.com/rss2.xml">http://aguaesal.podomatic.com/rss2.xml</A>
+</I>&gt;<i> [   0.999] Channel <A HREF="http://aguaesal.podomatic.com/rss2.xml">http://aguaesal.podomatic.com/rss2.xml</A> is up to date
+</I>&gt;<i> [   1.402] (Cache) Using cached feed: <A HREF="http://feeds.feedburner.com/Euronews-NoComment">http://feeds.feedburner.com/Euronews-NoComment</A>
+</I>&gt;<i> [   1.402] Channel <A HREF="http://feeds.feedburner.com/Euronews-NoComment">http://feeds.feedburner.com/Euronews-NoComment</A> is up to date
+</I>&gt;<i> [   3.449] start reader
+</I>&gt;<i> [   3.522] (UserAppsReader) Player found: /usr/share/applications/soundconverter.desktop
+</I>&gt;<i> [   3.548] (UserAppsReader) Player found: /usr/share/applications/bmp-play-2.0.desktop
+</I>&gt;<i> [   3.622] (UserAppsReader) Player found: /usr/share/applications/totem.desktop
+</I>&gt;<i> [   3.728] (UserAppsReader) Player found: /usr/share/applications/rhythmbox.desktop
+</I>&gt;<i> [   3.892] (UserAppsReader) Player found: /usr/share/applications/audacity.desktop
+</I>&gt;<i> [   3.981] (UserAppsReader) Player found: /usr/share/applications/kde/kaboodle.desktop
+</I>&gt;<i> [   3.982] (UserAppsReader) Player found: /usr/share/applications/kde/noatun.desktop
+</I>&gt;<i> [   3.998] (UserAppsReader) Player found: /usr/share/applications/kde/juk.desktop
+</I>&gt;<i> [   4.126] (UserAppsReader) Player found: /usr/share/applications/kde/kmid.desktop
+</I>&gt;<i> [   4.406] end reader (benchmark: 0.9568 seconds)
+</I>
+On Wed, Jul 16, 2008 at 2:13 PM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i> Hello, Bruno!
+</I>&gt;<i>
+</I>&gt;<i> On Tue, 2008-07-15 at 14:25 +0100, Bruno Miguel wrote:
+</I>&gt;&gt;<i> I've just compiled gPodder's latest version, 0.12.0, and I found that
+</I>&gt;&gt;<i> the close close button in the subscription options dialog doesn't
+</I>&gt;&gt;<i> work. Also, gPodder 0.12.0 isn't able to fetch this feed [1] and the
+</I>&gt;&gt;<i> previous version was.
+</I>&gt;<i>
+</I>&gt;<i> I've tried subscribing to
+</I>&gt;<i> <A HREF="http://ww1.rtp.pt/multimedia/videocast/gera_podcast_tv.php?prog=23843">http://ww1.rtp.pt/multimedia/videocast/gera_podcast_tv.php?prog=23843</A>
+</I>&gt;<i> and it works like a charm for me on gPodder:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://img172.imageshack.us/my.php?image=biosferabc0.png">http://img172.imageshack.us/my.php?image=biosferabc0.png</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> What does &quot;gpodder --verbose&quot; print when running gPodder from a terminal
+</I>&gt;<i> window with that command? Are you sure you have not mixed up your new
+</I>&gt;<i> installation with a previous installation (i.e. distro package in /usr,
+</I>&gt;<i> your installation in /usr/local)? Can you try to run gPodder from the
+</I>&gt;<i> source directory using &quot;make test&quot; and see if the problem goes away?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001641.html">[gpodder-devel] Close buttons not working and problems	fetching	feed
+</A></li>
+	<LI>Next message: <A HREF="001643.html">[gpodder-devel] Close buttons not working and problems	fetching	feed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1642">[ date ]</a>
+              <a href="thread.html#1642">[ thread ]</a>
+              <a href="subject.html#1642">[ subject ]</a>
+              <a href="author.html#1642">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

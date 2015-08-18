@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Basic BitTorrent Support  - patch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Basic%20BitTorrent%20Support%20%20-%20patch&In-Reply-To=%3C200704061310.14810.nikosapi%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000223.html">
+   <LINK REL="Next"  HREF="000225.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Basic BitTorrent Support  - patch</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Basic%20BitTorrent%20Support%20%20-%20patch&In-Reply-To=%3C200704061310.14810.nikosapi%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] Basic BitTorrent Support  - patch">nikosapi at gmail.com
+       </A><BR>
+    <I>Fri Apr  6 19:10:14 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000223.html">[gpodder-devel] Bug while downloading a podcast without an	audio file
+</A></li>
+        <LI>Next message: <A HREF="000225.html">[gpodder-devel] Basic BitTorrent Support  - patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#217">[ date ]</a>
+              <a href="thread.html#217">[ thread ]</a>
+              <a href="subject.html#217">[ subject ]</a>
+              <a href="author.html#217">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I added some basic support for rss feeds with torrents in them (like feeds 
+from revision3.com). It basically copies BitTorrent files to another 
+directory where they can be picked up by programs like Azureus. Perhaps in 
+the future support could be added to run a script to start a download for a 
+torrent but for now this will work with clients that support directory 
+monitoring.
+
+The selector for choosing where to copy the torrent files to is in the 
+downloads section of the preferences window.
+The torrent recognition is done in a rather crude way but I think it'll work 
+fine, have a look yourself, I can't think of another way to do it. Looking 
+for a file extention is out of the question because certain sites like 
+mininova.org that don't use extentions for their filenames.
+
+I've also been working on automatic updating and automatic downloading of new 
+shows but I can't seem to get it to work. I know it's because of the way 
+threading works in gPodder, I just can't figure it out. 
+
+Anywho, one step at a time,
+
+nick
+
+P.S. The patch is against today's svn (rev 309 I think)
+P.P.S. I know there are plugins for azureus that'll do similar to this but I 
+like gPodder much better for managing my media-related rss feeds.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-torrent.patch
+Type: text/x-diff
+Size: 23112 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070406/caf92e4c/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070406/caf92e4c/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000223.html">[gpodder-devel] Bug while downloading a podcast without an	audio file
+</A></li>
+	<LI>Next message: <A HREF="000225.html">[gpodder-devel] Basic BitTorrent Support  - patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#217">[ date ]</a>
+              <a href="thread.html#217">[ thread ]</a>
+              <a href="subject.html#217">[ subject ]</a>
+              <a href="author.html#217">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

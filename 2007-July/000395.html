@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Using and running gPodder-SVN (was:	Re:	New	adding/editing channel	GUI)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20and%20running%20gPodder-SVN%20%28was%3A%0A%09Re%3A%09New%09adding/editing%20channel%09GUI%29&In-Reply-To=%3C1184247228.13990.20.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000394.html">
+   <LINK REL="Next"  HREF="000396.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Using and running gPodder-SVN (was:	Re:	New	adding/editing channel	GUI)</H1>
+    <B>Carlos Moffat</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20and%20running%20gPodder-SVN%20%28was%3A%0A%09Re%3A%09New%09adding/editing%20channel%09GUI%29&In-Reply-To=%3C1184247228.13990.20.camel%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] Using and running gPodder-SVN (was:	Re:	New	adding/editing channel	GUI)">carlos.lst at eldiabloenlosdetalles.net
+       </A><BR>
+    <I>Thu Jul 12 15:33:48 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000394.html">[gpodder-devel] Using and running gPodder-SVN (was: Re:	New	adding/editing channel	GUI)
+</A></li>
+        <LI>Next message: <A HREF="000396.html">[gpodder-devel] Using and running gPodder-SVN	(was:	Re:	New	adding/editing channel	GUI)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#395">[ date ]</a>
+              <a href="thread.html#395">[ thread ]</a>
+              <a href="subject.html#395">[ subject ]</a>
+              <a href="author.html#395">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2007-07-12 at 09:12 -0400, Carlos Moffat wrote:
+&gt;<i> On Thu, 2007-07-12 at 15:10 +0200, Thomas Perl wrote:
+</I>&gt;<i> &gt; Hello, Carlos!
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; On Thu, 2007-07-12 at 08:52 -0400, Carlos Moffat wrote:
+</I>&gt;<i> &gt; &gt; On Wed, 2007-07-11 at 13:44 +0200, Thomas Perl wrote:
+</I>&gt;<i> &gt; &gt; &gt; I've improved the add/edit channel GUI for gPodder a bit, so it fits
+</I>&gt;<i> &gt; &gt; &gt; better into our new channel navigator-style. Fixed some nasty bugs
+</I>&gt;<i> &gt; &gt; and
+</I>&gt;<i> &gt; &gt; &gt; cleaned up the codebase along the way, too.
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; <A HREF="http://tperl.blogspot.com/2007/07/subscribing-to-podcasts-in-gpodder.html">http://tperl.blogspot.com/2007/07/subscribing-to-podcasts-in-gpodder.html</A>
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; looks great. Is there any way to install gpodder from SVN
+</I>&gt;<i> &gt; &gt; in /usr/local? 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; You can install gPodder from SVN (or from any tarball) to /usr/local by
+</I>&gt;<i> &gt; doing the following:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; PREFIX=/usr/local make install
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Of course, most gPodder users that live on the bleeding edge (SVN) are
+</I>&gt;<i> &gt; successfully using gPodder by using &quot;make test&quot; which starts gPodder
+</I>&gt;<i> &gt; from the current directory.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; As &quot;make test&quot; simply calls &quot;bin/gpodder --local --verbose&quot;, you can
+</I>&gt;<i> &gt; even create a shell script and put it in your $PATH, i.e.
+</I>&gt;<i> &gt; &quot;~/bin/gpodder-svn&quot;:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> 
+</I>&gt;<i> Damn python. So easy.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks!
+</I>&gt;<i> 
+</I>&gt;<i> Carlos
+</I>&gt;<i> 
+</I>&gt;<i> &gt; -- 8&lt; ----- cut here ----- 8&lt; --
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; #!/bin/bash
+</I>&gt;<i> &gt; # run gpodder svn
+</I>&gt;<i> &gt; (cd $PATH_TO_GPODDER_SVN &amp;&amp; bin/gpodder --local --verbose)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; -- 8&lt; ----- cut here ----- 8&lt; --
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; For $PATH_TO_GPODDER_SVN, insert where you've checked out your gPodder
+</I>&gt;<i> &gt; working copy (i.e. ~/src/gpodder/).
+</I>&gt;<i> &gt; 
+</I>
+
+Hi Thomas,
+
+I must be missing something here. gPodder SVN looks pretty much the same
+as the old one (no new navigation). I noticed somebody commented the
+same thing in your blog. I had the package installed from debian, and I
+uninstalled, but for some reason the GUI still doesn't show the changes.
+
+Any hints?
+Carlos
+
+&gt;<i> &gt; Make this script executable (chmod +x ~/bin/gpodder-svn) and start
+</I>&gt;<i> &gt; gPodder-svn with &quot;gpodder-svn&quot; then. This saves you the extra step of
+</I>&gt;<i> &gt; installing into /usr/local every time some updates happens and also
+</I>&gt;<i> &gt; keeps your /usr/local directory clean :)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; About the new release: I've received a bug report[1] about a unhandled
+</I>&gt;<i> &gt; disk full error which I plan to fix before pushing out gPodder 0.9.4. I
+</I>&gt;<i> &gt; think it'll be this weekend or next week that the release happens. Until
+</I>&gt;<i> &gt; then, please test the -SVN codebase so we can discover any bugs that
+</I>&gt;<i> &gt; might have come up :)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; [1] <A HREF="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=432805">http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=432805</A>
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Enjoy,
+</I>&gt;<i> &gt; Thomas
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000394.html">[gpodder-devel] Using and running gPodder-SVN (was: Re:	New	adding/editing channel	GUI)
+</A></li>
+	<LI>Next message: <A HREF="000396.html">[gpodder-devel] Using and running gPodder-SVN	(was:	Re:	New	adding/editing channel	GUI)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#395">[ date ]</a>
+              <a href="thread.html#395">[ thread ]</a>
+              <a href="subject.html#395">[ subject ]</a>
+              <a href="author.html#395">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

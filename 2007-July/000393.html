@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Using and running gPodder-SVN (was: Re: New	adding/editing channel	GUI)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20and%20running%20gPodder-SVN%20%28was%3A%20Re%3A%20New%0A%09adding/editing%20channel%09GUI%29&In-Reply-To=%3C1184245839.32719.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000392.html">
+   <LINK REL="Next"  HREF="000394.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Using and running gPodder-SVN (was: Re: New	adding/editing channel	GUI)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Using%20and%20running%20gPodder-SVN%20%28was%3A%20Re%3A%20New%0A%09adding/editing%20channel%09GUI%29&In-Reply-To=%3C1184245839.32719.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Using and running gPodder-SVN (was: Re: New	adding/editing channel	GUI)">thp at perli.net
+       </A><BR>
+    <I>Thu Jul 12 15:10:39 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000392.html">[gpodder-devel] New adding/editing channel GUI
+</A></li>
+        <LI>Next message: <A HREF="000394.html">[gpodder-devel] Using and running gPodder-SVN (was: Re:	New	adding/editing channel	GUI)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Carlos!
+
+On Thu, 2007-07-12 at 08:52 -0400, Carlos Moffat wrote:
+&gt;<i> On Wed, 2007-07-11 at 13:44 +0200, Thomas Perl wrote:
+</I>&gt;<i> &gt; I've improved the add/edit channel GUI for gPodder a bit, so it fits
+</I>&gt;<i> &gt; better into our new channel navigator-style. Fixed some nasty bugs
+</I>&gt;<i> and
+</I>&gt;<i> &gt; cleaned up the codebase along the way, too.
+</I>&gt;<i> &gt;
+</I>&gt;<i> <A HREF="http://tperl.blogspot.com/2007/07/subscribing-to-podcasts-in-gpodder.html">http://tperl.blogspot.com/2007/07/subscribing-to-podcasts-in-gpodder.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> looks great. Is there any way to install gpodder from SVN
+</I>&gt;<i> in /usr/local? 
+</I>
+You can install gPodder from SVN (or from any tarball) to /usr/local by
+doing the following:
+
+PREFIX=/usr/local make install
+
+Of course, most gPodder users that live on the bleeding edge (SVN) are
+successfully using gPodder by using &quot;make test&quot; which starts gPodder
+from the current directory.
+
+As &quot;make test&quot; simply calls &quot;bin/gpodder --local --verbose&quot;, you can
+even create a shell script and put it in your $PATH, i.e.
+&quot;~/bin/gpodder-svn&quot;:
+
+-- 8&lt; ----- cut here ----- 8&lt; --
+
+#!/bin/bash
+# run gpodder svn
+(cd $PATH_TO_GPODDER_SVN &amp;&amp; bin/gpodder --local --verbose)
+
+-- 8&lt; ----- cut here ----- 8&lt; --
+
+For $PATH_TO_GPODDER_SVN, insert where you've checked out your gPodder
+working copy (i.e. ~/src/gpodder/).
+
+Make this script executable (chmod +x ~/bin/gpodder-svn) and start
+gPodder-svn with &quot;gpodder-svn&quot; then. This saves you the extra step of
+installing into /usr/local every time some updates happens and also
+keeps your /usr/local directory clean :)
+
+About the new release: I've received a bug report[1] about a unhandled
+disk full error which I plan to fix before pushing out gPodder 0.9.4. I
+think it'll be this weekend or next week that the release happens. Until
+then, please test the -SVN codebase so we can discover any bugs that
+might have come up :)
+
+[1] <A HREF="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=432805">http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=432805</A>
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000392.html">[gpodder-devel] New adding/editing channel GUI
+</A></li>
+	<LI>Next message: <A HREF="000394.html">[gpodder-devel] Using and running gPodder-SVN (was: Re:	New	adding/editing channel	GUI)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

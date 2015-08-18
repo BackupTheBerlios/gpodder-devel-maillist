@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-human readable directory and file names
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C1193933925.6079.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000762.html">
+   <LINK REL="Next"  HREF="000750.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-human readable directory and file names</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C1193933925.6079.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Non-human readable directory and file names">thp at perli.net
+       </A><BR>
+    <I>Thu Nov  1 17:18:45 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000762.html">[gpodder-devel] Gpodder directory structure?
+</A></li>
+        <LI>Next message: <A HREF="000750.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#748">[ date ]</a>
+              <a href="thread.html#748">[ thread ]</a>
+              <a href="subject.html#748">[ subject ]</a>
+              <a href="author.html#748">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jay!
+
+On Wed, 2007-10-31 at 15:03 +0000, Jay Bradley wrote:
+&gt;<i> I can see why you chose hashes and can also see I'm a bit naive.
+</I>&gt;<i> Things always look simple until you have to do them yourself. From
+</I>&gt;<i> your description I can see that gpodder needs guaranteed unique
+</I>&gt;<i> directory and file names. I presume (but correct me if I'm wrong) that
+</I>&gt;<i> cases when the title is missing, contains characters unsuitable for
+</I>&gt;<i> file or directory names, is longer than a desired maximum length or is
+</I>&gt;<i> a duplicate are outlying cases.
+</I>
+These are the exact cases when using the title is not possible, although
+they _do_ happen with certain feeds. People will complain about a feed
+not working if one of these cases happens and is not handled correctly.
+
+&gt;<i> That is, the title is only unsuitable quite rarely. If this is the
+</I>&gt;<i> case then I would advocate using hashes as a fallback system. So if
+</I>&gt;<i> it's possible to use the title according to some set rules then the
+</I>&gt;<i> title is used and if not then use a hash.
+</I>
+That would be an option, although it makes the code more complex and
+therefore error-prone. If we change the algorithm used to determine the
+file names (a better algorithm comes up, bugs are fixed, ...), it could
+be possible that episodes downloaded now will not be accessible and
+reachable by newer gPodder versions.
+
+Another problem I see with your approach is how to handle duplicates (we
+have to save the files with unique filenames, but then also get the
+right unique filename from a title). This has to be handled with another
+file that has to save the generated name (so we have a URL-&gt;unique name
+mapping).
+
+In my opinion, it's just too much housekeeping and invites a bunch of
+problems. As I mentioned in my earlier mail, if RSS feeds would be
+&quot;sane&quot;, and we could trust their content, it would be much easier indeed
+(just look at the feed loading code in libpodcasts.py).
+
+&gt;<i> If the set rules are always used then the program can always tell if
+</I>&gt;<i> it should use the title or a hash.
+</I>
+Yes, but it also makes it difficult for other programs to determine the
+filename of a feed or episode given the URL. Other programs that want to
+operate on gPodder's download folder then have to know (and import or
+implement) the exact algorithm used in gPodder, and you can imagine what
+happens when this algorithm changes and other programs are not updated
+with the new algorithm.
+
+The title/hash method is theoretically very nice, but makes maintaining
+all those bits and pieces cumbersome.
+
+What I'd rather implement is a way of doing a &quot;mirror&quot; with hard links
+to files on your local hard drive. Unfortunately, hard links are not
+supported by the FAT filesystem, and I have heard some users have their
+gPodder download directory set to a FAT drive/usb stick. Hard links are
+necessary to not duplicate disk space requirements (like a soft link,
+but it appears as regular file).
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000762.html">[gpodder-devel] Gpodder directory structure?
+</A></li>
+	<LI>Next message: <A HREF="000750.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#748">[ date ]</a>
+              <a href="thread.html#748">[ thread ]</a>
+              <a href="subject.html#748">[ subject ]</a>
+              <a href="author.html#748">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder: Seeking testers of new version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C1188130398.4903.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000514.html">
+   <LINK REL="Next"  HREF="000516.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder: Seeking testers of new version</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C1188130398.4903.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder: Seeking testers of new version">thp at perli.net
+       </A><BR>
+    <I>Sun Aug 26 14:13:18 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000514.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+        <LI>Next message: <A HREF="000516.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#515">[ date ]</a>
+              <a href="thread.html#515">[ thread ]</a>
+              <a href="subject.html#515">[ subject ]</a>
+              <a href="author.html#515">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+On Sat, 2007-08-25 at 13:09 -0700, Wilfred van Rooijen wrote:
+&gt;<i> adventurous as I am, I have tried the newest gpodder.
+</I>
+Thanks, it's good to have someone testing the code other than me :) If
+it works for you, it's one more reason to be sure it works for others
+too =)
+
+&gt;<i> This is the result:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> make test
+</I>&gt;<i> bin/gpodder --local --verbose
+</I>&gt;<i> (DownloadHistory) Creating new history list.
+</I>&gt;<i> (PlaybackHistory) Creating new history list.
+</I>&gt;<i> (tagupdate) eyed3 not found -- tag update disabled
+</I>&gt;<i> (ipodsync) Could not find python-gpod. iPod functions
+</I>&gt;<i> will be disabled.
+</I>&gt;<i> (ipodsync) Please install the &quot;python-gpod&quot; package if
+</I>&gt;<i> you want iPod support.
+</I>&gt;<i> (ipodsync) Could not find pymad.
+</I>&gt;<i> (ipodsync) Coulld not find eyeD3.
+</I>&gt;<i> (ipodsync) PyID3 not found - falling back to channel
+</I>&gt;<i> cover for iPod cover art
+</I>&gt;<i> (ipodsync) mplayer not found - length of video files
+</I>&gt;<i> will be guessed
+</I>&gt;<i> Player found: EasyTAG
+</I>&gt;<i> (/usr/share/applications/easytag.desktop)
+</I>&gt;<i> Player found: RealPlayer 10
+</I>&gt;<i> (/usr/share/applications/realplay.desktop)
+</I>&gt;<i> Player found: Movie Player
+</I>&gt;<i> (/usr/share/applications/totem.desktop)
+</I>&gt;<i> Player found: VLC media player
+</I>&gt;<i> (/usr/share/applications/vlc.desktop)
+</I>&gt;<i> (podcastChannel) Generating TreeModel for
+</I>&gt;<i> <A HREF="http://www.vpro.nl/podcastradiobergeijk">http://www.vpro.nl/podcastradiobergeijk</A>
+</I>&gt;<i> make: *** [test] Segmentation fault
+</I>&gt;<i> [1]+  Exit 2                  make test
+</I>&gt;<i> 
+</I>&gt;<i> So, it basically doesn't work. Tell me if you need
+</I>&gt;<i> more info.
+</I>
+Which version of Python (python -V) are you using? I see gPodder wants
+to create the TreeModel for one of your podcasts - have you tried
+starting gPodder with an empty channel list also (it shouldn't matter,
+but just in case..)?
+
+A segfault is probably not related to gPodder, but to some extension
+module of Python or Python itself (a bug in gPodder would cause a simple
+Python backtrace or other strange errors).
+
+How exactly have you installed python-feedparser? If your distribution
+provides a package, please use that. If not, you might want to use
+Python's &quot;easy_install&quot; utility.
+
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000514.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+	<LI>Next message: <A HREF="000516.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#515">[ date ]</a>
+              <a href="thread.html#515">[ thread ]</a>
+              <a href="subject.html#515">[ subject ]</a>
+              <a href="author.html#515">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Problem with transferring to an iPod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problem%20with%20transferring%20to%20an%20iPod&In-Reply-To=%3Ca2cad6bf0710080120w6ec95fb1i2f3e8a61ffcfb1c3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000659.html">
+   <LINK REL="Next"  HREF="000661.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Problem with transferring to an iPod</H1>
+    <B>Artyom Sichkar</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problem%20with%20transferring%20to%20an%20iPod&In-Reply-To=%3Ca2cad6bf0710080120w6ec95fb1i2f3e8a61ffcfb1c3%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Problem with transferring to an iPod">areskz at gmail.com
+       </A><BR>
+    <I>Mon Oct  8 10:20:31 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000659.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+        <LI>Next message: <A HREF="000661.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#660">[ date ]</a>
+              <a href="thread.html#660">[ thread ]</a>
+              <a href="subject.html#660">[ subject ]</a>
+              <a href="author.html#660">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Set language to English, launched as you said.
+(but it was nothing added to terminal when error occured).
+Here's the log:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">areskz at areskz-desktop</A>:~/tmp$ gpodder --verbose
+(ipodsync) Found pymad
+(ipodsync) Found eyeD3
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover
+art
+(ipodsync) mplayer not found - length of video files will be guessed
+X Error: BadDevice, invalid or uninitialized input device 169
+  Major opcode:  147
+  Minor opcode:  3
+  Resource id:  0x0
+Failed to open device
+X Error: BadDevice, invalid or uninitialized input device 169
+  Major opcode:  147
+  Minor opcode:  3
+  Resource id:  0x0
+Failed to open device
+(PlaybackHistory) Creating new history list.
+Reading metadata from
+/home/areskz/gpodder-downloads/aee6794b72594058f041965bdb200f0c/index.xml
+Player found: EasyTAG (/usr/share/applications/easytag.desktop)
+Player found: Movie Player (/usr/share/applications/totem.desktop)
+Player found: Serpentine Audio CD Creator
+(/usr/share/applications/serpentine.desktop)
+Player found: Rhythmbox Music Player
+(/usr/share/applications/rhythmbox.desktop)
+Player found: Amarok (/usr/share/applications/kde/amarok.desktop)
+Reading metadata from
+/home/areskz/gpodder-downloads/aee6794b72594058f041965bdb200f0c/index.xml
+
+Have checked whether it works with gtkpod. It works. gtkpod finds player and
+can read read&amp;write from/to it.
+
+2007/10/8, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt;:
+&gt;<i>
+</I>&gt;<i> Hello, Artyom!
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 2007-10-08 at 01:21 +0400, Artyom Sichkar wrote:
+</I>&gt;<i> &gt; That would be great if you help me: I have a problem when I am trying
+</I>&gt;<i> &gt; to transfer downloaded podcast to my iPod. Error is about trouble
+</I>&gt;<i> &gt; connecting to the device, and it says that I have to check that in
+</I>&gt;<i> &gt; preferences (I can't give you the text of the error, because I have
+</I>&gt;<i> &gt; russian version, and it would probably be difficult for you to
+</I>&gt;<i> &gt; understand this). I've checked that several times, mounting point is
+</I>&gt;<i> &gt; set correctly. AmaroK connects the ipod successfully. What can be the
+</I>&gt;<i> &gt; problem?
+</I>&gt;<i>
+</I>&gt;<i> Open up a terminal, and temporarily set the language to English:
+</I>&gt;<i>
+</I>&gt;<i> export LC_ALL=C
+</I>&gt;<i> export LANG=C
+</I>&gt;<i>
+</I>&gt;<i> Then, start gPodder with the following command:
+</I>&gt;<i>
+</I>&gt;<i>   gpodder --verbose
+</I>&gt;<i>
+</I>&gt;<i> Try to reproduce the problem and copy the output from your terminal into
+</I>&gt;<i> this mail, maybe this gives some hints on why it doesn't work.
+</I>&gt;<i>
+</I>&gt;<i> Have you initialized your iPod with gtkpod? Does it work with gtkpod?
+</I>&gt;<i> What about write permissions? Maybe it's a HFS+ iPod that you can _read_
+</I>&gt;<i> from in AmaroK, but not write.
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Best regards, Artem Sichkar
+ICQ: 321110715
+Skype: areskz
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071008/11ce146c/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071008/11ce146c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000659.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+	<LI>Next message: <A HREF="000661.html">[gpodder-devel] Problem with transferring to an iPod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#660">[ date ]</a>
+              <a href="thread.html#660">[ thread ]</a>
+              <a href="subject.html#660">[ subject ]</a>
+              <a href="author.html#660">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

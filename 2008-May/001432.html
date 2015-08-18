@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.2%20%22Walk%20like%20a%20Panther%22%20released&In-Reply-To=%3C1209623985.23151.12.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001431.html">
+   <LINK REL="Next"  HREF="001445.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.2%20%22Walk%20like%20a%20Panther%22%20released&In-Reply-To=%3C1209623985.23151.12.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released">thp at perli.net
+       </A><BR>
+    <I>Thu May  1 08:39:45 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001431.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+        <LI>Next message: <A HREF="001445.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1432">[ date ]</a>
+              <a href="thread.html#1432">[ thread ]</a>
+              <a href="subject.html#1432">[ subject ]</a>
+              <a href="author.html#1432">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+Please try to split your text into paragraphs and format lists so that
+they really look like lists and are easier to read. It was quite
+difficult to read that mail :/
+
+On Wed, 2008-04-30 at 21:43 -0600, Kaity G. B.; et. al. wrote:
+&gt;<i> Any ways w/0.11.2 would running `gpodder --run --sync` accomplish what
+</I>&gt;<i> we've been talking?
+</I>
+Yes, this is possible from the command line now and does the same thing
+that the GUI does, in terms of syncing. No need to implement a special
+script to do that anymore.
+
+&gt;<i> 2.) Is the new sync code in place enough, either in 0.11.2 or
+</I>&gt;<i> subversion, to where I could begin working on converting/adding SQLite
+</I>&gt;<i> support?
+</I>
+As you can see from <A HREF="http://wiki.gpodder.org/roadmap">http://wiki.gpodder.org/roadmap</A> and from the release
+announcements, this feature is in place since 0.11.0.
+
+All patches should be against current SVN trunk, and you should follow
+the instructions on <A HREF="http://wiki.gpodder.org/running-from-svn">http://wiki.gpodder.org/running-from-svn</A> to find out
+how you should submit a patch to the bug tracker so that it can easily
+be merged. Be prepared to go through some iterations of re-fining and
+fixing up your patch before it can be accepted.
+
+&gt;<i> 3.) Can I a get a link, or @least a reminder as to what coding
+</I>&gt;<i> standard gPodder uses, PYN-9, or what was it?
+</I>
+We try to follow PEP-8 for all new contributions, even though old parts
+of the code don't follow that guideline. For all new patches, these
+guidelines should be followed.
+
+PEP-8: <A HREF="http://www.python.org/dev/peps/pep-0008/">http://www.python.org/dev/peps/pep-0008/</A>
+
+&gt;<i> But when I try to run `gpodder --run` from the cli gPodder dies with
+</I>&gt;<i> the following error:
+</I>&gt;<i> 
+</I>&gt;<i>                 Traceback (most recent call last):
+</I>&gt;<i>                   File &quot;/usr/bin/gpodder&quot;, line 166, in &lt;module&gt;
+</I>&gt;<i>                     sys.exit( main())
+</I>&gt;<i>                   File &quot;/usr/bin/gpodder&quot;, line 125, in main
+</I>&gt;<i>                     from gpodder import console
+</I>&gt;<i>                   File
+</I>&gt;<i>                 &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;,
+</I>&gt;<i>                 line 21, in &lt;module&gt;
+</I>&gt;<i>                   File
+</I>&gt;<i>                 &quot;usr/lib/python2.5/site-packages/gpodder/download.py&quot;,
+</I>&gt;<i>                 line 29, in &lt;module&gt;
+</I>&gt;<i>                   File
+</I>&gt;<i>                 &quot;usr/lib/python2.5/site-packages/gpodder/libgpodder.py&quot;, line 37, in &lt;module&gt;
+</I>&gt;<i>                   File
+</I>&gt;<i>                 &quot;usr/lib/python2.5/site-packages/gpodder/config.py&quot;,
+</I>&gt;<i>                 line 60, in &lt;module&gt;
+</I>&gt;<i>                 NameError: name 'default_bittorrent_dir' is not
+</I>&gt;<i>                 defined
+</I>
+You probably mixed different versions of gPodder on your system. Please
+remove all packages, all self-installed versions and then keep looking
+for leftovers from previous installs in /usr and /usr/local. Then, get
+the SVN version and try to run it - it should work.
+
+&gt;<i> My final question, For any bug fixes that I fix, sqlite conversion,
+</I>&gt;<i> playlist manager, &amp;using python-xine to enable media playing right
+</I>&gt;<i> inside gPodder(w/support for all the beautiful codecs,
+</I>&gt;<i> &amp;*cough-ick-gah*).
+</I>
+That wasn't really a question, was it? Any ideas should be filed in the
+bug tracker before starting working on it, so no duplicate work is done
+(if there already is a bug report for that specific idea/problem, DON'T
+open a new bug report, but add a comment to the old bug). Please also
+submit bugs to the same bug ID that you originally filed the bug
+against.
+
+Because you mentioned python-xine: If you really want to start working
+on a feature like this, please use gstreamer instead of xine for
+portability reasons. If you don't do that, chances might be that we
+can't accept your patch, because it won't work on all supported
+platforms.
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001431.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+	<LI>Next message: <A HREF="001445.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1432">[ date ]</a>
+              <a href="thread.html#1432">[ thread ]</a>
+              <a href="subject.html#1432">[ subject ]</a>
+              <a href="author.html#1432">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

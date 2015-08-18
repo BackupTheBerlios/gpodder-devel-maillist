@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Download in progress deleted in ver 236
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Download%20in%20progress%20deleted%20in%20ver%20236&In-Reply-To=%3Ce5447bc00701172241v2880843dn33bba55c35fff89d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000047.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Download in progress deleted in ver 236</H1>
+    <B>Robert Young</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Download%20in%20progress%20deleted%20in%20ver%20236&In-Reply-To=%3Ce5447bc00701172241v2880843dn33bba55c35fff89d%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Download in progress deleted in ver 236">robertkyoung at gmail.com
+       </A><BR>
+    <I>Thu Jan 18 07:41:58 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+        <LI>Next message: <A HREF="000047.html">[gpodder-devel] Download in progress deleted in ver 236
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>G'Day,
+
+I downloaded the latest version from svn, and found a little problem.
+When I delete a feed whilst downloading podcasts for another feed, the
+download in progress (the temporary file?) is deleted too.
+
+Steps to reproduce:
+get latest version from svn repository
+make test
+Subscribe to feed A (e.g. Whadya Know from NPR).
+Subscribe to feed B (e.g. Marketplace Money).
+Start downloading podcast for feed A.
+Delete feed B.
+The download continues to 99%, but then stays in the &quot;Download Status&quot;
+tab at 0%.
+
+The output from the shell is shown below.
+
+Thanks for the excellent program!
+Rob.
+
+Command: wget -T 15 -c -t0
+&quot;<A HREF="http://podcastdownload.npr.org/anon.npr-podcasts/podcast/4787204/510012/6865614/PUB_6865614.mp3">http://podcastdownload.npr.org/anon.npr-podcasts/podcast/4787204/510012/6865614/PUB_6865614.mp3</A>&quot;
+-O &quot;/home/rob/gpodder-downloads/1494d710846d0d971bc2b177dfd7fcc6/.tmp-684febdf7cfc9dde8d789b7e7dfe4a0b.mp3&quot;
+I Asked: Do you really want to remove this channel and downloaded episodes?
+
+ APM: Marketplace Money
+User answered: True
+deleteFilename:
+/home/rob/.config/gpodder/cache/0141d398cabbd83094983892bcb8c9ca.xml
+deleteFilename:
+/home/rob/gpodder-downloads/1494d710846d0d971bc2b177dfd7fcc6/.tmp-684febdf7cfc9dde8d789b7e7dfe4a0b.mp3
+rssReader parseXML-&gt; <A HREF="http://www.npr.org/rss/podcast.php?id=35,">http://www.npr.org/rss/podcast.php?id=35,</A>
+/home/rob/.config/gpodder/cache/0090d396bab0e0fd750c9879556a6293.xml
+rssReader parseXML-&gt; <A HREF="http://www.npr.org/rss/podcast.php?id=510012,">http://www.npr.org/rss/podcast.php?id=510012,</A>
+/home/rob/.config/gpodder/cache/1494d710846d0d971bc2b177dfd7fcc6.xml
+rssReader parseXML-&gt;
+<A HREF="http://www.asx.com.au/resources/podcast/podcast.xml,">http://www.asx.com.au/resources/podcast/podcast.xml,</A>
+/home/rob/.config/gpodder/cache/ca7ff899017abd5e95721afc6386132f.xml
+Error happened during moving tempfile :/
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;./src/gpodder/libwget.py&quot;, line 131, in thread_function
+    move( self.tempname, self.filename)
+  File &quot;/usr/lib/python2.4/shutil.py&quot;, line 189, in move
+    copy2(src,dst)
+  File &quot;/usr/lib/python2.4/shutil.py&quot;, line 92, in copy2
+    copyfile(src, dst)
+  File &quot;/usr/lib/python2.4/shutil.py&quot;, line 47, in copyfile
+    fsrc = open(src, 'rb')
+IOError: [Errno 2] No such file or directory:
+u'/home/rob/gpodder-downloads/1494d710846d0d971bc2b177dfd7fcc6/.tmp-684febdf7cfc9dde8d789b7e7dfe4a0b.mp3'
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+	<LI>Next message: <A HREF="000047.html">[gpodder-devel] Download in progress deleted in ver 236
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

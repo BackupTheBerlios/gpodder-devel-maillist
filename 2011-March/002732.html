@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Channel locking (&quot;Keep episodes&quot;) in fremantle gui
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Channel%20locking%20%28%22Keep%20episodes%22%29%20in%20fremantle%20gui&In-Reply-To=%3CAANLkTinA9Omy6tfECyNn245AQqy7VdMCo-0GeCMNhMo6%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002731.html">
+   <LINK REL="Next"  HREF="002733.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Channel locking (&quot;Keep episodes&quot;) in fremantle gui</H1>
+    <B>Dov Feldstern</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Channel%20locking%20%28%22Keep%20episodes%22%29%20in%20fremantle%20gui&In-Reply-To=%3CAANLkTinA9Omy6tfECyNn245AQqy7VdMCo-0GeCMNhMo6%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Channel locking (&quot;Keep episodes&quot;) in fremantle gui">dovdevel at gmail.com
+       </A><BR>
+    <I>Mon Mar 28 00:22:14 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002731.html">[gpodder-devel] gpodder @ GSoC (well a little bit at least)
+</A></li>
+        <LI>Next message: <A HREF="002733.html">[gpodder-devel] Channel locking (&quot;Keep episodes&quot;) in fremantle gui
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2732">[ date ]</a>
+              <a href="thread.html#2732">[ thread ]</a>
+              <a href="subject.html#2732">[ subject ]</a>
+              <a href="author.html#2732">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi!
+
+The fremantle gui does not currently expose an interface for locking a
+channel (i.e., setting it to &quot;Keep episodes&quot; by default). The attached
+patch implements such an interface (a menu item in the channel's
+episodes view).
+
+A few questions:
+
+1. I'm a little confused about the different branches --- as far as I
+can tell, there are two &quot;stable&quot; branches (excluding tres) currently
+being maintained: master and maemo-5 -- is that correct? What's the
+relation between them? The patch applies cleanly against both of them;
+but just so that I get a better understanding of the process: would it
+be applied separately to both, or applied to one and then merged into
+the other (and if so, in which direction)?
+
+2. Should I open a bug report / feature request for this, or is that
+not necessary?
+
+3. While working on this, I also noticed that the &quot;visit website&quot;
+option seems to have been disabled at some point, attached is another
+patch which re-enables it.
+
+
+This is my first foray into gpodder code, so any comments will be
+greatly appreciated...!
+
+Thanks!
+Dov
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: add_channel_locking_keep_episodes_for_frmntl.patch
+Type: text/x-patch
+Size: 2348 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110328/c3c36779/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110328/c3c36779/attachment.bin</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: add_visit_website_for_frmntl.patch
+Type: text/x-patch
+Size: 1158 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110328/c3c36779/attachment-0001.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110328/c3c36779/attachment-0001.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002731.html">[gpodder-devel] gpodder @ GSoC (well a little bit at least)
+</A></li>
+	<LI>Next message: <A HREF="002733.html">[gpodder-devel] Channel locking (&quot;Keep episodes&quot;) in fremantle gui
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2732">[ date ]</a>
+              <a href="thread.html#2732">[ thread ]</a>
+              <a href="subject.html#2732">[ subject ]</a>
+              <a href="author.html#2732">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

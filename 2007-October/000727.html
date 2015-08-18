@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-human readable directory and file names
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C1193841500.5290.53.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000726.html">
+   <LINK REL="Next"  HREF="000728.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-human readable directory and file names</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C1193841500.5290.53.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Non-human readable directory and file names">thp at perli.net
+       </A><BR>
+    <I>Wed Oct 31 15:38:20 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000726.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+        <LI>Next message: <A HREF="000728.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#727">[ date ]</a>
+              <a href="thread.html#727">[ thread ]</a>
+              <a href="subject.html#727">[ subject ]</a>
+              <a href="author.html#727">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+On Wed, 2007-10-31 at 15:11 +0100, Pieter De Decker wrote:
+&gt;<i> How about adding an option to the right-click menu of each channel
+</I>&gt;<i> saying &quot;Open channel folder&quot;?
+</I>
+I've tried to do that, but my solution is a bit dirty (I'm using
+&quot;gnome-open&quot; and &quot;os.system()&quot;, which is not a good solution), the patch
+is attached, tell me what you think :)
+
+I've also attached a small script I just shuffled together that
+&quot;describes&quot; the download folder structure using the &quot;gpodder&quot; Python
+module, it's &quot;describe_gpodder_downloads.py&quot; and you can run it using
+Python. If you have not installed gPodder onto your system, you have to
+set the PYTHONPATH environment variable to &quot;src/&quot; in your local gpodder
+working copy.
+
+HTH.
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: describe_gpodder_downloads.py
+Type: text/x-python
+Size: 497 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071031/a08da726/attachment.py">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071031/a08da726/attachment.py</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-r444-open_channel_folder.patch
+Type: text/x-patch
+Size: 1252 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071031/a08da726/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071031/a08da726/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000726.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+	<LI>Next message: <A HREF="000728.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#727">[ date ]</a>
+              <a href="thread.html#727">[ thread ]</a>
+              <a href="subject.html#727">[ subject ]</a>
+              <a href="author.html#727">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

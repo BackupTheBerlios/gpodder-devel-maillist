@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Cover Art for Filesystem-based MP3 Players
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Cover%20Art%20for%20Filesystem-based%20MP3%20Players&In-Reply-To=%3C20081010135144.427312c5%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001791.html">
+   <LINK REL="Next"  HREF="001793.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Cover Art for Filesystem-based MP3 Players</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Cover%20Art%20for%20Filesystem-based%20MP3%20Players&In-Reply-To=%3C20081010135144.427312c5%40macbook%3E"
+       TITLE="[gpodder-devel] Cover Art for Filesystem-based MP3 Players">thp at perli.net
+       </A><BR>
+    <I>Fri Oct 10 13:51:44 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001791.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+        <LI>Next message: <A HREF="001793.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1792">[ date ]</a>
+              <a href="thread.html#1792">[ thread ]</a>
+              <a href="subject.html#1792">[ subject ]</a>
+              <a href="author.html#1792">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Fri, 10 Oct 2008 04:16:25 -0700
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">daggpod at emailias.com</A>&gt; wrote:
+&gt;<i> I've got a Sansa Fuze which supports cover art for podcasts, however
+</I>&gt;<i> it appears gPodder only synchronizes cover art for iPods.  I'd like
+</I>&gt;<i> to add this functionality.  Before I go mucking about the code, I'd
+</I>&gt;<i> like to gather thoughts on how best to design this, seeing as how the
+</I>&gt;<i> Fuze isn't the only non-iPod device out there. ;-)
+</I>
+First of all, you should find out where and how your MP3 player looks
+for cover art. After that, you probably only have to implement copying
+of the cover file in sync.py. If it's in the ID3 tag, some podcasts
+already have this. If you want to have it for all your episodes, you
+probably have to implement it in libtagupdate.py.
+
+I'm offering mentoring if you want to implement this feature. Just get
+in touch :)
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001791.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+	<LI>Next message: <A HREF="001793.html">[gpodder-devel] Cover Art for Filesystem-based MP3 Players
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1792">[ date ]</a>
+              <a href="thread.html#1792">[ thread ]</a>
+              <a href="subject.html#1792">[ subject ]</a>
+              <a href="author.html#1792">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

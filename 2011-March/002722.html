@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] libmygpo-qt for Meego/Harmattan
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20for%20Meego/Harmattan&In-Reply-To=%3C4D878E6F.8080000%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002720.html">
+   <LINK REL="Next"  HREF="002723.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] libmygpo-qt for Meego/Harmattan</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20for%20Meego/Harmattan&In-Reply-To=%3C4D878E6F.8080000%40derkits.at%3E"
+       TITLE="[gpodder-devel] libmygpo-qt for Meego/Harmattan">stefan at derkits.at
+       </A><BR>
+    <I>Mon Mar 21 18:44:15 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002720.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+        <LI>Next message: <A HREF="002723.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2722">[ date ]</a>
+              <a href="thread.html#2722">[ thread ]</a>
+              <a href="subject.html#2722">[ subject ]</a>
+              <a href="author.html#2722">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello,
+
+did you also try to build other CMake based Software under Armel? Sounds
+all really strange e.g. the line with &quot;The C compiler
+/scratchbox/compilers/bin/gcc&quot; is not able to compile a simple test
+program.&quot;
+
+One comment ... the &quot;BASE_PATH_OF_INSTALLATION&quot; after
+- -DCMAKE_INSTALL_PREFIX ... that is sort of a Variable in the README File.
+Didn't explain it good, have to make it better, but it means when you
+call &quot;make install&quot; which should be the root directory in which &quot;make
+install&quot; places the lib into a subfolder lib.
+
+E.g. I call it with -DCMAKE_INSTALL_PREFIX=~/kde/ to have all self
+installed Software there.
+
+You can also just use the Command &quot;cmake .. -DCMAKE_BUILD_TYPE=Debug&quot;
+for Configuration ... maybe you then need to be root to install.
+
+We will keep you updated on our Tests under Armel and maybe if you have
+time visit the gpodder IRC Channel so that we can find out where the
+Problem is.
+
+Stefan
+
+On 03/21/2011 12:26 PM, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ari.hannula at nokia.com</A> wrote:
+&gt;<i> Hi again. Sorry forgot to answer your questions..
+</I>&gt;<i> Scratchbox should be ok, at least everything else compiles fine and lib compiles in i486 target. Calling cmake does not actually need fakeroot but this happens and may be related to the make problem, since if I run cmake several times in a row, it also seems to &quot;progress&quot; step by step:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> [sbox-maemo6-armv7: ~/qtdev/libmygpo-qt] &gt; cd build
+</I>&gt;<i> [sbox-maemo6-armv7: ~/qtdev/libmygpo-qt/build] &gt; cmake .. -DCMAKE_INSTALL_PREFIX=BASE_PATH_OF_INSTALLATION -DCMAKE_BUILD_TYPE=Debug
+</I>&gt;<i> -- The C compiler identification is GNU
+</I>&gt;<i> -- The CXX compiler identification is GNU
+</I>&gt;<i> -- Check for working C compiler: /scratchbox/compilers/bin/gcc
+</I>&gt;<i> -- Check for working C compiler: /scratchbox/compilers/bin/gcc -- broken
+</I>&gt;<i> CMake Error at /targets/maemo6-armv7/usr/share/cmake-2.8/Modules/CMakeTestCCompiler.cmake:52 (MESSAGE):
+</I>&gt;<i>   The C compiler &quot;/scratchbox/compilers/bin/gcc&quot; is not able to compile a
+</I>&gt;<i>   simple test program.
+</I>&gt;<i> 
+</I>&gt;<i>   It fails with the following output:
+</I>&gt;<i> 
+</I>&gt;<i>    Change Dir: /home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp
+</I>&gt;<i> 
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i>   Run Build Command:/scratchbox/tools/bin/make &quot;cmTryCompileExec/fast&quot;
+</I>&gt;<i> 
+</I>&gt;<i>   /scratchbox/tools/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make
+</I>&gt;<i>   CMakeFiles/cmTryCompileExec.dir/build
+</I>&gt;<i> 
+</I>&gt;<i>   make[1]: Entering directory
+</I>&gt;<i>   `/home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp'
+</I>&gt;<i> 
+</I>&gt;<i>   /targets/maemo6-armv7/usr/bin/cmake -E cmake_progress_report
+</I>&gt;<i>   /home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+</I>&gt;<i> 
+</I>&gt;<i>   Building C object CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o
+</I>&gt;<i> 
+</I>&gt;<i>   /scratchbox/compilers/bin/gcc -o
+</I>&gt;<i>   CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o -c
+</I>&gt;<i>   /home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp/testCCompiler.c
+</I>&gt;<i> 
+</I>&gt;<i>   Linking C executable cmTryCompileExec
+</I>&gt;<i> 
+</I>&gt;<i>   /targets/maemo6-armv7/usr/bin/cmake -E cmake_link_script
+</I>&gt;<i>   CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+</I>&gt;<i> 
+</I>&gt;<i>   mmap: No such device or address
+</I>&gt;<i> 
+</I>&gt;<i>   make[1]: *** [cmTryCompileExec] Error 255
+</I>&gt;<i> 
+</I>&gt;<i>   make[1]: Leaving directory
+</I>&gt;<i>   `/home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp'
+</I>&gt;<i> 
+</I>&gt;<i>   make: *** [cmTryCompileExec/fast] Error 2
+</I>&gt;<i> 
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i>   CMake will not be able to correctly generate this project.
+</I>&gt;<i> Call Stack (most recent call first):
+</I>&gt;<i>   CMakeLists.txt:1 (project)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- Configuring incomplete, errors occurred!
+</I>&gt;<i> [sbox-maemo6-armv7: ~/qtdev/libmygpo-qt/build] &gt; cmake .. -DCMAKE_INSTALL_PREFIX=BASE_PATH_OF_INSTALLATION -DCMAKE_BUILD_TYPE=Debug
+</I>&gt;<i> -- The C compiler identification is GNU
+</I>&gt;<i> -- The CXX compiler identification is GNU
+</I>&gt;<i> -- Check for working C compiler: /scratchbox/compilers/bin/gcc
+</I>&gt;<i> -- Check for working C compiler: /scratchbox/compilers/bin/gcc -- works
+</I>&gt;<i> -- Detecting C compiler ABI info
+</I>&gt;<i> -- Detecting C compiler ABI info - done
+</I>&gt;<i> -- Check for working CXX compiler: /scratchbox/compilers/bin/c++
+</I>&gt;<i> -- Check for working CXX compiler: /scratchbox/compilers/bin/c++ -- broken
+</I>&gt;<i> CMake Error at /targets/maemo6-armv7/usr/share/cmake-2.8/Modules/CMakeTestCXXCompiler.cmake:45 (MESSAGE):
+</I>&gt;<i>   The C++ compiler &quot;/scratchbox/compilers/bin/c++&quot; is not able to compile a
+</I>&gt;<i>   simple test program.
+</I>&gt;<i> 
+</I>&gt;<i>   It fails with the following output:
+</I>&gt;<i> 
+</I>&gt;<i>    Change Dir: /home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp
+</I>&gt;<i> 
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i>   Run Build Command:/scratchbox/tools/bin/make &quot;cmTryCompileExec/fast&quot;
+</I>&gt;<i> 
+</I>&gt;<i>   /scratchbox/tools/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make
+</I>&gt;<i>   CMakeFiles/cmTryCompileExec.dir/build
+</I>&gt;<i> 
+</I>&gt;<i>   make[1]: Entering directory
+</I>&gt;<i>   `/home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp'
+</I>&gt;<i> 
+</I>&gt;<i>   /targets/maemo6-armv7/usr/bin/cmake -E cmake_progress_report
+</I>&gt;<i>   /home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+</I>&gt;<i> 
+</I>&gt;<i>   mmap: No such device or address
+</I>&gt;<i> 
+</I>&gt;<i>   make[1]: Leaving directory
+</I>&gt;<i>   `/home/ahannula/qtdev/libmygpo-qt/build/CMakeFiles/CMakeTmp'
+</I>&gt;<i> 
+</I>&gt;<i>   make[1]: *** [CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o] Error
+</I>&gt;<i>   255
+</I>&gt;<i> 
+</I>&gt;<i>   make: *** [cmTryCompileExec/fast] Error 2
+</I>&gt;<i> 
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i>   CMake will not be able to correctly generate this project.
+</I>&gt;<i> Call Stack (most recent call first):
+</I>&gt;<i>   CMakeLists.txt:1 (project)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- Configuring incomplete, errors occurred!
+</I>&gt;<i> [sbox-maemo6-armv7: ~/qtdev/libmygpo-qt/build] &gt; cmake .. -DCMAKE_INSTALL_PREFIX=BASE_PATH_OF_INSTALLATION -DCMAKE_BUILD_TYPE=Debug
+</I>&gt;<i> -- The CXX compiler identification is GNU
+</I>&gt;<i> -- Check for working CXX compiler: /scratchbox/compilers/bin/c++
+</I>&gt;<i> -- Check for working CXX compiler: /scratchbox/compilers/bin/c++ -- works
+</I>&gt;<i> -- Detecting CXX compiler ABI info
+</I>&gt;<i> -- Detecting CXX compiler ABI info - failed
+</I>&gt;<i> CMake Error at /targets/maemo6-armv7/usr/share/cmake-2.8/Modules/FindQt4.cmake:1151 (MESSAGE):
+</I>&gt;<i>   Qt qmake not found!
+</I>&gt;<i> Call Stack (most recent call first):
+</I>&gt;<i>   CMakeLists.txt:8 (find_package)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- Configuring incomplete, errors occurred!
+</I>&gt;<i> 
+</I>&gt;<i> ________________________________________
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A> [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel-bounces at lists.berlios.de</A>] on behalf of ext Thomas Perl [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>]
+</I>&gt;<i> Sent: Monday, March 21, 2011 12:39
+</I>&gt;<i> To: Development for gPodder
+</I>&gt;<i> Subject: Re: [gpodder-devel] libmygpo-qt for Meego/Harmattan
+</I>&gt;<i> 
+</I>&gt;<i> Hi Ari,
+</I>&gt;<i> 
+</I>&gt;<i> On Mon, Mar 21, 2011 at 08:25:41AM +0000, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ari.hannula at nokia.com</A> wrote:
+</I>&gt;&gt;<i> Tried to compile 1.0.1 and here's the output:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> [sbox-maemo6-armv7: ~/libmygpo-qt/build] &gt; make
+</I>&gt;&gt;<i> [  1%] Generating Device.moc
+</I>&gt;&gt;<i> mmap: No such device or address
+</I>&gt;&gt;<i> make[2]: *** [src/moc_Settings.cxx] Error 255
+</I>&gt;&gt;<i> make[1]: *** [src/CMakeFiles/mygpo-qt.dir/all] Error 2
+</I>&gt;&gt;<i> make: *** [all] Error 2
+</I>&gt;<i> 
+</I>&gt;<i> Have you set up Scratchbox correctly? Have you tried building it in a
+</I>&gt;<i> different Scratchbox instance to check if it isn't a problem with your
+</I>&gt;<i> installation?
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Also there was something fishy in cmake, it could not find QtCore when
+</I>&gt;&gt;<i> run the first time but then I did cmake the second time and it worked.
+</I>&gt;&gt;<i> Output:
+</I>&gt;&gt;<i> [sbox-maemo6-armv7: ~/libmygpo-qt/build] &gt; fakeroot cmake ..
+</I>&gt;&gt;<i> -DCMAKE_INSTALL_PREFIX=BASE_PATH_OF_INSTALLATION
+</I>&gt;&gt;<i> -DCMAKE_BUILD_TYPE=Debug
+</I>&gt;<i> 
+</I>&gt;<i> You should not need to run cmake with &quot;fakeroot&quot;. Does the problem exist
+</I>&gt;<i> even when running without &quot;fakeroot&quot;? I will give the library a try on
+</I>&gt;<i> the FREMANTLE_ARMEL target in my scratchbox install.
+</I>&gt;<i> 
+</I>&gt;<i> HTH.
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAk2Hjm8ACgkQlZvAMV/NgGIcVwCg16mr77zAFaEwnNdxE+G+f+Zw
+KloAnjln6eGoe6pDgdNZq/8qfqKUTDHb
+=Qv7U
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002720.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+	<LI>Next message: <A HREF="002723.html">[gpodder-devel] libmygpo-qt for Meego/Harmattan
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2722">[ date ]</a>
+              <a href="thread.html#2722">[ thread ]</a>
+              <a href="subject.html#2722">[ subject ]</a>
+              <a href="author.html#2722">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

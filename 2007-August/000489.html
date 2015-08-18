@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] ImportError: cannot import name util
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20ImportError%3A%20cannot%20import%20name%20util&In-Reply-To=%3C46C407DA.7070801%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000488.html">
+   <LINK REL="Next"  HREF="000490.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] ImportError: cannot import name util</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20ImportError%3A%20cannot%20import%20name%20util&In-Reply-To=%3C46C407DA.7070801%40gmail.com%3E"
+       TITLE="[gpodder-devel] ImportError: cannot import name util">pdedecker at gmail.com
+       </A><BR>
+    <I>Thu Aug 16 10:16:26 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000488.html">[gpodder-devel] ImportError: cannot import name util
+</A></li>
+        <LI>Next message: <A HREF="000490.html">[gpodder-devel] ImportError: cannot import name util
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#489">[ date ]</a>
+              <a href="thread.html#489">[ thread ]</a>
+              <a href="subject.html#489">[ subject ]</a>
+              <a href="author.html#489">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm using revision 368 and the version of python I'm using is 2.5.1.
+
+----------
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at BETAubuntu</A>:~/gpodderSVN$ svn update
+At revision 368.
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at BETAubuntu</A>:~/gpodderSVN$ dpkg -l python
+Gewenst=(U)Onbekend/Installeren/Remove/Purge/Hold
+|<i> Status=Niet/geInstalleerd/Config/Uitgepakt/(F)config-mislukt/Half-geinst
+</I>|<i>/ Fout?=(geen)/Hold/Reinst nodig/X=beide (Status,Fout: hoofdlett=ernstig)
+</I>||<i>/ Naam           Versie         Omschrijving
+</I>+++-==============-==============-============================================
+ii  python         2.5.1-0ubuntu3 An interactive high-level 
+object-oriented la
+----------
+
+Pieter De Decker
+
+---
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">richardvoigt at gmail.com</A> schreef:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 8/14/07, *Pieter De Decker* &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at gmail.com</A> 
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at gmail.com</A>&gt;&gt; wrote:
+</I>&gt;<i>
+</I>&gt;<i>     Just tried to run gPodder's current SVN build:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> What revision?  At revision 368 it is working for me.
+</I>&gt;<i>
+</I>&gt;<i> What version of python are you using, and how did you install it?  It 
+</I>&gt;<i> looks like 2.5.x and probably via the ubuntu package manager, but it 
+</I>&gt;<i> would be nice if you could verify that.
+</I>&gt;<i>
+</I>&gt;<i>     ---
+</I>&gt;<i>     Traceback (most recent call last):
+</I>&gt;<i>       File &quot;/usr/bin/gpodder&quot;, line 145, in &lt;module&gt;
+</I>&gt;<i>         sys.exit( main())
+</I>&gt;<i>       File &quot;/usr/bin/gpodder&quot;, line 101, in main
+</I>&gt;<i>         from gpodder import console
+</I>&gt;<i>       File &quot;usr/lib/python2.5/site-packages/gpodder/console.py&quot;, line
+</I>&gt;<i>     27, in
+</I>&gt;<i>     &lt;module&gt;
+</I>&gt;<i>       File &quot;usr/lib/python2.5/site-packages/gpodder/gpodder.py&quot;, line
+</I>&gt;<i>     43, in
+</I>&gt;<i>     &lt;module&gt;
+</I>&gt;<i>       File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line
+</I>&gt;<i>     33, in &lt;module&gt;
+</I>&gt;<i>     ImportError: cannot import name util
+</I>&gt;<i>     ---
+</I>&gt;<i>
+</I>&gt;<i>     What could be wrong? I'm using Ubuntu 7.04.
+</I>&gt;<i>
+</I>&gt;<i>     Pieter De Decker
+</I>&gt;<i>
+</I>&gt;<i>     _______________________________________________
+</I>&gt;<i>     gpodder-devel mailing list
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000488.html">[gpodder-devel] ImportError: cannot import name util
+</A></li>
+	<LI>Next message: <A HREF="000490.html">[gpodder-devel] ImportError: cannot import name util
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#489">[ date ]</a>
+              <a href="thread.html#489">[ thread ]</a>
+              <a href="subject.html#489">[ subject ]</a>
+              <a href="author.html#489">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

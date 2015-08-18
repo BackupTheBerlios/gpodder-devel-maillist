@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] self._window_iconified Error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20self._window_iconified%20Error&In-Reply-To=%3Ca282f81f0909081826w49908c70se6cc3647e6602242%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002224.html">
+   <LINK REL="Next"  HREF="002226.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] self._window_iconified Error</H1>
+    <B>Bill Peters</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20self._window_iconified%20Error&In-Reply-To=%3Ca282f81f0909081826w49908c70se6cc3647e6602242%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] self._window_iconified Error">bill.peters at gmail.com
+       </A><BR>
+    <I>Wed Sep  9 03:26:55 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002224.html">[gpodder-devel] self._window_iconified Error
+</A></li>
+        <LI>Next message: <A HREF="002226.html">[gpodder-devel] self._window_iconified Error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2225">[ date ]</a>
+              <a href="thread.html#2225">[ thread ]</a>
+              <a href="subject.html#2225">[ subject ]</a>
+              <a href="author.html#2225">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I figured out how to make gpodder open. I edited
+~/.config/gpodder/gpodder.conf and changed:
+minimize_to_tray = True
+to
+minimize_to_tray = False
+
+-Bill
+
+On Tue, Sep 8, 2009 at 8:38 PM, Bill Peters &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">bill.peters at gmail.com</A>&gt; wrote:
+
+&gt;<i> This morning I did a git pull and now gpodder won't open. This is the
+</I>&gt;<i> error I get:
+</I>&gt;<i> File
+</I>&gt;<i> &quot;/home/billpet/gitSources/gpodder/src/gpodder/gtkui/interface/common.py&quot;,
+</I>&gt;<i> line 142, in is_iconified
+</I>&gt;<i>     return self._window_iconified
+</I>&gt;<i> AttributeError: 'gPodder' object has no attribute '_window_iconified'
+</I>&gt;<i>
+</I>&gt;<i> I think I might have had gpodder minimized to the tray, when I closed it
+</I>&gt;<i> last, so I think it's trying to open in that state.
+</I>&gt;<i>
+</I>&gt;<i> I can open a bug report, but until it's fixed, Is there a way I can change
+</I>&gt;<i> a config file or something to get it to at least open?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> -Bill
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090908/98fab963/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090908/98fab963/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002224.html">[gpodder-devel] self._window_iconified Error
+</A></li>
+	<LI>Next message: <A HREF="002226.html">[gpodder-devel] self._window_iconified Error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2225">[ date ]</a>
+              <a href="thread.html#2225">[ thread ]</a>
+              <a href="subject.html#2225">[ subject ]</a>
+              <a href="author.html#2225">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

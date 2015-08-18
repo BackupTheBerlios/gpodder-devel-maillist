@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Failed to get episode list via web services
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Failed%20to%20get%20episode%20list%20via%20web%20services&In-Reply-To=%3C2722D70D65341942857272A84664785219647DF6BC%40SGPMBX02.APAC.bosch.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002678.html">
+   <LINK REL="Next"  HREF="002675.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Failed to get episode list via web services</H1>
+    <B>Rakesh Dhanya (RBEI/ECV1)</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Failed%20to%20get%20episode%20list%20via%20web%20services&In-Reply-To=%3C2722D70D65341942857272A84664785219647DF6BC%40SGPMBX02.APAC.bosch.com%3E"
+       TITLE="[gpodder-devel] Failed to get episode list via web services">Rakesh.Dhanya at in.bosch.com
+       </A><BR>
+    <I>Fri Jan 21 07:18:33 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002678.html">[gpodder-devel] subscribe to itunes podcasts
+</A></li>
+        <LI>Next message: <A HREF="002675.html">[gpodder-devel] Failed to get episode list via web services
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2674">[ date ]</a>
+              <a href="thread.html#2674">[ thread ]</a>
+              <a href="subject.html#2674">[ subject ]</a>
+              <a href="author.html#2674">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I am a newbie in the gpodder world and am aiming to write my own gpodder client. I looked at the web services and they look cool. But I have some questions. I am following these steps but am failing to retrieve the episode list. Can anyone please spare a while to review my steps and suggest corrections
+
+Steps followed:
+1.      Log in and authentication with gpodder
+2.      Get the subscription list by using GET /subscriptions/{username}/{device_id}.json
+3.      Get podcast data for each of the subscription list using GET: /api/2/data/podcast.json?url={url}
+4.      Trying to retrieve the episodes for each podcast using
+         GET /api/2/episodes/{username}.json?podcast={url}
+
+However, at step 4 I am getting an empty json content (not empty, but it does not have any episode details) for every podcast url. I have subscribed to about 25 podcasts and when I see using the web browser there are a lot of episodes, but through web services I cannot get that list.
+
+Please help out
+
+Thanks and Regards,
+Rakesh
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110121/0c3c3fc2/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110121/0c3c3fc2/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002678.html">[gpodder-devel] subscribe to itunes podcasts
+</A></li>
+	<LI>Next message: <A HREF="002675.html">[gpodder-devel] Failed to get episode list via web services
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2674">[ date ]</a>
+              <a href="thread.html#2674">[ thread ]</a>
+              <a href="subject.html#2674">[ subject ]</a>
+              <a href="author.html#2674">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

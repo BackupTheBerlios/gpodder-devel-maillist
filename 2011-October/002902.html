@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Some usability issues in gPodder for N900
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Some%20usability%20issues%20in%20gPodder%20for%20N900&In-Reply-To=%3C20111024183643.yimngsonkcoo8go0%40webmail.oulu.fi%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002901.html">
+   <LINK REL="Next"  HREF="002903.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Some usability issues in gPodder for N900</H1>
+    <B>Jarkko Mikael Palokangas</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Some%20usability%20issues%20in%20gPodder%20for%20N900&In-Reply-To=%3C20111024183643.yimngsonkcoo8go0%40webmail.oulu.fi%3E"
+       TITLE="[gpodder-devel] Some usability issues in gPodder for N900">palokaja at mail.student.oulu.fi
+       </A><BR>
+    <I>Mon Oct 24 17:36:43 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002901.html">[gpodder-devel] gPodder 2.20 &quot;Neither Here Nor There&quot; released
+</A></li>
+        <LI>Next message: <A HREF="002903.html">[gpodder-devel] bug in downloadSubscriptionsJson?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2902">[ date ]</a>
+              <a href="thread.html#2902">[ thread ]</a>
+              <a href="subject.html#2902">[ subject ]</a>
+              <a href="author.html#2902">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+As some of you might know I've been working with Thomas to do some  
+usability tests with
+gPodder in N900. I've created this test case for my Master's Thesis so  
+I hope I could get
+some comments so that I have same material to work with.
+
+The idea was to test some basic functionality of gPodder and try to  
+find usability
+problems and issues from those. We conducted a set of think aloud  
+usability tests and
+came with videos from test sessions. Links to videos was posted here  
+earlier by Thomas.
+
+I've created a list of found usability issues which I'd like you to  
+comment. I hope you
+could post whiter you think these issues are something that needs to  
+be solved. You can
+post your suggestions for solutions as well. If you feel that some  
+issue isn't actually a
+usability issue at all and don't need to be taken into consideration  
+please feel free to
+comment that.
+
+Here's the list I've created. I've listed some issues I found and then  
+link to related
+videos where the issue can be seen.
+
+Task 1:
+Subscribe to the podcast &quot;FLOSS Weekly&quot;
+
+Issues:
+There seems to be some confusion if a new podcast is being added. When  
+&quot;Adding podcasts&quot;
+label is shown there is no progress bar or anything like that. So user  
+might be confused
+is a new podcast being added or has gPodder freezed or what is going  
+on if they are in
+slow network and adding a podcast takes a long time
+user seems confused
+<A HREF="http://www.youtube.com/watch?v=Ud9Z9of-TtA">http://www.youtube.com/watch?v=Ud9Z9of-TtA</A>
+
+User mistypes the URL and doesn't know it.
+Seems that user mistyped the url (missed s at the end of podcasts) and  
+that's why the
+first try didn't work. Now the feedback he gets is &quot;unknown feed  
+type&quot;. Should it be more
+like there's no feed at given url at all? I understand the current  
+message that the feed
+is somehow broken or invalid but it still exists. If the message would  
+say that there is
+no such feed at all then the user might check if he typed the URL correctly.
+<A HREF="http://www.youtube.com/watch?v=SKALa4iwjgc">http://www.youtube.com/watch?v=SKALa4iwjgc</A>
+
+
+Task 2:
+Download two latest FLOSS Weekly episodes and see the progress of the
+downloads
+
+Issues:
+Should the progress of downloads be shown in main view so that users  
+know they really are
+downloading something? Or number of active downloads at
+least?
+<A HREF="http://www.youtube.com/watch?v=Gng-KPsK1KM">http://www.youtube.com/watch?v=Gng-KPsK1KM</A>
+<A HREF="http://www.youtube.com/watch?v=8WMyaXqAwGk">http://www.youtube.com/watch?v=8WMyaXqAwGk</A>
+<A HREF="http://www.youtube.com/watch?v=7Aj7F0xt0gs">http://www.youtube.com/watch?v=7Aj7F0xt0gs</A>
+
+
+Task 3:
+Open the complete list of FLOSS Weekly episodes
+
+Issues:
+Title is &quot;All episodes&quot; but there is actually only newest episodes  
+there. Is this
+misleading title?
+<A HREF="http://www.youtube.com/watch?v=z-8peli61A8">http://www.youtube.com/watch?v=z-8peli61A8</A>
+
+
+Task 4:
+Set gPodder to find new episodes daily
+
+Issues:
+User doesn't find where to change settings.
+<A HREF="http://www.youtube.com/watch?v=v3w1hLMcWWg">http://www.youtube.com/watch?v=v3w1hLMcWWg</A>
+
+
+Task6:
+Subscribe to all the podcasts from the OPML-Podcast list
+Subsribe to two podcasts from the OPML-Podcast list at URL.
+
+Issues:
+Should duplicate subscriptions to same feed be merged into one  
+subscription or should
+gPodder note user that the podcast is already been subscribed to?
+<A HREF="http://www.youtube.com/watch?v=NIExg04aJcE">http://www.youtube.com/watch?v=NIExg04aJcE</A>
+
+Adding podcasts failed for some reason but there was no feedback what  
+happened.
+<A HREF="http://www.youtube.com/watch?v=D1KUkHRkqxQ">http://www.youtube.com/watch?v=D1KUkHRkqxQ</A>
+
+
+Task 8:
+Delete all the episodes that you have listened (don't delete them one by one)
+
+Issues:
+Deleted episodes disappear from the episode list. Should it only  
+delete the downloaded
+files but still show them in the episode list so that they can be  
+downloaded again?
+<A HREF="http://www.youtube.com/watch?v=ZqIEApj9h6U">http://www.youtube.com/watch?v=ZqIEApj9h6U</A>
+<A HREF="http://www.youtube.com/watch?v=Lefdo4JdvGk">http://www.youtube.com/watch?v=Lefdo4JdvGk</A>
+<A HREF="http://www.youtube.com/watch?v=Q9JR7LpgdqQ">http://www.youtube.com/watch?v=Q9JR7LpgdqQ</A>
+
+
+Task 10:
+Add youtube user &quot;QtStudios&quot; to your podcast list, download one of  
+their youtube video
+and play it.
+
+Note:
+Users couldn't download youtube videos. I think there was some bug in  
+used gPodder
+version.
+
+Issues:
+User didn't find search youtube users option in add podcast menu. He  
+had no previous
+experience of N900 at all which might have been a reason why he didn't  
+know how to scroll
+the menu.
+<A HREF="http://www.youtube.com/watch?v=jkHvs7Zj46M">http://www.youtube.com/watch?v=jkHvs7Zj46M</A>
+
+Found youtube users were not in alphabetical order.
+User didn't find QtStudios because he didn't enter it with capitals,  
+was this some bug
+because search doesn't seem to be case sensitive with other users.
+<A HREF="http://www.youtube.com/watch?v=WZkXuT6aH8I">http://www.youtube.com/watch?v=WZkXuT6aH8I</A>
+
+User is confused if gPodder is doing anything when it says Adding  
+podcast which takes
+some time. Should there be some indicator of progress to make clear  
+that something is
+really been done?
+<A HREF="http://www.youtube.com/watch?v=EjHQfc-OhcU">http://www.youtube.com/watch?v=EjHQfc-OhcU</A>
+
+
+Greetings
+-Jarkko
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002901.html">[gpodder-devel] gPodder 2.20 &quot;Neither Here Nor There&quot; released
+</A></li>
+	<LI>Next message: <A HREF="002903.html">[gpodder-devel] bug in downloadSubscriptionsJson?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2902">[ date ]</a>
+              <a href="thread.html#2902">[ thread ]</a>
+              <a href="subject.html#2902">[ subject ]</a>
+              <a href="author.html#2902">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

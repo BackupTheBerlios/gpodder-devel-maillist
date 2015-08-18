@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 3.0.0 &quot;397/D&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%203.0.0%20%22397/D%22%20released&In-Reply-To=%3C20111107002024.GO14229%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002921.html">
+   <LINK REL="Next"  HREF="002920.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 3.0.0 &quot;397/D&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%203.0.0%20%22397/D%22%20released&In-Reply-To=%3C20111107002024.GO14229%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] gPodder 3.0.0 &quot;397/D&quot; released">thp at gpodder.org
+       </A><BR>
+    <I>Mon Nov  7 01:20:24 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002921.html">[gpodder-devel] Replaygain after Gpodder download
+</A></li>
+        <LI>Next message: <A HREF="002920.html">[gpodder-devel] New mailing list: gpodder at freelists.org
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2919">[ date ]</a>
+              <a href="thread.html#2919">[ thread ]</a>
+              <a href="subject.html#2919">[ subject ]</a>
+              <a href="author.html#2919">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yes, gPodder 3 is finally here!
+
+Enjoy :)
+Thomas
+
+======================================================================
+2011-11-07 - gPodder 3.0.0 &quot;397/D&quot; released
+
+This is the release you have been waiting for for nearly a year -
+gPodder 3.0.0, the first release of the &quot;tres&quot; branch is out and ready
+for you to give it a test drive. There are too many changes to list them
+one by one, so I'll just give you a high-level overview of what's in for
+you:
+
+  * Device synchronization removed: We have removed the ability to sync
+    to iPod, MTP and filesystem-based MP3 players. You can store your
+    gPodder data on your mobile device directly for now (using
+    $GPODDER_HOME) or wait for someone to implement a syncing plugin.
+
+  * New on-disk structure: Instead of having &quot;gpodder-downloads&quot; in your
+    home folder, and the database and settings hidden away in another
+    folder, all gPodder data is now stored in &quot;gPodder&quot; in your home
+    directory (on Linux) or in &quot;gPodder&quot; in you &quot;My Documents&quot; folder
+    (on Windows) or on the mass storage (MyDocs partition) on the N900
+    and N9. The database format has also been overhauled, you can use
+    the &quot;gpodder-migrate2tres&quot; script to convert your gPodder 2 data to
+    gPodder 3. Because all data is now stored in one folder, you can now
+    use the Desktop version of gPodder to work on e.g. the gPodder
+    downloaded data on your mobile device by pointing the $GPODDER_HOME
+    environment variable to the storage device.
+
+  * EQL: The so-called &quot;Episode Query Language&quot; allows you to write
+    queries against your podcasts. For example, you can use &quot;(audio and
+    downloaded and minutes &lt; 10)&quot; to show all downloaded audio files
+    that are shorter than 10 minutes to listen to. This is very
+    powerful, and can currently be used in the episode list of the GTK
+    UI using &quot;search-as-you-type&quot;.
+
+  * Improvements to the GTK UI, including support for showing the
+    duration in the episode list, and hiding of columns in the episode
+    list.
+
+  * New QML-based touch UI: In addition to the GTK UI and the
+    command-line interface, gPodder 3 contains a QML UI for use with
+    PySide. This UI can be used on touch-enabled netbooks/laptops and on
+    mobile devices. The QML UI is the only mobile UI supported in 3.0.0
+    (replacing the Hildon UI in previous releases).
+
+  * Web UI: While this is still in its early stages, there is a small
+    Web UI included that (when complete) will make it possible to manage
+    gPodder via a web browser (with the help of a local, embedded web
+    server).
+
+  * Refined backend / data model: The codebase has been cleaned up and
+    restructured, so it should be easier to maintain and add to in the
+    future.
+
+  * Support for Woodchuck: Neal Walfield has contributed a plugin for
+    his Woodchuck framework. With Woodchuck installed, your device can
+    detect which podcasts you like and automatically download the right
+    episodes.
+
+  * Better support for Windows: The Windows launcher has been refined,
+    and Windows users can now also use the CLI in addition to the GTK
+    GUI. The new version will also use a system-wide installation of
+    Python 2.7 and PyGTK, and auto-download the installers for these
+    dependencies if they are not found. This means smaller package sizes
+    and better disk usage.
+
+  * Dropped support for Maemo 4 (N800, N810) and Maemo 5 Hildon (N900)
+
+  * Added support for Maemo 5 QML (N900) and MeeGo 1.2 Harmattan (N9)
+
+Download: <A HREF="http://gpodder.org/src/gpodder-3.0.0.tar.gz">http://gpodder.org/src/gpodder-3.0.0.tar.gz</A>
+md5sum: a6137625e21c494e04c96e5735f51128
+sha1sum: 32644629f534aaa33a13e3c1bc08f5fb2fcc07ac
+
+For packages in various distributions, see the downloads page.
+
+With the release of the &quot;tres&quot; branch, gPodder 2 is put into maintenance
+mode, with 2.20 being the latest release at the moment. Maintenance mode
+means for us that we will only release updates in case bugs are found
+and reported. We will not be adding new features, but if translators
+update the (now frozen) strings, we will also push out new updates every
+now and then. Also, we might consider merging patches against 2.x. When
+a new bugfix release of gPodder 2.x is made, we will still create
+packages for Maemo 4 and Maemo 5 users.
+
+For Maemo 5 users wishing to upgrade to 3.0.0, we will provide packages
+for the new release soon - in that case, only the QML UI is supported,
+and users are encouraged to install the Maemo 5 Community SSU if they
+want to use the QML UI on their devices.
+
+MeeGo 1.2 Harmattan packages will be provided via the Nokia Store.
+
+This release also changes something in the Git repository: The &quot;tres&quot;
+branch gets renamed to &quot;master&quot; (the master branch), and the old master
+branch (2.x) is renamed to &quot;two&quot;.
+
+Also, coinciding with the release of gPodder 3, we have a new mailing
+list on freelists.org.
+
+This is just the beginning, though - with gPodder 3 finally out, the
+flood gates are once more open for new features to land in the master
+branch :)
+
+Look out for new updates for your favorite podcatcher soon. In the mean
+time, if you find any bugs, please report them at
+<A HREF="http://bugs.gpodder.org/.">http://bugs.gpodder.org/.</A> Thanks to all who have made this release
+possible, and who helped support the gPodder project over the last year
+that it took to get &quot;tres&quot; in shape! Enjoy gPodder 3 :)
+======================================================================
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002921.html">[gpodder-devel] Replaygain after Gpodder download
+</A></li>
+	<LI>Next message: <A HREF="002920.html">[gpodder-devel] New mailing list: gpodder at freelists.org
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2919">[ date ]</a>
+              <a href="thread.html#2919">[ thread ]</a>
+              <a href="subject.html#2919">[ subject ]</a>
+              <a href="author.html#2919">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

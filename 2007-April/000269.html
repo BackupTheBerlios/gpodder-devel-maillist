@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20request%20%28synchronize%20only%20unplayed%0A%09podcasts%29&In-Reply-To=%3C200704182255.56585.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000264.html">
+   <LINK REL="Next"  HREF="000270.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feature request (synchronize only unplayed	podcasts)</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feature%20request%20%28synchronize%20only%20unplayed%0A%09podcasts%29&In-Reply-To=%3C200704182255.56585.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Feature request (synchronize only unplayed	podcasts)">nikosapi at gmail.com
+       </A><BR>
+    <I>Thu Apr 19 04:55:56 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000264.html">[gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+</A></li>
+        <LI>Next message: <A HREF="000270.html">[gpodder-devel] Feature request (synchronize only	unplayed	podcasts)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#269">[ date ]</a>
+              <a href="thread.html#269">[ thread ]</a>
+              <a href="subject.html#269">[ subject ]</a>
+              <a href="author.html#269">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wednesday 18 April 2007 04:13:45 Stephan Buys wrote:
+&gt;<i> Here is my patch to enable this functionality, it needs interface
+</I>&gt;<i> elements...
+</I>&gt;<i>
+</I>&gt;<i> Index: src/gpodder/libpodcasts.py
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> --- src/gpodder/libpodcasts.py  (revision 313)
+</I>&gt;<i> +++ src/gpodder/libpodcasts.py  (working copy)
+</I>&gt;<i> @@ -223,6 +223,9 @@
+</I>&gt;<i>      def is_downloaded( self, item):
+</I>&gt;<i>          return self.podcastFilenameExists( item.url)
+</I>&gt;<i>
+</I>&gt;<i> +    def is_played(self, item):
+</I>&gt;<i> +       return libgpodder.gPodderLib().history_is_played( item.url)
+</I>&gt;<i> +
+</I>&gt;<i>      def get_all_episodes( self):
+</I>&gt;<i>          episodes = []
+</I>&gt;<i>          added_urls = []
+</I>&gt;<i> Index: src/gpodder/libipodsync.py
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> --- src/gpodder/libipodsync.py  (revision 313)
+</I>&gt;<i> +++ src/gpodder/libipodsync.py  (working copy)
+</I>&gt;<i> @@ -165,7 +165,7 @@
+</I>&gt;<i>              if self.cancelled:
+</I>&gt;<i>                  return False
+</I>&gt;<i>              self.set_progress( pos, max)
+</I>&gt;<i> -            if channel.is_downloaded( episode):
+</I>&gt;<i> +            if channel.is_downloaded( episode) and not channel.is_played(
+</I>&gt;<i> episode):
+</I>&gt;<i>                  self.add_episode_from_channel( channel, episode)
+</I>&gt;<i>              pos = pos + 1
+</I>&gt;<i>          self.set_progress( pos, max)
+</I>&gt;<i>
+</I>&gt;<i> On 4/11/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+</I>&gt;<i> &gt; Hello, Stephan!
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On Tue, 2007-04-10 at 08:01 +0200, Stephan Buys wrote:
+</I>&gt;<i> &gt; &gt; It would be great if gpodder supported (either through preferences or
+</I>&gt;<i> &gt; &gt; through an addition to the device list) the ability to synchronize
+</I>&gt;<i> &gt; &gt; only unplayed podcasts or the last &quot;x&quot; number of unplayed podcasts.
+</I>&gt;<i> &gt; &gt; This is a feature that is currently supported by iTunes and would be
+</I>&gt;<i> &gt; &gt; of great help for persons with limited free space on their devices or
+</I>&gt;<i> &gt; &gt; massive podcast collections.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I've added it to the TODO list. Patches (as always) welcome.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Enjoy,
+</I>&gt;<i> &gt; homas
+</I>&gt;<i> &gt;
+</I>
+Ok, I've just spent my evening having some fun with gPodder :-)
+I added your patch and fixed some libipodsync bugs.
+
+If you now go into the gPodder sync properties tab there is an option to sync 
+only unplayed episodes (which was a great idea, I'm now using it!). I had to 
+add a bit to your patch so that you can still add episodes to the device 
+while &quot;only sync unplayed ...&quot; is on. This can be achieved by selecting the 
+episode you want to add and clicking the transfer button. The played episodes 
+aren't synced only when you do a full synchronization (CTRL + s). 
+
+The set_podcast_flags function in libipodsync it would overwrite all the 
+mediatype settings to audio 0x00000004, so when you would sync again after 
+adding a video it would no longer show up as a video. I just moved that code 
+to where the video detection takes place. track.mediatype doesn't need to be 
+reset each time a sync takes place. Also, I set the videos filetype to m4v 
+instead of everything as mp3, it seems to have fixed a random bug where some 
+of my videos would be still regarded as audio (but this might not be 
+necessary, my ipod could just be crazy). Lastly, I made it so that torrent 
+files couldn't be transferred to devices, I don't see why you'd need torrent 
+files on a media device.
+
+Let me know what you think,
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r312_sync-only-unplayed_ipod-bugfixes.patch
+Type: text/x-diff
+Size: 9286 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070418/effea9c4/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070418/effea9c4/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000264.html">[gpodder-devel] Feature request (synchronize only unplayed	podcasts)
+</A></li>
+	<LI>Next message: <A HREF="000270.html">[gpodder-devel] Feature request (synchronize only	unplayed	podcasts)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#269">[ date ]</a>
+              <a href="thread.html#269">[ thread ]</a>
+              <a href="subject.html#269">[ subject ]</a>
+              <a href="author.html#269">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

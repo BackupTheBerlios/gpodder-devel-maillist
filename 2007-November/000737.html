@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Building gpodder-0.10.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Building%20gpodder-0.10.1&In-Reply-To=%3Cfc6d9e5f0710312300u6970f81bn4e4ab9ea7c6db52b%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000741.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Building gpodder-0.10.1</H1>
+    <B>Brian McNally</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Building%20gpodder-0.10.1&In-Reply-To=%3Cfc6d9e5f0710312300u6970f81bn4e4ab9ea7c6db52b%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Building gpodder-0.10.1">bmcnally at gmail.com
+       </A><BR>
+    <I>Thu Nov  1 07:00:28 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000741.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#737">[ date ]</a>
+              <a href="thread.html#737">[ thread ]</a>
+              <a href="subject.html#737">[ subject ]</a>
+              <a href="author.html#737">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm trying to fix a bug I've encountered in gpodder 0.9.4 by building
+and using gpodder 0.10.1, but I'm having some problems testing the new
+build before I actually install it. Before I describe the build
+problem, I'll explain the bug I'm trying to avoid.
+
+When I try and change the download location for podcasts, I'm told:
+
+Error moving downloads
+
+There has been an error moving your downloads to the specified
+location. The old download directory will be used instead.
+
+This only seems to happen when I try and move the downloads to a
+different physical drive. I can change the download path just fine so
+long as it's on the same filesystem. Making a symlink on the local
+filesystem that points to another filesystem does work, but it's a
+hack. This sounds like a bug to me.
+
+So, I've tried building gpodder 0.10.1 to see if that fixes the
+problem. After downloading the source I run:
+
+python setup.py build
+cd ./build/scripts-2.5
+./gpodder
+
+And I get:
+
+Traceback (most recent call last):
+  File &quot;./gpodder&quot;, line 148, in &lt;module&gt;
+    sys.exit( main())
+  File &quot;./gpodder&quot;, line 122, in main
+    from gpodder import gui
+ImportError: cannot import name gui
+
+Obviously I'm missing module gui but I'm not sure how I can test
+0.10.1 without first installing it with python setup.py install. I did
+try python setup.py install --prefix=/tmp/dir, but that resulted in
+the same missing module. Your thoughts?
+
+Thanks,
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000741.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#737">[ date ]</a>
+              <a href="thread.html#737">[ thread ]</a>
+              <a href="subject.html#737">[ subject ]</a>
+              <a href="author.html#737">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

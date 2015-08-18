@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod touch update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C4778E137.7050904%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000999.html">
+   <LINK REL="Next"  HREF="001007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod touch update</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C4778E137.7050904%40perli.net%3E"
+       TITLE="[gpodder-devel] iPod touch update">thp at perli.net
+       </A><BR>
+    <I>Mon Dec 31 13:31:51 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000999.html">[gpodder-devel] iPod touch update
+</A></li>
+        <LI>Next message: <A HREF="001007.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1006">[ date ]</a>
+              <a href="thread.html#1006">[ thread ]</a>
+              <a href="subject.html#1006">[ subject ]</a>
+              <a href="author.html#1006">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+Pieter De Decker wrote:
+&gt;<i> [...] However, you might be able to get the podcast
+</I>&gt;<i> play statuses working correctly by making gPodder check the play status of a
+</I>&gt;<i> podcast to set the play count accordingly (i.e. if a podcast has been
+</I>&gt;<i> played, make sure that its play count is set to 1 and not 0). Is that
+</I>&gt;<i> possible?
+</I>
+That's what we currently do, here's the relevant part from 
+libipodsync.py (if track.playcount == 0 then track.playcount = 1):
+
+&gt;<i>     def set_podcast_flags( self, track, episode):
+</I>&gt;<i>         if not ipod_supported():
+</I>&gt;<i>             return False
+</I>&gt;<i>         try:
+</I>&gt;<i>             # Add blue bullet next to unplayed tracks on 5G iPods
+</I>&gt;<i>             # (only if the podcast has not been played locally already
+</I>&gt;<i>             gl = libgpodder.gPodderLib()
+</I>&gt;<i>             if gl.history_is_played(episode.url) and not gl.config.on_sync_mark_played:
+</I>&gt;<i>                 track.mark_unplayed = 0x01
+</I>&gt;<i>                 # Increment playcount if it's played locally
+</I>&gt;<i>                 # but still has zero playcount on iPod
+</I>&gt;<i>                 if track.playcount == 0:
+</I>&gt;<i>                     track.playcount = 1
+</I>&gt;<i>             elif track.playcount == 0:
+</I>&gt;<i>                 track.mark_unplayed = 0x02
+</I>
+I think the issue has to be somewhere else, then. Have you had another 
+look at the playcount issue?
+
+&gt;&gt;<i> What about adding a video to the iPod using gtkpod? Is
+</I>&gt;&gt;<i> that displayed in the iPod's menus then?
+</I>&gt;<i> 
+</I>&gt;<i> Okay, so this is strange. I added a new video to my iPod using gtkpod, and
+</I>&gt;<i> it showed up in the Video menu as normal. I even tried setting the 'Media
+</I>&gt;<i> type' field (for a list of available options:
+</I>&gt;<i> <A HREF="http://img80.imageshack.us/img80/3641/listoa4.jpg">http://img80.imageshack.us/img80/3641/listoa4.jpg</A>) from 'Video podcast' to
+</I>&gt;<i> 'Video' to make the video podcast show up in the Video menu but that didn't
+</I>&gt;<i> help.
+</I>&gt;<i> 
+</I>&gt;<i> This video has been added manually to my iPod library, and this one
+</I>&gt;<i> *does*show up in the Video menu:
+</I>&gt;<i> <A HREF="http://img263.imageshack.us/img263/9913/geoffdayjob1ya7.jpg">http://img263.imageshack.us/img263/9913/geoffdayjob1ya7.jpg</A>
+</I>&gt;<i> <A HREF="http://img80.imageshack.us/img80/433/geoffdayjob2tr1.jpg">http://img80.imageshack.us/img80/433/geoffdayjob2tr1.jpg</A>
+</I>&gt;<i> <A HREF="http://img80.imageshack.us/img80/2320/geoffdayjob3lc6.jpg">http://img80.imageshack.us/img80/2320/geoffdayjob3lc6.jpg</A>
+</I>&gt;<i> <A HREF="http://img165.imageshack.us/img165/4827/geoffdayjob4uw3.jpg">http://img165.imageshack.us/img165/4827/geoffdayjob4uw3.jpg</A>
+</I>&gt;<i> <A HREF="http://img165.imageshack.us/img165/8245/geoffdayjob5fe4.jpg">http://img165.imageshack.us/img165/8245/geoffdayjob5fe4.jpg</A>
+</I>&gt;<i> (I also got this video to show up as a video podcast, by the way.)
+</I>&gt;<i> 
+</I>&gt;<i> The video podcast I added to my iPod library using gPodder *doesn't* show up
+</I>&gt;<i> in the Video menu. You've seen these screenshots before, but I'll give you
+</I>&gt;<i> the links one more time for your convenience:
+</I>&gt;<i> <A HREF="http://img205.imageshack.us/img205/1628/cnettopfive1as4.jpg">http://img205.imageshack.us/img205/1628/cnettopfive1as4.jpg</A>
+</I>&gt;<i> <A HREF="http://img205.imageshack.us/img205/6904/cnettopfive2up4.jpg">http://img205.imageshack.us/img205/6904/cnettopfive2up4.jpg</A>
+</I>&gt;<i> <A HREF="http://img247.imageshack.us/img247/5039/cnettopfive3bj9.jpg">http://img247.imageshack.us/img247/5039/cnettopfive3bj9.jpg</A>
+</I>&gt;<i> <A HREF="http://img80.imageshack.us/img80/2563/cnettopfive4ow9.jpg">http://img80.imageshack.us/img80/2563/cnettopfive4ow9.jpg</A>
+</I>&gt;<i> <A HREF="http://img80.imageshack.us/img80/9986/cnettopfive5lx3.jpg">http://img80.imageshack.us/img80/9986/cnettopfive5lx3.jpg</A>
+</I>&gt;<i> 
+</I>&gt;<i> I don't see that much of a difference, except for the bitrate and sample
+</I>&gt;<i> rate. I checked my other video podcasts, they all have their bitrate and
+</I>&gt;<i> sample rate set to zero. I can change the value in these fields but I doubt
+</I>&gt;<i> that that would help.
+</I>
+So, even if the bitrate and samplerate are set to zero, the video 
+podcast works? Maybe the iPod relies on the video bitrate. Please try 
+these two things:
+
+  *) Set the bitrate to zero for &quot;working&quot; videos and see if this
+     breaks them on normal iPods
+
+  *) Set the bitrate to some non-zero value (maybe the real bitrate
+     value which you can get by first adding it via gtkpod and looking
+     at the set bitrate, then deleting it via gtkpod and sync via
+     gPodder); then, see if this makes the video appear on the iPod
+
+&gt;<i> I can't help but notice that the sample rate and bitrate are once again set
+</I>&gt;<i> to 0. Hmm... Oh by the way, I believe that your iPod mini also supports
+</I>&gt;<i> enhanced podcasts. It might be easier to investigate this if you can play
+</I>&gt;<i> with it yourself too, you know. :)
+</I>
+I will try as soon as I reboot into OS X. Sadly, I'm still at 64k ISDN 
+here at home, so downloading anything bigger than 10 MiB fastly mutates 
+into a day job ;)
+
+&gt;&gt;<i> Are enhanced podcasts added correctly when adding the single downloaded
+</I>&gt;&gt;<i> file from the feed (m4a) using gtkpod?
+</I>&gt;<i> 
+</I>&gt;<i> I can add them to my iPod manually but my iPod acts as if it was a regular
+</I>&gt;<i> podcast, just like with any enhanced podcast I copied to my iPod using
+</I>&gt;<i> gPodder. Does that mean that this is a libgpod-related issue?
+</I>
+I think it is, after doing some research on the web myself. The 
+&quot;chapter&quot; data (as seen on <A HREF="http://ipodlinux.org/ITunesDB">http://ipodlinux.org/ITunesDB</A>) in the 
+iTunesDB holds information about the chapters. From what I read on the 
+web, iTunes extracts the chapter information from the m4a files and 
+writes it into the iTunesDB. libgpod/gtkpod only has support for &quot;raw&quot; 
+chapter files, meaning that it will not destroy chapter data (read raw, 
+write raw) that is in the iTunesDB, but it also means that there is no 
+way of &quot;construction&quot; chapter data in the iTunesDB. And even if it _was_ 
+possible, it would still mean that we would have to extract chapter data 
+from the m4a files, parse it correctly and then prepare and inject it 
+into the iTunesDB file.
+
+Maybe you want to write to the gtkpod/libgpod development mailing list 
+and ask about the status for iTunesDB chapter support in libgpod.
+
+
+Good luck!
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000999.html">[gpodder-devel] iPod touch update
+</A></li>
+	<LI>Next message: <A HREF="001007.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1006">[ date ]</a>
+              <a href="thread.html#1006">[ thread ]</a>
+              <a href="subject.html#1006">[ subject ]</a>
+              <a href="author.html#1006">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

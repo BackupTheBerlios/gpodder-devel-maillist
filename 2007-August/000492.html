@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Divx Videos not being synced
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Divx%20Videos%20not%20being%20synced&In-Reply-To=%3C1187505797.5030.13.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000487.html">
+   <LINK REL="Next"  HREF="000525.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Divx Videos not being synced</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Divx%20Videos%20not%20being%20synced&In-Reply-To=%3C1187505797.5030.13.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Divx Videos not being synced">thp at perli.net
+       </A><BR>
+    <I>Sun Aug 19 08:43:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000487.html">[gpodder-devel] Divx Videos not being synced
+</A></li>
+        <LI>Next message: <A HREF="000525.html">[gpodder-devel] Divx Videos not being synced
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#492">[ date ]</a>
+              <a href="thread.html#492">[ thread ]</a>
+              <a href="subject.html#492">[ subject ]</a>
+              <a href="author.html#492">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Alistair!
+
+On Wed, 2007-08-15 at 18:40 +0100, Alistair Sutton wrote:
+&gt;<i> I noticed the other day that the videos from the DL.TV Divx feed were
+</I>&gt;<i> not being synced along with the rest of the podcasts.
+</I>&gt;<i> 
+</I>&gt;<i> I added &quot;divx&quot; alongside the rest of the video filetypes in
+</I>&gt;<i> libipodsync.py and libpodcasts.py and then everything worked as
+</I>&gt;<i> expected. Of course, I'm not entirely sure if it needs to be added to
+</I>&gt;<i> both files.
+</I>&gt;<i> 
+</I>&gt;<i> Any chance this can be added to svn before the next release? 
+</I>
+I've attached a patch - does this patch fix your issue (.divx extension
+used as &quot;mp4&quot; in iPod sync and detected as &quot;video&quot; in the video
+detection code)?
+
+Tell me if it works, and if so, I'll commit it to our svn repository and
+it will be available in the next release.
+
+
+Thanks,
+Thomas
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-r368-divx-support.patch
+Type: text/x-patch
+Size: 1195 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070819/a18058ca/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070819/a18058ca/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000487.html">[gpodder-devel] Divx Videos not being synced
+</A></li>
+	<LI>Next message: <A HREF="000525.html">[gpodder-devel] Divx Videos not being synced
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#492">[ date ]</a>
+              <a href="thread.html#492">[ thread ]</a>
+              <a href="subject.html#492">[ subject ]</a>
+              <a href="author.html#492">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

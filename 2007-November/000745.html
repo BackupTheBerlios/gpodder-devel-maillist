@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Extended format_filesize() function to	cover	SI	units
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extended%20format_filesize%28%29%20function%20to%09cover%09SI%0A%09units&In-Reply-To=%3C1193924910.5183.43.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000743.html">
+   <LINK REL="Next"  HREF="000746.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Extended format_filesize() function to	cover	SI	units</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extended%20format_filesize%28%29%20function%20to%09cover%09SI%0A%09units&In-Reply-To=%3C1193924910.5183.43.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Extended format_filesize() function to	cover	SI	units">thp at perli.net
+       </A><BR>
+    <I>Thu Nov  1 14:48:30 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000743.html">[gpodder-devel] Extended format_filesize() function to cover	SI units
+</A></li>
+        <LI>Next message: <A HREF="000746.html">[gpodder-devel] Extended format_filesize() function to	cover	SI units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#745">[ date ]</a>
+              <a href="thread.html#745">[ thread ]</a>
+              <a href="subject.html#745">[ subject ]</a>
+              <a href="author.html#745">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Gerrit!
+
+On Thu, 2007-11-01 at 14:00 +0100, Gerrit Sangel wrote:
+&gt;<i> Am Donnerstag 01 November 2007 schrieb Thomas Perl:
+</I>&gt;<i> &gt; Basically, you want to add support for the decimal output format of
+</I>&gt;<i> file
+</I>&gt;<i> &gt; sizes. Why keep two different options for the same thing (&quot;off&quot; and
+</I>&gt;<i> &gt; &quot;binary&quot;), apart from the added &quot;i&quot; in &quot;MiB&quot;, &quot;KiB&quot; and &quot;GiB&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> Well, because I think some people would be confused if there is a &#8220;i&#8221;
+</I>&gt;<i> between the prefix and the unit. But I don&#8217;t know, personally I like
+</I>&gt;<i> the &#8220;MiB&#8221;  better than the wrong &#8220;MB&#8221;. I guess, MiB as standard usage
+</I>&gt;<i> would also be ok.
+</I>
+I've looked through the Wikipedia pages and through
+<A HREF="http://physics.nist.gov/cuu/Units/binary.html,">http://physics.nist.gov/cuu/Units/binary.html,</A> which described the
+binary prefixes as part of the IEC 60027-2 standard. So, to do the Right
+Thing(tm), we should use SI prefixes for 10^x and binary prefixes for
+2^x, and remove the (wrong) default behaviour of gPodder.
+
+&gt;<i> &gt; I will have a look as time permits. Here are some questions that I'm
+</I>&gt;<i> &gt; still not sure about:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  -) What IS the standard of displaying file sizes? (KB[2], KB[10],
+</I>&gt;<i> KiB?)
+</I>&gt;<i> &gt;  -) What is the benefit of providing &quot;decimal&quot; file sizes?
+</I>&gt;<i> &gt;  -) It would modify the results of our speed/etc.. calculations, is
+</I>&gt;<i> &gt;     that something we want or should avoid?
+</I>&gt;<i> 
+</I>&gt;<i> 1. As far as I know, there is no real standard. The SI prefixes (which
+</I>&gt;<i> are used in natural sciences) define a kilo as 10^3, a mega as 10^6, a
+</I>&gt;<i> giga as 10^9 and so on. That way, one can easily just cut the last
+</I>&gt;<i> digits of a file size and get a correct file size with a prefix (e.g.
+</I>&gt;<i> 194385745 byte = 194,39 MB) without using a calculator.
+</I>&gt;<i> Hard disk manufacturers also use them. That way, a 500 GB hdd has
+</I>&gt;<i> really 500 billion bytes. The problem now is that in the past, the
+</I>&gt;<i> kilo, mega and so on prefixes were used as 2^10, 2^20, 2^30 etc. But
+</I>&gt;<i> that&#8217;s incorrect, kilo etc. are defined as 10^3 etc. For this
+</I>&gt;<i> confusion to end, the binary prefixes were invented. That way, a kibi
+</I>&gt;<i> is 2^10. 
+</I>&gt;<i> 
+</I>&gt;<i> In short: kB for 1000 Bytes and KiB for 1024 Bytes are correct, but kB
+</I>&gt;<i> for 1024 Byte is incorrect. 
+</I>&gt;<i> 
+</I>&gt;<i> 2. Well, it is the correct usage of the SI prefixes. :D The problem is
+</I>&gt;<i> that the hdd manufacturers use the SI prefixes correctly (ok, they do
+</I>&gt;<i> that because they can advertise &#8220;more&#8221; space than there really is, but
+</I>&gt;<i> the thing is, they are correct whether the customer likes it or not).
+</I>&gt;<i> But almost all software products don&#8217;t use them correctly. That&#8217;s also
+</I>&gt;<i> a reason because I thought of an &#8220;off&#8221; setting. 
+</I>&gt;<i> I personally would really like to use the SI prefixes in my
+</I>&gt;<i> applications. If I have a MiB, I would still have to convert them to
+</I>&gt;<i> SI prefixes. I really don&#8217;t see the point why I should use another
+</I>&gt;<i> prefix just because it is a byte and not, say, a meter.
+</I>&gt;<i> 
+</I>&gt;<i> I guess, the main purpose of the binary prefixes is to clarify that
+</I>&gt;<i> kilo is only 1000, not 1024.
+</I>
+I think, gPodder's behaviour should be the following:
+
+- default to SI prefixes (decimal, 1000 bytes = 1 kB)
+- optional: binary prefixes; &quot;1024 et al.&quot; (and display &quot;KiB, MiB, ...&quot;)
+
+Are there any objections?
+
+That would change the values displayed (without changing the unit's
+name), but as gPodder currently displays &quot;wrong&quot; values, I guess this is
+okay. If people want the current calculation (binary), they can switch
+to it in the config file and have KiB, MiB, etc.. displayed).
+
+That would be the Right Thing(tm) when looking at standards. The changed
+behaviour of gPodder is justified by the fact that currently gPodder
+displays non-standard units/values.
+
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000743.html">[gpodder-devel] Extended format_filesize() function to cover	SI units
+</A></li>
+	<LI>Next message: <A HREF="000746.html">[gpodder-devel] Extended format_filesize() function to	cover	SI units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#745">[ date ]</a>
+              <a href="thread.html#745">[ thread ]</a>
+              <a href="subject.html#745">[ subject ]</a>
+              <a href="author.html#745">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

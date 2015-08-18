@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New toolbar strings not added to the .po	files? / gPodder not remembering column sizes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FNew_toolbar_strings_not_added_to_t%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fhe_%3D2Epo%3D09files%3D3F_/_gPodder_not_remembering_colum%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fn_sizes%3F%3D&In-Reply-To=%3C200704020904.33881.pdedecker%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000165.html">
+   <LINK REL="Next"  HREF="000170.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New toolbar strings not added to the .po	files? / gPodder not remembering column sizes</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FNew_toolbar_strings_not_added_to_t%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fhe_%3D2Epo%3D09files%3D3F_/_gPodder_not_remembering_colum%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Fn_sizes%3F%3D&In-Reply-To=%3C200704020904.33881.pdedecker%40gmail.com%3E"
+       TITLE="[gpodder-devel] New toolbar strings not added to the .po	files? / gPodder not remembering column sizes">pdedecker at gmail.com
+       </A><BR>
+    <I>Mon Apr  2 09:04:32 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000165.html">[gpodder-devel] New toolbar strings not added to the .po	files?	/ gPodder not remembering column sizes
+</A></li>
+        <LI>Next message: <A HREF="000170.html">[gpodder-devel] New toolbar strings not added to the .po files?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#169">[ date ]</a>
+              <a href="thread.html#169">[ thread ]</a>
+              <a href="subject.html#169">[ subject ]</a>
+              <a href="author.html#169">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> * The episode title column is always auto-sized so that the text fits
+</I>&gt;<i> into it; as long as you don't resize it manually, it will resize
+</I>&gt;<i> automatically on channel switches. If you start resizing it manually, it
+</I>&gt;<i> will keep the set width until gPodder is closed. Hope that's what you
+</I>&gt;<i> wanted to accomplish :)
+</I>Thanks for the update, but I think you need to set a limit on that autosize 
+function so that the column won't get any wider than x pixels. See what 
+happens if the episode title is too long: 
+<A HREF="http://img261.imageshack.us/img261/1046/gpoddersizekk2.png">http://img261.imageshack.us/img261/1046/gpoddersizekk2.png</A>
+
+About the translation: I did 'make distclean' and 'make messages', but 
+something went wrong while executing the second command. Does gPodder all of 
+a sudden require me to install some extra software to make the .po files?
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">pdedecker at BETAubuntu</A>:~/Desktop/gpodderSVN$ make messages
+</I>&gt;<i> intltool-extract --type=gettext/glade data/gpodder.glade
+</I>&gt;<i> make: intltool-extract: Command not found
+</I>&gt;<i> make: *** [data/gpodder.glade.h] Error 127
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000165.html">[gpodder-devel] New toolbar strings not added to the .po	files?	/ gPodder not remembering column sizes
+</A></li>
+	<LI>Next message: <A HREF="000170.html">[gpodder-devel] New toolbar strings not added to the .po files?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#169">[ date ]</a>
+              <a href="thread.html#169">[ thread ]</a>
+              <a href="subject.html#169">[ subject ]</a>
+              <a href="author.html#169">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

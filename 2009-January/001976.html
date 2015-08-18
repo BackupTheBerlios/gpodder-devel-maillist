@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [patch]&#160;Add option to clear the genre tag when updating tags
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%3D%3Fiso-8859-1%3Fq%3F%3D5Bpatch%3D5D%3DA0Add_option_to_clear_%3F%3D%0A%20%3D%3Fiso-8859-1%3Fq%3Fthe_genre_tag_when_updating_tags%3F%3D&In-Reply-To=%3C1231081533.8598.27.camel%40lightweight%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001975.html">
+   <LINK REL="Next"  HREF="001977.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [patch]&#160;Add option to clear the genre tag when updating tags</H1>
+    <B>Ville-Pekka Vainio</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%3D%3Fiso-8859-1%3Fq%3F%3D5Bpatch%3D5D%3DA0Add_option_to_clear_%3F%3D%0A%20%3D%3Fiso-8859-1%3Fq%3Fthe_genre_tag_when_updating_tags%3F%3D&In-Reply-To=%3C1231081533.8598.27.camel%40lightweight%3E"
+       TITLE="[gpodder-devel] [patch]&#160;Add option to clear the genre tag when updating tags">vpivaini at cs.helsinki.fi
+       </A><BR>
+    <I>Sun Jan  4 16:05:33 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001975.html">[gpodder-devel] [patch] Add a message to AttributeError in config.py
+</A></li>
+        <LI>Next message: <A HREF="001977.html">[gpodder-devel] [patch] Add a message to AttributeError in	config.py
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1976">[ date ]</a>
+              <a href="thread.html#1976">[ thread ]</a>
+              <a href="subject.html#1976">[ subject ]</a>
+              <a href="author.html#1976">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+With the attched patch libtagupdate won't write the genre tag if an
+option called clear_genre_tag is true. I prevented writing the tag at
+all in libtagupdate just to be sure. It might be enough to pass genre=''
+in libpodcasts, but that way at least the ogg files would actually have
+an empty genre tag, whereas with this patch there won't be one at all.
+
+The reason I wrote this patch is that the Sandisk Sansa players'
+firmware handles files tagged with &quot;podcast&quot; differently from any others
+and I want to be able to prevent that.
+
+Here are the bugs (or features) of the firmware's podcast tag handling
+I'm trying to avoid:
+ - If the album tags of the media files differ, you specifically have to
+choose an album to play, you can't just select all the podcasts at once.
+ - The files are played in such an order that the files which have a
+&quot;higher alphanumeric order&quot; get played first. For example foocast2.ogg
+is played before foocast1.ogg and I really don't like that, I want to
+play the podcasts in the order they were recorded.
+ - Both of these bugs can be avoided by using a playlist, but the device
+won't show any files on the playlist which have been tagged with the
+&quot;podcast&quot; genre, because the special podcast handling takes precedence.
+This is why I'd like to be able to remove the genre tag altogether and
+make a playlist with the gPodder device playlist feature so I can
+control which files are played and in which order.
+
+If needed, I could make a bug report about this patch and we could
+discuss this more there, the mailing list is fine too. If you think this
+patch isn't that useful in general, I could maintain it just for myself
+as well.
+
+
+-- 
+Ville-Pekka Vainio
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_clear_genre.patch
+Type: text/x-patch
+Size: 2374 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090104/25517251/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090104/25517251/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001975.html">[gpodder-devel] [patch] Add a message to AttributeError in config.py
+</A></li>
+	<LI>Next message: <A HREF="001977.html">[gpodder-devel] [patch] Add a message to AttributeError in	config.py
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1976">[ date ]</a>
+              <a href="thread.html#1976">[ thread ]</a>
+              <a href="subject.html#1976">[ subject ]</a>
+              <a href="author.html#1976">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

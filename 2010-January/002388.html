@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] announcement - gPodder on Mac OS X : going native
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20announcement%20-%20gPodder%20on%20Mac%20OS%20X%20%3A%20going%20native&In-Reply-To=%3C4B5321B8.8020703%40wanadoo.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002393.html">
+   <LINK REL="Next"  HREF="002392.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] announcement - gPodder on Mac OS X : going native</H1>
+    <B>Eric</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20announcement%20-%20gPodder%20on%20Mac%20OS%20X%20%3A%20going%20native&In-Reply-To=%3C4B5321B8.8020703%40wanadoo.fr%3E"
+       TITLE="[gpodder-devel] announcement - gPodder on Mac OS X : going native">neric27 at wanadoo.fr
+       </A><BR>
+    <I>Sun Jan 17 15:42:00 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002393.html">[gpodder-devel] Which unit is the ui &quot;kb/s&quot; really in?
+</A></li>
+        <LI>Next message: <A HREF="002392.html">[gpodder-devel] announcement - gPodder on Mac OS X :	going	native
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2388">[ date ]</a>
+              <a href="thread.html#2388">[ thread ]</a>
+              <a href="subject.html#2388">[ subject ]</a>
+              <a href="author.html#2388">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list !
+
+I'm maintaining a port of gPodder for Mac OS X in macports 
+(www.macports.org).
+This is no breaking news : Thomas Perl even wrote a wiki page about it 
+(<A HREF="http://wiki.gpodder.org/wiki/Mac_OS_X">http://wiki.gpodder.org/wiki/Mac_OS_X</A>).
+
+Thanks to the Aqua back-end of GTK, gPodder can run side by side with 
+other OS X apps (not in an X server window).
+I would like to push it even further (see attached screenshot), by :
+
+1- having a native menu bar on top of the screen, instead of the menu 
+bar on top of the window;
+
+this is easy, thanks to a library called ige-mac-integration, which 
+dynamically remaps the gtk menu into a native application menu.
+I still have problems with shortcuts, though : the app doesn't answer to 
+the command key (can't hit Cmd-Q but Ctrl-Q works).
+I also couldn't change the name of the application menu from Python.app 
+to gPodder.app.
+
+
+2- building an application launcher, so that one can launch gpodder by 
+double click instead of from the terminal;
+
+This merilly involved creating icons in the apple format, writing a bit 
+of XML and following the standard directory layout to package mac 
+applications.
+You can see the gpodder icon upon a Cmd-Tab, on the middle of the 
+screenshot.
+Ho, and I also had to add a dummy -psn command line option to gpodder, 
+because it's added to the command line when starting as an application.
+
+
+3- picking the user's current locale from the system preferences;
+
+On the command line, it used to work if the user specified his locale 
+correctly.
+For the packaged application, though, I needed to run this magic command 
+&quot;defaults read NSGlobalDomain AppleLocale&quot; on startup.
+No big deal ! On the attached screenshot, you can see menus and stuff 
+translated into French.
+
+4- being able to subscribe to podcasts feeds with gPodder from firefox; 
+and being able to open RSS feeds in gPodder from the finder.
+
+I've not achieved this yet : I can select gPodder.app from firefox to 
+subscribe to a feed, but contrary to what I expected, the URL is not 
+passed to gPodder on the command line. Some apple events are involved 
+there, which I know very little about. The solution may reside in 
+Py-Objc (<A HREF="http://pyobjc.sourceforge.net/">http://pyobjc.sourceforge.net/</A>) ; it works for lilypond, why 
+not for us !!
+My plan is to start from scratch with a demo python program, and when it 
+works, to report the solution to gPodder...
+
+
+All these changes are still local. I'll upload the patches in the bug 
+tracker when they are ready.
+Meanwhile, here is a snapshot of my local repository  :
+<A HREF="http://cotcotpot.free.fr/dropbox/new_localdports.zip">http://cotcotpot.free.fr/dropbox/new_localdports.zip</A>
+
+After you have unzipped and registered it (see 
+<A HREF="http://guide.macports.org/#development.local-repositories">http://guide.macports.org/#development.local-repositories</A>), enter :
+sudo port install gpodder +python25 +quartz +app
+If it succeeds, you should get a gPodder application in 
+/Applications/Macports.
+
+Comments and help are very welcome !
+
+Cheers,
+Eric
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: screenshot-gpodder.png
+Type: image/png
+Size: 430924 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20100117/18862600/attachment.png">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20100117/18862600/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002393.html">[gpodder-devel] Which unit is the ui &quot;kb/s&quot; really in?
+</A></li>
+	<LI>Next message: <A HREF="002392.html">[gpodder-devel] announcement - gPodder on Mac OS X :	going	native
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2388">[ date ]</a>
+              <a href="thread.html#2388">[ thread ]</a>
+              <a href="subject.html#2388">[ subject ]</a>
+              <a href="author.html#2388">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

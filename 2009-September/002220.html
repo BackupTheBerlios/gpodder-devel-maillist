@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Need suggestions: New layout for the shownotes	window
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Need%20suggestions%3A%20New%20layout%20for%20the%20shownotes%0A%09window&In-Reply-To=%3C87eiqp6pg4.fsf%40news.realpath.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002219.html">
+   <LINK REL="Next"  HREF="002221.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Need suggestions: New layout for the shownotes	window</H1>
+    <B>Sebastian Krause</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Need%20suggestions%3A%20New%20layout%20for%20the%20shownotes%0A%09window&In-Reply-To=%3C87eiqp6pg4.fsf%40news.realpath.org%3E"
+       TITLE="[gpodder-devel] Need suggestions: New layout for the shownotes	window">sebastian at realpath.org
+       </A><BR>
+    <I>Wed Sep  2 22:50:51 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002219.html">[gpodder-devel] Need suggestions: New layout for the shownotes	window
+</A></li>
+        <LI>Next message: <A HREF="002221.html">[gpodder-devel] Need suggestions: New layout for the shownotes window
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2220">[ date ]</a>
+              <a href="thread.html#2220">[ thread ]</a>
+              <a href="subject.html#2220">[ subject ]</a>
+              <a href="author.html#2220">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&quot;Thomas Perl&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+&gt;<i> The current shownotes dialog looks a bit boring and misses some
+</I>&gt;<i> features that can only be reached from the context menu of the
+</I>&gt;<i> episode list in the main window.
+</I>&gt;<i>
+</I>&gt;<i> Minimum UI requirements:
+</I>&gt;<i>
+</I>&gt;<i>  * Play / Stream
+</I>&gt;<i>  * Delete
+</I>&gt;<i>  * Download
+</I>&gt;<i>  * Pause download
+</I>&gt;<i>  * Resume download
+</I>&gt;<i>  * Cancel download
+</I>&gt;<i>  * Visit website
+</I>&gt;<i>  * Progressbar / status area for download progress
+</I>&gt;<i>  * Text area / other UI for displaying the shownotes
+</I>
+First of call I would like to note that it would be a bad idea to
+just add a whole lot of new columns; a least not by defaut because
+it would make gPodder look cluttered.
+
+=== Shownotes dialog ===
+
+My suggestion is to add an area at the bottom of the list which
+shows all the information of the currently selected episode. By
+copying the episode details dialog into the main window I've created
+a somewhat hackish mockup to show what I mean:
+
+<A HREF="http://imgur.com/RGyZI.png">http://imgur.com/RGyZI.png</A>
+
+Maybe to the right of the text area which contains the description
+could be another area (not in the mockup) that contains some other
+detailed information like the link to the website, the length of the
+podcast, file size etc. All the buttons at the bottom should be
+ordered nicely because you require a lot of them, so here is the
+danger of a cluttered interface again.
+
+=== Other suggestions ===
+
+The other thing that would be really nice is to make the &quot;New
+episodes&quot; and &quot;Remove old episodes&quot; dialogs just tabs in the main
+window like &quot;Podcasts&quot; and &quot;Downloads&quot; are. I personally dislike new
+windows popping up because the always have the wrong size or are
+just in the way of the application interface. For that technically
+the episode list in the mockup and the new/remove dialogs could be
+exactly the same element, but with different configurations: Make it
+configurable which columns and buttons will be displayed and then
+show the usual configuration in the show overview, but display the
+selector elements in the new/remove dialog. I hope I'm not too
+confusing or vague. :)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002219.html">[gpodder-devel] Need suggestions: New layout for the shownotes	window
+</A></li>
+	<LI>Next message: <A HREF="002221.html">[gpodder-devel] Need suggestions: New layout for the shownotes window
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2220">[ date ]</a>
+              <a href="thread.html#2220">[ thread ]</a>
+              <a href="subject.html#2220">[ subject ]</a>
+              <a href="author.html#2220">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

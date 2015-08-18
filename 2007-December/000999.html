@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod touch update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C40c47c780712300323v1631e38u8f9824256c754f49%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000995.html">
+   <LINK REL="Next"  HREF="001006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod touch update</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20touch%20update&In-Reply-To=%3C40c47c780712300323v1631e38u8f9824256c754f49%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] iPod touch update">pdedecker at gmail.com
+       </A><BR>
+    <I>Sun Dec 30 12:23:32 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000995.html">[gpodder-devel] iPod touch update
+</A></li>
+        <LI>Next message: <A HREF="001006.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#999">[ date ]</a>
+              <a href="thread.html#999">[ thread ]</a>
+              <a href="subject.html#999">[ subject ]</a>
+              <a href="author.html#999">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I'll get to your questions in a bit, but first I want to report something
+really annoying. You see, my iPod has the tendency to reset some of my
+podcast play statuses at what seems random times. (I'm sure that there's a
+trigger for this, though.)
+
+It appears that the play counts of these podcasts hadn't been raised to 1.
+After some further investigation, I discovered that *all* play counts on my
+iPod are messed up (I might check in with the folks at gtkpod for this
+later). Some tracks were supposedly played like 85 times - which is
+impossible - but most of them have 0 in the play count field! There's not
+much you can do about that, considering that it's probably a
+gtkpod/libgpod-related issue. However, you might be able to get the podcast
+play statuses working correctly by making gPodder check the play status of a
+podcast to set the play count accordingly (i.e. if a podcast has been
+played, make sure that its play count is set to 1 and not 0). Is that
+possible?
+
+&gt;<i> Is there a special &quot;videos&quot; or &quot;video podcasts&quot; playlist on the iPod
+</I>&gt;<i> that can be seen with gtkpod?
+</I>
+Unfortunately, there isn't.
+
+&gt;<i> What about adding a video to the iPod using gtkpod? Is
+</I>&gt;<i> that displayed in the iPod's menus then?
+</I>
+Okay, so this is strange. I added a new video to my iPod using gtkpod, and
+it showed up in the Video menu as normal. I even tried setting the 'Media
+type' field (for a list of available options:
+<A HREF="http://img80.imageshack.us/img80/3641/listoa4.jpg">http://img80.imageshack.us/img80/3641/listoa4.jpg</A>) from 'Video podcast' to
+'Video' to make the video podcast show up in the Video menu but that didn't
+help.
+
+This video has been added manually to my iPod library, and this one
+*does*show up in the Video menu:
+<A HREF="http://img263.imageshack.us/img263/9913/geoffdayjob1ya7.jpg">http://img263.imageshack.us/img263/9913/geoffdayjob1ya7.jpg</A>
+<A HREF="http://img80.imageshack.us/img80/433/geoffdayjob2tr1.jpg">http://img80.imageshack.us/img80/433/geoffdayjob2tr1.jpg</A>
+<A HREF="http://img80.imageshack.us/img80/2320/geoffdayjob3lc6.jpg">http://img80.imageshack.us/img80/2320/geoffdayjob3lc6.jpg</A>
+<A HREF="http://img165.imageshack.us/img165/4827/geoffdayjob4uw3.jpg">http://img165.imageshack.us/img165/4827/geoffdayjob4uw3.jpg</A>
+<A HREF="http://img165.imageshack.us/img165/8245/geoffdayjob5fe4.jpg">http://img165.imageshack.us/img165/8245/geoffdayjob5fe4.jpg</A>
+(I also got this video to show up as a video podcast, by the way.)
+
+The video podcast I added to my iPod library using gPodder *doesn't* show up
+in the Video menu. You've seen these screenshots before, but I'll give you
+the links one more time for your convenience:
+<A HREF="http://img205.imageshack.us/img205/1628/cnettopfive1as4.jpg">http://img205.imageshack.us/img205/1628/cnettopfive1as4.jpg</A>
+<A HREF="http://img205.imageshack.us/img205/6904/cnettopfive2up4.jpg">http://img205.imageshack.us/img205/6904/cnettopfive2up4.jpg</A>
+<A HREF="http://img247.imageshack.us/img247/5039/cnettopfive3bj9.jpg">http://img247.imageshack.us/img247/5039/cnettopfive3bj9.jpg</A>
+<A HREF="http://img80.imageshack.us/img80/2563/cnettopfive4ow9.jpg">http://img80.imageshack.us/img80/2563/cnettopfive4ow9.jpg</A>
+<A HREF="http://img80.imageshack.us/img80/9986/cnettopfive5lx3.jpg">http://img80.imageshack.us/img80/9986/cnettopfive5lx3.jpg</A>
+
+I don't see that much of a difference, except for the bitrate and sample
+rate. I checked my other video podcasts, they all have their bitrate and
+sample rate set to zero. I can change the value in these fields but I doubt
+that that would help.
+
+&gt;<i> Now, for the enhanced podcasts: Can you please send me the gtkpod
+</I>&gt;<i> screenshots of the properties page of a track that has been synced from
+</I>&gt;<i> both iTunes and gPodder, just like you did for the video podcasts above?
+</I>
+This enhanced podcast has been copied to my iPod using iTunes:
+<A HREF="http://img341.imageshack.us/img341/4360/cbcenhanced1xv3.jpg">http://img341.imageshack.us/img341/4360/cbcenhanced1xv3.jpg</A>
+<A HREF="http://img80.imageshack.us/img80/919/cbcenhanced2rb5.jpg">http://img80.imageshack.us/img80/919/cbcenhanced2rb5.jpg</A>
+<A HREF="http://img185.imageshack.us/img185/503/cbcenhanced3uz3.jpg">http://img185.imageshack.us/img185/503/cbcenhanced3uz3.jpg</A>
+<A HREF="http://img185.imageshack.us/img185/2576/cbcenhanced4fj3.jpg">http://img185.imageshack.us/img185/2576/cbcenhanced4fj3.jpg</A>
+<A HREF="http://img185.imageshack.us/img185/1263/cbcenhanced5rt6.jpg">http://img185.imageshack.us/img185/1263/cbcenhanced5rt6.jpg</A>
+
+This enhanced podcast has been copied to my iPod by gPodder:
+<A HREF="http://img213.imageshack.us/img213/6018/cbcgpodder1dt5.jpg">http://img213.imageshack.us/img213/6018/cbcgpodder1dt5.jpg</A>
+<A HREF="http://img213.imageshack.us/img213/2948/cbcgpodder2fm8.jpg">http://img213.imageshack.us/img213/2948/cbcgpodder2fm8.jpg</A>
+<A HREF="http://img338.imageshack.us/img338/2893/cbcgpodder3wf7.jpg">http://img338.imageshack.us/img338/2893/cbcgpodder3wf7.jpg</A>
+<A HREF="http://img165.imageshack.us/img165/8751/cbcgpodder4ig4.jpg">http://img165.imageshack.us/img165/8751/cbcgpodder4ig4.jpg</A>
+<A HREF="http://img213.imageshack.us/img213/7043/cbcgpodder5pm7.jpg">http://img213.imageshack.us/img213/7043/cbcgpodder5pm7.jpg</A>
+
+I can't help but notice that the sample rate and bitrate are once again set
+to 0. Hmm... Oh by the way, I believe that your iPod mini also supports
+enhanced podcasts. It might be easier to investigate this if you can play
+with it yourself too, you know. :)
+
+&gt;<i> Are enhanced podcasts added correctly when adding the single downloaded
+</I>&gt;<i> file from the feed (m4a) using gtkpod?
+</I>
+I can add them to my iPod manually but my iPod acts as if it was a regular
+podcast, just like with any enhanced podcast I copied to my iPod using
+gPodder. Does that mean that this is a libgpod-related issue?
+
+Pieter
+
+On Dec 29, 2007 3:15 PM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello, Pieter!
+</I>&gt;<i>
+</I>&gt;<i> Pieter De Decker wrote:
+</I>&gt;<i> &gt; Everything is working like a charm, except for one thing: video podcasts
+</I>&gt;<i> &gt; don't show up in the video menu. If you try to play them from the Music
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Podcasts menu, you only get to hear the audio. This is normal, this also
+</I>&gt;<i> &gt; happens with iTunes podcasts (except for the fact that they don't show
+</I>&gt;<i> up in
+</I>&gt;<i> &gt; the Video menu).
+</I>&gt;<i>
+</I>&gt;<i> Ok, I think we can fix this with a bit trial-and-error and probably some
+</I>&gt;<i> iTunesDB-related changes. It just needs some of your time to help :)
+</I>&gt;<i>
+</I>&gt;<i> &gt; This podcast has been transferred to my player using iTunes and does
+</I>&gt;<i> show up
+</I>&gt;<i> &gt; in the Video menu: [...]
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; This podcast has been transferred to my player using gPodder and doesn't
+</I>&gt;<i> &gt; show up in the Video menu: [...]
+</I>&gt;<i>
+</I>&gt;<i>  From the screenshots, I can't see much difference, except for the
+</I>&gt;<i> bitrate that is set. One thing that might be related to this is that for
+</I>&gt;<i> video podcasts, we need to add the track to a special playlist. Is there
+</I>&gt;<i> a special &quot;videos&quot; or &quot;video podcasts&quot; playlist on the iPod that can be
+</I>&gt;<i> seen with gtkpod? What about adding a video to the iPod using gtkpod? Is
+</I>&gt;<i> that displayed in the iPod's menus then?
+</I>&gt;<i>
+</I>&gt;<i> &gt; By the way, I added a page to the gPodder wiki about the iPod touch. You
+</I>&gt;<i> can
+</I>&gt;<i> &gt; find it here: <A HREF="http://gpodderwiki.jottit.com/ipodtouch">http://gpodderwiki.jottit.com/ipodtouch</A>
+</I>&gt;<i>
+</I>&gt;<i> That's very good. I've linked it from the Wiki's start page under &quot;iPod
+</I>&gt;<i> Touch HOWTO&quot;.
+</I>&gt;<i>
+</I>&gt;<i> Now, for the enhanced podcasts: Can you please send me the gtkpod
+</I>&gt;<i> screenshots of the properties page of a track that has been synced from
+</I>&gt;<i> both iTunes and gPodder, just like you did for the video podcasts above?
+</I>&gt;<i>
+</I>&gt;<i> Are enhanced podcasts added correctly when adding the single downloaded
+</I>&gt;<i> file from the feed (m4a) using gtkpod?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071230/c59ae95b/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071230/c59ae95b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000995.html">[gpodder-devel] iPod touch update
+</A></li>
+	<LI>Next message: <A HREF="001006.html">[gpodder-devel] iPod touch update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#999">[ date ]</a>
+              <a href="thread.html#999">[ thread ]</a>
+              <a href="subject.html#999">[ subject ]</a>
+              <a href="author.html#999">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

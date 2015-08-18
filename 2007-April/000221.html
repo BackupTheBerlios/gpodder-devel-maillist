@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [PATCH] GUID matching.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20GUID%20matching.&In-Reply-To=%3C1175883140.11172.19.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000220.html">
+   <LINK REL="Next"  HREF="000222.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [PATCH] GUID matching.</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20GUID%20matching.&In-Reply-To=%3C1175883140.11172.19.camel%40macbook%3E"
+       TITLE="[gpodder-devel] [PATCH] GUID matching.">thp at perli.net
+       </A><BR>
+    <I>Fri Apr  6 20:12:19 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000220.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+        <LI>Next message: <A HREF="000222.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#221">[ date ]</a>
+              <a href="thread.html#221">[ thread ]</a>
+              <a href="subject.html#221">[ subject ]</a>
+              <a href="author.html#221">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Jon!
+
+On Fri, 2007-04-06 at 12:48 -0500, Jon wrote:
+&gt;<i> I was able to find a podcast without the guid...it went horribly
+</I>&gt;<i> wrong. It downloaded the podcast, then showed all podcasts as
+</I>&gt;<i> downloaded but it couldn't find the file to play it.
+</I>&gt;<i> 
+</I>&gt;<i> This one checks for guid first, then falls back the the url.  This one
+</I>&gt;<i> will only break previous downloads that have a guid tag.
+</I>
+Breaking previous downloads is not a good thing, so I've implemented
+another way to circumvent the GUID problem. I haven't tested this
+throughout, but short tests with my local test podcast have worked (i.e.
+gpodder now ignores new episodes with the same GUID as
+already-downloaded episodes).
+
+Please test the current svn trunk head and tell me if this fixes your
+problems :)
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000220.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+	<LI>Next message: <A HREF="000222.html">[gpodder-devel] [PATCH] GUID matching.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#221">[ date ]</a>
+              <a href="thread.html#221">[ thread ]</a>
+              <a href="subject.html#221">[ subject ]</a>
+              <a href="author.html#221">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

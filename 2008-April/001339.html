@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] error with sync renaming
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20error%20with%20sync%20renaming&In-Reply-To=%3C1207259878.30457.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001337.html">
+   <LINK REL="Next"  HREF="001343.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] error with sync renaming</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20error%20with%20sync%20renaming&In-Reply-To=%3C1207259878.30457.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] error with sync renaming">thp at perli.net
+       </A><BR>
+    <I>Thu Apr  3 23:57:58 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001337.html">[gpodder-devel] error with sync renaming
+</A></li>
+        <LI>Next message: <A HREF="001343.html">[gpodder-devel] error with sync renaming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1339">[ date ]</a>
+              <a href="thread.html#1339">[ thread ]</a>
+              <a href="subject.html#1339">[ subject ]</a>
+              <a href="author.html#1339">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Bernd!
+
+On Thu, 2008-04-03 at 22:12 +0200, Bernd wrote:
+&gt;<i> I have this feed: <A HREF="http://feeds.feedburner.com/OTN_TechCasts">http://feeds.feedburner.com/OTN_TechCasts</A>
+</I>&gt;<i> There are two episodes:
+</I>&gt;<i>  - The Rich Get Richer: Oracle ADF Faces Rich Client (Part 1)
+</I>&gt;<i>  - The Rich Get Richer: Oracle ADF Faces Rich Client (Part 2)
+</I>&gt;<i> 
+</I>&gt;<i> Both of them are renamed to the same filename on my filebased
+</I>&gt;<i> mp3-player
+</I>&gt;<i>  - The Rich Get Richer_ Oracle ADF Faces Rich Client .mp3
+</I>
+That's my fault ;) I've chosen some unintelligent arbitrary limit of 50
+characters to make sure the file names don't grow endlessly long.
+
+According to [1], file names on FAT32 volumes can be up to 255
+characters long, although I also seem to remember reading somewhere that
+that's with the leading parts of the filename (i.e. the directory
+names). What about increasing the filename length to 200, to leave some
+room for the file extension and the leading directory?
+
+[1] <A HREF="http://en.wikipedia.org/wiki/Comparison_of_file_systems">http://en.wikipedia.org/wiki/Comparison_of_file_systems</A>
+
+&gt;<i> I think the problem is clear now. Two files copied with the same
+</I>&gt;<i> filename result in only one file I tried to create a bug on
+</I>&gt;<i> <A HREF="http://bugs.gpodder.org">http://bugs.gpodder.org</A> but there is an error if you try to create a
+</I>&gt;<i> new bug :-(
+</I>
+Paul: Can you please have a look at the bug tracker and see if there's
+something that isn't working?
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001337.html">[gpodder-devel] error with sync renaming
+</A></li>
+	<LI>Next message: <A HREF="001343.html">[gpodder-devel] error with sync renaming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1339">[ date ]</a>
+              <a href="thread.html#1339">[ thread ]</a>
+              <a href="subject.html#1339">[ subject ]</a>
+              <a href="author.html#1339">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

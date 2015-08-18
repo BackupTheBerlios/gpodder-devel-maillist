@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Tagging
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Tagging&In-Reply-To=%3C20091124222951.GC29664%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002325.html">
+   <LINK REL="Next"  HREF="002326.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Tagging</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Tagging&In-Reply-To=%3C20091124222951.GC29664%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] Tagging">thp at gpodder.org
+       </A><BR>
+    <I>Tue Nov 24 23:29:51 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002325.html">[gpodder-devel] Tagging
+</A></li>
+        <LI>Next message: <A HREF="002326.html">[gpodder-devel] Usability hiccups
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2328">[ date ]</a>
+              <a href="thread.html#2328">[ thread ]</a>
+              <a href="subject.html#2328">[ subject ]</a>
+              <a href="author.html#2328">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Mon, Nov 23, 2009 at 07:20:37PM +0200, Ville-Pekka Vainio wrote:
+&gt;<i> ma, 2009-11-23 kello 16:56 +0000, Hilton Shumway kirjoitti:
+</I>&gt;<i> &gt; Using the download hook, as suggested in the bug report, would I
+</I>&gt;<i> &gt; believe get around the GPL's linking requirements, as they would be
+</I>&gt;<i> &gt; connected using bash.
+</I>&gt;<i> 
+</I>&gt;<i> Probably, but I think that's just ugly. The previous tagging code called
+</I>&gt;<i> some tagger binaries like that, so we'd basically be rewriting code
+</I>&gt;<i> which Thomas once removed. The suggestion to use the post-download hook
+</I>&gt;<i> was probably meant for end users. In my opinion, if we are to implement
+</I>&gt;<i> any tagging features, they should use a tagging library directly.
+</I>
+I guess it depends on the features of the tagging libraries. AFAIK
+mutagen is quite good at handling lots of different file types. We could
+add an additional command line utility (&quot;gpodder-update-tags&quot;?) that is
+licensed under the GPLv2 and uses mutagen. gPodder can then check at
+runtime if this utility is available and call it (again, passing the
+values via environment variables or some other means).
+
+I think this modular approach has its advantages, as we don't have to
+ship (and load!) every extension by default, but only use what we need.
+
+Or you could even write a D-Bus service that can update tags, and let
+gPodder utilize that :) Be aware this would lock out Windows users, as
+D-Bus is not supported in gPodder for Windows.
+
+(Or we wait until Tracker's writeback[1] support gets into distros, and
+just use that ;)
+
+HTH.
+
+Thomas
+
+[1] <A HREF="http://git.gnome.org/cgit/tracker/tree/src/tracker-writeback/tracker-writeback-mp3.c?h=writeback">http://git.gnome.org/cgit/tracker/tree/src/tracker-writeback/tracker-writeback-mp3.c?h=writeback</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002325.html">[gpodder-devel] Tagging
+</A></li>
+	<LI>Next message: <A HREF="002326.html">[gpodder-devel] Usability hiccups
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2328">[ date ]</a>
+              <a href="thread.html#2328">[ thread ]</a>
+              <a href="subject.html#2328">[ subject ]</a>
+              <a href="author.html#2328">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

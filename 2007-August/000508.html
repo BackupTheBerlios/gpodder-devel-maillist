@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hangs when trying to close the user-settings	dialog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hangs%20when%20trying%20to%20close%20the%20user-settings%0A%09dialog&In-Reply-To=%3C20070824113000.GL29725%40tiffy.tuxgeek.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000506.html">
+   <LINK REL="Next"  HREF="000509.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hangs when trying to close the user-settings	dialog</H1>
+    <B>Thorsten Scherf</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hangs%20when%20trying%20to%20close%20the%20user-settings%0A%09dialog&In-Reply-To=%3C20070824113000.GL29725%40tiffy.tuxgeek.de%3E"
+       TITLE="[gpodder-devel] Hangs when trying to close the user-settings	dialog">tscherf at redhat.com
+       </A><BR>
+    <I>Fri Aug 24 13:30:01 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000506.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+        <LI>Next message: <A HREF="000509.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#508">[ date ]</a>
+              <a href="thread.html#508">[ thread ]</a>
+              <a href="subject.html#508">[ subject ]</a>
+              <a href="author.html#508">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On [Fri, 24.08.2007 13:16], Thomas Perl wrote:
+&gt;<i>Hello, Thorsten and Bj&#248;rn!
+</I>&gt;<i>
+</I>&gt;<i>On Thu, 2007-08-23 at 12:01 +0200, Thorsten Scherf wrote:
+</I>&gt;&gt;<i> On [Wed, 22.08.2007 22:48], Bj&#248;rn Rasmussen wrote:
+</I>&gt;&gt;<i> &gt;Hangs when trying to close the user-settings dialog.  I cannot change the 
+</I>&gt;&gt;<i> &gt;user-settings from the gui.  Works if I do the changes in the gpodder.conf 
+</I>&gt;&gt;<i> &gt;file.  At the moment I click the Close button, the program hangs and the 
+</I>&gt;&gt;<i> &gt;process consumes all the available cpu power.
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> I have exactly the same problem with gpodder in F-7. In addition to
+</I>&gt;&gt;<i> this, I'm not able to delete files I downloaded before. The files will
+</I>&gt;&gt;<i> only get the Trash icon in the GUI but will never be deleted.
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> Any ideas on this?
+</I>&gt;<i>
+</I>&gt;<i>Can you please provide the output of running &quot;gpodder --verbose&quot; in a
+</I>&gt;<i>terminal and trying to reproduce the problem?
+</I>
+looks fine when deleting a file:
+
+Delete <A HREF="http://www.lostunlocked.de/podpress_trac/feed/58/0/lost321.mp3">http://www.lostunlocked.de/podpress_trac/feed/58/0/lost321.mp3</A>
+Setting localdb channel data
+deleteFilename:
+/home/tscherf/gpodder-downloads/392ae71409b9caf2afe61adafda80b15/b3106c0ec3e2875246b6420ddd850f00.mp3
+
+but I can still see the entry in the gpodder GUI with a trash symbol in
+the front.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000506.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+	<LI>Next message: <A HREF="000509.html">[gpodder-devel] Hangs when trying to close the	user-settings	dialog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#508">[ date ]</a>
+              <a href="thread.html#508">[ thread ]</a>
+              <a href="subject.html#508">[ subject ]</a>
+              <a href="author.html#508">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

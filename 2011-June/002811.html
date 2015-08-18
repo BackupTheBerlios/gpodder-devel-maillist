@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] improvements to handling of last-played position
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20improvements%20to%20handling%20of%20last-played%20position&In-Reply-To=%3CBANLkTinD4JbkhrEUXPyjppZJevU5RT7M8w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002810.html">
+   <LINK REL="Next"  HREF="002812.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] improvements to handling of last-played position</H1>
+    <B>Dov Feldstern</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20improvements%20to%20handling%20of%20last-played%20position&In-Reply-To=%3CBANLkTinD4JbkhrEUXPyjppZJevU5RT7M8w%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] improvements to handling of last-played position">dovdevel at gmail.com
+       </A><BR>
+    <I>Mon Jun 13 16:48:57 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002810.html">[gpodder-devel] iPodTouch always 'full'
+</A></li>
+        <LI>Next message: <A HREF="002812.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2811">[ date ]</a>
+              <a href="thread.html#2811">[ thread ]</a>
+              <a href="subject.html#2811">[ subject ]</a>
+              <a href="author.html#2811">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi!
+
+Ever since &quot;Science Friday&quot; switched to unsegmented episodes a few
+months back, I've been meaning to try and improve gpodder's handling
+of last-played position. I've been slowly working on various aspects
+of this, and while it's not yet complete, I figured that I'd report
+back on my progress so far.
+
+The purpose of this message is to provide an overview and put things
+in context, but I've also opened bug reports for some specific issues.
+
+I vaguely know that the 'tres' branch plans to have a
+built-in media player, which may make many of the issues that I'm
+raising here less crucial. However, I hope that 'tres' still allows
+using external media players as well (one of the things I really
+like about gpodder is its adherence to the &quot;unix philosophy&quot; of
+&quot;do one thing and do it well&quot;), in which case the points are
+still relevant.
+
+Just some background on my &quot;setup&quot;: I run gpodder on my (Linux) desktop
+and on my n900. On the desktop, currently, my media player of choice is VLC,
+on the n900 I play the media via the n900's native Media
+Player. The main use cases I'm interested in
+having support for are listening to part of an episode and stopping at
+at some point, and later resuming from the same point, possibly from
+a different machine.
+
+Basically, there are a few different issues which have to be dealt
+with in order to have good last-played position support:
+
+1. last-played position needs to be reported back from the player
+   when pausing/stopping.
+2. sync of last-played position via my.gpodder.net
+3. gpodder needs to tell the player to resume an episode from its
+   last-played position
+
+This is where things stand today, as far as I know:
+
+N900:
+ (1) works both with the default media player as well as with
+     panucci (I don't know what the situation is with any other
+     media players). However, about 1/3 of the time, gpodder
+     doesn't seem to register the end of an episode. My workaround
+     is to just play the last few (more than 5!) seconds again,
+     and usually the last-played position is then registered
+     correctly. Only now as I'm writing this up have I attempted
+     to look into this, and it appears that because the media player
+     cycles back to the beginning of the episode when the end is
+     reached, that gpodder is receiving a PlaybackStopped
+     notification about a segment starting at position x and ending
+     at position 0. I'm not sure whether or how gpodder can deal
+     with this, in any case, I've opened
+<A HREF="https://bugs.maemo.org/show_bug.cgi?id=12262">https://bugs.maemo.org/show_bug.cgi?id=12262</A>
+     for tracking this.
+ (2) works well, but see detailed discussion of this point later on.
+ (3) works flawlessly for me with the default media player. I believe
+     that this is acheived by gpodder telling the media player
+     where to resume using mafw's D-Bus API, so this solution is
+     specific to the n900/mafw.
+
+Desktop (Linux):
+
+As I've mentioned, VLC is currently my media player of choice. I've
+tried using panucci, but there are some features which I use regularly
+which panucci doesn't have (e.g., application-specific volume control).
+So most of what I discuss here is relevant to VLC (and probably most
+media players), though I will also discuss how panucci fits in in some
+cases.
+
+ (1) Only panucci reports back the last-played position using gpodder's
+     Media Player D-Bus API. I've started looking into writing a VLC
+     plugin to do this, and it actually looks like it shouldn't be very
+     difficult, but I'm new to VLC and the going is slow... So for now,
+     the only &quot;last-played&quot; information available to gpodder on the
+     desktop is that coming from my.gpodder.net. However, that's good
+     enough for discussing some further points.
+ (2) Sync of last-played information with my.gpodder.net seems to work
+     well, though there are a few issues:
+     - On my desktop, unlike on my n900, I set gpodder to
+       automatically delete old played episodes. Now, I have a backlog
+       of episodes, so it often happens that I start listening to an
+       episode after a few days, at which time it is already &quot;old&quot;.
+       The problem is, if I've started playing it on the n900, and
+       stopped somewhere in the middle, it is already marked as &quot;played&quot;,
+       and therefore when I startup gpodder on my desktop it syncs,
+       receives the information that the event has been played, and
+       immediately deletes it (again, if it's old enough, which it often
+       is). My suggested solution is to have a preference setting to
+       allow specifying whether or not &quot;played but unfinished&quot; events
+       should be deleted. I Opened <A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1363">https://bugs.gpodder.org/show_bug.cgi?id=1363</A>
+       for this, with an initial patch.
+     - Although the sync works and last-played position is received,
+       the desktop GUI doesn't provide any feedback about last-played
+       position. Such feedback would be very helpful even just by itself
+       (even if I don't have any resume support, I could still manually
+       move to the last played position when I start listening); and
+       also makes it easier to understand what's going on when extending
+       the support. I've opened <A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1364">https://bugs.gpodder.org/show_bug.cgi?id=1364</A>
+       for this, again with some patches (they're very basic: they're
+       functional, but not very &quot;pretty&quot; in terms of the GUI-design).
+    Once this information is visible, I've noticed a few more issues:
+    - It seems that the desktop is not immediately receiving the desired
+      information: in other words, I'd get home while listening to an
+      episode, sync my n900 with my.gpodder.net, then sync my desktop
+      with my.gpodder.net, but the episode I'd been listening to wouldn't
+      be synced, even though the action was already visible on the Web
+      Service. Only after a couple of hours would that information be
+      received. After investigating, it turned out that there's a bug
+      where gpodder is sending action updates with the local time, rather
+      than with UTC time, as required by the API. So first of all, I've
+      added a patch which fixes this to the existing bug report
+      <A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1036">https://bugs.gpodder.org/show_bug.cgi?id=1036</A> against gpodder
+      (though I can't seem to reopen it myself). Secondly, I'm wondering
+      whether it may not make sense for the Web Service to be more
+      tolerant of this (same as the Web UI is)? Should I open an issue
+      against the web service for this?
+    - A related issue: I'm not clear enough about when actions are synced
+      to the web service. It's less of an issue with the desktop, which
+      is always connected, but with the n900, when does a sync happen?
+      Does it happen at startup, even if I don't check for new episodes?
+      What if gpodder was started while I wasn't connected, will a sync
+      happen as soon as a network becomes available? Perhaps it would be
+      nice to have an explicit button for syncing with my.gpodder.net,
+      separately from episode updates (I've been assuming that certainly
+      when I check for new episodes then a sync will happen, but is this
+      in fact true?).
+ (3) Support for resuming at last-played position, as far as I can tell,
+     does not exist at all on the desktop. Even with panucci, where this
+     appears to work, it's actaully panucci which is remembering the
+     last played position. So if, for example, I start listening on my
+     n900, sync so that the desktop gpodder knows that I've listened
+     until position x, and then try to resume from my desktop gpodder
+     via panucci, it will start at the beginning again.
+     There's actually an existing this
+(<A HREF="https://bugs.gpodder.org/show_bug.cgi?id=1140">https://bugs.gpodder.org/show_bug.cgi?id=1140</A>).
+     I've added a very initial patch there, which allows for providing
+     a start position on a custom command line. It works for me with VLC
+     (though things get more complicated when combining it with
+     enqueueing, or starting multiple episodes at once). So for me the
+     patch is useful even in its current form (and is totally optional),
+     but it's not yet complete. I wonder if anyone has any thoughts on
+     other ways to acheive &quot;resume&quot; functionality in a fairly generic
+     way...
+
+One additional idea I've had, and am interested in hearing feedback, is
+to create a standalone application which would stand between gpodder
+and the media players, would talk with gpodder via the Media Player
+D-Bus API and the command line, and then talk with different media
+players via their own APIs. That would allow gpodder to have only
+simple, generic, APIs, and move the complexity of dealing with
+different media players to a separate, isolated, layer. Any thoughts?
+
+Anyhow, this was rather long, but I'd be happy to hear any feedback, and
+I hope that the patches which are mature enough can be applied as is.
+
+Thanks!
+Dov
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002810.html">[gpodder-devel] iPodTouch always 'full'
+</A></li>
+	<LI>Next message: <A HREF="002812.html">[gpodder-devel] improvements to handling of last-played position
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2811">[ date ]</a>
+              <a href="thread.html#2811">[ thread ]</a>
+              <a href="subject.html#2811">[ subject ]</a>
+              <a href="author.html#2811">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [Patch] gpodder --stats
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPatch%5D%20gpodder%20--stats&In-Reply-To=%3C26dfdbc50805260945i79634417t71d645bcc79222a5%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001460.html">
+   <LINK REL="Next"  HREF="001483.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [Patch] gpodder --stats</H1>
+    <B>Leonid Ponomarev</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPatch%5D%20gpodder%20--stats&In-Reply-To=%3C26dfdbc50805260945i79634417t71d645bcc79222a5%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] [Patch] gpodder --stats">leonid.phoenix at gmail.com
+       </A><BR>
+    <I>Mon May 26 18:45:04 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001460.html">[gpodder-devel] [Patch] gpodder --stats
+</A></li>
+        <LI>Next message: <A HREF="001483.html">[gpodder-devel] [Patch] gpodder --stats
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1477">[ date ]</a>
+              <a href="thread.html#1477">[ thread ]</a>
+              <a href="subject.html#1477">[ subject ]</a>
+              <a href="author.html#1477">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Did you forget to attach the patch?
+2008/5/24, Leonid Ponomarev &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">leonid.phoenix at gmail.com</A>&gt;:
+&gt;<i> Thanks to your attention, I'll check your patch asap, tomorrow or in monday.
+</I>&gt;<i>  2008/5/24, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt;:
+</I>&gt;<i>
+</I>&gt;<i> &gt; Hello!
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  On Fri, 2008-05-23 at 02:30 +0600, Leonid Ponomarev wrote:
+</I>&gt;<i>  &gt;  &gt; attached patch provide some sync statistics functionality to gpodder,
+</I>&gt;<i>  &gt;  &gt; use gpodder -S or gpodder --stats.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Thanks. As this is quite a small patch and isn't as intrusive as the
+</I>&gt;<i>  &gt;  other one, I've fixed it up a bit and am attaching it to this mail for
+</I>&gt;<i>  &gt;  you to have a look at. You might want to open a bug report and attach
+</I>&gt;<i>  &gt;  the patch there, so we can have the discussion about the patch and
+</I>&gt;<i>  &gt;  possible changes in there.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  I've also added support for iPods :)
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  &gt; Maybe there's a place for it in gui too. Maybe there's a need to make
+</I>&gt;<i>  &gt;  &gt; corresponding checks before each sync.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Yes, that would be very helpful, possibly also offering the user to
+</I>&gt;<i>  &gt;  delete old episodes from the device (I imagine a simply
+</I>&gt;<i>  &gt;  show_confirmation asking the user to delete episodes before syncing
+</I>&gt;<i>  &gt;  should do the trick). It should not be too hard to implement, simply
+</I>&gt;<i>  &gt;  move the code for calculating the sync size to podcastChannel in
+</I>&gt;<i>  &gt;  libpodcasts, the code for calculating the free disk space is already in
+</I>&gt;<i>  &gt;  the gpodder.sync module. Then, the check can be a simple
+</I>&gt;<i>  &gt;  &quot;channel.get_sync_size() &lt;= device.get_free_diskspace()&quot; or so.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  &gt; New function sync_stats return true or false depending on whether
+</I>&gt;<i>  &gt;  &gt; there's enough space on device to sync all suitable episodes.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Maybe we should change the naming of these functions. It's not really
+</I>&gt;<i>  &gt;  &quot;sync stats&quot; but &quot;sync free diskspace check&quot; or something like that.
+</I>&gt;<i>  &gt;  Maybe &quot;sync disk usage&quot; would be nice, and we should be able to
+</I>&gt;<i>  &gt;  determine the used disk space for a device, because we can get the files
+</I>&gt;<i>  &gt;  and their sizes and calculate the used disk space there.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  Looking forward to your improved patch, it looks really promising!
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  Thanks,
+</I>&gt;<i>  &gt;  Thomas
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;  _______________________________________________
+</I>&gt;<i>  &gt;  gpodder-devel mailing list
+</I>&gt;<i>  &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>  &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>  &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>  Best regards,
+</I>&gt;<i>  Leonid &quot;PhoeniX&quot; Ponomarev
+</I>&gt;<i>  Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Leonid.phoenix at gmail.com</A>
+</I>&gt;<i>
+</I>
+
+-- 
+Best regards,
+Leonid &quot;PhoeniX&quot; Ponomarev
+Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Leonid.phoenix at gmail.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001460.html">[gpodder-devel] [Patch] gpodder --stats
+</A></li>
+	<LI>Next message: <A HREF="001483.html">[gpodder-devel] [Patch] gpodder --stats
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1477">[ date ]</a>
+              <a href="thread.html#1477">[ thread ]</a>
+              <a href="subject.html#1477">[ subject ]</a>
+              <a href="author.html#1477">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

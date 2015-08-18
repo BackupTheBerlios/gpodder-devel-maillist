@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Uploading to iPod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Uploading%20to%20iPod&In-Reply-To=%3C1749bded0801090721j482f6556lc2cefc14afdf791d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001042.html">
+   <LINK REL="Next"  HREF="001041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Uploading to iPod</H1>
+    <B>FriedBunny</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Uploading%20to%20iPod&In-Reply-To=%3C1749bded0801090721j482f6556lc2cefc14afdf791d%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Uploading to iPod">friedbunny at kulturny.com
+       </A><BR>
+    <I>Wed Jan  9 16:21:22 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001042.html">[gpodder-devel] Uploading to iPod
+</A></li>
+        <LI>Next message: <A HREF="001041.html">[gpodder-devel] FWD:RE:Re:  gPodder + Tray Icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1044">[ date ]</a>
+              <a href="thread.html#1044">[ thread ]</a>
+              <a href="subject.html#1044">[ subject ]</a>
+              <a href="author.html#1044">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Jan 9, 2008 6:40 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i> Hello!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> hex wrote:
+</I>&gt;<i> &gt; Is everything fine with the iPod synchronization?  I tried uploading a
+</I>&gt;<i> &gt; few podcasts to a new iPod Nano (3G) and gPodder damaged the database,
+</I>&gt;<i> &gt; no files were available.  I had to connect the iPod again and launch
+</I>&gt;<i> &gt; gtkpod, which &quot;healed&quot;  iTunesDB.  That might be a strange coincidence,
+</I>&gt;<i> &gt; but I'm reporting it, just in case.
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your bug report. Unfortunately, I don't have a 3g iPod nano
+</I>&gt;<i> here, so I can't test if this bug exists. Can you reliably reproduce
+</I>&gt;<i> this bug or did it just happen once and now everything is okay?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+I've found that a similar thing happens to my 1g nano: Sometimes
+podcasts won't be transferred properly and, even though they appear in
+the database, aren't playable through the ipod's menu. Deleting the
+file from the ipod and then reloading it again seems to fix the issue
+most of the time.
+
+Rarely, the entire podcast menu will be blank -- loading gtkpod will
+repair the problem.
+
+I've tried to isolate the issues. Loading gtkpod after syncing with
+gpodder seems to cause problems, though I'm unsure to what extent.
+Ejecting the ipod after syncing with gpodder, then remounting and
+using gtkpod seems to be alright.
+
+Also, it seems that no matter what, gtkpod will always consider the
+database to be corrupt after gpodder synchronization. (It says the
+hashes don't match and then proceeds to rehash everything... I think.)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001042.html">[gpodder-devel] Uploading to iPod
+</A></li>
+	<LI>Next message: <A HREF="001041.html">[gpodder-devel] FWD:RE:Re:  gPodder + Tray Icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1044">[ date ]</a>
+              <a href="thread.html#1044">[ thread ]</a>
+              <a href="subject.html#1044">[ subject ]</a>
+              <a href="author.html#1044">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

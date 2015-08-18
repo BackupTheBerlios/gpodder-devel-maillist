@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] The new iPods?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20The%20new%20iPods%3F&In-Reply-To=%3C1190060380.27848.29.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000584.html">
+   <LINK REL="Next"  HREF="000591.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] The new iPods?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20The%20new%20iPods%3F&In-Reply-To=%3C1190060380.27848.29.camel%40macbook%3E"
+       TITLE="[gpodder-devel] The new iPods?">thp at perli.net
+       </A><BR>
+    <I>Mon Sep 17 22:19:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000584.html">[gpodder-devel] The new iPods?
+</A></li>
+        <LI>Next message: <A HREF="000591.html">[gpodder-devel] The new iPods?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#585">[ date ]</a>
+              <a href="thread.html#585">[ thread ]</a>
+              <a href="subject.html#585">[ subject ]</a>
+              <a href="author.html#585">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+On Mon, 2007-09-17 at 21:59 +0200, Pieter De Decker wrote:
+&gt;<i> You might want to read these articles:
+</I>&gt;<i> <A HREF="http://cybernetnews.com/2007/09/17/new-ipods-dont-support-linux-and-winamp/">http://cybernetnews.com/2007/09/17/new-ipods-dont-support-linux-and-winamp/</A>
+</I>&gt;<i> <A HREF="http://ipodminusitunes.blogspot.com/2007/09/weve-won.html">http://ipodminusitunes.blogspot.com/2007/09/weve-won.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> It appears that Apple tries to prevent Linux users from accessing
+</I>&gt;<i> their iPod. Hackers found a way around the Linux block though. Will
+</I>&gt;<i> this hack allow me to access the new iPods with gPodder? 
+</I>
+gPodder uses libgpod (or more exactly, gpod's Python bindings) to access
+the iPod. As soon as libgpod supports the checksum generation (from what
+I just read on the 'net, it's just a matter of querying a device ID
+[using libusb, maybe??] and then generating a checksum of it and writing
+it to the iTunesDB).
+
+For now, you should be able to normally use gPodder and then follow the
+manual procedure found here: <A HREF="http://www.backdot.com/?p=50">http://www.backdot.com/?p=50</A>
+
+As soon as the libgpod guys implement the checksum generating code in
+their library (and distributions ship new libgpod versions, etc..),
+gPodder should work with the new iPods just as well as it does with the
+older iPods.
+
+You can always ask about when the checksum generating code will be ready
+on the gtkpod/libgpod development mailing lists, the URLs and addresses
+can be found on this page: <A HREF="http://www.gtkpod.org/contact.html">http://www.gtkpod.org/contact.html</A>
+
+I'm still happily using my several years old iPod mini, without
+problems :)
+
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000584.html">[gpodder-devel] The new iPods?
+</A></li>
+	<LI>Next message: <A HREF="000591.html">[gpodder-devel] The new iPods?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#585">[ date ]</a>
+              <a href="thread.html#585">[ thread ]</a>
+              <a href="subject.html#585">[ subject ]</a>
+              <a href="author.html#585">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

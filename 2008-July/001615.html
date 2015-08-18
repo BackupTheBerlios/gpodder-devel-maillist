@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Is it possible to define a default set of	feeds	for all users on a system?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Is%20it%20possible%20to%20define%20a%20default%20set%20of%09feeds%0A%09for%20all%20users%20on%20a%20system%3F&In-Reply-To=%3C1215462901.7808.6.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001614.html">
+   <LINK REL="Next"  HREF="001616.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Is it possible to define a default set of	feeds	for all users on a system?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Is%20it%20possible%20to%20define%20a%20default%20set%20of%09feeds%0A%09for%20all%20users%20on%20a%20system%3F&In-Reply-To=%3C1215462901.7808.6.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Is it possible to define a default set of	feeds	for all users on a system?">thp at perli.net
+       </A><BR>
+    <I>Mon Jul  7 22:35:01 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001614.html">[gpodder-devel] Is it possible to define a default set of feeds	for all users on a system?
+</A></li>
+        <LI>Next message: <A HREF="001616.html">[gpodder-devel] Is it possible to define a default set of feeds	for all users on a system?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1615">[ date ]</a>
+              <a href="thread.html#1615">[ thread ]</a>
+              <a href="subject.html#1615">[ subject ]</a>
+              <a href="author.html#1615">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jeff!
+
+On Mon, 2008-07-07 at 12:23 -0800, Jeff Spaleta wrote:
+&gt;<i> On Thu, Jul 3, 2008 at 2:13 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+</I>&gt;<i> &gt; I think the easiest way is to patch the default value for the
+</I>&gt;<i> &quot;opml_url&quot;
+</I>&gt;<i> &gt; configuration variable in &quot;src/gpodder/config.py&quot; (it's currently
+</I>&gt;<i> set to
+</I>&gt;<i> &gt; directory.opml on gpodder.org). This way, no big changes need to be
+</I>&gt;<i> &gt; done, and Fedora users will get a list of fedora-specific podcasts
+</I>&gt;<i> &gt; listed.
+</I>&gt;<i> 
+</I>&gt;<i> I was looking for a way to pre-populate
+</I>&gt;<i> ~/.config./gpodder/channels.opml with an initial channel definition.
+</I>&gt;<i> So any new installs of gpodder on a f10 system would result in the
+</I>&gt;<i> Fedora TV feed being as easily found as possible...and easily deleted
+</I>&gt;<i> if not wanted.
+</I>
+Maybe we should install a default &quot;channels.opml&quot; file in,
+say, /usr/share/gpodder/, which will be used as default if no
+channels.opml exists. This can be an empty list in stock gPodder and
+distributions can then easily exchange that single file in their
+packages with a distribution-specific channel list.
+
+What do you think?
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001614.html">[gpodder-devel] Is it possible to define a default set of feeds	for all users on a system?
+</A></li>
+	<LI>Next message: <A HREF="001616.html">[gpodder-devel] Is it possible to define a default set of feeds	for all users on a system?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1615">[ date ]</a>
+              <a href="thread.html#1615">[ thread ]</a>
+              <a href="subject.html#1615">[ subject ]</a>
+              <a href="author.html#1615">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

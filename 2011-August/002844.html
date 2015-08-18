@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Woodchuck patches: woodchuck integration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Woodchuck%20patches%3A%20woodchuck%20integration&In-Reply-To=%3C20110803100008.GE26052%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002843.html">
+   <LINK REL="Next"  HREF="002849.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Woodchuck patches: woodchuck integration</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Woodchuck%20patches%3A%20woodchuck%20integration&In-Reply-To=%3C20110803100008.GE26052%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] Woodchuck patches: woodchuck integration">thp at gpodder.org
+       </A><BR>
+    <I>Wed Aug  3 12:00:08 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002843.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+        <LI>Next message: <A HREF="002849.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2844">[ date ]</a>
+              <a href="thread.html#2844">[ thread ]</a>
+              <a href="subject.html#2844">[ subject ]</a>
+              <a href="author.html#2844">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Tue, Aug 02, 2011 at 04:50:22PM +0200, Neal H. Walfield wrote:
+&gt;<i> This patch modifies the gtk frontend to implement the first of these
+</I>&gt;<i> two callbacks.  It turns out this was surprisingly easy.  If this
+</I>&gt;<i> approach is acceptable, I'll modify the other frontends similarly.
+</I>&gt;<i> [...]
+</I>&gt;<i> <A HREF="http://hssl.cs.jhu.edu/~neal/woodchuck/ports/gpodder/commits/36a4a3bf90c3036a99c9bfaa938dd5cd0127024b">http://hssl.cs.jhu.edu/~neal/woodchuck/ports/gpodder/commits/36a4a3bf90c3036a99c9bfaa938dd5cd0127024b</A>
+</I>
+Thanks, some feedback:
+
+ * The &quot;woodchuck&quot; module should go in src/gpodder/plugins/
+ * The DEFAULT_PLUGINS in src/gpodder/__init__.py should be modified
+   accordingly
+ * What's the purpose of &quot;mainthread.py&quot;? It's not documented :/
+ * Please remove the shebang line (#!/usr/bin/env python2.5) in
+   mainthread.py (if you want to run it, you can use &quot;python -m
+   gpodder.mainthread&quot;) - also, don't hardcode python2.5
+ * Constants (like refresh_interval in woodchuck.py) should be uppercase
+ * The &quot;config&quot; object is never used in mywoodchuck - is it really
+   necessary to pass this object through? (if so, why?)
+ * The extracting of a single podcast channel via URL is done multiple
+   times in mywoodchuck's code. Better write a get_podcast(url) function
+   that will take care of the filtering and logging of the warning,
+   returning None when the podcast channel is not found
+ * The same is probably true for get_episode(podcast, url), where the
+   first argument is already a podcast channel object and the second is
+   the URL of the episode (+returning None, etc)
+ * For episodes, the unique identifier should be the GUID, because it
+   might be possible that feeds publish different items at the same URL
+   (yes, this is very crappy, but it has happened before..)
+ * The changes support that you implemented in the model is only used
+   for the code in on_podcast_save? If so, what's the problem with
+   unconditionally copying the title to the human_readable_name (or
+   adding a hook for on_podcast_title_changed). The same is for
+   on_podcast_url_changed - there are only a few cases (HTTP redirect
+   and after gpodder.net subscription uploads) where the URL of a
+   podcast really changes in gPodder.
+ * In the any statements, if you don't use list comprehension, but
+   rather a generator expression, it might perform better - any can stop
+   after the first positive result, the list comprehension builds a list
+   of booleans and then any uses this list to determine its result. Just
+   leaving out the square brackets should do the trick :)
+ * Please adhere to PEP-8[1] where possible. Don't add spaces after
+   function names (NOT: self.auto_download (stream, obj)).
+ * You can probably shrink the length of &quot;check_subscriptions&quot; by using
+   set() and its functions difference() and intersection().
+ * For idle_add, maybe you want to use gpodder.util.idle_add? ;)
+
+HTH :)
+
+Thanks,
+Thomas
+
+[1] <A HREF="http://www.python.org/dev/peps/pep-0008/">http://www.python.org/dev/peps/pep-0008/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002843.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+	<LI>Next message: <A HREF="002849.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2844">[ date ]</a>
+              <a href="thread.html#2844">[ thread ]</a>
+              <a href="subject.html#2844">[ subject ]</a>
+              <a href="author.html#2844">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

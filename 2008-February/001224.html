@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Proposition: progress bar on the tray icon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposition%3A%20progress%20bar%20on%20the%20tray%20icon&In-Reply-To=%3C1203857715.6316.11.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001223.html">
+   <LINK REL="Next"  HREF="001219.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Proposition: progress bar on the tray icon</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposition%3A%20progress%20bar%20on%20the%20tray%20icon&In-Reply-To=%3C1203857715.6316.11.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Proposition: progress bar on the tray icon">thp at perli.net
+       </A><BR>
+    <I>Sun Feb 24 13:55:15 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001223.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+        <LI>Next message: <A HREF="001219.html">[gpodder-devel] Invalid feed: can gPodder handle it?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1224">[ date ]</a>
+              <a href="thread.html#1224">[ thread ]</a>
+              <a href="subject.html#1224">[ subject ]</a>
+              <a href="author.html#1224">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, &#65279;J&#233;r&#244;me!
+
+On Sat, 2008-02-23 at 16:12 +0100, J&#233;r&#244;me Chabod wrote:
+&gt;<i> It works fine. 
+</I>
+Ok, I'll apply it, then :)
+
+&gt;<i> However, I notice pourcentage calculation is not accurate enougth when
+</I>&gt;<i> episodes size is very different, because it is base on the average
+</I>&gt;<i> pecentage of downloading episodes. It should rather be based on ratio
+</I>&gt;<i> total volume done/ total volume remaining (it would also fix the
+</I>&gt;<i> problem with cancelled episode). 
+</I>
+For that, we have to know the file size of each episode before the
+download. This works for most podcast feeds, but doesn't work for some
+others. The solution to this problem would be:
+
+<A HREF="http://bugs.gpodder.org/show_bug.cgi?id=24">http://bugs.gpodder.org/show_bug.cgi?id=24</A>
+
+which depends on the SQLite-based storage method:
+
+<A HREF="http://bugs.gpodder.org/show_bug.cgi?id=12">http://bugs.gpodder.org/show_bug.cgi?id=12</A>
+
+After we have that, we should be able to determine the file size of
+every episode regardless of the contents of the RSS feed's &quot;length&quot;
+attribute of the &quot;enclosure&quot; element. We should then be able to use the
+file size as a way of determining the &quot;bytes done&quot; and &quot;bytes todo&quot;
+values of our downloads.
+
+&gt;<i> Have a try: allow only one episode in the queue, and start dowloading
+</I>&gt;<i> a small episode then a big one. The percentage will go very quick from
+</I>&gt;<i> 0 to 50% then very slow from 50 to 100%. The effect on progress bar is
+</I>&gt;<i> not very nice, and the estimated remaining time completly incorrect
+</I>&gt;<i> 
+</I>&gt;<i> I you agree, I can try to fix it.
+</I>
+I agree ;) I think it would be best to file a new bug and let it depend
+on bug #24. Of course, that's just my proposal, so if you have any other
+idea how this could be implemented so that it works even for queued
+(i.e. not yet started) downloads and for RSS feeds with missing or
+invalid &quot;length&quot; field, that's fine, too :)
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001223.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+	<LI>Next message: <A HREF="001219.html">[gpodder-devel] Invalid feed: can gPodder handle it?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1224">[ date ]</a>
+              <a href="thread.html#1224">[ thread ]</a>
+              <a href="subject.html#1224">[ subject ]</a>
+              <a href="author.html#1224">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

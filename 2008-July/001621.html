@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Most revision buggy?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C224842.47322.qm%40web65510.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001638.html">
+   <LINK REL="Next"  HREF="001622.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Most revision buggy?</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C224842.47322.qm%40web65510.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Most revision buggy?">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sun Jul 13 20:18:53 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001638.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+        <LI>Next message: <A HREF="001622.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1621">[ date ]</a>
+              <a href="thread.html#1621">[ thread ]</a>
+              <a href="subject.html#1621">[ subject ]</a>
+              <a href="author.html#1621">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I updated to the latest SVN version of gpodder and I am experiencing some hickups:
+
+1. gpodder doesn't start, but gives a syntax error in draw.py, line 47: offset = 0.5 if close else 0
+
+I 'patched' using some ugly code, because I'm unfamiliar with Python syntax.
+
+2. Now gpodder starts, but when I try to sync an episode, I get:
+
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 1695, in sync_to_ipod_thread
+    if not device.episode_on_device(episode):
+  File &quot;/home/rooijen/gpodder/src/gpodder/sync.py&quot;, line 598, in episode_on_device
+    return self.__track_on_device(e)
+AttributeError: 'MP3PlayerDevice' object has no attribute '_MP3PlayerDevice__track_on_device'
+
+Exception in thread Thread-714:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 1695, in sync_to_ipod_thread
+    if not device.episode_on_device(episode):
+  File &quot;/home/rooijen/gpodder/src/gpodder/sync.py&quot;, line 598, in episode_on_device
+    return self.__track_on_device(e)
+AttributeError: 'MP3PlayerDevice' object has no attribute '_MP3PlayerDevice__track_on_device'
+
+I don't know what this means :-)).
+
+Cheerio,
+Wilfred
+
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001638.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+	<LI>Next message: <A HREF="001622.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1621">[ date ]</a>
+              <a href="thread.html#1621">[ thread ]</a>
+              <a href="subject.html#1621">[ subject ]</a>
+              <a href="author.html#1621">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

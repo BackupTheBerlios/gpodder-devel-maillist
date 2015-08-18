@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Different episodes from the same channel,	ends	up as the same file with different headings
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Different%20episodes%20from%20the%20same%20channel%2C%0A%09ends%09up%20as%20the%20same%20file%20with%20different%20headings&In-Reply-To=%3C1188021219.4866.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000501.html">
+   <LINK REL="Next"  HREF="000511.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Different episodes from the same channel,	ends	up as the same file with different headings</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Different%20episodes%20from%20the%20same%20channel%2C%0A%09ends%09up%20as%20the%20same%20file%20with%20different%20headings&In-Reply-To=%3C1188021219.4866.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Different episodes from the same channel,	ends	up as the same file with different headings">thp at perli.net
+       </A><BR>
+    <I>Sat Aug 25 07:53:39 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000501.html">[gpodder-devel] Different episodes from the same channel,	ends up as the same file with different headings
+</A></li>
+        <LI>Next message: <A HREF="000511.html">[gpodder-devel] gPodder companion php progie.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#510">[ date ]</a>
+              <a href="thread.html#510">[ thread ]</a>
+              <a href="subject.html#510">[ subject ]</a>
+              <a href="author.html#510">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Bj&#248;rn!
+
+On Wed, 2007-08-22 at 22:58 +0200, Bj&#248;rn Rasmussen wrote:
+&gt;<i> When I download multiple episodes from the same channel, most of them
+</I>&gt;<i> ends up as the same mp3 file, but with correct titles/headings.  It's
+</I>&gt;<i> not likely that this problem is caused by the channel.  It's the most
+</I>&gt;<i> importent radiostation in Norway.  If its caused by the station, you
+</I>&gt;<i> should also get the same problem.  You can try subscribing to 
+</I>&gt;<i> <A HREF="http://podkast.nrk.no/program/saann_er_livet.rss">http://podkast.nrk.no/program/saann_er_livet.rss</A> for example.
+</I>
+What do you mean with &quot;most of them ends up as the same mp3 file&quot;? Are
+they saved to one file, essentially overwriting each other on downloads?
+How can they have the correct titles/headings then?
+
+&gt;<i> I've running gpodder 0.9.4, installed from the newest Fedora 7 rpm.
+</I>&gt;<i> 
+</I>&gt;<i> I've tried to remove all gpodder related files from the users
+</I>&gt;<i> homedirectory, before I removed the package (because it whas an
+</I>&gt;<i> upgraded version) and reinstalled it again.  All other Fedora packages
+</I>&gt;<i> are the newest.
+</I>
+Maybe you mean the MD5-summed filenames look strange to you? gPodder
+uses directory names and file names that look like
+&quot;f8eda9e8d18cee72ac3105096bdd9568&quot; or
+&quot;a961d6c6e6b0993617f1b3282439009e.mp3&quot; (that's the NRK P2 podcast and
+its newest episode). If you want to have better names, you can use the
+&quot;sync&quot; feature of gPodder to do a one-way sync of your podcasts to a
+local directory (filesystem-based MP3 player is the option in question).
+
+The reason for this is that URLs and filenames of podcast files are so
+unpredictable that the only good way to differentiate between them is by
+URL, because if the URL is the same, the file contents should also be
+the same.
+
+Hope that clears things up, or is there a real bug here, unrelated to
+md5-summed filenames?
+
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000501.html">[gpodder-devel] Different episodes from the same channel,	ends up as the same file with different headings
+</A></li>
+	<LI>Next message: <A HREF="000511.html">[gpodder-devel] gPodder companion php progie.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#510">[ date ]</a>
+              <a href="thread.html#510">[ thread ]</a>
+              <a href="subject.html#510">[ subject ]</a>
+              <a href="author.html#510">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

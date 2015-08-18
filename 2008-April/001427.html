@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.2%20%22Walk%20like%20a%20Panther%22%20released&In-Reply-To=%3C1209196154.11667.5.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001424.html">
+   <LINK REL="Next"  HREF="001429.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.2%20%22Walk%20like%20a%20Panther%22%20released&In-Reply-To=%3C1209196154.11667.5.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released">thp at perli.net
+       </A><BR>
+    <I>Sat Apr 26 09:49:14 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001424.html">[gpodder-devel] Swedish Translation
+</A></li>
+        <LI>Next message: <A HREF="001429.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1427">[ date ]</a>
+              <a href="thread.html#1427">[ thread ]</a>
+              <a href="subject.html#1427">[ subject ]</a>
+              <a href="author.html#1427">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I'm glad to announce the 0.11.2 release of gPodder, now available on the
+website. This includes official support for the Maemo platform[1].
+
+Thanks to all who sent patches, worked on features, sent a donation or
+simply reported bugs. All your help is greatly appreciated and it's
+really your work that really brings gPodder to a releaseable state every
+month :)
+
+Enjoy the weekend. Development will take on in early May when things at
+University have settled down a bit. If you want to help out, please see
+the Roadmap[2] for details on what we have planned for 0.11.3 and help
+triaging bugs[3] and if you like, start working on one of the requested
+features or simply leave some comments in the bug reports that might
+help fix the issues reported.
+
+Thanks,
+Thomas
+
+[1] <A HREF="http://maemo.gpodder.org/">http://maemo.gpodder.org/</A>
+[2] <A HREF="http://wiki.gpodder.org/roadmap">http://wiki.gpodder.org/roadmap</A>
+[3] <A HREF="http://bugs.gpodder.org/">http://bugs.gpodder.org/</A>
+
+=============== release notes follow ==============
+
+We're proud to release yet another gPodder version. This time, we call
+it the &quot;Walk like a Panther&quot; release for no obvious reason, and we also
+provide you with an official Maemo version of gPodder for all the
+Internet Tablet fanboys out there.
+
+Here's a list of the most important changes, for the full list of
+changes, please see the ChangeLog file in the released tarball. We've
+updated the list of contributors (patch writers, bug reporters and
+donators) in the about dialog for this version. If you know you should
+be on this list, but somehow aren't, please get in touch, and we'll add
+you.
+
+You can grab the release tarball now, get the Maemo version from the
+Maemo repository (or use Application Manager if you already installed
+gPodder from the repository on your Internet Tablet) or wait until your
+distribution packages the new gPodder version for you :) Enjoy!
+
+Thanks also to the people who sent donations during this release cycle -
+your support is greatly appreciated! :)
+
+
+User-visible changes (UI, features, ...)
+      * Non-modal feed cache updates (Paul Elliot, Pieter De Decker,
+        J&#252;rgen Schinker and others)
+      * Clean up preferences dialog + Move download settings to
+        downloads tab (Paul Rudkin)
+      * Change the context menu of the episode list popup menu (hex)
+      * Additional fields for the device remove episodes dialog (iPod,
+        MP3 player)
+      * Report errors in parsing/loading an already-added channel in the
+        navigator
+Corrections, minor features and bug fixes
+      * Add &quot;Visit website&quot; menu items to channel and episode list;
+        simple chan menu
+      * Correct icon for the &quot;Transfer&quot; toolbar icon and main menu item
+      * Make bluetooth device discovery a bit nicer (don't destroy the
+        button)
+      * Correct &quot;Close&quot; and &quot;Quit&quot; behaviour (Harley Laue)
+      * Merge patch from Jerome Chabod to fix tray icon freeze (bug #55)
+      * Merge patch from Jerome Chabod to fix Remove podcasts for MP3
+        players
+      * Set Close and cancel buttons to the default on most dialogs
+        (J&#233;r&#244;me Chabod)
+Non-visible changes (Options, code compatibility)
+      * Add option to limit the maximum number of episodes per feed
+      * Add support for Rockbox' AudioScrobbler logfile to update played
+        status (Nick)
+      * Increase filename size limitation from 50 to 100 chars in MP3
+        player sync (Bernd Schlapsi)
+      * Make i18n help text work in the console help (gpodder --help)
+        (Pavel Mlcoch)
+      * Make sure we can re-set the locale after changing it
+      * Make RSS .torrent feeds from different Torrent sites work (Josh
+        Gardner)
+      * Calculate total percentage based on byte size instead of
+        percentage (J&#233;r&#244;me Chabod)
+      * Make the Quit buttons actually quit when using the tray icon
+        (Nick L.)
+      * Fix bugs: install Makefile, TreeView header height
+Technical code changes, management
+      * Add demo code for displaying a splash screen (only in source,
+        not in gPodder)
+      * Timestamp and benchmark functions for logger
+      * Delay loading of UserAppsReader and improve libplayers
+      * Use cPickle for dumbshelve - it's compatible and faster
+      * Make sure we ignore the updated_parsed of a channel if it's None
+        (Chris Arnold)
+      * Project management updates (authors, contributors and copyright)
+Maemo-specific changes (gPodder Maemo)
+      * Initial upstream support for the Maemo platform, i.e. Nokia
+        Internet Tablets
+      * Better tray icon menu item on Maemo-based platforms
+      * Maemo finger-friendly updates; minor UI changes
+      * Maemo-specific dialogs and UI improvements
+      * Install &quot;pixmaps&quot; icon on Maemo, too
+      * Add 64x64 icon for Maemo's main menu and install it
+      * Fix problems with the tray icon emblems (for non-square icons)
+Translations
+      * Updated translations: Russian (Leonid Ponomarev), Spanish (Julio
+        Acu&#241;a), French (J&#233;r&#244;me Chabod), Swedish (Anders Kvist), German
+Donations
+      * Mark Alford sent a donation - Thanks!
+      * Sami Koykka sent a donation - Thanks!
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001424.html">[gpodder-devel] Swedish Translation
+</A></li>
+	<LI>Next message: <A HREF="001429.html">[gpodder-devel] gPodder 0.11.2 &quot;Walk like a Panther&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1427">[ date ]</a>
+              <a href="thread.html#1427">[ thread ]</a>
+              <a href="subject.html#1427">[ subject ]</a>
+              <a href="author.html#1427">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

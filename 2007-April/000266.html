@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%0A%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3Cb63520a30704181133leff61e5vd1fffb58487b2eff%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000265.html">
+   <LINK REL="Next"  HREF="000267.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)</H1>
+    <B>Stephan Buys</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%0A%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3Cb63520a30704181133leff61e5vd1fffb58487b2eff%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)">stephan.buys at gmail.com
+       </A><BR>
+    <I>Wed Apr 18 20:33:33 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000265.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+</A></li>
+        <LI>Next message: <A HREF="000267.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#266">[ date ]</a>
+              <a href="thread.html#266">[ thread ]</a>
+              <a href="subject.html#266">[ subject ]</a>
+              <a href="author.html#266">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+Ok will do. the error is intermittent. I am using the latests SVN but will
+uncomment it right now and send the input through as soon as I can reproduce
+it.
+
+BTW - I installed mplayer today in an attempt to try and help gpodder with
+its handling offiles... (I know there is some file-length tie in).
+
+Kind regards,
+Stephan
+
+On 4/18/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello, Stephan!
+</I>&gt;<i>
+</I>&gt;<i> On Wed, 2007-04-18 at 08:06 +0200, Stephan Buys wrote:
+</I>&gt;<i> &gt; Unfortunately I am still experiencing this issue, any ideas on how to
+</I>&gt;<i> &gt; explore debugging this issue?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Exception in thread Thread-17:
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;threading.py&quot;, line 460, in __bootstrap
+</I>&gt;<i> &gt;     self.run()
+</I>&gt;<i> &gt;   File &quot;threading.py&quot;, line 440, in run
+</I>&gt;<i> &gt;     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.5/site-packages/gpodder/libwget.py&quot;, line
+</I>&gt;<i> &gt; 122, in thread_function
+</I>&gt;<i> &gt;     move( self.tempname, self.filename)
+</I>&gt;<i> &gt;   File &quot;shutil.py&quot;, line 199, in move
+</I>&gt;<i> &gt;     copy2(src,dst)
+</I>&gt;<i> &gt;   File &quot;shutil.py&quot;, line 91, in copy2
+</I>&gt;<i> &gt;     copyfile(src, dst)
+</I>&gt;<i> &gt;   File &quot;shutil.py&quot;, line 46, in copyfile
+</I>&gt;<i> &gt;     fsrc = open(src, 'rb')
+</I>&gt;<i> &gt; IOError: [Errno 2] No such file or directory:
+</I>&gt;<i> &gt;
+</I>&gt;<i> u'/home/stephanb/gpodder-downloads/05c6c09b9e16068ce89c4bf0c53eaf5a/.tmp-
+</I>&gt;<i> 0cf3313c174c2391717f903170f58eed.mp3'
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> Please enable wget debugging output by commenting out the line
+</I>&gt;<i>
+</I>&gt;<i> #log( 'wget&gt; %s', msg)
+</I>&gt;<i>
+</I>&gt;<i> (i.e. remove the # before the log() call) and then try to reproduce the
+</I>&gt;<i> problem, sending the console output to me.
+</I>&gt;<i>
+</I>&gt;<i> Are you using the most recent svn revision? Have you checked that only
+</I>&gt;<i> one gPodder instance is running at a time?
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070418/5647d170/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070418/5647d170/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000265.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+</A></li>
+	<LI>Next message: <A HREF="000267.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#266">[ date ]</a>
+              <a href="thread.html#266">[ thread ]</a>
+              <a href="subject.html#266">[ subject ]</a>
+              <a href="author.html#266">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

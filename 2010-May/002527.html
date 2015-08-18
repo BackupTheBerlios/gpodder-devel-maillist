@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Getting some crashes in Fedora concerning	podcast subscriptions.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Getting%20some%20crashes%20in%20Fedora%20concerning%0A%09podcast%20subscriptions.&In-Reply-To=%3CAANLkTik3qlpjSIZl6UvSBTD1PutjbWeSa9Yg6Nv5QmDl%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002526.html">
+   <LINK REL="Next"  HREF="002528.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Getting some crashes in Fedora concerning	podcast subscriptions.</H1>
+    <B>Jeff Spaleta</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Getting%20some%20crashes%20in%20Fedora%20concerning%0A%09podcast%20subscriptions.&In-Reply-To=%3CAANLkTik3qlpjSIZl6UvSBTD1PutjbWeSa9Yg6Nv5QmDl%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Getting some crashes in Fedora concerning	podcast subscriptions.">jspaleta at gmail.com
+       </A><BR>
+    <I>Wed May 26 20:41:06 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002526.html">[gpodder-devel] Getting some crashes in Fedora concerning podcast	subscriptions.
+</A></li>
+        <LI>Next message: <A HREF="002528.html">[gpodder-devel] Getting some crashes in Fedora concerning	podcast subscriptions.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2527">[ date ]</a>
+              <a href="thread.html#2527">[ thread ]</a>
+              <a href="subject.html#2527">[ subject ]</a>
+              <a href="author.html#2527">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, May 26, 2010 at 10:21 AM, Jeff Spaleta &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jspaleta at gmail.com</A>&gt; wrote:
+&gt;<i> So I can create a set of &#160;patches which attempt to do some type
+</I>&gt;<i> checking... but I'm not exactly sure what is best. &#160;In the case of the
+</I>&gt;<i> All episodes podcast listing..should I even be able to attempt to edit
+</I>&gt;<i> podcast settings? &#160;Seems to me like that menu entry should just not
+</I>&gt;<i> exist.
+</I>
+
+First stab at a fix in gui,py:
+
+def on_itemEditChannel_activate(self, widget, *args):
+        if self.active_channel is None:
+            title = _('No podcast selected')
+            message = _('Please select a podcast in the podcasts list to edit.')
+            self.show_message( message, title, widget=self.treeChannels)
+            return
+
+        if self.active_channel.title==&quot;All episodes&quot; :
+            title = _('No podcast selected')
+            message = _('Please select an individual podcast in the
+podcasts list to edit.')
+            self.show_message( message, title, widget=self.treeChannels)
+            return
+
+...
+
+The additional title check prevents the traceback for the all episodes
+listing.  Not sure this is the best solution but it works. I'm going
+to be putting this patch into Fedora package testing now.
+
+-jef
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002526.html">[gpodder-devel] Getting some crashes in Fedora concerning podcast	subscriptions.
+</A></li>
+	<LI>Next message: <A HREF="002528.html">[gpodder-devel] Getting some crashes in Fedora concerning	podcast subscriptions.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2527">[ date ]</a>
+              <a href="thread.html#2527">[ thread ]</a>
+              <a href="subject.html#2527">[ subject ]</a>
+              <a href="author.html#2527">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

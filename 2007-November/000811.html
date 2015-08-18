@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.10.2%20%22Ein%20schweineschnauzen%20Sandwich%2C%0A%09bitte%21%22%20released&In-Reply-To=%3C474AC607.70309%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000810.html">
+   <LINK REL="Next"  HREF="000823.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.10.2%20%22Ein%20schweineschnauzen%20Sandwich%2C%0A%09bitte%21%22%20released&In-Reply-To=%3C474AC607.70309%40perli.net%3E"
+       TITLE="[gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released">thp at perli.net
+       </A><BR>
+    <I>Mon Nov 26 14:11:35 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000810.html">[gpodder-devel] setting up gpodder to download automatically while	I am away
+</A></li>
+        <LI>Next message: <A HREF="000823.html">[gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#811">[ date ]</a>
+              <a href="thread.html#811">[ thread ]</a>
+              <a href="subject.html#811">[ subject ]</a>
+              <a href="author.html#811">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, gPodder developers and users!
+
+Our monthly release cycle continues with gPodder 0.10.2, out just now.
+You can grab the source tarball now or wait until your distribution
+updates its gPodder packages for the new upstream version.
+
+Thanks to all who were involved, I hope I didn't forget someone in the
+list below.
+
+One feature that was in the works last week but didn't make it into this
+release is the advanced channel navigator. I didn't think my code was
+stable and well-tested enough to make it into a release just yet, so
+this feature, based on a patch[1] by Paul Rudkin will be added shortly
+after the release to our subversion repository, so we will have another
+month for testing and improving this feature.
+
+[1]<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-November/001184.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-November/001184.html</A>
+
+As always, below are the release notes from the website and the website
+is also where you will find the download links:
+
+<A HREF="http://gpodder.berlios.de/">http://gpodder.berlios.de/</A>
+
+
+Thanks,
+Thomas
+
+=========================
+November has been a busy month for gPodder so far, and so we're happy to
+present you yet another feature-packed release of your favourite
+podcatcher: gPodder 0.10.2! In the last few weeks, we've added a new
+episode selection dialog, added the new configuration and settings
+manager that has been in the works since mid-October and also spiced up
+the channel navigator a bit with nice, helpful tooltips.
+
+Apart from that, the usual code maintenance work has carried on, and we
+also nailed a bunch of bugs. Coincidentally, there have been several bug
+reports about disk I/O problems, mostly related to full disks, so these
+bugs are now handled gracefully and with notification dialog boxes.
+
+Gerrit Sangel proposed correct displaying of file size units (SI units
+aka 10x versus &quot;Binary&quot; units aka 2x). We still default to binary units,
+but you can set the configuration flag use_si_units to True to enable
+the displaying of SI units throughout gPodder.
+Highlights
+
+    * New configuration/settings manager (&quot;under the hood&quot;)
+    * Universal episode selector dialog
+    * Tooltips for channel navigator
+
+Features
+
+    * Open download folder from channel's context menu
+    * format_filesize() now does standards-conformant formatting (binary
+and SI units)
+    * Cover art extraction is now done using eyeD3 (thanks to Nick)
+    * Option for synchronizing to MP3 players without creating
+subfolders (suggested by Paul Elliot)
+    * &quot;Remove old episodes&quot; (Ctrl+K) that uses the new episode selector
+    * Check free disk space before copying files to iPod (suggested by
+Nicolas Quienot)
+    * Main menu has been re-organized, slipstreamed (e.g. device sync
+disappears when no device is selected)
+    * Updated translation: German
+
+Code changes
+
+    * Removed dependency on pyID3 (we now use eyeD3 for extracting cover
+art)
+    * Remove extracted cover art when deleting episode files (improved)
+    * Detection of available commands is now done using the new
+util.find_command() function
+    * The gdfs scripts are now part of the source distribution
+    * Better file extension guessing for URLs (suggested by Nicolas Quienot)
+    * Code slipstreamed (e.g. use enumerate(), etc..)
+    * Backwards-compatibility code for PyGTK &lt; 2.12 (for GtkTooltip)
+    * We now recommend Python &gt;= 2.4 and PyGTK &gt;= 2.12
+
+Bugfixes
+
+    * Escape even more RSS-provided strings in Pango markup
+    * Limit filename on FS-based sync to 50 characters (so FAT drives
+won't complain)
+    * Better command detection for the converter library (Patch by Nick)
+    * Add error reporting when download fails because of an I/O error
+(suggested by Florian Richter)
+    * Feed cache: Improve offline cache behaviour, periodically clean-up
+cache file, HTTP redirects
+    * Fix filesize formatting in episode selector and podcastItem
+(thanks to Pieter de Decker)
+    * Don't send Referer header when downloading episodes (bugs with
+anti-bandwith-stealing scripts)
+    * Make sure there is enough free disk space when saving OPML channel
+list (reported by Jens Thiele; Debian Bug #452490)
+
+Thanks
+
+    * Nick: eyeD3 cover art extraction patch; converter detection patch
+    * Gerrit Sangel: Filesize unit patch (SI and binary units); testing
+and suggestions
+    * Florian Richter: Bug reporting (download error when disk is full)
+    * Paul Elliot: Suggested MP3 player sync without folder
+    * Pieter De Decker: Bug reporting (filesize in episode selector)
+    * Nicolas Quienot: Bug reporting (URL file extension guessing; iPod
+free disk space)
+    * Jens Thiele: Bug reporting (full disk channel list saving)
+=========================
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000810.html">[gpodder-devel] setting up gpodder to download automatically while	I am away
+</A></li>
+	<LI>Next message: <A HREF="000823.html">[gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#811">[ date ]</a>
+              <a href="thread.html#811">[ thread ]</a>
+              <a href="subject.html#811">[ subject ]</a>
+              <a href="author.html#811">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

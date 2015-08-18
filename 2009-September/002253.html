@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] August 2009 status update on gPodder development
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20August%202009%20status%20update%20on%20gPodder%20development&In-Reply-To=%3C1253451811.4723.10.camel%40taylor.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002252.html">
+   <LINK REL="Next"  HREF="002254.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] August 2009 status update on gPodder development</H1>
+    <B>Bernd</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20August%202009%20status%20update%20on%20gPodder%20development&In-Reply-To=%3C1253451811.4723.10.camel%40taylor.lan%3E"
+       TITLE="[gpodder-devel] August 2009 status update on gPodder development">brot at gmx.info
+       </A><BR>
+    <I>Sun Sep 20 15:03:31 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002252.html">[gpodder-devel] Website bug in IE8
+</A></li>
+        <LI>Next message: <A HREF="002254.html">[gpodder-devel] August 2009 status update on gPodder development
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2253">[ date ]</a>
+              <a href="thread.html#2253">[ thread ]</a>
+              <a href="subject.html#2253">[ subject ]</a>
+              <a href="author.html#2253">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Thomas,
+
+what's the reason why you don't use notify-osd on Ubuntu baseed systems?
+I don't like the custom notification windows in gPodder on Ubuntu.
+In my opinion it doesn't matter that the notification bubbles are placed
+on a fix position. For me it would be nicer if gPodder would use
+notify-osd on Ubuntu.
+
+What's the opinion here on the mailing list for this issue?
+
+~ Bernd
+
+On Wed, 2009-08-26 at 08:29 -0700, Thomas Perl wrote:
+&gt;<i> Hello, users and developers of gPodder!
+</I>&gt;<i> 
+</I>&gt;<i> In the last few weeks, I've carried out some long-awaited refactoring
+</I>&gt;<i> of the gPodder codebase. Apart from splitting the different dialogs
+</I>&gt;<i> of gui.py in separate modules (which allows for a more modular design
+</I>&gt;<i> and also allows to replace and modify existing dialogs more easily),
+</I>&gt;<i> I have also removed some global variables that have been used
+</I>&gt;<i> previously (if you've been around in the code, you've probably
+</I>&gt;<i> noticed the &quot;gl&quot; object that had the configuration attached to it).
+</I>&gt;<i> 
+</I>&gt;<i> So, the database and configuration objects are now created in
+</I>&gt;<i> two spots only and passed to other objects from there:
+</I>&gt;<i> 
+</I>&gt;<i>  * For the GUI, it's created in gui.py
+</I>&gt;<i>  * For the CLI + API, it's created in api.py
+</I>&gt;<i> 
+</I>&gt;<i> Several objects that were needed for gPodder to function (i.e. the
+</I>&gt;<i> config object) had GTK+-related code inside them. Now, the GTK+-
+</I>&gt;<i> related code has been moved to separate GUI model classes or to
+</I>&gt;<i> subclasses of the original classes (for example the Config object is
+</I>&gt;<i> GTK+-free, with its subclass UIConfig adding GTK+-related
+</I>&gt;<i> functionality for the GUI mode).
+</I>&gt;<i> 
+</I>&gt;<i> These changes will allow for better unit testing in the future, and are
+</I>&gt;<i> already coming in handy for some features and improvements.
+</I>&gt;<i> 
+</I>&gt;<i> I've also reworked the code for adding new subscriptions, which is now a
+</I>&gt;<i> bit more slipstreamed. I have not added GUI code for the subscriptions,
+</I>&gt;<i> so the GUI will freeze while new podcasts are being added, but it will
+</I>&gt;<i> come before the next release.
+</I>&gt;<i> 
+</I>&gt;<i> The new structure will also allow easier support for different UI modes
+</I>&gt;<i> (like Maemo 4, Maemo 5 and &quot;normal&quot; GTK+ mode) by allowing us to easily
+</I>&gt;<i> exchange dialogs and modules with platform-specific ones.
+</I>&gt;<i> 
+</I>&gt;<i> Oh, and messages that are not critical are now displayed using libnotify
+</I>&gt;<i> (except on Ubuntu, where notify-osd does not allow placement of the
+</I>&gt;<i> notification bubbles - we fall back to a custom notification window
+</I>&gt;<i> there).
+</I>&gt;<i> 
+</I>&gt;<i> I still need to clean up gui.py a bit more and factor some things out,
+</I>&gt;<i> because there is still too much program logic hidden in the GUI code.
+</I>&gt;<i> 
+</I>&gt;<i> These big changes also mean that the next release will be delayed for
+</I>&gt;<i> some weeks, but maintaining and testing will be easier after that ;)
+</I>&gt;<i> 
+</I>&gt;<i> If you're working with the Git version of gPodder (that'd be really
+</I>&gt;<i> helpful for spotting any bugs I introduced during the refactoring),
+</I>&gt;<i> please report problems that you encounter on <A HREF="http://bugs.gpodder.org.">http://bugs.gpodder.org.</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002252.html">[gpodder-devel] Website bug in IE8
+</A></li>
+	<LI>Next message: <A HREF="002254.html">[gpodder-devel] August 2009 status update on gPodder development
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2253">[ date ]</a>
+              <a href="thread.html#2253">[ thread ]</a>
+              <a href="subject.html#2253">[ subject ]</a>
+              <a href="author.html#2253">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

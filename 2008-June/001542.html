@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod does not show when connected
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20does%20not%20show%20when%20connected&In-Reply-To=%3C3e8fd0440806230955n2b20ed66r5201b0697ef62acd%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001538.html">
+   <LINK REL="Next"  HREF="001551.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod does not show when connected</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20does%20not%20show%20when%20connected&In-Reply-To=%3C3e8fd0440806230955n2b20ed66r5201b0697ef62acd%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] iPod does not show when connected">me at nikosapi.org
+       </A><BR>
+    <I>Mon Jun 23 18:55:17 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001538.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+        <LI>Next message: <A HREF="001551.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1542">[ date ]</a>
+              <a href="thread.html#1542">[ thread ]</a>
+              <a href="subject.html#1542">[ subject ]</a>
+              <a href="author.html#1542">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, Jun 22, 2008 at 11:05 PM, Chris Arnold
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">carnold at electrichendrix.com</A>&gt; wrote:
+&gt;<i> On Sunday 22 June 2008 22:24:41 nikosapi wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Run gPodder from the terminal like so: gpodder --verbose
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Look near the top of the output for a line that says &quot;(gpodder.sync)
+</I>&gt;<i> Could
+</I>&gt;&gt;<i> not find gpod&quot;, if that doesn't appear then you shouldn't be having
+</I>&gt;<i> the
+</I>&gt;&gt;<i> problem you described.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> You can also try importing  the module from a python shell to make
+</I>&gt;<i> sure
+</I>&gt;&gt;<i> it's in the PYTHONPATH.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">nikosapi at kubuntubox</A>:~$ python
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt;&gt;&gt; import gpod
+</I>&gt;&gt;<i> &gt;&gt;&gt; gpod
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;module 'gpod'
+</I>&gt;&gt;<i> from '/usr/local/lib/python2.5/site-packages/gpod/__init__.pyc'&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt;&gt;&gt; gpod.version
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> '0.5.3'
+</I>&gt;<i> gpodder --verbose
+</I>&gt;<i> [   0.240] (gPodderLib) Creating gPodderLib()
+</I>&gt;<i> [   0.250] (HistoryStore) Creating new history list.
+</I>&gt;<i> [   0.251] (HistoryStore) Creating new history list.
+</I>&gt;<i> [   0.255] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert
+</I>&gt;<i> &quot;.ogg&quot; files.
+</I>&gt;<i> [   0.334] Patching feedparser module... (mapContentType bugfix)
+</I>&gt;<i> [   0.653] (GPodderStatusIcon) Creating tray icon
+</I>&gt;<i> [   0.747] Stale download directory found:
+</I>&gt;<i> a01a66b29274997c435ca611ff32c9e3
+</I>&gt;<i> [   0.747] Successfully removed
+</I>&gt;<i> /home/ELECTRICHENDRIX/carnold/iPod/Podcasts/a01a66b29274997c435ca611ff32c9e3.
+</I>&gt;<i> [   0.748] Stale download directory found:
+</I>&gt;<i> 27c762c4594d0eae95592032a2fabc54
+</I>&gt;<i> [   0.748] Successfully removed
+</I>&gt;<i> /home/ELECTRICHENDRIX/carnold/iPod/Podcasts/27c762c4594d0eae95592032a2fabc54.
+</I>&gt;<i> [   0.779] (gPodder) auto_update_procedure() got called
+</I>&gt;<i> [   1.598] (podcastChannel) Generating TreeModel for
+</I>&gt;<i> <A HREF="http://www.desiringgod.org/feeds/SermonVideo/">http://www.desiringgod.org/feeds/SermonVideo/</A>
+</I>&gt;<i> [   3.734] start reader
+</I>&gt;<i> [   3.741] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/mplayer.desktop
+</I>&gt;<i> [   3.760] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/realplay-gnome.desktop
+</I>&gt;<i> [   3.781] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/realplay.desktop
+</I>&gt;<i> [   3.800] end reader (benchmark: 0.0667 seconds)
+</I>&gt;<i>
+</I>&gt;<i> And here is the import:
+</I>&gt;<i> python
+</I>&gt;<i> Python 2.5.2 (r252:60911, Jun  7 2008, 00:38:48)
+</I>&gt;<i> [GCC 4.3.1 20080507 (prerelease) [gcc-4_3-branch revision 135036]]
+</I>&gt;<i> on linux2
+</I>&gt;<i> Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</I>&gt;&gt;&gt;&gt;<i> import gpod
+</I>&gt;&gt;&gt;&gt;<i> gpod
+</I>&gt;<i> &lt;module 'gpod' from '/usr/lib64/python2.5/site-
+</I>&gt;<i> packages/gpod/__init__.pyc'&gt;
+</I>&gt;&gt;&gt;&gt;<i> gpod.version
+</I>&gt;<i> '0.6.0'
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Still does not give me the option to sync. Should i uninstall and then
+</I>&gt;<i> re-install?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+I don't think that will help anything, but you can try.
+
+Out of curiosity could you provide me with the output of the following command:
+grep device_type ~/.config/gpodder/gpodder.conf
+
+thanks,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001538.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+	<LI>Next message: <A HREF="001551.html">[gpodder-devel] iPod does not show when connected
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1542">[ date ]</a>
+              <a href="thread.html#1542">[ thread ]</a>
+              <a href="subject.html#1542">[ subject ]</a>
+              <a href="author.html#1542">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

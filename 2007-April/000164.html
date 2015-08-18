@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Icon not showing up?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Icon%20not%20showing%20up%3F&In-Reply-To=%3C883cfe6d0703311809r251cf00ey4575e18d01de23ab%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000167.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Icon not showing up?</H1>
+    <B>Michel Salim</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Icon%20not%20showing%20up%3F&In-Reply-To=%3C883cfe6d0703311809r251cf00ey4575e18d01de23ab%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Icon not showing up?">michel.salim at gmail.com
+       </A><BR>
+    <I>Sun Apr  1 03:09:20 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000167.html">[gpodder-devel] Icon not showing up?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This might be a Python 2.5 bug, at least as it is shipped by Fedora's
+Rawhide, but after updating today the application icon no longer
+showed up.
+
+I added a debugging print call after the default icon was set, in gpodder.py
+
+    gtk.window_set_default_icon_name( 'gpodder')
++  print(gtk.window_get_default_icon_list())
+
+and to my surprise, it printed 'None'
+
+and I had to resort to using gtk.window_set_default_icon (please see
+attached diff). Is this a gpodder bug, or a Python bug? Thomas, If it
+can't be replicated on your system, I'll file the bug report for
+Fedora's Python set-up.
+
+Thanks,
+
+-- 
+Michel Salim
+<A HREF="http://hircus.wordpress.com/">http://hircus.wordpress.com/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder.py.diff
+Type: text/x-patch
+Size: 575 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070331/6622dc73/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070331/6622dc73/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000167.html">[gpodder-devel] Icon not showing up?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.10.3 and itms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20and%20itms&In-Reply-To=%3C4764FB71.4020406%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000928.html">
+   <LINK REL="Next"  HREF="000929.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.10.3 and itms</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.10.3%20and%20itms&In-Reply-To=%3C4764FB71.4020406%40perli.net%3E"
+       TITLE="[gpodder-devel] 0.10.3 and itms">thp at perli.net
+       </A><BR>
+    <I>Sun Dec 16 11:18:25 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000928.html">[gpodder-devel] 0.10.3 and itms
+</A></li>
+        <LI>Next message: <A HREF="000929.html">[gpodder-devel] Bug in 'Mark as played after syncing' feature?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#933">[ date ]</a>
+              <a href="thread.html#933">[ thread ]</a>
+              <a href="subject.html#933">[ subject ]</a>
+              <a href="author.html#933">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Chris!
+
+Chris Arnold wrote:
+&gt;<i> Using 0.10.3 and trying to get a podcast added to gpodder. This podcast
+</I>&gt;<i> is located here:
+</I>&gt;<i> <A HREF="http://www.insight.org/site/PageServer?pagename=Insightspodcasting">http://www.insight.org/site/PageServer?pagename=Insightspodcasting</A>
+</I>&gt;<i> and when i click it (i get asked to sign-up for some newsleter, i click
+</I>&gt;<i> &quot;no thanks, take me to the podcast) then firefox gives a &quot;i don't
+</I>&gt;<i> understand the itms&quot; error. I understand 0.10.3 supports itms and some
+</I>&gt;<i> other new protocols. How do i add this podcast to gpodder? I have copied
+</I>&gt;<i> the link and pasted it into gpodder and gpodder gives a &quot;not a podcast
+</I>&gt;<i> link&quot; message.
+</I>
+The URL you would copy is
+&quot;<A HREF="http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fax.phobos.apple.com.edgesuite.net%252FWebObjects%252FMZStore.woa%252Fwa%252FviewPodcast%253Fid%253D89603501%2526amp%253Bs%253D143441">http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fax.phobos.apple.com.edgesuite.net%252FWebObjects%252FMZStore.woa%252Fwa%252FviewPodcast%253Fid%253D89603501%2526amp%253Bs%253D143441</A>&quot;
+and gPodder resolves this URL to:
+
+<A HREF="http://feeds.feedburner.com/InsightForLivingDailyBroadcast">http://feeds.feedburner.com/InsightForLivingDailyBroadcast</A>
+
+It could happen that your feed DB gets corrupted. In this case, just
+delete all .db files in ~/.config/gpodder/ and gPodder will re-create
+them on next startup.
+
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000928.html">[gpodder-devel] 0.10.3 and itms
+</A></li>
+	<LI>Next message: <A HREF="000929.html">[gpodder-devel] Bug in 'Mark as played after syncing' feature?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#933">[ date ]</a>
+              <a href="thread.html#933">[ thread ]</a>
+              <a href="subject.html#933">[ subject ]</a>
+              <a href="author.html#933">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

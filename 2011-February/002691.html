@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder development news
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20development%20news&In-Reply-To=%3C20110213221606.GA17259%40khan.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002690.html">
+   <LINK REL="Next"  HREF="002692.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder development news</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20development%20news&In-Reply-To=%3C20110213221606.GA17259%40khan.thpinfo.com%3E"
+       TITLE="[gpodder-devel] gPodder development news">thp at gpodder.org
+       </A><BR>
+    <I>Sun Feb 13 23:16:06 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002690.html">[gpodder-devel] libmygpo-qt Release of v1.0
+</A></li>
+        <LI>Next message: <A HREF="002692.html">[gpodder-devel] gPodder development news
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2691">[ date ]</a>
+              <a href="thread.html#2691">[ thread ]</a>
+              <a href="subject.html#2691">[ subject ]</a>
+              <a href="author.html#2691">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there!
+
+tl;dr: New blog, QML UI, Android, Web UI, updates on &quot;tres&quot; branch
+
+We're still alive and kicking, and so here are some general updates on
+what has happened in gPodder development recently:
+
+*) gpodder.net is slow - We know about it, and plan to utilize a second
+   virtual server for some load balancing. Stefan is doing some great
+   work there, and we are happy to see the web service being utilized :)
+
+*) mail problems - I've not been getting mails for some days in
+   February; this has since been fixed. I'll try to have faster
+   turnaround times for gPodder-related mails again :)
+
+*) blog.gpodder.org - In order to make it easier to communicate
+   development news (libmygpo-qt 1.0 has been released, and the news
+   item is still missing - will be fixed after this mail), there is now
+   a Blogger-powered blog; expect more timely (and hopefully
+   fine-grained) news updates in addition to the release announcements.
+
+*) QML UI - A touch-optimized, experimental UI written in Qt and QML,
+   utilizing PySide (Video: <A HREF="http://youtu.be/0b592zhepwQ">http://youtu.be/0b592zhepwQ</A>); this might be
+   used as default UI on the Maemo 5 version of gPodder, and could also
+   come in handy for future touch-based devices. One important feature
+   of the QML UI is that playback is handled inside gPodder now, which
+   makes resuming and playback position tracking much easier.
+
+*) Android port - A few months ago, I tried out SL4A (basically Python
+   for Android) and got the CLI running; this weekend, I played around
+   with a HTML UI; so far, this seems to work nicely, and if anybody of
+   you is interested in this and can help with the HTML UI, this could
+   be a fully-fledged gPodder running on Android; using Python :) Using
+   Python helps keeping the development effort small and will lead to a
+   fully-fledged gPodder application on Android much faster than other
+   &quot;native&quot; Java efforts that haven't worked out so well in the past.
+   (Photo: <A HREF="http://flic.kr/thp4/5439462216/">http://flic.kr/thp4/5439462216/</A>)
+
+*) Web UI - As the Android port's UI is basically a glorified Web UI,
+   this means that a Web UI will probably find its way into a future
+   version of gPodder. Using the Web UI, you can for example run gPodder
+   headless on a media server and manage your podcasts and downloads via
+   a web browser.
+
+*) &quot;tres&quot; - This is the experimental branch of gPodder that I've been
+   working on since mid-December 2010. This probably deserves a blog
+   post of its own, and I've hinted at some cool features in earlier
+   mails. Basically, the database and config get to live in the download
+   folder (which makes backups a lot easier and gives us &quot;portable mode&quot;
+   where all gPodder data is put directly on your MP3 player for free).
+   This branch also removes lots of configuration options, it removes
+   support for Maemo 4 (N8x0) and support for device synchronization.
+
+Now, before you start throwing full wine bottles at your computer
+screen: gPodder 2.x (the current &quot;master&quot; branch) will still see some
+releases, as the &quot;tres&quot; branch isn't stable yet. When bugs are reported,
+they will be fixed, and a release will be made periodically. The &quot;cool&quot;
+new stuff happens in &quot;tres&quot;.
+
+For some users, having the downloads and the DB in a single folder will
+make syncing with devices unnecessary. For others, it is expected that
+someone steps up and writes a little syncing GUI on top of gPodder. This
+could either be in the form of hooks or via a standalone application,
+utilizing gPodder's Python library. gPodder &quot;tres&quot; is much more modular
+than the current codebase, and it exposes the database to the user as a
+file. I plan to document the database schema so other applications can
+read and modify the gPodder database if they want.
+
+Having the gPodder database+config+downloads in a single folder also
+allows us to work with a download folder (&quot;podcast repository&quot; if you
+will) from multiple applications - e.g. the GTK+ app on your Desktop,
+the CLI on your netbook and the QML UI on your media PC or N900.
+Applications only need to implement reading the database (a simple
+SQLite3 file), and they can access and display the podcast
+subscriptions, and update the playback status inside the database.
+
+Comments and feedback (as well as wishes), as always, very welcome :)
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002690.html">[gpodder-devel] libmygpo-qt Release of v1.0
+</A></li>
+	<LI>Next message: <A HREF="002692.html">[gpodder-devel] gPodder development news
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2691">[ date ]</a>
+              <a href="thread.html#2691">[ thread ]</a>
+              <a href="subject.html#2691">[ subject ]</a>
+              <a href="author.html#2691">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

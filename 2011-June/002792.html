@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Managing Downloads with Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C87fwno1t3b.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002791.html">
+   <LINK REL="Next"  HREF="002793.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Managing Downloads with Woodchuck</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Managing%20Downloads%20with%20Woodchuck&In-Reply-To=%3C87fwno1t3b.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Managing Downloads with Woodchuck">neal at walfield.org
+       </A><BR>
+    <I>Sun Jun  5 12:16:24 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002791.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002793.html">[gpodder-devel] Can't subscribe to new podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2792">[ date ]</a>
+              <a href="thread.html#2792">[ thread ]</a>
+              <a href="subject.html#2792">[ subject ]</a>
+              <a href="author.html#2792">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, Thomas,
+
+First: thanks for your thoughtful comments and observations!
+
+I've tried to respond to your concerns inline.  Due to the length,
+I've summarize the main points here.
+
+Woodchuck's goal is to improve data availability, the likelihood that
+data that a user is interested in is available when the user wants to
+access it.  There are three main issues that impair data availability
+for mobile devices: limited energy, data caps, and cellular coverage.
+
+Woodchuck focus is on improving data availability for
+subscription-based, delay-tolerant data, while burdening the user as
+little as possible.  This rules out *requiring* the user to configure
+every single podcast subscription, etc.  Instead, Woodchuck will use
+machine learning to (1) understand the context (time and place) in
+which users access data, to (2) understand how they use the data (only
+newest, serially, randomly, etc.), and to (3) understand how data is
+published.  (Note: we explicitly do not want to reduce the user's
+control; we just want to make the default behavior more often meet the
+user's expectations.)
+
+Understanding how data is used means not only knowing that some file
+was accessed but some of the file's features, e.g., the publication
+time, the download time, what other files have the same origin, etc.
+Using these features, it is possible to group data and look for
+correlations.  Thus, Woodchuck might decide to download the hourly
+news at 4 PM over the corporate WiFi network because the user
+typically listens to the hourly news on the commute home.  Similarly,
+it might decide not to download the latest episode of a sitcom to save
+energy, because it knows the user hasn't yet watched the last few
+episodes and thus likely won't need that data before the next time
+there is power and WiFi.
+
+Extracting these types of features requires application support.
+That's the reason the interface is more complex than something like:
+&quot;I'd like to download X MB at the next available time.&quot;  That
+information doesn't allow Woodchuck to make very good inferences.
+
+
+At Sat, 4 Jun 2011 18:10:23 +0200,
+Thomas Perl wrote:
+&gt;<i> On Sat, Jun 04, 2011 at 05:42:03PM +0200, Neal H. Walfield wrote:
+</I>&gt;<i> &gt; Woodchuck isn't so much about performing downloads as it is about
+</I>&gt;<i> &gt; scheduling them.  That is, Woodchuck's primary goal is to determine
+</I>&gt;<i> &gt; when it is a good time to download data and which data to download.
+</I>&gt;<i> &gt; (That said, it does provide a simple downloader for objects accessible
+</I>&gt;<i> &gt; over http and https.)
+</I>&gt;<i> 
+</I>&gt;<i> So, to what extend does it differ in functionality from iphbd / the
+</I>&gt;<i> &quot;Hearbeat Daemon&quot; on Maemo 5, which is used to make sure that all
+</I>&gt;<i> network-using applications do network-intensive requests at the same
+</I>&gt;<i> time to save power?
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/Architecture/System_Software#Heartbeat_Daemon_.28Heartbeatd.29">http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/Architecture/System_Software#Heartbeat_Daemon_.28Heartbeatd.29</A>
+</I>...
+&gt;<i> Why does Woodchuck have to know so much domain-specific information
+</I>&gt;<i> about a given application? The &quot;good time to update a stream&quot; call in my
+</I>&gt;<i> opinion doesn't need to know about this - just make sure you have a good
+</I>&gt;<i> interval and do the online/offline checking and maybe have some minimum
+</I>&gt;<i> and maximum interval, and try to sync this interval as good as possible
+</I>&gt;<i> between the registered apps.
+</I>...
+&gt;<i> For the episodes, I again don't really get the point - why does gPodder
+</I>&gt;<i> need to register each episode with Woodchuck? Isn't a more simpler
+</I>&gt;<i> interface like &quot;I've got a total of 120MB of data that I want to
+</I>&gt;<i> download, can I download now or will you tell me when I can?&quot; more
+</I>&gt;<i> suitable and not so object-specific? What do you gain (apart from API
+</I>&gt;<i> complexity ;) by having all these objects floating around between an
+</I>&gt;<i> application and Woodchuck?
+</I>
+I wasn't aware of the heartbeat daemon, thanks for point it out.  (For
+google: after some searching, the only documentation I found is in the
+libiphb.h header file from the libiphb-dev package.)
+
+From looking at the interface, it appears that iphbd primarily does
+gang CPU scheduling.  Woodchuck is more ambitious.  Woodchuck
+optimizes for battery usage, data usage and cellular coverage.  Gang
+scheduling might help with saving power, but even then, completely
+avoiding unnecessary downloads saves even more power.
+
+To understand the complexity of what Woodchuck hopes to accomplish,
+just consider how to manage downloads for a user who has access to
+multiple networks with different data budgets and coverages.  If the
+user is connected to the cellular network, should new podcasts be
+downloaded?  The answer is: it depends.  It depends on the data
+budget, how convinced we are that the user will need the data before
+conditions improve (e.g., WiFi becomes available), the probability of
+not having any coverage when the data is needed, and the cost of not
+having the data when it is needed.
+
+Machine learning allows us to learn from history to make predictions
+about the future thereby improving the answers to the previous
+questions.  Machine learning requires understanding the data (or, more
+accurately, the ability to extract useful features from the data).  If
+Woodchuck is to assume responsibility for scheduling downloads, then I
+suspect that better scheduling can be achieved by having richer
+interfaces than those that iphbd provides.
+
+One could ask whether it really makes sense to use a central
+scheduling entity or whether applications, with their
+application-specific knowledge, couldn't do better.  First, I suspect
+that some library is needed: making these types of inferences is
+complicated and I think most application developers would appreciate
+help.  If we introduce a library, then the application-specific
+information is being abstracted anyways.  In this case, we're better
+off using a central entity, as it can then also bring information from
+different applications together (i.e., make cross-domain inferences).
+Finally, some centralized entity makes sense as the data and energy
+budgets are shared resources and thus some mechanism is require to
+coordinate their use.
+
+&gt;<i> Also, what does Woodchuck do with the information whether or not an
+</I>&gt;<i> update is successful?
+</I>
+If Woodchuck knows that an update failed, it can reschedule a new
+update sooner.  It also knows when the user explicitly requests an
+update, which means that it needs to reconsider that stream's update
+schedule.
+
+&gt;<i> &gt; When the user listens to a podcast, gPodder reports this to Woodchuck
+</I>&gt;<i> &gt; (pywoodchuck.object_used).  That way, Woodchuck can learn the user's
+</I>&gt;<i> &gt; preferences.
+</I>&gt;<i> 
+</I>&gt;<i> Isn't that something that requires knowledge of the data in question? If
+</I>&gt;<i> you know that object 01abcd has been listened to, how can Woodchuck
+</I>&gt;<i> determine whether or not the user is interested in object bb0a256?
+</I>&gt;<i>
+</I>&gt;<i> Also, isn't downloading detached from consuming/listening to files? I
+</I>&gt;<i> might listen to a given episode the first time two weeks after it has
+</I>&gt;<i> been downloaded - what kind of use would this be to Woodchuck?
+</I>
+If all the information you have is that there are two objects with
+some cryptic names and that the user has listened to one of them,
+sure, you can't infer much.  But, I think that users are often
+predictable (i.e., have habits).
+
+Consider the following three usage patterns.  I subscribe to
+Deutschland Funk's hourly news cast.  Typically, I'll listen to it in
+the afternoon.  I'll only listen if I have a recent episode (at least
+published on the same day) and I'll only listen to the newest episode.
+I also subscribe a number of talk shows.  I most often listen to these
+when I'm on the train, or otherwise waiting for a while.  I don't
+necessarily listen to the newest episodes, but I rarely listen to very
+old episodes.  Also, I don't necessarily listen to only the newest
+downloaded episode: I tend to decide by looking at the topic.
+Finally, I also subscribe to a podcast that I listen to serially.
+
+From these scenarios, we can extract some features to help describe
+the user's behavior with respect to a given stream.  We can look at
+the time between publication and actual use, and the time between
+download and actual use.  We can look at the order in which episodes
+are used.  Also, we can gage interest by incorporate whether the user
+actually listened to a whole file.  If not, did the user at some later
+point resume and finish listening to the episode?
+
+Based on good features that summarize the user's behavior, we can
+infer a lot about how applications and streams are used and prioritize
+what to download and when based on what we think the user is going to
+need, the energy budget, the data budget and expected network
+coverage.
+
+&gt;<i> Does Woodchuck keep track of all downloads all of the time? What
+</I>&gt;<i> influence does this have on memory consumption and performance when
+</I>&gt;<i> looking up a given download in a local database?
+</I>
+Currently, the data is stored in an sqlite database.  The current
+implementation aggresively reclaims unused data from memory and
+flushes it to the backing store.  I haven't done any benchmarks, but
+my intuition is that if these decisions turn out to be a problem, they
+can be corrected with some smart software engineering that does not
+affect Woodchuck's architecture or even its API.
+
+To be a bit more concrete: consider the size of a podcast vs. the size
+of the metadata that Woodchuck is likely to store.  The former is
+orders of magnitude larger than the latter.  Once an object is
+deleted, its metadata can also be largely removed.  I say largely as
+we'll keep aggregate data around to be able to make predictions, e.g.,
+the average time between download time and use, its variance, etc.
+
+&gt;<i> Also, does this model take streaming of episodes into account? It's
+</I>&gt;<i> basically a simultaneous download + consumption, as far as managing
+</I>&gt;<i> network traffic and usage are concerned.
+</I>
+Woodchuck is targeted at dela-tolerant data sources, i.e., Woodchuck
+won't help streaming of live content.  Nevertheless, for the sake of
+managing the data budget, Woodchuck tracks data used so as to learn
+how much the user consumes and how much is available for speculative
+downloading.
+
+If you don't mean live content but simply simultaneously downloading
+and watching an episode, that's nothing special to Woodchuck.
+Woodchuck interprets this to mean that it should have prefetched the
+episode.
+
+&gt;<i> Will Woodchuck be aware of and take into account things like traffic
+</I>&gt;<i> limits of 3G connections (e.g. my current plan offers 3GB of traffic per
+</I>&gt;<i> month, and the operator charges a premium for every MB above that).
+</I>
+Absolutely.  Incorporting data budgets is part of the long-term plan.
+
+I don't think this affects the application API, however: this mostly
+in a question of the scheduling algorithm.
+
+&gt;<i> &gt; Nevertheless, gPodder should still report that it was downloaded
+</I>&gt;<i> &gt; (pywoodchuck.object_downloaded) so that Woodchuck can improve its
+</I>&gt;<i> &gt; model of the user's preferences.
+</I>&gt;<i> 
+</I>&gt;<i> Again, I'm interested to hear about some examples what kind of
+</I>&gt;<i> preferences these could be and how they could be used to do something
+</I>&gt;<i> useful and provide value to the user or application.
+</I>
+Preferences are properties like how important freshness is for a
+particular stream (think news, which becomes uninteresting when a new
+episode is released, vs a sitcom, which is normally watched in order).
+Woodchuck models these insofar as it tries to infer them from the
+user's behavior, rather than requiring the user to manually describe
+them, and, moreover, to keep them up to date as the user's interests
+change.
+
+&gt;<i> I'm interested in this project, and can see some good use cases, but I'm
+</I>&gt;<i> also not sure if Woodchuck tries to do too much than what it's supposed
+</I>&gt;<i> to do, and if maybe all that micro-mangement of data is really something
+</I>&gt;<i> that will be an advantage in the long run.
+</I>&gt;<i> 
+</I>&gt;<i> I think the interesting problems here are:
+</I>&gt;<i> 
+</I>&gt;<i>  * If and when to download a given file of a certain size
+</I>
+Yes.
+
+&gt;<i>  * Priorities for downloads (the user explicitly wants do download
+</I>&gt;<i>    something vs. &quot;if I'm on home WiFi + the device is charging + it's
+</I>&gt;<i>    3 AM, then also try to download/cache other files&quot;)
+</I>
+Your example shows how quickly policies can become complicated.  I
+don't want to set and maintain such policies for each such application
+and stream.
+
+&gt;<i>  * Management of traffic limits (i.e. 3G connection with a limited
+</I>&gt;<i>    traffic allowance)
+</I>&gt;<i>  * Management of power (i.e. download when on charger, but avoid
+</I>&gt;<i>    everything - including feed updates - when the battery goes below a
+</I>&gt;<i>    certain threshold)
+</I>&gt;<i>  * Awareness of other applications (i.e. don't download if the user is
+</I>&gt;<i>    using a web browser, to increase the web browser's responsiveness)
+</I>
+Yes, yes and yes!  These are all explicitly things that Woodchuck is
+trying to support.
+
+&gt;<i>  * Awareness of other machines (i.e. limit the bandwidth if a user on
+</I>&gt;<i>    the same network is browsing the web - maybe using
+</I>&gt;<i>    Bonjour/Zeroconf?)
+</I>
+I hadn't considered this before.  My personal experience is that my
+N900 is unable to saturate my DSL link.  Moreover, good traffic
+shaping policies should minimize the impact of background downloads on
+interactive downloads.  (I use 3tos from
+<A HREF="http://git.coverfire.com/linux-qos-scripts.git,">http://git.coverfire.com/linux-qos-scripts.git,</A> which works
+swimmingly.)  Have you encountered this problem in practice?
+
+&gt;<i>  * Notification interface for &quot;pause all your downloads&quot; / &quot;resume all
+</I>&gt;<i>    your download&quot; (i.e. pause download when leaving home and network
+</I>&gt;<i>    connectivity changes from WiFi to 3G, etc..)
+</I>
+This is an interesting idea.  Thanks!  I'll think about how to
+integrate it.
+
+&gt;<i> The great thing about this is that we could then have a system-wide
+</I>&gt;<i> &quot;Download preferences&quot; configuration where the user can configure the
+</I>&gt;<i> preferences (e.g. &quot;download even on 3G, because I have a flat rate&quot;) and
+</I>&gt;<i> these preferences would be implemented by the Woodchuck policy / daemon
+</I>&gt;<i> and automatically used by all the applications.
+</I>
+Yes!  This is exactly what I plan to implement.  My vision is that
+when the user connects to a new network for the first time, a pop up
+asks the user to describe the connection's policy, e.g., hard 3 GB per
+month, flatrate, X minutes (a common policy at hotels, I've observed),
+etc.
+
+Thanks for the great questions and feedback.
+
+Neal
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002791.html">[gpodder-devel] Managing Downloads with Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002793.html">[gpodder-devel] Can't subscribe to new podcasts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2792">[ date ]</a>
+              <a href="thread.html#2792">[ thread ]</a>
+              <a href="subject.html#2792">[ subject ]</a>
+              <a href="author.html#2792">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

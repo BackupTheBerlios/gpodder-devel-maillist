@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] problem to add a feed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20problem%20to%20add%20a%20feed&In-Reply-To=%3C470DE48E.1000908%40redhat.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000670.html">
+   <LINK REL="Next"  HREF="000672.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] problem to add a feed</H1>
+    <B>Thorsten Scherf</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20problem%20to%20add%20a%20feed&In-Reply-To=%3C470DE48E.1000908%40redhat.com%3E"
+       TITLE="[gpodder-devel] problem to add a feed">tscherf at redhat.com
+       </A><BR>
+    <I>Thu Oct 11 10:53:34 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000670.html">[gpodder-devel] problem to add a feed
+</A></li>
+        <LI>Next message: <A HREF="000672.html">[gpodder-devel] problem to add a feed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#671">[ date ]</a>
+              <a href="thread.html#671">[ thread ]</a>
+              <a href="subject.html#671">[ subject ]</a>
+              <a href="author.html#671">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+still not working, this is the output from gpodder in the latest svn
+version:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">tscherf at tiffy</A> cvs]$ make test
+make: *** No rule to make target `test'.  Stop.
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">tscherf at tiffy</A> cvs]$ cd gpodder/
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">tscherf at tiffy</A> gpodder]$ make test
+bin/gpodder --local --verbose
+(DownloadHistory) Creating new history list.
+(PlaybackHistory) Creating new history list.
+(ipodsync) Could not find pymad.
+(ipodsync) Found eyeD3
+(ipodsync) PyID3 not found - falling back to channel cover for iPod
+cover art
+(ipodsync) mplayer not found - length of video files will be guessed
+(Importer) Cannot import OPML from URL:
+/home/tscherf/.config/gpodder/channels.opml
+(Importer) Cannot import OPML from URL:
+/home/tscherf/.config/gpodder/channels.opml
+Player found: Rhythmbox Music Player
+(/usr/share/applications/rhythmbox.desktop)
+Player found: Movie Player (/usr/share/applications/totem.desktop)
+Player found: Banshee Music Player
+(/usr/share/applications/gnome-banshee.desktop)
+Player found: Audio Player
+(/usr/share/applications/redhat-audio-player.desktop)
+Adding new channel: <A HREF="http://chaosradio.ccc.de/cr+cre-latest.rss">http://chaosradio.ccc.de/cr+cre-latest.rss</A>
+Trying to get settings for <A HREF="http://chaosradio.ccc.de/cr+cre-latest.rss">http://chaosradio.ccc.de/cr+cre-latest.rss</A>
+Adding new channel: <A HREF="http://chaosradio.ccc.de/cr+cre-latest.rss">http://chaosradio.ccc.de/cr+cre-latest.rss</A>
+Trying to get settings for <A HREF="http://chaosradio.ccc.de/cr+cre-latest.rss">http://chaosradio.ccc.de/cr+cre-latest.rss</A>
+
+
+Thomas Perl wrote:
+&gt;<i> Hello, Thorsten!
+</I>&gt;<i> 
+</I>&gt;<i> On Wed, 2007-10-10 at 13:38 +0200, Thorsten Scherf wrote:
+</I>&gt;&gt;<i> I'm using latest 0.10 gpodder, when I try to add a new feed
+</I>&gt;&gt;<i> (<A HREF="http://chaosradio.ccc.de/cr+cre-latest.rss">http://chaosradio.ccc.de/cr+cre-latest.rss</A>) it complains that this is
+</I>&gt;&gt;<i> not a valid feed. This is true for some other feeds I tried to add as
+</I>&gt;&gt;<i> well.
+</I>&gt;<i> 
+</I>&gt;<i> It &quot;works for me&quot;(tm) on the latest SVN trunk head of gPodder, you can
+</I>&gt;<i> run gPodder from subversion by following the instructions from this URL:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> Does the problem happen with the latest trunk revision, too?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+- --
+Red Hat GmbH - Global Learning Services EMEA
+Hauptstaetterstr. 58  D-70178 Stuttgart  Germany
+
+
+- ----   Sorry, the following legal stuff is required by law  ----
+____________________________________________________________________
+Reg. Adresse: Red Hat GmbH, Hauptstaetter Strasse 58, 70178 Stuttgart
+Handelsregister: Amtsgericht Stuttgart HRB 153243
+Gesch&#228;ftsf&#252;hrer: Brendan Lane, Charlie Peters,
+Michael Cunningham, Werner Knoblich
+
+
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.7 (GNU/Linux)
+Comment: Using GnuPG with Fedora - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFHDeSOwfkoLTuSgLsRAvCAAJ9szIxcFUD61ehaYaq3fpu2i3fqJACfcNzL
+4TdOVFsz92+08KJ3Jy+/S/Q=
+=VtX5
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000670.html">[gpodder-devel] problem to add a feed
+</A></li>
+	<LI>Next message: <A HREF="000672.html">[gpodder-devel] problem to add a feed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#671">[ date ]</a>
+              <a href="thread.html#671">[ thread ]</a>
+              <a href="subject.html#671">[ subject ]</a>
+              <a href="author.html#671">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

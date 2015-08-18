@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Where to find sqlite3 package?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Where%20to%20find%20sqlite3%20package%3F&In-Reply-To=%3C106614.39953.qm%40web65503.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001578.html">
+   <LINK REL="Next"  HREF="001586.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Where to find sqlite3 package?</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Where%20to%20find%20sqlite3%20package%3F&In-Reply-To=%3C106614.39953.qm%40web65503.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Where to find sqlite3 package?">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Thu Jun 26 03:04:05 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001578.html">[gpodder-devel] Where to find sqlite3 package?
+</A></li>
+        <LI>Next message: <A HREF="001586.html">[gpodder-devel] Where to find sqlite3 package?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1583">[ date ]</a>
+              <a href="thread.html#1583">[ thread ]</a>
+              <a href="subject.html#1583">[ subject ]</a>
+              <a href="author.html#1583">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey Justin,
+
+Yep, it works now.
+
+I'll let you know if any weirdness happens.
+
+Cheers,
+Wilfred
+
+
+--- On Wed, 6/25/08, Justin Forest &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">justin.forest at gmail.com</A>&gt; wrote:
+
+&gt;<i> From: Justin Forest &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">justin.forest at gmail.com</A>&gt;
+</I>&gt;<i> Subject: Re: [gpodder-devel] Where to find sqlite3 package?
+</I>&gt;<i> To: &quot;Development for gPodder&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+</I>&gt;<i> Date: Wednesday, June 25, 2008, 5:39 AM
+</I>&gt;<i> Try replacing this:
+</I>&gt;<i> 
+</I>&gt;<i>   from sqlite3 import dbapi2 as sqlite
+</I>&gt;<i> 
+</I>&gt;<i> with this:
+</I>&gt;<i> 
+</I>&gt;<i>   from pysqlite2 import dbapi2 as sqlite
+</I>&gt;<i> 
+</I>&gt;<i> Please report if this works.
+</I>&gt;<i> 
+</I>&gt;<i> On 6/25/08, Wilfred van Rooijen
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">wvanrooijen at yahoo.com</A>&gt; wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  OK, so I've updated to the latest version of
+</I>&gt;<i> gPodder
+</I>&gt;<i> &gt;  and applied the sqlite patch as Thomas suggested. Now
+</I>&gt;<i> &gt;  I get:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ bin/gpodder
+</I>&gt;<i> &gt;  --local --verbose
+</I>&gt;<i> &gt;  [   2.976] Detected encoding: UTF-8
+</I>&gt;<i> &gt;  Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;bin/gpodder&quot;, line 166, in ?
+</I>&gt;<i> &gt;     sys.exit( main())
+</I>&gt;<i> &gt;   File &quot;bin/gpodder&quot;, line 125, in main
+</I>&gt;<i> &gt;     from gpodder import console
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/console.py&quot;,
+</I>&gt;<i> &gt;  line 21, in ?
+</I>&gt;<i> &gt;     from gpodder import download
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/download.py&quot;,
+</I>&gt;<i> line
+</I>&gt;<i> &gt;  29, in ?
+</I>&gt;<i> &gt;     from gpodder.libgpodder import gl
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/libgpodder.py&quot;,
+</I>&gt;<i> &gt;  line 39, in ?
+</I>&gt;<i> &gt;     from gpodder.dbsqlite import db
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/dbsqlite.py&quot;,
+</I>&gt;<i> line
+</I>&gt;<i> &gt;  22, in ?
+</I>&gt;<i> &gt;     from sqlite3 import dbapi2 as sqlite
+</I>&gt;<i> &gt;  ImportError: No module named sqlite3
+</I>&gt;<i> &gt;  make: *** [test] Error 1
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  I use gentoo linux, Python 2.4.4 (#1, Mar  4 2008,
+</I>&gt;<i> &gt;  15:55:08) [GCC 4.1.2 (Gentoo 4.1.2 p1.0.2)] on
+</I>&gt;<i> linux2,
+</I>&gt;<i> &gt;  and I've installed the pysqlite package:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ locate pysqlite
+</I>&gt;<i> &gt;  /usr/lib/python2.4/site-packages/pysqlite2
+</I>&gt;<i> &gt;  /usr/lib/python2.4/site-packages/pysqlite2/dbapi2.py
+</I>&gt;<i> &gt;  /usr/lib/python2.4/site-packages/pysqlite2/_sqlite.so
+</I>&gt;<i> &gt; 
+</I>&gt;<i> /usr/lib/python2.4/site-packages/pysqlite2/__init__.pyc
+</I>&gt;<i> &gt; 
+</I>&gt;<i> /usr/lib/python2.4/site-packages/pysqlite2/__init__.pyo
+</I>&gt;<i> &gt; 
+</I>&gt;<i> /usr/lib/python2.4/site-packages/pysqlite2/__init__.py
+</I>&gt;<i> &gt;  /usr/lib/python2.4/site-packages/pysqlite2/dbapi2.pyc
+</I>&gt;<i> &gt;  /usr/lib/python2.4/site-packages/pysqlite2/dbapi2.pyo
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  Am I missing something else to run gpodder with the
+</I>&gt;<i> &gt;  sqlite patch?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  Regards,
+</I>&gt;<i> &gt;  Wilfred
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  _______________________________________________
+</I>&gt;<i> &gt;  gpodder-devel mailing list
+</I>&gt;<i> &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> &gt; 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> hex, out.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001578.html">[gpodder-devel] Where to find sqlite3 package?
+</A></li>
+	<LI>Next message: <A HREF="001586.html">[gpodder-devel] Where to find sqlite3 package?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1583">[ date ]</a>
+              <a href="thread.html#1583">[ thread ]</a>
+              <a href="subject.html#1583">[ subject ]</a>
+              <a href="author.html#1583">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

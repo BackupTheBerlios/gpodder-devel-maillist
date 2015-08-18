@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] python path problem on FreeBSD
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20python%20path%20problem%20on%20FreeBSD&In-Reply-To=%3C20070319000340.7c0a2312.contrib%40maisondubonheur.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000123.html">
+   <LINK REL="Next"  HREF="000129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] python path problem on FreeBSD</H1>
+    <B>Alain TAUCH</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20python%20path%20problem%20on%20FreeBSD&In-Reply-To=%3C20070319000340.7c0a2312.contrib%40maisondubonheur.com%3E"
+       TITLE="[gpodder-devel] python path problem on FreeBSD">contrib at maisondubonheur.com
+       </A><BR>
+    <I>Mon Mar 19 00:03:40 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000123.html">[gpodder-devel] python path problem on FreeBSD
+</A></li>
+        <LI>Next message: <A HREF="000129.html">[gpodder-devel] Character &quot; in episode title making synchronization	freeze
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 18 Mar 2007 16:35:06 +0100
+Thomas Perl [Thomas] wrote:
+
+Thomas&gt; Hello Alain,
+Thomas&gt; 
+Thomas&gt; On Sun, 18 Mar 2007 12:51:56 +0100 Alain TAUCH wrote:
+Thomas&gt; &gt; I just co the latest gpodder, and realized that the python path
+Thomas&gt; &gt; changed (in fact since r257). On FreeBSD, the python path is
+Thomas&gt; &gt; /usr/local/bin/python so gpodder won't work. What was the 
+Thomas&gt; &gt; reason for removing /usr/bin/env use ?
+Thomas&gt; 
+Thomas&gt; While changing the .deb packaging code for Debian, I've changed this to
+Thomas&gt; go with the preferred interpreter location. The relevant paragraph is
+Thomas&gt; &quot;1.3.2 Interpreter Location&quot; in the Debian Python Policy[1].
+Thomas&gt; 
+Thomas&gt; [1] <A HREF="http://www.debian.org/doc/packaging-manuals/python-policy/ch-python.html">http://www.debian.org/doc/packaging-manuals/python-policy/ch-python.html</A>
+
+good to know ... but I'm sure FreeBSD is not the only one missing
+/usr/bin/python ...
+
+Thomas&gt; I've changed the code again to work on FreeBSD (/usr/bin/env python),
+Thomas&gt; as it is not mandatory in Debian's policy to use a interpreter path
+Thomas&gt; of /usr/bin/python.
+
+good, thanks :-)
+
+-- 
+Alain
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000123.html">[gpodder-devel] python path problem on FreeBSD
+</A></li>
+	<LI>Next message: <A HREF="000129.html">[gpodder-devel] Character &quot; in episode title making synchronization	freeze
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

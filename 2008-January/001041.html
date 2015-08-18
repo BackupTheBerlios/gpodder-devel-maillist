@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] FWD:RE:Re:  gPodder + Tray Icon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20FWD%3ARE%3ARe%3A%20%20gPodder%20%2B%20Tray%20Icon&In-Reply-To=%3C20080109132705.BED0711D20D%40ifrance02.ifrance.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001044.html">
+   <LINK REL="Next"  HREF="001045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] FWD:RE:Re:  gPodder + Tray Icon</H1>
+    <B>jerome.chabod at ifrance.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20FWD%3ARE%3ARe%3A%20%20gPodder%20%2B%20Tray%20Icon&In-Reply-To=%3C20080109132705.BED0711D20D%40ifrance02.ifrance.com%3E"
+       TITLE="[gpodder-devel] FWD:RE:Re:  gPodder + Tray Icon">jerome.chabod at ifrance.com
+       </A><BR>
+    <I>Wed Jan  9 14:27:05 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001044.html">[gpodder-devel] Uploading to iPod
+</A></li>
+        <LI>Next message: <A HREF="001045.html">[gpodder-devel] Swedish translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1041">[ date ]</a>
+              <a href="thread.html#1041">[ thread ]</a>
+              <a href="subject.html#1041">[ subject ]</a>
+              <a href="author.html#1041">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Wilfred,
+This bug on notify-python-0.1.1 was reported (for ubuntu): <A HREF="http://trac.galago-project.org/ticket/121.">http://trac.galago-project.org/ticket/121.</A>
+You'll also find a patch which may work for you, but it's better to grab an earlier version.
+
+De : <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>
+Date : 09/01/08 11:24:59
+A : Development for gPodder
+
+Sujet : Re: [gpodder-devel] gPodder + Tray Icon
+Hello, Wilfred!
+ 
+ Wilfred van Rooijen wrote:
+ &gt; I ran gPodder + tray icon, and got this error when all
+ &gt; downloads were finished. gPodder did not crash, BTW.
+ &gt; System: gentoo linux.
+ 
+ Which version of python-pynotify (or pynotify or python-notify, however 
+ the package is called in Gentoo) do you have installed? Is there a newer 
+ version which you can try to install?
+ 
+ I've simply added a warning now and a try..except around the 
+ attach_to_status_icon() until we find out if it's because of the old 
+ version or because of some other bug.
+ 
+ Thanks,
+ Thomas
+ 
+ &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ (podcastChannel)
+ &gt; Setting localdb channel data =&gt;
+ &gt; /home/rooijen/gpodder-downloads/e1d90e396ef9e7b8ff6419760128c3a2/index.xml
+ &gt; (HistoryStore) Adding:
+ &gt; <A HREF="http://podcast.kxradio.nl/kxpodcast/podcast/freakolympics/week50-151207-freakolympics.mp3">http://podcast.kxradio.nl/kxpodcast/podcast/freakolympics/week50-151207-freakolympics.mp3</A>
+ &gt; (HistoryStore) Wrote 311 history entries.
+ &gt; (GPodderStatusIcon) Notification: 11 episodes
+ &gt; downloaded:
+ &gt; Jan. 5, 2008: The News from Lake Wobegon
+ &gt; NPR: 01-06-2008 Wait Wait... Don't Tell Me!
+ &gt; Skepticality #068 - The Candidates on Church and State
+ &gt; - Interview: Lori Lipman Brown
+ &gt; 2008-01-04-bambiopjacht
+ &gt; 2008-01-06-Zegellak2
+ &gt; 2008-01-06-Zegellak1
+ &gt; 2008-01-06-albumdossier2
+ &gt; 2008-01-05-slashdotdash
+ &gt; 2008-01-06-leukemuziekliedjes
+ &gt; 2008-01-06-albumdossier1
+ &gt; (...one more episode...)
+ &gt; Traceback (most recent call last):
+ &gt;   File
+ &gt; &quot;/home/rooijen/gpodder/src/gpodder/trayicon.py&quot;, line
+ &gt; 208, in __download_progress_changed
+ &gt;     self.send_notification(message, _('gPodder
+ &gt; downloads finished'), [self.ACTION_SHOW,
+ &gt; self.ACTION_QUIT, self.ACTION_IGNORE])
+ &gt;   File
+ &gt; &quot;/home/rooijen/gpodder/src/gpodder/trayicon.py&quot;, line
+ &gt; 267, in send_notification
+ &gt;     notification.attach_to_status_icon(self)
+ &gt; AttributeError: 'pynotify.Notification' object has no
+ &gt; attribute 'attach_to_status_icon'
+ &gt; (gPodder) auto_update_procedure() got called
+ &gt; 
+ &gt; 
+ &gt; 
+ &gt;       ____________________________________________________________________________________
+ &gt; Looking for last minute shopping deals?  
+ &gt; Find them fast with Yahoo! Search.  <A HREF="http://tools.search.yahoo.com/newsearch/category.php?category=shopping">http://tools.search.yahoo.com/newsearch/category.php?category=shopping</A>
+ &gt; _______________________________________________
+ &gt; gpodder-devel mailing list
+ &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+ &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+ &gt; 
+ &gt; 
+ _______________________________________________
+ gpodder-devel mailing list
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+ <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+ 
+
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+
+________________________________________________________________________
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080109/4b972e30/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080109/4b972e30/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001044.html">[gpodder-devel] Uploading to iPod
+</A></li>
+	<LI>Next message: <A HREF="001045.html">[gpodder-devel] Swedish translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1041">[ date ]</a>
+              <a href="thread.html#1041">[ thread ]</a>
+              <a href="subject.html#1041">[ subject ]</a>
+              <a href="author.html#1041">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

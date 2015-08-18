@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Experimental HTML widget support for episode	description
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Experimental%20HTML%20widget%20support%20for%20episode%0A%09description&In-Reply-To=%3C1217794753.11845.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001711.html">
+   <LINK REL="Next"  HREF="001716.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Experimental HTML widget support for episode	description</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Experimental%20HTML%20widget%20support%20for%20episode%0A%09description&In-Reply-To=%3C1217794753.11845.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Experimental HTML widget support for episode	description">thp at perli.net
+       </A><BR>
+    <I>Sun Aug  3 22:19:13 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001711.html">[gpodder-devel] [Patch] gpodder --stats
+</A></li>
+        <LI>Next message: <A HREF="001716.html">[gpodder-devel] [PATCH] Case-insensitive channel sorting.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1706">[ date ]</a>
+              <a href="thread.html#1706">[ thread ]</a>
+              <a href="subject.html#1706">[ subject ]</a>
+              <a href="author.html#1706">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I've written some quick-and-dirty support code that would display
+episode descriptions in a HTML widget in the episode info dialog. You
+can test this code using the following commands:
+
+git clone <A HREF="git://repo.or.cz/gpodder.git">git://repo.or.cz/gpodder.git</A>
+cd gpodder
+git checkout origin/gtkhtml2-support
+make test
+
+You need to have &quot;python-gtkhtml2&quot; (in Debian/Ubuntu, other distros
+should have similiar packages) installed, because else gPodder will
+fallback to the &quot;normal&quot; text-only episode description.
+
+Please tell me what you think and if you would like to have this feature
+in one of the upcoming gPodder releases.
+
+Bug page for this feature: <A HREF="http://bugs.gpodder.org/show_bug.cgi?id=162">http://bugs.gpodder.org/show_bug.cgi?id=162</A>
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001711.html">[gpodder-devel] [Patch] gpodder --stats
+</A></li>
+	<LI>Next message: <A HREF="001716.html">[gpodder-devel] [PATCH] Case-insensitive channel sorting.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1706">[ date ]</a>
+              <a href="thread.html#1706">[ thread ]</a>
+              <a href="subject.html#1706">[ subject ]</a>
+              <a href="author.html#1706">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

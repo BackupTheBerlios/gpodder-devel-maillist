@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Closing gPodder after a Woodchuck-triggered update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Closing%20gPodder%20after%20a%20Woodchuck-triggered%0A%20update&In-Reply-To=%3C20110806160626.GZ26052%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002850.html">
+   <LINK REL="Next"  HREF="002855.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Closing gPodder after a Woodchuck-triggered update</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Closing%20gPodder%20after%20a%20Woodchuck-triggered%0A%20update&In-Reply-To=%3C20110806160626.GZ26052%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] Closing gPodder after a Woodchuck-triggered update">thp at gpodder.org
+       </A><BR>
+    <I>Sat Aug  6 18:06:27 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002850.html">[gpodder-devel] Closing gPodder after a Woodchuck-triggered update
+</A></li>
+        <LI>Next message: <A HREF="002855.html">[gpodder-devel] Can't redownload partially downloaded files
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2853">[ date ]</a>
+              <a href="thread.html#2853">[ thread ]</a>
+              <a href="subject.html#2853">[ subject ]</a>
+              <a href="author.html#2853">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Thu, Aug 04, 2011 at 06:00:25PM +0200, Neal H. Walfield wrote:
+&gt;<i> If Woodchuck decides that gPodder should update a channel or download
+</I>&gt;<i> an episode and gPodder is not running, Woodchuck will start gPodder.
+</I>&gt;<i> 
+</I>&gt;<i> If, after the updates are finished, the user has not interacted with
+</I>&gt;<i> gPodder, then gPodder can quit and free resources.  The question,
+</I>&gt;<i> then, is how to best determine whether the user interacted with
+</I>&gt;<i> gPodder.  In FeedingIt, I added a flag that the top-level widget
+</I>&gt;<i> callbacks set.  This is a bit dirty.
+</I>&gt;<i> 
+</I>&gt;<i> On IRC, Thomas suggested not starting the GUI if gPodder was started
+</I>&gt;<i> by Woodchuck.  In this case, we need to figure out how to start the
+</I>&gt;<i> GUI if the user decides to use gPodder during such an update.  I'm not
+</I>&gt;<i> sure how to best do this.
+</I>&gt;<i> 
+</I>&gt;<i> Another solution would be to put something like a transparent eventbox
+</I>&gt;<i> on top of gpodder and, on the first user interaction, set a flag,
+</I>&gt;<i> destroy the event box and pass the event through to the GUI.
+</I>
+No, I don't like this approach and also not the one with the flag.
+However, I think we should have some support in place for gPodder to run
+in some kind of &quot;headless&quot; mode when it has not started. Can you file a
+bug for this (as feature request) on bugs.gpodder.org that we can use to
+track this feature?
+
+HTH.
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002850.html">[gpodder-devel] Closing gPodder after a Woodchuck-triggered update
+</A></li>
+	<LI>Next message: <A HREF="002855.html">[gpodder-devel] Can't redownload partially downloaded files
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2853">[ date ]</a>
+              <a href="thread.html#2853">[ thread ]</a>
+              <a href="subject.html#2853">[ subject ]</a>
+              <a href="author.html#2853">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

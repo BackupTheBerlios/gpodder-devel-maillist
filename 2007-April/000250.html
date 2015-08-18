@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20%22unplayed%22%20mark%20not%20functioning%20correctly&In-Reply-To=%3C200704121109.33154.pdedecker%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000249.html">
+   <LINK REL="Next"  HREF="000251.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly</H1>
+    <B>Pieter De Decker</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20%22unplayed%22%20mark%20not%20functioning%20correctly&In-Reply-To=%3C200704121109.33154.pdedecker%40gmail.com%3E"
+       TITLE="[gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly">pdedecker at gmail.com
+       </A><BR>
+    <I>Thu Apr 12 11:09:30 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000249.html">[gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly
+</A></li>
+        <LI>Next message: <A HREF="000251.html">[gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>It's me again. I found out that I can also use the experimental Debian 
+packages. In other words: they're not specifically made for Ubuntu. libgpod 
+0.3.2 (aka libgpod0) is still on my system, but I've also installed libgpod 
+0.4.2 (aka libgpod1) and that worked for me.
+
+You might want to use this for an FAQ or something: 
+<A HREF="http://ftp.debian.org/debian/pool/main/libg/libgpod/python-gpod_0.4.2-1_i386.deb">http://ftp.debian.org/debian/pool/main/libg/libgpod/python-gpod_0.4.2-1_i386.deb</A>
+<A HREF="http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod-common_0.4.2-1_all.deb">http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod-common_0.4.2-1_all.deb</A>
+<A HREF="http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod1_0.4.2-1_i386.deb">http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod1_0.4.2-1_i386.deb</A>
+
+When trying to install python-gpod 0.4.2, dpkg started complaining about 
+python-central not being recent enough. I resolved this dependency problem by 
+installing python-central 0.5.13 from Debian's FTP server:
+<A HREF="http://ftp.debian.org/debian/pool/main/p/python-central/python-central_0.5.13-0.1_all.deb">http://ftp.debian.org/debian/pool/main/p/python-central/python-central_0.5.13-0.1_all.deb</A>
+
+Please note that these packages are EXPERIMENTAL. Another thing you might want 
+to know: I'm a user of Kubuntu 6.10 but I'm on the GNOME desktop.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000249.html">[gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly
+</A></li>
+	<LI>Next message: <A HREF="000251.html">[gpodder-devel] iPod &quot;unplayed&quot; mark not functioning correctly
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

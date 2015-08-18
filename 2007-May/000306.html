@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder can't parse a podcast URL
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20can%27t%20parse%20a%20podcast%20URL&In-Reply-To=%3C1179000420.29135.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000302.html">
+   <LINK REL="Next"  HREF="000310.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder can't parse a podcast URL</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20can%27t%20parse%20a%20podcast%20URL&In-Reply-To=%3C1179000420.29135.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder can't parse a podcast URL">thp at perli.net
+       </A><BR>
+    <I>Sat May 12 22:07:00 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000302.html">[gpodder-devel] gPodder can't parse a podcast URL
+</A></li>
+        <LI>Next message: <A HREF="000310.html">[gpodder-devel] gPodder can't parse a podcast URL
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#306">[ date ]</a>
+              <a href="thread.html#306">[ thread ]</a>
+              <a href="subject.html#306">[ subject ]</a>
+              <a href="author.html#306">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Michel!
+
+On Fri, 2007-05-11 at 16:22 -0400, Michel Salim wrote:
+&gt;<i> This podcast from the UK newspaper The Guardian cannot be parsed:
+</I>&gt;<i> <A HREF="http://www.guardian.co.uk/podcast/0,,329441482,00.xml">http://www.guardian.co.uk/podcast/0,,329441482,00.xml</A>
+</I>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at macbook</A>:~$ wget -q
+<A HREF="http://www.guardian.co.uk/podcast/0,,329441482,00.xml">http://www.guardian.co.uk/podcast/0,,329441482,00.xml</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at macbook</A>:~$ xmllint 0,,329441482,00.xml 
+0,,329441482,00.xml:218: parser error : Input is not proper UTF-8,
+indicate encoding !
+Bytes: 0x96 0x20 0x45 0x44
+hy it would be &#39;unthinkable&#39; for the Conservatives to remain in
+the EPP 
+
+Seems like the said file is not UTF-8 encoded (as its header states),
+but Latin1 encoded. I'd suggest you complain to the podcast author about
+specifying wrong encodings.
+
+To fix the problem, your easiest bet is to run a command like the
+following on a server that can be accessed through http:
+
+wget -q <A HREF="http://www.guardian.co.uk/podcast/0,,329441482,00.xml">http://www.guardian.co.uk/podcast/0,,329441482,00.xml</A> -O- |
+iconv -fiso-8859-1 -tutf-8 &gt;feed.xml
+
+If you put that into a cron job, it will automatically grab the XML feed
+from guardian, fix the encoding (convert from Latin1 to UTF8) and save
+the result as feed.xml. You then point gPodder to the feed.xml (i.e.
+<A HREF="http://yourwebserver.com/~youruser/podcasts/feed.xml">http://yourwebserver.com/~youruser/podcasts/feed.xml</A>) and gPodder should
+happily process the file mentioned.
+
+Too complicated? Maybe a &quot;read RSS from shell pipe&quot; would be helpful
+where one can paste the command from above, don't know.
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000302.html">[gpodder-devel] gPodder can't parse a podcast URL
+</A></li>
+	<LI>Next message: <A HREF="000310.html">[gpodder-devel] gPodder can't parse a podcast URL
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#306">[ date ]</a>
+              <a href="thread.html#306">[ thread ]</a>
+              <a href="subject.html#306">[ subject ]</a>
+              <a href="author.html#306">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

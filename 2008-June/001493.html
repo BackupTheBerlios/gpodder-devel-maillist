@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Results of the file naming test (your	OPML	files)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%20test%20%28your%0A%09OPML%09files%29&In-Reply-To=%3C1212469608.6604.7.camel%40Jingjiang%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001492.html">
+   <LINK REL="Next"  HREF="001494.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Results of the file naming test (your	OPML	files)</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%20test%20%28your%0A%09OPML%09files%29&In-Reply-To=%3C1212469608.6604.7.camel%40Jingjiang%3E"
+       TITLE="[gpodder-devel] Results of the file naming test (your	OPML	files)">Paul at thegithouse.com
+       </A><BR>
+    <I>Tue Jun  3 07:06:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001492.html">[gpodder-devel] gPodder 0.11.3 &quot;To Serve Man&quot; released
+</A></li>
+        <LI>Next message: <A HREF="001494.html">[gpodder-devel] Results of the file naming test (your	OPML	files)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1493">[ date ]</a>
+              <a href="thread.html#1493">[ thread ]</a>
+              <a href="subject.html#1493">[ subject ]</a>
+              <a href="author.html#1493">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Thomas
+
+First of all sorry for the very late reply!
+
+Doesn't the feed contain a date/time stamp?  Could we not simply prefix
+each file with that?  In the case of the The Merlin Show you would end
+up with something like:-
+
+	20080314-episode.mp4
+
+Trying to keep track of things will be tricky so whatever solution we
+come up with needs to be as automated as possible.
+
+Paul
+
+
+On Thu, 2008-05-08 at 17:51 +0200, Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> I've finished the script and let it run through all the OPML files that
+</I>&gt;<i> have been sent to me. All feeds seem to work great with the current file
+</I>&gt;<i> naming scheme, except for two:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://feeds.themerlinshow.com/TheMerlinShow">http://feeds.themerlinshow.com/TheMerlinShow</A>
+</I>&gt;<i> This feed always has &quot;episode.mp4&quot; as file name. The episode URLs are
+</I>&gt;<i> redirects to the real files, which resolve to something like this:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; $ HEAD -S <A HREF="http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4">http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4</A>
+</I>&gt;<i> &gt; HEAD <A HREF="http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4">http://feeds.themerlinshow.com/~r/TheMerlinShow/~5/125754107/redirect.mp4</A> --&gt; 302 Moved Temporarily
+</I>&gt;<i> &gt; HEAD <A HREF="http://www.podtrac.com/pts/redirect.mp4?http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4">http://www.podtrac.com/pts/redirect.mp4?http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4</A> --&gt; 302 Found
+</I>&gt;<i> &gt; HEAD <A HREF="http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4">http://media.libsyn.com/media/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4</A> --&gt; 302 Found
+</I>&gt;<i> &gt; HEAD
+</I>&gt;<i> &gt; <A HREF="http://cdn2.libsyn.com/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4">http://cdn2.libsyn.com/themerlinshow/tms_020_Jesse_Thorn_02_ipod.mp4</A>
+</I>&gt;<i> &gt; --&gt; 200 OK
+</I>&gt;<i> 
+</I>&gt;<i> This means that for this podcast with &quot;redirect.mp4&quot; as base name for
+</I>&gt;<i> every episode, we can use a HTTP head request to determine a valid file
+</I>&gt;<i> name. This is a suboptimal solution, so I'm thinking about how we can
+</I>&gt;<i> avoid such situations.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml">http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml</A>
+</I>&gt;<i> This one unfortunately constructs its URLs so that episodes from
+</I>&gt;<i> different months but same day-of-month collide, e.g.
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://download.publicradio.org/podcast/phc/2008/01/26_nflw_64.mp3">http://download.publicradio.org/podcast/phc/2008/01/26_nflw_64.mp3</A>
+</I>&gt;<i> and
+</I>&gt;<i> <A HREF="http://download.publicradio.org/podcast/phc/2008/04/26_nflw_64.mp3">http://download.publicradio.org/podcast/phc/2008/04/26_nflw_64.mp3</A>
+</I>&gt;<i> 
+</I>&gt;<i> I have to think about what we can do in such a situation. I am thinking
+</I>&gt;<i> about adding a dictionary of filename =&gt; url pairs that can be used to
+</I>&gt;<i> check if a downloaded file has been downloaded from a specific URL or
+</I>&gt;<i> not. If so, we know that the filename corresponds to the URL. If not, we
+</I>&gt;<i> have to rename the file and (after downloading it) save the file name in
+</I>&gt;<i> the dictionary. The only problem is that we also have to look in our
+</I>&gt;<i> dictionary if there is a generated filename for every URL for which a
+</I>&gt;<i> downloaded file doesn't exist in the default location. Another problem
+</I>&gt;<i> is that we want to be downwards-compatible with previous versions (i.e.
+</I>&gt;<i> downloads from previous versions should be detected and used).
+</I>&gt;<i> 
+</I>&gt;<i> Any ideas?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001492.html">[gpodder-devel] gPodder 0.11.3 &quot;To Serve Man&quot; released
+</A></li>
+	<LI>Next message: <A HREF="001494.html">[gpodder-devel] Results of the file naming test (your	OPML	files)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1493">[ date ]</a>
+              <a href="thread.html#1493">[ thread ]</a>
+              <a href="subject.html#1493">[ subject ]</a>
+              <a href="author.html#1493">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] impressions after first use
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20impressions%20after%20first%20use&In-Reply-To=%3C1180390749.29396.12.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000327.html">
+   <LINK REL="Next"  HREF="000329.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] impressions after first use</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20impressions%20after%20first%20use&In-Reply-To=%3C1180390749.29396.12.camel%40macbook%3E"
+       TITLE="[gpodder-devel] impressions after first use">thp at perli.net
+       </A><BR>
+    <I>Tue May 29 00:19:09 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000327.html">[gpodder-devel] impressions after first use
+</A></li>
+        <LI>Next message: <A HREF="000329.html">[gpodder-devel] impressions after first use
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#328">[ date ]</a>
+              <a href="thread.html#328">[ thread ]</a>
+              <a href="subject.html#328">[ subject ]</a>
+              <a href="author.html#328">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Tim!
+
+On Sun, 2007-05-27 at 16:34 +0200, Tim Michelsen wrote:
+&gt;<i> I tried to change the default download directory ~/gpodder-downloads
+</I>&gt;<i> to /media/share/podcasts on a vfat drive.
+</I>
+If moving the download folder doesn't work for you, it might be related
+to not having enough space left on the destination device or some other
+permissions problem. You can always move the folder manually:
+
+1. Close gPodder
+2. Move the download directory to the new destination
+3. Change the &quot;download_dir&quot; setting in ~/.config/gpodder/gpodder.conf
+4. Restart gPodder
+
+gPodder should now use the new download directory location.
+
+&gt;<i> * How do I import a local OPML file with my Podcast list from my web 
+</I>&gt;<i> aggregator?
+</I>
+Enter the web location of your OPML file in the preferences dialog and
+click on &quot;Podcasts&quot; -&gt; &quot;Channel list&quot; -&gt; &quot;Import from web&quot;. Then, add
+the channels you want to add to your gPodder channel list.
+
+&gt;<i> * Is it possible to auto-purge/delete old podcasts after some time?
+</I>&gt;<i> many newsreaders and a podcatcher called juicereceiver have that. I 
+</I>&gt;<i> find it useful for keeping the hard disk automatically clean.
+</I>
+Currently not, but this item is on the TODO list, which means it will
+get into gPodder when somebody finds the time to implement this feature.
+I don't have the time to implement this feature currently, and I am also
+not totally sure how to best implement this feature so that it will be
+easy to use without having to configure many things.
+
+Combined with this feature is also a &quot;delete locally-deleted podcasts on
+the iPod/MP3 player&quot; feature wishlist item, which would also help in
+keeping the portable player clean.
+
+
+Thanks for your feedback,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000327.html">[gpodder-devel] impressions after first use
+</A></li>
+	<LI>Next message: <A HREF="000329.html">[gpodder-devel] impressions after first use
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#328">[ date ]</a>
+              <a href="thread.html#328">[ thread ]</a>
+              <a href="subject.html#328">[ subject ]</a>
+              <a href="author.html#328">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

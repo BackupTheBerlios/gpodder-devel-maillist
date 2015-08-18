@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Problem with gpodder under ubuntu
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problem%20with%20gpodder%20under%20ubuntu&In-Reply-To=%3C4756E8CE.9010504%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000851.html">
+   <LINK REL="Next"  HREF="000854.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Problem with gpodder under ubuntu</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problem%20with%20gpodder%20under%20ubuntu&In-Reply-To=%3C4756E8CE.9010504%40perli.net%3E"
+       TITLE="[gpodder-devel] Problem with gpodder under ubuntu">thp at perli.net
+       </A><BR>
+    <I>Wed Dec  5 19:07:10 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000851.html">[gpodder-devel] Problem with gpodder under ubuntu
+</A></li>
+        <LI>Next message: <A HREF="000854.html">[gpodder-devel] Problem with gpodder under ubuntu
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#852">[ date ]</a>
+              <a href="thread.html#852">[ thread ]</a>
+              <a href="subject.html#852">[ subject ]</a>
+              <a href="author.html#852">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Sean!
+
+Sean Rima wrote:
+&gt;<i> On Wed, 05 Dec 2007 17:25:30 +0000, &quot;Sean Rima&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sean at rima.ws</A>&gt; said:
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Originally, I installed gpodder on my ubuntu powered laptop using adept.
+</I>&gt;&gt;<i> I since downloaded 10.2 and compilled it. However with both I get
+</I>&gt;&gt;<i> roughly the same problem. If I add a feed, it never showes in the
+</I>&gt;&gt;<i> channel lists. With 10.2 I found it downloaded but then never found the
+</I>&gt;&gt;<i> podcast again. I am new to using my Ipod under linux so not sure what
+</I>&gt;&gt;<i> other steps to try. 
+</I>&gt;&gt;<i>
+</I>&gt;<i> I checked using --verbose and if there is a channel saved it says
+</I>&gt;<i> 
+</I>&gt;<i> (Importer) Cannot import OPML from URL:
+</I>&gt;<i> /home/sean/.config/gpodder/channels.opml
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/bin/gpodder&quot;, line 148, in &lt;module&gt;
+</I>&gt;<i>     sys.exit( main())
+</I>&gt;<i>   File &quot;/usr/bin/gpodder&quot;, line 144, in main
+</I>&gt;<i>     gui.main()
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 2111, in
+</I>&gt;<i>   main
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 77, in
+</I>&gt;<i>   __init__
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/SimpleGladeApp.py&quot;, line
+</I>&gt;<i>   110, in __init__
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 271, in
+</I>&gt;<i>   new
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line
+</I>&gt;<i>   731, in load_channels
+</I>&gt;<i>   File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line
+</I>&gt;<i>   112, in clear_cache
+</I>&gt;<i>   File &quot;/usr/lib/python2.5/shelve.py&quot;, line 92, in keys
+</I>&gt;<i>     return self.dict.keys()
+</I>&gt;<i>   File &quot;bsddb/__init__.py&quot;, line 252, in keys
+</I>&gt;<i>   File &quot;bsddb/dbutils.py&quot;, line 62, in DeadlockWrap
+</I>&gt;<i> bsddb.db.DBPageNotFoundError: (-30987, 'DB_PAGE_NOTFOUND: Requested page
+</I>&gt;<i> not found')
+</I>&gt;<i> 
+</I>&gt;<i> So I deleted the config directory and tried adding a new chnnel and get
+</I>&gt;<i> this:
+</I>&gt;<i> 
+</I>&gt;<i> Adding new channel: <A HREF="http://podcast.nationalgeographic.com/ng-minutes/">http://podcast.nationalgeographic.com/ng-minutes/</A>
+</I>&gt;<i> (Config) Flushing settings to disk
+</I>&gt;<i> Trying to get settings for
+</I>&gt;<i> <A HREF="http://podcast.nationalgeographic.com/ng-minutes/">http://podcast.nationalgeographic.com/ng-minutes/</A>
+</I>&gt;<i> (Exporter) Could not open file for writing:
+</I>&gt;<i> /home/sean/.config/gpodder/channels.opml
+</I>&gt;<i> (Importer) Cannot import OPML from URL:
+</I>&gt;<i> /home/sean/.config/gpodder/channels.opml
+</I>&gt;<i> (podcastChannel) Removing old feed from cache:
+</I>&gt;<i> <A HREF="http://podcast.nationalgeographic.com/ng-minutes/">http://podcast.nationalgeographic.com/ng-minutes/</A>
+</I>&gt;<i> /usr/lib/python2.5/site-packages/gpodder/gui.py:642: GtkWarning:
+</I>&gt;<i> gtk_tree_path_append_index: assertion `index &gt;= 0' failed
+</I>&gt;<i> 
+</I>&gt;<i> It creates no opml list at all :(
+</I>
+This is a bug, already fixed in SVN, will be fixed in the next release.
+I'm sorry. Here's a known workaround:
+
+mkdir -p ~/.gpodder/config/
+touch ~/.gpodder/config/channels.opml
+
+Alternatively, try the SVN version.
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000851.html">[gpodder-devel] Problem with gpodder under ubuntu
+</A></li>
+	<LI>Next message: <A HREF="000854.html">[gpodder-devel] Problem with gpodder under ubuntu
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#852">[ date ]</a>
+              <a href="thread.html#852">[ thread ]</a>
+              <a href="subject.html#852">[ subject ]</a>
+              <a href="author.html#852">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

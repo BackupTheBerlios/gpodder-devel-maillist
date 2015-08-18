@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Development workflow for contributors
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Development%20workflow%20for%20contributors&In-Reply-To=%3C3e8fd0440808062013q63ed5108va6f62d2c33b829f3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001724.html">
+   <LINK REL="Next"  HREF="001725.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Development workflow for contributors</H1>
+    <B>Nick Nobody</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Development%20workflow%20for%20contributors&In-Reply-To=%3C3e8fd0440808062013q63ed5108va6f62d2c33b829f3%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Development workflow for contributors">me at nikosapi.org
+       </A><BR>
+    <I>Thu Aug  7 05:13:20 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001724.html">[gpodder-devel] 60 second science feed.
+</A></li>
+        <LI>Next message: <A HREF="001725.html">[gpodder-devel] Development workflow for contributors
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1723">[ date ]</a>
+              <a href="thread.html#1723">[ thread ]</a>
+              <a href="subject.html#1723">[ subject ]</a>
+              <a href="author.html#1723">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Now that we have a shiny new SCM, there should be a bit of
+clarification on what should be the preferred method for submitting
+changes.
+
+As an experiment I created a fork[1] of gPodder and started adding
+some of my own branches there. I'm not sure if this is the right way
+to do this but the way I see it, it would allow changes to easily be
+merged from the fork into the main repository.
+
+So, if I'm reading the git docs right, to get the changes for a small
+bugfix branch (proper-filesizes) you could do this:
+
+git pull <A HREF="http://repo.or.cz/w/gpodder/nikosapi.git">http://repo.or.cz/w/gpodder/nikosapi.git</A> refs/heads/proper-filesizes
+
+I'm not sure if this is the recommended way to use git, I'd love to
+hear what other people think,
+
+nick
+
+[1] <A HREF="http://repo.or.cz/w/gpodder/nikosapi.git">http://repo.or.cz/w/gpodder/nikosapi.git</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001724.html">[gpodder-devel] 60 second science feed.
+</A></li>
+	<LI>Next message: <A HREF="001725.html">[gpodder-devel] Development workflow for contributors
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1723">[ date ]</a>
+              <a href="thread.html#1723">[ thread ]</a>
+              <a href="subject.html#1723">[ subject ]</a>
+              <a href="author.html#1723">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Likely obvious... can't see podcasts in ipod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Likely%20obvious...%20can%27t%20see%20podcasts%20in%20ipod&In-Reply-To=%3C5711d990704151048q124a272bk414cdaf2df62b581%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000258.html">
+   <LINK REL="Next"  HREF="000260.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Likely obvious... can't see podcasts in ipod</H1>
+    <B>G&#246;tz Waschk</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Likely%20obvious...%20can%27t%20see%20podcasts%20in%20ipod&In-Reply-To=%3C5711d990704151048q124a272bk414cdaf2df62b581%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Likely obvious... can't see podcasts in ipod">goetz.waschk at gmail.com
+       </A><BR>
+    <I>Sun Apr 15 19:48:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000258.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+        <LI>Next message: <A HREF="000260.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#259">[ date ]</a>
+              <a href="thread.html#259">[ thread ]</a>
+              <a href="subject.html#259">[ subject ]</a>
+              <a href="author.html#259">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 4/15/07, Darren O'Neil &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">darrenoneil at gmail.com</A>&gt; wrote:
+&gt;<i> I tried installing these packages (from Pieter):
+</I>&gt;<i> <A HREF="http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod-common_0.4.2-1_all.deb">http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod-common_0.4.2-1_all.deb</A>
+</I>&gt;<i> <A HREF="http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod1_0.4.2-1_i386.deb">http://ftp.debian.org/debian/pool/main/libg/libgpod/libgpod1_0.4.2-1_i386.deb</A>
+</I>&gt;<i> <A HREF="http://ftp.debian.org/debian/pool/main/libg/libgpod/python-gpod_0.4.2-1_i386.deb">http://ftp.debian.org/debian/pool/main/libg/libgpod/python-gpod_0.4.2-1_i386.deb</A>
+</I>&gt;<i> <A HREF="http://ftp.debian.org/debian/pool/main/p/python-central/python-central_0.5.13-0.1_all.deb">http://ftp.debian.org/debian/pool/main/p/python-central/python-central_0.5.13-0.1_all.deb</A>
+</I>
+&gt;<i> All installed with no probs.
+</I>&gt;<i> However, when I try an ipod sync now I get the error:
+</I>&gt;<i> Libraries needed: python-gpod, python-pymad.
+</I>&gt;<i> which is confusing since I have these installed.
+</I>
+Hi Darren,
+
+you cannot simply install random packages from the net, that were not
+built explicitly for your distribution. From your question below I
+read that you are using Ubuntu, while these packages are for Debian.
+
+&gt;<i> Any further hints/guidance you can offer? Will this problem likely go
+</I>&gt;<i> away with the release of Feisty Fawn?
+</I>
+If gpodder cannot load the python modules, this could mean that
+gpodder and your packages were built for different versions of python.
+Python modules for different versions of Python are in different
+paths, e.g. /usr/lib/python2.4/site-packages vs.
+/usr/lib/python2.5/site-packages on Mandriva 2007.0 vs. Mandriva
+2007.1.
+
+Regards, G&#246;tz Waschk
+
+-- 
+AL I:40: Do what thou wilt shall be the whole of the Law.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000258.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+	<LI>Next message: <A HREF="000260.html">[gpodder-devel] Likely obvious... can't see podcasts in ipod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#259">[ date ]</a>
+              <a href="thread.html#259">[ thread ]</a>
+              <a href="subject.html#259">[ subject ]</a>
+              <a href="author.html#259">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

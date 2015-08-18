@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Causing gpodder to hang on startup
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Causing%20gpodder%20to%20hang%20on%20startup&In-Reply-To=%3Cb2cdc9f30910220726h69e4c21ehe9e8e29f7bdcadc1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002290.html">
+   <LINK REL="Next"  HREF="002292.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Causing gpodder to hang on startup</H1>
+    <B>Alex Bennee</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Causing%20gpodder%20to%20hang%20on%20startup&In-Reply-To=%3Cb2cdc9f30910220726h69e4c21ehe9e8e29f7bdcadc1%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Causing gpodder to hang on startup">kernel-hacker at bennee.com
+       </A><BR>
+    <I>Thu Oct 22 16:26:11 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002290.html">[gpodder-devel] Polish translation for Maemo 5/Maemo 4 interface
+</A></li>
+        <LI>Next message: <A HREF="002292.html">[gpodder-devel] gPodder now available on Transifex
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2291">[ date ]</a>
+              <a href="thread.html#2291">[ thread ]</a>
+              <a href="subject.html#2291">[ subject ]</a>
+              <a href="author.html#2291">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Running the latest gpodder from git with make test I clicked the
+Subscribe menu item while it was starting up:
+
+10:12 <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ajb at pitcairn</A>/x86_64 [gpodder.git] &gt;make test
+bin/gpodder --verbose
+Using modules from /export/src/gpodder.git/src
+Using resources from /export/src/gpodder.git/data
+[   0.404] Detected encoding: UTF-8
+[   0.782] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert
+&quot;.ogg&quot; files.
+[   0.806] (gpodder.sync) Could not find gpod
+[   0.809] (gpodder.sync) Could not find pymtp.
+[   0.809] (gpodder.sync) Could not find pymad
+[   0.810] (gpodder.sync) Could not find eyeD3
+Creating new from file gPodder
+/export/src/gpodder.git/src/gpodder/gtkui/base.py:64: GtkWarning:
+Unknown property: GtkVSeparator.orientation
+
+  self.builder.add_from_file(filename)
+[   1.266] (GPodderStatusIcon) Creating tray icon
+/export/src/gpodder.git/src/gpodder/gui.py:640: GtkWarning:
+_gtk_tree_view_column_autosize: assertion `GTK_IS_TREE_VIEW
+(tree_view)' failed
+  column.set_property('min-width', 150)
+/export/src/gpodder.git/src/gpodder/gui.py:641: GtkWarning:
+_gtk_tree_view_column_autosize: assertion `GTK_IS_TREE_VIEW
+(tree_view)' failed
+  column.set_property('max-width', 150)
+[   1.862] (UIConfig) Update main_window_maximized: True =&gt; False
+[   3.441] (UIConfig) Update main_window_width: 1270 =&gt; 1279
+[   3.441] (UIConfig) Update main_window_height: 945 =&gt; 949
+[   4.620] start reader
+[   4.864] (UserAppsReader) Player found:
+/usr/share/applications/mplayer.desktop
+[   4.951] (UserAppsReader) Player found: /usr/share/applications/vlc.desktop
+[   5.246] (UserAppsReader) Player found:
+/usr/share/applications/serpentine.desktop
+[   5.467] (UserAppsReader) Player found:
+/usr/share/applications/rhythmbox.desktop
+[   6.134] (UserAppsReader) Player found: /usr/share/applications/totem.desktop
+[   6.444] (UserAppsReader) Player found:
+/usr/share/applications/banshee.desktop
+Creating new from file gPodderAddPodcast
+[   6.776] (UserAppsReader) Player found:
+/usr/share/applications/easytag.desktop
+[   6.946] end reader (benchmark: 2.3259 seconds)
+Traceback (most recent call last):
+  File &quot;/export/src/gpodder.git/src/gpodder/gtkui/interface/addpodcast.py&quot;,
+line 75, in on_btn_add_clicked
+    url = self.entry_url.get_text()
+AttributeError: 'gPodderAddPodcast' object has no attribute 'entry_url'
+[  10.915] (CoverDownloader) cover download request for
+<A HREF="http://feeds2.feedburner.com/FedoraReloadedOggCast">http://feeds2.feedburner.com/FedoraReloadedOggCast</A>
+[  10.916] (CoverDownloader) Trying to download:
+<A HREF="http://www.thebadapples.info/fedorareloaded/fedora.png">http://www.thebadapples.info/fedorareloaded/fedora.png</A>
+[  11.363] (CoverDownloader) Cannot get image from
+<A HREF="http://www.thebadapples.info/fedorareloaded/fedora.png">http://www.thebadapples.info/fedorareloaded/fedora.png</A>
+Traceback (most recent call last):
+  File &quot;/export/src/gpodder.git/src/gpodder/gtkui/interface/addpodcast.py&quot;,
+line 75, in on_btn_add_clicked
+    url = self.entry_url.get_text()
+AttributeError: 'gPodderAddPodcast' object has no attribute 'entry_url'
+Traceback (most recent call last):
+  File &quot;/export/src/gpodder.git/src/gpodder/gtkui/interface/addpodcast.py&quot;,
+line 56, in on_btn_close_clicked
+    self.gPodderAddPodcast.destroy()
+AttributeError: 'gPodderAddPodcast' object has no attribute 'gPodderAddPodcast'
+
+Which left gpodder is a rather hung state. Perhaps the menu should be
+disabled until gpodder has finished starting up?
+
+-- 
+Alex, homepage: <A HREF="http://www.bennee.com/~alex/">http://www.bennee.com/~alex/</A>
+<A HREF="http://www.half-llama.co.uk">http://www.half-llama.co.uk</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002290.html">[gpodder-devel] Polish translation for Maemo 5/Maemo 4 interface
+</A></li>
+	<LI>Next message: <A HREF="002292.html">[gpodder-devel] gPodder now available on Transifex
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2291">[ date ]</a>
+              <a href="thread.html#2291">[ thread ]</a>
+              <a href="subject.html#2291">[ subject ]</a>
+              <a href="author.html#2291">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

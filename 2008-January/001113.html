@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Changes to the tray icon (was: Re:	gpodder-devel	Digest, Vol 19, Issue 29)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changes%20to%20the%20tray%20icon%20%28was%3A%20Re%3A%0A%09gpodder-devel%09Digest%2C%20Vol%2019%2C%20Issue%2029%29&In-Reply-To=%3C1201176573.6291.12.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001109.html">
+   <LINK REL="Next"  HREF="001111.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Changes to the tray icon (was: Re:	gpodder-devel	Digest, Vol 19, Issue 29)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Changes%20to%20the%20tray%20icon%20%28was%3A%20Re%3A%0A%09gpodder-devel%09Digest%2C%20Vol%2019%2C%20Issue%2029%29&In-Reply-To=%3C1201176573.6291.12.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Changes to the tray icon (was: Re:	gpodder-devel	Digest, Vol 19, Issue 29)">thp at perli.net
+       </A><BR>
+    <I>Thu Jan 24 13:09:33 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001109.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+        <LI>Next message: <A HREF="001111.html">[gpodder-devel] About the notification icon.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1113">[ date ]</a>
+              <a href="thread.html#1113">[ thread ]</a>
+              <a href="subject.html#1113">[ subject ]</a>
+              <a href="author.html#1113">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jerome, Shane and Paul!
+
+On Wed, 2008-01-23 at 21:55 +0100, J&#233;r&#244;me Chabod wrote:
+&gt;<i> I understand your point of view and I must honestly say I also won't
+</I>&gt;<i> need all this extra &quot;buttons&quot;. I also agree to the fact that &quot;new
+</I>&gt;<i> episode are available&quot; should be notified only once.
+</I>
+Ok, so I think we can add to the list of needed changes:
+
+  * Only show &quot;New episodes are available&quot; once for a set of episodes
+  * Remove all the buttons on the notification bubbles
+
+
+&gt;<i> However, a feature I really, really need is  the ability to
+</I>&gt;<i> automaticaly download episodes as soon as they are discovered (I
+</I>&gt;<i> explain it a few paragraph later).
+</I>
+As Paul and Shane also suggested that they would find this feature
+useful, I think we should add the option, but maybe seperate to the
+current option (rename the current to &quot;[...] after manual feed updates&quot;
+and add a new &quot;download new episodes in the background when gPodder is
+minimized&quot;). Of course, this means that we have to make sure that
+automatic downloads never bring the gPodder window in the foreground,
+but always run automatically (errors can still be reported via a
+notification bubble).
+
+On the other hand, who would manually update the feed cache and then not
+be asked about new episodes? So maybe we should remove the option to ask
+for downloading after feed updates and simply make it the default. Then
+we get:
+
+  * Remove the current automatic download option (default behaviour)
+  * Add option to download new episodes in the background (minimized)
+  * Make sure automatic downloads never show the gPodder window
+
+
+&gt;<i> To let you understand my motivation, let me explain &quot;my ideal&quot; gPodder
+</I>&gt;<i> as it tends to become (if you have to few time, you can skip it ;)):
+</I>
+Thanks for sharing your gPodder workflow, it's interesting to read how
+other people use gPodder. We should probably make a contest in some
+weeks for people to send in their usage patterns of gPodder - maybe we
+can get some hints on what could be improved and maybe we can also use
+this information for writing a &quot;How to best use gPodder for [...]&quot;
+guide. I'll note that, maybe we can do this when we have the time.
+
+Please have a look at the &quot;*&quot; items that I have tried to sum up in this
+mail and see if this is what you think is a good thing to do. We should
+probably have some more discussion before we start implementing the
+planned changes.
+
+Thanks for your time and attention to detail. I think with the results
+of this discussion and a good implementation, we can make your tray icon
+feature really shine and have a great release in February with the tray
+icon included.
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001109.html">[gpodder-devel] gpodder-devel Digest, Vol 19, Issue 29
+</A></li>
+	<LI>Next message: <A HREF="001111.html">[gpodder-devel] About the notification icon.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1113">[ date ]</a>
+              <a href="thread.html#1113">[ thread ]</a>
+              <a href="subject.html#1113">[ subject ]</a>
+              <a href="author.html#1113">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Results of the file naming test	(your	OPML	files)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%20test%0A%09%28your%09OPML%09files%29&In-Reply-To=%3C1212494974.14541.18.camel%40Jingjiang%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001494.html">
+   <LINK REL="Next"  HREF="001496.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Results of the file naming test	(your	OPML	files)</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Results%20of%20the%20file%20naming%20test%0A%09%28your%09OPML%09files%29&In-Reply-To=%3C1212494974.14541.18.camel%40Jingjiang%3E"
+       TITLE="[gpodder-devel] Results of the file naming test	(your	OPML	files)">Paul at thegithouse.com
+       </A><BR>
+    <I>Tue Jun  3 14:09:34 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001494.html">[gpodder-devel] Results of the file naming test (your	OPML	files)
+</A></li>
+        <LI>Next message: <A HREF="001496.html">[gpodder-devel] Results of the file naming	test	(your	OPML	files)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1495">[ date ]</a>
+              <a href="thread.html#1495">[ thread ]</a>
+              <a href="subject.html#1495">[ subject ]</a>
+              <a href="author.html#1495">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas
+
+On Tue, 2008-06-03 at 11:15 +0200, Thomas Perl wrote:
+&gt;<i> &gt; Doesn't the feed contain a date/time stamp?  Could we not simply  
+</I>&gt;<i> &gt; prefix
+</I>&gt;<i> &gt; each file with that?  In the case of the The Merlin Show you would end
+</I>&gt;<i> &gt; up with something like:-
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 	20080314-episode.mp4
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Trying to keep track of things will be tricky so whatever solution we
+</I>&gt;<i> &gt; come up with needs to be as automated as possible.
+</I>&gt;<i> 
+</I>&gt;<i> Yes, this works - as long as the corresponding feed contains a  
+</I>&gt;<i> pubDate timestamp (at least one that is parseable, so we can turn it  
+</I>&gt;<i> into YYYYMMDD).
+</I>&gt;<i> 
+</I>&gt;<i> A new idea would be to simply keep a dictionary that maps URLs to  
+</I>&gt;<i> file names and when we get a given file name, we check if this value  
+</I>&gt;<i> is already in the dictionary - if it is not, we simply add it to the  
+</I>&gt;<i> dictionary. If it is, we append something like &quot;-1&quot; to the file name  
+</I>&gt;<i> and check again, etc, etc.. This would make things more safe in case  
+</I>&gt;<i> something changes (the pubDate could theoretically change in some  
+</I>&gt;<i> blog software if the article is edited).
+</I>As the date is not reliable as you pointed out, I think this leaves us
+with very little option but to implement the dictionary solution.
+
+I don't mind giving this a go if there is no rush! ;)
+
+I haven't looked but is the code you used to test the file naming in
+SVN?
+
+Paul
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001494.html">[gpodder-devel] Results of the file naming test (your	OPML	files)
+</A></li>
+	<LI>Next message: <A HREF="001496.html">[gpodder-devel] Results of the file naming	test	(your	OPML	files)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1495">[ date ]</a>
+              <a href="thread.html#1495">[ thread ]</a>
+              <a href="subject.html#1495">[ subject ]</a>
+              <a href="author.html#1495">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

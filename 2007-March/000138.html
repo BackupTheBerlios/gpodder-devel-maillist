@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Problems with vlc
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problems%20with%20vlc&In-Reply-To=%3C200703251442.49990.nikosapi%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000137.html">
+   <LINK REL="Next"  HREF="000146.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Problems with vlc</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Problems%20with%20vlc&In-Reply-To=%3C200703251442.49990.nikosapi%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] Problems with vlc">nikosapi at gmail.com
+       </A><BR>
+    <I>Sun Mar 25 20:42:49 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000137.html">[gpodder-devel] Problems with vlc
+</A></li>
+        <LI>Next message: <A HREF="000146.html">[gpodder-devel] Problems with vlc
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#138">[ date ]</a>
+              <a href="thread.html#138">[ thread ]</a>
+              <a href="subject.html#138">[ subject ]</a>
+              <a href="author.html#138">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thursday 22 March 2007 12:52:56 Preben Randhol wrote:
+&gt;<i> Hi
+</I>&gt;<i>
+</I>&gt;<i> I'm having a problem with vlc and gpodder. If I use xmms I can hear all
+</I>&gt;<i> podcasts, but if I try to use vlc then some podcasts are not played.
+</I>&gt;<i> Vlc just goes fast to the end and stops. But it doesn't seem to have
+</I>&gt;<i> loaded the correct file as the counter seem to count some few seconds
+</I>&gt;<i> only. I have problems with all episodes in a channel, it is not just
+</I>&gt;<i> some episodes that doesn't work.
+</I>&gt;<i>
+</I>&gt;<i> I'm unsure how I can best debug the problem. Any hints to where I should
+</I>&gt;<i> put some print sentences in the code to test is much appreciated.
+</I>&gt;<i>
+</I>&gt;<i> I have the same problem in the latest svn version also.
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance
+</I>&gt;<i>
+</I>&gt;<i> Preben
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+I you want to try debugging this you could do something like this:
+
+- Write the following to a file (I named it findcmd):
+
+#!/bin/bash
+echo -e &quot;$@\n&quot; &gt;&gt; ~/Desktop/command.txt
+
+
+- Save the file somewhere (eg. on the desktop) and make it executable:
+
+chmod +x ~/Desktop/findcmd
+
+
+- In the gpodder preferences select &quot;Shell Command&quot; as a player and use the 
+following command (replace &quot;xmms -e&quot; with whatever you had there with vlc):
+
+~/Desktop/findcmd xmms -e %F
+
+
+Then choose a file and click play. A file called command.txt will appear on 
+your desktop with the command that gpodder would have attempted to execute.
+
+Good luck,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000137.html">[gpodder-devel] Problems with vlc
+</A></li>
+	<LI>Next message: <A HREF="000146.html">[gpodder-devel] Problems with vlc
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#138">[ date ]</a>
+              <a href="thread.html#138">[ thread ]</a>
+              <a href="subject.html#138">[ subject ]</a>
+              <a href="author.html#138">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

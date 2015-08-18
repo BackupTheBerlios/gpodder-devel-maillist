@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As Played
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FUsing_Audioscrobbler_Log_Files_To_%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3FMark%3D09Shows%3D09As_Played%3F%3D&In-Reply-To=%3C200803291230.11249.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001326.html">
+   <LINK REL="Next"  HREF="001314.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As Played</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Fiso-8859-1%3Fq%3FUsing_Audioscrobbler_Log_Files_To_%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3FMark%3D09Shows%3D09As_Played%3F%3D&In-Reply-To=%3C200803291230.11249.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As Played">me at nikosapi.org
+       </A><BR>
+    <I>Sat Mar 29 17:30:11 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001326.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As	Played
+</A></li>
+        <LI>Next message: <A HREF="001314.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1328">[ date ]</a>
+              <a href="thread.html#1328">[ thread ]</a>
+              <a href="subject.html#1328">[ subject ]</a>
+              <a href="author.html#1328">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On March 29, 2008 11:24:32 Thomas Perl wrote:
+&gt;<i> Hello, Nick!
+</I>&gt;<i>
+</I>&gt;<i> On Fri, 2008-03-28 at 11:11 -0500, nikosapi wrote:
+</I>&gt;<i> &gt; Thank you for looking over and improving my code :)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I added one small thing, if find_mount_point() returns '/' then to
+</I>&gt;<i> &gt; prevent find_scrobbler_log() from os.walk()'ing your whole root
+</I>&gt;<i> &gt; filesystem we simply set mp3_player_mount_point to the the directory
+</I>&gt;<i> &gt; that we're syncing to. Appart from that I think the patch is ready.
+</I>&gt;<i>
+</I>&gt;<i> Thanks, I've applied your patch as-is to SVN trunk :)
+</I>&gt;<i>
+</I>&gt;<i> &gt; Ideally the .scrobbler.log file should be cleaned by scrobbler
+</I>&gt;<i> &gt; software that submits tracks to last.fm. I wrote a small python module
+</I>&gt;<i> &gt; that can scrobble tracks but I don't really think that it belongs in
+</I>&gt;<i> &gt; gPodder. (Unless you really think otherwise...)
+</I>&gt;<i>
+</I>&gt;<i> Yes, I also think that the clean-up has to be taken care by the last.fm
+</I>&gt;<i> client, that's what the spec also says. I just wondered if rockbox had
+</I>&gt;<i> any kind of intelligence built-in that would make sure the file didn't
+</I>&gt;<i> grow endlessly if the file is never deleted by a last.fm client (as is
+</I>&gt;<i> the case when one enables this feature for the sole purpose of getting
+</I>&gt;<i> played state synchronization to work with gPodder, without ever using
+</I>&gt;<i> last.fm).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>
+Looking at apps/scrobbler.c in the Rockbox source shows no indication that it 
+will attempt to truncate the logfile in the event that it gets too large. 
+That being said, my logfile has 3000 entries in it and there isn't any 
+noticeable performance impact when syncing.
+
+Worst case, the user would just have to delete their .scrobbler.log every few 
+months if loading the logfile begins to take too long. We can always just add 
+a notification to alert the user that the logfile is getting too large...
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001326.html">[gpodder-devel] Using Audioscrobbler Log Files To Mark	Shows	As	Played
+</A></li>
+	<LI>Next message: <A HREF="001314.html">[gpodder-devel] Error when writing iTunesDB.ext
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1328">[ date ]</a>
+              <a href="thread.html#1328">[ thread ]</a>
+              <a href="subject.html#1328">[ subject ]</a>
+              <a href="author.html#1328">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Integrating gPodder into Amarok
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Integrating%20gPodder%20into%20Amarok&In-Reply-To=%3C4CB5BE5E.5010706%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002582.html">
+   <LINK REL="Next"  HREF="002584.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Integrating gPodder into Amarok</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Integrating%20gPodder%20into%20Amarok&In-Reply-To=%3C4CB5BE5E.5010706%40derkits.at%3E"
+       TITLE="[gpodder-devel] Integrating gPodder into Amarok">stefan at derkits.at
+       </A><BR>
+    <I>Wed Oct 13 16:12:46 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002582.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+        <LI>Next message: <A HREF="002584.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2583">[ date ]</a>
+              <a href="thread.html#2583">[ thread ]</a>
+              <a href="subject.html#2583">[ subject ]</a>
+              <a href="author.html#2583">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hey,
+
+On 13/10/10 16:05, Stefan K&#246;gl wrote:
+&gt;<i> There is already a reference-implementation covering most of the API,
+</I>&gt;<i> which is written in Python.
+</I>&gt;<i> 
+</I>&gt;<i>  <A HREF="http://thpinfo.com/2010/mygpoclient/">http://thpinfo.com/2010/mygpoclient/</A>
+</I>
+I already saw that and we looked into it ...
+
+&gt;<i> However, if using the client is not suitable for you it would be great
+</I>&gt;<i> if you could separate your client-code from the Amarok integration and
+</I>&gt;<i> release it as an own library.
+</I>
+... but it is written in Python and Amarok in C++/Qt. And somehow C++ &amp;
+Python Interoperabillity is (as it seems) not really easy &amp; Amarok can't
+depend on Python :)
+First we thought about releasing a own (C++/Qt) library, but some Amarok
+Devels warned us that it could take away too much time from actually
+developing a Feature. We have no Idea, of course it sounds more fun to
+not have to wait till we developed &amp; finished a Lib, on the other Hand
+it would be usefull.
+But we try to capsulate our Code as good as possible to have the
+possibillity to later put it in a own C++/Qt Lib that wraps the WebAPI ;)
+
+Stefan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAky1vl4ACgkQlZvAMV/NgGLG0ACgpa+T8dT7s3RqjpZ366h0csFN
+dG0AnRB7MOu4NSZMcECwWi6k03CK7VQR
+=THDL
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002582.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+	<LI>Next message: <A HREF="002584.html">[gpodder-devel] Integrating gPodder into Amarok
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2583">[ date ]</a>
+              <a href="thread.html#2583">[ thread ]</a>
+              <a href="subject.html#2583">[ subject ]</a>
+              <a href="author.html#2583">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

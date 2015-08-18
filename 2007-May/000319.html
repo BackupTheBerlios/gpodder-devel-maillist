@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%0A%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3C5711d990705232237h1b299d41hf99d49756a871404%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000318.html">
+   <LINK REL="Next"  HREF="000320.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)</H1>
+    <B>G&#246;tz Waschk</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%0A%09during%20moving%20tempfile%20%3A/%29&In-Reply-To=%3C5711d990705232237h1b299d41hf99d49756a871404%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)">goetz.waschk at gmail.com
+       </A><BR>
+    <I>Thu May 24 07:37:05 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000318.html">[gpodder-devel] non-ascii character support
+</A></li>
+        <LI>Next message: <A HREF="000320.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#319">[ date ]</a>
+              <a href="thread.html#319">[ thread ]</a>
+              <a href="subject.html#319">[ subject ]</a>
+              <a href="author.html#319">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 4/23/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i> &gt; Correct. It seems the errors are related to the &quot;Automatically
+</I>&gt;<i> &gt; check/update when Gpodder starts&quot;.
+</I>&gt;<i> &gt; I updated all my entries this morning manually and have yet to
+</I>&gt;<i> &gt; encounter the issue again
+</I>&gt;<i> Please test this for another week or so, and tell me if the error
+</I>&gt;<i> re-appears.
+</I>Hi,
+
+I still have this problem with gpodder 0.9.2. From .xsession-errors:
+Exception in thread Thread-10:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/threading.py&quot;, line 460, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.5/threading.py&quot;, line 440, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libwget.py&quot;, line
+131, in thread_function
+    move( self.tempname, self.filename)
+  File &quot;/usr/lib/python2.5/shutil.py&quot;, line 199, in move
+    copy2(src,dst)
+  File &quot;/usr/lib/python2.5/shutil.py&quot;, line 91, in copy2
+    copyfile(src, dst)
+  File &quot;/usr/lib/python2.5/shutil.py&quot;, line 46, in copyfile
+    fsrc = open(src, 'rb')
+IOError: [Errno 2] Datei oder Verzeichnis nicht gefunden:
+u'/home/goetz/gpodder-downloads/0969cf93214c026ce56f4ba55b694d10/.tmp-c42f288b5a8942883e26716a952cbbbb.mp3'
+
+
+When I click on 'No' on startup and download the new podcast episode
+manually, there is no error.
+
+Regards, G&#246;tz
+
+-- 
+AL I:40: Do what thou wilt shall be the whole of the Law.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000318.html">[gpodder-devel] non-ascii character support
+</A></li>
+	<LI>Next message: <A HREF="000320.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error	happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#319">[ date ]</a>
+              <a href="thread.html#319">[ thread ]</a>
+              <a href="subject.html#319">[ subject ]</a>
+              <a href="author.html#319">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

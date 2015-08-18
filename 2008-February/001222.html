@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Proposition: progress bar on the tray icon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposition%3A%20progress%20bar%20on%20the%20tray%20icon&In-Reply-To=%3C1203758674.6277.30.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001221.html">
+   <LINK REL="Next"  HREF="001223.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Proposition: progress bar on the tray icon</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Proposition%3A%20progress%20bar%20on%20the%20tray%20icon&In-Reply-To=%3C1203758674.6277.30.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Proposition: progress bar on the tray icon">thp at perli.net
+       </A><BR>
+    <I>Sat Feb 23 10:24:34 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001221.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+        <LI>Next message: <A HREF="001223.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1222">[ date ]</a>
+              <a href="thread.html#1222">[ thread ]</a>
+              <a href="subject.html#1222">[ subject ]</a>
+              <a href="author.html#1222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, &#65279;J&#233;r&#244;me!
+
+On Fri, 2008-02-22 at 19:43 +0100, J&#233;r&#244;me Chabod wrote:
+&gt;<i> Indeed, much nicer like this. I vote for your version !
+</I>&gt;<i> 
+</I>&gt;<i> A few remarks:
+</I>&gt;<i> * the bug is not really misterious: to fix it, replace trayicon.py
+</I>&gt;<i> line 314 with &quot;self.__current_pixbuf = self.__icon&quot; (&quot;__&quot; are missing)
+</I>
+Thanks, I've fixed that :)
+
+&gt;<i> * although performance does not seems to be a problem,  the code could
+</I>&gt;<i> be more efficient if you copy the icon only the first time (when ratio
+</I>&gt;<i> is 0.0), it will preserve the cached download icon, whereas all other
+</I>&gt;<i> icon with a piece of progress bar will be garbage collected anyway, so
+</I>&gt;<i> no need to preserve them.
+</I>
+Well, because of the alpha channel, I have to copy the icon every time I
+draw a progressbar on it (or else I would modify the current pixmap and
+after some time, the progress bar would have a solid background).
+
+&gt;<i> * the tray icon is drawned on every ratio change, it happens very
+</I>&gt;<i> offen (around 100*10 time during my big episodes download) and given
+</I>&gt;<i> that the icon is 48 pixels big, only 48 are idealy needed. At least,
+</I>&gt;<i> you could  improve this  by drawing only on integer percentage change,
+</I>&gt;<i> it would then  only happen 100*.
+</I>
+I have updated the code so it only updates the progress bar when the
+progress meter changes for more than 3 percent-points, so we save a lot
+of updates and it doesn't get noticed in the tray icon (even at maximum
+size). 100/3 ~ 30 pixels - given that we subtract some pixels for the
+padding and the border, that will be about one pixel in full size.
+
+I've also fixed a related problem where cancelling a download in a
+two-download scenario would result in the cancelled download being
+counted as finished in the complete progress.
+
+Please test this patch and tell me what you think. If everything's okay,
+I will commit it into SVN trunk.
+
+Thanks,
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r579_tray-icon-progressbar-fixed.patch
+Type: text/x-patch
+Size: 6562 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080223/1045d34b/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080223/1045d34b/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001221.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+	<LI>Next message: <A HREF="001223.html">[gpodder-devel] Proposition: progress bar on the tray icon
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1222">[ date ]</a>
+              <a href="thread.html#1222">[ thread ]</a>
+              <a href="subject.html#1222">[ subject ]</a>
+              <a href="author.html#1222">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

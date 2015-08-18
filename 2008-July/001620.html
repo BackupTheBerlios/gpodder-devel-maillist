@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Saving multiple files at once
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Saving%20multiple%20files%20at%20once&In-Reply-To=%3C1215799044.6969.22.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001619.html">
+   <LINK REL="Next"  HREF="001628.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Saving multiple files at once</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Saving%20multiple%20files%20at%20once&In-Reply-To=%3C1215799044.6969.22.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Saving multiple files at once">thp at perli.net
+       </A><BR>
+    <I>Fri Jul 11 19:57:24 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001619.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+        <LI>Next message: <A HREF="001628.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1620">[ date ]</a>
+              <a href="thread.html#1620">[ thread ]</a>
+              <a href="subject.html#1620">[ subject ]</a>
+              <a href="author.html#1620">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+Thanks for your bug report.
+
+On Fri, 2008-07-11 at 00:11 +0100, O. Emmerson wrote:
+&gt;<i> When selecting multiple files in a feed and selecting the Save to disk
+</I>&gt;<i> option in the right click menu no save boxes pop up.
+</I>&gt;<i> 
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/svn/gpodder/src/gpodder/gui.py&quot;, line 906, in &lt;lambda&gt;
+</I>&gt;<i>     item.connect( 'activate', lambda w: self.save_episode_as_file(
+</I>&gt;<i> episode_url))
+</I>&gt;<i> NameError: free variable 'episode_url' referenced before assignment in
+</I>&gt;<i> enclosing scope
+</I>
+Yes, &quot;Save to disk&quot; should only be visible when only selecting one
+single episode. Anyway, it would probably make sense to save multiple
+episodes at once by simply selecting a target folder.
+
+Please file this as a bug report over at <A HREF="http://bugs.gpodder.org/">http://bugs.gpodder.org/</A> and
+include the text of your original mail (see above) and my response in
+the bug report, so we don't forget to fix it when we have some free
+time!
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001619.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+	<LI>Next message: <A HREF="001628.html">[gpodder-devel] Saving multiple files at once
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1620">[ date ]</a>
+              <a href="thread.html#1620">[ thread ]</a>
+              <a href="subject.html#1620">[ subject ]</a>
+              <a href="author.html#1620">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

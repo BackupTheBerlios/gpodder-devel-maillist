@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Chronological order for podcast deletion window?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Chronological%20order%20for%20podcast%20deletion%20window%3F&In-Reply-To=%3C47594664.8090206%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000865.html">
+   <LINK REL="Next"  HREF="000867.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Chronological order for podcast deletion window?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Chronological%20order%20for%20podcast%20deletion%20window%3F&In-Reply-To=%3C47594664.8090206%40perli.net%3E"
+       TITLE="[gpodder-devel] Chronological order for podcast deletion window?">thp at perli.net
+       </A><BR>
+    <I>Fri Dec  7 14:11:00 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000865.html">[gpodder-devel] Chronological order for podcast deletion window?
+</A></li>
+        <LI>Next message: <A HREF="000867.html">[gpodder-devel] Chronological order for podcast deletion window?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#866">[ date ]</a>
+              <a href="thread.html#866">[ thread ]</a>
+              <a href="subject.html#866">[ subject ]</a>
+              <a href="author.html#866">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+Pieter De Decker wrote:
+&gt;&gt;<i> What about adding a &quot;select episodes older than one week&quot; button to the
+</I>&gt;&gt;<i> episode selector dialog? Would this solve your problem?
+</I>&gt;<i> 
+</I>&gt;<i> It would, but it doesn't seem that user-friendly. What if the user
+</I>&gt;<i> wants to delete all podcasts older than two weeks, for example?
+</I>
+I think we should move this into a preference. Something like &quot;Episodes
+are considered old after [___] days&quot;. That's because I want to add the
+episode clean-up feature for the iPod as well, and so all &quot;clean-up&quot;
+code could use the same settings.
+
+&gt;&gt;<i> Sorting by
+</I>&gt;&gt;<i> pubDate would also be possible, but there are (again, broken) feeds that
+</I>&gt;&gt;<i> do not have any pubDate value.
+</I>&gt;<i> 
+</I>&gt;<i> That's a bummer. You could solve this by implementing a cleaner that
+</I>&gt;<i> doesn't delete undated episodes and keeping the current episode
+</I>&gt;<i> deletion feature in gPodder. Or you could develop an auto-cleaner (can
+</I>&gt;<i> be configured in the Settings window) and leave the episode deletion
+</I>&gt;<i> feature as it is. Would that provide a good workaround to the broken
+</I>&gt;<i> feed problem?
+</I>
+What speaks against the current implementation with a new button &quot;remove
+old episodes&quot; with the time range for &quot;old&quot; defined in the preferences
+dialog? We can always implement it so that episodes without timestamp
+are just ignored (i.e. they have to be checked manually).
+
+What do you think?
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000865.html">[gpodder-devel] Chronological order for podcast deletion window?
+</A></li>
+	<LI>Next message: <A HREF="000867.html">[gpodder-devel] Chronological order for podcast deletion window?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#866">[ date ]</a>
+              <a href="thread.html#866">[ thread ]</a>
+              <a href="subject.html#866">[ subject ]</a>
+              <a href="author.html#866">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

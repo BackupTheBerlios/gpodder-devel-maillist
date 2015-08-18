@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New Years time bug?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20Years%20time%20bug%3F&In-Reply-To=%3Cad4e57070901150559l1eb809f3n15b04aaef27bc004%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001993.html">
+   <LINK REL="Next"  HREF="001994.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New Years time bug?</H1>
+    <B>Nathan Bouk</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20Years%20time%20bug%3F&In-Reply-To=%3Cad4e57070901150559l1eb809f3n15b04aaef27bc004%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] New Years time bug?">boukna at gmail.com
+       </A><BR>
+    <I>Thu Jan 15 14:59:12 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001993.html">[gpodder-devel] New Years time bug?
+</A></li>
+        <LI>Next message: <A HREF="001994.html">[gpodder-devel] Get rid of the URL entry box?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1995">[ date ]</a>
+              <a href="thread.html#1995">[ thread ]</a>
+              <a href="subject.html#1995">[ subject ]</a>
+              <a href="author.html#1995">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE><A HREF="http://podcast.msnbc.com/audio/podcast/MSNBC-MADDOW-NETCAST-MP3.xml">http://podcast.msnbc.com/audio/podcast/MSNBC-MADDOW-NETCAST-MP3.xml</A>
+It only ever lists the newest episode. The URL in the rss file returned does
+some http redirecting that confuses Amarok, so I started using Gpodder for
+that one feed.
+
+On Thu, Jan 15, 2009 at 2:50 AM, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at gpodder.org</A>&gt; wrote:
+
+&gt;<i> Nathan wrote:
+</I>&gt;<i> &gt; Ever since New Years, whenever I do Ipod-&gt;Copy Episodes to Device, I get
+</I>&gt;<i> the
+</I>&gt;<i> &gt; following error, and no episodes are copied to my ipod.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib64/python2.5/site-packages/gpodder/gui.py&quot;, line 1817, in
+</I>&gt;<i> &gt; on_sync_to_ipod_activate
+</I>&gt;<i> &gt;     if not device.open():
+</I>&gt;<i> &gt;   File &quot;/usr/lib64/python2.5/site-packages/gpodder/sync.py&quot;, line 258, in
+</I>&gt;<i> &gt; open
+</I>&gt;<i> &gt;     self.tracks_list = self.get_all_tracks()
+</I>&gt;<i> &gt;   File &quot;/usr/lib64/python2.5/site-packages/gpodder/sync.py&quot;, line 300, in
+</I>&gt;<i> &gt; get_all_tracks
+</I>&gt;<i> &gt;     released = gpod.itdb_time_mac_to_host(track.time_released)
+</I>&gt;<i> &gt;   File &quot;/usr/lib64/python2.5/site-packages/gpod/gpod.py&quot;, line 3362, in
+</I>&gt;<i> &gt; itdb_time_mac_to_host
+</I>&gt;<i> &gt;     return _gpod.itdb_time_mac_to_host(*args)
+</I>&gt;<i> &gt; ValueError: timestamp out of range for platform time_t
+</I>&gt;<i>
+</I>&gt;<i> Looks like a libgpod error to me, expect for when the value of
+</I>&gt;<i> time_released
+</I>&gt;<i> is just out of the valid range. For which podcasts (and which episodes)
+</I>&gt;<i> does
+</I>&gt;<i> this happen?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090115/06598ece/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090115/06598ece/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001993.html">[gpodder-devel] New Years time bug?
+</A></li>
+	<LI>Next message: <A HREF="001994.html">[gpodder-devel] Get rid of the URL entry box?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1995">[ date ]</a>
+              <a href="thread.html#1995">[ thread ]</a>
+              <a href="subject.html#1995">[ subject ]</a>
+              <a href="author.html#1995">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

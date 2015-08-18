@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Woodchuck patches: woodchuck integration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Woodchuck%20patches%3A%20woodchuck%20integration&In-Reply-To=%3C87ty9xpa5w.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002844.html">
+   <LINK REL="Next"  HREF="002845.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Woodchuck patches: woodchuck integration</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Woodchuck%20patches%3A%20woodchuck%20integration&In-Reply-To=%3C87ty9xpa5w.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] Woodchuck patches: woodchuck integration">neal at walfield.org
+       </A><BR>
+    <I>Thu Aug  4 15:40:27 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002844.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+        <LI>Next message: <A HREF="002845.html">[gpodder-devel] Accidentally cancelled queued files for download
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2849">[ date ]</a>
+              <a href="thread.html#2849">[ thread ]</a>
+              <a href="subject.html#2849">[ subject ]</a>
+              <a href="author.html#2849">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+First: thanks for the review, it's clear you put a fair amount of time
+into it.
+
+At Wed, 3 Aug 2011 12:00:08 +0200,
+Thomas Perl wrote:
+&gt;<i> On Tue, Aug 02, 2011 at 04:50:22PM +0200, Neal H. Walfield wrote:
+</I>&gt;<i> &gt; This patch modifies the gtk frontend to implement the first of these
+</I>&gt;<i> &gt; two callbacks.  It turns out this was surprisingly easy.  If this
+</I>&gt;<i> &gt; approach is acceptable, I'll modify the other frontends similarly.
+</I>&gt;<i> &gt; [...]
+</I>&gt;<i> &gt; <A HREF="http://hssl.cs.jhu.edu/~neal/woodchuck/ports/gpodder/commits/36a4a3bf90c3036a99c9bfaa938dd5cd0127024b">http://hssl.cs.jhu.edu/~neal/woodchuck/ports/gpodder/commits/36a4a3bf90c3036a99c9bfaa938dd5cd0127024b</A>
+</I>&gt;<i> 
+</I>&gt;<i> Thanks, some feedback:
+</I>&gt;<i> 
+</I>&gt;<i>  * The &quot;woodchuck&quot; module should go in src/gpodder/plugins/
+</I>&gt;<i>  * The DEFAULT_PLUGINS in src/gpodder/__init__.py should be modified
+</I>&gt;<i>    accordingly
+</I>
+Done.
+
+&gt;<i>  * What's the purpose of &quot;mainthread.py&quot;? It's not documented :/
+</I>&gt;<i>  * Please remove the shebang line (#!/usr/bin/env python2.5) in
+</I>&gt;<i>    mainthread.py (if you want to run it, you can use &quot;python -m
+</I>&gt;<i>    gpodder.mainthread&quot;) - also, don't hardcode python2.5
+</I>
+I'm not sure what you mean by not documented, the two functions
+include a doc string :).
+
+mainthread is a module I wrote in another context to ensure that a
+function is executed in the context of the main thread.  This
+functionality is needed, because DBus can only be used from a single
+thread, most Woodchuck calls use DBus, and download queue threads
+result in calls to the Woodchuck module by way of the hooks, such as
+on_episode_save callback.
+
+A reason to include mainthread.py would be to make bug fixing easier:
+mainthread.py is used by other projects (well, so far just FeedingIt,
+but this issue appears to be a common one).  Thus, if a bug in found
+in mainthread.py, it is easier to propagate the fix: just copy the new
+version.
+
+As discussed on irc, I've implemented a point solution and have
+integrated the code directly into the woodchuck module.
+
+&gt;<i>  * Constants (like refresh_interval in woodchuck.py) should be uppercase
+</I>
+Ok.
+
+&gt;<i>  * The &quot;config&quot; object is never used in mywoodchuck - is it really
+</I>&gt;<i>    necessary to pass this object through? (if so, why?)
+</I>
+That's a bug, which I've now fixed, thanks.  (The config object was
+used in previous versions of the patch in which Woodchuck queued
+downloads directly.  I failed to remove it in the latest revision.)
+
+&gt;<i>  * The extracting of a single podcast channel via URL is done multiple
+</I>&gt;<i>    times in mywoodchuck's code. Better write a get_podcast(url) function
+</I>&gt;<i>    that will take care of the filtering and logging of the warning,
+</I>&gt;<i>    returning None when the podcast channel is not found
+</I>&gt;<i>  * The same is probably true for get_episode(podcast, url), where the
+</I>&gt;<i>    first argument is already a podcast channel object and the second is
+</I>&gt;<i>    the URL of the episode (+returning None, etc)
+</I>
+Corrected.
+
+&gt;<i>  * For episodes, the unique identifier should be the GUID, because it
+</I>&gt;<i>    might be possible that feeds publish different items at the same URL
+</I>&gt;<i>    (yes, this is very crappy, but it has happened before..)
+</I>
+Thanks for pointing this out.  I've changed this accordingly.
+
+&gt;<i>  * The changes support that you implemented in the model is only used
+</I>&gt;<i>    for the code in on_podcast_save? If so, what's the problem with
+</I>&gt;<i>    unconditionally copying the title to the human_readable_name (or
+</I>&gt;<i>    adding a hook for on_podcast_title_changed). The same is for
+</I>&gt;<i>    on_podcast_url_changed - there are only a few cases (HTTP redirect
+</I>&gt;<i>    and after gpodder.net subscription uploads) where the URL of a
+</I>&gt;<i>    podcast really changes in gPodder.
+</I>
+The code is also used in on_episode_saved for detecting changes to the
+published, http_last_modified and last_playback attributes.
+
+Copying the title or url unconditionally is possible, but expensive:
+this results in a DBus call.
+
+As for implementing specialized hooks a la on_podcast_title_changed:
+how do you envision the implementation in model.py?  Adding a property
+setting for title et al. that invokes the appropriate hook?
+
+&gt;<i>  * In the any statements, if you don't use list comprehension, but
+</I>&gt;<i>    rather a generator expression, it might perform better - any can stop
+</I>&gt;<i>    after the first positive result, the list comprehension builds a list
+</I>&gt;<i>    of booleans and then any uses this list to determine its result. Just
+</I>&gt;<i>    leaving out the square brackets should do the trick :)
+</I>
+Good point.  Changed.
+
+&gt;<i>  * Please adhere to PEP-8[1] where possible. Don't add spaces after
+</I>&gt;<i>    function names (NOT: self.auto_download (stream, obj)).
+</I>
+Sorry, that inconsistency of PEP-8 confuses me ('f(x)' but 'if (x)'?).
+I've correct this.  I reread PEP-8 and reviewed the code and I didn't
+notice any other other violations.
+
+&gt;<i>  * You can probably shrink the length of &quot;check_subscriptions&quot; by using
+</I>&gt;<i>    set() and its functions difference() and intersection().
+</I>
+It may be a couple of lines shorter, but I doubt it is faster as I
+need both (A - B) and (B - A).
+
+&gt;<i>  * For idle_add, maybe you want to use gpodder.util.idle_add? ;)
+</I>
+I guess you mean for the mainthread.py code, as woodchuck was already
+using util.idle_add.  As I mentioned above, that code was kept
+intentionally generic.  If I'm going to use gpodder.util.idle_add,
+then it needs to be changed to guarantee that the function is executed
+in the main loop.  I've changed it now.
+
+
+I've test the gtkui and gpo.  Unfortunately, python-pyside doesn't
+want to installed on my Debian Squeeze box insisting that I install
+some hundreds of packages from unstable.  I would appreciate it if you
+would test this for me.
+
+As usual, you can pull the woodchuck branch from:
+
+  <A HREF="http://hssl.cs.jhu.edu/~neal/woodchuck/ports/gpodder.git/">http://hssl.cs.jhu.edu/~neal/woodchuck/ports/gpodder.git/</A>
+
+Thanks,
+
+Neal
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002844.html">[gpodder-devel] Woodchuck patches: woodchuck integration
+</A></li>
+	<LI>Next message: <A HREF="002845.html">[gpodder-devel] Accidentally cancelled queued files for download
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2849">[ date ]</a>
+              <a href="thread.html#2849">[ thread ]</a>
+              <a href="subject.html#2849">[ subject ]</a>
+              <a href="author.html#2849">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

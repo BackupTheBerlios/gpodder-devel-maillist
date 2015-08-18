@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Strange error in newest GIT version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Strange%20error%20in%20newest%20GIT%20version&In-Reply-To=%3C225551.50173.qm%40web65503.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002409.html">
+   <LINK REL="Next"  HREF="002411.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Strange error in newest GIT version</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Strange%20error%20in%20newest%20GIT%20version&In-Reply-To=%3C225551.50173.qm%40web65503.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Strange error in newest GIT version">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sat Jan 30 02:47:25 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002409.html">[gpodder-devel] my.gpodder.org Norwegian Bokm&#229;l
+</A></li>
+        <LI>Next message: <A HREF="002411.html">[gpodder-devel] Strange error in newest GIT version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2410">[ date ]</a>
+              <a href="thread.html#2410">[ thread ]</a>
+              <a href="subject.html#2410">[ subject ]</a>
+              <a href="author.html#2410">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I have some strange issues with the latest version of gPodder.
+
+1. Crashes on &quot;sqlite3.dbapi2&quot; not being found.
+
+It took me a while to figure this one out. I am running gentoo linux, and this does not install the Python sqlite package by default. I used to use pysqlite2 but apparently that is no longer the correct package. Thus, a tip for Gentoo users:
+
+- set the USE-flags for python to include &quot;sqlite&quot;
+- re-emerge python
+
+2. Now gPodder starts but crashes immediately in gui.py, line 550
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at nozomi</A> ~/gpodder $ bin/gpodder --verbose
+Using modules from /home/rooijen/gpodder/src
+Using resources from /home/rooijen/gpodder/data
+[   0.149] Detected encoding: UTF-8
+[   0.208] (ConverterCollection) Could not find &quot;oggdec&quot;, &quot;.ogg&quot; files cannot be converted.
+[   0.208] (gpodder.sync) Could not find gpod
+[   0.209] (gpodder.sync) Could not find pymtp.
+[   0.209] (gpodder.sync) Could not find pymad
+[   0.210] (gpodder.sync) Could not find eyeD3
+/usr/lib64/python2.6/site-packages/dbus/connection.py:242: DeprecationWarning: object.__init__() takes no parameters
+  super(Connection, self).__init__(*args, **kwargs)
+Plugin loaded: gpodder.soundcloud
+Creating new from file gPodder
+[   0.371] (GPodderStatusIcon) Creating tray icon
+[   0.413] start reader
+
+Traceback (most recent call last):
+  File &quot;bin/gpodder&quot;, line 172, in &lt;module&gt;
+    gui.main(options)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 3602, in main
+    gp = gPodder(bus_name, config)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 162, in __init__
+    BuilderWidget.__init__(self, None)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gtkui/interface/common.py&quot;, line 57, in __init__
+    GtkBuilderWidget.__init__(self, gpodder.ui_folders, gpodder.textdomain, **kwargs)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gtkui/base.py&quot;, line 70, in __init__
+    self.new()
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 403, in new
+    self.update_feed_cache(force_update=self.config.update_on_startup)
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 2480, in update_feed_cache
+    self.rewrite_urls_mygpo()
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 550, in rewrite_urls_mygpo
+    rewritten_urls = self.mygpo_client.get_rewritten_urls()
+AttributeError: 'gPodder' object has no attribute 'mygpo_client'
+[   0.446] (UserAppsReader) Player found: /usr/share/applications/vlc.desktop
+[   0.473] (UserAppsReader) Player found: /usr/share/applications/easytag.desktop
+[   0.483] (UserAppsReader) Player found: /usr/share/applications/brasero-open-playlist.desktop
+[   0.483] end reader (benchmark: 0.0699 seconds)
+make: *** [test] Error 1
+
+I changed line 550 to 
+
+rewritten_urls = []
+
+and now gPodder seems to work, but naturally this is not a solution.
+
+Any tips?
+
+Wilfred
+
+
+      Get your preferred Email name!
+Now you can @ymail.com and @rocketmail.com. 
+<A HREF="http://mail.promotions.yahoo.com/newdomains/aa/">http://mail.promotions.yahoo.com/newdomains/aa/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002409.html">[gpodder-devel] my.gpodder.org Norwegian Bokm&#229;l
+</A></li>
+	<LI>Next message: <A HREF="002411.html">[gpodder-devel] Strange error in newest GIT version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2410">[ date ]</a>
+              <a href="thread.html#2410">[ thread ]</a>
+              <a href="subject.html#2410">[ subject ]</a>
+              <a href="author.html#2410">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

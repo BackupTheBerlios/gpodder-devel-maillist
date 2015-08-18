@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Preferences%20-%3E%20Folder%20Selection%20Bug%20%2B%20Fix&In-Reply-To=%3C1197161972.11901.4.camel%40Suzhou%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000882.html">
+   <LINK REL="Next"  HREF="000875.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Preferences%20-%3E%20Folder%20Selection%20Bug%20%2B%20Fix&In-Reply-To=%3C1197161972.11901.4.camel%40Suzhou%3E"
+       TITLE="[gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix">paul at thegithouse.com
+       </A><BR>
+    <I>Sun Dec  9 01:59:32 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000882.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+        <LI>Next message: <A HREF="000875.html">[gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#874">[ date ]</a>
+              <a href="thread.html#874">[ thread ]</a>
+              <a href="subject.html#874">[ subject ]</a>
+              <a href="author.html#874">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas
+
+For sometime I have been having an issue every time I edit preferences.
+The symptoms of the problem are basically that I have previously set the
+download folder to be '/home/paul/Podcasts'.  However every time I load
+up the preferences dialog the download folder browser button showed my
+download directory directory as 'paul'.   
+
+As a consequence when I closed the preference GUI the software acted as
+if there was a change and kind of attempted to move my podcasts, however
+fortunately it always failed and gave an error.
+
+I took a look at the code and I have attached a patch that seems to
+work.  Instead of setting the file name property of the folder browser I
+set the current folder.  This has the desired affect.  I also updated
+the code for the Torrent folder selection and iPod/MP3 folder selection
+as these seemed to exhibit the same problem.
+
+I think this maybe related to the problem Chris Arnold reported on
+Wednesday
+<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/2007-December/001227.html">https://lists.berlios.de/pipermail/gpodder-devel/2007-December/001227.html</A>
+
+Regards
+
+Paul
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: patch.txt
+Type: text/x-patch
+Size: 2287 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071209/2ad6fb94/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071209/2ad6fb94/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000882.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+	<LI>Next message: <A HREF="000875.html">[gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#874">[ date ]</a>
+              <a href="thread.html#874">[ thread ]</a>
+              <a href="subject.html#874">[ subject ]</a>
+              <a href="author.html#874">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] How do you organize your podcasts on your	player?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20How%20do%20you%20organize%20your%20podcasts%20on%20your%0A%09player%3F&In-Reply-To=%3C937838.51250.qm%40web65515.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001699.html">
+   <LINK REL="Next"  HREF="001715.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] How do you organize your podcasts on your	player?</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20How%20do%20you%20organize%20your%20podcasts%20on%20your%0A%09player%3F&In-Reply-To=%3C937838.51250.qm%40web65515.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] How do you organize your podcasts on your	player?">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Tue Aug  5 19:11:45 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001699.html">[gpodder-devel] How do you organize your podcasts on	your	player?
+</A></li>
+        <LI>Next message: <A HREF="001715.html">[gpodder-devel] How do you organize your podcasts on your	player?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1714">[ date ]</a>
+              <a href="thread.html#1714">[ thread ]</a>
+              <a href="subject.html#1714">[ subject ]</a>
+              <a href="author.html#1714">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Well, I use Rockbox on an iPod. I have a directory named 'podcasts'. I have set up to sync the podcasts, using individual subdirectories per channel, so I get
+
+/podcasts/channel_1
+/podcasts/channel_2
+
+etc. I don't make a playlist, I just select an episode I want to listen to, and press 'play'. The only slightly irritating feature of rockbox is that it will not keep track of which episodes have been played and which have not yet been played (*). It is my habit to simply delete the episode as soon as it is finished.
+
+HTH,
+Wilfred
+
+(*) I know that rockbox is supposed to have a 'last.fm log', but I never got that to work. I can select the feature, the player says to reset it, but after the reset nothing else seems to happen.
+
+--- On Fri, 8/1/08, Bernd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">schlaber at gmail.com</A>&gt; wrote:
+
+&gt;<i> From: Bernd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">schlaber at gmail.com</A>&gt;
+</I>&gt;<i> Subject: [gpodder-devel] How do you organize your podcasts on your player?
+</I>&gt;<i> To: &quot;Development for gPodder&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+</I>&gt;<i> Date: Friday, August 1, 2008, 3:31 AM
+</I>&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I am using a filebased player to listen to my podcasts. At
+</I>&gt;<i> the moment I use
+</I>&gt;<i> the Meizu M6 (<A HREF="http://en.meizu.com/product_m6.asp">http://en.meizu.com/product_m6.asp</A>). Before
+</I>&gt;<i> it I used the
+</I>&gt;<i> Cowon IAudio X5.
+</I>&gt;<i> It's no problem to synchronize my podcasts with gPodder
+</I>&gt;<i> to my devices. But
+</I>&gt;<i> it's very painfull to organize my playlists.
+</I>&gt;<i> 
+</I>&gt;<i> At the moment I use the following workflow:
+</I>&gt;<i> - plug in my device
+</I>&gt;<i> - synchronize the podcasts
+</I>&gt;<i> - open the playlist with a texteditor
+</I>&gt;<i> - open the podcast directory on my device to recognize the
+</I>&gt;<i> correct path and
+</I>&gt;<i> filename
+</I>&gt;<i> - manually write/modify the playlist to organize the
+</I>&gt;<i> episodes in the order I
+</I>&gt;<i> like to listen to it
+</I>&gt;<i> 
+</I>&gt;<i> What's your workflow for listening to podcasts? What do
+</I>&gt;<i> you think about a
+</I>&gt;<i> build in solution in gPodder to manage playlists for
+</I>&gt;<i> devices? I think there
+</I>&gt;<i> could be a problem with different implementation for
+</I>&gt;<i> playlist support on
+</I>&gt;<i> different devices. The IAudio X5 could read playlists with
+</I>&gt;<i> full path
+</I>&gt;<i> (including my mountpoint) and &quot;/&quot;. But for the
+</I>&gt;<i> Meizu M6 you have to use &quot;\&quot;
+</I>&gt;<i> in your path information. And the Meizu M6 don't
+</I>&gt;<i> support full path
+</I>&gt;<i> information in the playlists. So I couldn't
+</I>&gt;<i> copy&amp;paste this information on
+</I>&gt;<i> linux because I have to modify all &quot;/&quot; to
+</I>&gt;<i> &quot;\&quot; with the texteditor.
+</I>&gt;<i> Could a playlist support in gPodder be usefull for other
+</I>&gt;<i> people too?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Regards
+</I>&gt;<i>   Bernd Schlapsi
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001699.html">[gpodder-devel] How do you organize your podcasts on	your	player?
+</A></li>
+	<LI>Next message: <A HREF="001715.html">[gpodder-devel] How do you organize your podcasts on your	player?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1714">[ date ]</a>
+              <a href="thread.html#1714">[ thread ]</a>
+              <a href="subject.html#1714">[ subject ]</a>
+              <a href="author.html#1714">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

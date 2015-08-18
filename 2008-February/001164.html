@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GUI Proposal
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GUI%20Proposal&In-Reply-To=%3C1201965578.13598.8.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001163.html">
+   <LINK REL="Next"  HREF="001165.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GUI Proposal</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GUI%20Proposal&In-Reply-To=%3C1201965578.13598.8.camel%40macbook%3E"
+       TITLE="[gpodder-devel] GUI Proposal">thp at perli.net
+       </A><BR>
+    <I>Sat Feb  2 16:19:38 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001163.html">[gpodder-devel] GUI Proposal
+</A></li>
+        <LI>Next message: <A HREF="001165.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1164">[ date ]</a>
+              <a href="thread.html#1164">[ thread ]</a>
+              <a href="subject.html#1164">[ subject ]</a>
+              <a href="author.html#1164">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Rafael!
+
+On Sat, 2008-02-02 at 12:51 -0200, Rafael Proen&#231;a wrote:
+&gt;<i> I've applied Thomas' patch and it looks and feels great!
+</I>&gt;<i> 
+</I>&gt;<i> Now about the Downloads tab, in order to merge it with the Podcasts
+</I>&gt;<i> tab and put the status (% of download/finished) into the Available
+</I>&gt;<i> Episodes treeview I suggest this solution:
+</I>&gt;<i> <A HREF="http://img299.imageshack.us/img299/1654/gpodderalllocalepsmp6.png">http://img299.imageshack.us/img299/1654/gpodderalllocalepsmp6.png</A>
+</I>&gt;<i> 
+</I>&gt;<i> The two buttons up there are two radiobuttons acting like
+</I>&gt;<i> togglebuttons (when All is active Local is not and vice-versa). When
+</I>&gt;<i> the All is active would show all episodes in the available treeview,
+</I>&gt;<i> and when Local is active would show only the downloaded files.
+</I>&gt;<i> 
+</I>&gt;<i> What do you guys think about it?
+</I>
+I would like to leave the downloads tab as it is currently. It is much
+work code-wise to change the interface for displaying downloads. You can
+try, however, and send in a working patch for others to review and
+comment on.
+
+The way the code is now, you would have to go deep into the libpodcasts
+code and change the tree model creation functions to somehow work
+together to provide a single (filtered?) list of episodes. Have a look
+at how it's currently implemented in libpodcasts and send any questions
+you have to me :)
+
+I'd be glad to see a patch, although I believe it's much work atm.
+
+As for the other changes, I'll wait for some more comments on the
+mailing list and then make a last review and commit it. Unfortunately, I
+don't have the time to implement any more feature requests, but I'll
+gladly accept patches :)
+
+As you see on the roadmap[1], I'll be working on the &quot;Expert
+configuration window&quot; next week.
+
+[1] <A HREF="http://gpodderwiki.jottit.com/roadmap">http://gpodderwiki.jottit.com/roadmap</A>
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001163.html">[gpodder-devel] GUI Proposal
+</A></li>
+	<LI>Next message: <A HREF="001165.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1164">[ date ]</a>
+              <a href="thread.html#1164">[ thread ]</a>
+              <a href="subject.html#1164">[ subject ]</a>
+              <a href="author.html#1164">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

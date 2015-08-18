@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Help! gpodder no longer syncs episodes (?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Help%21%20gpodder%20no%20longer%20syncs%20episodes%20%28%3F%29&In-Reply-To=%3C20110418134321.GI20006%40sulu.thp.io%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002751.html">
+   <LINK REL="Next"  HREF="002754.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Help! gpodder no longer syncs episodes (?)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Help%21%20gpodder%20no%20longer%20syncs%20episodes%20%28%3F%29&In-Reply-To=%3C20110418134321.GI20006%40sulu.thp.io%3E"
+       TITLE="[gpodder-devel] Help! gpodder no longer syncs episodes (?)">thp at gpodder.org
+       </A><BR>
+    <I>Mon Apr 18 15:43:21 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002751.html">[gpodder-devel] Help! gpodder no longer syncs episodes (?)
+</A></li>
+        <LI>Next message: <A HREF="002754.html">[gpodder-devel] Help! gpodder no longer syncs episodes (?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2753">[ date ]</a>
+              <a href="thread.html#2753">[ thread ]</a>
+              <a href="subject.html#2753">[ subject ]</a>
+              <a href="author.html#2753">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Wilfred,
+
+On Sun, Apr 17, 2011 at 05:39:11AM -0700, Wilfred van Rooijen wrote:
+&gt;<i> &gt; No, I personally don't use iPod syncing anymore, but there
+</I>&gt;<i> &gt; also have not
+</I>&gt;<i> &gt; really been any changes to the code so far. Maybe the
+</I>&gt;<i> &gt; GStreamer-based
+</I>&gt;<i> &gt; track length detection is acting up? Please try &quot;git pull&quot;
+</I>&gt;<i> &gt; the latest
+</I>&gt;<i> &gt; version of the development version (master branch) and see
+</I>&gt;<i> &gt; if this fixes
+</I>&gt;<i> &gt; your problem :)
+</I>&gt;<i> 
+</I>&gt;<i> I use gtkpod also to sync other music to the same iPod, and that works
+</I>&gt;<i> fine. I use xfce4. What secondary softwares does gpodder use when
+</I>&gt;<i> syncing to an iPod? I can check individual programs to see if they
+</I>&gt;<i> work fine. I've double-checked the output from gpodder in the
+</I>&gt;<i> terminal. There's nothing to indicate that anything is going wrong.
+</I>
+gPodder uses python-gpod, which are the Python bindings to libgpod,
+which in turn is the backend code for gtkpod and other applications
+(libgpod came out of gtkpod development, and is since available as
+separate library).
+
+&gt;<i> The strange thing is that it seems to me that none of the related
+</I>&gt;<i> software has been updated recently. I have had some problems with
+</I>&gt;<i> gpodder before, but always it turned out that those problems were due
+</I>&gt;<i> to gentoo and python related issues, not gpodder itself. gtkpod still
+</I>&gt;<i> works fine, which indicates that there is no problem with the
+</I>&gt;<i> communication with my iPod. At present, I use a trick to circumvent
+</I>&gt;<i> the problem: in gpodder, I move all the files to the Desktop, and then
+</I>&gt;<i> sync with gtkpod - but of course this is not a good solution.
+</I>
+If gtkpod works fine, so should libgpod (and in turn python-gpod). Maybe
+there really is a problem with track length detection. Maybe you could
+try uninstalling eyeD3 or Python Imaging and see if this helps? You
+could also try removing mplayer and see if this fixes the problem.
+
+Have you tried syncing single files? Maybe only a specific feed is
+affected. Do you sync MP3 files or OGG files? Does gPodder try to
+convert the OGG files to MP3? Maybe this is taking a bit long?
+
+Anyway, it would be good if you could file a bug report on
+<A HREF="http://bugs.gpodder.org/">http://bugs.gpodder.org/</A> so we can track the progress on fixing this
+bug. I'll need your assistance with trying things out, as I don't have
+an iPod myself, and it probably isn't that easy to reproduce your
+specific configuration for which it happens.
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002751.html">[gpodder-devel] Help! gpodder no longer syncs episodes (?)
+</A></li>
+	<LI>Next message: <A HREF="002754.html">[gpodder-devel] Help! gpodder no longer syncs episodes (?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2753">[ date ]</a>
+              <a href="thread.html#2753">[ thread ]</a>
+              <a href="subject.html#2753">[ subject ]</a>
+              <a href="author.html#2753">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

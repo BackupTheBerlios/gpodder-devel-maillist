@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Human-readable download folders,	please test (was: Re: Non-human	readable directory and file names)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Human-readable%20download%20folders%2C%0A%09please%20test%20%28was%3A%20Re%3A%20Non-human%09readable%20directory%20and%20file%20names%29&In-Reply-To=%3C1194026078.5354.25.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000751.html">
+   <LINK REL="Next"  HREF="000771.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Human-readable download folders,	please test (was: Re: Non-human	readable directory and file names)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Human-readable%20download%20folders%2C%0A%09please%20test%20%28was%3A%20Re%3A%20Non-human%09readable%20directory%20and%20file%20names%29&In-Reply-To=%3C1194026078.5354.25.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Human-readable download folders,	please test (was: Re: Non-human	readable directory and file names)">thp at perli.net
+       </A><BR>
+    <I>Fri Nov  2 18:54:38 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000751.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+        <LI>Next message: <A HREF="000771.html">[gpodder-devel] Human-readable download folders, please test (was: Re: Non-human	readable directory and file names)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#761">[ date ]</a>
+              <a href="thread.html#761">[ thread ]</a>
+              <a href="subject.html#761">[ subject ]</a>
+              <a href="author.html#761">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Nick!
+
+On Thu, 2007-11-01 at 15:51 -0400, nikosapi wrote:
+&gt;<i> I've been looking through the suggestions and an idea that didn't come
+</I>&gt;<i> up was a simple enumeration at the beginning or ending of directory
+</I>&gt;<i> and file names. For example it could look something like this:
+</I>&gt;<i> 
+</I>&gt;<i> ~/{download dir}/{number}-{&lt;title&gt; (cut off if too long)}/
+</I>&gt;<i> {number}-{show title (also cut off if too long) or original
+</I>&gt;<i> filename}.ext
+</I>&gt;<i> 
+</I>&gt;<i> ~/gpodder-downloads/03-This_Week_in_Tech/19-Some_random_show.mp3
+</I>&gt;<i> 
+</I>&gt;<i> The numbers could be assigned randomly (in that case a bigger number
+</I>&gt;<i> would be needed) or the numbers could simply be counters that gpodder
+</I>&gt;<i> keeps track of.
+</I>&gt;<i> 
+</I>&gt;<i> I think this would be nicer than having to descend through many oddly
+</I>&gt;<i> named directories to find a show you're looking for.
+</I>
+Your proposal sounds reasonable, and it might be something we should
+think about if we are going to change the internal structure of the
+download folder. Of course, we have to make a number-URL mapping and
+save that somewhere so we can always find the right number to determine
+the file name.
+
+Anyway, I've been working on a compatible hard-linking system that will
+preserve the download folder structure, generate a new structure that
+(given it resides on the same filesystem as the download folder and it
+supports hard links) will not use any additional hard disk space and is
+even compatible with renames.
+
+Save the two attached scripts somewhere in your $PATH and don't forget
+to set the PYTHONPATH variable to the &quot;src/&quot; subfolder of your SVN
+checkout, so the scripts will find the gPodder libraries.
+
+    Usage: gdfs-init.py [--yes] [Podcasts dir]
+
+        Populates &quot;Podcasts dir&quot; with hard links from gPodder's
+        downloads folder. &quot;Podcasts dir&quot; should be on the same
+        filesystem as the downloads folder, and the filesystem
+        has to support hard links.
+
+        If &quot;Podcasts dir&quot; already exists, the script will ask 
+        to overwrite its contents and re-build the mirror.
+
+        The optional &quot;--yes&quot; parameter will skip the overwrite
+        question and foribly re-build the folder if it exists.
+
+    Usage: gdfs-check.py [from-gpodder|from-podcasts] [Podcasts dir]
+
+        If you have deleted episodes from your Podcast mirror
+        folder, use &quot;from-podcasts&quot; to get a list of files 
+        that you have to delete from gPodder's download
+        folder to &quot;sync&quot; with your podcast mirror.
+
+        If you have deleted episodes in gPodder, you can use
+        &quot;from-gpodder&quot; to get a list of files that are still 
+        available in your podcasts dir, but not in gPodder's
+        download directory.
+
+So, basically, to get things going, download the two scripts to your
+Desktop, run &quot;python gdfs-init.py --yes Podcasts&quot; and you should have
+your podcasts in human-readable folder and file names on your Desktop.
+
+You can always refresh this &quot;mirror&quot; of your download directory by
+running the same command again, which will overwrite the old &quot;Podcasts&quot;
+folder.
+
+Please try out these scripts and tell me how they work for you. Maybe we
+can do some more integration into gPodder when things are tested and
+users are happy with this solution.
+
+
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gdfs-check.py
+Type: text/x-python
+Size: 3029 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071102/9099c519/attachment.py">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071102/9099c519/attachment.py</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gdfs-init.py
+Type: text/x-python
+Size: 2510 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071102/9099c519/attachment-0001.py">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071102/9099c519/attachment-0001.py</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000751.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+	<LI>Next message: <A HREF="000771.html">[gpodder-devel] Human-readable download folders, please test (was: Re: Non-human	readable directory and file names)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#761">[ date ]</a>
+              <a href="thread.html#761">[ thread ]</a>
+              <a href="subject.html#761">[ subject ]</a>
+              <a href="author.html#761">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

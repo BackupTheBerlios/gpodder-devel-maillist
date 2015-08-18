@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feed cache updates now faster :)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feed%20cache%20updates%20now%20faster%20%3A%29&In-Reply-To=%3Cfa8f05950805101036q7bfc3c32s7f98b72095f88def%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001442.html">
+   <LINK REL="Next"  HREF="001444.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feed cache updates now faster :)</H1>
+    <B>Alistair Sutton</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feed%20cache%20updates%20now%20faster%20%3A%29&In-Reply-To=%3Cfa8f05950805101036q7bfc3c32s7f98b72095f88def%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Feed cache updates now faster :)">alistair.sutton at gmail.com
+       </A><BR>
+    <I>Sat May 10 19:36:19 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001442.html">[gpodder-devel] Feed cache updates now faster :)
+</A></li>
+        <LI>Next message: <A HREF="001444.html">[gpodder-devel] Feed cache updates now faster :)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1443">[ date ]</a>
+              <a href="thread.html#1443">[ thread ]</a>
+              <a href="subject.html#1443">[ subject ]</a>
+              <a href="author.html#1443">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2008/5/10 Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt;:
+
+&gt;<i> Hello!
+</I>&gt;<i>
+</I>&gt;<i> Thanks to the nice guys over at InternetTabletTalk[1] who were trying
+</I>&gt;<i> out gPodder on low-speed hardware (N8x0 internet tablets), and having
+</I>&gt;<i> _very_slow_ feed cache updates, I've looked into the issue and found
+</I>&gt;<i> several problems with the current code, which are not that problematic
+</I>&gt;<i> on my 2GHz machine, but which are quite problematic on low-end devices
+</I>&gt;<i> or installations with many podcast subscriptions.
+</I>&gt;<i>
+</I>&gt;<i> I've improved the code, so the feed cache should now finally make use of
+</I>&gt;<i> e-tag and last-modified timestamps for feeds that didn't change, and
+</I>&gt;<i> make the whole feed cache updating procedure a bit faster and less
+</I>&gt;<i> I/O-intensive. This should be very visible for users with many
+</I>&gt;<i> subscriptions.
+</I>&gt;<i>
+</I>&gt;<i> Please try it out and tell me if it works for you ;) You need the latest
+</I>&gt;<i> SVN version of gPodder and &quot;svn up&quot; to get the latest revision from
+</I>&gt;<i> trunk.
+</I>
+
+These changes have made a HUGE difference to the time it takes gpodder to
+update the feeds (this is on a  P4m 2.2GHz laptop).
+
+It also has solved an issue I was having where some Sun Microsystems feeds
+were obviously being detected as updated/new all the time when in fact they
+hadn't changed at all.
+
+Brilliant work!
+
+Alistair
+
+-- 
+WWW: <A HREF="http://ajs.no-dns-yet.org.uk">http://ajs.no-dns-yet.org.uk</A>
+GPG/PGP: <A HREF="http://ajs.no-dns-yet.org.uk/pubkey.gpg">http://ajs.no-dns-yet.org.uk/pubkey.gpg</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080510/b2a6da04/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080510/b2a6da04/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001442.html">[gpodder-devel] Feed cache updates now faster :)
+</A></li>
+	<LI>Next message: <A HREF="001444.html">[gpodder-devel] Feed cache updates now faster :)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1443">[ date ]</a>
+              <a href="thread.html#1443">[ thread ]</a>
+              <a href="subject.html#1443">[ subject ]</a>
+              <a href="author.html#1443">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

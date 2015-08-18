@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] podcast feed update failing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20podcast%20feed%20update%20failing&In-Reply-To=%3C2e04d3470909160548xe85242bkcb2265e841e62afb%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002245.html">
+   <LINK REL="Next"  HREF="002228.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] podcast feed update failing</H1>
+    <B>Damien Moore</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20podcast%20feed%20update%20failing&In-Reply-To=%3C2e04d3470909160548xe85242bkcb2265e841e62afb%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] podcast feed update failing">damienlmoore at gmail.com
+       </A><BR>
+    <I>Wed Sep 16 14:48:56 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002245.html">[gpodder-devel] podcast feed update failing
+</A></li>
+        <LI>Next message: <A HREF="002228.html">[gpodder-devel] podcast feed update failing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2247">[ date ]</a>
+              <a href="thread.html#2247">[ thread ]</a>
+              <a href="subject.html#2247">[ subject ]</a>
+              <a href="author.html#2247">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I found the problem (reporting in case someone else experiences the same):
+the internal date of the tablet somehow got a month behind the actual date.
+After correcting the date, gPodder updates correctly.
+
+On Tue, Sep 15, 2009 at 8:45 PM, Damien Moore &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">damienlmoore at gmail.com</A>&gt;wrote:
+
+&gt;<i> just an update, here is an example message from the log:
+</I>&gt;<i>
+</I>&gt;<i> [  86.790] (PodcastChannel) Expecting a release in 124.17 hours - skipping
+</I>&gt;<i> this WEEK in TECH - MP3 Edition
+</I>&gt;<i>
+</I>&gt;<i> very frustrating!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 9/14/09, Damien Moore &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">damienlmoore at gmail.com</A>&gt; wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thomas:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> thanks for your reply. I ran with the maemo and verbose flags and noticed
+</I>&gt;&gt;<i> a warning along the lines of &quot;new episode expected in 317 hours, skipping&quot;
+</I>&gt;&gt;<i> (I don't have the device with me right now so can't give you the exact
+</I>&gt;&gt;<i> message). I gather you implemented some sort of optimization to skip
+</I>&gt;&gt;<i> episodes. Is there some way to override this?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> btw, please cc my e-mail address with your reply - I don't subscribe to
+</I>&gt;&gt;<i> the traffic.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> thanks
+</I>&gt;&gt;<i> Damien
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Fri, Sep 11, 2009 at 9:18 AM, Damien Moore &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">damienlmoore at gmail.com</A>&gt;wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Hi guys,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I'm using gPodder 0.17.0 on N800. gPodder has been working fine until a
+</I>&gt;&gt;&gt;<i> couple of days back when I tried to update my podcast feeds (after a couple
+</I>&gt;&gt;&gt;<i> of weeks not using my N800) but it looks like gPodder fails to see the
+</I>&gt;&gt;&gt;<i> connection and thus skips all of the feeds. The download menu option for
+</I>&gt;&gt;&gt;<i> individual episodes is also greyed out.The internet connection works fine
+</I>&gt;&gt;&gt;<i> and there's nothing wrong with the feeds (Linux Outlaws, TLLTS, TWIT etc --
+</I>&gt;&gt;&gt;<i> I can browse and download podcasts manually in the web browser). The SD card
+</I>&gt;&gt;&gt;<i> where the podcasts are stored isn't locked and is only about half full.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I haven't had a chance to try running from the console to find obvious
+</I>&gt;&gt;&gt;<i> errors, but would be helpful to know if anyone else has this problem or if
+</I>&gt;&gt;&gt;<i> anyone knows a simple fix. Also, when running from console do I need to use
+</I>&gt;&gt;&gt;<i> any switches to get more logging info?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> cheers,
+</I>&gt;&gt;&gt;<i> Damien
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090916/923346fe/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090916/923346fe/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002245.html">[gpodder-devel] podcast feed update failing
+</A></li>
+	<LI>Next message: <A HREF="002228.html">[gpodder-devel] podcast feed update failing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2247">[ date ]</a>
+              <a href="thread.html#2247">[ thread ]</a>
+              <a href="subject.html#2247">[ subject ]</a>
+              <a href="author.html#2247">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] new version downloads new episodes,	but screen	empty
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%09but%20screen%09empty&In-Reply-To=%3C1187039466.4956.16.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000465.html">
+   <LINK REL="Next"  HREF="000495.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] new version downloads new episodes,	but screen	empty</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%09but%20screen%09empty&In-Reply-To=%3C1187039466.4956.16.camel%40macbook%3E"
+       TITLE="[gpodder-devel] new version downloads new episodes,	but screen	empty">thp at perli.net
+       </A><BR>
+    <I>Mon Aug 13 23:11:06 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000465.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+        <LI>Next message: <A HREF="000495.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#480">[ date ]</a>
+              <a href="thread.html#480">[ thread ]</a>
+              <a href="subject.html#480">[ subject ]</a>
+              <a href="author.html#480">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Katy!
+
+On Thu, 2007-08-09 at 02:02 -0600, Katy G. B. wrote:
+&gt;<i> i've attached my opml file. 
+</I>
+I've tried importing it, but I'm still on 64k and downloading all RSS
+feeds is a bit slow here. Also, I think that gPodder could be made
+faster by optimizing feed loading/localdb access. I think having so many
+subscriptions is unusual, but I gladly accept performance-increasing
+patches (make localdb access on-demand and not on startup, etc..).
+
+&gt;<i> it doesn't happen on any specific one of my podcasts, just number 55. 
+</I>
+Which RSS URL does your podcast number 55 have? Or do you mean that any
+podcast which happens to be on position 55 produces the problem?
+
+&gt;<i> i've mixed and matched which podcasts it has in channels.xml.  no
+</I>&gt;<i> matter what i comment out or don't it gets to 56 and than it won't
+</I>&gt;<i> display the podcasts.
+</I>
+Can you please provide the output of running &quot;gpodder --verbose&quot; and
+trying to reproduce your problem?
+
+&gt;<i> as a note gpodder work for --list, --add, --delete, --run, and
+</I>&gt;<i> everything even with all of my podcasts subscribed
+</I>
+Does this mean you can get more than 55 feeds on the CLI but not in the
+GUI? Seems strange to me, although I know that the CLI is more
+straightforward than the GUI (it simply reads in some data and processes
+the command line switches, no sophisticated caching/downloading/parsing
+necessary).
+
+&gt;<i> so i'm using gpodder from the terminal  &amp;i'm writing a php shell
+</I>&gt;<i> script (please no flames) that creates readable symlinks to my
+</I>&gt;<i> podcasts so i can navigate things easier &amp;i can post that for anyone
+</I>&gt;<i> who wants it, once i feel better &amp;i'm done with it.
+</I>
+Yeah, send it in, maybe it's useful for somebody. Or we might convert it
+to Python and include it in gPodder's standard distribution as an
+additional way of providing a browseable download directory.
+
+&gt;<i> i am using the most up date version of gnome, and hi color &amp;icon
+</I>&gt;<i> theme, its all part of my distro's latest packages(i'm using opensuse
+</I>&gt;<i> 10.3).  i'm actually using a custom svg icon theme( the Lila theme
+</I>&gt;<i> from <A HREF="http://art.gnome.org/">http://art.gnome.org/</A> ), but even with just using the default
+</I>&gt;<i> icon theme, or high color, gPodder has the same issues.
+</I>
+Please try out the latest SVN version, instructions on how to check out
+the svn trunk head can be found on the gPodder website or on the mailing
+list. You can run the SVN version without installing gPodder by using
+&quot;make test&quot;.
+
+&gt;<i> i hope you have some luck with this, i'm lost... right now i think i'm
+</I>&gt;<i> gonna go back to sleep now ;-).  if you need anything let me know and
+</I>&gt;<i> i'll get back as soon as i'm able.  thank you again for your work on
+</I>&gt;<i> this project *you rock*. 
+</I>
+It would be very helpful if you could provide the console output of both
+the installed version of gPodder and the SVN version so we can
+investigate what could have went wrong. With the installed version, you
+have to pass &quot;--verbose&quot; as command line argument, for the development
+version, &quot;make test&quot; will automatically enable verbose output.
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000465.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+	<LI>Next message: <A HREF="000495.html">[gpodder-devel] new version downloads new episodes, but screen empty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#480">[ date ]</a>
+              <a href="thread.html#480">[ thread ]</a>
+              <a href="subject.html#480">[ subject ]</a>
+              <a href="author.html#480">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

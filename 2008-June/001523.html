@@ -1,0 +1,571 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder stopped syncing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20stopped%20syncing&In-Reply-To=%3C48598105.8030108%40pobox.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001522.html">
+   <LINK REL="Next"  HREF="001525.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder stopped syncing</H1>
+    <B>Tony Willoughby</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20stopped%20syncing&In-Reply-To=%3C48598105.8030108%40pobox.com%3E"
+       TITLE="[gpodder-devel] gPodder stopped syncing">tonyw at pobox.com
+       </A><BR>
+    <I>Wed Jun 18 23:41:25 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001522.html">[gpodder-devel] gPodder stopped syncing
+</A></li>
+        <LI>Next message: <A HREF="001525.html">[gpodder-devel] Multiple client 1 podcast folder question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1523">[ date ]</a>
+              <a href="thread.html#1523">[ thread ]</a>
+              <a href="subject.html#1523">[ subject ]</a>
+              <a href="author.html#1523">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+
+Right after I sent this I installed python-gpod and now all is well.
+Sorry to waste your time, and thanks for a *great* program!
+
+
+
+
+Tony Willoughby wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I've searched the list archives and couldn't find any reference to this. 
+</I>&gt;<i>   I've been using gPodder for a couple
+</I>
+  of months now with no problems
+&gt;<i> whatsoever.  My configuration was an IBM R40 laptop running Ubuntu 8.04, 
+</I>&gt;<i> gPodder 0.11.2, 30GB iPod.
+</I>&gt;<i> 
+</I>&gt;<i> Recently, I upgraded my R40 to a T61.  It's a faster machine but I'm 
+</I>&gt;<i> running the same software (Ubuntu 8.04, gPodder 0.11.2).  I rsync'ed my 
+</I>&gt;<i> home directory to the new machine - so gPodder's configuration should be 
+</I>&gt;<i> unchanged.
+</I>&gt;<i> 
+</I>&gt;<i> Now Ctrl+S does nothing.  I tried upgrading to gPodder 0.11.3 with no 
+</I>&gt;<i> improvement.
+</I>&gt;<i> 
+</I>&gt;<i> I ran gPodder with the --verbose option with the following result.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Exception in thread Thread-3:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;/usr/lib/python2.5/threading.py&quot;, line 486, in __bootstrap_inner
+</I>&gt;<i>      self.run()
+</I>&gt;<i>    File &quot;/usr/lib/python2.5/threading.py&quot;, line 446, in run
+</I>&gt;<i>      self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 1421, in 
+</I>&gt;<i> sync_to_ipod_thread
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/sync.py&quot;, line 208, in open
+</I>&gt;<i> NameError: global name 'gpod' is not defined
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Anyone have any idea what's wrong?
+</I>&gt;<i> 
+</I>&gt;<i> For completeness, the entire trace is below.
+</I>&gt;<i> 
+</I>&gt;<i> [   0.161] (gPodderLib) Creating gPodderLib()
+</I>&gt;<i> [   0.165] (HistoryStore) Creating new history list.
+</I>&gt;<i> [   0.167] (ConverterCollection) Could not find &quot;oggdec&quot;, &quot;.ogg&quot; files 
+</I>&gt;<i> cannot be converted.
+</I>&gt;<i> [   0.167] (tagupdate) eyed3 not found -- tag update disabled
+</I>&gt;<i> [   0.167] (gpodder.sync) Could not find gpod
+</I>&gt;<i> [   0.168] (gpodder.sync) Could not find pymad
+</I>&gt;<i> [   0.168] (gpodder.sync) Could not find eyeD3
+</I>&gt;<i> [   0.508] (GPodderStatusIcon) Creating tray icon
+</I>&gt;<i> [   0.697] (gPodder) auto_update_procedure() got called
+</I>&gt;<i> [   0.749] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.749] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.750] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.762] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.762] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.763] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.774] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://betty.libsyn.com/index.php?post_id=190854.">http://betty.libsyn.com/index.php?post_id=190854.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.784] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://betty.libsyn.com/index.php?post_id=46058.">http://betty.libsyn.com/index.php?post_id=46058.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.835] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-15268293.post-115518866145566009. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.888] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://maskaggs.hipcast.com/rss/b80e5e2d-c2f5-be1c-5714-513da7ce858e.">http://maskaggs.hipcast.com/rss/b80e5e2d-c2f5-be1c-5714-513da7ce858e.</A> 
+</I>&gt;<i> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.917] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.917] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.917] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.917] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.917] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.918] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   0.919] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://streams.wgbh.org/online/carroll/carr20080612.mp3.">http://streams.wgbh.org/online/carroll/carr20080612.mp3.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.945] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://radio.linuxquestions.org/2007/03/lq-radio-site-upgraded.html.">http://radio.linuxquestions.org/2007/03/lq-radio-site-upgraded.html.</A> 
+</I>&gt;<i> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.948] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://radio.linuxquestions.org/2005/06/more-audio-coming-soon.html.">http://radio.linuxquestions.org/2005/06/more-audio-coming-soon.html.</A> 
+</I>&gt;<i> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   0.994] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://violetblue.libsyn.com/index.php?post_id=160890.">http://violetblue.libsyn.com/index.php?post_id=160890.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.046] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.046] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.046] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.066] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.083] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.084] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.126] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.126] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.126] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.126] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.126] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.126] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.127] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.127] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.128] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.129] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.129] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.130] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.130] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.131] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.131] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.131] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.131] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.132] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.133] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.133] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.133] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.134] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.134] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.135] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.136] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.136] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.137] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.137] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.137] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.138] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.151] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.151] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.151] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.151] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.152] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.153] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.164] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://ukpods.libsyn.com/index.php?post_id=126316.">http://ukpods.libsyn.com/index.php?post_id=126316.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.168] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://ukpods.libsyn.com/index.php?post_id=17357.">http://ukpods.libsyn.com/index.php?post_id=17357.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.172] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> <A HREF="http://ukpods.libsyn.com/index.php?post_id=10084.">http://ukpods.libsyn.com/index.php?post_id=10084.</A> Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.199] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-9069311286663899608. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.200] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-7992326854202733691. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.201] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116924466366561877. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.202] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116744229145443225. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.203] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116638326283735688. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.204] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116621249277916592. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.205] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116527112073563124. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.205] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116455737341821313. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.206] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116327041961548945. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.207] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116230948544211885. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.207] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-116143032279927667. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.209] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115971734812938067. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.210] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115709867088575874. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.211] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115686982596258177. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.212] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115661935587070954. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.212] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115659852432668375. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.214] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115463869968048917. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.215] (podcastChannel) Cannot instantiate episode: 
+</I>&gt;<i> tag:blogger.com,1999:blog-25679191.post-115446234394180236. Skipping.
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 180, in get_by_url
+</I>&gt;<i>    File &quot;usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 
+</I>&gt;<i> 604, in from_feedparser_entry
+</I>&gt;<i> ValueError: Episode has an invalid URL
+</I>&gt;<i> 
+</I>&gt;<i> [   1.217] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.276] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.276] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.293] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.293] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.293] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.373] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.373] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.373] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.373] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.503] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.503] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.503] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.520] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.528] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.529] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.539] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.540] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.541] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.601] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+</I>&gt;<i> [   1.625] (podcastChannel) Generating TreeModel for 
+</I>&gt;<i> <A HREF="http://feeds.feedburner.com/43FPodcast">http://feeds.feedburner.com/43FPodcast</A>
+</I>&gt;<i> [   3.691] start reader
+</I>&gt;<i> [   3.790] (UserAppsReader) Player found: 
+</I>&gt;<i> /usr/share/applications/totem.desktop
+</I>&gt;<i> [   3.862] (UserAppsReader) Player found: 
+</I>&gt;<i> /usr/share/applications/rhythmbox.desktop
+</I>&gt;<i> [   3.912] end reader (benchmark: 0.2207 seconds)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+-- 
+Tony Willoughby <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">tonyw at pobox.com</A>
+
+&quot;My career is about as promising as a Civil War leg wound.&quot;
+-Warren Zevon
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001522.html">[gpodder-devel] gPodder stopped syncing
+</A></li>
+	<LI>Next message: <A HREF="001525.html">[gpodder-devel] Multiple client 1 podcast folder question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1523">[ date ]</a>
+              <a href="thread.html#1523">[ thread ]</a>
+              <a href="subject.html#1523">[ subject ]</a>
+              <a href="author.html#1523">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

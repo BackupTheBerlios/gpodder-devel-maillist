@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Two Problems with gpodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Two%20Problems%20with%20gpodder&In-Reply-To=%3C1178216223.4291.18.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000295.html">
+   <LINK REL="Next"  HREF="000296.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Two Problems with gpodder</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Two%20Problems%20with%20gpodder&In-Reply-To=%3C1178216223.4291.18.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Two Problems with gpodder">thp at perli.net
+       </A><BR>
+    <I>Thu May  3 20:17:03 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000295.html">[gpodder-devel] Two Problems with gpodder
+</A></li>
+        <LI>Next message: <A HREF="000296.html">[gpodder-devel] Updated Dutch translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#294">[ date ]</a>
+              <a href="thread.html#294">[ thread ]</a>
+              <a href="subject.html#294">[ subject ]</a>
+              <a href="author.html#294">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Juergen!
+
+On Thu, 2007-05-03 at 12:59 +0200, Juergen.Schinker wrote:
+&gt;<i> hm i never leave the path of the distribution so i'm stuck with 0.9
+</I>&gt;<i> and i need an importfunktion where i can import the channels.xml
+</I>
+Just file a bug report in Gentoo's Bugzilla - they should update to the
+newest version. As I already mentioned - the build process hasn't
+changed. Bumping the version in the ebuild (and maybe adding a line for
+gtk-update-icon-cache) should get you going. Don't know enough about
+Gentoo's ebuilds to do it for you, though..
+
+If there is a bug in the latest upstream version, it's upstream's
+responsibility to fix the bug - if it's a bug in a packaged version,
+it's the distribution's responsibility to fix the bug for two reasons:
+
+- The distribution might have applied patches to the vanilla tarball
+- The distribution might not have packaged the newest upstream version
+
+You can always install gPodder in &quot;/usr/local&quot; - that's what it's here
+for (packages installed by the sysadmin and not managed by the packaging
+system).
+
+&gt;<i> btw i could not import the opml from gpodder in Thunderbird maybe dif
+</I>&gt;<i> versions?
+</I>
+AFAIK it's standard OPML format. The format might have been changed
+since the feature was implemented in gPodder, though..
+
+&gt;<i> Updating behind a VPN is a drama do i need a Special MRU/MTU and MSS
+</I>&gt;<i> or how is gpodder fetching his updates?
+</I>
+gPodder is using GNU wget for fetching updates and podcasts. You might
+want to enable/disable some wget tweaks in your wgetrc. But basically,
+it should not be a problem even on a VPN connection.
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000295.html">[gpodder-devel] Two Problems with gpodder
+</A></li>
+	<LI>Next message: <A HREF="000296.html">[gpodder-devel] Updated Dutch translation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#294">[ date ]</a>
+              <a href="thread.html#294">[ thread ]</a>
+              <a href="subject.html#294">[ subject ]</a>
+              <a href="author.html#294">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

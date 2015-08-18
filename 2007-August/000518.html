@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder: Seeking testers of new version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C1188141139.4903.26.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000517.html">
+   <LINK REL="Next"  HREF="000519.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder: Seeking testers of new version</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C1188141139.4903.26.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder: Seeking testers of new version">thp at perli.net
+       </A><BR>
+    <I>Sun Aug 26 17:12:19 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000517.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+        <LI>Next message: <A HREF="000519.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#518">[ date ]</a>
+              <a href="thread.html#518">[ thread ]</a>
+              <a href="subject.html#518">[ subject ]</a>
+              <a href="author.html#518">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Wilfred!
+
+On Sun, 2007-08-26 at 07:46 -0700, Wilfred van Rooijen wrote:
+&gt;<i> Okay, a little bit of braindead debugging reveals the
+</I>&gt;<i> location of the crash:
+</I>&gt;<i> [...]
+</I>&gt;<i> In this subroutine the crash occurs at the following
+</I>&gt;<i> line:
+</I>&gt;<i> 
+</I>&gt;<i> status_icon = util.get_tree_icon( 'audio-x-generic',
+</I>&gt;<i> played, self.icon_cache)
+</I>
+People, get yourself some funky new icon theme that has beautiful,
+Tango-named icons (&quot;audio-x-generic&quot;) :p
+
+No, really: I've been to optimistic about icon availability, and forgot
+to add checks for missing icons to the util.get_tree_icon() function.
+
+I've added these checks now and gPodder will use a GTK Stock icon
+instead of the &quot;real&quot; icon. Please &quot;svn up&quot; your working copy and tell
+me if it works now.
+
+BTW: The segmentation fault seems to be caused by the fact that I was
+compositing one gtk.Pixbuf over another, and not checking if the two
+pixbufs were valid. This should be fixed now (hopefully) ;)
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000517.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+	<LI>Next message: <A HREF="000519.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#518">[ date ]</a>
+              <a href="thread.html#518">[ thread ]</a>
+              <a href="subject.html#518">[ subject ]</a>
+              <a href="author.html#518">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

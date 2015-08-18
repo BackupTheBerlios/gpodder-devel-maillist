@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Sync to iPod with empty 'episode' field
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Sync%20to%20iPod%20with%20empty%20%27episode%27%20field&In-Reply-To=%3C106779.40319.qm%40web60821.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000484.html">
+   <LINK REL="Next"  HREF="000493.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Sync to iPod with empty 'episode' field</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Sync%20to%20iPod%20with%20empty%20%27episode%27%20field&In-Reply-To=%3C106779.40319.qm%40web60821.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] Sync to iPod with empty 'episode' field">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Wed Aug 15 02:13:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000484.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+        <LI>Next message: <A HREF="000493.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#486">[ date ]</a>
+              <a href="thread.html#486">[ thread ]</a>
+              <a href="subject.html#486">[ subject ]</a>
+              <a href="author.html#486">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Thomas,
+
+I have the updated version of gPodder but when I sync
+the files with empty episode-string I still get 1 file
+named '.mp3' in each channel directory :-((.
+
+This is the message in the terminal screen from
+gpodder:
+
+Copying: dcc25742944f9991482aa92b01f69a1d.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio podcast _
+Freakolympics Rob Stenders en Fred Siebelink/.mp3
+
+Later,
+Wilfred
+
+
+--- Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello, Wilfred!
+</I>&gt;<i> 
+</I>&gt;<i> On Mon, 2007-08-13 at 17:33 -0700, Wilfred van
+</I>&gt;<i> Rooijen wrote:
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ make test
+</I>&gt;<i> &gt; bin/gpodder --local --verbose
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;bin/gpodder&quot;, line 145, in ?
+</I>&gt;<i> &gt;     sys.exit( main())
+</I>&gt;<i> &gt;   File &quot;bin/gpodder&quot;, line 101, in main
+</I>&gt;<i> &gt;     from gpodder import console
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/console.py&quot;,
+</I>&gt;<i> &gt; line 29, in ?
+</I>&gt;<i> &gt;     from libgpodder import gPodderChannelReader
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &gt; &quot;/home/rooijen/gpodder/src/gpodder/libgpodder.py&quot;,
+</I>&gt;<i> &gt; line 396
+</I>&gt;<i> &gt;     return ( True, command_line[0] )
+</I>&gt;<i> &gt;                                    ^
+</I>&gt;<i> &gt; IndentationError: unindent does not match any
+</I>&gt;<i> outer
+</I>&gt;<i> &gt; indentation level
+</I>&gt;<i> &gt; make: *** [test] Error 1
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Is this my fault? Do I need to set any environment
+</I>&gt;<i> &gt; vars or something? The devel-list archives are not
+</I>&gt;<i> &gt; really searchable, so it's difficult to find much
+</I>&gt;<i> &gt; info. 
+</I>&gt;<i> 
+</I>&gt;<i> It's my fault. As Nick already said, a space is all
+</I>&gt;<i> that is needed. I've
+</I>&gt;<i> updated the SVN trunk head to fix my typo, so a &quot;svn
+</I>&gt;<i> up&quot; should get you
+</I>&gt;<i> running again. Sorry for that :)
+</I>&gt;<i> 
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+       
+____________________________________________________________________________________
+Be a better Heartthrob. Get better relationship answers from someone who knows. Yahoo! Answers - Check it out. 
+<A HREF="http://answers.yahoo.com/dir/?link=list&amp;sid=396545433">http://answers.yahoo.com/dir/?link=list&amp;sid=396545433</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000484.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+	<LI>Next message: <A HREF="000493.html">[gpodder-devel] Sync to iPod with empty 'episode' field
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#486">[ date ]</a>
+              <a href="thread.html#486">[ thread ]</a>
+              <a href="subject.html#486">[ subject ]</a>
+              <a href="author.html#486">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

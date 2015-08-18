@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] model.py and Woodchuck
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20model.py%20and%20Woodchuck&In-Reply-To=%3C87vcw0ze59.wl%25neal%40walfield.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002819.html">
+   <LINK REL="Next"  HREF="002823.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] model.py and Woodchuck</H1>
+    <B>Neal H. Walfield</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20model.py%20and%20Woodchuck&In-Reply-To=%3C87vcw0ze59.wl%25neal%40walfield.org%3E"
+       TITLE="[gpodder-devel] model.py and Woodchuck">neal at walfield.org
+       </A><BR>
+    <I>Mon Jun 20 18:00:34 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002819.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+        <LI>Next message: <A HREF="002823.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2820">[ date ]</a>
+              <a href="thread.html#2820">[ thread ]</a>
+              <a href="subject.html#2820">[ subject ]</a>
+              <a href="author.html#2820">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>At Sat, 18 Jun 2011 23:43:15 +0200,
+Neal H. Walfield wrote:
+&gt;<i> model.py would become responsible for managing object lifetimes.  I
+</I>&gt;<i> propose that channels and episodes become singletons and that weak
+</I>&gt;<i> references be used to avoid having the whole DB in memory.
+</I>
+The attached patch implements this.  I've tested this using the GTK
+frontend.
+
+A possible improvement would be only free objects if they haven't been
+referenced for a few minutes. As far as I can tell, python does not
+support this out of the box and adding it appears non-trivial.
+Further, adding it requires the ability to schedule a callback in the
+future.  Does model.py assume that glib or qt is available?
+
+Thanks,
+
+Neal
+
+From 1fcbfe9d6a8fa87024a304c5a59edee14b52d767 Mon Sep 17 00:00:00 2001
+From: Neal H. Walfield &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">neal at gnu.org</A>&gt;
+Date: Mon, 20 Jun 2011 17:48:36 +0200
+Subject: [PATCH] Make podcasts and episodes singletons.
+
+ - Manage the singletons using weak references to limit memory use.
+---
+ src/gpodder/model.py |   49 +++++++++++++++++++++++++++++++++++++++++++------
+ 1 files changed, 43 insertions(+), 6 deletions(-)
+
+diff --git a/src/gpodder/model.py b/src/gpodder/model.py
+index fd0d5a3..85df996 100644
+--- a/src/gpodder/model.py
++++ b/src/gpodder/model.py
+@@ -39,6 +39,7 @@ import datetime
+ import rfc822
+ import hashlib
+ import feedparser
++from weakref import WeakValueDictionary
+ 
+ _ = gpodder.gettext
+ 
+@@ -82,28 +83,64 @@ class PodcastModelObject(object):
+     &quot;&quot;&quot;
+     A generic base class for our podcast model providing common helper
+     and utility functions.
+-    &quot;&quot;&quot;
+ 
++    PodcastEpisode and PodcastChannel inherit from this class to
++    facilitate instantiation and wholesale updates of attributes.
++
++    This base class also ensures that only a single instance of an
++    object with the same type and id exists.
++    &quot;&quot;&quot;
+     @classmethod
+     def create_from_dict(cls, d, *args):
+         &quot;&quot;&quot;
+-        Create a new object, passing &quot;args&quot; to the constructor
+-        and then updating the object with the values from &quot;d&quot;.
++        Return the python object for the object instance of tyep cls
++        with id d['id'].
++
++        If the object does not yet exist, instantiates it and passes
++        &quot;args&quot; to the constructor.
++
++        Update the object's attributes with the values from &quot;d&quot;.
+         &quot;&quot;&quot;
+-        o = cls(*args)
++        assert 'id' in d
++
++        if not hasattr (cls, '_singletons'):
++            cls._singletons = WeakValueDictionary()
++
++        o = cls._singletons.get ('id', None)
++        if o is None:
++            o = cls(*args)
++
+         o.update_from_dict(d)
++
+         return o
+ 
++    def __setattr__(self, name, value):
++        &quot;&quot;&quot;
++        If changing the id attribute, update the singleton map
++        appropriately.  Either way, set the attribute as usual.
++        &quot;&quot;&quot;
++        if name == 'id':
++            old_value = self.__class__.__dict__.get ('id', None)
++            if value != old_value:
++                # The identity changed.  Move the singleton.
++                if old_value is not None:
++                    del self.__class__._singletons[old_value]
++                if value is not None:
++                    self.__class__._singletons[value] = self
++
++        super (PodcastModelObject, self).__setattr__ (name, value)
++
+     def update_from_dict(self, d):
+         &quot;&quot;&quot;
+         Updates the attributes of this object with values from the
+-        dictionary &quot;d&quot; by using the keys found in &quot;d&quot;.
++        dictionary &quot;d&quot; by using the keys found in &quot;d&quot;.  Any keys in
++        &quot;d&quot; that are not attributes of the object are silently
++        ignored.
+         &quot;&quot;&quot;
+         for k in d:
+             if hasattr(self, k):
+                 setattr(self, k, d[k])
+ 
+-
+ class PodcastEpisode(PodcastModelObject):
+     &quot;&quot;&quot;holds data for one object in a channel&quot;&quot;&quot;
+     MAX_FILENAME_LENGTH = 200
+-- 
+1.7.2.5
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002819.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+	<LI>Next message: <A HREF="002823.html">[gpodder-devel] model.py and Woodchuck
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2820">[ date ]</a>
+              <a href="thread.html#2820">[ thread ]</a>
+              <a href="subject.html#2820">[ subject ]</a>
+              <a href="author.html#2820">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

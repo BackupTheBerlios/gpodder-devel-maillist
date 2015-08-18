@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] setting up gpodder to download automatically while	I am away
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20setting%20up%20gpodder%20to%20download%20automatically%0A%20while%09I%20am%20away&In-Reply-To=%3C4743520A.3040803%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000809.html">
+   <LINK REL="Next"  HREF="000811.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] setting up gpodder to download automatically while	I am away</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20setting%20up%20gpodder%20to%20download%20automatically%0A%20while%09I%20am%20away&In-Reply-To=%3C4743520A.3040803%40perli.net%3E"
+       TITLE="[gpodder-devel] setting up gpodder to download automatically while	I am away">thp at perli.net
+       </A><BR>
+    <I>Tue Nov 20 22:30:50 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000809.html">[gpodder-devel] setting up gpodder to download automatically while	I am away
+</A></li>
+        <LI>Next message: <A HREF="000811.html">[gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#810">[ date ]</a>
+              <a href="thread.html#810">[ thread ]</a>
+              <a href="subject.html#810">[ subject ]</a>
+              <a href="author.html#810">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, John!
+
+John Warner wrote:
+&gt;<i> This is hopefully a no-brainer question.
+</I>&gt;<i> 
+</I>&gt;<i> I occasionally go away with work and some of the programmes I download
+</I>&gt;<i> have 7 day windows that I occasionally miss - is there a way to run
+</I>&gt;<i> gpodder on the cron system and to automatically check and download any
+</I>&gt;<i> now files available.
+</I>&gt;<i> 
+</I>&gt;<i> I have gpodder on a machine at home and not on the laptop I travel with
+</I>&gt;<i> - the easy answer is to load it on the laptop but I suspect there are
+</I>&gt;<i> switches I can use to download stuff.
+</I>&gt;<i> 
+</I>&gt;<i> Can anyone help?
+</I>
+The command you're probably looking for is &quot;gpodder --run&quot;, which
+updates the feeds and automatically downloads all new episodes.
+
+You just have to look out and be sure to not run two gpodder instances
+twice (i.e. the cron job in the background while starting up the GUI),
+because this is not yet handled (which doesn't mean it wouldn't work,
+but which means the result is undefined ;)
+
+As you said, this is a no-brainer question, maybe it's time to implement
+a real FAQ - a feature that the current gPodder website is missing :/
+I'm sorry about that. Will add one as time permits. Maybe someone wants
+to help out a bit as collection FAQs?
+
+
+Thoma
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000809.html">[gpodder-devel] setting up gpodder to download automatically while	I am away
+</A></li>
+	<LI>Next message: <A HREF="000811.html">[gpodder-devel] gPodder 0.10.2 &quot;Ein schweineschnauzen Sandwich,	bitte!&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#810">[ date ]</a>
+              <a href="thread.html#810">[ thread ]</a>
+              <a href="subject.html#810">[ subject ]</a>
+              <a href="author.html#810">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

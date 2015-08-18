@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] poedit translator issue
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20poedit%20translator%20issue&In-Reply-To=%3Cbc8dc36f1001141108t21dfeea7q42aa88b70e512dca%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002382.html">
+   <LINK REL="Next"  HREF="002357.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] poedit translator issue</H1>
+    <B>Maxim Prohorov</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20poedit%20translator%20issue&In-Reply-To=%3Cbc8dc36f1001141108t21dfeea7q42aa88b70e512dca%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] poedit translator issue">prohorov.max at gmail.com
+       </A><BR>
+    <I>Thu Jan 14 20:08:05 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002382.html">[gpodder-devel] poedit translator issue
+</A></li>
+        <LI>Next message: <A HREF="002357.html">[gpodder-devel] Gpodder removing file extension for mp4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2383">[ date ]</a>
+              <a href="thread.html#2383">[ thread ]</a>
+              <a href="subject.html#2383">[ subject ]</a>
+              <a href="author.html#2383">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Really, it does :)
+There is nice article in LinuxFormat:
+<A HREF="http://wiki.linuxformat.ru/index.php/LXF111:KDE4">http://wiki.linuxformat.ru/index.php/LXF111:KDE4</A>
+
+As an example, right now I'm using this:
+
+&quot;Plural-Forms: nplurals=3; plural=(n%10==1 &amp;&amp; n%100!=11 ? 0 : n%10&gt;=2
+&amp;&amp; n%10&lt;=4 &amp;&amp; (n%100&lt;10 || n%100&gt;=20) ? 1 : 2);\n&quot;
+....
+#: src/gpodder/gui.py:1030
+#, python-format
+msgid &quot;downloading %d file&quot;
+msgid_plural &quot;downloading %d files&quot;
+msgstr[0] &quot;&#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1072; %d&#1075;&#1086; &#1092;&#1072;&#1081;&#1083;&#1072;&quot;
+msgstr[1] &quot;&#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1072; %d&#1093; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;&quot;
+msgstr[2] &quot;&#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1072; %d&#1090;&#1080; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;&quot;
+....
+
+In poedit there is nice tabs with number to test pronunciation
+
+2010/1/14 Boryslav Larin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brabadu at gmail.com</A>&gt;:
+&gt;<i> Yes! Thanks, that's it!
+</I>&gt;<i> But unfortunately looks like poedit can't handle such cases.
+</I>&gt;<i>
+</I>&gt;<i> 2010/1/14 jerome chabod &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">jerome.chabod at gmail.com</A>&gt;:
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i> Have a look at
+</I>&gt;&gt;<i> <A HREF="http://www.gnu.org/software/hello/manual/gettext/Plural-forms.html.">http://www.gnu.org/software/hello/manual/gettext/Plural-forms.html.</A>
+</I>&gt;&gt;<i> Jerome
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2010/1/14 Boryslav Larin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brabadu at gmail.com</A>&gt;
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Hello!
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> There's a little problem. Some languages, like russian and ukrainian
+</I>&gt;&gt;&gt;<i> have more then one plural form. We have one ending for words &#160;related
+</I>&gt;&gt;&gt;<i> to plurals that end with 2,3, 4 and another ending for 5,6,7,8,9,0.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> So, line &quot;Plural-Forms: nplurals=2; plural=(n != 1);\n&quot; doesn't do
+</I>&gt;&gt;&gt;<i> what we would like to have appropriate translation. Maybe somebody
+</I>&gt;&gt;&gt;<i> knows how to define such kind of plural form?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> 2010/1/6 Silvio Sisto &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">sisto.silvio at gmail.com</A>&gt;:
+</I>&gt;&gt;&gt;<i> &gt; 2010/1/5 Gon&#231;alo Cordeiro &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gonzalo at tagenata.com</A>&gt;:
+</I>&gt;&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;&gt;<i> &gt;&gt; Hi all,
+</I>&gt;&gt;&gt;<i> &gt;&gt; Silvio, I would suggest something like...
+</I>&gt;&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &gt; Gon&#231;alo,
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &gt; That sounds good good. I would appreciate it if you could edit it
+</I>&gt;&gt;&gt;<i> &gt; yourself. I think you can edit anonymously no need to register.
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &gt; Thank you. Best regards,
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &gt; Silvio Sisto
+</I>&gt;&gt;&gt;<i> &gt; _______________________________________________
+</I>&gt;&gt;&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002382.html">[gpodder-devel] poedit translator issue
+</A></li>
+	<LI>Next message: <A HREF="002357.html">[gpodder-devel] Gpodder removing file extension for mp4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2383">[ date ]</a>
+              <a href="thread.html#2383">[ thread ]</a>
+              <a href="subject.html#2383">[ subject ]</a>
+              <a href="author.html#2383">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

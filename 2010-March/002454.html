@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 2.3 Bugs
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%202.3%20Bugs&In-Reply-To=%3C4B8E8D4A.2030703%40laposte.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002457.html">
+   <LINK REL="Next"  HREF="002455.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 2.3 Bugs</H1>
+    <B>Valeryan_24</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%202.3%20Bugs&In-Reply-To=%3C4B8E8D4A.2030703%40laposte.net%3E"
+       TITLE="[gpodder-devel] gPodder 2.3 Bugs">Valeryan_24 at laposte.net
+       </A><BR>
+    <I>Wed Mar  3 17:24:42 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002457.html">[gpodder-devel] Duplicates
+</A></li>
+        <LI>Next message: <A HREF="002455.html">[gpodder-devel] Transifex my.gpodder.org
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2454">[ date ]</a>
+              <a href="thread.html#2454">[ thread ]</a>
+              <a href="subject.html#2454">[ subject ]</a>
+              <a href="author.html#2454">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Congratulations again for your good work and thanks a lot for version 
+2.3 of Gpodder.
+
+Feature of playing podcast episodes in chronological time has been 
+implemented and works very fine with Totem, that's great !
+
+But I still have the problem filled in Bug 755 : 
+<A HREF="https://bugs.gpodder.org/show_bug.cgi?id=755">https://bugs.gpodder.org/show_bug.cgi?id=755</A>
+
+I tried again to transfer many episodes of podcast from :
+
+<A HREF="http://podcast.rtl.fr/cestsurlenet.xml">http://podcast.rtl.fr/cestsurlenet.xml</A>
+<A HREF="http://podcast.rtl2.fr/GrandMorningRTL2/larevuedepresse.xml">http://podcast.rtl2.fr/GrandMorningRTL2/larevuedepresse.xml</A>
+<A HREF="http://podcast.rmc.fr/channel179/RMCInfochannel179.xml">http://podcast.rmc.fr/channel179/RMCInfochannel179.xml</A>
+<A HREF="http://podcast.bfmradio.fr/channel22/BFMchannel22.xml">http://podcast.bfmradio.fr/channel22/BFMchannel22.xml</A>
+
+Not directly on MP3 device but on another folder on my computer (to 
+rename them with Metamorphose), and again it gives all the episodes the 
+same names and overwrites them, so at the end there is only 1 file 
+transferred into the destination folder.
+
+I'm not able to understand why it doesn't work, if I can help by 
+providing more informations, do not hesitate to ask.
+
+For other podcasts (like <A HREF="http://www.radioscoop.com/podcast.php?id=37261">http://www.radioscoop.com/podcast.php?id=37261</A> 
+; <A HREF="http://www.europe1.fr/rss_export/feed/revue-de-presse">http://www.europe1.fr/rss_export/feed/revue-de-presse</A>), as before 
+there is no problem.
+
+Best regards,
+
+Xavier
+
+On 28/02/2010 14:37, Thomas Perl wrote:
+&gt;<i> Hi there!
+</I>&gt;<i>
+</I>&gt;<i> As promised, a new release of gPodder is out. In a motivated Saturday
+</I>&gt;<i> afternoon session, not only was the source package of gPodder 2.3
+</I>&gt;<i> released, but also packages of it for Windows, Debian, Ubuntu,
+</I>&gt;<i> Maemo 4 and Maemo 5, so you should be up and running right now :)
+</I>&gt;<i>
+</I>&gt;<i> Here's the official announcement from <A HREF="http://gpodder.org/news:">http://gpodder.org/news:</A>
+</I>&gt;<i>
+</I>&gt;<i> -----------------
+</I>&gt;<i> 2010-02-27: gPodder 2.3 &quot;The Adhesive Duck Deficiency&quot; released
+</I>&gt;<i>
+</I>&gt;<i> The second gPodder release in this month brings updated translations,
+</I>&gt;<i> lots of bug fixes and some UI clean-ups to your open source podcast
+</I>&gt;<i> aggregator. Here are some highlights of this release:
+</I>&gt;<i>
+</I>&gt;<i>   * &quot;All episodes&quot; in &quot;View&quot; menu and enabled by default
+</I>&gt;<i>   * Episodes are passed to the media player in chronological order
+</I>&gt;<i>   * Try to use mimetype-based file icons (using GIO) for episodes
+</I>&gt;<i>   * Make sure the podcast list is correctly updated all the time
+</I>&gt;<i>   * Disable feed_update_skipping by default (+expose in UI on Maemo)
+</I>&gt;<i>   * Default cover art for podcasts with no cover art
+</I>&gt;<i>   * Re-designed preferences dialog for Maemo 5 (Fremantle)
+</I>&gt;<i>   * gPodder rotates to landscape on Maemo 5 when the keyboard is open
+</I>&gt;<i>   * Better button captions in shownotes window (&quot;Cancel download&quot;)
+</I>&gt;<i>   * Remove podcast.de search option (this was broken for some weeks)
+</I>&gt;<i>   * Hide &quot;Download folder&quot; preferences option (see User Manual)
+</I>&gt;<i>   * Flush gPodder database after MP3 player sync has finished
+</I>&gt;<i>   * Updated translations (Galician, Danish, Russian, Norwegian, Ukrainian,
+</I>&gt;<i>     Finnish, Polish and German)
+</I>&gt;<i>   * New translations: Romanian (by Gherhardt Mathisz)
+</I>&gt;<i> -----------------
+</I>&gt;<i>
+</I>&gt;<i> Links to the package can be found at <A HREF="http://gpodder.org/downloads">http://gpodder.org/downloads</A> -
+</I>&gt;<i> Maemo and Ubuntu users should be able to update directly using their
+</I>&gt;<i> package Manager. Due to the QA process of Maemo 5, gPodder 2.3 is not
+</I>&gt;<i> yet available in Maemo Extras, but will hopefully be so in ten days.
+</I>&gt;<i>
+</I>&gt;<i> Thanks to all who have made this release possible!
+</I>&gt;<i>
+</I>&gt;<i> Greetings,
+</I>&gt;<i> Thomas
+</I>&gt;<i>    
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002457.html">[gpodder-devel] Duplicates
+</A></li>
+	<LI>Next message: <A HREF="002455.html">[gpodder-devel] Transifex my.gpodder.org
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2454">[ date ]</a>
+              <a href="thread.html#2454">[ thread ]</a>
+              <a href="subject.html#2454">[ subject ]</a>
+              <a href="author.html#2454">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

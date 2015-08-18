@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder: Seeking testers of new version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C576088.93945.qm%40web60822.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000513.html">
+   <LINK REL="Next"  HREF="000515.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder: Seeking testers of new version</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%3A%20Seeking%20testers%20of%20new%20version&In-Reply-To=%3C576088.93945.qm%40web60822.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] gPodder: Seeking testers of new version">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sat Aug 25 22:09:50 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000513.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+        <LI>Next message: <A HREF="000515.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+adventurous as I am, I have tried the newest gpodder.
+This is the result:
+
+
+make test
+bin/gpodder --local --verbose
+(DownloadHistory) Creating new history list.
+(PlaybackHistory) Creating new history list.
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) Could not find python-gpod. iPod functions
+will be disabled.
+(ipodsync) Please install the &quot;python-gpod&quot; package if
+you want iPod support.
+(ipodsync) Could not find pymad.
+(ipodsync) Coulld not find eyeD3.
+(ipodsync) PyID3 not found - falling back to channel
+cover for iPod cover art
+(ipodsync) mplayer not found - length of video files
+will be guessed
+Player found: EasyTAG
+(/usr/share/applications/easytag.desktop)
+Player found: RealPlayer 10
+(/usr/share/applications/realplay.desktop)
+Player found: Movie Player
+(/usr/share/applications/totem.desktop)
+Player found: VLC media player
+(/usr/share/applications/vlc.desktop)
+(podcastChannel) Generating TreeModel for
+<A HREF="http://www.vpro.nl/podcastradiobergeijk">http://www.vpro.nl/podcastradiobergeijk</A>
+make: *** [test] Segmentation fault
+[1]+  Exit 2                  make test
+
+So, it basically doesn't work. Tell me if you need
+more info.
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ uname -a
+Linux love206a-rooijen 2.6.18-suspend2-r1 #1 SMP
+PREEMPT Sun May 27 19:15:58 EDT 2007 i686 Intel(R)
+Pentium(R) M processor 1600MHz GenuineIntel GNU/Linux
+
+Latest updates, feedparser from website.
+
+Later,
+Wilfred
+
+--- Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello there!
+</I>&gt;<i> 
+</I>&gt;<i> I'm currently working on a much improved version of
+</I>&gt;<i> gPodder, featuring
+</I>&gt;<i> cool things such as:
+</I>&gt;<i> 
+</I>&gt;<i>  - better standards support through feedparser (Atom
+</I>&gt;<i> feeds, etc..)
+</I>&gt;<i>  - DOM instead of SAX/direct file I/O for XML
+</I>&gt;<i> parsing/writing
+</I>&gt;<i>  - re-structured code layout
+</I>&gt;<i>  - merging of &quot;played&quot; and &quot;status&quot; columns in main
+</I>&gt;<i> view
+</I>&gt;<i>  - &quot;cancel&quot; download button works for items in the
+</I>&gt;<i> available tab
+</I>&gt;<i>  - channel settings in local DB file
+</I>&gt;<i>  - better feed caching through custom version of
+</I>&gt;<i> feedcache
+</I>&gt;<i>  - better performance for the channel list view /
+</I>&gt;<i> less &quot;full updates&quot;
+</I>&gt;<i>  - console interface fixed/improved
+</I>&gt;<i>  - source code is getting more slick / better
+</I>&gt;<i> maintainability :)
+</I>&gt;<i>  - more yet to come!
+</I>&gt;<i> 
+</I>&gt;<i> The codebase is a bit experimental (as you can
+</I>&gt;<i> imagine), so these
+</I>&gt;<i> changes are not available in trunk, but in the
+</I>&gt;<i> &quot;gpodder-thp-200708&quot;
+</I>&gt;<i> branch. In your SVN checkout, use
+</I>&gt;<i> &quot;/branches/gpodder-thp-200708&quot; instead
+</I>&gt;<i> of &quot;/trunk&quot; for the SVN URL to get the experimental
+</I>&gt;<i> branch.
+</I>&gt;<i> 
+</I>&gt;<i> It'd be nice if you could test it on your machine
+</I>&gt;<i> with your
+</I>&gt;<i> subscriptions. There are several changes in layout,
+</I>&gt;<i> so although gPodder
+</I>&gt;<i> will remember and use localDB, downloaded podcasts,
+</I>&gt;<i> etc.. the channel
+</I>&gt;<i> list format has changed, and I've not yet written an
+</I>&gt;<i> &quot;old channel list
+</I>&gt;<i> importer&quot;, so you have to export your channel list
+</I>&gt;<i> like that:
+</I>&gt;<i> 
+</I>&gt;<i> $ gpodder --list | cut -f2 &gt; subscriptions.txt
+</I>&gt;<i> 
+</I>&gt;<i> and import your channel list like this (in the
+</I>&gt;<i> experimental gPodder):
+</I>&gt;<i> 
+</I>&gt;<i> #!/bin/bash
+</I>&gt;<i> # gpodder importer
+</I>&gt;<i> for feed in `cat subscriptions.txt`; do
+</I>&gt;<i>   /path/to/expermental-gpodder/bin/gpodder --local
+</I>&gt;<i> --add=$feed
+</I>&gt;<i> done
+</I>&gt;<i> 
+</I>&gt;<i> Be sure to backup your download directory and the
+</I>&gt;<i> ~/.config/gpodder
+</I>&gt;<i> folder somewhere before trying out the new version,
+</I>&gt;<i> or don't blame me
+</I>&gt;<i> when something breaks.
+</I>&gt;<i> 
+</I>&gt;<i> Oh yeah: There's a new dependency for the
+</I>&gt;<i> experimental version:
+</I>&gt;<i> python-feedparser (from www.feedparser.org or your
+</I>&gt;<i> distro); feedparser
+</I>&gt;<i> enables gPodder to read a whole bunch of different
+</I>&gt;<i> feed formats
+</I>&gt;<i> (including Atom) and also takes care of handling
+</I>&gt;<i> some errors feed
+</I>&gt;<i> authors make. It will be easier to add support for
+</I>&gt;<i> other feed features
+</I>&gt;<i> in the future, so I think utilizing feedparser will
+</I>&gt;<i> be a benefit for
+</I>&gt;<i> gPodder.
+</I>&gt;<i> 
+</I>&gt;<i> So, go on, test the experimental version and send in
+</I>&gt;<i> some feedback (and
+</I>&gt;<i> tell me what's broken ;).
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+       
+____________________________________________________________________________________
+Sick sense of humor? Visit Yahoo! TV's 
+Comedy with an Edge to see what's on, when. 
+<A HREF="http://tv.yahoo.com/collections/222">http://tv.yahoo.com/collections/222</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000513.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+	<LI>Next message: <A HREF="000515.html">[gpodder-devel] gPodder: Seeking testers of new version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

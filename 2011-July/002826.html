@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CBANLkTi%3D_hegjTS_iDP_1onywaqXWVLNPRw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="002827.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values</H1>
+    <B>Dov Feldstern</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20my.gpodder%20episode%20sync%20design%20problem%3A%20%22since%22%0A%09values&In-Reply-To=%3CBANLkTi%3D_hegjTS_iDP_1onywaqXWVLNPRw%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] my.gpodder episode sync design problem: &quot;since&quot;	values">dovdevel at gmail.com
+       </A><BR>
+    <I>Fri Jul  1 14:35:52 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="002827.html">[gpodder-devel] my.gpodder episode sync design problem:	&quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2826">[ date ]</a>
+              <a href="thread.html#2826">[ thread ]</a>
+              <a href="subject.html#2826">[ subject ]</a>
+              <a href="author.html#2826">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi!
+
+I'm still seeing occasional episode actions which are not getting
+synced correctly between my n900 and my desktop, and I've finally
+uncovered another cause of this; however, this seems to be a design
+issue, which will require some discussion for solving...
+
+Some background:
+
+* Episode sync actions have a &quot;timestamp&quot;, which is the time at which
+the action occurred.
+* When syncing with my.gpodder.net, a client receives from the server
+a timestamp, which it can use next time in order to only ask for
+actions which are newer than the last sync; this timestamp is the
+&quot;since&quot; value.
+
+The problem occurs when one of the clients (say, the n900) is not
+connected to the net:
+
+1. <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">n900 at 9</A>:14 : finish playing episode, an action is stored with timestamp &quot;9:14&quot;
+2. <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">desktop at 9</A>:16 : start gpodder, this causes a sync, new since value is &quot;9:16&quot;
+3. <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">n900 at 9</A>:18 : connects to network, stored actions are uploaded; so
+the action from step (1) is now uploaded, *but its timestamp is still
+&quot;9:14&quot;*! Since &quot;9:14&quot; is earlier than the new &quot;since&quot; value (&quot;9:16&quot;),
+the episode action will never get synced back to the desktop...
+
+Note that the problem can actually occur even if both clients are
+always connected: actions are actually not uploaded to the net
+immediately, but rather are stored locally, and a worker thread which
+runs every now and then uploads the stored actions to the net. So two
+clients which are connected simultaneously may have worker threads
+which are out of sync, and then the following timeline could happen:
+
+1. Client <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">A at 9</A>:14 : episode action stored, timestamp &quot;9:14&quot;, but not uploaded
+2. Client <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">B at 9</A>:16 : worker thread wakes up, syncs, new since value is &quot;9:16&quot;
+3. Client <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">A at 9</A>:18 : worker thread wakes up, syncs, action from step (1)
+uploaded with timestamp of &quot;9:14&quot;, and we're in the same situation
+again, even though everyone was connected throughout...
+
+So, I think that the &quot;timestamp&quot; stored with actions is *not* the
+value which should be used for purposes of comparing with &quot;since&quot;
+values and syncing; rather, an &quot;upload-timestamp&quot; should be stored
+server-side, which would serve for this purpose. Note that this would
+not require any changes in the protocol, because only the server needs
+to know about the upload timestamps. However, clients need to be aware
+that they may receive actions with a timestamp earlier than the since
+value they provide when syncing (I don't know if they currently make
+any assumptions about this or not).
+
+How does this sound? (I didn't open an issue for this yet, because I
+wasn't sure against which component to do it; though now that I've
+written it up, I'm pretty sure this can be solved with changes only to
+the server; however, I might as well hear what others have to say
+before opening a bug report...)
+
+Thanks!
+Dov
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="002827.html">[gpodder-devel] my.gpodder episode sync design problem:	&quot;since&quot;	values
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2826">[ date ]</a>
+              <a href="thread.html#2826">[ thread ]</a>
+              <a href="subject.html#2826">[ subject ]</a>
+              <a href="author.html#2826">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

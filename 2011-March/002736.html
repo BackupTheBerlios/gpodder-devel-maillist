@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hooks question
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hooks%20question&In-Reply-To=%3Ce6dbae40628f16e78a391d1917e38eb8%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002735.html">
+   <LINK REL="Next"  HREF="002737.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hooks question</H1>
+    <B>Rodolfo kix Garcia</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hooks%20question&In-Reply-To=%3Ce6dbae40628f16e78a391d1917e38eb8%40localhost%3E"
+       TITLE="[gpodder-devel] Hooks question">kix at kix.es
+       </A><BR>
+    <I>Thu Mar 31 14:26:13 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002735.html">[gpodder-devel] hook for Zpravodajstvi (Cesky Rozhlas 1 -	Radiozurnal)
+</A></li>
+        <LI>Next message: <A HREF="002737.html">[gpodder-devel] Hooks question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2736">[ date ]</a>
+              <a href="thread.html#2736">[ thread ]</a>
+              <a href="subject.html#2736">[ subject ]</a>
+              <a href="author.html#2736">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+thanks for your work. The application is nice. I have a &quot;not new&quot; question
+about hooks.
+
+I have some podcasts without id3 info. When the podcast are copied to my
+device, I don't have any information about it, then the device show only
+the filename (a long number like 764261212341766.mp3).
+
+I try to use the scripts from hithub
+(<A HREF="https://github.com/brot/gpodder-hook-scripts">https://github.com/brot/gpodder-hook-scripts</A>) to solve the problem, but I
+cann't.
+
+I try the script &quot;tagging_hook.py&quot;, but the hook &quot;on_episode_downloaded&quot;
+is not called, then the scripts don't do nothing.
+
+Then I try to write a hook using &quot;on_episode_save&quot;, but the hook is called
+before the file is saved, then, I cannot rewrite the ID3 info (the file
+don't exists yet).
+
+I try to write other hook using &quot;on_file_copied_to_filesystem&quot;, but I only
+have the file names (origin, destination), then I cannot access to the
+database to get the info for the ID3 (or I don't know how to do it).
+
+Any help?
+
+Thanks a lot.
+-- 
+||<i>// //\\// Rodolfo &quot;kix&quot; Garcia
+</I>||<i>\\// //\\ <A HREF="http://www.kix.es/">http://www.kix.es/</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002735.html">[gpodder-devel] hook for Zpravodajstvi (Cesky Rozhlas 1 -	Radiozurnal)
+</A></li>
+	<LI>Next message: <A HREF="002737.html">[gpodder-devel] Hooks question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2736">[ date ]</a>
+              <a href="thread.html#2736">[ thread ]</a>
+              <a href="subject.html#2736">[ subject ]</a>
+              <a href="author.html#2736">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

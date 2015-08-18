@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%20preparations%3A%20Please%20translate%0A%20and%20test%21&In-Reply-To=%3C20070106153521.210ab9f7.contrib%40maisondubonheur.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000011.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!</H1>
+    <B>Alain TAUCH</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%20preparations%3A%20Please%20translate%0A%20and%20test%21&In-Reply-To=%3C20070106153521.210ab9f7.contrib%40maisondubonheur.com%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!">contrib at maisondubonheur.com
+       </A><BR>
+    <I>Sat Jan  6 15:35:21 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000009.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+        <LI>Next message: <A HREF="000011.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, 6 Jan 2007 14:52:16 +0100
+Thomas Perl [Thomas] wrote:
+
+[...]
+Thomas&gt; &gt; I don't have much time these days, so maybe you'd like to 
+Thomas&gt; &gt; investigate these points:
+Thomas&gt; &gt; - when adding an invalid channel (and detected as is) we 
+Thomas&gt; &gt;   are still asked for the download of the 3 last episodes.
+Thomas&gt; &gt;   Of course we have a nice traceback if we accept.
+Thomas&gt; 
+Thomas&gt; I've tracked down the problem and error handling for not-well-formed
+Thomas&gt; RSS feeds (or not-at-all-RSS-feed URLs) should be improved now. The
+Thomas&gt; ill-formed channels are skipped when being added, and the question if
+Thomas&gt; the user wants to download the recent episodes is only shown when a new
+Thomas&gt; channel has been added. As a side effect, I've re-factored some things
+Thomas&gt; in rssReader and opmlReader (basically removed static members), so
+Thomas&gt; the code for these classes is more sane now ;)
+
+it's far better now indeed.
+
+Thomas&gt; &gt; - I had an old channel which as no more episodes associated
+Thomas&gt; &gt;   with it, and cannot remove it. It may just be related to my 
+Thomas&gt; &gt;   channel cache, but this may be real bug too ;-)
+
+you can try to add this channel, this is the one causing me troubles:
+<A HREF="http://www.ouifm.fr/ouicast/index.php?id=1352">http://www.ouifm.fr/ouicast/index.php?id=1352</A>
+
+Thomas&gt; &gt; I hadn't time to play around with the &quot;same name&quot; stuff nor with 
+Thomas&gt; &gt; the synchronization folder, but I'll try to do it this week end.
+
+this part is not related to a bug, just some testing I wanted to do ;-)
+
+-- 
+Alain
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000009.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+	<LI>Next message: <A HREF="000011.html">[gpodder-devel] gPodder 0.9.0 preparations: Please translate and test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

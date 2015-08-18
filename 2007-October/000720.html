@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] problems running 0.10.0 of gPodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20problems%20running%200.10.0%20of%20gPodder&In-Reply-To=%3C6b193f0710290522vd67e3a8y40651e7fab5ab5ae%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000719.html">
+   <LINK REL="Next"  HREF="000722.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] problems running 0.10.0 of gPodder</H1>
+    <B>Ionut Scutaru</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20problems%20running%200.10.0%20of%20gPodder&In-Reply-To=%3C6b193f0710290522vd67e3a8y40651e7fab5ab5ae%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] problems running 0.10.0 of gPodder">ionut.scutaru at gmail.com
+       </A><BR>
+    <I>Mon Oct 29 13:22:33 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000719.html">[gpodder-devel] problems running 0.10.0 of gPodder
+</A></li>
+        <LI>Next message: <A HREF="000722.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#720">[ date ]</a>
+              <a href="thread.html#720">[ thread ]</a>
+              <a href="subject.html#720">[ subject ]</a>
+              <a href="author.html#720">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thank you ! Indeed I was having 2 versions of python on my machine.. I
+removed the one that doesn't come with my OS, recompiled and everything is
+working fine now.
+
+Thank you again !
+
+On 10/29/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello, Ionut!
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 2007-10-29 at 10:45 +0200, Ionut Scutaru wrote:
+</I>&gt;<i> &gt; I was able to compile and install gPodder v 0.10.0. However, when I'm
+</I>&gt;<i> &gt; trying to run it, I'm getting the following error:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">scutaru at iscutaru</A> ~]$ gpodder
+</I>&gt;<i> &gt; Warning: Module &quot;feedparser&quot; not found. Please install
+</I>&gt;<i> &gt; &quot;python-feedparser&quot;.
+</I>&gt;<i> &gt;          The feedparser module can also be downloaded from
+</I>&gt;<i> &gt; www.feedparser.org
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; But the module is there..:
+</I>&gt;<i> &gt; [<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">scutaru at iscutaru</A> ~]$ rpm -qa|grep feedparser
+</I>&gt;<i> &gt; python-feedparser-4.1-3.fc6
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Any ideas why it's not working ?
+</I>&gt;<i>
+</I>&gt;<i> You are probably using a different Python version than the version that
+</I>&gt;<i> the &quot;python-feedparser&quot; module is installed for. Make sure you have only
+</I>&gt;<i> one Python version installed, or that the correct Python version is set
+</I>&gt;<i> as the default in your system, so when you run &quot;python&quot; in your shell
+</I>&gt;<i> and type &quot;import feedparser&quot;, no error should be displayed. (You
+</I>&gt;<i> probably have several python2.x binaries in your path, please check).
+</I>&gt;<i>
+</I>&gt;<i> HTH.
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071029/781129c0/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071029/781129c0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000719.html">[gpodder-devel] problems running 0.10.0 of gPodder
+</A></li>
+	<LI>Next message: <A HREF="000722.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#720">[ date ]</a>
+              <a href="thread.html#720">[ thread ]</a>
+              <a href="subject.html#720">[ subject ]</a>
+              <a href="author.html#720">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

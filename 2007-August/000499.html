@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] new version downloads new episodes, but screen empty
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%20but%20screen%20empty&In-Reply-To=%3C46C8ABF6.5080908%40dystonia-dreams.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000496.html">
+   <LINK REL="Next"  HREF="000498.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] new version downloads new episodes, but screen empty</H1>
+    <B>Katy G. B.</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%20but%20screen%20empty&In-Reply-To=%3C46C8ABF6.5080908%40dystonia-dreams.org%3E"
+       TITLE="[gpodder-devel] new version downloads new episodes, but screen empty">uberChicGeekChick at dystonia-dreams.org
+       </A><BR>
+    <I>Sun Aug 19 22:45:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000496.html">[gpodder-devel] new version downloads new episodes,	but screen	empty
+</A></li>
+        <LI>Next message: <A HREF="000498.html">[gpodder-devel] new version downloads new episodes, but screen empty w/'over' attachment
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#499">[ date ]</a>
+              <a href="thread.html#499">[ thread ]</a>
+              <a href="subject.html#499">[ subject ]</a>
+              <a href="author.html#499">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>lol,
+
+       i was to slow to reply as per usual.  i'm super glad that its 
+been fixed dblly so since it'll save me from having to add a gd layer to 
+my script just to check for image validity, w00t.  i'll be sure to 
+update my svn revision and re-compile.  and yeah i'll def still post my 
+script for my original need.  and though i'm def a php fan girl(i've 
+even been playing with php 6 and its way nice.  but yeah if i were gonna 
+contribute to gPodder i'd def try python, though being far more of a 
+designer &amp;artist/coder &amp;haker than an engineer i'll never be a huge fan 
+of python, i'd rather design in C/C++ if i need a migrian(*wink* jokie), 
+than python.  but i just find php more fun &amp;i guess that why i use it 
+the most, i enjoy writing it more, web or not.  but language zelousy 
+aside *wink*, of course once i'm able to contribute 'to' gPodder i'd 
+write anything in python(which i do know, just not like, *ick*).  if i 
+can't manage to write stuff in python 'to' gPodder than yeah i'd still 
+write 'for' gPodder but than i'd expect it not to be part of gPodder's 
+trunk.  but thnx again for your work on an awesome podcatcher &amp;a 
+wonderful community that doesn't try and kill communication for the sake 
+of efficiency i really appreciate it.  i'm sorry i was so slow in 
+replying though, but i do hope to contribute in the future.  &amp;i'll post 
+my php script straight away, after i clean up my pseudo fix since i 
+don't need to keep it in there.  &amp;thnx again.
+
+Thomas Perl wrote:
+&gt;<i> Hello, Katy!
+</I>&gt;<i>
+</I>&gt;<i> On Sun, 2007-08-19 at 08:24 -0600, Katy G. B. wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [...] so i started getting podcast's cover image/album art and when i
+</I>&gt;&gt;<i> got to my subscription to an Australian Non-profit podcast (their feed
+</I>&gt;&gt;<i> url is <A HREF="http://feeds.feedburner.com/Cpns-qut-nonprofitPodcasts">http://feeds.feedburner.com/Cpns-qut-nonprofitPodcasts</A> )  i
+</I>&gt;&gt;<i> found several other of my podcasts that this would happen with.  than
+</I>&gt;&gt;<i> when gpodder tries to download any podcast's cover art gpodder would
+</I>&gt;&gt;<i> download an html, xml, or other document. [...]
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> [...] here's a work around until there's a perm fix.  you'll need to
+</I>&gt;&gt;<i> delete all of your podcasts' 'cover' files which aren't images, unless
+</I>&gt;&gt;<i> you know which podcast specifically is causing your problem. 
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> This workaround shouldn't be needed after a &quot;svn up&quot;, as I've added the
+</I>&gt;<i> necessary code and sanity checks to the current SVN version thanks to
+</I>&gt;<i> Richard Voigt's patch and bug reporting. If gPodder chokes after the
+</I>&gt;<i> &quot;svn up&quot;, simply checkout the svn repository again and it should work.
+</I>&gt;<i>
+</I>&gt;<i> Tell me if there still is a problem or if the problem is fixed now.
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> my php script, which i'll post in the next couple of days(under its
+</I>&gt;&gt;<i> own thread of course), automatically checks all the 'cover' files and
+</I>&gt;&gt;<i> deletes the ones that aren't valid images-i'm gonna use the gd or
+</I>&gt;&gt;<i> ImageMagick php extensions to check each file.  most likely i'll use
+</I>&gt;&gt;<i> the gd library since its the one i'm most familiar with &amp;it has the
+</I>&gt;&gt;<i> lowest overhead.  lol, and just to mention it, my php progie/script
+</I>&gt;&gt;<i> still relies on gPodder &amp;php's cli/cgi.
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> There should be no need for the cover deleting workaround anymore, but
+</I>&gt;<i> feel free to post the PHP script anyway for its original purpose :)
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [...] and though i love gPodder and _will_ abs help work on it in the
+</I>&gt;&gt;<i> future(if you want it that is) all my work with gPodder *wink* has
+</I>&gt;&gt;<i> only confirm my dislike of python.  i may just have ti write my own
+</I>&gt;&gt;<i> podcatcher in php-gtk2(joking, mostly), i'd actually love to help with
+</I>&gt;&gt;<i> gPodder - like in my free time i'm writing a play list manager for it.
+</I>&gt;&gt;<i> hopefully i'll be able to contribute that soon. 
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> If you want to contribute to gPodder, it would be really good if you
+</I>&gt;<i> write your code in Python. php-gtk2 is not as widely supported as PyGTK,
+</I>&gt;<i> and in my personal opinion, PHP isn't well suited for desktop
+</I>&gt;<i> applications (after all, it was written for web applications in the
+</I>&gt;<i> first place). Hell, I even switched from PHP (~5 years non-OO PHP
+</I>&gt;<i> experience) to Python for my web page after one and a half year
+</I>&gt;<i> programming in Python, because Python seems so much better ;)
+</I>&gt;<i>
+</I>&gt;<i> But not let the language choice stop you from contributing to gPodder -
+</I>&gt;<i> see it as a good reason to learn Python.
+</I>&gt;<i>
+</I>&gt;<i> And if you still want to write in php-gtk2, that's no problem, but your
+</I>&gt;<i> tool might just not be included in the default gPodder distribution.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>   
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000496.html">[gpodder-devel] new version downloads new episodes,	but screen	empty
+</A></li>
+	<LI>Next message: <A HREF="000498.html">[gpodder-devel] new version downloads new episodes, but screen empty w/'over' attachment
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#499">[ date ]</a>
+              <a href="thread.html#499">[ thread ]</a>
+              <a href="subject.html#499">[ subject ]</a>
+              <a href="author.html#499">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

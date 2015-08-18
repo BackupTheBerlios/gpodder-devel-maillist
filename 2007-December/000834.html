@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Channel covers don't show up?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Channel%20covers%20don%27t%20show%20up%3F&In-Reply-To=%3C4751785C.6050406%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000832.html">
+   <LINK REL="Next"  HREF="000835.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Channel covers don't show up?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Channel%20covers%20don%27t%20show%20up%3F&In-Reply-To=%3C4751785C.6050406%40perli.net%3E"
+       TITLE="[gpodder-devel] Channel covers don't show up?">thp at perli.net
+       </A><BR>
+    <I>Sat Dec  1 16:06:04 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000832.html">[gpodder-devel] Channel covers don't show up?
+</A></li>
+        <LI>Next message: <A HREF="000835.html">[gpodder-devel] Channel covers don't show up?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#834">[ date ]</a>
+              <a href="thread.html#834">[ thread ]</a>
+              <a href="subject.html#834">[ subject ]</a>
+              <a href="author.html#834">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Wilfred van Rooijen wrote:
+&gt;<i> I took a look at Pieter's screendump and noticed the
+</I>&gt;<i> little icons for each channel. So then I thought: I
+</I>&gt;<i> want that also. I subscribed to pacific coast hellway
+</I>&gt;<i> (because Pieter has an icon for that, so I know it
+</I>&gt;<i> exists), the channel was updated, and I clicked 'edit
+</I>&gt;<i> pacific coast hellway -&gt; cover -&gt; download cover', and
+</I>&gt;<i> this is the restult:
+</I>&gt;<i> 
+</I>&gt;<i> (podcastChannel) Loading downloaded episodes for
+</I>&gt;<i> <A HREF="http://feeds.feedburner.com/pacificcoasthellway">http://feeds.feedburner.com/pacificcoasthellway</A>
+</I>&gt;<i> (podcastChannel) Loading downloaded episodes for
+</I>&gt;<i> <A HREF="http://feeds.feedburner.com/pacificcoasthellway">http://feeds.feedburner.com/pacificcoasthellway</A>
+</I>&gt;<i> Trying to get settings for
+</I>&gt;<i> <A HREF="http://feeds.feedburner.com/pacificcoasthellway">http://feeds.feedburner.com/pacificcoasthellway</A>
+</I>&gt;<i> Downloading cover to
+</I>&gt;<i> /home/rooijen/gpodder-downloads/70186c7c234723128e6b085028264ec7/cover
+</I>&gt;<i> Reading cover from
+</I>&gt;<i> /home/rooijen/gpodder-downloads/70186c7c234723128e6b085028264ec7/cover
+</I>&gt;<i> Exception in thread Thread-4:
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in
+</I>&gt;<i> __bootstrap
+</I>&gt;<i>     self.run()
+</I>&gt;<i>   File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in
+</I>&gt;<i> run
+</I>&gt;<i>     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i>   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/libgpodder.py&quot;,
+</I>&gt;<i> line 180, in image_download_thread
+</I>&gt;<i>     pixbuf.write( open( cover_file, &quot;r&quot;).read())
+</I>&gt;<i> GError: Unrecognized image file format
+</I>&gt;<i> 
+</I>&gt;<i> I have a Gentoo system, updated to all the latest
+</I>&gt;<i> versions of everything, and did an 'svn up' prior to
+</I>&gt;<i> starting gpodder. Is this normal behaviour?
+</I>
+Yes, because the URL of the cover
+(<A HREF="http://www.pacificcoasthellway.com/images/pchmini.jpg">http://www.pacificcoasthellway.com/images/pchmini.jpg</A>) points to a
+non-existing image (it's a redirect to a HTML page), so it cannot work.
+You can, however, go to the website of the feed and try to find an image
+that would work as a cover. You can drag images from your browser to the
+cover area in the channel settings or you can even drag images from your
+local hard disk to the cover area. This way, you can even set a cover
+for channels without a cover (or with a bad/broken cover).
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000832.html">[gpodder-devel] Channel covers don't show up?
+</A></li>
+	<LI>Next message: <A HREF="000835.html">[gpodder-devel] Channel covers don't show up?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#834">[ date ]</a>
+              <a href="thread.html#834">[ thread ]</a>
+              <a href="subject.html#834">[ subject ]</a>
+              <a href="author.html#834">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

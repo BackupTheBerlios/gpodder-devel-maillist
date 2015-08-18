@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feed trouble with gPodder
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feed%20trouble%20with%20gPodder&In-Reply-To=%3C476B9FAF.1080107%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000956.html">
+   <LINK REL="Next"  HREF="000958.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feed trouble with gPodder</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feed%20trouble%20with%20gPodder&In-Reply-To=%3C476B9FAF.1080107%40perli.net%3E"
+       TITLE="[gpodder-devel] Feed trouble with gPodder">thp at perli.net
+       </A><BR>
+    <I>Fri Dec 21 12:12:47 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000956.html">[gpodder-devel] Feed trouble with gPodder
+</A></li>
+        <LI>Next message: <A HREF="000958.html">[gpodder-devel] gpodder install error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#959">[ date ]</a>
+              <a href="thread.html#959">[ thread ]</a>
+              <a href="subject.html#959">[ subject ]</a>
+              <a href="author.html#959">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Nick!
+
+Nick Allen wrote:
+&gt;<i> Listener's to our podcast who use gPodder have alerted us that the
+</I>&gt;<i> last few podcasts haven't download.  I've installed gPodder and
+</I>&gt;<i> confirmed these results, but we have been a bit stumped trying to find
+</I>&gt;<i> out why.  iTunes has been still able to download episodes just fine.
+</I>&gt;<i> We did change host for our audio at the same time as the problems
+</I>&gt;<i> started.  We also started adding MIME types and lengths to our
+</I>&gt;<i> enclosures.  This is a link to our podcast, any thoughts/help would be
+</I>&gt;<i> greatly appreciated:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://www.radioopensource.org/rss2-new.php?cat=21">http://www.radioopensource.org/rss2-new.php?cat=21</A>
+</I>
+Thanks for your report. One thing I quickly noticed when testing your 
+feed is that you do not use the &quot;length=&quot; attribute of the enclosure 
+elements correctly. The &quot;length=&quot; attribute should be the number of 
+bytes of the file to be downloaded, not a media length or something.
+
+That said, I tried downloading the most recent episode and it works 
+quite well.
+
+I could imagine the problem being related to the new URLs. If a feed 
+doesn't provide GUIDs, gPodder will use the download URL as unique 
+identifier for an episode. When the URL changes, gPodder might not be 
+able to correctly identify old downloads and see the episodes already 
+downloaded as &quot;new&quot;. This problem could be prevented if you have 
+provided GUIDs before and after the URL migration.
+
+Workaround: The users that are affected by this change should just 
+download the newest episode from your feed. gPodder should then only 
+offer to download new episodes that have been published _after_ the 
+newest episode.
+
+Hope that helps. If you have any more questions, feel free to reply.
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000956.html">[gpodder-devel] Feed trouble with gPodder
+</A></li>
+	<LI>Next message: <A HREF="000958.html">[gpodder-devel] gpodder install error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#959">[ date ]</a>
+              <a href="thread.html#959">[ thread ]</a>
+              <a href="subject.html#959">[ subject ]</a>
+              <a href="author.html#959">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened during	moving tempfile :/)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%20during%0A%09moving%20tempfile%20%3A/%29&In-Reply-To=%3Cb63520a30704031206s67506898g3bb92d8415387bd9%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000236.html">
+   <LINK REL="Next"  HREF="000191.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened during	moving tempfile :/)</H1>
+    <B>Stephan Buys</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.9.0%2Bsvn20070402%20%28Error%20happened%20during%0A%09moving%20tempfile%20%3A/%29&In-Reply-To=%3Cb63520a30704031206s67506898g3bb92d8415387bd9%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened during	moving tempfile :/)">stephan.buys at gmail.com
+       </A><BR>
+    <I>Tue Apr  3 21:06:02 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000236.html">[gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)
+</A></li>
+        <LI>Next message: <A HREF="000191.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#188">[ date ]</a>
+              <a href="thread.html#188">[ thread ]</a>
+              <a href="subject.html#188">[ subject ]</a>
+              <a href="author.html#188">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+When trying to update my podcasts with the latest SVN version:
+
+Error happened during moving tempfile :/
+Exception in thread Thread-17:
+Traceback (most recent call last):
+  File &quot;threading.py&quot;, line 460, in __bootstrap
+    self.run()
+  File &quot;threading.py&quot;, line 440, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/stephanb/Coding/gpodder/src/gpodder/libwget.py&quot;, line 122, in
+thread_function
+    move( self.tempname, self.filename)
+  File &quot;shutil.py&quot;, line 199, in move
+    copy2(src,dst)
+  File &quot;shutil.py&quot;, line 91, in copy2
+    copyfile(src, dst)
+  File &quot;shutil.py&quot;, line 46, in copyfile
+    fsrc = open(src, 'rb')
+IOError: [Errno 2] No such file or directory:
+u'/home/stephanb/gpodder-downloads/05c6c09b9e16068ce89c4bf0c53eaf5a/.tmp-
+c2ea3933335046d33e9d66b3f26f9a29.mp3'
+
+Traceback (most recent call last):
+  File &quot;/home/stephanb/Coding/gpodder/src/gpodder/gpodder.py&quot;, line 532, in
+close_gpodder
+    self.download_status_manager.cancelAll()
+  File &quot;/home/stephanb/Coding/gpodder/src/gpodder/libwget.py&quot;, line 242, in
+cancelAll
+    self.status_list[element]['thread'].cancel()
+  File &quot;/home/stephanb/Coding/gpodder/src/gpodder/libwget.py&quot;, line 151, in
+cancel
+    kill( self.pid, signal.SIGKILL)
+OSError: [Errno 3] No such process
+deleteFilename:
+/home/stephanb/gpodder-downloads/c611e99550618299a1022fa747055fe4/.tmp-
+e3340ff1354f862d3c3d9cd9b5960021.mp3
+make: *** [test] Segmentation fault (core dumped)
+
+I'll send some more info when I'm able to track the bug.
+
+Regards,
+Stephan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070403/42250b10/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070403/42250b10/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000236.html">[gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)
+</A></li>
+	<LI>Next message: <A HREF="000191.html">[gpodder-devel] gPodder 0.9.0+svn20070402 (Error happened	during moving tempfile :/)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#188">[ date ]</a>
+              <a href="thread.html#188">[ thread ]</a>
+              <a href="subject.html#188">[ subject ]</a>
+              <a href="author.html#188">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

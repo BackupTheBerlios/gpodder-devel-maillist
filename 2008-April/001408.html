@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-modal feed cache updates (testers needed)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-modal%20feed%20cache%20updates%20%28testers%20needed%29&In-Reply-To=%3C1208628675.25103.2.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001405.html">
+   <LINK REL="Next"  HREF="001411.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-modal feed cache updates (testers needed)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-modal%20feed%20cache%20updates%20%28testers%20needed%29&In-Reply-To=%3C1208628675.25103.2.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Non-modal feed cache updates (testers needed)">thp at perli.net
+       </A><BR>
+    <I>Sat Apr 19 20:11:15 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001405.html">[gpodder-devel] structuring podcasts on iPod
+</A></li>
+        <LI>Next message: <A HREF="001411.html">[gpodder-devel] Non-modal feed cache updates (testers needed)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1408">[ date ]</a>
+              <a href="thread.html#1408">[ thread ]</a>
+              <a href="subject.html#1408">[ subject ]</a>
+              <a href="author.html#1408">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+I'm currently working on one of the &quot;big&quot; changes for 0.11.2, which
+should be out really soon now (we still have one week to finish things
+up). I've added a patch (against SVN trunk) and a screenshot to show
+what the results are to this bug report:
+
+<A HREF="http://bugs.gpodder.org/show_bug.cgi?id=16">http://bugs.gpodder.org/show_bug.cgi?id=16</A>
+
+Please try out this patch, give some feedback and tell me if this is
+better for you than the modal feed cache update dialog. I think the
+place for the progress bar and the cancel button is in a good place now,
+and we also see the progress when opening the main window after starting
+the feed update from the tray icon's popup menu.
+
+Also, cancelling the feed cache update now really works, in the code
+with the dialog box, we didn't really cancel the downloads, but simply
+hide the dialog (that was awful!). My fault ;)
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001405.html">[gpodder-devel] structuring podcasts on iPod
+</A></li>
+	<LI>Next message: <A HREF="001411.html">[gpodder-devel] Non-modal feed cache updates (testers needed)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1408">[ date ]</a>
+              <a href="thread.html#1408">[ thread ]</a>
+              <a href="subject.html#1408">[ subject ]</a>
+              <a href="author.html#1408">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

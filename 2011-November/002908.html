@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder as a Mac OS X native application bundle
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20as%20a%20Mac%20OS%20X%20native%20application%20bundle&In-Reply-To=%3C20111101195607.05aa2a03%40don-quichotte.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002910.html">
+   <LINK REL="Next"  HREF="002914.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder as a Mac OS X native application bundle</H1>
+    <B>Eric Le Lay</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20as%20a%20Mac%20OS%20X%20native%20application%20bundle&In-Reply-To=%3C20111101195607.05aa2a03%40don-quichotte.local%3E"
+       TITLE="[gpodder-devel] gPodder as a Mac OS X native application bundle">neric27 at wanadoo.fr
+       </A><BR>
+    <I>Tue Nov  1 19:56:07 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002910.html">[gpodder-devel] gpodder.net Amarok Integration - Design Issues
+</A></li>
+        <LI>Next message: <A HREF="002914.html">[gpodder-devel] gPodder as a Mac OS X native application bundle
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2908">[ date ]</a>
+              <a href="thread.html#2908">[ thread ]</a>
+              <a href="subject.html#2908">[ subject ]</a>
+              <a href="author.html#2908">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've assembled a native application for Mac OS X 10.6 (Snow Leopard)
+x86_64. It contains gPodder and its dependencies and doesn't require
+anything aside from the standard system libraries.
+It is not an X11 application, but uses the Gtk-quartz backend.
+It's based on gPodder 2.20, with a few quick and dirty hacks
+(<A HREF="https://github.com/elelay/gpoder-osx-bundle/blob/master/gpodder-gtk-osx-application.diff">https://github.com/elelay/gpoder-osx-bundle/blob/master/gpodder-gtk-osx-application.diff</A>).
+
+More info here : <A HREF="https://github.com/elelay/gpoder-osx-bundle">https://github.com/elelay/gpoder-osx-bundle</A>
+
+Current limitations
+- the locale is forced to French for the moment.
+- no html show notes, no synchronisation with an iPod, no conversion to
+  mp3.
+
+
+I've not tested on another computer, though,.
+Could somebody try
+<A HREF="https://github.com/downloads/elelay/gpoder-osx-bundle/gPodder.zip">https://github.com/downloads/elelay/gpoder-osx-bundle/gPodder.zip</A>
+and tell me of the outcome ?
+
+
+Cheers,
+Eric
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002910.html">[gpodder-devel] gpodder.net Amarok Integration - Design Issues
+</A></li>
+	<LI>Next message: <A HREF="002914.html">[gpodder-devel] gPodder as a Mac OS X native application bundle
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2908">[ date ]</a>
+              <a href="thread.html#2908">[ thread ]</a>
+              <a href="subject.html#2908">[ subject ]</a>
+              <a href="author.html#2908">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

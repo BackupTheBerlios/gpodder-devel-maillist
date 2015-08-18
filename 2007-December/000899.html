@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Hints for contributions (was: Re: Non-human readable dir[...])
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hints%20for%20contributions%20%28was%3A%20Re%3A%20Non-human%0A%20readable%20dir%5B...%5D%29&In-Reply-To=%3C47600742.1070506%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000898.html">
+   <LINK REL="Next"  HREF="000900.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Hints for contributions (was: Re: Non-human readable dir[...])</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Hints%20for%20contributions%20%28was%3A%20Re%3A%20Non-human%0A%20readable%20dir%5B...%5D%29&In-Reply-To=%3C47600742.1070506%40perli.net%3E"
+       TITLE="[gpodder-devel] Hints for contributions (was: Re: Non-human readable dir[...])">thp at perli.net
+       </A><BR>
+    <I>Wed Dec 12 17:07:30 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000898.html">[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+</A></li>
+        <LI>Next message: <A HREF="000900.html">[gpodder-devel] Feature Requests, new TODO list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#899">[ date ]</a>
+              <a href="thread.html#899">[ thread ]</a>
+              <a href="subject.html#899">[ subject ]</a>
+              <a href="author.html#899">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Kaity!
+
+Kaity G. B.-&gt;uberChicGeekChick(); wrote:
+&gt;<i> Its only when running it through the command line.  Adding its always fine, 
+</I>&gt;<i> &amp;right now it sems fine too.  Nuking the sqlite dbs.  BTW, they are sqlite dbs 
+</I>&gt;<i> right?
+</I>
+Not at the moment (we use the &quot;shelve&quot; module). We might decide to
+switch to SQLite when I got more familiar with it and decide it's easy
+and fast, because using shelve has some drawbacks (db files get
+corrupted easily when gPodder crashes, it seems).
+
+&gt;<i> Then, I've really meant that I've been wanting to work on gPodder more.  &amp;This 
+</I>&gt;<i> morning I'm ready to add it to my project list.  LOL, I mean I'm sure gPodder 
+</I>&gt;<i> isn't all you work on.  *hopes not*.  We all wok on tons of projects &amp;as much 
+</I>&gt;<i> work as I've spent writing an entire PHP program just as a helper app.  Well its 
+</I>&gt;<i> time I made the jump, even though I pretty much hate Python, but not enough not 
+</I>&gt;<i> to use it.  Now if gPodder were written in Java I'd be running the other way; no 
+</I>&gt;<i> seriously.
+</I>
+Sure you'll be welcome to contribute to gPodder - anybody is. Just send
+patches and maybe announce what you are going to work on here on the
+list (except when it is a small, trivial patch) before you start working
+on them, so no work is duplicated.
+
+&gt;<i> But okay, how should I start?  I'll prolly be intergrating syncing with command 
+</I>&gt;<i> line option.  I'm guessing I'll prolly have to write my own function, method, 
+</I>&gt;<i> whatever(other wise you'd have implemented it already).  Of course I'll start 
+</I>&gt;<i> with checking out svn version, which I'm planning on developing and running as 
+</I>&gt;<i> --local.  Any coding conventions that you enforce?(those might make me run, 
+</I>&gt;<i> LOL... just maybe).  After some cli stuff I'll finish my barely started playlist 
+</I>&gt;<i> manager(s)/creator.  Well I hope I can help.
+</I>
+I'm currently rewriting the sync code to be more modular, which then
+also means sync code can be trivially integrated into the CLI code, so
+starting to integrate the sync code with the CLI code _now_ is probably
+not a good idea, as the sync code will be replaced with the new one as
+soon as I've finished re-organizing the code.
+
+Always work on the current svn trunk head, see
+<A HREF="http://gpodderwiki.jottit.com/running-from-svn">http://gpodderwiki.jottit.com/running-from-svn</A> for a guide how to get
+the latest code. Also don't forget to read the section about how to pull
+new changes after the initial checkout. Patches can easily be generated
+with &quot;svn diff&quot; in the root of the working copy. Testing can be done
+using &quot;make test&quot; in the root of the working copy.
+
+As far as coding conventions go, I've started adhering to Python's PEP-8
+some months ago, although much of the old code still has some other
+style. If your patches have a bit different style, don't worry, I'll try
+to fix that before merging it. Of course, the less work I have to do,
+the more happy I am =) Just look at gPodder's code and you'll shortly
+find out in which style to write the code. Or better yet: Read PEP-8 :)
+
+&gt;<i> So just thnx &amp;I hope no one'll hate that I like fun, pretty, &amp;documented code.  
+</I>
+Actually, documentation is a good thing we currently don't have much of.
+It'd be most helpful if you add some documentation to the gPodder wiki
+at gpodderwiki.jottit.com. Describing the whole GUI and how to use it
+would fit perfectly on <A HREF="http://gpodderwiki.jottit.com/manual,">http://gpodderwiki.jottit.com/manual,</A> which still
+has to be started :)
+
+
+Enjoy!
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000898.html">[gpodder-devel] Non-human readable directory and file names; CLI synching; &amp;cron job downloading...brb.
+</A></li>
+	<LI>Next message: <A HREF="000900.html">[gpodder-devel] Feature Requests, new TODO list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#899">[ date ]</a>
+              <a href="thread.html#899">[ thread ]</a>
+              <a href="subject.html#899">[ subject ]</a>
+              <a href="author.html#899">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

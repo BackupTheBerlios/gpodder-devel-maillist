@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Win32 installer for gPodder 0.13.0 - please	test!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Win32%20installer%20for%20gPodder%200.13.0%20-%20please%0A%09test%21&In-Reply-To=%3C26dfdbc50810280805h551e4475pe5e3b17abe9bc7c3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001841.html">
+   <LINK REL="Next"  HREF="001843.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Win32 installer for gPodder 0.13.0 - please	test!</H1>
+    <B>Leonid Ponomarev</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Win32%20installer%20for%20gPodder%200.13.0%20-%20please%0A%09test%21&In-Reply-To=%3C26dfdbc50810280805h551e4475pe5e3b17abe9bc7c3%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Win32 installer for gPodder 0.13.0 - please	test!">leonid.phoenix at gmail.com
+       </A><BR>
+    <I>Tue Oct 28 16:05:54 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001841.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+        <LI>Next message: <A HREF="001843.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1842">[ date ]</a>
+              <a href="thread.html#1842">[ thread ]</a>
+              <a href="subject.html#1842">[ subject ]</a>
+              <a href="author.html#1842">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Now , with alternative pygtk installer, python don't complain about missing
+libraries, 'cause new installer contains it. Now python says what is in
+second screenshot shown. I guess, iconv is too old or python too new or
+something around dll incomtatibilities.
+
+Btw, it's interesting:
+
+when I try to start gpodder in CLI via python, not pythonw, I see this
+trace:
+
+C:\Program Files\gPodder\bin&gt;&quot;C:\Program Files\PyGTK\Python\python.exe&quot;
+gpodder.
+pyw
+Traceback (most recent call last):
+  File &quot;C:\Program Files\gPodder\bin\gpodder.pyw&quot;, line 176, in &lt;module&gt;
+  sys.exit( main())
+  File &quot;C:\Program Files\gPodder\bin\gpodder.pyw&quot;, line 127, in main
+  gpodder.interface = gpodder.GUI
+AttributeError: 'module' object has no attribute 'GUI'
+
+On Tue, Oct 28, 2008 at 19:39, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Leonid Ponomarev wrote:
+</I>&gt;<i> &gt; The same result.
+</I>&gt;<i>
+</I>&gt;<i> Does it work when trying to copy the missing .DLLs to where you start
+</I>&gt;<i> the application or into &quot;DLLs&quot; of your Python installation?
+</I>&gt;<i>
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Best regards,
+Leonid &quot;PhoeniX&quot; Ponomarev
+Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Leonid.phoenix at gmail.com</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20081028/300b37cb/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20081028/300b37cb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001841.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+	<LI>Next message: <A HREF="001843.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1842">[ date ]</a>
+              <a href="thread.html#1842">[ thread ]</a>
+              <a href="subject.html#1842">[ subject ]</a>
+              <a href="author.html#1842">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

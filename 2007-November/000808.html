@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Patch to display unplayed episodes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Patch%20to%20display%20unplayed%20episodes&In-Reply-To=%3C474320B9.8060006%40thegithouse.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000807.html">
+   <LINK REL="Next"  HREF="000809.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Patch to display unplayed episodes</H1>
+    <B>Paul Rudkin</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Patch%20to%20display%20unplayed%20episodes&In-Reply-To=%3C474320B9.8060006%40thegithouse.com%3E"
+       TITLE="[gpodder-devel] Patch to display unplayed episodes">paul at thegithouse.com
+       </A><BR>
+    <I>Tue Nov 20 19:00:25 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000807.html">[gpodder-devel] Patch to display unplayed episodes
+</A></li>
+        <LI>Next message: <A HREF="000809.html">[gpodder-devel] setting up gpodder to download automatically while	I am away
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#808">[ date ]</a>
+              <a href="thread.html#808">[ thread ]</a>
+              <a href="subject.html#808">[ subject ]</a>
+              <a href="author.html#808">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thomas Perl wrote:
+&gt;<i> Hello, Paul!
+</I>&gt;<i>
+</I>&gt;<i> Paul Rudkin wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> For a while I have been wanting to be able to see at a glance how many unplayed 
+</I>&gt;&gt;<i> episodes there are for each of my podcasts.   That way I would know which ones I 
+</I>&gt;&gt;<i> needed to catch up on! 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The current version of gPodder did not provide me with this information so my 
+</I>&gt;&gt;<i> challenge was to see if I could make the changes myself (being both new to Linux 
+</I>&gt;&gt;<i> and Python this seemed impossible a few days ago).  Anyway I think that I have 
+</I>&gt;&gt;<i> succeeded and have made some slight changes to the combo list GUI which I would 
+</I>&gt;&gt;<i> like your feedback on.  If the feedback is positive then perhaps Thomas would be 
+</I>&gt;&gt;<i> willing to merge into the SVN trunk?
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your patch. I've been thinking about converting the current
+</I>&gt;<i> display of &quot;new&quot; episodes to a graphical representation (i.e. not
+</I>&gt;<i> text-only but a bit like the display in iTunes). So, I tried to combine
+</I>&gt;<i> your patch with the cairo drawing code I've done. Here's a screenshot:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://khan.thpinfo.com/~thp/gpodder-cairo-status.png">http://khan.thpinfo.com/~thp/gpodder-cairo-status.png</A>
+</I>&gt;<i>
+</I>&gt;<i> The left (light) number is the number of unplayed episodes, the right
+</I>&gt;<i> (dark) number is the number of episodes downloaded. I still have to fix
+</I>&gt;<i> up the drawing code a bit, as it's very ugly at the moment (both
+</I>&gt;<i> code-wise and result-wise). When there are no unplayed episodes, the
+</I>&gt;<i> left part disappears, and when there are no episodes that have been
+</I>&gt;<i> downloaded, the right part also disappears (see, for example, &quot;LugRadio&quot;
+</I>&gt;<i> and &quot;Security Now!&quot; in the posted screenshot).
+</I>&gt;<i>
+</I>&gt;<i> What do you and the others think of this?
+</I>&gt;<i>   
+</I>I think this looks great!  Go with it!
+&gt;<i> Currently in the combo list if there are new episodes to download the channel 
+</I>&gt;<i> text is marked up in *bold* and the count of new episodes is on the right.   I 
+</I>&gt;<i> felt that the count indication was redundant as the *bold *text told me I had 
+</I>&gt;<i> new episodes to download. I therefore set out to use this field to tell me how 
+</I>&gt;<i> many unread episodes I have out of the amount I had downloaded.  
+</I>&gt;<i>
+</I>&gt;<i> The screenshot at <A HREF="http://www.thegithouse.com/files/Screenshot.jpg">http://www.thegithouse.com/files/Screenshot.jpg</A> shows the 
+</I>&gt;<i> result,   if we take the 'This American Life' podcast as an example, this shows 
+</I>&gt;<i> that I have 10 unread episodes out of a total of 12 that I have 
+</I>&gt;<i> downloaded....time for some serious listening!
+</I>&gt;<i>   
+</I>&gt;<i>
+</I>&gt;<i> That's great. I'm still wondering if people would also like to see the
+</I>&gt;<i> amount of new episodes in the channel navigator, or if the bold text (as
+</I>&gt;<i> you described it) is enough indication for new episodes.
+</I>&gt;<i>   
+</I>I think with the new episode selection dialog you added to the SVN trunk 
+recently, this provides the detailed required for new downloads.  I'd be 
+interested to hear other people's views.
+
+Keep up the good work.
+
+Paul
+&gt;<i> Thanks
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000807.html">[gpodder-devel] Patch to display unplayed episodes
+</A></li>
+	<LI>Next message: <A HREF="000809.html">[gpodder-devel] setting up gpodder to download automatically while	I am away
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#808">[ date ]</a>
+              <a href="thread.html#808">[ thread ]</a>
+              <a href="subject.html#808">[ subject ]</a>
+              <a href="author.html#808">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Unable to add RSS feed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Unable%20to%20add%20RSS%20feed&In-Reply-To=%3C1193575110.5188.6.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000706.html">
+   <LINK REL="Next"  HREF="000708.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Unable to add RSS feed</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Unable%20to%20add%20RSS%20feed&In-Reply-To=%3C1193575110.5188.6.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Unable to add RSS feed">thp at perli.net
+       </A><BR>
+    <I>Sun Oct 28 13:38:30 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000706.html">[gpodder-devel] Unable to add RSS feed
+</A></li>
+        <LI>Next message: <A HREF="000708.html">[gpodder-devel] gPodder 0.10.1 &quot;Nukular, das Wort hei&#223;t 	Nukular&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#707">[ date ]</a>
+              <a href="thread.html#707">[ thread ]</a>
+              <a href="subject.html#707">[ subject ]</a>
+              <a href="author.html#707">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Aravind!
+
+On Sat, 2007-10-27 at 20:36 -0500, Aravind Seshadri wrote:
+&gt;<i> I am unable to add the following rss feed.
+</I>&gt;<i> <A HREF="http://rss.vanguard.com/pod/investment.xml">http://rss.vanguard.com/pod/investment.xml</A> I am able to access the
+</I>&gt;<i> podcast feed using Flock but gpodder returns the following message.
+</I>&gt;<i> 
+</I>&gt;<i> ``Error handling channel: The channel could not be added. Please check
+</I>&gt;<i> the URL or try again later''
+</I>
+I've looked at this issue, and after a short debugging session, I
+realized that the feed you mentioned has &quot;<A HREF="https://">https://</A>&quot; URLs for its
+episodes, and gPodder will automatically reject all URL schemes it
+doesn't know about.
+
+Simply adding &quot;<A HREF="https://">https://</A>&quot; as a known scheme (as our download libraries
+can already handle these) should make gPodder and your feed happy again.
+
+A new gPodder release is _very_ near, but if you don't want to wait, you
+can always run gPodder from SVN to get all the neat goodies that we've
+prepared in the last month:
+
+<A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000706.html">[gpodder-devel] Unable to add RSS feed
+</A></li>
+	<LI>Next message: <A HREF="000708.html">[gpodder-devel] gPodder 0.10.1 &quot;Nukular, das Wort hei&#223;t 	Nukular&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#707">[ date ]</a>
+              <a href="thread.html#707">[ thread ]</a>
+              <a href="subject.html#707">[ subject ]</a>
+              <a href="author.html#707">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

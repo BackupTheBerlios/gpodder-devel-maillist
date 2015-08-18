@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Building gpodder-0.10.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Building%20gpodder-0.10.1&In-Reply-To=%3C1194333012.10310.3.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000776.html">
+   <LINK REL="Next"  HREF="000738.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Building gpodder-0.10.1</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Building%20gpodder-0.10.1&In-Reply-To=%3C1194333012.10310.3.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Building gpodder-0.10.1">thp at perli.net
+       </A><BR>
+    <I>Tue Nov  6 08:10:12 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000776.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+        <LI>Next message: <A HREF="000738.html">[gpodder-devel] Error: &quot;Could not load channel feed&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#777">[ date ]</a>
+              <a href="thread.html#777">[ thread ]</a>
+              <a href="subject.html#777">[ subject ]</a>
+              <a href="author.html#777">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Brian!
+
+On Mon, 2007-11-05 at 22:56 -0800, Brian McNally wrote:
+&gt;<i> Thomas Perl wrote:
+</I>&gt;<i> &gt; Is there enough disk space on the destination volume, i.e. is
+</I>&gt;<i> gPodder
+</I>&gt;<i> &gt; just omitting the error message? Theoretically, it _should_ work
+</I>&gt;<i> with
+</I>&gt;<i> &gt; shutil, which does a copy + delete when moving files over device
+</I>&gt;<i> &gt; boundaries.
+</I>&gt;<i> 
+</I>&gt;<i> Yea, there's plenty of space available. Is there a way I can run in 
+</I>&gt;<i> debug mode to get a more helpful error message or insight into the 
+</I>&gt;<i> problem? Perhaps shutil has a problem? I'm using Python 2.5.1.
+</I>
+Get the latest SVN revision as described on
+
+<A HREF="http://gpodder.berlios.de/running-from-svn.html">http://gpodder.berlios.de/running-from-svn.html</A>
+
+then cd into the checkout dir and run &quot;make test&quot;. You should see debug
+output on the console.
+
+If no interesting output can be shown, I'll send you a patch you can
+apply so the specific part will have its error handling disabled, so you
+can see all errors on the console.
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000776.html">[gpodder-devel] Building gpodder-0.10.1
+</A></li>
+	<LI>Next message: <A HREF="000738.html">[gpodder-devel] Error: &quot;Could not load channel feed&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#777">[ date ]</a>
+              <a href="thread.html#777">[ thread ]</a>
+              <a href="subject.html#777">[ subject ]</a>
+              <a href="author.html#777">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

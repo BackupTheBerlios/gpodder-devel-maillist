@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] August 2009 status update on gPodder development
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20August%202009%20status%20update%20on%20gPodder%20development&In-Reply-To=%3C604aa7910909202342s66c4e1fcuca3e25d074d9d558%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002253.html">
+   <LINK REL="Next"  HREF="002255.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] August 2009 status update on gPodder development</H1>
+    <B>Jeff Spaleta</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20August%202009%20status%20update%20on%20gPodder%20development&In-Reply-To=%3C604aa7910909202342s66c4e1fcuca3e25d074d9d558%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] August 2009 status update on gPodder development">jspaleta at gmail.com
+       </A><BR>
+    <I>Mon Sep 21 08:42:54 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002253.html">[gpodder-devel] August 2009 status update on gPodder development
+</A></li>
+        <LI>Next message: <A HREF="002255.html">[gpodder-devel] Where is the source?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2254">[ date ]</a>
+              <a href="thread.html#2254">[ thread ]</a>
+              <a href="subject.html#2254">[ subject ]</a>
+              <a href="author.html#2254">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, Sep 20, 2009 at 5:03 AM, Bernd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brot at gmx.info</A>&gt; wrote:
+&gt;<i> Hello Thomas,
+</I>&gt;<i>
+</I>&gt;<i> what's the reason why you don't use notify-osd on Ubuntu baseed systems?
+</I>&gt;<i> I don't like the custom notification windows in gPodder on Ubuntu.
+</I>
+There is nothing custom about gpodder's notifications.  gpodder is
+using the standard pynotify interface available as part of the python
+gtk bindings that wraps the libnotify library which implements the
+freedesktop.org notification specifications.  The traditional
+notification daemon that comes as part of a standard GNOME desktop
+handles all possible allowable notifications..including notifications
+with actions.
+
+
+Notify-osd is specalized notification daemon which only handles a
+subset of possible notifications allowed by the notification
+specification. Notify-osd does not handle notifications with actions
+for example, and turns such notifications into dialog windows.  This
+was a deliberate design choice by Canonical and it would be a
+misstatement to suggest that Notify-osd's behavior is &quot;standard&quot;
+interpretation of the notification specification.   Gpodder would have
+to give up the use of actions in notifications in order to work
+smoothly with notify-osd's design choices.
+
+-jef
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002253.html">[gpodder-devel] August 2009 status update on gPodder development
+</A></li>
+	<LI>Next message: <A HREF="002255.html">[gpodder-devel] Where is the source?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2254">[ date ]</a>
+              <a href="thread.html#2254">[ thread ]</a>
+              <a href="subject.html#2254">[ subject ]</a>
+              <a href="author.html#2254">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Optional 'save copy to file' seems to not work
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Optional%20%27save%20copy%20to%20file%27%20seems%20to%20not%20work&In-Reply-To=%3C695558.67176.qm%40web60825.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000708.html">
+   <LINK REL="Next"  HREF="000712.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Optional 'save copy to file' seems to not work</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Optional%20%27save%20copy%20to%20file%27%20seems%20to%20not%20work&In-Reply-To=%3C695558.67176.qm%40web60825.mail.yahoo.com%3E"
+       TITLE="[gpodder-devel] Optional 'save copy to file' seems to not work">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sun Oct 28 21:05:41 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000708.html">[gpodder-devel] gPodder 0.10.1 &quot;Nukular, das Wort hei&#223;t 	Nukular&quot; released
+</A></li>
+        <LI>Next message: <A HREF="000712.html">[gpodder-devel] Optional 'save copy to file' seems to not work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#709">[ date ]</a>
+              <a href="thread.html#709">[ thread ]</a>
+              <a href="subject.html#709">[ subject ]</a>
+              <a href="author.html#709">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+I tried to use the 'copy to file' function, but this
+is the result:
+
+Trying to get settings for
+<A HREF="http://www.kxmedia.nl/slashdotdash">http://www.kxmedia.nl/slashdotdash</A>
+Traceback (most recent call last):
+  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;,
+line 1606, in on_btnSaveFile_clicked
+    if foutname[-len(ext):] != ext:
+NameError: global name 'ext' is not defined
+
+I double-clicked on the episode, the 'extra info'
+dialog appeared, and I clicked the 'copy to file'
+button. The 'save as' dialog came up, with the correct
+name already filled in, but I clicked 'save' and then
+the error appeared.
+
+Regards,
+Wilfred van Rooijen
+
+BTW svn version was revision 439 (I think, downloaded
+a couple of days ago)
+
+__________________________________________________
+Do You Yahoo!?
+Tired of spam?  Yahoo! Mail has the best spam protection around 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000708.html">[gpodder-devel] gPodder 0.10.1 &quot;Nukular, das Wort hei&#223;t 	Nukular&quot; released
+</A></li>
+	<LI>Next message: <A HREF="000712.html">[gpodder-devel] Optional 'save copy to file' seems to not work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#709">[ date ]</a>
+              <a href="thread.html#709">[ thread ]</a>
+              <a href="subject.html#709">[ subject ]</a>
+              <a href="author.html#709">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

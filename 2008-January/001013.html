@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] 0.9.4 channel disappearance
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.9.4%20channel%20disappearance&In-Reply-To=%3C1199280076.12704.6.camel%40dhcppc1%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001014.html">
+   <LINK REL="Next"  HREF="001015.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] 0.9.4 channel disappearance</H1>
+    <B>Lofton H Alley</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%200.9.4%20channel%20disappearance&In-Reply-To=%3C1199280076.12704.6.camel%40dhcppc1%3E"
+       TITLE="[gpodder-devel] 0.9.4 channel disappearance">nobodie0 at gmail.com
+       </A><BR>
+    <I>Wed Jan  2 14:21:16 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001014.html">[gpodder-devel] 0.9.4 channel disappearance
+</A></li>
+        <LI>Next message: <A HREF="001015.html">[gpodder-devel] 0.9.4 channel disappearance
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1013">[ date ]</a>
+              <a href="thread.html#1013">[ thread ]</a>
+              <a href="subject.html#1013">[ subject ]</a>
+              <a href="author.html#1013">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>ok, getting worse not better, now all i get is a 1 second splash of the
+gui and it (i assume) crashes, here is the -v output:
+******************************************************************************
+~$ gpodder --verbose
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) Could not find python-gpod. iPod functions will be disabled.
+(ipodsync) Please install the &quot;python-gpod&quot; package if you want iPod
+support.
+(ipodsync) Could not find pymad.
+(ipodsync) Coulld not find eyeD3.
+(ipodsync) PyID3 not found - falling back to channel cover for iPod
+cover art
+(ipodsync) mplayer not found - length of video files will be guessed
+Traceback (most recent call last):
+  File &quot;/usr/bin/gpodder&quot;, line 148, in &lt;module&gt;
+    sys.exit( main())
+  File &quot;/usr/bin/gpodder&quot;, line 144, in main
+    gui.main()
+  File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 1833, in
+main
+  File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 100, in
+__init__
+  File &quot;usr/lib/python2.5/site-packages/gpodder/SimpleGladeApp.py&quot;, line
+108, in __init__
+  File &quot;usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 111, in
+new
+AttributeError: 'NoneType' object has no attribute 'rfind'
+
+*******************************************************************************
+don't look pretty to me
+
+Oh let's see, I did the following things: Dled the source files for
+0.9.5 and did a make install which failed, that's where I left you.
+
+ So I installed the suggested deps (duh???) and finished the make
+install properly, except I got the 1 second splash thingy which wasn't
+wanted. Then I updated to 0.9.10 hoping that that would solve all the
+problems, but it didn't. 
+
+So, it was probably something that went wrong in the make install of
+0.9.5 and perhaps because I didn't do the deps beforehand but
+afterwards?? maybe.. there were no error messages in the second make
+install (i checked) so i thought it should be good.... 
+
+next?
+
+
+On Wed, 2008-01-02 at 13:11 +0100, Thomas Perl wrote:
+&gt;<i> Hello, Lofton!
+</I>&gt;<i> 
+</I>&gt;<i> Lofton H Alley wrote:
+</I>&gt;<i> &gt; In the FAQ it talks about problems with 0.9.10 and disappearance of the
+</I>&gt;<i> &gt; channel list, but i am running 0.9.4 and have had the same problem. It
+</I>&gt;<i> &gt; happened yesterday or the day before, but when I run an update all
+</I>&gt;<i> &gt; channels it is updating them all, just not displaying them in the pane.
+</I>&gt;<i> &gt; They are all in the DL folder as well and everything else seems correct
+</I>&gt;<i> &gt; except I can't see them or access them in the gui. 
+</I>&gt;<i> 
+</I>&gt;<i> * Which Linux distribution do you use?
+</I>&gt;<i> * Where did you get the gPodder package from?
+</I>&gt;<i> * Can you upgrade to a newer gPodder version? (0.9.4 is pretty old)
+</I>&gt;<i> * What is the output of &quot;gpodder --verbose&quot; (in the terminal) when
+</I>&gt;<i>    running gPodder and updating the feeds?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001014.html">[gpodder-devel] 0.9.4 channel disappearance
+</A></li>
+	<LI>Next message: <A HREF="001015.html">[gpodder-devel] 0.9.4 channel disappearance
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1013">[ date ]</a>
+              <a href="thread.html#1013">[ thread ]</a>
+              <a href="subject.html#1013">[ subject ]</a>
+              <a href="author.html#1013">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

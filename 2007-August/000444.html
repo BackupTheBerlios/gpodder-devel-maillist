@@ -1,0 +1,500 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] new version downloads new episodes,	but screen empty
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%09but%20screen%20empty&In-Reply-To=%3C2e59e6970708061642h6486aedftbc84c17963b88993%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000440.html">
+   <LINK REL="Next"  HREF="000445.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] new version downloads new episodes,	but screen empty</H1>
+    <B>richardvoigt at gmail.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20new%20version%20downloads%20new%20episodes%2C%0A%09but%20screen%20empty&In-Reply-To=%3C2e59e6970708061642h6486aedftbc84c17963b88993%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] new version downloads new episodes,	but screen empty">richardvoigt at gmail.com
+       </A><BR>
+    <I>Tue Aug  7 01:42:28 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000440.html">[gpodder-devel] new version downloads new episodes,	but screen	empty
+</A></li>
+        <LI>Next message: <A HREF="000445.html">[gpodder-devel] new version downloads new episodes,	but screen empty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#444">[ date ]</a>
+              <a href="thread.html#444">[ thread ]</a>
+              <a href="subject.html#444">[ subject ]</a>
+              <a href="author.html#444">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 8/6/07, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello, Richard!
+</I>&gt;<i>
+</I>&gt;<i> Included are some explanations, hints and things you can try out to get
+</I>&gt;<i> gPodder 0.9.4 running. As you're using a Gentoo ebuild, it might be
+</I>&gt;<i> related to this, bug it might as well be a yet-undetected bug in the
+</I>&gt;<i> current codebase.
+</I>&gt;<i>
+</I>&gt;<i> Please try renaming/removing your ~/.config/gpodder/ directory and/or
+</I>&gt;<i> try the latest SVN trunk version. If the problem still persists, please
+</I>&gt;<i> also provide debugging output you can get by using &quot;gpodder --verbose&quot;.
+</I>
+
+Ok.... problem persists.  See below.
+
+
+On Sun, 2007-08-05 at 23:08 -0500, <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">richardvoigt at gmail.com</A> wrote:
+&gt;<i> &gt; Since upgrading to 0.9.4, gpodder is pretty much useless for me.  It's
+</I>&gt;<i> &gt; been awesome in the past, so I'm hoping to see it fixed rather than
+</I>&gt;<i> &gt; find a new client.
+</I>&gt;<i>
+</I>&gt;<i> It works fine for many people, and the functional and bug-fixing
+</I>&gt;<i> improvements are worth an upgrade, for sure :)
+</I>&gt;<i>
+</I>&gt;<i> &gt; Basically, it still knows about my subscribed feeds and still
+</I>&gt;<i> &gt; downloads new episodes using the check for new... download all new...
+</I>&gt;<i> &gt; functions.  But, the dropdown of channels is empty, so I can't see or
+</I>&gt;<i> &gt; play what I've downloaded.
+</I>&gt;<i>
+</I>&gt;<i> I've tried subscribing to all your channels from the OPML you sent,
+</I>&gt;<i> starting out with a &quot;fresh&quot; gPodder directory (rename or remove your
+</I>&gt;<i> ~/.config/gpodder/ folder), and it works for me, have a look:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://spock.thpinfo.com/~thp/images/gpodder-richard-voigt.png">http://spock.thpinfo.com/~thp/images/gpodder-richard-voigt.png</A>
+</I>
+
+I renamed my gpodder directory, as you can see below, and it's not much
+better.  One list of episodes comes in, but still no channel listings.
+
+<A HREF="http://ks-usa.net/users/gpodder-bug.png">http://ks-usa.net/users/gpodder-bug.png</A>
+
+&gt;<i> I tried renaming my channels.xml file and readding the channels, it
+</I>&gt;<i> &gt; just tells me I already have the latest episodes and sometimes
+</I>&gt;<i> &gt; displays the list from one channel, but the channel dropdown is still
+</I>&gt;<i> &gt; empty, and after restarting the program the screen is blank again.  I
+</I>&gt;<i> &gt; also tried renaming the cache directory -- no improvement.
+</I>&gt;<i>
+</I>&gt;<i> Please run gPodder with the &quot;--verbose&quot; command in a terminal window and
+</I>&gt;<i> mail the output of gPodder's verbose mode (debugging output, etc..).
+</I>&gt;<i>
+</I>&gt;<i> &gt; Maybe the feeds I'm subscribed to don't have cover art.  Could that
+</I>&gt;<i> &gt; confuse gpodder?  I've attached the feed list which gpodder exported
+</I>&gt;<i> &gt; -- it clearly still has all the feed information.
+</I>&gt;<i>
+</I>&gt;<i> I'm using feeds without cover art myself, and I'm sure many users are
+</I>&gt;<i> subscribed to some feeds without cover art.
+</I>&gt;<i>
+</I>&gt;<i> &gt; If there's any more information I can supply, please let me know.
+</I>&gt;<i> &gt; This is gentoo linux, 64-bit on a core 2 duo, installed using the
+</I>&gt;<i> &gt; ebuild.
+</I>&gt;<i>
+</I>&gt;<i> Please try out the latest SVN release of gPodder. gPodder has a build
+</I>&gt;<i> infrastructure that enables you to run the SVN version of gPodder from a
+</I>&gt;<i> local directory without the need to install it into system directories,
+</I>&gt;<i> and it doesn't interfere with installed gPodder versions (in fact, these
+</I>&gt;<i> are ignored ;).
+</I>&gt;<i>
+</I>&gt;<i> Here's how you can try out the latest SVN version:
+</I>&gt;<i>
+</I>&gt;<i> $ svn co <A HREF="http://svn.berlios.de/svnroot/repos/gpodder/trunk">http://svn.berlios.de/svnroot/repos/gpodder/trunk</A> gpodder
+</I>&gt;<i> $ cd gpodder
+</I>&gt;<i> $ make test
+</I>&gt;<i>
+</I>&gt;<i> This checks out the latest source code, changes into the source tree,
+</I>&gt;<i> and runs the local version of gPodder with verbosity turned on.
+</I>
+
+Checked out revision 362.
+(gondor:/usr/src/ben) ben% cd gpodder/
+(gondor:src/ben/gpodder) ben% make test
+bin/gpodder --local --verbose
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) Could not find python-gpod. iPod functions will be disabled.
+(ipodsync) Please install the &quot;python-gpod&quot; package if you want iPod
+support.
+(ipodsync) Could not find pymad.
+(ipodsync) Coulld not find eyeD3.
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover
+art
+(ipodsync) Found mplayer, using it to find track length of files
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/b5a46ef1421cf82d9caf786f58baae3f/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/ac279e1a92329a36d4063e8007a15d83/index.xml
+Player found: Audacious (/usr/share/applications/audacious.desktop)
+Player found: VLC media player (/usr/share/applications/vlc.desktop)
+Player found: MPlayer (/usr/share/applications/mplayer.desktop)
+deleteFilename:
+/home/ben/.config/gpodder/cache/15e3e7776637e1fe9ee0e655c5d17083.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+15e3e7776637e1fe9ee0e655c5d17083.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+15e3e7776637e1fe9ee0e655c5d17083.xml&quot; &quot;
+<A HREF="http://www.calvarygs.org/radio/feed/index.php">http://www.calvarygs.org/radio/feed/index.php</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/470a06a49392b23cfcacb3f2ea56c860.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+470a06a49392b23cfcacb3f2ea56c860.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+470a06a49392b23cfcacb3f2ea56c860.xml&quot; &quot;
+<A HREF="http://twft.com/?page=Podcasts.DailyRadio.xml">http://twft.com/?page=Podcasts.DailyRadio.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/679310bb2b39a65965633bc8eb13b041.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+679310bb2b39a65965633bc8eb13b041.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+679310bb2b39a65965633bc8eb13b041.xml&quot; &quot;
+<A HREF="http://www.ltlministries.org/pod/podcastCCH.xml">http://www.ltlministries.org/pod/podcastCCH.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/31f3df370f1ff7f96d499aa34063f9f7.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+31f3df370f1ff7f96d499aa34063f9f7.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+31f3df370f1ff7f96d499aa34063f9f7.xml&quot; &quot;<A HREF="http://feeds.feedburner.com/anb.xml">http://feeds.feedburner.com/anb.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/b5a46ef1421cf82d9caf786f58baae3f.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+b5a46ef1421cf82d9caf786f58baae3f.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+b5a46ef1421cf82d9caf786f58baae3f.xml&quot; &quot;
+<A HREF="http://feeds.feedburner.com/sunday-audio">http://feeds.feedburner.com/sunday-audio</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/b5a46ef1421cf82d9caf786f58baae3f/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/d2baa26de2719324aec7464d036a79b0.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+d2baa26de2719324aec7464d036a79b0.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+d2baa26de2719324aec7464d036a79b0.xml&quot; &quot;
+<A HREF="http://www.joncourson.com/podcast/podcast.xml">http://www.joncourson.com/podcast/podcast.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/ac279e1a92329a36d4063e8007a15d83.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+ac279e1a92329a36d4063e8007a15d83.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+ac279e1a92329a36d4063e8007a15d83.xml&quot; &quot;
+<A HREF="http://www.walkintheword.com/podcast.xml">http://www.walkintheword.com/podcast.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/ac279e1a92329a36d4063e8007a15d83/index.xml
+(gondor:src/ben/gpodder) ben% cd ~/.config
+(gondor:~/.config) ben% mv gpodder/ gpodder.donotuse/
+(gondor:~/.config) ben% cd /usr/src/ben/gpodder/
+(gondor:src/ben/gpodder) ben% make test
+bin/gpodder --local --verbose
+(tagupdate) eyed3 not found -- tag update disabled
+(ipodsync) Could not find python-gpod. iPod functions will be disabled.
+(ipodsync) Please install the &quot;python-gpod&quot; package if you want iPod
+support.
+(ipodsync) Could not find pymad.
+(ipodsync) Coulld not find eyeD3.
+(ipodsync) PyID3 not found - falling back to channel cover for iPod cover
+art
+(ipodsync) Found mplayer, using it to find track length of files
+(DownloadHistory) Creating new history list.
+(PlaybackHistory) Creating new history list.
+Player found: Audacious (/usr/share/applications/audacious.desktop)
+Player found: VLC media player (/usr/share/applications/vlc.desktop)
+Player found: MPlayer (/usr/share/applications/mplayer.desktop)
+Adding new channel: <A HREF="http://www.calvarygs.org/radio/feed/index.php">http://www.calvarygs.org/radio/feed/index.php</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/15e3e7776637e1fe9ee0e655c5d17083.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/15e3e7776637e1fe9ee0e655c5d17083.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+15e3e7776637e1fe9ee0e655c5d17083.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+15e3e7776637e1fe9ee0e655c5d17083.xml&quot; &quot;
+<A HREF="http://www.calvarygs.org/radio/feed/index.php">http://www.calvarygs.org/radio/feed/index.php</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+/usr/src/ben/gpodder/src/gpodder/gpodder.py:345: GtkWarning: could not load
+image: Icon 'audio-x-generic' not present in theme
+
+  gtk.main_iteration( False)
+/usr/src/ben/gpodder/src/gpodder/gpodder.py:345: GtkWarning: could not load
+image: Icon 'unknown' not present in theme
+
+  gtk.main_iteration( False)
+Adding new channel: <A HREF="http://twft.com/?page=Podcasts.DailyRadio.xml">http://twft.com/?page=Podcasts.DailyRadio.xml</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/470a06a49392b23cfcacb3f2ea56c860.xml
+/usr/src/ben/gpodder/src/gpodder/gpodder.py:550: GtkWarning: could not load
+image: Icon 'audio-x-generic' not present in theme
+
+  if please_wait.run() == gtk.RESPONSE_CANCEL:
+/usr/src/ben/gpodder/src/gpodder/gpodder.py:550: GtkWarning: could not load
+image: Icon 'unknown' not present in theme
+
+  if please_wait.run() == gtk.RESPONSE_CANCEL:
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/470a06a49392b23cfcacb3f2ea56c860.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+470a06a49392b23cfcacb3f2ea56c860.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+470a06a49392b23cfcacb3f2ea56c860.xml&quot; &quot;
+<A HREF="http://twft.com/?page=Podcasts.DailyRadio.xml">http://twft.com/?page=Podcasts.DailyRadio.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+Adding new channel: <A HREF="http://www.ltlministries.org/pod/podcastCCH.xml">http://www.ltlministries.org/pod/podcastCCH.xml</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/679310bb2b39a65965633bc8eb13b041.xml
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/679310bb2b39a65965633bc8eb13b041.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+679310bb2b39a65965633bc8eb13b041.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+679310bb2b39a65965633bc8eb13b041.xml&quot; &quot;
+<A HREF="http://www.ltlministries.org/pod/podcastCCH.xml">http://www.ltlministries.org/pod/podcastCCH.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+Adding new channel: <A HREF="http://feeds.feedburner.com/anb.xml">http://feeds.feedburner.com/anb.xml</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/31f3df370f1ff7f96d499aa34063f9f7.xml
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/31f3df370f1ff7f96d499aa34063f9f7.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+31f3df370f1ff7f96d499aa34063f9f7.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+31f3df370f1ff7f96d499aa34063f9f7.xml&quot; &quot;<A HREF="http://feeds.feedburner.com/anb.xml">http://feeds.feedburner.com/anb.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+Adding new channel: <A HREF="http://feeds.feedburner.com/sunday-audio">http://feeds.feedburner.com/sunday-audio</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/b5a46ef1421cf82d9caf786f58baae3f.xml
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/b5a46ef1421cf82d9caf786f58baae3f.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+b5a46ef1421cf82d9caf786f58baae3f.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+b5a46ef1421cf82d9caf786f58baae3f.xml&quot; &quot;
+<A HREF="http://feeds.feedburner.com/sunday-audio">http://feeds.feedburner.com/sunday-audio</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/b5a46ef1421cf82d9caf786f58baae3f/index.xml
+Adding new channel: <A HREF="http://www.joncourson.com/podcast/podcast.xml">http://www.joncourson.com/podcast/podcast.xml</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/d2baa26de2719324aec7464d036a79b0.xml
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/b5a46ef1421cf82d9caf786f58baae3f/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/d2baa26de2719324aec7464d036a79b0.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+d2baa26de2719324aec7464d036a79b0.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+d2baa26de2719324aec7464d036a79b0.xml&quot; &quot;
+<A HREF="http://www.joncourson.com/podcast/podcast.xml">http://www.joncourson.com/podcast/podcast.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/index.xml
+Adding new channel: <A HREF="http://www.walkintheword.com/podcast.xml">http://www.walkintheword.com/podcast.xml</A>
+deleteFilename:
+/home/ben/.config/gpodder/cache/ac279e1a92329a36d4063e8007a15d83.xml
+Reading metadata from
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/470a06a49392b23cfcacb3f2ea56c860/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/679310bb2b39a65965633bc8eb13b041/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/b5a46ef1421cf82d9caf786f58baae3f/index.xml
+Reading metadata from
+/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/index.xml
+deleteFilename:
+/home/ben/.config/gpodder/cache/ac279e1a92329a36d4063e8007a15d83.xml
+deleteFilename: /home/ben/.config/gpodder/cache/.tmp-
+ac279e1a92329a36d4063e8007a15d83.xml
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/.config/gpodder/cache/.tmp-
+ac279e1a92329a36d4063e8007a15d83.xml&quot; &quot;
+<A HREF="http://www.walkintheword.com/podcast.xml">http://www.walkintheword.com/podcast.xml</A>&quot;
+Reading metadata from
+/home/ben/gpodder-downloads/ac279e1a92329a36d4063e8007a15d83/index.xml
+/usr/src/ben/gpodder/src/gpodder/gpodder.py:383: GtkWarning: could not load
+image: Icon 'audio-x-generic' not present in theme
+
+  if dlg.run() == gtk.RESPONSE_YES:
+deleteFilename:
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/.tmp-
+a738f6ae5e3974b6634fb83783bec055.mp3
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/.tmp-
+a738f6ae5e3974b6634fb83783bec055.mp3&quot; &quot;
+<A HREF="http://www.calvarygs.org/store/podcasts/080607.mp3">http://www.calvarygs.org/store/podcasts/080607.mp3</A>&quot;
+deleteFilename:
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/.tmp-
+44641f22b162127996fd088938af9f2d.mp3
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/.tmp-
+44641f22b162127996fd088938af9f2d.mp3&quot; &quot;
+<A HREF="http://anb.harvestlive.net/2007/anb20070806pod.mp3">http://anb.harvestlive.net/2007/anb20070806pod.mp3</A>&quot;
+deleteFilename:
+/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/.tmp-
+ffeea9356be88fdf37b61c0069876e35.mp3
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/.tmp-
+ffeea9356be88fdf37b61c0069876e35.mp3&quot; &quot;
+<A HREF="http://www.joncourson.com/podcast/sl-2007-08-06.mp3">http://www.joncourson.com/podcast/sl-2007-08-06.mp3</A>&quot;
+deleteFilename:
+/home/ben/gpodder-downloads/ac279e1a92329a36d4063e8007a15d83/.tmp-
+e5b7bef444a059db7e7fca6ad790d73b.mp3
+Command: wget --timeout=120 --continue
+--output-document=&quot;/home/ben/gpodder-downloads/ac279e1a92329a36d4063e8007a15d83/.tmp-
+e5b7bef444a059db7e7fca6ad790d73b.mp3&quot; &quot;
+<A HREF="http://www.downloads-walkintheword.com/podcast/ww20070806.mp3">http://www.downloads-walkintheword.com/podcast/ww20070806.mp3</A>&quot;
+/usr/src/ben/gpodder/src/gpodder/SimpleGladeApp.py:297: GtkWarning: could
+not load image: Icon 'audio-x-generic' not present in theme
+
+  gtk.main()
+Download thread finished: Adding downloaded item to local database
+Local database:
+/home/ben/gpodder-downloads/15e3e7776637e1fe9ee0e655c5d17083/index.xml
+(DownloadHistory) Adding: <A HREF="http://www.calvarygs.org/store/podcasts/080607.mp3">http://www.calvarygs.org/store/podcasts/080607.mp3</A>
+(DownloadHistory) Wrote 1 history entries.
+Download thread finished: Adding downloaded item to local database
+Local database:
+/home/ben/gpodder-downloads/ac279e1a92329a36d4063e8007a15d83/index.xml
+(DownloadHistory) Adding:
+<A HREF="http://www.downloads-walkintheword.com/podcast/ww20070806.mp3">http://www.downloads-walkintheword.com/podcast/ww20070806.mp3</A>
+(DownloadHistory) Wrote 2 history entries.
+Download thread finished: Adding downloaded item to local database
+Local database:
+/home/ben/gpodder-downloads/31f3df370f1ff7f96d499aa34063f9f7/index.xml
+(DownloadHistory) Adding: <A HREF="http://anb.harvestlive.net/2007/anb20070806pod.mp3">http://anb.harvestlive.net/2007/anb20070806pod.mp3</A>
+(DownloadHistory) Wrote 3 history entries.
+Download thread finished: Adding downloaded item to local database
+Local database:
+/home/ben/gpodder-downloads/d2baa26de2719324aec7464d036a79b0/index.xml
+(DownloadHistory) Adding:
+<A HREF="http://www.joncourson.com/podcast/sl-2007-08-06.mp3">http://www.joncourson.com/podcast/sl-2007-08-06.mp3</A>
+(DownloadHistory) Wrote 4 history entries.
+
+
+
+&gt;<i> Thanks for the (previously) great software!
+</I>&gt;<i>
+</I>&gt;<i> I hope we can help you get it running for you again, as gPodder 0.9.4 is
+</I>&gt;<i> really one of our shiniest releases today, and it really works well for
+</I>&gt;<i> many users :) Although, if there IS a bug in gPodder which you've just
+</I>&gt;<i> spotted, I'd be very glad if you could help us investigate and get rid
+</I>&gt;<i> of that bug, as it might happen to someone else, too.
+</I>
+
+Probably less a bug than just non-ideal error handling.  Glad to help
+however I can, but I don't know python (ok, I can probably read it if I try,
+but I'm much more at home with C++, perl, C#, tcl, even Java or VB, in
+approximately that order).
+
+Also, in case it makes any difference, my download directory is mounted
+thusly:
+
+/dev/evms/podcasts on /home/ben/gpodder-downloads type xfs (rw,noatime)
+
+But I would suspect the hoards of &quot;GtkWarning: could not load image: Icon
+'audio-x-generic' not present in theme&quot; are at fault and gpodder can't cope
+with having no icon.
+
+Thanks,
+&gt;<i> Thomas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070806/305aad14/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070806/305aad14/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000440.html">[gpodder-devel] new version downloads new episodes,	but screen	empty
+</A></li>
+	<LI>Next message: <A HREF="000445.html">[gpodder-devel] new version downloads new episodes,	but screen empty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#444">[ date ]</a>
+              <a href="thread.html#444">[ thread ]</a>
+              <a href="subject.html#444">[ subject ]</a>
+              <a href="author.html#444">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

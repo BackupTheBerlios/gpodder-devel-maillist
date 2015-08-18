@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Extended format_filesize() function to cover	SI units
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FExtended_format%3D5Ffilesize%3D28%3D29_functi%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fon_to_cover%3D09SI_units%3F%3D&In-Reply-To=%3C200711011400.00983.z0idberg%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000742.html">
+   <LINK REL="Next"  HREF="000745.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Extended format_filesize() function to cover	SI units</H1>
+    <B>Gerrit Sangel</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%0A%09%3D%3Futf-8%3Fq%3FExtended_format%3D5Ffilesize%3D28%3D29_functi%3F%3D%0A%09%3D%3Futf-8%3Fq%3Fon_to_cover%3D09SI_units%3F%3D&In-Reply-To=%3C200711011400.00983.z0idberg%40gmx.de%3E"
+       TITLE="[gpodder-devel] Extended format_filesize() function to cover	SI units">z0idberg at gmx.de
+       </A><BR>
+    <I>Thu Nov  1 14:00:00 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000742.html">[gpodder-devel] Extended format_filesize() function to cover	SI	units
+</A></li>
+        <LI>Next message: <A HREF="000745.html">[gpodder-devel] Extended format_filesize() function to	cover	SI	units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#743">[ date ]</a>
+              <a href="thread.html#743">[ thread ]</a>
+              <a href="subject.html#743">[ subject ]</a>
+              <a href="author.html#743">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Am Donnerstag 01 November 2007 schrieb Thomas Perl:
+&gt;<i> Basically, you want to add support for the decimal output format of file
+</I>&gt;<i> sizes. Why keep two different options for the same thing (&quot;off&quot; and
+</I>&gt;<i> &quot;binary&quot;), apart from the added &quot;i&quot; in &quot;MiB&quot;, &quot;KiB&quot; and &quot;GiB&quot;.
+</I>
+Well, because I think some people would be confused if there is a &#8220;i&#8221; between 
+the prefix and the unit. But I don&#8217;t know, personally I like the &#8220;MiB&#8221;  
+better than the wrong &#8220;MB&#8221;. I guess, MiB as standard usage would also be ok.
+
+&gt;<i> I've googled a bit for the &quot;BYTEPREFIX&quot; environment variable, and I
+</I>&gt;<i> haven't found a project that uses this variable name for the same thing.
+</I>
+Yes, you&#8217;re right, I&#8217;ve invented it. :D
+
+&gt;<i> For this reason, I am against &quot;inventing&quot; a standard. If there is a
+</I>&gt;<i> variable in POSIX or GNU that defines that behaviour, I'd be glad to add
+</I>&gt;<i> support for that.
+</I>
+Well, I thought maybe writing to a GNU mailing list for that (but I don&#8217;t 
+really know if they would be open minded for that)... As far as I know, some 
+GNU applications already use the binary prefixes, but I find it better if one 
+could also use the SI prefixes. That way, the 500 GB hard disk would also be 
+displayed as 500 GB in the system. I don&#8217;t really see a point using file 
+sizes as powers of 2 with ordinary files.
+
+&gt;<i> We can, however, add this as a configuration option to gpodder.conf and
+</I>&gt;<i> not add configuration support for it in the GUI. This way, the UI does
+</I>&gt;<i> not get too difficult, and interested users can still set their
+</I>&gt;<i> preference in gpodder.conf.
+</I>
+Well, ok, I guess this would be the best option, then.
+
+&gt;<i> I will have a look as time permits. Here are some questions that I'm
+</I>&gt;<i> still not sure about:
+</I>&gt;<i>
+</I>&gt;<i>  -) What IS the standard of displaying file sizes? (KB[2], KB[10], KiB?)
+</I>&gt;<i>  -) What is the benefit of providing &quot;decimal&quot; file sizes?
+</I>&gt;<i>  -) It would modify the results of our speed/etc.. calculations, is
+</I>&gt;<i>     that something we want or should avoid?
+</I>
+1. As far as I know, there is no real standard. The SI prefixes (which are 
+used in natural sciences) define a kilo as 10^3, a mega as 10^6, a giga as 
+10^9 and so on. That way, one can easily just cut the last digits of a file 
+size and get a correct file size with a prefix (e.g. 194385745 byte = 194,39 
+MB) without using a calculator.
+Hard disk manufacturers also use them. That way, a 500 GB hdd has really 500 
+billion bytes. 
+The problem now is that in the past, the kilo, mega and so on prefixes were 
+used as 2^10, 2^20, 2^30 etc. But that&#8217;s incorrect, kilo etc. are defined as 
+10^3 etc. For this confusion to end, the binary prefixes were invented. That 
+way, a kibi is 2^10. 
+
+In short: kB for 1000 Bytes and KiB for 1024 Bytes are correct, but kB for 
+1024 Byte is incorrect. 
+
+2. Well, it is the correct usage of the SI prefixes. :D The problem is that 
+the hdd manufacturers use the SI prefixes correctly (ok, they do that because 
+they can advertise &#8220;more&#8221; space than there really is, but the thing is, they 
+are correct whether the customer likes it or not). But almost all software 
+products don&#8217;t use them correctly. That&#8217;s also a reason because I thought of 
+an &#8220;off&#8221; setting. 
+I personally would really like to use the SI prefixes in my applications. If I 
+have a MiB, I would still have to convert them to SI prefixes. I really don&#8217;t 
+see the point why I should use another prefix just because it is a byte and 
+not, say, a meter.
+
+I guess, the main purpose of the binary prefixes is to clarify that kilo is 
+only 1000, not 1024.
+
+3. I don&#8217;t really know. But because the format_filesize() function returns a 
+string, I guess it is not used for calculations, just for display? That way, 
+I don&#8217;t think it would do any harm. I guess, gpodder uses a byte size without 
+any prefix for calculations? This is the same in all versions. 20000 Byte are 
+always 20000 Byte.
+
+You might want to take a look at these:
+
+<A HREF="http://en.wikipedia.org/wiki/Binary_prefix">http://en.wikipedia.org/wiki/Binary_prefix</A>
+<A HREF="http://de.wikipedia.org/wiki/Bin%C3%A4rpr%C3%A4fix">http://de.wikipedia.org/wiki/Bin%C3%A4rpr%C3%A4fix</A>
+<A HREF="http://de.wikipedia.org/wiki/SI-Pr%C3%A4fix">http://de.wikipedia.org/wiki/SI-Pr%C3%A4fix</A>
+
+Oh, I just saw, the symbol for kilo is k, not K. My mistake.
+
+Gerrit
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000742.html">[gpodder-devel] Extended format_filesize() function to cover	SI	units
+</A></li>
+	<LI>Next message: <A HREF="000745.html">[gpodder-devel] Extended format_filesize() function to	cover	SI	units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#743">[ date ]</a>
+              <a href="thread.html#743">[ thread ]</a>
+              <a href="subject.html#743">[ subject ]</a>
+              <a href="author.html#743">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

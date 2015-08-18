@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Incorrect file sizes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Incorrect%20file%20sizes&In-Reply-To=%3C475C05BF.7020705%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000876.html">
+   <LINK REL="Next"  HREF="000882.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Incorrect file sizes</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Incorrect%20file%20sizes&In-Reply-To=%3C475C05BF.7020705%40perli.net%3E"
+       TITLE="[gpodder-devel] Incorrect file sizes">thp at perli.net
+       </A><BR>
+    <I>Sun Dec  9 16:11:59 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000876.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+        <LI>Next message: <A HREF="000882.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#877">[ date ]</a>
+              <a href="thread.html#877">[ thread ]</a>
+              <a href="subject.html#877">[ subject ]</a>
+              <a href="author.html#877">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+O. Emmerson wrote:
+&gt;<i> I am subscribed to <A HREF="http://971freefm.com/pages/podcast/43.rss">http://971freefm.com/pages/podcast/43.rss</A> in gpodder.
+</I>&gt;<i> The file sizes show up incorrectly when the feed is loaded.  If I
+</I>&gt;<i> download a file then the correct size is then shown.
+</I>
+The error is in the RSS feed, not in gPodder. The RSS feed uses the
+&quot;length=&quot; attribute of the &lt;enclosure&gt; element wrongly. The &quot;length&quot;
+attribute should specify the size of the enclosed file in bytes, in the
+metioned feed, the value seems to be (my guess) the length of the audio
+in seconds. gPodder can't calculate the correct size.
+
+One possibility would be to add a menu item to &quot;calculate&quot; the real file
+size of all episodes by doing a HTTP HEAD request for each episode and
+looking for the content-length header.
+
+Is this important to you? Can you please try to contact the feed author
+(probably 971freefm.com) and tell them to fix their _buggy_ RSS feed?
+
+Thanks,
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000876.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+	<LI>Next message: <A HREF="000882.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#877">[ date ]</a>
+              <a href="thread.html#877">[ thread ]</a>
+              <a href="subject.html#877">[ subject ]</a>
+              <a href="author.html#877">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

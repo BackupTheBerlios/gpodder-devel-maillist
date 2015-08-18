@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no channel	list ; -))
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Rev.%20790%20%2B%20gentoo%20%2B%20python%202.5.2%20%3D%20no%20channel%0A%09list%20%3B%20-%29%29&In-Reply-To=%3Cfa8f05950807271249k4464cac5ga926cb17ee2ee644%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001686.html">
+   <LINK REL="Next"  HREF="001689.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no channel	list ; -))</H1>
+    <B>Alistair Sutton</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Rev.%20790%20%2B%20gentoo%20%2B%20python%202.5.2%20%3D%20no%20channel%0A%09list%20%3B%20-%29%29&In-Reply-To=%3Cfa8f05950807271249k4464cac5ga926cb17ee2ee644%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no channel	list ; -))">alistair.sutton at gmail.com
+       </A><BR>
+    <I>Sun Jul 27 21:49:05 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001686.html">[gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no channel list ;	-))
+</A></li>
+        <LI>Next message: <A HREF="001689.html">[gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no	channel	list ; -))
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1688">[ date ]</a>
+              <a href="thread.html#1688">[ thread ]</a>
+              <a href="subject.html#1688">[ subject ]</a>
+              <a href="author.html#1688">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2008/7/26 Wilfred van Rooijen &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">wvanrooijen at yahoo.com</A>&gt;
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> My gentoo system has updated itself to Python 2.5.2 and I've updated
+</I>&gt;<i> gpodder to rev. 790 from SVN. I think I followed all the steps in the Python
+</I>&gt;<i> update guide from gentoo. However, gpodder doesn't show the channel list
+</I>&gt;<i> anymore :-((. It says 'Podcasts (28)' in the tab above the channel list, but
+</I>&gt;<i> no channel list is generated, and gpodder outputs an error:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ bin/gpodder --local --verbose
+</I>&gt;<i> [   0.109] Detected encoding: UTF-8
+</I>&gt;<i> [   0.128] (gPodderLib) Creating gPodderLib()
+</I>&gt;<i> [   0.136] (Storage) Setting up SQLite database
+</I>&gt;<i> [   0.142] SQLite connection for thread 1076686784 opened.
+</I>&gt;<i> [   0.145] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert &quot;.ogg&quot;
+</I>&gt;<i> files.
+</I>&gt;<i> [   0.146] (tagupdate) eyed3 not found -- tag update disabled
+</I>&gt;<i> [   0.146] (gpodder.sync) Could not find gpod
+</I>&gt;<i> [   0.146] (gpodder.sync) Could not find pymad
+</I>&gt;<i> [   0.146] (gpodder.sync) Could not find eyeD3
+</I>&gt;<i> [   0.147] (gpodder.sync) Could not find Python Imaging Library (PIL)
+</I>&gt;<i> [   0.148] Patching feedparser module... (mapContentType bugfix)
+</I>&gt;<i> [   0.261] (GPodderStatusIcon) Creating tray icon
+</I>&gt;<i> [   0.593] (Storage) Channel list read, 28 entries.
+</I>&gt;<i> [   0.604] SQLite connection for thread 1102683024 opened.
+</I>&gt;<i> [   0.612] (Storage) Channel list read, 28 entries.
+</I>&gt;<i> [   0.613] (gPodder) auto_update_procedure() got called
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 1275, in
+</I>&gt;<i> update_feed_cache_finish_callback
+</I>&gt;<i>    self.updateComboBox(selected_url=select_url_afterwards)
+</I>&gt;<i>  File &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line 1128, in
+</I>&gt;<i> updateComboBox
+</I>&gt;<i>    self.treeChannels.set_model(channels_to_model(self.channels,
+</I>&gt;<i> self.cover_cache, gl.config.podcast_list_icon_size,
+</I>&gt;<i> gl.config.podcast_list_icon_size))
+</I>&gt;<i>  File &quot;/home/rooijen/gpodder/src/gpodder/libpodcasts.py&quot;, line 712, in
+</I>&gt;<i> channels_to_model
+</I>&gt;<i>    pixbuf = services.cover_downloader.get_cover(channel,
+</I>&gt;<i> avoid_downloading=True)
+</I>&gt;<i>  File &quot;/home/rooijen/gpodder/src/gpodder/services.py&quot;, line 122, in
+</I>&gt;<i> get_cover
+</I>&gt;<i>    (url, pixbuf) = self.__get_cover(channel, custom_url, False,
+</I>&gt;<i> avoid_downloading)
+</I>&gt;<i>  File &quot;/home/rooijen/gpodder/src/gpodder/services.py&quot;, line 170, in
+</I>&gt;<i> __get_cover
+</I>&gt;<i>    loader.write(open(channel.cover_file, 'rb').read())
+</I>&gt;<i> gobject.GError: Unrecognized image file format
+</I>&gt;<i> [   3.593] start reader
+</I>&gt;<i> [   3.685] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/easytag.desktop
+</I>&gt;<i> [   3.833] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/totem.desktop
+</I>&gt;<i> [   3.871] (UserAppsReader) Player found:
+</I>&gt;<i> /usr/share/applications/vlc.desktop
+</I>&gt;<i> [   3.907] end reader (benchmark: 0.3139 seconds)
+</I>&gt;<i>
+</I>&gt;<i> Is this due to a faulty Python install or is something else wrong?
+</I>
+
+Removing all the cover files in your download directory will allow gpodder
+to work again.
+
+I'm not sure if it's a general problem with the cover code cause I've not
+had time to test it properly yet.
+
+Al
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080727/3fcc2066/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080727/3fcc2066/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001686.html">[gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no channel list ;	-))
+</A></li>
+	<LI>Next message: <A HREF="001689.html">[gpodder-devel] Rev. 790 + gentoo + python 2.5.2 = no	channel	list ; -))
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1688">[ date ]</a>
+              <a href="thread.html#1688">[ thread ]</a>
+              <a href="subject.html#1688">[ subject ]</a>
+              <a href="author.html#1688">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

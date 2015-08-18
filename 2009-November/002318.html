@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] (patch) Updated Italian translation
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%28patch%29%20Updated%20Italian%20translation&In-Reply-To=%3Cc64207c00911140657j7680c86bpc57841beb760cf6a%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002317.html">
+   <LINK REL="Next"  HREF="002319.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] (patch) Updated Italian translation</H1>
+    <B>Salvatore Iovene</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%28patch%29%20Updated%20Italian%20translation&In-Reply-To=%3Cc64207c00911140657j7680c86bpc57841beb760cf6a%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] (patch) Updated Italian translation">salvatore at iovene.com
+       </A><BR>
+    <I>Sat Nov 14 15:57:25 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002317.html">[gpodder-devel] Development news (Wiki, Website, mygPo, Release)
+</A></li>
+        <LI>Next message: <A HREF="002319.html">[gpodder-devel] New my.gpodder.org online
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2318">[ date ]</a>
+              <a href="thread.html#2318">[ thread ]</a>
+              <a href="subject.html#2318">[ subject ]</a>
+              <a href="author.html#2318">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+after trying to use gPodder on Maemo 5 in Italian, I have noticed that
+the translation was incomplete and, quite often, wrong.
+The attached git patch solves numerous problems. Here's the commit
+log, if you want to read it without downloading the patch:
+
+commit c502d2f4a2bb4e30285ac6e1f4470c1b69285bbb
+Author: Salvatore Iovene &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">salvatore at iovene.com</A>&gt;
+Date:   Sat Nov 14 16:51:47 2009 +0200
+
+    Updated Italian translation.
+
+    * I believe that something had gone really wrong at some point,
+    because lots of strings were totally wrong, i.e. things like &quot;One
+    podcast downloaded&quot; were translated to &quot;No podcasts downloaded&quot;,
+    and some strings also seemed to refer to a completely different
+    context somehow.
+
+    * The word &quot;Scaricamento&quot; has been replaced the the more natural,
+    untranslated, &quot;Download&quot;. It's commonly accepted to translate
+    Download as verb to &quot;Scaricare&quot;, but not to translate it as a noun.
+
+    * Some attention to detail was necessary: strings ending in periods,
+    colons, etc have been verified and changed where necessary. Also
+    better attention to capital letters has been paid.
+
+Hope you'll find the patch useful.
+
+-- 
+Salvatore Iovene
+<A HREF="http://www.iovene.com/">http://www.iovene.com/</A>
+<A HREF="http://www.geekherocomic.com/">http://www.geekherocomic.com/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Updated-Italian-translation.patch.gz
+Type: application/x-gzip
+Size: 16510 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20091114/e9b5995a/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20091114/e9b5995a/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002317.html">[gpodder-devel] Development news (Wiki, Website, mygPo, Release)
+</A></li>
+	<LI>Next message: <A HREF="002319.html">[gpodder-devel] New my.gpodder.org online
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2318">[ date ]</a>
+              <a href="thread.html#2318">[ thread ]</a>
+              <a href="subject.html#2318">[ subject ]</a>
+              <a href="author.html#2318">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

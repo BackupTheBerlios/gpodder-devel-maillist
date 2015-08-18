@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] moving to gpodder from another podcatcher
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20moving%20to%20gpodder%20from%20another%20podcatcher&In-Reply-To=%3C20100107112232.GB9951%40mygpo.thpinfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002365.html">
+   <LINK REL="Next"  HREF="002370.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] moving to gpodder from another podcatcher</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20moving%20to%20gpodder%20from%20another%20podcatcher&In-Reply-To=%3C20100107112232.GB9951%40mygpo.thpinfo.com%3E"
+       TITLE="[gpodder-devel] moving to gpodder from another podcatcher">thp at gpodder.org
+       </A><BR>
+    <I>Thu Jan  7 12:22:32 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002365.html">[gpodder-devel] moving to gpodder from another podcatcher
+</A></li>
+        <LI>Next message: <A HREF="002370.html">[gpodder-devel] moving to gpodder from another podcatcher
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2367">[ date ]</a>
+              <a href="thread.html#2367">[ thread ]</a>
+              <a href="subject.html#2367">[ subject ]</a>
+              <a href="author.html#2367">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Wed, Jan 06, 2010 at 02:13:20PM -0600, A. Lester Buck III wrote:
+&gt;<i> I was able to redirect my download directory and import a small podcast
+</I>&gt;<i> with a few episodes.  (I had to change type=&quot;RSS&quot; to type=&quot;rss&quot; in
+</I>&gt;<i> Ziepod's OPML 1.1 format.)  My question concerns best practice for
+</I>&gt;<i> syncing the gPodder metadata with my existing download archive.
+</I>
+I have added support for type=&quot;RSS&quot; in gPodder now:
+
+<A HREF="http://gpodder.org/commit/db354a8f42f1">http://gpodder.org/commit/db354a8f42f1</A>
+
+&gt;<i> I noticed gPodder wants to start downloading any episodes it finds in
+</I>&gt;<i> the feeds, whether the episode is on disk or not.  Is there any hope I
+</I>&gt;<i> can teach gPodder about what episodes are already there?  If I cancel a
+</I>&gt;<i> download, I can't play that episode in the in-client player.  Maybe
+</I>&gt;<i> there is some kind of resync/fsck function that helps gPodder relearn
+</I>&gt;<i> what it has to work with?
+</I>
+You can fill in the data in ~/.config/gpodder/database.sqlite. The table
+is called &quot;episodes&quot; and you have to set the &quot;filename&quot; field for the
+given episode and make sure that the filename exists in the download
+folder for the given podcast. if you come up with a script, please feel
+free to share it, as this is a very common use case (but we're lacking
+time and resources to implement it, as it's not a main goal of gPodder).
+
+&gt;<i> While I don't want to waste all the bandwidth redownloading episodes,
+</I>&gt;<i> the real reason I don't want to redownload is that Ziepod (and other
+</I>&gt;<i> clients) mark the episode file with the download date, not the published
+</I>&gt;<i> date, so if I am downloading a lot of old episodes, the dates are all
+</I>&gt;<i> jumbled.  I use Rockbox, and set the file sorting by date, so I get each
+</I>&gt;<i> episode in a folder in the published sequence.  I even have a script
+</I>&gt;<i> that will crawl a feed and re-date the episode files to match the
+</I>&gt;<i> pubDate, but I'm hoping gPodder will date the files with the pubDate
+</I>&gt;<i> from the feed to start with.
+</I>
+It does not set the file date on the files (as this could be bad for
+backup apps, etc..), but you can set up the sync filename so that the
+publishing date is prepended to the file name, and set Rockbox to sort
+by filename.
+
+HTH.
+Thomas
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002365.html">[gpodder-devel] moving to gpodder from another podcatcher
+</A></li>
+	<LI>Next message: <A HREF="002370.html">[gpodder-devel] moving to gpodder from another podcatcher
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2367">[ date ]</a>
+              <a href="thread.html#2367">[ thread ]</a>
+              <a href="subject.html#2367">[ subject ]</a>
+              <a href="author.html#2367">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

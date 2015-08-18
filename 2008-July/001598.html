@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C29118375.470171215005734942.JavaMail.www%40wwinf8304%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001601.html">
+   <LINK REL="Next"  HREF="001599.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure</H1>
+    <B>eric.jauny at laposte.net</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gpodder%200.11.3%20or%20earlier%20%3A%20import%20gtk%20failure&In-Reply-To=%3C29118375.470171215005734942.JavaMail.www%40wwinf8304%3E"
+       TITLE="[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure">eric.jauny at laposte.net
+       </A><BR>
+    <I>Wed Jul  2 15:35:34 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001601.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+        <LI>Next message: <A HREF="001599.html">[gpodder-devel] Is it possible to define a default set of feeds for	all users on a system?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1598">[ date ]</a>
+              <a href="thread.html#1598">[ thread ]</a>
+              <a href="subject.html#1598">[ subject ]</a>
+              <a href="author.html#1598">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Jeff for this input.
+Please note that I did not upgrade or remove any Fedora Core 6 rpm stuff/librairies before trying to upgrade to gpodder 0.11.3&#160; The &quot;import gtk&quot; issues came right after I installed this new version. I'm not saying that the gpodder installation removed some packages, but facts are facts. It was absolutely unexpected.
+Since a few days I've removed pygtk, re-installed it, added python 2.5 (although 2.4 was enough to make 0.11.1 working) and updated /usr/bib/python symbolic link. I still hope to get rid of it.
+
+cheers.
+eric
+
+&gt;<i> Message du 02/07/08 02:14
+</I>&gt;<i> De : &quot;Jeff Spaleta&quot;
+</I>&gt;<i> A : &quot;Development for gPodder&quot;
+</I>&gt;<i> Copie &#224; :
+</I>&gt;<i> Objet : Re: [gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Jun 26, 2008 at 2:34 AM, Thomas Perl  wrote:
+</I>&gt;<i> &gt; Sorry for sounding like a distro nazi here, but we cannot support every
+</I>&gt;<i> &gt; freakin' distro out there, and I sadly cannot give you any hints on how
+</I>&gt;<i> &gt; to fix these problems on &quot;BLAG&quot;. Either ask the BLAG maintainers or fix
+</I>&gt;<i> &gt; the problem yourself - as I said, the ImportError means that PyGTK is
+</I>&gt;<i> &gt; not installed. This problem is out-of-scope for gPodder to support, as
+</I>&gt;<i> &gt; it states in its README file that PyGTK needs to be installed.
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure this is related... but import gtk can fail if the display
+</I>&gt;<i> is not accessible. I've seen this happen several times now in
+</I>&gt;<i> configure scripts which attempt to import gtk as a check to make sure
+</I>&gt;<i> that pygtk is available.  The init process for the gtk module load
+</I>&gt;<i> attempts to access the graphical display and if it can not, falls over
+</I>&gt;<i> and dies.  I'm not sure if this is the underlying problem, but this is
+</I>&gt;<i> what I see sometimes when doing python application builds for Fedora
+</I>&gt;<i> which want to test for the gtk module. gpodder's make test may fail in
+</I>&gt;<i> the same way.. if done under a chroot for example.
+</I>&gt;<i>
+</I>&gt;<i> -jef
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>
+ Cr&#233;ez votre adresse &#233;lectronique pr&#233;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">nom.nom at laposte.net</A> 
+ 1 Go d'espace de stockage, anti-spam et anti-virus int&#233;gr&#233;s.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080702/f0162c48/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080702/f0162c48/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001601.html">[gpodder-devel] gpodder 0.11.3 or earlier : import gtk failure
+</A></li>
+	<LI>Next message: <A HREF="001599.html">[gpodder-devel] Is it possible to define a default set of feeds for	all users on a system?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1598">[ date ]</a>
+              <a href="thread.html#1598">[ thread ]</a>
+              <a href="subject.html#1598">[ subject ]</a>
+              <a href="author.html#1598">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Playback%20tracking%20support%20and%20iPod%20sync%0A%09%28was%3A%09gPodder%20-%20Thanks%20and%20Wishlist%29&In-Reply-To=%3C1175599612.14142.20.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000185.html">
+   <LINK REL="Next"  HREF="000190.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Playback%20tracking%20support%20and%20iPod%20sync%0A%09%28was%3A%09gPodder%20-%20Thanks%20and%20Wishlist%29&In-Reply-To=%3C1175599612.14142.20.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Playback tracking support and iPod sync	(was:	gPodder - Thanks and Wishlist)">thp at perli.net
+       </A><BR>
+    <I>Tue Apr  3 13:26:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000185.html">[gpodder-devel] gPodder - Thanks and Wishlist
+</A></li>
+        <LI>Next message: <A HREF="000190.html">[gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#186">[ date ]</a>
+              <a href="thread.html#186">[ thread ]</a>
+              <a href="subject.html#186">[ subject ]</a>
+              <a href="author.html#186">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 2007-04-02 at 17:00 +0200, Stephan Buys wrote:
+&gt;<i>         &gt; 2. A way for my iPod to then update and reflect the &quot;played&quot;
+</I>&gt;<i>         status of the podcasts.
+</I>&gt;<i>         
+</I>&gt;<i>         I think newer iPods have something that has been described to
+</I>&gt;<i>         me as a &quot;blue dot&quot;, but on my iPod mini, I can't see the
+</I>&gt;<i>         played/unplayed status of Podcasts. If you want such a
+</I>&gt;<i>         feature, you'd have to test it on your iPod and report back if
+</I>&gt;<i>         it works or not, because I can't test here.
+</I>&gt;<i> 
+</I>&gt;<i> This is exactly what I am referring to :-) &quot;The blue dot&quot;. I am more
+</I>&gt;<i> than happy to test this. 
+</I>&gt;<i> Basically the blue dot disappears when you hit play on a track.
+</I>
+I've implemented basic playback history support in the latest svn
+revision. Please try it out and tell me if it works for you. What you
+get:
+
+* Enable &quot;Played&quot; column in the Advanced tab of the Properties dialog
+* Playback files on your computer - the &quot;Played&quot; column will show a 
+  green dot
+* Sync to your iPod - played back files shouldn't have a blue dot 
+  anymore
+* Play back files on your iPod, then sync with gPodder - gPodder should
+  update the played back status of the podcasts accordingly
+
+This also works with older iPods (tested with iPod mini), and uses the
+playcount as a &quot;played&quot; indicator. Don't know if playcount increase
+means a fully played episode or just the start of the playback - test on
+your iPod.
+
+&gt;<i> BTW - I can probably contribute .deb packaging for the upcoming Ubuntu
+</I>&gt;<i> release, let me know if you would be interested. 
+</I>
+It'd be great if you could work towards getting gPodder into the Ubuntu
+repositories. You might want to start from the Debian package I'm
+currently working on. A bit older version can be found on [1], but if
+you're interested, I can send you the latest .deb source files.
+
+[1] <A HREF="http://mentors.debian.net/debian/pool/main/g/gpodder/">http://mentors.debian.net/debian/pool/main/g/gpodder/</A>
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000185.html">[gpodder-devel] gPodder - Thanks and Wishlist
+</A></li>
+	<LI>Next message: <A HREF="000190.html">[gpodder-devel] Playback tracking support and iPod sync (was:	gPodder - Thanks and Wishlist)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#186">[ date ]</a>
+              <a href="thread.html#186">[ thread ]</a>
+              <a href="subject.html#186">[ subject ]</a>
+              <a href="author.html#186">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

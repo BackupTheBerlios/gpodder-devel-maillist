@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Co-maintainers, gPodder team and SVN/Git
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Co-maintainers%2C%20gPodder%20team%20and%20SVN/Git&In-Reply-To=%3C477B6C96.4050907%40perli.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001018.html">
+   <LINK REL="Next"  HREF="001020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Co-maintainers, gPodder team and SVN/Git</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Co-maintainers%2C%20gPodder%20team%20and%20SVN/Git&In-Reply-To=%3C477B6C96.4050907%40perli.net%3E"
+       TITLE="[gpodder-devel] Co-maintainers, gPodder team and SVN/Git">thp at perli.net
+       </A><BR>
+    <I>Wed Jan  2 11:51:02 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001018.html">[gpodder-devel] 0.9.4 channel disappearance
+</A></li>
+        <LI>Next message: <A HREF="001020.html">[gpodder-devel] Co-maintainers, gPodder team and SVN/Git
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1010">[ date ]</a>
+              <a href="thread.html#1010">[ thread ]</a>
+              <a href="subject.html#1010">[ subject ]</a>
+              <a href="author.html#1010">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, gPodder users and developers!
+
+First of all, I wish you all a happy new year 2008. This mail is about 
+maybe switching from SVN to Git and about the areas of gPodder in which 
+YOUR help is needed :) The first section is about SVN/Git, the second is 
+about the help-needing parts - please read at least the second one if 
+time permits.
+
+-----
+
+In the last few weeks, we've seen some people on the mailing list start 
+providing patches to gPodder that fulfill long-standing feature 
+requests. I believe this is partially to the introduction of the wiki, 
+which enables us to easily update the project status.
+
+I'm very happy with the tray icon patch that is currently in the works, 
+J&#233;r&#244;me Chabod does a great job getting this patch forward.
+
+Some months ago, I started using Git for some projects of mine, and it 
+really shines in some aspects compared to Subversion. I would like your 
+input and opinion about switching gPodder development from Subversion to 
+Git for some reasons:
+
+  * Easier branching (would be better for &quot;big&quot; patches like trayicon)
+  * Multiple developers (work on your patch, publish the Git repository)
+  * Offline development (commits don't need an online connection)
+  * No server outages (BerliOS' SVN server is unavailable at times)
+
+What do you think? Should we &quot;go Git&quot;?
+
+------
+
+Another area in which I need some help is maintaining gPodder, answering 
+questions on the mailing list, maintaining/cleaning up the TODO list, 
+taking care of the Wiki in general and reviewing/applying patches. There 
+are some persons on the mailing list that have been involved 
+in/following the gPodder project for some months now. I wonder if you 
+want to join in and be more officially involved in gPodder by taking 
+over some small areas of responsibility, like:
+
+  * Taking care of the Wiki (clean-up, user documentation)
+  * Answering questions on the mailing list (and updating the FAQ)
+  * Review patches and/or manage the TODO list (specifications)
+  * Co-maintainership (code-wise)
+
+For the Co-maintainership, I want to add some remarks: First, the code 
+style I used to write until two months ago was not adhering to PEP-8[1], 
+which is the style guideline for Python. I've started writing code with 
+PEP-8 in mind now, but am only updating the sections of the codebase 
+that are changed for a commit. If you write Python code for gPodder, 
+please take the three minutes required to read PEP-8. I will try to 
+reformat your patches when needed, but reviewing and merging your patch 
+will be faster when I don't need to reformat every line :)
+
+Also, for the GTK+ GUI and preferences, please keep it as simple as 
+possible. I initially suggested to add six different options for the 
+tray icon and notification area, but now I think this is overkill and 
+not &quot;usable&quot;. As far as the GUI design goes, we should keep the GNOME 
+HIG[2] in mind where possible.
+
+Apart from that, there's not much to say about writing &quot;good&quot; code for 
+gPodder. I would be really happy if at least one or two would step up 
+and help improve gPodder.
+
+Looking at our TODO list, there is not much that is left to do to bring 
+the codebase and the GUI in good shape for a 1.0 release. Maybe we 
+should draft a 1.0 roadmap - that would also be a good opportunity to 
+get involved in the gPodder team :)
+
+Thanks for taking the time to read this (rather long) mail :)
+
+Thomas
+
+
+[1] <A HREF="http://www.python.org/dev/peps/pep-0008/">http://www.python.org/dev/peps/pep-0008/</A>
+[2] <A HREF="http://developer.gnome.org/projects/gup/hig/2.0/">http://developer.gnome.org/projects/gup/hig/2.0/</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001018.html">[gpodder-devel] 0.9.4 channel disappearance
+</A></li>
+	<LI>Next message: <A HREF="001020.html">[gpodder-devel] Co-maintainers, gPodder team and SVN/Git
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1010">[ date ]</a>
+              <a href="thread.html#1010">[ thread ]</a>
+              <a href="subject.html#1010">[ subject ]</a>
+              <a href="author.html#1010">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

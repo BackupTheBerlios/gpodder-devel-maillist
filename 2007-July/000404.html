@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [Patch] Password protected download servers
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPatch%5D%20Password%20protected%20download%20servers&In-Reply-To=%3C200707151917.57107.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000402.html">
+   <LINK REL="Next"  HREF="000414.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [Patch] Password protected download servers</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPatch%5D%20Password%20protected%20download%20servers&In-Reply-To=%3C200707151917.57107.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] [Patch] Password protected download servers">nikosapi at gmail.com
+       </A><BR>
+    <I>Mon Jul 16 01:17:57 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000402.html">[gpodder-devel] [Patch] Password protected download servers
+</A></li>
+        <LI>Next message: <A HREF="000414.html">[gpodder-devel] [Patch] Password protected download servers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#404">[ date ]</a>
+              <a href="thread.html#404">[ thread ]</a>
+              <a href="subject.html#404">[ subject ]</a>
+              <a href="author.html#404">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+Attached is the patch with a few modifications, and I'll answer your 
+questions/concerns inline.
+
+On July 15, 2007 06:49:32 am Thomas Perl wrote:
+&gt;<i> Hello, Nick!
+</I>&gt;<i>
+</I>&gt;<i> On Sat, 2007-07-14 at 22:28 -0400, nikosapi wrote:
+</I>&gt;<i> &gt; I just signed up for the distorted view show member's feed (you get extra
+</I>&gt;<i> &gt; show content, etc). The problem is that the download server is password
+</I>&gt;<i> &gt; protected which means the podcast client must understand how to do basic
+</I>&gt;<i> &gt; http authentication.
+</I>&gt;<i>
+</I>&gt;<i> In your patch, you have
+</I>&gt;<i>
+</I>&gt;<i> +        self.channel.username = self.FeedUsername.get_text().strip()
+</I>&gt;<i> +        self.channel.password = self.FeedPassword.get_text().strip()
+</I>&gt;<i>
+</I>&gt;<i> Wouldn't that cause the password to stop working when you have a
+</I>&gt;<i> password like &quot;asdf &quot;, i.e. a space after the character content? I can
+</I>&gt;<i> see your point in doing it for the username field, but maybe we should
+</I>&gt;<i> not use strip() for the password field, hm?
+</I>
+Yeah, I guess I overlooked that one :s  
+To test, I've added user02 with password &quot;test 1&quot; to the 
+<A HREF="http://nikosapi.org/test_protected_feed/shows">http://nikosapi.org/test_protected_feed/shows</A> access list.
+
+&gt;<i> &gt; Attached is a patch against svn revision 351 to add the ability to
+</I>&gt;<i> &gt; download podcasts from password protected server directories. It stores
+</I>&gt;<i> &gt; the username and password in the index.xml files in each local podcast
+</I>&gt;<i> &gt; directory. The passwords are obfuscated using a simple mapping table and
+</I>&gt;<i> &gt; the
+</I>&gt;<i> &gt; string.translate function. I know this isn't secure but I don't think
+</I>&gt;<i> &gt; it's advisable to store the passwords in plaintext either. The username
+</I>&gt;<i> &gt; and password are set via the &quot;Advanced&quot; tab in the &quot;Edit channel
+</I>&gt;<i> &gt; information&quot; dialogue.
+</I>&gt;<i>
+</I>&gt;<i> I see your point, but the password is passed as plain-text argument to
+</I>&gt;<i> wget, so for the time of the download, it will be visible in the &quot;ps&quot;
+</I>&gt;<i> list in plain text. string.translate as I see it in the patch also makes
+</I>&gt;<i> the available characters only be from the ASCII charset, UTF-8 would be
+</I>&gt;<i> so much better.
+</I>
+Although yes, you are right that the password is viewable via the ps command 
+(I think that is even documented in the wget man page) I think it's just 
+safer to keep the password as safe as possible in the event that someone is 
+actually trying to find it. Although this still isn't very safe, it's still 
+better than storing it in plaintext.
+
+I tried to find out how to get the unicode.translate function to work but I 
+couldn't figure it out. Now if you use a unicode password it will work but 
+sadly it'll be stored in plaintext. I did find hints on how to possibly 
+implement this here: <A HREF="http://www.dbforums.com/showthread.php?t=1419217">http://www.dbforums.com/showthread.php?t=1419217</A> but I 
+couldn't figure it out :-(
+
+Another idea would be to use somekind of symmetric encryption module that 
+comes with python but I think that might be a bit excessive.
+
+To test this using my test feed the username is user03 and the password 
+is &quot;c'est l'&#233;t&#233;&quot;.
+
+&gt;<i> &gt; If you would like to test it, I set up a feed and password protected
+</I>&gt;<i> &gt; directory on my server (with a 5 second &quot;podcast&quot; I made). Here's the
+</I>&gt;<i> &gt; info for that: feed url: <A HREF="http://nikosapi.org/test_protected_feed/feed.xml">http://nikosapi.org/test_protected_feed/feed.xml</A>
+</I>&gt;<i> &gt; username: user01
+</I>&gt;<i> &gt; password: testfeed
+</I>&gt;<i>
+</I>&gt;<i> I'll see if I can apply the patch and test around this afternoon. Maybe
+</I>&gt;<i> you can comment on my comments to the patch above? I'd like to get your
+</I>&gt;<i> input, as you're currently using a password-protected podcasts.
+</I>
+I saw your email that contained the new and improved patch, that autodetection 
+feature is pretty sweet. There was one small fix I made for handling of 
+url-encoded characters (eg. %40 = @, etc.) in the feed url.
+
+&gt;<i> &gt; Also, I fixed a little bug that would cause gPodder to freeze when
+</I>&gt;<i> &gt; loading a cover file with 0 length.
+</I>&gt;<i>
+</I>&gt;<i> Great :) I'm really happy to see this work being done, and I think the
+</I>&gt;<i> whole patch is a great addition to gPodder, so I think the 0.9.4 release
+</I>&gt;<i> is gonna be a really cool thing now! I'd be happy to have you in the
+</I>&gt;<i> gPodder team, if you want.
+</I>
+I wish I had more time to play with gPodder, I have a few more ideas that I'll 
+try to implement by the end of the summer. 
+
+If by &quot;gPodder team&quot; you mean svn access, I'm fine just passing patches back 
+and forth on list. I mean I wouldn't commit anything without asking you first 
+but if you'd like, email me offlist to tell me what that's all about.
+
+&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>
+Thanks to you man!
+
+nick
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder-r354-passwordfeed-v2.patch
+Type: text/x-diff
+Size: 19538 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070715/0d4f3fe0/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070715/0d4f3fe0/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000402.html">[gpodder-devel] [Patch] Password protected download servers
+</A></li>
+	<LI>Next message: <A HREF="000414.html">[gpodder-devel] [Patch] Password protected download servers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#404">[ date ]</a>
+              <a href="thread.html#404">[ thread ]</a>
+              <a href="subject.html#404">[ subject ]</a>
+              <a href="author.html#404">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

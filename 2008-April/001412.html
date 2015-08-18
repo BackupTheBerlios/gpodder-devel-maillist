@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Crash&In-Reply-To=%3C480E4355.80802%40telia.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001410.html">
+   <LINK REL="Next"  HREF="001413.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Crash</H1>
+    <B>Anders Kvist</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Crash&In-Reply-To=%3C480E4355.80802%40telia.com%3E"
+       TITLE="[gpodder-devel] Crash">kvistkvist at telia.com
+       </A><BR>
+    <I>Tue Apr 22 21:58:13 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001410.html">[gpodder-devel] Saving the Podcast with speaking names
+</A></li>
+        <LI>Next message: <A HREF="001413.html">[gpodder-devel] Crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1412">[ date ]</a>
+              <a href="thread.html#1412">[ thread ]</a>
+              <a href="subject.html#1412">[ subject ]</a>
+              <a href="author.html#1412">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I was trying to test my updated Swedish translation when something 
+strange was happening.
+
+My start script is just;
+
+svn up
+make test
+
+///Anders
+
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">kvist at localhost</A> ~]$ ./gpodder/starta
+U    ChangeLog
+U    src/gpodder/libconverter.py
+U    src/gpodder/dumbshelve.py
+U    src/gpodder/config.py
+U    src/gpodder/liblogger.py
+U    src/gpodder/libpodcasts.py
+U    src/gpodder/download.py
+U    src/gpodder/libgpodder.py
+U    src/gpodder/sync.py
+U    src/gpodder/util.py
+U    src/gpodder/services.py
+U    src/gpodder/gui.py
+U    data/gpodder.glade
+Uppdaterade till revision 683.
+bin/gpodder --local --verbose
+[   0.598] (gPodderLib) Creating gPodderLib()
+Traceback (most recent call last):
+  File &quot;bin/gpodder&quot;, line 166, in &lt;module&gt;
+    sys.exit( main())
+  File &quot;bin/gpodder&quot;, line 125, in main
+    from gpodder import console
+  File &quot;/home/kvist/gpodder/src/gpodder/console.py&quot;, line 21, in &lt;module&gt;
+    from gpodder import download
+  File &quot;/home/kvist/gpodder/src/gpodder/download.py&quot;, line 29, in &lt;module&gt;
+    from gpodder.libgpodder import gl
+  File &quot;/home/kvist/gpodder/src/gpodder/libgpodder.py&quot;, line 369, in 
+&lt;module&gt;
+    gl = gPodderLib()
+  File &quot;/home/kvist/gpodder/src/gpodder/libgpodder.py&quot;, line 54, in __init__
+    log('Creating gPodderLib()', sender=self)
+  File &quot;/home/kvist/gpodder/src/gpodder/liblogger.py&quot;, line 52, in log
+    error = traceback.format_exc()
+  File &quot;/usr/lib64/python2.5/traceback.py&quot;, line 236, in format_exc
+    return ''.join(format_exception(etype, value, tb, limit))
+  File &quot;/usr/lib64/python2.5/traceback.py&quot;, line 145, in format_exception
+    list = list + format_exception_only(etype, value)
+  File &quot;/usr/lib64/python2.5/traceback.py&quot;, line 176, in 
+format_exception_only
+    stype = etype.__name__
+AttributeError: 'NoneType' object has no attribute '__name__'
+make: *** [test] Fel 1
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001410.html">[gpodder-devel] Saving the Podcast with speaking names
+</A></li>
+	<LI>Next message: <A HREF="001413.html">[gpodder-devel] Crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1412">[ date ]</a>
+              <a href="thread.html#1412">[ thread ]</a>
+              <a href="subject.html#1412">[ subject ]</a>
+              <a href="author.html#1412">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

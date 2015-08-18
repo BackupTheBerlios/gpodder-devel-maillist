@@ -1,0 +1,882 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Feedback on experimental_file_naming
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feedback%20on%20experimental_file_naming&In-Reply-To=%3C1213379628.6300.2.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001524.html">
+   <LINK REL="Next"  HREF="001509.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Feedback on experimental_file_naming</H1>
+    <B>Shane Donohoe</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Feedback%20on%20experimental_file_naming&In-Reply-To=%3C1213379628.6300.2.camel%40localhost.localdomain%3E"
+       TITLE="[gpodder-devel] Feedback on experimental_file_naming">priestoftime at googlemail.com
+       </A><BR>
+    <I>Fri Jun 13 19:53:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001524.html">[gpodder-devel] Updated Portuguese Translation .po
+</A></li>
+        <LI>Next message: <A HREF="001509.html">[gpodder-devel] Feedback on experimental_file_naming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1508">[ date ]</a>
+              <a href="thread.html#1508">[ thread ]</a>
+              <a href="subject.html#1508">[ subject ]</a>
+              <a href="author.html#1508">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I tried the experimental_file_naming option, just out of curiosity. It
+doesn't work for me, gpodder stops working (the feeds can not be
+selected) and when I restart, all the feeds are gone. This can all be
+fixed by setting the option back to false, which has to be done manually
+to gpodder.conf, since the settings dialog does not work afterwards.
+
+I have attached a log and my podcast list as an opml file.
+-------------- next part --------------
+[   0.086] Detected encoding: utf8
+[   0.090] (gPodderLib) Creating gPodderLib()
+[   0.101] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert &quot;.ogg&quot; files.
+[   0.111] (gpodder.sync) Could not find gpod
+[   0.115] Patching feedparser module... (mapContentType bugfix)
+[   0.695] (GPodderStatusIcon) Creating tray icon
+[   1.172] (gPodder) auto_update_procedure() got called
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.466] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.467] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.468] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.469] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-UnifiedTheoryOfLOLs873.mov">http://blip.tv/file/get/Ekai-UnifiedTheoryOfLOLs873.mov</A>
+[   1.471] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-DayInTheLifeOfProVideoGamer367.m4v">http://blip.tv/file/get/Ekai-DayInTheLifeOfProVideoGamer367.m4v</A>
+[   1.471] (podcastChannel) Cannot instantiate episode: <A HREF="http://www.geekentertainment.tv/2008/02/21/pillow-fight-make-feathers-not-war/.">http://www.geekentertainment.tv/2008/02/21/pillow-fight-make-feathers-not-war/.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.474] (podcastChannel) Cannot instantiate episode: <A HREF="http://www.geekentertainment.tv/2008/02/11/anonymous-vs-scientology/.">http://www.geekentertainment.tv/2008/02/11/anonymous-vs-scientology/.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.474] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-ANSIArt213.m4v">http://blip.tv/file/get/Ekai-ANSIArt213.m4v</A>
+[   1.475] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-ADayAtTheCatShow101.mov">http://blip.tv/file/get/Ekai-ADayAtTheCatShow101.mov</A>
+[   1.475] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-GETV152Commodore64Turns25212.m4v">http://blip.tv/file/get/Ekai-GETV152Commodore64Turns25212.m4v</A>
+[   1.476] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-HollywoodWritersStrike238.mov">http://blip.tv/file/get/Ekai-HollywoodWritersStrike238.mov</A>
+[   1.476] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-AFestivalOfVintageComputers157.m4v">http://blip.tv/file/get/Ekai-AFestivalOfVintageComputers157.m4v</A>
+[   1.477] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-NewTeeVeeLiveOldMediaNewTalent895.m4v">http://blip.tv/file/get/Ekai-NewTeeVeeLiveOldMediaNewTalent895.m4v</A>
+[   1.477] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-NewTeeVeeLivePleatsAndALongTail729.mov">http://blip.tv/file/get/Ekai-NewTeeVeeLivePleatsAndALongTail729.mov</A>
+[   1.478] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-WhatIsGETV359.flv">http://blip.tv/file/get/Ekai-WhatIsGETV359.flv</A>
+[   1.478] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-PEZMuseum692.m4v">http://blip.tv/file/get/Ekai-PEZMuseum692.m4v</A>
+[   1.479] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-HipHopChessTournament808.m4v">http://blip.tv/file/get/Ekai-HipHopChessTournament808.m4v</A>
+[   1.479] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-PNME2007134.m4v">http://blip.tv/file/get/Ekai-PNME2007134.m4v</A>
+[   1.480] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-Halo3Launch216.m4v">http://blip.tv/file/get/Ekai-Halo3Launch216.m4v</A>
+[   1.480] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-MillionBoozeMarch451.m4v">http://blip.tv/file/get/Ekai-MillionBoozeMarch451.m4v</A>
+[   1.481] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-SyncMyRide526.m4v">http://blip.tv/file/get/Ekai-SyncMyRide526.m4v</A>
+[   1.481] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-TheCrankiestGeek916.m4v">http://blip.tv/file/get/Ekai-TheCrankiestGeek916.m4v</A>
+[   1.482] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-WineTastingWithGaryVaynerchuk129.m4v">http://blip.tv/file/get/Ekai-WineTastingWithGaryVaynerchuk129.m4v</A>
+[   1.482] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-LinuxworldGeekery2007750.m4v">http://blip.tv/file/get/Ekai-LinuxworldGeekery2007750.m4v</A>
+[   1.483] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-MechanicalFunFromThePast946.m4v">http://blip.tv/file/get/Ekai-MechanicalFunFromThePast946.m4v</A>
+[   1.483] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-CapturedByRobots304.flv">http://blip.tv/file/get/Ekai-CapturedByRobots304.flv</A>
+[   1.484] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-DonchaWishYourCellPhoneWasHotLikeMe190.flv">http://blip.tv/file/get/Ekai-DonchaWishYourCellPhoneWasHotLikeMe190.flv</A>
+[   1.484] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-SexBloggerAudaciaRayGetsNaked602.m4v">http://blip.tv/file/get/Ekai-SexBloggerAudaciaRayGetsNaked602.m4v</A>
+[   1.485] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-iPhoneLaunch980.m4v">http://blip.tv/file/get/Ekai-iPhoneLaunch980.m4v</A>
+[   1.485] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-ThePixelodeonFestival269.mp4">http://blip.tv/file/get/Ekai-ThePixelodeonFestival269.mp4</A>
+[   1.485] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-RubyOnRailsGeekSessions104.mov">http://blip.tv/file/get/Ekai-RubyOnRailsGeekSessions104.mov</A>
+[   1.486] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-MoreMakerFaireMadness548.mov">http://blip.tv/file/get/Ekai-MoreMakerFaireMadness548.mov</A>
+[   1.486] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-ADayAtTheMakerFaire967.flv">http://blip.tv/file/get/Ekai-ADayAtTheMakerFaire967.flv</A>
+[   1.487] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-YahooShesABrickhouse468.mov">http://blip.tv/file/get/Ekai-YahooShesABrickhouse468.mov</A>
+[   1.487] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-KITTLives788.flv">http://blip.tv/file/get/Ekai-KITTLives788.flv</A>
+[   1.488] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-DoubleVision994.flv">http://blip.tv/file/get/Ekai-DoubleVision994.flv</A>
+[   1.488] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-YurisNightAtNASA860.mov">http://blip.tv/file/get/Ekai-YurisNightAtNASA860.mov</A>
+[   1.489] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-InsideOnomyLabs884.flv">http://blip.tv/file/get/Ekai-InsideOnomyLabs884.flv</A>
+[   1.489] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-InsideJustintv166.mov">http://blip.tv/file/get/Ekai-InsideJustintv166.mov</A>
+[   1.490] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-TwitterdildonicStimulation371.mov">http://blip.tv/file/get/Ekai-TwitterdildonicStimulation371.mov</A>
+[   1.490] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-WheresTheActionAtSXSWIn2007287.mov">http://blip.tv/file/get/Ekai-WheresTheActionAtSXSWIn2007287.mov</A>
+[   1.491] (podcastItem) Selected enclosure: <A HREF="http://blip.tv/file/get/Ekai-AdaptivePathTurnsSix311.mov">http://blip.tv/file/get/Ekai-AdaptivePathTurnsSix311.mov</A>
+[   1.497] (podcastChannel) Cannot instantiate episode: <A HREF="http://www.geekentertainment.tv/2006/12/09/roboexotica-2006-clips/.">http://www.geekentertainment.tv/2006/12/09/roboexotica-2006-clips/.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.526] (podcastChannel) Cannot instantiate episode: <A HREF="http://feeds.feedburner.com/{55939ae8-8696-4d34-c946-7b95f5231d53">http://feeds.feedburner.com/{55939ae8-8696-4d34-c946-7b95f5231d53</A>}. Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.542] (podcastChannel) Cannot instantiate episode: <A HREF="http://feeds.feedburner.com/{4f61a289-c66b-2223-b132-96d69c2eaa54">http://feeds.feedburner.com/{4f61a289-c66b-2223-b132-96d69c2eaa54</A>}. Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.570] (podcastChannel) Cannot instantiate episode: <A HREF="http://www.japanesepod101.com/2008/06/07/premium-lesson-27-ss24-escalator-etiquette/.">http://www.japanesepod101.com/2008/06/07/premium-lesson-27-ss24-escalator-etiquette/.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.573] (podcastChannel) Cannot instantiate episode: <A HREF="http://www.japanesepod101.com/2008/05/31/premium-lesson-26-ss23-fun-stuff/.">http://www.japanesepod101.com/2008/05/31/premium-lesson-26-ss23-fun-stuff/.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.643] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.644] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.645] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.646] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.646] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.650] Limiting number of episodes for Learn Japanese with Beb and Alex to 200
+[   1.655] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=309521.">http://japanese.libsyn.com/index.php?post_id=309521.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.656] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=332181.">http://japanese.libsyn.com/index.php?post_id=332181.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.658] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=326438.">http://japanese.libsyn.com/index.php?post_id=326438.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.660] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=320294.">http://japanese.libsyn.com/index.php?post_id=320294.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.661] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=318866.">http://japanese.libsyn.com/index.php?post_id=318866.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.663] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=311293.">http://japanese.libsyn.com/index.php?post_id=311293.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.664] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=310487.">http://japanese.libsyn.com/index.php?post_id=310487.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.664] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=310245.">http://japanese.libsyn.com/index.php?post_id=310245.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.668] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=303608.">http://japanese.libsyn.com/index.php?post_id=303608.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.670] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=298773.">http://japanese.libsyn.com/index.php?post_id=298773.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.670] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=295079.">http://japanese.libsyn.com/index.php?post_id=295079.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.671] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=289347.">http://japanese.libsyn.com/index.php?post_id=289347.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.671] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=287126.">http://japanese.libsyn.com/index.php?post_id=287126.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.672] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=286716.">http://japanese.libsyn.com/index.php?post_id=286716.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.675] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=282316.">http://japanese.libsyn.com/index.php?post_id=282316.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.675] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=281598.">http://japanese.libsyn.com/index.php?post_id=281598.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.677] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=280287.">http://japanese.libsyn.com/index.php?post_id=280287.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.679] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=275794.">http://japanese.libsyn.com/index.php?post_id=275794.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.679] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=274243.">http://japanese.libsyn.com/index.php?post_id=274243.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.680] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=273806.">http://japanese.libsyn.com/index.php?post_id=273806.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.681] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=268775.">http://japanese.libsyn.com/index.php?post_id=268775.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.684] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=263904.">http://japanese.libsyn.com/index.php?post_id=263904.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.685] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=264311.">http://japanese.libsyn.com/index.php?post_id=264311.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.685] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=264234.">http://japanese.libsyn.com/index.php?post_id=264234.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.686] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=262943.">http://japanese.libsyn.com/index.php?post_id=262943.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.687] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=262936.">http://japanese.libsyn.com/index.php?post_id=262936.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.688] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=260868.">http://japanese.libsyn.com/index.php?post_id=260868.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.688] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=259980.">http://japanese.libsyn.com/index.php?post_id=259980.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.689] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=259560.">http://japanese.libsyn.com/index.php?post_id=259560.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.690] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=255996.">http://japanese.libsyn.com/index.php?post_id=255996.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.692] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=250296.">http://japanese.libsyn.com/index.php?post_id=250296.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.692] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=250311.">http://japanese.libsyn.com/index.php?post_id=250311.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.693] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=250259.">http://japanese.libsyn.com/index.php?post_id=250259.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.694] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=249877.">http://japanese.libsyn.com/index.php?post_id=249877.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.695] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=247544.">http://japanese.libsyn.com/index.php?post_id=247544.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.696] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=247131.">http://japanese.libsyn.com/index.php?post_id=247131.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.697] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=245405.">http://japanese.libsyn.com/index.php?post_id=245405.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.697] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=240450.">http://japanese.libsyn.com/index.php?post_id=240450.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.698] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=240314.">http://japanese.libsyn.com/index.php?post_id=240314.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.700] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=217543.">http://japanese.libsyn.com/index.php?post_id=217543.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.700] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=216512.">http://japanese.libsyn.com/index.php?post_id=216512.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.701] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=214576.">http://japanese.libsyn.com/index.php?post_id=214576.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.703] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=212882.">http://japanese.libsyn.com/index.php?post_id=212882.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.704] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=212102.">http://japanese.libsyn.com/index.php?post_id=212102.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.705] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=210327.">http://japanese.libsyn.com/index.php?post_id=210327.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.707] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=200373.">http://japanese.libsyn.com/index.php?post_id=200373.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.707] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=199566.">http://japanese.libsyn.com/index.php?post_id=199566.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.710] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=193978.">http://japanese.libsyn.com/index.php?post_id=193978.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.711] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=193526.">http://japanese.libsyn.com/index.php?post_id=193526.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.712] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=187953.">http://japanese.libsyn.com/index.php?post_id=187953.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.717] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=149758.">http://japanese.libsyn.com/index.php?post_id=149758.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.717] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=149751.">http://japanese.libsyn.com/index.php?post_id=149751.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.718] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=149747.">http://japanese.libsyn.com/index.php?post_id=149747.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.720] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=135043.">http://japanese.libsyn.com/index.php?post_id=135043.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.723] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=119846.">http://japanese.libsyn.com/index.php?post_id=119846.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.724] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=118771.">http://japanese.libsyn.com/index.php?post_id=118771.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.726] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=118067.">http://japanese.libsyn.com/index.php?post_id=118067.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.727] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=117347.">http://japanese.libsyn.com/index.php?post_id=117347.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.727] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=117333.">http://japanese.libsyn.com/index.php?post_id=117333.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.728] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=114846.">http://japanese.libsyn.com/index.php?post_id=114846.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.729] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=114843.">http://japanese.libsyn.com/index.php?post_id=114843.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.730] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=114762.">http://japanese.libsyn.com/index.php?post_id=114762.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.731] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=112733.">http://japanese.libsyn.com/index.php?post_id=112733.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.732] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=112714.">http://japanese.libsyn.com/index.php?post_id=112714.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.734] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=98763.">http://japanese.libsyn.com/index.php?post_id=98763.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.735] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=97716.">http://japanese.libsyn.com/index.php?post_id=97716.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.736] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=94203.">http://japanese.libsyn.com/index.php?post_id=94203.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.736] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=94194.">http://japanese.libsyn.com/index.php?post_id=94194.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.737] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=89270.">http://japanese.libsyn.com/index.php?post_id=89270.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.738] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=89269.">http://japanese.libsyn.com/index.php?post_id=89269.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.739] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=87719.">http://japanese.libsyn.com/index.php?post_id=87719.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.740] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=87718.">http://japanese.libsyn.com/index.php?post_id=87718.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.741] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=84883.">http://japanese.libsyn.com/index.php?post_id=84883.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.743] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=79720.">http://japanese.libsyn.com/index.php?post_id=79720.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.744] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=78668.">http://japanese.libsyn.com/index.php?post_id=78668.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.746] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=70231.">http://japanese.libsyn.com/index.php?post_id=70231.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.746] (podcastChannel) Cannot instantiate episode: <A HREF="http://japanese.libsyn.com/index.php?post_id=69954.">http://japanese.libsyn.com/index.php?post_id=69954.</A> Skipping.
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 180, in get_by_url
+    episode = podcastItem.from_feedparser_entry( entry, channel)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 644, in from_feedparser_entry
+    raise ValueError( 'Episode has an invalid URL')
+ValueError: Episode has an invalid URL
+
+[   1.863] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.863] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.863] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.865] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.866] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.969] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.969] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.969] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.970] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.970] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.970] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.970] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.970] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.970] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.971] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+[   1.973] (podcastItem) pubDate equal, comparing titles (buggy feed?)
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 1137, in update_feed_cache_finish_callback
+    self.updateComboBox(selected_url=select_url_afterwards)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/gui.py&quot;, line 1031, in updateComboBox
+    self.treeChannels.set_model(channels_to_model(self.channels))
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 850, in channels_to_model
+    (count_available, count_downloaded, count_new, count_unplayed) = channel.get_episode_stats()
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 467, in get_episode_stats
+    if self.episode_is_new(episode, last_pubdate):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 345, in episode_is_new
+    if episode.is_downloaded() or gl.history_is_downloaded(episode.url):
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 712, in is_downloaded
+    return os.path.exists( self.local_filename())
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/libpodcasts.py&quot;, line 734, in local_filename
+    episode = util.sanitize_filename(episode)
+  File &quot;/usr/lib/python2.5/site-packages/gpodder/util.py&quot;, line 944, in sanitize_filename
+    log('Limiting file/folder name &quot;%s&quot; to %d characters.', filename, max_length, sender=self)
+NameError: global name 'self' is not defined
+[   4.124] start reader
+[   4.144] (UserAppsReader) Player found: /usr/share/applications/easytag.desktop
+[   4.178] (UserAppsReader) Player found: /usr/share/applications/mplayer.desktop
+[   4.200] (UserAppsReader) Player found: /usr/share/applications/totem.desktop
+[   4.212] (UserAppsReader) Player found: /usr/share/applications/audacious.desktop
+[   4.214] (UserAppsReader) Player found: /usr/share/applications/audacity.desktop
+[   4.216] end reader (benchmark: 0.0922 seconds)
+[   5.137] (Config) Update: main_window_x = 109
+[   5.141] (Config) Update: main_window_y = 99
+[   7.769] (Config) Update: main_window_x = 99
+[   7.770] (Config) Update: main_window_y = 74
+[   8.493] (Config) Update: main_window_y = 72
+[  11.990] (Config) Flushing settings to disk
+Unhandled exception in thread started by 
+Error in sys.excepthook:
+
+Original exception was:
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: podcasts.opml
+Type: text/x-opml+xml
+Size: 8948 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080613/9d9b3978/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080613/9d9b3978/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001524.html">[gpodder-devel] Updated Portuguese Translation .po
+</A></li>
+	<LI>Next message: <A HREF="001509.html">[gpodder-devel] Feedback on experimental_file_naming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1508">[ date ]</a>
+              <a href="thread.html#1508">[ thread ]</a>
+              <a href="subject.html#1508">[ subject ]</a>
+              <a href="author.html#1508">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

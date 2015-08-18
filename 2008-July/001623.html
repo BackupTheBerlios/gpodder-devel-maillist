@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Most revision buggy?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C400813.31346.qm%40web65503.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001622.html">
+   <LINK REL="Next"  HREF="001624.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Most revision buggy?</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Most%20revision%20buggy%3F&In-Reply-To=%3C400813.31346.qm%40web65503.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Most revision buggy?">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Mon Jul 14 06:35:53 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001622.html">[gpodder-devel] Most revision buggy?
+</A></li>
+        <LI>Next message: <A HREF="001624.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1623">[ date ]</a>
+              <a href="thread.html#1623">[ thread ]</a>
+              <a href="subject.html#1623">[ subject ]</a>
+              <a href="author.html#1623">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Nick, sorry for a double reply but I realized that my mail did not go to the list as intended.
+
+The two bugs in version 766 have been fixed, so that's fine. I think that requiring Python 2.5 as a dependency is a bit much. I have a 'standard' gentoo system, updated on a weekly or so basis, and gentoo has not yet entered python 2.5 in the stable packages, so obviously Python 2.5 is not yet fully mainstream.
+
+However, in version 768 I have a bug that I encountered earlier, then it went away, has been back occasionally, but now it is getting annoying. Every time (almost) when I try to sync something, I get errors like:
+
+Exception in thread Thread-125:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/rooijen/gpodder/src/gpodder/services.py&quot;, line 169, in __get_cover
+    loader.write(open(channel.cover_file, 'rb').read())
+GError: Unrecognized image file format
+
+[  58.478] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+[  58.479] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[  58.524] (podcastChannel) Generating TreeModel for <A HREF="http://pod.j-wave.co.jp/blog/wakeuptokyo/pym.xml">http://pod.j-wave.co.jp/blog/wakeuptokyo/pym.xml</A>
+[  58.850] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[  58.874] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+Xlib: unexpected async reply (sequence 0x10ee1)!
+*** glibc detected *** python: double free or corruption (!prev): 0x08feee50 ***
+make: *** [test] Killed
+
+or
+
+[  33.041] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+[  33.045] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[  33.073] (podcastChannel) Generating TreeModel for <A HREF="http://www.npr.org/rss/podcast.php?id=35">http://www.npr.org/rss/podcast.php?id=35</A>
+[  33.439] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+[  33.448] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+Xlib: unexpected async reply (sequence 0x8eee)!
+
+or
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ bin/gpodder --local --verbose
+[   0.182] Detected encoding: UTF-8
+[   0.199] (gPodderLib) Creating gPodderLib()
+[   0.206] (Storage) Setting up SQLite database
+[   0.207] SQLite connection for thread 1076535232 opened.
+[   0.216] (ConverterCollection) Found &quot;oggdec&quot;, will try to convert &quot;.ogg&quot; files.
+[   0.216] (tagupdate) eyed3 not found -- tag update disabled
+[   0.217] (gpodder.sync) Could not find gpod
+[   0.217] (gpodder.sync) Could not find pymad
+[   0.217] (gpodder.sync) Could not find eyeD3
+[   0.218] (gpodder.sync) Could not find Python Imaging Library (PIL)
+[   0.219] Patching feedparser module... (mapContentType bugfix)
+[   0.296] (GPodderStatusIcon) Creating tray icon
+[   0.521] (Storage) Channel list read, 25 entries.
+[   0.527] Trying to delete: /home/rooijen/gpodder-downloads/11ec88405f822a32d537e0d83d01e871/.tmp-36ac466ccab3aa4c67a0ed028947fbba.mp3
+[   0.530] Trying to delete: /home/rooijen/gpodder-downloads/11ec88405f822a32d537e0d83d01e871/.tmp-3339f2b4e7bace3a543186ac278471fe.mp3
+[   0.540] SQLite connection for thread 1102883728 opened.
+[   0.545] (Storage) Channel list read, 25 entries.
+[   0.545] (gPodder) auto_update_procedure() got called
+Exception in thread Thread-23:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/rooijen/gpodder/src/gpodder/services.py&quot;, line 169, in __get_cover
+    loader.write(open(channel.cover_file, 'rb').read())
+GError: Unrecognized image file format
+
+[   1.143] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+[   1.165] (CoverDownloader) Trying to download: <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[   1.177] (podcastChannel) Generating TreeModel for <A HREF="http://podthemusic.pod-radio.jp/rss20">http://podthemusic.pod-radio.jp/rss20</A>
+[   1.556] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg">http://fm-kyoto.jp/podcast/midnight_session/images/podcast_midnight_session.jpg</A>
+[   1.562] (CoverDownloader) Cannot get image from <A HREF="http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg">http://fm-kyoto.jp/podcast/radio_scrap/images/podcast_radio_scrap.jpg</A>
+[   3.522] start reader
+[   3.589] (podcastChannel) Generating TreeModel for <A HREF="http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml">http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml</A>
+[   3.630] (UserAppsReader) Player found: /usr/share/applications/easytag.desktop
+[   3.813] (UserAppsReader) Player found: /usr/share/applications/totem.desktop
+[   3.828] (UserAppsReader) Player found: /usr/share/applications/vlc.desktop
+[   3.848] end reader (benchmark: 0.3262 seconds)
+Xlib: unexpected async reply (sequence 0x2720)!
+Xlib: sequence lost (0x10014 &gt; 0x2720) in reply type 0x17!
+Xlib: sequence lost (0x10006 &gt; 0x2720) in reply type 0x5!
+Xlib: sequence lost (0x1004e &gt; 0x2720) in reply type 0x5f!
+
+What is going on here?
+
+Cheerio,
+Wilfred
+
+
+
+--- On Sun, 7/13/08, nikosapi &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">me at nikosapi.org</A>&gt; wrote:
+
+&gt;<i> From: nikosapi &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">me at nikosapi.org</A>&gt;
+</I>&gt;<i> Subject: Re: [gpodder-devel] Most revision buggy?
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">wvanrooijen at yahoo.com</A>, &quot;Development for gPodder&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>&gt;
+</I>&gt;<i> Date: Sunday, July 13, 2008, 3:38 PM
+</I>&gt;<i> On July 13, 2008 14:18:53 Wilfred van Rooijen wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I updated to the latest SVN version of gpodder and I
+</I>&gt;<i> am experiencing some
+</I>&gt;<i> &gt; hickups:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 1. gpodder doesn't start, but gives a syntax error
+</I>&gt;<i> in draw.py, line 47:
+</I>&gt;<i> &gt; offset = 0.5 if close else 0
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I 'patched' using some ugly code, because
+</I>&gt;<i> I'm unfamiliar with Python
+</I>&gt;<i> &gt; syntax.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2. Now gpodder starts, but when I try to sync an
+</I>&gt;<i> episode, I get:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 442, in __bootstrap
+</I>&gt;<i> &gt;     self.run()
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 422, in run
+</I>&gt;<i> &gt;     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line
+</I>&gt;<i> 1695, in
+</I>&gt;<i> &gt; sync_to_ipod_thread if not
+</I>&gt;<i> device.episode_on_device(episode):
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/sync.py&quot;, line
+</I>&gt;<i> 598, in
+</I>&gt;<i> &gt; episode_on_device return self.__track_on_device(e)
+</I>&gt;<i> &gt; AttributeError: 'MP3PlayerDevice' object has
+</I>&gt;<i> no attribute
+</I>&gt;<i> &gt; '_MP3PlayerDevice__track_on_device'
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Exception in thread Thread-714:
+</I>&gt;<i> &gt; Traceback (most recent call last):
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 442, in __bootstrap
+</I>&gt;<i> &gt;     self.run()
+</I>&gt;<i> &gt;   File &quot;/usr/lib/python2.4/threading.py&quot;,
+</I>&gt;<i> line 422, in run
+</I>&gt;<i> &gt;     self.__target(*self.__args, **self.__kwargs)
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/gui.py&quot;, line
+</I>&gt;<i> 1695, in
+</I>&gt;<i> &gt; sync_to_ipod_thread if not
+</I>&gt;<i> device.episode_on_device(episode):
+</I>&gt;<i> &gt;   File
+</I>&gt;<i> &quot;/home/rooijen/gpodder/src/gpodder/sync.py&quot;, line
+</I>&gt;<i> 598, in
+</I>&gt;<i> &gt; episode_on_device return self.__track_on_device(e)
+</I>&gt;<i> &gt; AttributeError: 'MP3PlayerDevice' object has
+</I>&gt;<i> no attribute
+</I>&gt;<i> &gt; '_MP3PlayerDevice__track_on_device'
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I don't know what this means :-)).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Cheerio,
+</I>&gt;<i> &gt; Wilfred
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>&gt;<i> Both bugs are fixed in the latest trunk, thanks for the
+</I>&gt;<i> report.
+</I>&gt;<i> 
+</I>&gt;<i> The first one is caused because you're using python
+</I>&gt;<i> 2.4, perhaps you should 
+</I>&gt;<i> upgrade to 2.5... The second one is a mistake I made, sorry
+</I>&gt;<i> :S
+</I>&gt;<i> 
+</I>&gt;<i> nick
+</I>
+
+      
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001622.html">[gpodder-devel] Most revision buggy?
+</A></li>
+	<LI>Next message: <A HREF="001624.html">[gpodder-devel] Most revision buggy?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1623">[ date ]</a>
+              <a href="thread.html#1623">[ thread ]</a>
+              <a href="subject.html#1623">[ subject ]</a>
+              <a href="author.html#1623">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

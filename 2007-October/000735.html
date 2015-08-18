@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Non-human readable directory and file names
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C1193858764.5183.10.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000728.html">
+   <LINK REL="Next"  HREF="000729.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Non-human readable directory and file names</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Non-human%20readable%20directory%20and%20file%20names&In-Reply-To=%3C1193858764.5183.10.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Non-human readable directory and file names">thp at perli.net
+       </A><BR>
+    <I>Wed Oct 31 20:26:04 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000728.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+        <LI>Next message: <A HREF="000729.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#735">[ date ]</a>
+              <a href="thread.html#735">[ thread ]</a>
+              <a href="subject.html#735">[ subject ]</a>
+              <a href="author.html#735">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Pieter!
+
+On Wed, 2007-10-31 at 15:54 +0100, Pieter De Decker wrote:
+&gt;<i> I have tested the patch though. It works smooth as far as I can tell.
+</I>
+Great :) I still have to find out how to run an &quot;open folder&quot; action in
+a pythonified and cross-platform way, so it works without Gnome and even
+on Windows (i.e. KDE people would want konqueror, XFCE people thunar,
+Windows people Explorer, GNUStep people GWorkspace, ...). Maybe I'll
+post a blog entry that will be published on PlanetPython, there are
+knowledgeable Python people there, any maybe such a thing already exists
+somewhere out there.
+
+&gt;<i> I also tried to run the Python script you attached to your mail. But
+</I>&gt;<i> then this happened:
+</I>&gt;<i> 
+</I>&gt;<i> -----
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;describe_gpodder_downloads.py&quot;, line 5, in &lt;module&gt;
+</I>&gt;<i>     import gpodder.libpodcasts
+</I>&gt;<i>   File &quot;/var/lib/python-support/python2.5/gpodder/libpodcasts.py&quot;,
+</I>&gt;<i> line
+</I>&gt;<i> 36, in &lt;module&gt;
+</I>&gt;<i>     import libgpodder
+</I>&gt;<i>   File &quot;/var/lib/python-support/python2.5/gpodder/libgpodder.py&quot;, line
+</I>&gt;<i> 72, in &lt;module&gt;
+</I>&gt;<i>     from librssreader import rssReader
+</I>&gt;<i>   File &quot;/var/lib/python-support/python2.5/gpodder/librssreader.py&quot;,
+</I>&gt;<i> line
+</I>&gt;<i> 38, in &lt;module&gt;
+</I>&gt;<i>     from libpodcasts import podcastChannel
+</I>&gt;<i> ImportError: cannot import name podcastChannel
+</I>&gt;<i> -----
+</I>&gt;<i> 
+</I>&gt;<i> Am I supposed to run this script in gPodder's SVN directory? I have
+</I>&gt;<i> got an older version of gPodder installed on my system (v0.9.5, to be
+</I>&gt;<i> exact). I'm guessing that it doesn't work because you recently
+</I>&gt;<i> restructured some of your libraries. Is this true?
+</I>
+True indeed. Try placing the script in &quot;src/&quot;, relative to the SVN
+checkout root. Alternatively (this is what I did), run it like this:
+
+PYTHONPATH=/path/to/gpodder/src/ python describe_gpodder_downloads.py
+
+As you see when looking at the script, the &quot;gpodder&quot; python module isn't
+completely usable as a module yet, but the re-organization done in
+0.10.0 is a huge step towards a &quot;gpodder&quot; library that can be used from
+scripts :) Another item on the TODO list, but very cool when we done =)
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000728.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+	<LI>Next message: <A HREF="000729.html">[gpodder-devel] Non-human readable directory and file names
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#735">[ date ]</a>
+              <a href="thread.html#735">[ thread ]</a>
+              <a href="subject.html#735">[ subject ]</a>
+              <a href="author.html#735">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

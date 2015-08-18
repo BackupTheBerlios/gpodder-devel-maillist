@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] [PATCH] systray icon with notification
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20systray%20icon%20with%20notification&In-Reply-To=%3C20071221131752.C305ACC314%40ifrance00.ifrance.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000961.html">
+   <LINK REL="Next"  HREF="000966.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] [PATCH] systray icon with notification</H1>
+    <B>jerome.chabod at ifrance.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%5BPATCH%5D%20systray%20icon%20with%20notification&In-Reply-To=%3C20071221131752.C305ACC314%40ifrance00.ifrance.com%3E"
+       TITLE="[gpodder-devel] [PATCH] systray icon with notification">jerome.chabod at ifrance.com
+       </A><BR>
+    <I>Fri Dec 21 14:17:52 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000961.html">[gpodder-devel] gpodder install error
+</A></li>
+        <LI>Next message: <A HREF="000966.html">[gpodder-devel] [PATCH] systray icon with notification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#964">[ date ]</a>
+              <a href="thread.html#964">[ thread ]</a>
+              <a href="subject.html#964">[ subject ]</a>
+              <a href="author.html#964">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Here it is. After diving into python and gPodder code ( I must say gPodder is often nicely implemented so it wasn't too hard, maybe comments are sometime missing) and spending hours seaking on internet, I'm able to deliver you a patch with a first implentation of a status icon on the sytem tray.
+
+Please, try it, test it and/or review its code (it should be easy to review since it almost consist of one class), and share you comments, suggestions, critisms with us.
+
+regard,
+J&#233;r&#244;me Chabod
+
+-------------------------------------------------------------
+
+WHAT IT DOES:
+-------------
+It displays an icon in the sytem tray after gPodder starts. This icon allows following features:
+* hide/show gpodder
+&#160;&#160;&#160; left clicking several times on this icon will respectively bring gPodder to front (if not already), hide gPodder (only the icon will remain visible), show gPodder again.
+* popup menu
+&#160;&#160;&#160; right clicking on the icon will popup a menu for quick access to some gPodder functionality (&quot;update feed&quot;, &quot;download all episodes&quot;, &quot;pr&#233;ferences&quot;, &quot;about&quot; and &quot;exit&quot;)
+* download status and notification
+&#160;&#160;&#160; during gPodder is downloading, the icons's tooltip will display how many files are currently dowloading and the progression percentage.
+&#160;&#160;&#160; Once all downloads are finished (terminated or canceled), a notification message is poped up
+
+GOAL:
+-----
+My idea behind this icon is to have gPodder starting automaticaly and running in background for its daily job. To achieve that, gPodder should be able to:
+1. start hidden, only the icon should be visible (activated by a configuration option)
+2. check for new episodes (either automaticaly at startup&#160; - a configuration flag already exists -, triggered by the icon's popup menu or even periodically)
+3. inform: status in tooltip and special icon, notification after update
+4. download new episodes (either automaticaly when new episodes where found - a configuration flag already exists - or triggered by the popup menu)
+5. inform: status in tooltip and special icon, notification after download
+6. notify errors and troubleshouting
+
+TODO:
+-----
+* add configuration options: 
+&#160;&#160;&#160; - show icon in systray (on by default)
+&#160;&#160;&#160; - display notification (on by default)
+&#160;&#160;&#160; - start gPodder iconified (off by default)
+&#160;&#160;&#160; - 4 options when exiting gPodder: &quot;exit&quot;, &quot;run in systray&quot;, &quot;run in systray until all downloads finished&quot;, &quot;ask me&quot; (&quot;ask me&quot; by default)
+* status and notification for channel updates (check for new episodes)
+* status and notification for mp3 device synchronisation
+* add a status symbol to the icon: dowloading, checking for new episodes, synchronising (if somebody could help here)
+* check periodically for new episode (peridiodicity should be configurable)
+* error handling: what to do in case of error?&#160; 
+&#160;&#160;&#160; - critical errors where the use can't help (bug, missing dependency...).
+&#160;&#160;&#160; - troubleshouting where the user might do something (server down, xml invalid, disk full, ...). 
+&#160;&#160;&#160; Maybe send a notification popup and make icon blinking
+
+
+________________________________________________________________________
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071221/242e3193/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071221/242e3193/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r502_status_icon.patch
+Type: application/octet-stream
+ name=&quot;=?utf-8?b?z3bvzgrlcl9yntayx3n0yxr1c19py29ulnbhdgno?=&quot;
+Size: 5908 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071221/242e3193/attachment.bin">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071221/242e3193/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000961.html">[gpodder-devel] gpodder install error
+</A></li>
+	<LI>Next message: <A HREF="000966.html">[gpodder-devel] [PATCH] systray icon with notification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#964">[ date ]</a>
+              <a href="thread.html#964">[ thread ]</a>
+              <a href="subject.html#964">[ subject ]</a>
+              <a href="author.html#964">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

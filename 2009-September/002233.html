@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Don't check on_quit_ask if on_quit_systray is set
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Don%27t%20check%20on_quit_ask%20if%20on_quit_systray%20is%20set&In-Reply-To=%3C1fce283b0909150615o98e9ad5qfa53ca8de62bdaf2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002250.html">
+   <LINK REL="Next"  HREF="002235.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Don't check on_quit_ask if on_quit_systray is set</H1>
+    <B>Andreas B&#246;ttger</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Don%27t%20check%20on_quit_ask%20if%20on_quit_systray%20is%20set&In-Reply-To=%3C1fce283b0909150615o98e9ad5qfa53ca8de62bdaf2%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Don't check on_quit_ask if on_quit_systray is set">andreas.boettger at gmx.de
+       </A><BR>
+    <I>Tue Sep 15 15:15:35 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002250.html">[gpodder-devel] Bugzilla Upgraded to 3.4.1
+</A></li>
+        <LI>Next message: <A HREF="002235.html">[gpodder-devel] Don't check on_quit_ask if on_quit_systray is	set
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2233">[ date ]</a>
+              <a href="thread.html#2233">[ thread ]</a>
+              <a href="subject.html#2233">[ subject ]</a>
+              <a href="author.html#2233">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>src/gpodder/gui.py |   54 ++++++++++++++++++++++++++----
+----------------------
+ 1 files changed, 27 insertions(+), 27 deletions(-)
+
+diff --git a/src/gpodder/gui.py b/src/gpodder/gui.py
+index cbbf70f..c3c248e 100644
+--- a/src/gpodder/gui.py
++++ b/src/gpodder/gui.py
+@@ -128,7 +128,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         self.db = Database(gpodder.database_file)
+         self.config = config
+         BuilderWidget.__init__(self, None)
+-
++
+     def new(self):
+         if gpodder.interface == gpodder.MAEMO:
+             self.app = hildon.Program()
+@@ -173,7 +173,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+         self.itemShowToolbar.set_active(self.config.show_toolbar)
+
+self.itemShowDescription.set_active(self.config.episode_list_descriptions)
+-
++
+         self.config.connect_gtk_spinbutton('max_downloads',
+self.spinMaxDownloads)
+         self.config.connect_gtk_togglebutton('max_downloads_enabled',
+self.cbMaxDownloads)
+         self.config.connect_gtk_spinbutton('limit_rate_value',
+self.spinLimitDownloads)
+@@ -1025,7 +1025,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             menu.append( item)
+
+             menu.show_all()
+-            # Disable tooltips while we are showing the menu, so
++            # Disable tooltips while we are showing the menu, so
+             # the tooltip will not appear over the menu
+             self.treeview_allow_tooltips(self.treeChannels, False)
+             menu.connect('deactivate', lambda menushell:
+self.treeview_allow_tooltips(self.treeChannels, True))
+@@ -1046,7 +1046,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         have to update our model to reflect this change.
+         &quot;&quot;&quot;
+         self.podcast_list_model.delete_cover_by_url(channel_url)
+-
++
+     def cover_download_finished(self, channel_url, pixbuf):
+         &quot;&quot;&quot;
+         The Cover Downloader calls this when it has finished
+@@ -1257,7 +1257,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+item.set_image(gtk.image_new_from_icon_name(ICON('web-browser'),
+gtk.ICON_SIZE_MENU))
+                 item.connect('activate', lambda w:
+util.open_website(episodes[0].link))
+                 menu.append(self.set_finger_friendly(item))
+-
++
+             if gpodder.interface == gpodder.MAEMO:
+                 # Because we open the popup on left-click for Maemo,
+                 # we also include a non-action to close the menu
+@@ -1267,7 +1267,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 menu.append(self.set_finger_friendly(item))
+
+             menu.show_all()
+-            # Disable tooltips while we are showing the menu, so
++            # Disable tooltips while we are showing the menu, so
+             # the tooltip will not appear over the menu
+             self.treeview_allow_tooltips(self.treeAvailable, False)
+             menu.connect('deactivate', lambda menushell:
+self.treeview_allow_tooltips(self.treeAvailable, True))
+@@ -1427,7 +1427,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         selection = self.treeAvailable.get_selection()
+         if selection.count_selected_rows() &gt; 0:
+             (model, paths) = selection.get_selected_rows()
+-
++
+             for path in paths:
+                 episode = model.get_value(model.get_iter(path),
+EpisodeListModel.C_EPISODE)
+
+@@ -1577,7 +1577,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             threading.Thread(target=do_update_episode_list_model).start()
+         else:
+             self.episode_list_model.clear()
+-
++
+     def offer_new_episodes(self, channels=None):
+         new_episodes = self.get_new_episodes(channels)
+         if new_episodes:
+@@ -1791,10 +1791,10 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                     self.new_episodes_show(episodes, notification=True)
+                 else:
+                     if len(episodes) == 1:
+-                        message = _('One new episode is available for
+download')
++                        message = _('One new episode is available for
+download')
+                     else:
+                         message = _('%i new episodes are available for
+download' % len(episodes))
+-
++
+                     self.pbFeedUpdate.set_text(message)
+
+     def _update_cover(self, channel):
+@@ -1859,7 +1859,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             self.show_update_feeds_buttons()
+
+     def update_feed_cache(self, channels=None, force_update=True,
+select_url_afterwards=None):
+-        if self.updating_feed_cache:
++        if self.updating_feed_cache:
+             return
+
+         if not force_update:
+@@ -1867,14 +1867,14 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             self.channel_list_changed = True
+
+self.update_podcast_list_model(select_url=select_url_afterwards)
+             return
+-
++
+         self.updating_feed_cache = True
+         self.itemUpdate.set_sensitive(False)
+         self.itemUpdateChannel.set_sensitive(False)
+
+         if self.tray_icon:
+
+self.tray_icon.set_status(self.tray_icon.STATUS_UPDATING_FEED_CACHE)
+-
++
+         if channels is None:
+             channels = self.channels
+
+@@ -1910,7 +1910,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+         # Only iconify if we are using the window's &quot;X&quot; button,
+         # but not when we are using &quot;Quit&quot; in the menu or toolbar
+-        if not self.config.on_quit_ask and self.config.on_quit_systray and
+self.tray_icon and widget.get_name() not in ('toolQuit', 'itemQuit'):
++        if self.config.on_quit_systray and self.tray_icon and
+widget.get_name() not in ('toolQuit', 'itemQuit'):
+             self.iconify_main_window()
+         elif self.config.on_quit_ask or downloading:
+             if gpodder.interface == gpodder.MAEMO:
+@@ -2334,12 +2334,12 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 return False
+
+         return True
+-
++
+     def my_gpodder_offer_autoupload(self):
+         if not self.config.my_gpodder_autoupload:
+             if self.show_confirmation(_('gPodder can automatically upload
+your subscription list to my.gpodder.org when you close it. Do you want to
+enable this feature?'), _('Upload subscriptions on quit')):
+                 self.config.my_gpodder_autoupload = True
+-
++
+     def on_download_from_mygpo(self, widget):
+         if self.require_my_gpodder_authentication():
+             client = my.MygPodderClient(self.config.my_gpodder_username,
+self.config.my_gpodder_password)
+@@ -2420,10 +2420,10 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+                 title = _('Remove podcast and episodes?')
+                 message = _('Do you really want to remove &lt;b&gt;%s&lt;/b&gt; and all
+downloaded episodes?') % saxutils.escape(self.active_channel.title)
+-
++
+                 dialog.set_title(title)
+                 dialog.set_markup('&lt;span weight=&quot;bold&quot;
+size=&quot;larger&quot;&gt;%s&lt;/span&gt;\n\n%s'%(title, message))
+-
++
+                 cb_ask = gtk.CheckButton(_('Do not delete my downloaded
+episodes'))
+                 dialog.vbox.pack_start(cb_ask)
+                 cb_ask.show_all()
+@@ -2461,7 +2461,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                     # there is a podcast after the deleted one, so
+                     # we simply select the one that comes after it
+                     select_url = self.channels[position+1].url
+-
++
+                 # Remove the channel
+                 self.active_channel.delete(purge=not keep_episodes)
+                 self.channels.remove(self.active_channel)
+@@ -2583,7 +2583,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+
+dlg.set_logo(gtk.gdk.pixbuf_new_from_file(gpodder.icon_file))
+             except:
+                 dlg.set_logo_icon_name('gpodder')
+-
++
+         dlg.run()
+
+     def on_wNotebook_switch_page(self, widget, *args):
+@@ -2674,13 +2674,13 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         &quot;&quot;&quot;Double-click/enter action handler for treeAvailable&quot;&quot;&quot;
+         # We should only have one one selected as it was double clicked!
+         e = self.get_selected_episodes()[0]
+-
++
+         if (self.config.double_click_episode_action == 'download'):
+             # If the episode has already been downloaded and exists then
+play it
+             if e.was_downloaded(and_exists=True):
+                 self.playback_episodes(self.get_selected_episodes())
+             # else download it if it is not already downloading
+-            elif not self.episode_is_downloading(e):
++            elif not self.episode_is_downloading(e):
+                 self.download_episode_list([e])
+                 self.update_episode_list_icons([e.url])
+                 self.play_or_download()
+@@ -2688,7 +2688,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+             # If we happen to have downloaded this episode simple play it
+             if e.was_downloaded(and_exists=True):
+                 self.playback_episodes(self.get_selected_episodes())
+-            # else if streaming is possible stream it
++            # else if streaming is possible stream it
+             elif self.streaming_possible():
+                 self.playback_episodes(self.get_selected_episodes())
+             else:
+@@ -2734,7 +2734,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+                 self.enable_download_list_update()
+             elif task.status == task.DONE:
+                 model.remove(model.get_iter(tree_row_reference.get_path()))
+-
++
+         self.play_or_download()
+
+         # Update the tab title and downloads list
+@@ -2780,7 +2780,7 @@ class gPodder(BuilderWidget, dbus.service.Object):
+         # so if we are not a Maemo app, we don't do anything
+         if gpodder.interface != gpodder.MAEMO:
+             return False
+-
++
+         diff = 0
+         if event.keyval == gtk.keysyms.F7: #plus
+             diff = 1
+@@ -2816,10 +2816,10 @@ class gPodder(BuilderWidget, dbus.service.Object):
+     def uniconify_main_window(self):
+         if self.is_iconified():
+             self.gPodder.present()
+-
++
+     def iconify_main_window(self):
+         if not self.is_iconified():
+-            self.gPodder.iconify()
++            self.gPodder.iconify()
+
+     def update_podcasts_tab(self):
+         if len(self.channels):
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090915/5b37a3f6/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20090915/5b37a3f6/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002250.html">[gpodder-devel] Bugzilla Upgraded to 3.4.1
+</A></li>
+	<LI>Next message: <A HREF="002235.html">[gpodder-devel] Don't check on_quit_ask if on_quit_systray is	set
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2233">[ date ]</a>
+              <a href="thread.html#2233">[ thread ]</a>
+              <a href="subject.html#2233">[ subject ]</a>
+              <a href="author.html#2233">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

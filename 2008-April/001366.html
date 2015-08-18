@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Mmmmm....%20sync%27ing%20is%20out%20of%20sync%20%3A-%29%29&In-Reply-To=%3C782223.42227.qm%40web65509.mail.ac4.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001362.html">
+   <LINK REL="Next"  HREF="001368.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))</H1>
+    <B>Wilfred van Rooijen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Mmmmm....%20sync%27ing%20is%20out%20of%20sync%20%3A-%29%29&In-Reply-To=%3C782223.42227.qm%40web65509.mail.ac4.yahoo.com%3E"
+       TITLE="[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))">wvanrooijen at yahoo.com
+       </A><BR>
+    <I>Sun Apr  6 16:41:13 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001362.html">[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+</A></li>
+        <LI>Next message: <A HREF="001368.html">[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1366">[ date ]</a>
+              <a href="thread.html#1366">[ thread ]</a>
+              <a href="subject.html#1366">[ subject ]</a>
+              <a href="author.html#1366">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey Thomas,
+
+I downloaded v653. It seems that this version is less
+prone to the Xlib freeze, but it still happens. My
+report:
+
+- first attempt: started gpodder, selected 4 episodes
+for sync, immediate Xlib error and freeze. I click on
+the 'close' button, get the dialog from Gnome
+('application not responding'), and then click 'Force
+quit'
+
+- second attempt: restarted gpodder, selected same
+four episodes, no crash. Then selected 4 episodes from
+other channel, and transferred OK. Removed last 4
+episodes from iPod, reselected them in gpodder, tried
+'transfer', resulting in Xlib freeze.
+
+In other words: it seems a bit erratic. This is the
+log:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">rooijen at love206a-rooijen</A> ~/gpodder $ bin/gpodder
+--local --verbose
+[   0.431] (gPodderLib) Creating gPodderLib()
+[   0.457] (HistoryStore) Creating new history list.
+[   0.476] (ConverterCollection) Found &quot;oggdec&quot;, will
+try to convert &quot;.ogg&quot; files.
+[   0.477] (tagupdate) eyed3 not found -- tag update
+disabled
+[   0.478] (gpodder.sync) Could not find gpod
+[   0.479] (gpodder.sync) Could not find pymad
+[   0.479] (gpodder.sync) Could not find eyeD3
+[   0.497] Patching feedparser module...
+(mapContentType bugfix)
+[   1.219] (GPodderStatusIcon) Creating tray icon
+[   1.973] (podcastChannel) Cannot instantiate
+episode:
+<A HREF="http://download.publicradio.org/podcast/phc/2008/03/29_nflw_64.mp3.">http://download.publicradio.org/podcast/phc/2008/03/29_nflw_64.mp3.</A>
+Skipping.
+[   2.836] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[   3.292] (podcastChannel) Generating TreeModel for
+<A HREF="http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml">http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml</A>
+[   3.345] (gPodder) auto_update_procedure() got
+called
+[   4.816] start reader
+[   4.941] (UserAppsReader) Player found:
+/usr/share/applications/easytag.desktop
+[   5.493] (UserAppsReader) Player found:
+/usr/share/applications/totem.desktop
+[   5.596] (UserAppsReader) Player found:
+/usr/share/applications/vlc.desktop
+[   5.676] end reader (benchmark: 0.8598 seconds)
+[   9.352] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/slashdotdash">http://www.kxmedia.nl/slashdotdash</A>
+[  14.788] (MP3PlayerDevice) Detected encoding: UTF-8
+[  15.130] (GPodderStatusIcon) tooltip: Adding
+2008-04-02-slashdotdash1
+1 of 4 done
+[  17.032] (MP3PlayerDevice) Copying
+cff36e8f5c03cc84b865bede91ba1f48.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Slash dot slash
+- Jurgen van den Berg/2008-04-02-slashdotdash1.mp3
+[  25.568] (GPodderStatusIcon) tooltip: Adding
+2008-04-02-slashdotdash2
+2 of 4 done
+[  25.571] (MP3PlayerDevice) Copying
+464aa859c1e41dc4e0a64b3db40207df.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Slash dot slash
+- Jurgen van den Berg/2008-04-02-slashdotdash2.mp3
+[  32.790] (GPodderStatusIcon) tooltip: Adding
+2008-03-26-slashdotdash2
+3 of 4 done
+[  32.793] (MP3PlayerDevice) Copying
+12fa7125739597525b9908f4d0a7444f.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Slash dot slash
+- Jurgen van den Berg/2008-03-26-slashdotdash2.mp3
+[  43.358] (GPodderStatusIcon) tooltip: Adding
+2008-03-26-slashdotdash1
+4 of 4 done
+[  43.361] (MP3PlayerDevice) Copying
+43a5e432a25e195fabb5799c5390fc24.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Slash dot slash
+- Jurgen van den Berg/2008-03-26-slashdotdash1.mp3
+[  52.700] (GPodderStatusIcon) tooltip: Writing data
+to disk
+4 of 4 done
+[  63.236] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/freakolympics">http://www.kxmedia.nl/freakolympics</A>
+[  63.319] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  63.326] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/houseofjack">http://www.kxmedia.nl/houseofjack</A>
+[  63.338] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  63.366] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  63.417] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/leukemuziekliedjes">http://www.kxmedia.nl/leukemuziekliedjes</A>
+[  63.482] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/newandimproved">http://www.kxmedia.nl/newandimproved</A>
+[  63.576] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/typischtoine">http://www.kxmedia.nl/typischtoine</A>
+[  63.678] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/zegellak">http://www.kxmedia.nl/zegellak</A>
+[  63.779] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.npr.org/rss/podcast.php?id=35">http://www.npr.org/rss/podcast.php?id=35</A>
+[  63.894] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  69.895] Trying to delete:
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/cff36e8f5c03cc84b865bede91ba1f48.mp3
+[  69.956] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  69.956] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  69.957] (podcastChannel) Setting localdb channel
+data =&gt;
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/index.xml
+[  70.003] Trying to delete:
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/464aa859c1e41dc4e0a64b3db40207df.mp3
+[  70.062] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.063] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.063] (podcastChannel) Setting localdb channel
+data =&gt;
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/index.xml
+[  70.089] Trying to delete:
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/12fa7125739597525b9908f4d0a7444f.mp3
+[  70.150] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.150] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.150] (podcastChannel) Setting localdb channel
+data =&gt;
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/index.xml
+[  70.172] Trying to delete:
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/43a5e432a25e195fabb5799c5390fc24.mp3
+[  70.233] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.233] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.234] (podcastChannel) Setting localdb channel
+data =&gt;
+/home/rooijen/gpodder-downloads/f36d848f1ede6db4f4f2885e4a00cb9a/index.xml
+[  70.324] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[  70.842] (podcastChannel) Generating TreeModel for
+<A HREF="http://www.kxmedia.nl/slashdotdash">http://www.kxmedia.nl/slashdotdash</A>
+[  77.480] (MP3PlayerDevice) Detected encoding: UTF-8
+[  77.797] (MP3PlayerDevice) Copying
+edeb6bbd1b52eb046fb4349af5195263.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Zegellak - Hans
+Hogendoorn/2008-03-23-zegellak1.mp3
+[  77.854] (GPodderStatusIcon) tooltip: Adding
+2008-03-23-zegellak1
+1 of 4 done
+[  86.557] (GPodderStatusIcon) tooltip: Adding
+2008-03-23-zegellak2
+2 of 4 done
+[  86.560] (MP3PlayerDevice) Copying
+d5eefb1cadab0680a6b1d1ca77009011.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Zegellak - Hans
+Hogendoorn/2008-03-23-zegellak2.mp3
+[  94.996] (GPodderStatusIcon) tooltip: Adding
+2008-03-30-zegellak2
+3 of 4 done
+[  94.999] (MP3PlayerDevice) Copying
+f8e310ba45aba078c3de76b7889b5abb.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Zegellak - Hans
+Hogendoorn/2008-03-30-zegellak2.mp3
+[ 103.909] (GPodderStatusIcon) tooltip: Adding
+2008-03-30-zegellak1
+4 of 4 done
+[ 103.912] (MP3PlayerDevice) Copying
+ce1943151c14cda6149e66c43963c3db.mp3 =&gt;
+/mnt/USBMassStorage/Podcasts/KXradio_ Zegellak - Hans
+Hogendoorn/2008-03-30-zegellak1.mp3
+[ 112.085] (GPodderStatusIcon) tooltip: Writing data
+to disk
+4 of 4 done
+[ 124.142] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[ 124.353] (podcastItem) pubDate equal, comparing
+titles (buggy feed?)
+[ 144.128] (MP3PlayerDevice) Detected encoding: UTF-8
+Xlib: unexpected async reply (sequence 0x1d261)!
+Xlib: sequence lost (0x20035 &gt; 0x1d261) in reply type
+0x8f!
+Xlib: sequence lost (0x20007 &gt; 0x1d261) in reply type
+0x8c!
+Xlib: sequence lost (0x20001 &gt; 0x1d261) in reply type
+0x8c!
+Xlib: sequence lost (0x20000 &gt; 0x1d261) in reply type
+0x89!
+Xlib: sequence lost (0x2000c &gt; 0x1d261) in reply type
+0x85!
+Xlib: sequence lost (0x20000 &gt; 0x1d261) in reply type
+0x85!
+Xlib: sequence lost (0x2013b &gt; 0x1d261) in reply type
+0xa!
+Xlib: sequence lost (0x20074 &gt; 0x1d261) in reply type
+0x4!
+Xlib: sequence lost (0x201e6 &gt; 0x1d261) in reply type
+0x8f!
+Xlib: sequence lost (0x201d4 &gt; 0x1d261) in reply type
+0xe6!
+Xlib: sequence lost (0x201d2 &gt; 0x1d261) in reply type
+0xc!
+Xlib: sequence lost (0x20212 &gt; 0x1d261) in reply type
+0x83!
+Xlib: sequence lost (0x201c3 &gt; 0x1d261) in reply type
+0xf6!
+Xlib: sequence lost (0x20009 &gt; 0x1d261) in reply type
+0x94!
+
+Note: on one occasion, I had the Xlib freeze, but the
+player did update in the background. Something seems
+to go wrong just prior to starting the actual file
+transfer.
+
+Regards,
+Wilfred
+
+
+
+--- Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> On Sat, 2008-04-05 at 19:36 -0700, Wilfred van
+</I>&gt;<i> Rooijen wrote:
+</I>&gt;<i> &gt; I just updated to the latest version of gpodder
+</I>&gt;<i> and
+</I>&gt;<i> &gt; for some reason the thing crashes very often when
+</I>&gt;<i> &gt; sync'ing to my iPod (5th gen, rockbox). The error
+</I>&gt;<i> is:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; [   6.259] (podcastChannel) Generating TreeModel
+</I>&gt;<i> for
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I><A HREF="http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml">http://americanpublicmedia.publicradio.org/podcasts/xml/prairie_home_companion/news_from_lake_wobegon.xml</A>
+&gt;<i> &gt; [   6.345] (gPodder) auto_update_procedure() got
+</I>&gt;<i> &gt; called
+</I>&gt;<i> &gt; [   6.706] start reader
+</I>&gt;<i> &gt; [   7.542] (UserAppsReader) Player found:
+</I>&gt;<i> &gt; /usr/share/applications/easytag.desktop
+</I>&gt;<i> &gt; [   7.926] (podcastChannel) Generating TreeModel
+</I>&gt;<i> for
+</I>&gt;<i> &gt; <A HREF="http://www.kxmedia.nl/freakolympics">http://www.kxmedia.nl/freakolympics</A>
+</I>&gt;<i> &gt; [   9.606] (UserAppsReader) Player found:
+</I>&gt;<i> &gt; /usr/share/applications/totem.desktop
+</I>&gt;<i> &gt; [   9.917] (UserAppsReader) Player found:
+</I>&gt;<i> &gt; /usr/share/applications/vlc.desktop
+</I>&gt;<i> &gt; [  10.193] end reader (benchmark: 3.4866 seconds)
+</I>&gt;<i> &gt; [  12.603] (MP3PlayerDevice) Detected encoding:
+</I>&gt;<i> UTF-8
+</I>&gt;<i> &gt; Xlib: unexpected async reply (sequence 0x256d)!
+</I>&gt;<i> &gt; Xlib: sequence lost (0x10015 &gt; 0x256d) in reply
+</I>&gt;<i> type
+</I>&gt;<i> &gt; 0x5!
+</I>&gt;<i> &gt; Xlib: sequence lost (0x10002 &gt; 0x256d) in reply
+</I>&gt;<i> type
+</I>&gt;<i> &gt; 0x5!
+</I>&gt;<i> &gt; Xlib: sequence lost (0x10000 &gt; 0x256d) in reply
+</I>&gt;<i> type
+</I>&gt;<i> &gt; 0x1c!
+</I>&gt;<i> &gt; make: *** [test] Killed
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I hope this provides some info. It seems to happen
+</I>&gt;<i> &gt; especially when sync'ing more than 1 podcast at a
+</I>&gt;<i> &gt; time, but just tonight I haven't been able to
+</I>&gt;<i> transfer
+</I>&gt;<i> &gt; anything without crashing.
+</I>&gt;<i> 
+</I>&gt;<i> Please try checking out the last revision before the
+</I>&gt;<i> maemo changes and
+</I>&gt;<i> see if it happens again:   svn update -r653
+</I>&gt;<i> 
+</I>&gt;<i> I just want to make sure that I start my search at
+</I>&gt;<i> the right place -
+</I>&gt;<i> that is, the big changeset I commited some hours ago
+</I>&gt;<i> for the Maemo
+</I>&gt;<i> support.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+&gt;<i> 
+</I>
+
+
+      ____________________________________________________________________________________
+You rock. That's why Blockbuster's offering you one month of Blockbuster Total Access, No Cost.  
+<A HREF="http://tc.deals.yahoo.com/tc/blockbuster/text5.com">http://tc.deals.yahoo.com/tc/blockbuster/text5.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001362.html">[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+</A></li>
+	<LI>Next message: <A HREF="001368.html">[gpodder-devel] Mmmmm.... sync'ing is out of sync :-))
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1366">[ date ]</a>
+              <a href="thread.html#1366">[ thread ]</a>
+              <a href="subject.html#1366">[ subject ]</a>
+              <a href="author.html#1366">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

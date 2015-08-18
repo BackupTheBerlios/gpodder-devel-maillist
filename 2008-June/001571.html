@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Wrong russian podcast names in PocketPC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Wrong%20russian%20podcast%20names%20in%20PocketPC&In-Reply-To=%3C478707370806240042m6e654f2bm61666c40b73a339f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001569.html">
+   <LINK REL="Next"  HREF="001575.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Wrong russian podcast names in PocketPC</H1>
+    <B>Mansur Marvanov</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Wrong%20russian%20podcast%20names%20in%20PocketPC&In-Reply-To=%3C478707370806240042m6e654f2bm61666c40b73a339f%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Wrong russian podcast names in PocketPC">nanorobocop at gmail.com
+       </A><BR>
+    <I>Tue Jun 24 09:42:27 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001569.html">[gpodder-devel] Wrong russian podcast names in PocketPC
+</A></li>
+        <LI>Next message: <A HREF="001575.html">[gpodder-devel] Wrong russian podcast names in PocketPC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1571">[ date ]</a>
+              <a href="thread.html#1571">[ thread ]</a>
+              <a href="subject.html#1571">[ subject ]</a>
+              <a href="author.html#1571">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Cannot reproduce because nothing works over proxy at my work:((
+Simply unable to add subscription <A HREF="http://umputun.rpod.ru/rss.xml">http://umputun.rpod.ru/rss.xml</A>
+
+Put this in Preferences: <A HREF="http://172.16.100.10:8080">http://172.16.100.10:8080</A>
+or this: 172.16.100.10:8080
+
+gPodder says:
+
+Error adding podcast
+
+The podcast could not be added. Please check the spelling of the URL
+or try again later.
+
+On Tue, Jun 24, 2008 at 10:26 AM, Paul Rudkin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Paul at thegithouse.com</A>&gt; wrote:
+&gt;<i> Hi Mansur
+</I>&gt;<i>
+</I>&gt;<i> On Tue, 2008-06-24 at 10:14 +0400, Mansur Marvanov wrote:
+</I>&gt;&gt;<i> Yes, sure, any files with russian names shows correctly in Ubuntu and
+</I>&gt;&gt;<i> PocketPC if I copy it by Nautilus.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> And I see correct names in Nautilus of files copied by Windows.
+</I>&gt;<i> OK, please go ahead and submit a bug at <A HREF="http://bugs.gpodder.org.">http://bugs.gpodder.org.</A>  If you
+</I>&gt;<i> could please post the podcast URL as well so we can test with the exact
+</I>&gt;<i> same feed that you are using.
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i>
+</I>&gt;<i> Paul
+</I>&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Tue, Jun 24, 2008 at 10:05 AM, Paul Rudkin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Paul at thegithouse.com</A>&gt; wrote:
+</I>&gt;&gt;<i> &gt; Hi
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; If you were to copy files with Russian letters manually using nautilus
+</I>&gt;&gt;<i> &gt; (or similar) do they show up correctly on your SD card?
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; It is possible an issue with the way the transfer routine handles
+</I>&gt;&gt;<i> &gt; unicode characters, so could you please submit a bug at
+</I>&gt;&gt;<i> &gt; <A HREF="http://bugs.gpodder.org">http://bugs.gpodder.org</A> so that we can keep track of this issue.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Many thanks
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Paul
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; On Tue, 2008-06-24 at 07:43 +0400, Mansur Marvanov wrote:
+</I>&gt;&gt;<i> &gt;&gt; Hello!
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; I listen russian podcast and have info about utf-8 encoding in index.xml.
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; But when I synchronize  with SD card of my PocketPC (Windows Mobile
+</I>&gt;&gt;<i> &gt;&gt; 2003), there are appear names without russian letters:
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; ________ - RussianPodcasting.ru          &lt;&lt;&lt; like this
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; ____________ _______ __ Umputun __ ______          &lt;&lt;&lt; or this
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; I mount SD card this like:
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; $ mount | grep disk
+</I>&gt;&gt;<i> &gt;&gt; /dev/sdb1 on /media/disk type vfat
+</I>&gt;&gt;<i> &gt;&gt; (rw,nosuid,nodev,uhelper=hal,shortname=mixed,uid=1000,utf8,umask=077,flush)
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; What's wrong?
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; OS: Ubuntu 8.04
+</I>&gt;&gt;<i> &gt;&gt; gPodder: 0.11.3-0~getdeb1
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; index.xml attached
+</I>&gt;&gt;<i> &gt;&gt; _______________________________________________
+</I>&gt;&gt;<i> &gt;&gt; gpodder-devel mailing list
+</I>&gt;&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; _______________________________________________
+</I>&gt;&gt;<i> &gt; gpodder-devel mailing list
+</I>&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> gpodder-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001569.html">[gpodder-devel] Wrong russian podcast names in PocketPC
+</A></li>
+	<LI>Next message: <A HREF="001575.html">[gpodder-devel] Wrong russian podcast names in PocketPC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1571">[ date ]</a>
+              <a href="thread.html#1571">[ thread ]</a>
+              <a href="subject.html#1571">[ subject ]</a>
+              <a href="author.html#1571">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

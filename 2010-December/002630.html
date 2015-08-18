@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Planning: gpodder.conf + database in download	folder?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Planning%3A%20gpodder.conf%20%2B%20database%20in%20download%0A%09folder%3F&In-Reply-To=%3C20101219132043.GA19953%40gpodder.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002629.html">
+   <LINK REL="Next"  HREF="002631.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Planning: gpodder.conf + database in download	folder?</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Planning%3A%20gpodder.conf%20%2B%20database%20in%20download%0A%09folder%3F&In-Reply-To=%3C20101219132043.GA19953%40gpodder.net%3E"
+       TITLE="[gpodder-devel] Planning: gpodder.conf + database in download	folder?">thp at gpodder.org
+       </A><BR>
+    <I>Sun Dec 19 14:20:43 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002629.html">[gpodder-devel] User Manual
+</A></li>
+        <LI>Next message: <A HREF="002631.html">[gpodder-devel] gPodder 2.11 &quot;Dance Me A Dance&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2630">[ date ]</a>
+              <a href="thread.html#2630">[ thread ]</a>
+              <a href="subject.html#2630">[ subject ]</a>
+              <a href="author.html#2630">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi users and developers of gPodder!
+
+I've been thinking about moving the gPodder database into the download
+folder, thereby only having one single folder that contains both the
+downloads and the subscription/episode metadata and configuration. We
+already do a similar thing (downloads + config/db below the app folder)
+for the Windows version of gPodder.
+
+Some pros:
+
+ * Backing up the download folder backs up the config + database as well
+ * Download folder could be placed on a MP3 player, thereby removing the
+   need for any &quot;syncing&quot; - the database also sits on the MP3 player, so
+   new podcasts can be downloaded from any machine with gPodder
+   installed
+ * On devices where gPodder runs on (i.e. N900, N8x0, ...), both the
+   downloads and the database are exposed over USB mass storage when
+   connected to a PC - the Desktop version of gPodder can be used then
+   to download new episodes and view downloaded podcasts while the
+   device is connected (the on-device version can be used on the go)
+ * Synchronizing (via rsync/unison) is easier - you just need to sync
+   the folder, and the database will also be kept in sync (but conflicts
+   cannot be merged :/)
+ * Multiple different &quot;profiles&quot; / &quot;databases&quot; are possible (i.e. you
+   can have one download folder that only has video podcasts and a
+   different one that only has audio podcasts - with separate databases
+   and configurations)
+
+Some cons:
+
+ * Users might accidentally delete the database, not knowing what it is?
+ * Configuration data should not be placed in the download folder?
+ * Previous versions of gPodder won't be able to find the database, but
+   this can be worked around
+
+The implementation isn't really difficult, and I think there would be
+some nice advantages to getting this going. I'd like to hear some
+feedback on this thought and if it's a good idea or a bad idea, and if
+it would improve your use cases of gPodder (or more generally: how it
+would influence your use cases).
+
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002629.html">[gpodder-devel] User Manual
+</A></li>
+	<LI>Next message: <A HREF="002631.html">[gpodder-devel] gPodder 2.11 &quot;Dance Me A Dance&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2630">[ date ]</a>
+              <a href="thread.html#2630">[ thread ]</a>
+              <a href="subject.html#2630">[ subject ]</a>
+              <a href="author.html#2630">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

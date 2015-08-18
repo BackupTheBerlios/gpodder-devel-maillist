@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] libmygpo-qt Release of v1.0.3.1 [GIT Repo changed!!]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20Release%20of%20v1.0.3.1%20%5BGIT%20Repo%20changed%21%21%5D&In-Reply-To=%3C4DD91829.7080300%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002778.html">
+   <LINK REL="Next"  HREF="002780.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] libmygpo-qt Release of v1.0.3.1 [GIT Repo changed!!]</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20libmygpo-qt%20Release%20of%20v1.0.3.1%20%5BGIT%20Repo%20changed%21%21%5D&In-Reply-To=%3C4DD91829.7080300%40derkits.at%3E"
+       TITLE="[gpodder-devel] libmygpo-qt Release of v1.0.3.1 [GIT Repo changed!!]">stefan at derkits.at
+       </A><BR>
+    <I>Sun May 22 16:05:29 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002778.html">[gpodder-devel] libmygpo-qt Release of v1.0.3 [GIT Repo changed!!]
+</A></li>
+        <LI>Next message: <A HREF="002780.html">[gpodder-devel] Understanding of Gpodder source code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2779">[ date ]</a>
+              <a href="thread.html#2779">[ thread ]</a>
+              <a href="subject.html#2779">[ subject ]</a>
+              <a href="author.html#2779">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Dear all,
+
+Unfortunatly I didn't test the Tarball good enough and didn't find a
+serious Bug in the Tag &amp; Tarball before the Release.
+
+I've made a new Tarball, so this is sorf ot v 1.0.3.1 ;)
+
+Tarball: <A HREF="http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.3.tar.gz">http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.3.tar.gz</A>
+md5sum: 0ed91cc9483f4634e8709a0ea95baeba
+sha1sum: e4ebbed34168517ee7a6b9fc20f59a60af715e23
+
+Greetings,
+Stefan
+
+- -------- Original Release Message --------
+
+Dear Amarok &amp; gPodder Community,
+
+Amarok 2.4.1 is released and with it the first Application to use
+libmygpo-qt. Thanks for all the Feedback since 1.0.2 ... it's time again
+for a new Bugfix Release, so here is libmygpo-qt 1.0.3
+
+The most important Stuff at the Beginning:
+
+libmygpo-qt moved Repository, it can now be found alongside other
+gpodder Projects at:
+<A HREF="https://github.com/gpodder/libmygpo-qt">https://github.com/gpodder/libmygpo-qt</A>
+
+The old Repository no longer exists, above Repo is the official
+libmygpo-qt Repository.
+
+Changes in 1.0.3:
+- -) All the Private Classes used in libmygpo-qt got their own Header
+Files (name_p.h) instead of having them in the .cpp Files
+- -) UrlBuilder uses now the fast String Concatenation of Qt
+- -) Some unneeded Files were removed (RequestHandlerTest &amp;
+tests/Makefile.man)
+- -) Fixed a Bug in the Build System
+- -) General Cleanup of unnecessary Includes
+
+Where to get libmygpo-qt?
+
+Tarball: <A HREF="http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.3.tar.gz">http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.3.tar.gz</A>
+md5sum: 5f5995a2e335a3f47487d9b25ef3a16e
+sha1sum: 49bbcb886cdb215513ea0e54efb8a488dcc88749
+
+Some more important Links for libmygpo-qt:
+
+Project Website: <A HREF="http://wiki.gpodder.org/wiki/Libmygpo-qt">http://wiki.gpodder.org/wiki/Libmygpo-qt</A>
+Git Repo: <A HREF="https://github.com/gpodder/libmygpo-qt">https://github.com/gpodder/libmygpo-qt</A>
+Doxygen Documentation: <A HREF="http://stefan.derkits.at/libmygpo-doc/">http://stefan.derkits.at/libmygpo-doc/</A>
+gpodder.net API: <A HREF="http://wiki.gpodder.org/wiki/Web_Services/API_2">http://wiki.gpodder.org/wiki/Web_Services/API_2</A>
+Bugreports: <A HREF="http://bugs.gpodder.org">http://bugs.gpodder.org</A>
+Contact: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+
+- --- Infos about libmygpo-qt ---
+
+What is libmygpo-qt?
+
+libmygpo-qt is a Qt/C++ Library wrapping the gPodder.net Webservice. It
+was created as part of a University Course &amp; it is used in
+Amarok (since 2.4.1) with the new gpodder.net
+Service, that makes the gpodder.net Podcast Directory available from
+withing Amarok.
+
+Also at the Moment there is a GSoC Project running, trying to create a
+
+Greetings,
+Stefan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk3ZGCkACgkQlZvAMV/NgGJeTgCcD6n4WUKPrX4KVBlqoen0XrPE
+vuYAoInNLVGzmj1Hop813m7vE9cMhclM
+=rRtx
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002778.html">[gpodder-devel] libmygpo-qt Release of v1.0.3 [GIT Repo changed!!]
+</A></li>
+	<LI>Next message: <A HREF="002780.html">[gpodder-devel] Understanding of Gpodder source code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2779">[ date ]</a>
+              <a href="thread.html#2779">[ thread ]</a>
+              <a href="subject.html#2779">[ subject ]</a>
+              <a href="author.html#2779">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

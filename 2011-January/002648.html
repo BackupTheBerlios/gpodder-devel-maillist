@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder like podcatcher I'm working on for	Android
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20like%20podcatcher%20I%27m%20working%20on%20for%0A%09Android&In-Reply-To=%3C4D25DEDD.9020008%40leifandersen.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002647.html">
+   <LINK REL="Next"  HREF="002654.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder like podcatcher I'm working on for	Android</H1>
+    <B>Leif Andersen</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%20like%20podcatcher%20I%27m%20working%20on%20for%0A%09Android&In-Reply-To=%3C4D25DEDD.9020008%40leifandersen.net%3E"
+       TITLE="[gpodder-devel] gPodder like podcatcher I'm working on for	Android">leif at leifandersen.net
+       </A><BR>
+    <I>Thu Jan  6 16:25:17 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002647.html">[gpodder-devel] gPodder like podcatcher I'm working on for	Android
+</A></li>
+        <LI>Next message: <A HREF="002654.html">[gpodder-devel] gPodder like podcatcher I'm working on	for	Android
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2648">[ date ]</a>
+              <a href="thread.html#2648">[ thread ]</a>
+              <a href="subject.html#2648">[ subject ]</a>
+              <a href="author.html#2648">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Wow, thank you all so much for your support, I didn't realise that there
+was so many other projects trying to do similar things.  I'll spend
+today looking at your code and seeing what parts are useful, and if we
+can consolidate are work.
+
+&gt;<i> I really would like to see an Android gPodder application which syncs
+</I>&gt;<i> with mygpodder.net. But in the moment there are only two projects and
+</I>&gt;<i> none of them are ready at the moment? 
+</I>&gt;<i>
+</I>&gt;<i> Have you ever contacted Nico Heid and talked with him about his
+</I>&gt;<i> projects and his plans?
+</I>
+No, I haven't contacted him yet.  I didn't know he was working on an
+android app (I thought the project was aiming to be just a generic java
+library), so it simply didn't occur to me to do so.  Also, if you are
+alluding to the version I've been working on, I would say that it's not
+ready yet, as I currently don't use it as my main android podcatcher, as
+there are too many bugs.  (Although if the bugs were to magically
+disappear, there currently is enough features in there for me to use it
+as my primary podcatcher).
+
+&gt;<i> As Bernd already pointed out, mygpodderlib has been developed for
+</I>&gt;<i> GpodRoid, which is licensed under the Eclipse Public License v1.0 [1].
+</I>&gt;<i> However I don't know if it is safe to assume that mygpodderlib uses
+</I>&gt;<i> the same license. Maybe open a new issue and ask for license info to
+</I>&gt;<i> be added.
+</I>
+Really, I find that fascinating,  The EPL was my first license of
+choice, but I ultimately decided against it as it seemed that very few
+project used it (relatively so). and it wasn't compatible with many
+other licences.
+
+&gt;<i> It's always great to hear about new gPodder / gpodder.net related
+</I>&gt;<i> projects! As I am the maintainer of gpodder.net, feel free to contact
+</I>&gt;<i> me with any issues regarding it.
+</I>
+Okay, thank you.
+
+&gt;<i> Of course it might be feasible to combine your efforts into one common
+</I>&gt;<i> project, but I also don't see a problem with having two competing
+</I>&gt;<i> projects.
+</I>&gt;<i> 
+</I>&gt;<i> On a related note, which might be interesting to both projects: I've
+</I>&gt;<i> been working on mygpo-feedservice [1] which is a webservice for
+</I>&gt;<i> parsing podcast feeds and delivering the contents as JSON. This could
+</I>&gt;<i> offload a bit of the parsing-work from the clients to the service and
+</I>&gt;<i> hence speed up the applications. Feel free to contact me if you are
+</I>&gt;<i> interested in using it.
+</I>
+True, but if we need code that does similar things, I would be happy to
+work with the other person to get both of them out faster.  Also, I'll
+take a look at your parser, it seems interesting.  I'm not sure how long
+it takes to parse XML on a device like that (I'm using the built in
+Document object, combined with NodeList and Element, I based the idea
+off of a friends piece of code (which was also released under the Apache
+v2 licence)), but so far it seems like downloading the feed is the
+bottleneck.  Either way, it does look interesting, and I'll preform some
+tests to compare speed.
+
+Anyway, thank you everyone for your feedback, I look forward to
+continuing to work with you in the future.
+
+~Leif Andersen
+
+On 01/06/2011 04:45 AM, Stefan K&#246;gl wrote:
+&gt;<i> On Thu, Jan 6, 2011 at 1:20 PM, Bernd &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">brot at gmx.info</A>&gt; wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> But there is always another project which works on an Android gPodder
+</I>&gt;&gt;<i> app. Nico Heid is the author of mygpodderlib (which you mentioned above)
+</I>&gt;&gt;<i> and he is also the author of GpoRoid
+</I>&gt;&gt;<i> (<A HREF="https://github.com/nheid/GpodRoid">https://github.com/nheid/GpodRoid</A>).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I fear GpoRoid isn't really useful at the moment, but this could change
+</I>&gt;&gt;<i> in the future - I hope so.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I really would like to see an Android gPodder application which syncs
+</I>&gt;&gt;<i> with mygpodder.net. But in the moment there are only two projects and
+</I>&gt;&gt;<i> none of them are ready at the moment?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Have you ever contacted Nico Heid and talked with him about his projects
+</I>&gt;&gt;<i> and his plans?
+</I>&gt;<i> 
+</I>&gt;<i> Of course it might be feasible to combine your efforts into one common
+</I>&gt;<i> project, but I also don't see a problem with having two competing
+</I>&gt;<i> projects.
+</I>&gt;<i> 
+</I>&gt;<i> On a related note, which might be interesting to both projects: I've
+</I>&gt;<i> been working on mygpo-feedservice [1] which is a webservice for
+</I>&gt;<i> parsing podcast feeds and delivering the contents as JSON. This could
+</I>&gt;<i> offload a bit of the parsing-work from the clients to the service and
+</I>&gt;<i> hence speed up the applications. Feel free to contact me if you are
+</I>&gt;<i> interested in using it.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- Stefan
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> [1] <A HREF="http://mygpo-feedservice.appspot.com/">http://mygpo-feedservice.appspot.com/</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 900 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110106/addf60d8/attachment.pgp">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20110106/addf60d8/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002647.html">[gpodder-devel] gPodder like podcatcher I'm working on for	Android
+</A></li>
+	<LI>Next message: <A HREF="002654.html">[gpodder-devel] gPodder like podcatcher I'm working on	for	Android
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2648">[ date ]</a>
+              <a href="thread.html#2648">[ thread ]</a>
+              <a href="subject.html#2648">[ subject ]</a>
+              <a href="author.html#2648">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

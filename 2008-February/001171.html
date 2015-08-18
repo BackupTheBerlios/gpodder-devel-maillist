@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] New tray features not in newest gpodder trunk.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20tray%20features%20not%20in%20newest%20gpodder%20trunk.&In-Reply-To=%3C1202042170.6163.14.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001170.html">
+   <LINK REL="Next"  HREF="001183.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] New tray features not in newest gpodder trunk.</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20New%20tray%20features%20not%20in%20newest%20gpodder%20trunk.&In-Reply-To=%3C1202042170.6163.14.camel%40macbook%3E"
+       TITLE="[gpodder-devel] New tray features not in newest gpodder trunk.">thp at perli.net
+       </A><BR>
+    <I>Sun Feb  3 13:36:10 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001170.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+        <LI>Next message: <A HREF="001183.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1171">[ date ]</a>
+              <a href="thread.html#1171">[ thread ]</a>
+              <a href="subject.html#1171">[ subject ]</a>
+              <a href="author.html#1171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Sun, 2008-02-03 at 00:47 +0100, J&#233;r&#244;me Chabod wrote:
+&gt;<i> I can not reproduce this bug. On my computer, when gpodder is
+</I>&gt;<i> minimized, no popups appears when no new episode was found, and only
+</I>&gt;<i> notification for other cases. 
+</I>&gt;<i> You say the last rev. with the feature was ok was 550. Indeed, Thomas
+</I>&gt;<i> made a modification on the tray icon beheviour when minimized on the
+</I>&gt;<i> next revision which can be the reason:
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>  svn diff -c551
+</I>&gt;<i> ...
+</I>&gt;<i>      def show_message( self, message, title = None):
+</I>&gt;<i> --        if self.tray_icon and self.minimized:
+</I>&gt;<i> +        if hasattr(self, 'tray_icon') and hasattr(self, 'minimized')
+</I>&gt;<i> and self.tray_icon and self.minimized:
+</I>&gt;<i>  ...
+</I>&gt;<i> ----------------------------------------------------------------
+</I>&gt;<i> But I can't understand why it brake you gpodder. Maybe Thomas can help
+</I>&gt;<i> here.
+</I>&gt;<i> 
+</I>&gt;<i> Can you please try to apply the patch in attachement which reverts
+</I>&gt;<i> Thomas modification and tell us if it's work?
+</I>
+The reason for the patch is that it failed when showing a message from
+other dialogs than the main window (because show_message is in
+GladeWidget and only the subclass &quot;gPodder&quot; has a &quot;tray_icon&quot; and
+&quot;minimized&quot; attribute.
+
+So, when using show_message in the preferences dialog, you can't access
+the &quot;tray_icon&quot; and &quot;minimized&quot; attribute, because they are simply not
+there.
+
+This should pose no problem, because the only case when a non-main
+window window opens a dialog is when gPodder is not minimized (except
+for when you open the preferences dialog via the tray icon).
+
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001170.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+	<LI>Next message: <A HREF="001183.html">[gpodder-devel] New tray features not in newest gpodder trunk.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1171">[ date ]</a>
+              <a href="thread.html#1171">[ thread ]</a>
+              <a href="subject.html#1171">[ subject ]</a>
+              <a href="author.html#1171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

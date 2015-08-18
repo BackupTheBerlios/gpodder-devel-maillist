@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Incorrect file sizes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Incorrect%20file%20sizes&In-Reply-To=%3C475C6A16.7020307%40blueyonder.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000877.html">
+   <LINK REL="Next"  HREF="000874.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Incorrect file sizes</H1>
+    <B>O. Emmerson</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Incorrect%20file%20sizes&In-Reply-To=%3C475C6A16.7020307%40blueyonder.co.uk%3E"
+       TITLE="[gpodder-devel] Incorrect file sizes">oe014b3624_3 at blueyonder.co.uk
+       </A><BR>
+    <I>Sun Dec  9 23:20:06 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000877.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+        <LI>Next message: <A HREF="000874.html">[gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#882">[ date ]</a>
+              <a href="thread.html#882">[ thread ]</a>
+              <a href="subject.html#882">[ subject ]</a>
+              <a href="author.html#882">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thomas Perl wrote:
+&gt;<i> Hello!
+</I>&gt;<i> 
+</I>&gt;<i> O. Emmerson wrote:
+</I>&gt;&gt;<i> I am subscribed to <A HREF="http://971freefm.com/pages/podcast/43.rss">http://971freefm.com/pages/podcast/43.rss</A> in gpodder.
+</I>&gt;&gt;<i> The file sizes show up incorrectly when the feed is loaded.  If I
+</I>&gt;&gt;<i> download a file then the correct size is then shown.
+</I>&gt;<i> 
+</I>&gt;<i> The error is in the RSS feed, not in gPodder. The RSS feed uses the
+</I>&gt;<i> &quot;length=&quot; attribute of the &lt;enclosure&gt; element wrongly. The &quot;length&quot;
+</I>&gt;<i> attribute should specify the size of the enclosed file in bytes, in the
+</I>&gt;<i> metioned feed, the value seems to be (my guess) the length of the audio
+</I>&gt;<i> in seconds. gPodder can't calculate the correct size.
+</I>&gt;<i> 
+</I>&gt;<i> One possibility would be to add a menu item to &quot;calculate&quot; the real file
+</I>&gt;<i> size of all episodes by doing a HTTP HEAD request for each episode and
+</I>&gt;<i> looking for the content-length header.
+</I>&gt;<i> 
+</I>&gt;<i> Is this important to you? Can you please try to contact the feed author
+</I>&gt;<i> (probably 971freefm.com) and tell them to fix their _buggy_ RSS feed?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>Thanks for the explanation of the problem.
+I sent them an email through the contact form on their website with the
+information about the incorrect use of the attribute.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000877.html">[gpodder-devel] Incorrect file sizes
+</A></li>
+	<LI>Next message: <A HREF="000874.html">[gpodder-devel] Preferences -&gt; Folder Selection Bug + Fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#882">[ date ]</a>
+              <a href="thread.html#882">[ thread ]</a>
+              <a href="subject.html#882">[ subject ]</a>
+              <a href="author.html#882">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

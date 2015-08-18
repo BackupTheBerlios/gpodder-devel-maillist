@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] gPodder 0.11.0 &quot;Walking for a change makes me feel	normal&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.0%20%22Walking%20for%20a%20change%20makes%20me%20feel%0A%09normal%22%20released&In-Reply-To=%3C1203947083.19743.3.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001219.html">
+   <LINK REL="Next"  HREF="001226.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] gPodder 0.11.0 &quot;Walking for a change makes me feel	normal&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20gPodder%200.11.0%20%22Walking%20for%20a%20change%20makes%20me%20feel%0A%09normal%22%20released&In-Reply-To=%3C1203947083.19743.3.camel%40macbook%3E"
+       TITLE="[gpodder-devel] gPodder 0.11.0 &quot;Walking for a change makes me feel	normal&quot; released">thp at perli.net
+       </A><BR>
+    <I>Mon Feb 25 14:44:43 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001219.html">[gpodder-devel] Invalid feed: can gPodder handle it?
+</A></li>
+        <LI>Next message: <A HREF="001226.html">[gpodder-devel] Do we need a podcast directory?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1225">[ date ]</a>
+              <a href="thread.html#1225">[ thread ]</a>
+              <a href="subject.html#1225">[ subject ]</a>
+              <a href="author.html#1225">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+Once again, we did a great job this month making yet another great
+gPodder release come true. We've reached our release goals for 0.11.0
+and it is available for download from <A HREF="http://gpodder.org/">http://gpodder.org/</A> now.
+
+Thanks to all who were involved in creating this release. I hope I
+didn't forget anyone in the release notes. If I did, please send me a
+short note.
+
+Of course, gPodder development doesn't stop here. &#65279;J&#233;r&#244;me already did a
+great job adding a progress bar to the tray icon, and there were some
+other minor improvements that are available in SVN trunk but have not
+made it into this release.
+
+For the next month, we plan to finally support pause/resume downloads.
+See the roadmap on <A HREF="http://wiki.gpodder.org/roadmap">http://wiki.gpodder.org/roadmap</A> for more information
+about what's planned.
+
+
+Enjoy!
+Thomas
+
+-- release notes follow --
+
+As always before the end of the month, we present you yet another great
+gPodder release: gPodder 0.11.0, featuring the long-awaited first
+version of our tray icon support (and J&#233;r&#244;me is already working on some
+improvements in SVN trunk). Apart from that, this release also adds an
+improved, new synchronization module (which brings CLI support a'la
+gpodder --sync), support for sending single episodes to your
+Bluetooth-enabled mobile devices, a new, about:config-like expert
+configuration editor and last but not least usability updates for the
+main window. Of course, we have also fixed a bunch of bugs that were
+reported in this release cycle via our bug tracker. Don't forget to look
+at the new screenshots :)
+
+You are encouraged to upgrade to this new version of gPodder. You will
+find the source tarball and distribution packages on the downloads page.
+Thanks to Nick (nikosapi.org) for donating a two-year domain
+registration for gpodder.org. Also thanks to Paul Rudkin, who hosts
+bugs.gpodder.org on his web server.
+
+If you have any questions or problems, please see our FAQs, our Wiki or
+the Mailing list. Enjoy!
+
+
+Release Goals (see Roadmap)
+      * System tray icon and notifications by J&#233;r&#244;me Chabod (#3)
+      * New synchronization module: iPod, MP3 player with native
+        encoding (#2)
+      * Expert configuration dialog, like about:config (#10)
+      * Support for Bluetooth OBEX send
+      * Usability interface changes, proposed by Rafael Proen&#231;a
+New and improved features
+      * Tray icon and notification (libnotify) support by J&#233;r&#244;me Chabod;
+        initial idea by Holger Bauer (#3)
+      * Support for different audio/video player selection (by Paul
+        Rudkin)
+      * Support for sending episodes to bluetooth devices via OBEX
+      * Episode Selector is now also used for per-channel new episodes
+        (#14)
+      * New, modular synchronization code (iPod, MP3 players); supports
+        console-only sync (gpodder --sync)
+      * Pressing Enter in the add channel entry adds the channel (patch
+        from Nikosapi)
+      * Make feed update display &quot;Loading&quot; titles, only run auto update
+        when minimized (UI change; by Nikosapi)
+      * Usability GUI update (after Rafael Proen&#231;a's proposal)
+      * New hotkeys: Ctrl+L (Add new channel); Ctrl+D (hide/show episode
+        descriptions); Ctrl+T (hide/show toolbar)
+      * Episode description and episode title in one column (suggested
+        by <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">narf at inode.at</A>)
+      * NLS encoding support for MP3 player synchronization; from gdfs
+        (by Leonid Ponomarev)
+      * Support buggy OPML feeds, notify user on OPML import (support
+        &quot;url&quot; instead of &quot;xmlUrl&quot; attribute)
+      * new &quot;expert&quot; configuration editor (about:config-like) (#10)
+      * Automatically check for new episodes in background (by Nikosapi)
+      * Updated translations: German, Dutch (Pieter De Decker), Russian
+        (Leonid Ponomarev), Czech (Ondrej Vesely), Swedish (Anders
+        Kvist) and French (J&#233;r&#244;me Chabod)
+Code changes
+      * Modularize calls to gobject.idle_add (for non-GTK support)
+      * New makefile target: make releasetest (automated pre-release
+        tests)
+      * Output pretty-printed OPML when saving channels list (by
+        Nikosapi)
+Bug fixes
+      * Fix problems in gpodder.desktop file; validates now (thanks G&#246;tz
+        Waschk for reporting)
+      * Fix a bug in the file size calculation, reported by FriedBunny
+        (#23)
+      * Fix bug in file_modification_datetime (thanks to FriedBunny)
+      * Fix sync track length detection (thanks to Paul Rudkin and
+        FriedBunny, #29)
+      * Fix bug with MP3 player synchronization file name encodings;
+        reported by Bernd Schlapsi (#34)
+Thanks
+      * Anders Kvist: Swedish translation update
+      * Bernd Schlapsi: Bug report for MP3 player synchronization
+      * FriedBunny: Bug reports for file size calculation,
+        modification_datetime and track length detection
+      * G&#246;tz Waschk: Bug report for gpodder.desktop file
+      * Holger Bauer: Initial idea for the tray icon (from the TODO
+        list)
+      * J&#233;r&#244;me Chabod: Lots of work done; maintains tray icon and
+        notifications integration; French translation update
+      * Leonid Ponomarev: NLS encoding support for MP3 player
+        synchronization; Russian translation
+      * narf at inode.at: Suggest merging episode title and episode
+        description in 1 column
+      * Nick (nikosapi): &quot;Press Enter&quot; patch; feed update title fix;
+        automatic feed update when minimized; pretty-print OPML output
+      * Ondrej Vesely: Czech translation update
+      * Paul Rudkin: Support for different audio/video players; sync
+        track length detection
+      * Pieter De Decker: Dutch translation update
+      * Rafael Proen&#231;a: UI usability suggestions, mock-ups and
+        discussion
+Donations
+      * Nick (nikosapi) has donated a two-year registration of
+        gpodder.org
+      * Paul Rudkin hosts the Bugzilla installation on bugs.gpodder.org
+      * Want to motivate gPodder development? Send a nice book!
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001219.html">[gpodder-devel] Invalid feed: can gPodder handle it?
+</A></li>
+	<LI>Next message: <A HREF="001226.html">[gpodder-devel] Do we need a podcast directory?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1225">[ date ]</a>
+              <a href="thread.html#1225">[ thread ]</a>
+              <a href="subject.html#1225">[ subject ]</a>
+              <a href="author.html#1225">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] mygpoclient 1.5 &quot;The Hunting Party&quot; released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20mygpoclient%201.5%20%22The%20Hunting%20Party%22%20released&In-Reply-To=%3C20101010111344.GA7674%40gpodder.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002577.html">
+   <LINK REL="Next"  HREF="002579.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] mygpoclient 1.5 &quot;The Hunting Party&quot; released</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20mygpoclient%201.5%20%22The%20Hunting%20Party%22%20released&In-Reply-To=%3C20101010111344.GA7674%40gpodder.net%3E"
+       TITLE="[gpodder-devel] mygpoclient 1.5 &quot;The Hunting Party&quot; released">thp at gpodder.org
+       </A><BR>
+    <I>Sun Oct 10 13:13:44 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002577.html">[gpodder-devel] Release preparation: Please update translations
+</A></li>
+        <LI>Next message: <A HREF="002579.html">[gpodder-devel] gPodder 2.9 &quot;Two Books In Her Bag&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2578">[ date ]</a>
+              <a href="thread.html#2578">[ thread ]</a>
+              <a href="subject.html#2578">[ subject ]</a>
+              <a href="author.html#2578">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear gPodder developers and users!
+
+The gpodder.net Client Library, mygpoclient, has been updated, and
+version 1.5 is now available for download. This is a bugfix release and
+does not yet contain any new features that are exposed through the API.
+
+The following bugs are addressed by this release:
+
+  * Limit the number of authentication retries
+    When a wrong username/password combination is passed to the library,
+    mygpoclient will try to authenticate to the service forever. This
+    fix limits the maximum number of retries to 3, failing after the
+    third unsuccessful attempt.
+
+  * Accept unicode strings (gPodder bug 1131)
+    In certain setups, gPodder was too strict with the checking of
+    incoming data from the web service, and incorrectly flagged unicode
+    strings as invalid URLs, which prevented clients from retrieving
+    subscription list updates from gpodder.net.
+    Thanks to Goetz Waschk for reporting this issue and testing patches.
+
+
+This update is recommended for all users, but not mandatory. You can
+grab the latest source code from the mygpoclient website:
+
+  <A HREF="http://thpinfo.com/2010/mygpoclient/">http://thpinfo.com/2010/mygpoclient/</A>
+
+
+Enjoy!
+Thomas Perl
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002577.html">[gpodder-devel] Release preparation: Please update translations
+</A></li>
+	<LI>Next message: <A HREF="002579.html">[gpodder-devel] gPodder 2.9 &quot;Two Books In Her Bag&quot; released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2578">[ date ]</a>
+              <a href="thread.html#2578">[ thread ]</a>
+              <a href="subject.html#2578">[ subject ]</a>
+              <a href="author.html#2578">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

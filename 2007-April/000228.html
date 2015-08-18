@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Basic BitTorrent Support  - patch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Basic%20BitTorrent%20Support%20%20-%20patch&In-Reply-To=%3C200704072008.02869.nikosapi%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000225.html">
+   <LINK REL="Next"  HREF="000230.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Basic BitTorrent Support  - patch</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Basic%20BitTorrent%20Support%20%20-%20patch&In-Reply-To=%3C200704072008.02869.nikosapi%40gmail.com%3E"
+       TITLE="[gpodder-devel] Basic BitTorrent Support  - patch">nikosapi at gmail.com
+       </A><BR>
+    <I>Sun Apr  8 02:08:02 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000225.html">[gpodder-devel] Basic BitTorrent Support  - patch
+</A></li>
+        <LI>Next message: <A HREF="000230.html">[gpodder-devel] BitTorrent support and bandwidth throttling (was:	Re: Basic	BitTorrent Support - patch)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#228">[ date ]</a>
+              <a href="thread.html#228">[ thread ]</a>
+              <a href="subject.html#228">[ subject ]</a>
+              <a href="author.html#228">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Saturday 07 April 2007 14:41:42 Thomas Perl wrote:
+&gt;<i> Hello, Nick!
+</I>&gt;<i>
+</I>&gt;<i> On Fri, 2007-04-06 at 13:10 -0400, nikosapi wrote:
+</I>&gt;<i> &gt; I added some basic support for rss feeds with torrents in them (like
+</I>&gt;<i> &gt; feeds from revision3.com). It basically copies BitTorrent files to
+</I>&gt;<i> &gt; another directory where they can be picked up by programs like
+</I>&gt;<i> &gt; Azureus. Perhaps in the future support could be added to run a script
+</I>&gt;<i> &gt; to start a download for a torrent but for now this will work with
+</I>&gt;<i> &gt; clients that support directory monitoring.
+</I>&gt;<i>
+</I>&gt;<i> I've looked at your patch and refined it. I'm not a torrent downloader,
+</I>&gt;<i> but I've tested a feed from revision3.com. Basically, this downloads
+</I>&gt;<i> the .torrent file and then calls &quot;gnome-btdownload&quot; with the torrent and
+</I>&gt;<i> the torrent filename (thanks to your code ;) and saves the real file in
+</I>&gt;<i> the selected torrent download folder. Please have a look if this would
+</I>&gt;<i> work eventually. Of course, we should make the torrent client
+</I>&gt;<i> configurable later.
+</I>&gt;<i>
+</I>&gt;<i> Basically, you can download the .torrent and gPodder then starts
+</I>&gt;<i> gnome-btdownload as soon as the torrent is downloaded. You can close
+</I>&gt;<i> down gnome-btdownload and continue the download later by clicking on the
+</I>&gt;<i> torrent in gPodder's main window and click on &quot;download&quot; (which opens
+</I>&gt;<i> gnome-btdownload and continues the download).
+</I>&gt;<i>
+</I>&gt;<i> I've included the patch, as I'm not yet sure if this is what a torrent
+</I>&gt;<i> user would expect from gPodder - I need your feedback :)
+</I>&gt;<i>
+</I>&gt;<i> &gt; I've also been working on automatic updating and automatic downloading
+</I>&gt;<i> &gt; of new shows but I can't seem to get it to work. I know it's because
+</I>&gt;<i> &gt; of the way threading works in gPodder, I just can't figure it out.
+</I>&gt;<i>
+</I>&gt;<i> Nice :) As always, just send the patch in when you think it's ready,
+</I>&gt;<i> I'll have a look at it =)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> Thomas
+</I>
+Ok, I looked it over and made a few changes.
+I really like the idea of using Gnome BitTorrent to download files, I'm glad 
+you thought of that. The reason why I made gpodder move the files to a folder 
+is very specific to me which I realize is wrong but let me explain.
+
+I have a BitTorrent server running Azureus, the way I get new torrents into it 
+is via a command that works with firefox/konqueror/etc to move the torrent 
+file to a specific folder on my nfs server. From there the BitTorrent server 
+picks up the file and downloads it! (I know one other person that does it 
+this way, I can only imagine there are more)
+
+So I added a way to choose what the torrent save folder is used for, either to 
+save the actual .torrent files or as the save the dir for Gnome BitTorrent. 
+It's all explained to the user in the radiobutton's tooltip.
+
+I also made sure that all the files that are copied have a .torrent extention 
+(otherwise Azureus ignores them) and made sure the torrent files are all 
+chmod'ed so everyone has read/write permission to them. That is also because 
+if they aren't Azureus might have trouble deleting them. (It's a good thing 
+that it's able to delete them.)
+
+Tell me what you think! :-D
+
+nick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gpodder_r311_bittorrent-v2.patch
+Type: text/x-diff
+Size: 31898 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070407/735e4a2c/attachment.patch">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20070407/735e4a2c/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000225.html">[gpodder-devel] Basic BitTorrent Support  - patch
+</A></li>
+	<LI>Next message: <A HREF="000230.html">[gpodder-devel] BitTorrent support and bandwidth throttling (was:	Re: Basic	BitTorrent Support - patch)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#228">[ date ]</a>
+              <a href="thread.html#228">[ thread ]</a>
+              <a href="subject.html#228">[ subject ]</a>
+              <a href="author.html#228">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] MTP support: Debian packaging
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20MTP%20support%3A%20Debian%20packaging&In-Reply-To=%3C1215377097.13716.15.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001608.html">
+   <LINK REL="Next"  HREF="001610.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] MTP support: Debian packaging</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20MTP%20support%3A%20Debian%20packaging&In-Reply-To=%3C1215377097.13716.15.camel%40macbook%3E"
+       TITLE="[gpodder-devel] MTP support: Debian packaging">thp at perli.net
+       </A><BR>
+    <I>Sun Jul  6 22:44:57 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001608.html">[gpodder-devel] gPodder 0.12.0 stabilization phase
+</A></li>
+        <LI>Next message: <A HREF="001610.html">[gpodder-devel] Testers needed for free space notification patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1609">[ date ]</a>
+              <a href="thread.html#1609">[ thread ]</a>
+              <a href="subject.html#1609">[ subject ]</a>
+              <a href="author.html#1609">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+J&#233;r&#244;me Chabod has done some great work for MTP support recently:
+  <A HREF="http://wiki.gpodder.org/wiki/MTP_Support">http://wiki.gpodder.org/wiki/MTP_Support</A>
+
+I've got myself a MTP-capable device (it also support USB mass storage,
+but for testing I can switch to MTP) and looked at what's needed to
+shape up the MTP support and merge it into upstream gPodder. PyMTP is a
+nice libmtp wrapper, and libmtp is in Debian already - pymtp isn't.
+That's why I started packaging it for Debian and I filed an ITP (Intend
+to Package) bug report on bugs.debian.org:
+
+  <A HREF="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=489547">http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=489547</A>
+
+&gt;<i>From there you can find links to a first version of the Debian package,
+</I>which (with the help of an uploading sponsor) will find its way into the
+Debian and Ubuntu repositories soon. This enables us to simply depend on
+pymtp from the Debian/Ubuntu packaging and provide a quite smooth
+integration of MTP support for the Debian/Ubuntu versions of gPodder.
+
+In short: MTP device support is going to happen. We just have to wait
+for pymtp to get into Debian and we have to clean up the patch a bit :)
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001608.html">[gpodder-devel] gPodder 0.12.0 stabilization phase
+</A></li>
+	<LI>Next message: <A HREF="001610.html">[gpodder-devel] Testers needed for free space notification patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1609">[ date ]</a>
+              <a href="thread.html#1609">[ thread ]</a>
+              <a href="subject.html#1609">[ subject ]</a>
+              <a href="author.html#1609">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

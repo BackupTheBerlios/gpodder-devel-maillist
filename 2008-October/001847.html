@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Win32 installer for gPodder 0.13.0 - please	test!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Win32%20installer%20for%20gPodder%200.13.0%20-%20please%0A%09test%21&In-Reply-To=%3C26dfdbc50810291005x7622ad07q264fd9d4f89aaaf7%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001846.html">
+   <LINK REL="Next"  HREF="001848.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Win32 installer for gPodder 0.13.0 - please	test!</H1>
+    <B>Leonid Ponomarev</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Win32%20installer%20for%20gPodder%200.13.0%20-%20please%0A%09test%21&In-Reply-To=%3C26dfdbc50810291005x7622ad07q264fd9d4f89aaaf7%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Win32 installer for gPodder 0.13.0 - please	test!">leonid.phoenix at gmail.com
+       </A><BR>
+    <I>Wed Oct 29 18:05:41 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001846.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+        <LI>Next message: <A HREF="001848.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1847">[ date ]</a>
+              <a href="thread.html#1847">[ thread ]</a>
+              <a href="subject.html#1847">[ subject ]</a>
+              <a href="author.html#1847">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>No. I guess, the problem is in integration between python and shared
+libraries on win32. I have many FOSS apps here, and they work. For example
+Stardict, which uses GTK too (and installs it in Program files\common
+files).
+
+On Wed, Oct 29, 2008 at 19:26, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+
+&gt;<i> Leonid Ponomarev wrote:
+</I>&gt;<i> &gt; I gues, there's something messed with libraries paths: when I copy all
+</I>&gt;<i> &gt; gtk dlls in gpodder dir, it starts...
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; but with rectangles instead of normal characters, and outputs:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; C:\Program Files\PyGTK\GTK\bin&gt;&quot;C:\Program
+</I>&gt;<i> &gt; Files\PyGTK\Python\python.exe&quot; &quot;C:\Pr
+</I>&gt;<i> &gt; ogram Files\gPodder\bin\gpodder.pyw&quot;
+</I>&gt;<i> &gt; C:\Program Files\gPodder\src\gpodder\gui.py:519: PangoWarning: No
+</I>&gt;<i> &gt; builtin or dyn
+</I>&gt;<i> &gt; amically
+</I>&gt;<i> &gt; loaded modules were found. Pango will not work correctly.
+</I>&gt;<i> &gt; This probably means there was an error in the creation of:
+</I>&gt;<i> &gt;   'C:\Program Files\gPodder\etc\pango\pango.modules'
+</I>&gt;<i>
+</I>&gt;<i> What if you copy all of c:\Program Files\PyGTK\GTK\* to C:\Program
+</I>&gt;<i> Files\gPodder ? (so that etc/pango/pango.modules exists there). Would
+</I>&gt;<i> this solve your Problem?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Thomas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> gpodder-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">gpodder-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">https://lists.berlios.de/mailman/listinfo/gpodder-devel</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Best regards,
+Leonid &quot;PhoeniX&quot; Ponomarev
+Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">Leonid.phoenix at gmail.com</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20081029/572f306c/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20081029/572f306c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001846.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+	<LI>Next message: <A HREF="001848.html">[gpodder-devel] Win32 installer for gPodder 0.13.0 -	please	test!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1847">[ date ]</a>
+              <a href="thread.html#1847">[ thread ]</a>
+              <a href="subject.html#1847">[ subject ]</a>
+              <a href="author.html#1847">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Question about util.get_free_disk_space(path)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Question%20about%20util.get_free_disk_space%28path%29&In-Reply-To=%3C200807032038.51642.me%40nikosapi.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001600.html">
+   <LINK REL="Next"  HREF="001605.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Question about util.get_free_disk_space(path)</H1>
+    <B>nikosapi</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Question%20about%20util.get_free_disk_space%28path%29&In-Reply-To=%3C200807032038.51642.me%40nikosapi.org%3E"
+       TITLE="[gpodder-devel] Question about util.get_free_disk_space(path)">me at nikosapi.org
+       </A><BR>
+    <I>Fri Jul  4 02:38:51 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001600.html">[gpodder-devel] sqlite database,	channel update slows to a	crawl?
+</A></li>
+        <LI>Next message: <A HREF="001605.html">[gpodder-devel] Question about util.get_free_disk_space(path)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1603">[ date ]</a>
+              <a href="thread.html#1603">[ thread ]</a>
+              <a href="subject.html#1603">[ subject ]</a>
+              <a href="author.html#1603">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+How come util.get_free_disk_space passes &quot;path&quot; to os.path.dirname? 
+
+This causes a bit of trouble for pathnames that don't end in &quot;/&quot;.
+eg. os.path.dirname('/media/ipod') returns: '/media'
+
+Is this a bug or is it needed for something?
+
+Thanks,
+
+nick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001600.html">[gpodder-devel] sqlite database,	channel update slows to a	crawl?
+</A></li>
+	<LI>Next message: <A HREF="001605.html">[gpodder-devel] Question about util.get_free_disk_space(path)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1603">[ date ]</a>
+              <a href="thread.html#1603">[ thread ]</a>
+              <a href="subject.html#1603">[ subject ]</a>
+              <a href="author.html#1603">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

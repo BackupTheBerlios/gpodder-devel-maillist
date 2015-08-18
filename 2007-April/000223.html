@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Bug while downloading a podcast without an	audio file
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Bug%20while%20downloading%20a%20podcast%20without%20an%0A%09audio%20file&In-Reply-To=%3C200704062353.39164.z0idberg%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000219.html">
+   <LINK REL="Next"  HREF="000217.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Bug while downloading a podcast without an	audio file</H1>
+    <B>Gerrit Sangel</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Bug%20while%20downloading%20a%20podcast%20without%20an%0A%09audio%20file&In-Reply-To=%3C200704062353.39164.z0idberg%40gmx.de%3E"
+       TITLE="[gpodder-devel] Bug while downloading a podcast without an	audio file">z0idberg at gmx.de
+       </A><BR>
+    <I>Fri Apr  6 23:53:38 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000219.html">[gpodder-devel] Bug while downloading a podcast without	an	audio file
+</A></li>
+        <LI>Next message: <A HREF="000217.html">[gpodder-devel] Basic BitTorrent Support  - patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#223">[ date ]</a>
+              <a href="thread.html#223">[ thread ]</a>
+              <a href="subject.html#223">[ subject ]</a>
+              <a href="author.html#223">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Am Freitag 06 April 2007 19:13 schrieb Thomas Perl:
+&gt;<i> Hello, Gerrit!
+</I>&gt;<i> &gt; But the main problem occurs with other podcasts then. gpodder starts
+</I>&gt;<i> &gt; downloading them and as soon as they reach 100%, the progress bar
+</I>&gt;<i> &gt; jumps back to 0% and nothing happens. Sometimes I also can't use the
+</I>&gt;<i> &gt; &quot;quit&quot; button than any more.
+</I>&gt;<i> &gt; If I restart gpodder, it happens again, and I can't download any new
+</I>&gt;<i> &gt; episodes. It only worked again when I deleted the bad podcast.
+</I>&gt;<i>
+</I>&gt;<i> Can you please enable wget log output by removing the &quot;#&quot; in the line
+</I>&gt;<i>
+</I>&gt;<i>              #log( 'wget&gt; %s', msg)
+</I>&gt;<i>
+</I>&gt;<i> in libwget.py and then run &quot;make test&quot; in your working copy and send me
+</I>&gt;<i> the console output of gpodder when this error occurs? Can this error be
+</I>&gt;<i> reliably reproduced? Does is happen on specific podcasts, but not on
+</I>&gt;<i> others?
+</I>
+The last lines of the output are (sorry if some things are in German, but i 
+think that won't be a problem ;)):
+
+--------
+Episode &quot;Zur lage der Nation&quot; is newer.
+Command: 
+wget --timeout=120 --continue --tries=inf --output-document=&quot;/home/gerr
+it/gpodder-downloads/620255469665b2e6f1e0ef2fe3349872/.tmp-d41d8cd98f00b204e9800
+998ecf8427e&quot; &quot;&quot;
+wget&gt; : Nicht unterst&#252;tztes Schema.
+wget&gt;
+wget&gt;
+wget&gt;
+wget&gt;
+[several lines the same...]
+wget&gt;
+deleteFilename: /home/gerrit/gpodder-downloads/620255469665b2e6f1e0ef2fe3349872/                                                           .tmp-d41d8cd98f00b204e9800998ecf8427e
+Player found: VLC media player (/usr/share/applications/vlc.desktop)
+Player found: Democracy TV (/usr/share/applications/democracyplayer.desktop)
+Player found: Amarok (/usr/share/applications/kde/amarok.desktop)
+Player found: Kaffeine (/usr/share/applications/kde/kaffeine.desktop)
+Stale download directory found: 620255469665b2e6f1e0ef2fe3349872
+Successfully 
+removed /home/gerrit/gpodder-downloads/620255469665b2e6f1e0ef2fe334                                                           
+9872.
+---------------
+
+That was just when I had no other podcast to download in the queue. If I have 
+another one, he prints an incredible amount of this &quot;wget&gt;&quot; line but 
+afterwards starts downloading the other podcast. 
+
+After he has finished downloading, these errors occur:
+
+-----------
+wget&gt; 36900K .......... .......... .......... .......... .......... 99%  121K
+wget&gt; 36950K .......... .......... .......... .......... .......... 99%  121K
+wget&gt; 37000K .......... .......... ........                        100%  119K
+Error happened during moving tempfile :/
+Exception in thread Thread-10:
+Traceback (most recent call last):
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 442, in __bootstrap
+    self.run()
+  File &quot;/usr/lib/python2.4/threading.py&quot;, line 422, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/gerrit/programmieren/svn/gpodder/src/gpodder/libwget.py&quot;, line 
+122, in thread_function
+    move( self.tempname, self.filename)
+  File &quot;/usr/lib/python2.4/shutil.py&quot;, line 193, in move
+    copy2(src,dst)
+  File &quot;/usr/lib/python2.4/shutil.py&quot;, line 92, in copy2
+    copyfile(src, dst)
+  File &quot;/usr/lib/python2.4/shutil.py&quot;, line 47, in copyfile
+    fsrc = open(src, 'rb')
+IOError: [Errno 2] Datei oder Verzeichnis nicht gefunden: 
+u'/home/gerrit/gpodder-downloads/b23bc08ab84d6cdd33544347fa1133b1/.tmp-f5a2fdcdf66eb969d6d2438ef678cbbb.mp3'
+---------
+
+If I try to klick on &quot;Close&quot;, this is printed in the console:
+
+-------
+Traceback (most recent call last):
+  File &quot;/home/gerrit/programmieren/svn/gpodder/src/gpodder/gpodder.py&quot;, line 
+532, in close_gpodder
+    self.download_status_manager.cancelAll()
+  File &quot;/home/gerrit/programmieren/svn/gpodder/src/gpodder/libwget.py&quot;, line 
+242, in cancelAll
+    self.status_list[element]['thread'].cancel()
+  File &quot;/home/gerrit/programmieren/svn/gpodder/src/gpodder/libwget.py&quot;, line 
+151, in cancel
+    kill( self.pid, signal.SIGKILL)
+OSError: [Errno 3] Kein passender Prozess gefunden
+-----------
+
+I have to use the X from the window manager then. The window disappears, but 
+the last error is repeated and it seems the application is still running (but 
+the window is closed). I have to kill it with Ctrl+C, then. 
+
+That was with version 0.9.1. 
+And if I start the latest svn version, gpodder wants to download the episodes 
+again (so as if gpodder never downloaded them), but does not start. There are 
+once again these &quot;wget&gt;&quot; lines and then theres just:
+
+---------
+wget&gt; /home/gerrit/gpodder-downloads/b23bc08ab84d6cdd33544347fa1133b1/.tmp-f5a2fdcdf66
+deleteFilename: /home/gerrit/gpodder-downloads/b23bc08ab84d6cdd33544347fa1133b1/.tmp-f5a2fdcdf66eb969d6d2438ef678cbbb.mp3
+wget&gt; /home/gerrit/gpodder-downloads/b23bc08ab84d6cdd33544347fa1133b1/.tmp-a45f5669bac
+deleteFilename: /home/gerrit/gpodder-downloads/b23bc08ab84d6cdd33544347fa1133b1/.tmp-a45f5669bacc197e4d347fe82c53f6f9.mp3
+deleteFilename: /home/gerrit/gpodder-downloads/b23bc08ab84d6cdd33544347fa1133b1/.tmp-f41ab4ba74081bb287772b53c3d0f735.mp3
+------------
+
+If I download the episode manually, it starts again (I didn't download it 
+completely again, my bandwidth is not so large). 
+
+But maybe this only occurs because I have 2 svn versions running the same 
+time, I don't know. 
+
+Thanks,
+Gerrit
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000219.html">[gpodder-devel] Bug while downloading a podcast without	an	audio file
+</A></li>
+	<LI>Next message: <A HREF="000217.html">[gpodder-devel] Basic BitTorrent Support  - patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#223">[ date ]</a>
+              <a href="thread.html#223">[ thread ]</a>
+              <a href="subject.html#223">[ subject ]</a>
+              <a href="author.html#223">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

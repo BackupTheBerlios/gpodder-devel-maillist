@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Can it do a &quot;local podcast&quot;?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%20it%20do%20a%20%22local%20podcast%22%3F&In-Reply-To=%3Cedae40750710190914g170e1e5ofc75000938298cf1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000694.html">
+   <LINK REL="Next"  HREF="000698.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Can it do a &quot;local podcast&quot;?</H1>
+    <B>Jeff Simpson</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Can%20it%20do%20a%20%22local%20podcast%22%3F&In-Reply-To=%3Cedae40750710190914g170e1e5ofc75000938298cf1%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Can it do a &quot;local podcast&quot;?">llcooljeff at gmail.com
+       </A><BR>
+    <I>Fri Oct 19 18:14:41 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000694.html">[gpodder-devel] Sync error
+</A></li>
+        <LI>Next message: <A HREF="000698.html">[gpodder-devel] Can it do a &quot;local podcast&quot;?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#697">[ date ]</a>
+              <a href="thread.html#697">[ thread ]</a>
+              <a href="subject.html#697">[ subject ]</a>
+              <a href="author.html#697">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I use mythTV to record TV programs and have scripts set up to
+re-encode them to iPod-size and create a podcast xml file for them.
+Problem is, I can't find a decent way to get them onto the iPod
+without using iTunes.
+
+I'm hoping gpodder can do what I need:
+- Connect to a podcast and get the list of episodes
+- &quot;Download&quot; them directly to the device
+
+Since I am recording all these programs on my PC, there is no need to
+&quot;download&quot; them before syncing to the iPod. I can either have the xml
+file refer to the files by their local filename or by a URL to the
+local apache server, either of which will be able to retrieve the
+files fast enough to copy directly to the device. What I don't want to
+do is have it &quot;download&quot; all the episodes to a new location before
+syncing them, as this is a bit of a waste of space having 2 copies of
+all the recordings.
+
+So I guess the question is - is this possible with gpodder?
+
+Some ideas for how it might work:
+- set the download directory to be the same as the directory that the
+videos are already stored in. At the moment that seems to really
+confuse gpodder, as everything it tries to download is already there.
+- set a per-podcast &quot;download directly&quot; flag
+
+Any other ideas? I'd really like to get this working. I tried using
+Amarok, but Amarok is VERY slow at syncing video podcasts and I've had
+zero luck with identifying the reason. Thanks!
+
+ - Jeff
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000694.html">[gpodder-devel] Sync error
+</A></li>
+	<LI>Next message: <A HREF="000698.html">[gpodder-devel] Can it do a &quot;local podcast&quot;?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#697">[ date ]</a>
+              <a href="thread.html#697">[ thread ]</a>
+              <a href="subject.html#697">[ subject ]</a>
+              <a href="author.html#697">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

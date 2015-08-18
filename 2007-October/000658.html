@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Wishlist
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Wishlist&In-Reply-To=%3C1191828987.5930.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000657.html">
+   <LINK REL="Next"  HREF="000664.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Wishlist</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Wishlist&In-Reply-To=%3C1191828987.5930.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Wishlist">thp at perli.net
+       </A><BR>
+    <I>Mon Oct  8 09:36:27 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000657.html">[gpodder-devel] Wishlist
+</A></li>
+        <LI>Next message: <A HREF="000664.html">[gpodder-devel] Wishlist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#658">[ date ]</a>
+              <a href="thread.html#658">[ thread ]</a>
+              <a href="subject.html#658">[ subject ]</a>
+              <a href="author.html#658">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Paul!
+
+On Mon, 2007-10-08 at 08:03 +0100, Paul Elliott wrote:
+&gt;<i> On 07/10/2007, Thomas Perl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net</A>&gt; wrote:
+</I>&gt;<i>         do you really use the played/unplayed status in gPodder when
+</I>&gt;<i>         you don't use gPodder to listen to podcasts? Anyway, added to
+</I>&gt;<i>         TODO list.
+</I>&gt;<i> 
+</I>&gt;<i> I thought the played/unplayed status was used to determine if a
+</I>&gt;<i> podcast would be copied to the MP3 player? I just want to avoid the
+</I>&gt;<i> situation were episodes are copied repeatedly to the player.
+</I>
+The played/unplayed status is kind of a &quot;listening TODO list&quot; inside
+gPodder and (when syncing to an iPod) on the iPod too (iPods put a
+bullet in front of unplayed episodes when a special flag in the iTunesDB
+is set).
+
+There is an option that you can use to only sync unplayed episodes to
+your device, but by default, gPodder will sync all episodes.
+
+Episodes should never be copied repeatedly, because gPodder will check
+if the episode exists on the player and skip it if it does:
+
+ - On iPods, it will check if there is an episode from the same
+   podcast with the same title in the &quot;Podcasts&quot; playlist
+ - On FS-based MP3 players, it will check if the file that is to
+   be copied already exists on the MP3 player (same name=same file)
+
+This usually works fine - at least, I haven't heard anyone complain
+about that. And the few complaints that came up were about the naming,
+which can be changed (since gPodder 0.10.0) in the preferences.
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000657.html">[gpodder-devel] Wishlist
+</A></li>
+	<LI>Next message: <A HREF="000664.html">[gpodder-devel] Wishlist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#658">[ date ]</a>
+              <a href="thread.html#658">[ thread ]</a>
+              <a href="subject.html#658">[ subject ]</a>
+              <a href="author.html#658">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

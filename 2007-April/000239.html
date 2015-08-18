@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] build error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20build%20error&In-Reply-To=%3C1176226756.12130.7.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000235.html">
+   <LINK REL="Next"  HREF="000240.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] build error</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20build%20error&In-Reply-To=%3C1176226756.12130.7.camel%40macbook%3E"
+       TITLE="[gpodder-devel] build error">thp at perli.net
+       </A><BR>
+    <I>Tue Apr 10 19:39:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000235.html">[gpodder-devel] build error
+</A></li>
+        <LI>Next message: <A HREF="000240.html">[gpodder-devel] build error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#239">[ date ]</a>
+              <a href="thread.html#239">[ thread ]</a>
+              <a href="subject.html#239">[ subject ]</a>
+              <a href="author.html#239">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, enderst!
+
+On Mon, 2007-04-09 at 23:31 -0600, enderst wrote:
+&gt;<i> Hello Thomas,
+</I>&gt;<i> same issue:
+</I>&gt;<i> intltool 0.35.5
+</I>&gt;<i> gettext 0.16.1
+</I>&gt;<i> 0.9.0 built fine and was trying to keep the package up to date.
+</I>
+Reading: <A HREF="http://aur.archlinux.org/packages/gpodder/gpodder/PKGBUILD">http://aur.archlinux.org/packages/gpodder/gpodder/PKGBUILD</A>
+
+The part
+
+    build() {
+      cd $startdir/src/gpodder-$pkgver
+      python setup.py install --root=$startdir/pkg
+    }
+
+should probably be something like
+
+    build() {
+      cd $startdir/src/gpodder-$pkgver
+      DESTDIR=$startdir/pkg make install
+    }
+
+If you simply run setup.py, it won't generate the gettext translations
+(and some other things..). Use the makefile target &quot;install&quot;. The
+destination directory can be specified with the variable &quot;DESTDIR&quot;. The
+make script then calls the setup.py script after running preparations.
+
+Strangely enough, this has been the case for some releases now, so 0.9.0
+shouldn't really have worked with only running setup.py (without make).
+
+
+Enjoy,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000235.html">[gpodder-devel] build error
+</A></li>
+	<LI>Next message: <A HREF="000240.html">[gpodder-devel] build error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#239">[ date ]</a>
+              <a href="thread.html#239">[ thread ]</a>
+              <a href="subject.html#239">[ subject ]</a>
+              <a href="author.html#239">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

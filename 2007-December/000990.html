@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bugreport%20--%20crash%3A%20bsddb.db.DBPageNotFoundError&In-Reply-To=%3Ce2c09cd60712272105h3693b045pd81e2ad9b81f6ed2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000994.html">
+   <LINK REL="Next"  HREF="000992.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError</H1>
+    <B>Ondrej Vesely</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20bugreport%20--%20crash%3A%20bsddb.db.DBPageNotFoundError&In-Reply-To=%3Ce2c09cd60712272105h3693b045pd81e2ad9b81f6ed2%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError">xorwen at gmail.com
+       </A><BR>
+    <I>Fri Dec 28 06:05:26 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000994.html">[gpodder-devel] Strange Parsing of Thursday Feeds in SVN version
+</A></li>
+        <LI>Next message: <A HREF="000992.html">[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#990">[ date ]</a>
+              <a href="thread.html#990">[ thread ]</a>
+              <a href="subject.html#990">[ subject ]</a>
+              <a href="author.html#990">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+my gpodder 0.10.3_svn version crashs just after start with following
+messages (just tail):
+  File &quot;/usr/lib/python2.5/shelve.py&quot;, line 92, in keys
+    return self.dict.keys()
+  File &quot;bsddb/__init__.py&quot;, line 252, in keys
+  File &quot;bsddb/dbutils.py&quot;, line 62, in DeadlockWrap
+bsddb.db.DBPageNotFoundError: (-30987, 'DB_PAGE_NOTFOUND: Requested page not
+found')
+
+The same happend to me few weeks before (also with developement version),
+the solution was removing configuration files and upgrade (not really
+comfortable). Could you suggest anything better for me?
+
+Anyway, thanx all developoers for the grat piece of software, I just like it
+:<i>-).
+</I>
+  Ondrej Vesely
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071228/90d67d34/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20071228/90d67d34/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000994.html">[gpodder-devel] Strange Parsing of Thursday Feeds in SVN version
+</A></li>
+	<LI>Next message: <A HREF="000992.html">[gpodder-devel] bugreport -- crash: bsddb.db.DBPageNotFoundError
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#990">[ date ]</a>
+              <a href="thread.html#990">[ thread ]</a>
+              <a href="subject.html#990">[ subject ]</a>
+              <a href="author.html#990">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,2254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Fwd: [amarok] /: gpodder.net Service &amp;	Treeview/model
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Fwd%3A%20%5Bamarok%5D%20/%3A%20gpodder.net%20Service%20%26%0A%09Treeview/model&In-Reply-To=%3C4D6E230C.3080007%40derkits.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002708.html">
+   <LINK REL="Next"  HREF="002710.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Fwd: [amarok] /: gpodder.net Service &amp;	Treeview/model</H1>
+    <B>Stefan Derkits</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Fwd%3A%20%5Bamarok%5D%20/%3A%20gpodder.net%20Service%20%26%0A%09Treeview/model&In-Reply-To=%3C4D6E230C.3080007%40derkits.at%3E"
+       TITLE="[gpodder-devel] Fwd: [amarok] /: gpodder.net Service &amp;	Treeview/model">stefan at derkits.at
+       </A><BR>
+    <I>Wed Mar  2 11:59:24 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002708.html">[gpodder-devel] Disable Ogg to MP3 Conversation?
+</A></li>
+        <LI>Next message: <A HREF="002710.html">[gpodder-devel] gpodder-devel Digest, Vol 57, Issue 1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2709">[ date ]</a>
+              <a href="thread.html#2709">[ thread ]</a>
+              <a href="subject.html#2709">[ subject ]</a>
+              <a href="author.html#2709">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hey People,
+
+Finally included into the master Branch of amarok on git.kde.org, a
+Version of the gpodder Service for Amarok 2.4.1
+
+Only Podcast Directory atm ... the Gpodder Provider, responsible for
+Synchronisation of Podcasts will make its return in 2.4.1+1
+
+Stefan
+
+- -------- Original Message --------
+Subject: [amarok] /: gpodder.net Service &amp; Treeview/model
+Date: Wed,  2 Mar 2011 11:53:25 +0100 (CET)
+From: Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">kde-commits at kde.org</A>
+CC: <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>
+
+Git commit 1e1977f5af8aef54e8fd6757ad3b99c65674d29d by Stefan Derkits.
+Committed on 24/10/2010 at 11:39.
+Pushed by derkits into branch 'master'.
+
+gpodder.net Service &amp; Treeview/model
+
+This Commit adds a new Service to Amarok
+At the Moment it is used to display the Top
+Tags &amp; associated Podcasts from gpodder.net
+
+This Service depends on libmygpo-qt:
+<A HREF="http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.0.tar.gz">http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.0.tar.gz</A>
+
+Thanks to Christian Wagner &amp; Felix Winter for their help creating this
+Service
+
+REVIEW: 100582
+
+I  +1    -0    gitignore
+M  +7    -2    CMakeLists.txt
+M  +5    -1    README
+A  +48   -0    cmake/modules/FindLibmygpo-qt.cmake         [License:
+UNKNOWN]  *
+M  +2    -0    src/images/CMakeLists.txt
+M  +3    -0    src/services/CMakeLists.txt
+A  +54   -0    src/services/gpodder/CMakeLists.txt         [License:
+UNKNOWN]  *
+A  +46   -0    src/services/gpodder/GpodderMeta.cpp         [License:
+GPL (v2+)]
+A  +63   -0    src/services/gpodder/GpodderMeta.h         [License: GPL
+(v2+)]
+A  +45   -0    src/services/gpodder/GpodderPodcastRequestHandler.cpp
+     [License: GPL (v2+)]
+A  +46   -0    src/services/gpodder/GpodderPodcastRequestHandler.h
+   [License: GPL (v2+)]
+A  +39   -0    src/services/gpodder/GpodderPodcastTreeItem.cpp
+[License: GPL (v2+)]
+A  +39   -0    src/services/gpodder/GpodderPodcastTreeItem.h
+[License: GPL (v2+)]
+A  +219  -0    src/services/gpodder/GpodderService.cpp         [License:
+GPL (v2+)]
+A  +92   -0    src/services/gpodder/GpodderService.h         [License:
+GPL (v2+)]
+A  +274  -0    src/services/gpodder/GpodderServiceModel.cpp
+[License: GPL (v2+)]
+A  +67   -0    src/services/gpodder/GpodderServiceModel.h
+[License: GPL (v2+)]
+A  +24   -0    src/services/gpodder/GpodderServiceView.cpp
+[License: GPL (v2+)]
+A  +31   -0    src/services/gpodder/GpodderServiceView.h
+[License: GPL (v2+)]
+A  +42   -0    src/services/gpodder/GpodderSortFilterProxyModel.cpp
+    [License: GPL (v2+)]
+A  +34   -0    src/services/gpodder/GpodderSortFilterProxyModel.h
+  [License: GPL (v2+)]
+A  +42   -0    src/services/gpodder/GpodderTagTreeItem.cpp
+[License: GPL (v2+)]
+A  +42   -0    src/services/gpodder/GpodderTagTreeItem.h
+[License: GPL (v2+)]
+A  +89   -0    src/services/gpodder/GpodderTreeItem.cpp
+[License: GPL (v2+)]
+A  +59   -0    src/services/gpodder/GpodderTreeItem.h         [License:
+GPL (v2+)]
+A  +25   -0    src/services/gpodder/amarok_service_gpodder.desktop
+   [License: UNKNOWN]  *
+A  +5    -0    src/services/gpodder/images/CMakeLists.txt
+[License: UNKNOWN]  *
+
+The files marked with a * at the end have a non valid license. Please
+read: <A HREF="http://techbase.kde.org/Policies/Licensing_Policy">http://techbase.kde.org/Policies/Licensing_Policy</A> and use the
+headers which are listed at that page.
+
+
+<A HREF="http://commits.kde.org/amarok/1e1977f5af8aef54e8fd6757ad3b99c65674d29d">http://commits.kde.org/amarok/1e1977f5af8aef54e8fd6757ad3b99c65674d29d</A>
+
+diff --git a/.gitignore b/.gitignore
+index b0ad614..3d672f2 100644
+- --- a/.gitignore
++++ b/.gitignore
+@@ -11,6 +11,7 @@ CMakeFiles
+ cmake_install.cmake
+ CMakeLists.txt.user
+ CMakeLists.txt.user.*
++Debug
+
+ #QtCreator
+ qtcreator-build
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9ca5a12..e09de2e 100644
+- --- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -120,6 +120,11 @@ if( WITH_PLAYER )
+         macro_log_feature( LIBOFA_FOUND &quot;libofa&quot; &quot;Enable MusicDNS
+service&quot; &quot;<A HREF="http://code.google.com/p/musicip-libofa/">http://code.google.com/p/musicip-libofa/</A>&quot; FALSE &quot;0.9.x&quot; &quot;&quot; )
+         macro_bool_to_01( LIBOFA_FOUND HAVE_LIBOFA )
+     endif( FFMPEG_FOUND )
++
++    ##gpodder Service
++    macro_optional_find_package(Libmygpo-qt)
++    macro_log_feature( LIBMYGPO_QT_FOUND &quot;libmygpo-qt&quot; &quot;Enable
+godder.net service&quot;
+&quot;<A HREF="http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.0.tar.gz">http://stefan.derkits.at/files/libmygpo-qt/libmygpo-qt.1.0.0.tar.gz</A>&quot;
+FALSE &quot;1.0.0&quot; &quot;&quot; )
++    macro_bool_to_01( LIBMYGPO_QT_FOUND HAVE_LIBMYGPOQT )
+
+     if( WITH_IPOD )
+         find_package(Ipod)
+@@ -160,8 +165,8 @@ if( WITH_PLAYER )
+     if( WITH_IPOD OR WITH_MP3Tunes )
+     find_package(GObject)
+     macro_log_feature( GOBJECT_FOUND &quot;gobject&quot; &quot;Required by libgpod and
+mp3tunes.&quot; &quot;<A HREF="http://www.gtk.org">http://www.gtk.org</A>&quot; FALSE &quot;2.x&quot; &quot;&quot; )
+- -	find_package(GLIB2)
+- -	macro_log_feature( GLIB2_FOUND &quot;glib2&quot; &quot;Required by libgpod and
+mp3tunes&quot; &quot;<A HREF="http://www.gtk.org">http://www.gtk.org</A>&quot; FALSE &quot;2.x&quot; &quot;&quot;)
++    find_package(GLIB2)
++    macro_log_feature( GLIB2_FOUND &quot;glib2&quot; &quot;Required by libgpod and
+mp3tunes&quot; &quot;<A HREF="http://www.gtk.org">http://www.gtk.org</A>&quot; FALSE &quot;2.x&quot; &quot;&quot;)
+     endif( WITH_IPOD OR WITH_MP3Tunes )
+
+     #These two are currently unused
+diff --git a/README b/README
+index e460ca8..6aff466 100644
+- --- a/README
++++ b/README
+@@ -1,4 +1,3 @@
+- -
+  Amarok - the audio player for KDE
+ ===================================
+
+@@ -21,6 +20,7 @@ that really makes playlist handling easy.
+     * Full lyrics download
+     * Learn about your music with integrated Wikipedia
+     * Full Last.fm support
++    * gpodder.net support
+     * Configurable on screen display for track changes
+     * Podcast support
+     * iPod support, as well as other media players
+@@ -98,6 +98,10 @@ Optional
+       * FFmpeg 0.5.0 (or newer) - <A HREF="http://ffmpeg.org/">http://ffmpeg.org/</A>
+         * libavcodec &amp; libavformat specifically
+       * LibOFA - <A HREF="http://code.google.com/p/musicip-libofa/">http://code.google.com/p/musicip-libofa/</A>
++
++    * gpodder.net Podcast Service
++      * libmygpo-qt 1.0 (or newer)
++
+
+     * Transcoding requires (at runtime):
+       * FFmpeg 0.6.0 (or newer) - <A HREF="http://ffmpeg.org/">http://ffmpeg.org/</A>
+diff --git a/cmake/modules/FindLibmygpo-qt.cmake
+b/cmake/modules/FindLibmygpo-qt.cmake
+new file mode 100644
+index 0000000..fd686cd
+- --- /dev/null
++++ b/cmake/modules/FindLibmygpo-qt.cmake
+@@ -0,0 +1,48 @@
++
++# - Find libmygpo-qt
++# Find the libmygpo-qt includes and the libmygpo-qt libraries
++# This module defines
++# LIBMYGPO_QT_INCLUDE_DIR, root mygpo-qt include dir
++# LIBMYGPO_QT_LIBRARY, the path to libmygpo-qt
++# LIBMYGPO_QT_FOUND, whether libmygpo-qt was found
++
++
++find_path(LIBMYGPO_QT_INCLUDE_DIR NAMES ApiRequest.h
++   HINTS
++   ~/usr/include
++   /opt/local/include
++   /usr/include
++   /usr/local/include
++   /opt/kde4/include
++  ~/kde/include
++  PATH_SUFFIXES mygpo-qt
++)
++
++find_library( LIBMYGPO_QT_LIBRARY NAMES mygpo-qt
++    PATHS
++    ~/usr/lib
++    ~/usr/lib64
++   /opt/local/lib
++   /opt/local/lib64
++   /usr/lib
++   /usr/lib64
++   /usr/local/lib
++   /usr/local/lib64
++   /opt/kde4/lib
++   /opt/kde4/lib64
++    ~/kde/lib
++    ~/kde/lib64
++)
++
++
++if(LIBMYGPO_QT_INCLUDE_DIR AND LIBMYGPO_QT_LIBRARY)
++   set(LIBMYGPO_QT_FOUND TRUE)
++   message(STATUS &quot;Found libmygpo-qt: ${LIBMYGPO_QT_INCLUDE_DIR},
+${LIBMYGPO_QT_LIBRARY}&quot;)
++else(LIBMYGPO_QT_INCLUDE_DIR AND LIBMYGPO_QT_LIBRARY)
++   set(LIBMYGPO_QT_FOUND FALSE)
++   if (LIBMYGPO_QT_FIND_REQUIRED)
++      message(FATAL_ERROR &quot;Could NOT find required package libmygpo-qt&quot;)
++   endif(LIBMYGPO_QT_FIND_REQUIRED)
++endif(LIBMYGPO_QT_INCLUDE_DIR AND LIBMYGPO_QT_LIBRARY)
++
++mark_as_advanced(LIBMYGPO_QT_INCLUDE_DIR LIBMYGPO_QT_LIBRARY)
+diff --git a/src/images/CMakeLists.txt b/src/images/CMakeLists.txt
+index 1dfa57d..43c4bfb 100644
+- --- a/src/images/CMakeLists.txt
++++ b/src/images/CMakeLists.txt
+@@ -11,6 +11,8 @@ install(FILES
+         emblem-jamendo-scalable.svgz
+         emblem-lastfm.png
+         emblem-lastfm-scalable.svg
++        emblem-gpodder.png
++    emblem-gpodder-scalable.svgz
+         emblem-magnatune.png
+         emblem-mp3tunes.png
+         emblem-ampache.png
+diff --git a/src/images/emblem-gpodder-scalable.svgz
+b/src/images/emblem-gpodder-scalable.svgz
+new file mode 100644
+index 0000000..ac3c7ef
+Binary files /dev/null and b/src/images/emblem-gpodder-scalable.svgz differ
+diff --git a/src/images/emblem-gpodder.png b/src/images/emblem-gpodder.png
+new file mode 100644
+index 0000000..c9217c7
+Binary files /dev/null and b/src/images/emblem-gpodder.png differ
+diff --git
+a/src/images/icons/hi16-action-view-services-gpodder-amarok.png
+b/src/images/icons/hi16-action-view-services-gpodder-amarok.png
+new file mode 100644
+index 0000000..c9217c7
+Binary files /dev/null and
+b/src/images/icons/hi16-action-view-services-gpodder-amarok.png differ
+diff --git
+a/src/images/icons/hi22-action-view-services-gpodder-amarok.png
+b/src/images/icons/hi22-action-view-services-gpodder-amarok.png
+new file mode 100644
+index 0000000..6f0388f
+Binary files /dev/null and
+b/src/images/icons/hi22-action-view-services-gpodder-amarok.png differ
+diff --git
+a/src/images/icons/hi32-action-view-services-gpodder-amarok.png
+b/src/images/icons/hi32-action-view-services-gpodder-amarok.png
+new file mode 100644
+index 0000000..f51ae2b
+Binary files /dev/null and
+b/src/images/icons/hi32-action-view-services-gpodder-amarok.png differ
+diff --git
+a/src/images/icons/hi48-action-view-services-gpodder-amarok.png
+b/src/images/icons/hi48-action-view-services-gpodder-amarok.png
+new file mode 100644
+index 0000000..0463669
+Binary files /dev/null and
+b/src/images/icons/hi48-action-view-services-gpodder-amarok.png differ
+diff --git
+a/src/images/icons/svg/action-view-services-gpodder-amarok.svgz
+b/src/images/icons/svg/action-view-services-gpodder-amarok.svgz
+new file mode 100644
+index 0000000..ac3c7ef
+Binary files /dev/null and
+b/src/images/icons/svg/action-view-services-gpodder-amarok.svgz differ
+diff --git a/src/services/CMakeLists.txt b/src/services/CMakeLists.txt
+index 1de81f6..14be426 100644
+- --- a/src/services/CMakeLists.txt
++++ b/src/services/CMakeLists.txt
+@@ -8,6 +8,9 @@ add_subdirectory( magnatune )
+ add_subdirectory( jamendo )
+ add_subdirectory( mp3tunes )
+ add_subdirectory( ampache )
++if (LIBMYGPO_QT_FOUND )
++    add_subdirectory( gpodder )
++endif( LIBMYGPO_QT_FOUND )
+ if( LIBLASTFM_FOUND )
+ 	add_subdirectory( lastfm )
+ endif( LIBLASTFM_FOUND )
+diff --git a/src/services/gpodder/CMakeLists.txt
+b/src/services/gpodder/CMakeLists.txt
+new file mode 100644
+index 0000000..97f14b3
+- --- /dev/null
++++ b/src/services/gpodder/CMakeLists.txt
+@@ -0,0 +1,54 @@
++include_directories(
++        ../
++        ../../
++        ../../core-impl/collections
++        ../../statusbar
++        ../../widgets
++        ../../context
++        ../../network
++        ../../dynamic # for CustomBias.h
++        ../../browsers/playlistbrowser # for DynamicBiasWidgets
++        ${CMAKE_CURRENT_BINARY_DIR}/../.. #for amarokconfig.h
++        ${KDE4_INCLUDE_DIR}
++        ${STRIGI_INCLUDE_DIR}
++        ${QT_INCLUDES}
++        ${LIBMYGPO_QT_INCLUDE_DIR}
++        ${LIBMYGPO_QT_INCLUDE_DIR}/../
++        )
++
++        add_subdirectory( images )
++
++        add_definitions(${KDE4_ENABLE_EXCEPTIONS}) #not sure if needed
++
++        set(amarok_service_gpodder_PART_SRCS
++            GpodderService.cpp
++            GpodderServiceModel.cpp
++            GpodderServiceView.cpp
++            GpodderTreeItem.cpp
++            GpodderPodcastTreeItem.cpp
++            GpodderTagTreeItem.cpp
++            GpodderPodcastRequestHandler.cpp
++            GpodderSortFilterProxyModel.cpp
++        )
++
++
++        set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS}
+${KDE4_ENABLE_EXCEPTIONS}&quot;) #not sure if needed
++
++        kde4_add_plugin(amarok_service_gpodder
+${amarok_service_gpodder_PART_SRCS})
++
++        target_link_libraries(amarok_service_gpodder
++            amarokcore
++            amaroklib
++            amarokpud
++            ${LIBMYGPO_QT_LIBRARY}
++            ${KDE4_KDECORE_LIBS}
++            ${KDE4_KDEUI_LIBS}
++            ${KDE4_KIO_LIBS}
++            ${KDE4_SOLID_LIBRARY}
++            ${KDE4_THREADWEAVER_LIBRARIES}
++            ${QT_QTNETWORK_LIBRARY}
++        )
++
++         install( TARGETS amarok_service_gpodder DESTINATION
+${PLUGIN_INSTALL_DIR} )
++
++         install( FILES amarok_service_gpodder.desktop DESTINATION
+${SERVICES_INSTALL_DIR} )
+\ No newline at end of file
+diff --git a/src/services/gpodder/GpodderMeta.cpp
+b/src/services/gpodder/GpodderMeta.cpp
+new file mode 100644
+index 0000000..12a15e8
+- --- /dev/null
++++ b/src/services/gpodder/GpodderMeta.cpp
+@@ -0,0 +1,46 @@
++/****************************************************************************************
++ * Copyright (c) 2010 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2010 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2010 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderMeta.h&quot;
++
++#include &quot;GpodderService.h&quot;
++
++using namespace Meta;
++
++GpodderMetaFactory::GpodderMetaFactory( const QString&amp; dbPrefix,
+GpodderService* service ): ServiceMetaFactory( dbPrefix ), m_service(
+service )
++{
++}
++
++Meta::TrackPtr GpodderMetaFactory::createTrack( const QStringList&amp; rows )
++{
++    return TrackPtr( new GpodderFeed( rows ) );
++}
++
++Meta::GpodderFeed::GpodderFeed( const QString&amp; name ): ServiceTrack( name )
++{
++}
++
++Meta::GpodderFeed::GpodderFeed( const QStringList&amp; resultRow ):
+ServiceTrack( resultRow )
++{
++}
++
++QList&lt; QAction* &gt; Meta::GpodderFeed::customActions()
++{
++    QList&lt; QAction * &gt; actions;
++    return actions;
++}
+diff --git a/src/services/gpodder/GpodderMeta.h
+b/src/services/gpodder/GpodderMeta.h
+new file mode 100644
+index 0000000..acb7cfc
+- --- /dev/null
++++ b/src/services/gpodder/GpodderMeta.h
+@@ -0,0 +1,63 @@
++/****************************************************************************************
++ * Copyright (c) 2010 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2010 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2010 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERMETA_H
++#define GPODDERMETA_H
++
++#include &quot;../ServiceMetaBase.h&quot;
++
++#include &lt;QDateTime&gt;
++#include &lt;QString&gt;
++#include &lt;QStringList&gt;
++#include &lt;QList&gt;
++
++class GpodderService;
++
++class GpodderMetaFactory : public ServiceMetaFactory
++{
++public:
++    GpodderMetaFactory( const QString&amp; dbPrefix, GpodderService *service );
++    virtual ~GpodderMetaFactory() {}
++
++    virtual Meta::TrackPtr createTrack( const QStringList&amp; rows );
++
++private:
++    GpodderService* m_service;
++};
++
++namespace Meta
++{
++class GpodderFeed;
++
++typedef KSharedPtr&lt;GPodderFeed&gt; GpodderFeedPtr;
++
++
++
++class GpodderFeed : public ServiceTrack
++{
++public:
++    GpodderFeed( const QString&amp; name );
++    GpodderFeed( const QStringList&amp; resultRow );
++
++    virtual QList&lt; QAction* &gt; customActions();
++
++};
++
++}
++
++#endif // GPODDERMETA_H
+diff --git a/src/services/gpodder/GpodderPodcastRequestHandler.cpp
+b/src/services/gpodder/GpodderPodcastRequestHandler.cpp
+new file mode 100644
+index 0000000..66e8ea8
+- --- /dev/null
++++ b/src/services/gpodder/GpodderPodcastRequestHandler.cpp
+@@ -0,0 +1,45 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderPodcastRequestHandler.h&quot;
++
++#include &quot;core/support/Debug.h&quot;
++
++GpodderPodcastRequestHandler::GpodderPodcastRequestHandler(
+mygpo::PodcastListPtr podcasts, QModelIndex parentItem,
++        GpodderServiceModel *model ) : QObject( model ), m_podcasts(
+podcasts ), m_parentItem( parentItem ), m_model( model )
++{
++}
++
++GpodderPodcastRequestHandler::~GpodderPodcastRequestHandler()
++{
++
++}
++
++void GpodderPodcastRequestHandler::finished()
++{
++    m_model-&gt;insertPodcastList( m_podcasts, m_parentItem );
++}
++
++void GpodderPodcastRequestHandler::requestError(
+QNetworkReply::NetworkError error )
++{
++    debug() &lt;&lt; &quot;Error in Podcast request: &quot; &lt;&lt; error;
++}
++void GpodderPodcastRequestHandler::parseError()
++{
++    debug() &lt;&lt; &quot;Error while parsing gpodder.net Podcasts&quot;;
++}
+diff --git a/src/services/gpodder/GpodderPodcastRequestHandler.h
+b/src/services/gpodder/GpodderPodcastRequestHandler.h
+new file mode 100644
+index 0000000..9f0ced2
+- --- /dev/null
++++ b/src/services/gpodder/GpodderPodcastRequestHandler.h
+@@ -0,0 +1,46 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERPODCASTREQUESTHANDLER_H_
++#define GPODDERPODCASTREQUESTHANDLER_H_
++
++#include &quot;GpodderServiceModel.h&quot;
++
++#include &lt;mygpo-qt/PodcastList.h&gt;
++
++#include &lt;QModelIndex&gt;
++
++class GpodderPodcastRequestHandler : public QObject
++{
++    Q_OBJECT
++public:
++    GpodderPodcastRequestHandler( mygpo::PodcastListPtr podcasts,
+QModelIndex parentItem, GpodderServiceModel *model );
++    virtual ~GpodderPodcastRequestHandler();
++
++public slots:
++    void finished();
++    void requestError( QNetworkReply::NetworkError );
++    void parseError();
++
++private:
++    mygpo::PodcastListPtr m_podcasts;
++    QModelIndex m_parentItem;
++    GpodderServiceModel  *m_model;
++};
++
++#endif /* GPODDERPODCASTREQUESTHANDLER_H_ */
+diff --git a/src/services/gpodder/GpodderPodcastTreeItem.cpp
+b/src/services/gpodder/GpodderPodcastTreeItem.cpp
+new file mode 100644
+index 0000000..cf1b48c
+- --- /dev/null
++++ b/src/services/gpodder/GpodderPodcastTreeItem.cpp
+@@ -0,0 +1,39 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderPodcastTreeItem.h&quot;
++
++GpodderPodcastTreeItem::GpodderPodcastTreeItem( mygpo::PodcastPtr
+podcast, GpodderTreeItem *parent ) : GpodderTreeItem( parent ),
+m_podcast( podcast )
++{
++
++}
++
++GpodderPodcastTreeItem::~GpodderPodcastTreeItem()
++{
++
++}
++
++QVariant GpodderPodcastTreeItem::displayData() const
++{
++    return m_podcast-&gt;title();
++}
++
++mygpo::PodcastPtr GpodderPodcastTreeItem::podcast() const
++{
++    return m_podcast;
++}
+diff --git a/src/services/gpodder/GpodderPodcastTreeItem.h
+b/src/services/gpodder/GpodderPodcastTreeItem.h
+new file mode 100644
+index 0000000..96db070
+- --- /dev/null
++++ b/src/services/gpodder/GpodderPodcastTreeItem.h
+@@ -0,0 +1,39 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERPODCASTTREEITEM_H_
++#define GPODDERPODCASTTREEITEM_H_
++
++#include &quot;GpodderTreeItem.h&quot;
++
++#include &lt;mygpo-qt/Podcast.h&gt;
++
++class GpodderPodcastTreeItem: public GpodderTreeItem
++{
++    Q_OBJECT
++public:
++    GpodderPodcastTreeItem( mygpo::PodcastPtr podcast, GpodderTreeItem
+*parent = 0 );
++    virtual ~GpodderPodcastTreeItem();
++    virtual QVariant displayData() const;
++
++    mygpo::PodcastPtr podcast() const;
++private:
++    mygpo::PodcastPtr m_podcast;
++};
++
++#endif /* GPODDERPODCASTTREEITEM_H_ */
+diff --git a/src/services/gpodder/GpodderService.cpp
+b/src/services/gpodder/GpodderService.cpp
+new file mode 100644
+index 0000000..6689954
+- --- /dev/null
++++ b/src/services/gpodder/GpodderService.cpp
+@@ -0,0 +1,219 @@
++/****************************************************************************************
++ * Copyright (c) 2010 - 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2010 - 2011 Christian Wagner
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;               *
++ * Copyright (c) 2010 - 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#define DEBUG_PREFIX &quot;GpodderService&quot;
++#include &quot;core/support/Debug.h&quot;
++
++#include &quot;GpodderService.h&quot;
++
++#include &quot;GpodderServiceView.h&quot;
++#include &quot;GpodderServiceModel.h&quot;
++#include &quot;GpodderPodcastTreeItem.h&quot;
++#include &quot;GpodderSortFilterProxyModel.h&quot;
++
++#include &quot;core/podcasts/PodcastProvider.h&quot;
++#include &quot;playlistmanager/PlaylistManager.h&quot;
++#include &quot;widgets/SearchWidget.h&quot;
++
++#include &lt;KLocale&gt;
++#include &lt;KPasswordDialog&gt;
++#include &lt;KStandardDirs&gt;
++#include &lt;KUrl&gt;
++
++#include &lt;mygpo-qt/ApiRequest.h&gt;
++#include &lt;mygpo-qt/Podcast.h&gt;
++
++AMAROK_EXPORT_PLUGIN( GpodderServiceFactory )
++
++void GpodderServiceFactory::init()
++{
++    ServiceBase *service = createGpodderService();
++    if( service )
++    {
++        m_activeServices &lt;&lt; service;
++        m_initialized = true;
++        emit newService( service );
++    }
++}
++
++QString GpodderServiceFactory::name()
++{
++    return &quot;gpodder.net&quot;;
++}
++
++KPluginInfo GpodderServiceFactory::info()
++{
++    KPluginInfo pluginInfo( &quot;amarok_service_gpodder.desktop&quot;, &quot;services&quot; );
++    pluginInfo.setConfig( config() );
++    return pluginInfo;
++}
++
++KConfigGroup GpodderServiceFactory::config()
++{
++    return Amarok::config( &quot;Service_gpodder&quot; );
++}
++
++void GpodderServiceFactory::slotCreateGpodderService()
++{
++    if( !m_initialized )  // Until we can remove a service when
+networking gets disabled, only create it the first time.
++    {
++        ServiceBase *service = createGpodderService();
++        if( service )
++        {
++            m_activeServices &lt;&lt; service;
++            m_initialized = true;
++            emit newService( service );
++        }
++    }
++}
++
++void GpodderServiceFactory::slotRemoveGpodderService()
++{
++    if( m_activeServices.size() == 0 )
++        return;
++
++    m_initialized = false;
++    emit removeService( m_activeServices.first() );
++    m_activeServices.clear();
++}
++
++ServiceBase* GpodderServiceFactory::createGpodderService()
++{
++    ServiceBase* service = new GpodderService( this, QLatin1String(
+&quot;gpodder&quot; ) );
++    return service;
++}
++
++GpodderService::GpodderService( GpodderServiceFactory* parent, const
+QString&amp; name )
++    : ServiceBase( name, parent, false ), m_inited( false )
++{
++    DEBUG_BLOCK
++    setShortDescription( i18n( &quot;gpodder.net: Podcast Directory Service&quot;
+) );
++    setIcon( KIcon( &quot;view-services-gpodder-amarok&quot; ) );
++    setLongDescription( i18n( &quot;gpodder.net is an online Podcast
+Directory &amp; Synchonisation Service.&quot; ) );
++    setImagePath( KStandardDirs::locate( &quot;data&quot;,
+&quot;amarok/images/mygpo.png&quot; ) );
++
++    init();
++}
++
++GpodderService::~GpodderService()
++{
++    DEBUG_BLOCK
++
++}
++
++//This Method should only contain the most necessary things for
+initilazing the Service
++void GpodderService::init()
++{
++
++    m_serviceready = true;
++
++    m_inited = true;
++}
++
++//This Method should contain the rest of the Service Initialization
+(not soo necessary things, that can be done after the Object was created)
++void GpodderService::polish()
++{
++
++    DEBUG_BLOCK
++
++    generateWidgetInfo();
++    if( m_polished )
++        return;
++
++    //do not allow this content to get added to the playlist. At least
+not for now
++    setPlayableTracks( false );
++
++    GpodderServiceView* view = new GpodderServiceView( this );
++    view-&gt;setHeaderHidden( true );
++    view-&gt;setFrameShape( QFrame::NoFrame );
++
++    // Was set true in OpmlDirectoryService, but I think we won't need
+this on true
++    view-&gt;setDragEnabled( false );
++    view-&gt;setItemsExpandable( true );
++
++    view-&gt;setSortingEnabled( false );
++    view-&gt;setEditTriggers( QAbstractItemView::NoEditTriggers );
++    view-&gt;setDragDropMode( QAbstractItemView::NoDragDrop );
++
++    setView( view );
++
++    GpodderServiceModel *sourceModel = new GpodderServiceModel( this );
++
++    m_proxyModel = new GpodderSortFilterProxyModel( this );
++    m_proxyModel-&gt;setDynamicSortFilter( true );
++
++    m_proxyModel-&gt;setSourceModel( sourceModel );
++
++
++    setModel( m_proxyModel );
++
++    m_selectionModel = view-&gt;selectionModel();
++
++    m_subscribeButton = new QPushButton();
++    m_subscribeButton-&gt;setParent( m_bottomPanel );
++    m_subscribeButton-&gt;setText( i18n( &quot;Subscribe&quot; ) );
++    m_subscribeButton-&gt;setObjectName( &quot;subscribeButton&quot; );
++    m_subscribeButton-&gt;setIcon( KIcon( &quot;get-hot-new-stuff-amarok&quot; ) );
++
++    m_subscribeButton-&gt;setEnabled( true );
++
++    connect( m_subscribeButton, SIGNAL( clicked() ), this, SLOT(
+subscribe() ) );
++
++
++
++
++    m_searchWidget-&gt;setup( this );
++    m_polished = true;
++}
++
++void GpodderService::itemSelected( CollectionTreeItem * selectedItem )
++{
++    Q_UNUSED( selectedItem )
++    DEBUG_BLOCK
++    return;
++}
++
++// Filter slots
++void GpodderService::slotSetFilterTimeout()
++{
++
++    m_proxyModel-&gt;setFilterWildcard( m_searchWidget-&gt;currentText() );
++}
++
++void GpodderService::slotFilterNow()
++{
++
++}
++
++void GpodderService::setFocus()
++{
++
++}
++
++void GpodderService::subscribe()
++{
++    QModelIndex index = m_proxyModel-&gt;mapToSource(
+m_selectionModel-&gt;currentIndex() );
++    GpodderTreeItem *treeItem = static_cast&lt;GpodderTreeItem*&gt;(
+index.internalPointer() );
++
++    if( GpodderPodcastTreeItem *podcastTreeItem =
+qobject_cast&lt;GpodderPodcastTreeItem*&gt;( treeItem ) )
++    {
++        Podcasts::PodcastProvider *podcastProvider =
+The::playlistManager()-&gt;defaultPodcasts();
++        KUrl kUrl( podcastTreeItem-&gt;podcast()-&gt;url() );
++        podcastProvider-&gt;addPodcast( kUrl );
++    }
++}
+diff --git a/src/services/gpodder/GpodderService.h
+b/src/services/gpodder/GpodderService.h
+new file mode 100644
+index 0000000..4ca06aa
+- --- /dev/null
++++ b/src/services/gpodder/GpodderService.h
+@@ -0,0 +1,92 @@
++/****************************************************************************************
++ * Copyright (c) 2010 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2010 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2010 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERSERVICE_H
++#define GPODDERSERVICE_H
++
++#include &quot;core/support/Amarok.h&quot;
++#include &quot;services/ServiceBase.h&quot;
++
++#include &lt;QItemSelectionModel&gt;
++#include &lt;QSortFilterProxyModel&gt;
++
++class GpodderService;
++
++namespace The
++{
++GpodderService* gpodderService();
++}
++
++class GpodderServiceFactory : public ServiceFactory
++{
++    Q_OBJECT
++
++public:
++    GpodderServiceFactory() {}
++    virtual ~GpodderServiceFactory() {}
++
++    virtual void init();
++    virtual QString name();
++    virtual KPluginInfo info();
++    virtual KConfigGroup config();
++
++private slots:
++    void slotCreateGpodderService();
++    void slotRemoveGpodderService();
++
++private:
++    ServiceBase* createGpodderService();
++};
++
++class GpodderService : public ServiceBase
++{
++    Q_OBJECT
++
++public:
++    GpodderService( GpodderServiceFactory* parent, const QString&amp; name );
++    virtual ~GpodderService();
++
++private slots:
++
++    void subscribe();
++    void itemSelected( CollectionTreeItem *selectedItem );
++
++    // filter slots
++    void slotSetFilterTimeout();
++    void slotFilterNow();
++    void setFocus();
++
++private:
++    void init();
++    void polish();
++
++    virtual Collections::Collection * collection()
++    {
++        return 0;
++    }
++
++    bool m_inited;
++
++    QSortFilterProxyModel *m_proxyModel;
++
++    QPushButton *m_subscribeButton;
++    QItemSelectionModel *m_selectionModel;
++
++};
++
++#endif  // GPODDERSERVICE_H
+diff --git a/src/services/gpodder/GpodderServiceModel.cpp
+b/src/services/gpodder/GpodderServiceModel.cpp
+new file mode 100644
+index 0000000..af48576
+- --- /dev/null
++++ b/src/services/gpodder/GpodderServiceModel.cpp
+@@ -0,0 +1,274 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderServiceModel.h&quot;
++#include &quot;GpodderTagTreeItem.h&quot;
++#include &quot;GpodderPodcastTreeItem.h&quot;
++#include &lt;QList&gt;
++#include &lt;QEventLoop&gt;
++
++#include &quot;core/support/Debug.h&quot;
++#include &quot;GpodderPodcastRequestHandler.h&quot;
++
++#define INITIAL_TOPTAGS_LOADED 100
++static const int s_numberItemsToLoad = 100;
++
++using namespace mygpo;
++
++GpodderServiceModel::GpodderServiceModel( QObject *parent ) :
+QAbstractItemModel( parent ), m_request( The::networkAccessManager() )
++{
++    rootItem = new GpodderTreeItem();
++}
++
++GpodderServiceModel::~GpodderServiceModel()
++{
++    delete rootItem;
++}
++
++//Qt::ItemFlags GpodderServiceModel::flags( const QModelIndex &amp;idx ) const
++//{
++//	DEBUG_BLOCK
++//    if( !idx.isValid() )
++//        return Qt::ItemIsDropEnabled;
++//
++//    GpodderTreeItem *treeItem = static_cast&lt;GpodderTreeItem *&gt;(
+idx.internalPointer() );
++//    if( treeItem ) //probably a folder
++//        return Qt::ItemIsEnabled | Qt::ItemIsSelectable |
+Qt::ItemIsEditable | Qt::ItemIsDragEnabled
++//                | Qt::ItemIsDropEnabled;
++//
++//    return QAbstractItemModel::flags( idx );
++//}
++
++
++QModelIndex GpodderServiceModel::index( int row, int column, const
+QModelIndex &amp;parent ) const
++{
++    DEBUG_BLOCK
++
++    if( !hasIndex( row, column, parent ) )
++        return QModelIndex();
++
++    GpodderTreeItem *parentItem;
++
++    if( !parent.isValid() )
++        parentItem = rootItem;
++    else
++        parentItem = static_cast&lt;GpodderTreeItem*&gt;(
+parent.internalPointer() );
++
++    if( parentItem == 0 )
++        return QModelIndex();
++
++    GpodderTreeItem *childItem = parentItem-&gt;child( row );
++    if( childItem )
++        return createIndex( row, column, childItem );
++    else
++        return QModelIndex();
++}
++
++QModelIndex GpodderServiceModel::parent( const QModelIndex &amp;index ) const
++{
++    DEBUG_BLOCK
++
++    if( !index.isValid() )
++        return QModelIndex();
++
++    GpodderTreeItem *childItem = static_cast&lt;GpodderTreeItem*&gt;(
+index.internalPointer() );
++
++    if( childItem == 0 || childItem-&gt;isRoot() )
++        return QModelIndex();
++
++    GpodderTreeItem *parentItem = childItem-&gt;parent();
++
++    if( parentItem == 0 )
++    {
++        return QModelIndex();
++    }
++
++    int childIndex;
++    if( parentItem-&gt;isRoot() )
++        return QModelIndex();
++    else
++        childIndex = parentItem-&gt;parent()-&gt;children().indexOf(
+parentItem );
++
++    return createIndex( childIndex, 0, parentItem );
++}
++
++int GpodderServiceModel::rowCount( const QModelIndex &amp;parent ) const
++{
++    DEBUG_BLOCK
++
++    GpodderTreeItem *parentItem;
++
++    if( !parent.isValid() )
++    {
++        return rootItem-&gt;childCount();
++    }
++
++    parentItem = static_cast&lt;GpodderTreeItem*&gt;( parent.internalPointer() );
++
++    if( parentItem == 0 )
++        return 0;
++
++    return parentItem-&gt;childCount();
++}
++
++int GpodderServiceModel::columnCount( const QModelIndex &amp;parent ) const
++{
++    DEBUG_BLOCK
++
++    Q_UNUSED( parent )
++    return 1;
++}
++
++QVariant GpodderServiceModel::data( const QModelIndex &amp;index, int role
+) const
++{
++    DEBUG_BLOCK
++
++    if( !index.isValid() )
++        return QVariant();
++
++    if( role != Qt::DisplayRole )
++        return QVariant();
++
++    GpodderTreeItem *item = static_cast&lt;GpodderTreeItem*&gt;(
+index.internalPointer() );
++    if( item == 0 )
++    {
++        return QVariant();
++    }
++
++    return item-&gt;displayData();
++}
++
++void GpodderServiceModel::insertTagList()
++{
++    DEBUG_BLOCK
++
++    if( rootItem != 0 )
++    {
++        beginInsertRows( QModelIndex(), 0, topTags-&gt;list().count() - 1 );
++        rootItem-&gt;appendTags( topTags );
++        endInsertRows();
++    }
++}
++
++void GpodderServiceModel::topTagsRequestError(
+QNetworkReply::NetworkError error )
++{
++    debug() &lt;&lt; &quot;Error in TopTags request: &quot; &lt;&lt; error;
++}
++
++void GpodderServiceModel::topTagsParseError()
++{
++    debug() &lt;&lt; &quot;Error while parsing TopTags&quot;;
++}
++
++void GpodderServiceModel::insertPodcastList( mygpo::PodcastListPtr
+podcasts, const QModelIndex &amp; parentItem )
++{
++    DEBUG_BLOCK
++
++    emit layoutAboutToBeChanged();
++    beginInsertRows( parentItem, 0, podcasts-&gt;list().count() - 1 );
++    GpodderTreeItem *item = static_cast&lt;GpodderTreeItem*&gt;(
+parentItem.internalPointer() );
++    if( item != 0 )
++    {
++        debug() &lt;&lt; &quot;Appending Podcasts...&quot;;
++        item-&gt;appendPodcasts( podcasts );
++    }
++    endInsertRows();
++
++    emit layoutChanged();
++}
++
++bool GpodderServiceModel::hasChildren( const QModelIndex &amp;parent ) const
++{
++    DEBUG_BLOCK
++
++    if( !parent.isValid() )
++        return true;
++
++    GpodderTreeItem *treeItem = static_cast&lt;GpodderTreeItem *&gt;(
+parent.internalPointer() );
++
++    if( treeItem == 0 )
++        return false;
++
++    if( treeItem-&gt;childCount() &gt; 0 )
++        return true;
++
++    if( !qobject_cast&lt;GpodderPodcastTreeItem *&gt;( treeItem ) )
++    {
++        return true;
++    }
++    else
++    {
++        return false;
++    }
++}
++
++bool GpodderServiceModel::canFetchMore( const QModelIndex &amp;parent ) const
++{
++    DEBUG_BLOCK
++
++    // root item
++    if( !parent.isValid() )
++    {
++        return !rootItem-&gt;hasChildren();
++    }
++
++    // already fetched or just started?
++    GpodderTreeItem *treeItem = static_cast&lt;GpodderTreeItem *&gt;(
+parent.internalPointer() );
++    if( treeItem == 0 || treeItem-&gt;hasChildren() /* ||
+m_currentFetchingMap.values().contains( parent ) */ )
++    {
++        return false;
++    }
++
++    // TagTreeItem
++
++    if( qobject_cast&lt;GpodderTagTreeItem*&gt;( treeItem ) )
++    {
++        return true;
++    }
++    return false;
++}
++
++void GpodderServiceModel::fetchMore( const QModelIndex &amp;parent )
++{
++    DEBUG_BLOCK
++
++    // root item
++    if( !parent.isValid() )
++    {
++        topTags = m_request.topTags( s_numberItemsToLoad );
++        rootItem-&gt;setHasChildren( true );
++        connect( topTags.data(), SIGNAL( finished() ), this, SLOT(
+insertTagList() ) );
++        connect( topTags.data(), SIGNAL( requestError(
+QNetworkReply::NetworkError ) ), SLOT( topTagsRequestError(
+QNetworkReply::NetworkError ) ) );
++        connect( topTags.data(), SIGNAL( parseError() ), SLOT(
+topTagsParseError() ) );
++    }
++
++    // TagTreeItem
++    GpodderTreeItem *treeItem = static_cast&lt;GpodderTreeItem *&gt;(
+parent.internalPointer() );
++
++    if( GpodderTagTreeItem *tagTreeItem =
+qobject_cast&lt;GpodderTagTreeItem*&gt;( treeItem ) )
++    {
++        tagTreeItem-&gt;setHasChildren( true );
++        mygpo::PodcastListPtr podcasts = m_request.podcastsOfTag(
+s_numberItemsToLoad, tagTreeItem-&gt;tag()-&gt;tag() );
++        GpodderPodcastRequestHandler *podcastRequestHandler = new
+GpodderPodcastRequestHandler( podcasts, parent, this );
++        connect( podcasts.data(), SIGNAL( finished() ),
+podcastRequestHandler, SLOT( finished() ) );
++        connect( podcasts.data(), SIGNAL( requestError(
+QNetworkReply::NetworkError ) ), podcastRequestHandler, SLOT(
+topTagsRequestError( QNetworkReply::NetworkError ) ) );
++        connect( podcasts.data(), SIGNAL( parseError() ),
+podcastRequestHandler, SLOT( topTagsParseError() ) );
++    }
++
++}
++
+diff --git a/src/services/gpodder/GpodderServiceModel.h
+b/src/services/gpodder/GpodderServiceModel.h
+new file mode 100644
+index 0000000..5c496d8
+- --- /dev/null
++++ b/src/services/gpodder/GpodderServiceModel.h
+@@ -0,0 +1,67 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERSERVICEMODEL_H_
++#define GPODDERSERVICEMODEL_H_
++
++#include &lt;QAbstractItemModel&gt;
++#include &lt;QStringList&gt;
++#include &lt;ApiRequest.h&gt;
++#include &quot;NetworkAccessManagerProxy.h&quot;
++#include &lt;TagList.h&gt;
++#include &quot;GpodderTreeItem.h&quot;
++
++class GpodderTreeItem;
++
++class GpodderServiceModel: public QAbstractItemModel
++{
++    Q_OBJECT
++public:
++    explicit GpodderServiceModel( QObject *parent = 0 );
++    virtual ~GpodderServiceModel();
++
++    // QAbstractItemModel methods
++    virtual QModelIndex index( int row, int column, const QModelIndex
+&amp;parent = QModelIndex() ) const;
++    virtual QModelIndex parent( const QModelIndex &amp;index ) const;
++    virtual int rowCount( const QModelIndex &amp;parent = QModelIndex() )
+const;
++    virtual int columnCount( const QModelIndex &amp;parent = QModelIndex()
+) const;
++    virtual QVariant data( const QModelIndex &amp;index, int role =
+Qt::DisplayRole ) const;
++    virtual bool hasChildren( const QModelIndex &amp;parent = QModelIndex()
+) const;
++//    virtual Qt::ItemFlags flags( const QModelIndex &amp;index ) const;
++
++    void insertPodcastList( mygpo::PodcastListPtr podcasts, const
+QModelIndex &amp; parentItem );
++
++private slots:
++    void topTagsRequestError( QNetworkReply::NetworkError error );
++    void topTagsParseError();
++    void insertTagList();
++
++protected:
++    virtual bool canFetchMore( const QModelIndex &amp;parent ) const;
++    virtual void fetchMore( const QModelIndex &amp;parent );
++
++private:
++    GpodderTreeItem *rootItem;
++    // The gpodder.net topTags
++    mygpo::TagListPtr topTags;
++    // true if the topTagsRequest has finished and all Top Tags are loaded
++    mygpo::ApiRequest m_request;
++
++};
++
++#endif /* GPODDERSERVICEMODEL_H_ */
+diff --git a/src/services/gpodder/GpodderServiceView.cpp
+b/src/services/gpodder/GpodderServiceView.cpp
+new file mode 100644
+index 0000000..bf4ed26
+- --- /dev/null
++++ b/src/services/gpodder/GpodderServiceView.cpp
+@@ -0,0 +1,24 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderServiceView.h&quot;
++
++GpodderServiceView::GpodderServiceView( QWidget *parent ) :
++    Amarok::PrettyTreeView( parent )
++{
++}
+diff --git a/src/services/gpodder/GpodderServiceView.h
+b/src/services/gpodder/GpodderServiceView.h
+new file mode 100644
+index 0000000..9f4afd1
+- --- /dev/null
++++ b/src/services/gpodder/GpodderServiceView.h
+@@ -0,0 +1,31 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERSERVIECEVIEW_H_
++#define GPODDERSERVIECEVIEW_H_
++
++#include &quot;PrettyTreeView.h&quot;
++
++class GpodderServiceView: public Amarok::PrettyTreeView
++{
++    Q_OBJECT
++public:
++    explicit GpodderServiceView( QWidget *parent = 0 );
++};
++
++#endif /* GPODDERSERVIECEVIEW_H_ */
+diff --git a/src/services/gpodder/GpodderSortFilterProxyModel.cpp
+b/src/services/gpodder/GpodderSortFilterProxyModel.cpp
+new file mode 100644
+index 0000000..631402d
+- --- /dev/null
++++ b/src/services/gpodder/GpodderSortFilterProxyModel.cpp
+@@ -0,0 +1,42 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderSortFilterProxyModel.h&quot;
++
++GpodderSortFilterProxyModel::GpodderSortFilterProxyModel( QObject
+*parent ) : QSortFilterProxyModel( parent )
++{
++
++}
++
++GpodderSortFilterProxyModel::~GpodderSortFilterProxyModel()
++{
++
++}
++
++bool GpodderSortFilterProxyModel::filterAcceptsRow( int source_row,
+const QModelIndex &amp; source_parent ) const
++{
++    // Tag Items
++    if( !source_parent.isValid() )
++    {
++        return true;
++    }
++
++    // Podcast Items
++    QModelIndex index = sourceModel()-&gt;index( source_row, 0,
+source_parent );
++    return sourceModel()-&gt;data( index ).toString().contains(
+filterRegExp() );
++}
+diff --git a/src/services/gpodder/GpodderSortFilterProxyModel.h
+b/src/services/gpodder/GpodderSortFilterProxyModel.h
+new file mode 100644
+index 0000000..638fe99
+- --- /dev/null
++++ b/src/services/gpodder/GpodderSortFilterProxyModel.h
+@@ -0,0 +1,34 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERSORTFILTERPROXYMODEL_H_
++#define GPODDERSORTFILTERPROXYMODEL_H_
++
++#include &lt;QSortFilterProxyModel&gt;
++
++class GpodderSortFilterProxyModel : public QSortFilterProxyModel
++{
++    Q_OBJECT
++public:
++    GpodderSortFilterProxyModel( QObject *parent = 0 );
++    virtual ~GpodderSortFilterProxyModel();
++protected:
++    virtual bool filterAcceptsRow( int source_row, const QModelIndex &amp;
+source_parent ) const;
++};
++
++#endif /* GPODDERSORTFILTERPROXYMODEL_H_ */
+diff --git a/src/services/gpodder/GpodderTagTreeItem.cpp
+b/src/services/gpodder/GpodderTagTreeItem.cpp
+new file mode 100644
+index 0000000..2e3fc74
+- --- /dev/null
++++ b/src/services/gpodder/GpodderTagTreeItem.cpp
+@@ -0,0 +1,42 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderTagTreeItem.h&quot;
++#include &quot;GpodderPodcastTreeItem.h&quot;
++
++GpodderTagTreeItem::GpodderTagTreeItem( mygpo::TagPtr tag,
+GpodderTreeItem *parent ) : GpodderTreeItem( parent ), m_tag( tag )
++{
++
++}
++
++
++GpodderTagTreeItem::~GpodderTagTreeItem()
++{
++
++}
++
++QVariant GpodderTagTreeItem::displayData() const
++{
++    return m_tag-&gt;tag();
++}
++
++mygpo::TagPtr GpodderTagTreeItem::tag() const
++{
++    return m_tag;
++}
++
+diff --git a/src/services/gpodder/GpodderTagTreeItem.h
+b/src/services/gpodder/GpodderTagTreeItem.h
+new file mode 100644
+index 0000000..08c52b4
+- --- /dev/null
++++ b/src/services/gpodder/GpodderTagTreeItem.h
+@@ -0,0 +1,42 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERTAGTREEITEM_H_
++#define GPODDERTAGTREEITEM_H_
++
++#include &quot;GpodderTreeItem.h&quot;
++
++#include &lt;mygpo-qt/Tag.h&gt;
++
++#include &lt;QObject&gt;
++
++
++class GpodderTagTreeItem: public GpodderTreeItem
++{
++    Q_OBJECT
++public:
++    GpodderTagTreeItem( mygpo::TagPtr tag, GpodderTreeItem *parent = 0 );
++    virtual ~GpodderTagTreeItem();
++    virtual QVariant displayData() const;
++    mygpo::TagPtr tag() const;
++
++private:
++    mygpo::TagPtr m_tag;
++};
++
++#endif /* GPODDERTAGTREEITEM_H_ */
+diff --git a/src/services/gpodder/GpodderTreeItem.cpp
+b/src/services/gpodder/GpodderTreeItem.cpp
+new file mode 100644
+index 0000000..bfa216e
+- --- /dev/null
++++ b/src/services/gpodder/GpodderTreeItem.cpp
+@@ -0,0 +1,89 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#include &quot;GpodderTreeItem.h&quot;
++#include &quot;GpodderServiceModel.h&quot;
++#include &quot;GpodderPodcastTreeItem.h&quot;
++#include &quot;GpodderTagTreeItem.h&quot;
++
++GpodderTreeItem::GpodderTreeItem( GpodderTreeItem *parent ) : QObject(
+parent ), m_parentItem( parent ), m_hasChildren( false )
++{
++
++}
++
++GpodderTreeItem::~GpodderTreeItem()
++{
++    qDeleteAll( m_childItems );
++}
++
++void GpodderTreeItem::appendChild( GpodderTreeItem *item )
++{
++    m_childItems.append( item );
++}
++
++GpodderTreeItem *GpodderTreeItem::child( int row )
++{
++    return m_childItems.value( row );
++}
++
++bool GpodderTreeItem::hasChildren() const
++{
++    return m_hasChildren;
++}
++
++void GpodderTreeItem::setHasChildren( bool hasChildren )
++{
++    m_hasChildren = hasChildren;
++}
++
++int GpodderTreeItem::childCount() const
++{
++    return m_childItems.count();
++}
++
++GpodderTreeItem *GpodderTreeItem::parent() const
++{
++    return m_parentItem;
++}
++
++QVariant GpodderTreeItem::displayData() const
++{
++    return QVariant();
++}
++
++bool GpodderTreeItem::isRoot() const
++{
++    return ( m_parentItem == 0 );
++}
++
++void GpodderTreeItem::appendTags( mygpo::TagListPtr tags )
++{
++    foreach( mygpo::TagPtr tag, tags-&gt;list() )
++    {
++        GpodderTagTreeItem *treeItem = new GpodderTagTreeItem( tag, this );
++        appendChild( treeItem );
++    }
++}
++
++void GpodderTreeItem::appendPodcasts( mygpo::PodcastListPtr podcasts )
++{
++    foreach( mygpo::PodcastPtr podcast, podcasts-&gt;list() )
++    {
++        appendChild( new GpodderPodcastTreeItem( podcast, this ) );
++    }
++}
+diff --git a/src/services/gpodder/GpodderTreeItem.h
+b/src/services/gpodder/GpodderTreeItem.h
+new file mode 100644
+index 0000000..5698d5b
+- --- /dev/null
++++ b/src/services/gpodder/GpodderTreeItem.h
+@@ -0,0 +1,59 @@
++/****************************************************************************************
++ * Copyright (c) 2011 Stefan Derkits &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Christian Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">christian.wagner86 at gmx.at</A>&gt;
+                 *
++ * Copyright (c) 2011 Felix Winter &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">ixos01 at gmail.com</A>&gt;
+                 *
++ *
+                 *
++ * This program is free software; you can redistribute it and/or modify
+it under        *
++ * the terms of the GNU General Public License as published by the Free
+Software        *
++ * Foundation; either version 2 of the License, or (at your option) any
+later           *
++ * version.
+                 *
++ *
+                 *
++ * This program is distributed in the hope that it will be useful, but
+WITHOUT ANY      *
++ * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A      *
++ * PARTICULAR PURPOSE. See the GNU General Public License for more
+details.             *
++ *
+                 *
++ * You should have received a copy of the GNU General Public License
+along with         *
++ * this program.  If not, see &lt;<A HREF="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</A>&gt;.
+                 *
++
+****************************************************************************************/
++
++#ifndef GPODDERTREEITEM_H_
++#define GPODDERTREEITEM_H_
++
++#include &lt;mygpo-qt/ApiRequest.h&gt;
++#include &lt;mygpo-qt/TagList.h&gt;
++
++#include &lt;QVariant&gt;
++#include &lt;QList&gt;
++#include &lt;QModelIndex&gt;
++
++class GpodderServiceModel;
++
++class GpodderTreeItem : public QObject
++{
++    Q_OBJECT
++public:
++    GpodderTreeItem( GpodderTreeItem *parent = 0 );
++    virtual ~GpodderTreeItem();
++
++    void appendChild( GpodderTreeItem *child );
++
++    GpodderTreeItem *child( int row );
++    int childCount() const;
++    void setHasChildren( bool hasChildren );
++    bool hasChildren() const;
++
++    GpodderTreeItem *parent() const;
++    bool isRoot() const;
++
++
++    virtual QVariant displayData() const;
++
++    virtual void appendTags( mygpo::TagListPtr tags/*,
+mygpo::ApiRequest&amp; request, GpodderServiceModel *model*/ );
++    virtual void appendPodcasts( mygpo::PodcastListPtr podcasts );
++private:
++    QList&lt;GpodderTreeItem*&gt; m_childItems;
++    GpodderTreeItem *m_parentItem;
++    bool m_hasChildren;
++};
++
++#endif /* GPODDERTREEITEM_H_ */
+diff --git a/src/services/gpodder/amarok_service_gpodder.desktop
+b/src/services/gpodder/amarok_service_gpodder.desktop
+new file mode 100644
+index 0000000..59ff21e
+- --- /dev/null
++++ b/src/services/gpodder/amarok_service_gpodder.desktop
+@@ -0,0 +1,25 @@
++[Desktop Entry]
++Type=Service
++ServiceTypes=KPluginInfo
++Icon=view-services-gpodder-amarok
++Name=gpodder.net
++Comment=Podcast Service
++
++ServiceTypes=Amarok/Plugin
++
++X-KDE-Amarok-authors=Stefan Derkits
++X-KDE-Amarok-email=<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>
++X-KDE-Amarok-framework-version=60
++X-KDE-Amarok-name=gpodderService
++X-KDE-Amarok-plugintype=service
++X-KDE-Amarok-rank=100
++X-KDE-Amarok-version=1
++
++X-KDE-PluginInfo-Author=Stefan Derkits
++X-KDE-PluginInfo-Email=<A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">stefan at derkits.at</A>
++X-KDE-PluginInfo-Version=1.0
++X-KDE-PluginInfo-Category=Service
++X-KDE-PluginInfo-License=GPL
++X-KDE-PluginInfo-EnabledByDefault=false
++X-KDE-Library=amarok_service_gpodder
++X-KDE-PluginInfo-Name=amarok_service_gpodder
+\ No newline at end of file
+diff --git a/src/services/gpodder/images/CMakeLists.txt
+b/src/services/gpodder/images/CMakeLists.txt
+new file mode 100644
+index 0000000..babfa19
+- --- /dev/null
++++ b/src/services/gpodder/images/CMakeLists.txt
+@@ -0,0 +1,5 @@
++install(
++        FILES
++        mygpo.png
++        DESTINATION ${DATA_INSTALL_DIR}/amarok/images
++)
+diff --git a/src/services/gpodder/images/mygpo.png
+b/src/services/gpodder/images/mygpo.png
+new file mode 100644
+index 0000000..c9c7eec
+Binary files /dev/null and b/src/services/gpodder/images/mygpo.png differ
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAk1uIvkACgkQlZvAMV/NgGLE9QCglJWU7Lwwg3NEWSbw4Fm5Mzoz
+4p0An3u+VI//7De7MG+FqOocZwsAEeRX
+=CFyG
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002708.html">[gpodder-devel] Disable Ogg to MP3 Conversation?
+</A></li>
+	<LI>Next message: <A HREF="002710.html">[gpodder-devel] gpodder-devel Digest, Vol 57, Issue 1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2709">[ date ]</a>
+              <a href="thread.html#2709">[ thread ]</a>
+              <a href="subject.html#2709">[ subject ]</a>
+              <a href="author.html#2709">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

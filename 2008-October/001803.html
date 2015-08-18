@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Support for YouTube
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Support%20for%20YouTube&In-Reply-To=%3C4c261b0b0810140842w458b659fydecd67ee748023f1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001807.html">
+   <LINK REL="Next"  HREF="001808.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Support for YouTube</H1>
+    <B>Justin Forest</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Support%20for%20YouTube&In-Reply-To=%3C4c261b0b0810140842w458b659fydecd67ee748023f1%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] Support for YouTube">justin.forest at gmail.com
+       </A><BR>
+    <I>Tue Oct 14 17:42:05 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001807.html">[gpodder-devel] Support for YouTube
+</A></li>
+        <LI>Next message: <A HREF="001808.html">[gpodder-devel] Support for YouTube
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1803">[ date ]</a>
+              <a href="thread.html#1803">[ thread ]</a>
+              <a href="subject.html#1803">[ subject ]</a>
+              <a href="author.html#1803">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> setting experimental_file_naming doesn't
+</I>&gt;<i> affect filename
+</I>
+I tried to make these patches ass unintrusive as possible.  I didn't
+touch the code that works with file names.  However, there's one
+semi-related change: the mime type of an episode is updated after the
+episode is downloaded, because apparently podcastItem.local_filename()
+relies on it.  But again, this is done behind the scenes, and if
+anything needs investigation, it's the filename generation code in
+general, I think.
+
+&gt;<i> and size of file is not shown.
+</I>
+This is possible, but I didn't do this on purpose.  It would require 3
+or 4 HEAD requests for each episode, which is quite slow.  If this is
+important, I can add this.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001807.html">[gpodder-devel] Support for YouTube
+</A></li>
+	<LI>Next message: <A HREF="001808.html">[gpodder-devel] Support for YouTube
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1803">[ date ]</a>
+              <a href="thread.html#1803">[ thread ]</a>
+              <a href="subject.html#1803">[ subject ]</a>
+              <a href="author.html#1803">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

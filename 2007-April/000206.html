@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Downloaded podcasts not recognized.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Downloaded%20podcasts%20not%20recognized.&In-Reply-To=%3C1175841126.14546.5.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000204.html">
+   <LINK REL="Next"  HREF="000215.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Downloaded podcasts not recognized.</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Downloaded%20podcasts%20not%20recognized.&In-Reply-To=%3C1175841126.14546.5.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Downloaded podcasts not recognized.">thp at perli.net
+       </A><BR>
+    <I>Fri Apr  6 08:32:06 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000204.html">[gpodder-devel] Downloaded podcasts not recognized.
+</A></li>
+        <LI>Next message: <A HREF="000215.html">[gpodder-devel] Downloaded podcasts not recognized.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#206">[ date ]</a>
+              <a href="thread.html#206">[ thread ]</a>
+              <a href="subject.html#206">[ subject ]</a>
+              <a href="author.html#206">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jon!
+
+On Fri, 2007-04-06 at 00:21 -0500, Jon wrote:
+&gt;<i> I've got a strange issue with one of my feeds.  If I download a
+</I>&gt;<i> podcast and check it the next day.  The downloaded one is at the
+</I>&gt;<i> bottom of the list.  It is also near the top of the list, where it
+</I>&gt;<i> would be expected to be but appears as a new podcast to be downloaded.
+</I>&gt;<i> For some reason it is not associating the downloaded podcast with the
+</I>&gt;<i> one in the list.
+</I>&gt;<i> 
+</I>&gt;<i> The only thing that really stands out on this particular one is that
+</I>&gt;<i> it is subscription based.  Access is controlled via http auth.  I have
+</I>&gt;<i> my feed setup like <A HREF="http://user:pass@url.">http://user:pass@url.</A>  This may or may not be
+</I>&gt;<i> related.
+</I>
+Should be no problem if the RSS feed adds the authentication data to the
+links of your podcast.
+
+&gt;<i> I'd like to work on a patch if someone can quickly tell me how it
+</I>&gt;<i> associates downloaded files with xml items. 
+</I>
+gPodder defines episodes as unique by their download URL, because the
+same URL will always retrieve the same content. The problem with your
+feed can have two causes I can think of from the top of my head:
+
+* Session ID is passed through the URL
+* Load balancing changes the URL on every update (mirrors)
+
+It would be nice if you could send me the RSS file in question (you can
+obfuscate the domain part of the URL and replace any authentication data
+that might be in the URLs). Please, send me one copy of the RSS file
+when you're downloading files and then send me another copy when the
+problem you described appears. The RSS files can be found in
+~/.config/gpodder/cache/.
+
+
+Thanks,
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000204.html">[gpodder-devel] Downloaded podcasts not recognized.
+</A></li>
+	<LI>Next message: <A HREF="000215.html">[gpodder-devel] Downloaded podcasts not recognized.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#206">[ date ]</a>
+              <a href="thread.html#206">[ thread ]</a>
+              <a href="subject.html#206">[ subject ]</a>
+              <a href="author.html#206">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

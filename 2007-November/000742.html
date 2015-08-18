@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] Extended format_filesize() function to cover	SI	units
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extended%20format_filesize%28%29%20function%20to%20cover%09SI%0A%09units&In-Reply-To=%3C1193917088.5183.29.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000755.html">
+   <LINK REL="Next"  HREF="000743.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] Extended format_filesize() function to cover	SI	units</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20Extended%20format_filesize%28%29%20function%20to%20cover%09SI%0A%09units&In-Reply-To=%3C1193917088.5183.29.camel%40macbook%3E"
+       TITLE="[gpodder-devel] Extended format_filesize() function to cover	SI	units">thp at perli.net
+       </A><BR>
+    <I>Thu Nov  1 12:38:08 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000755.html">[gpodder-devel] Error: &quot;Could not load channel feed&quot;
+</A></li>
+        <LI>Next message: <A HREF="000743.html">[gpodder-devel] Extended format_filesize() function to cover	SI units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#742">[ date ]</a>
+              <a href="thread.html#742">[ thread ]</a>
+              <a href="subject.html#742">[ subject ]</a>
+              <a href="author.html#742">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Gerrit!
+
+On Wed, 2007-10-31 at 22:23 +0100, Gerrit Sangel wrote:
+&gt;<i> I have extended the format_filesize() function from utils.py to format
+</I>&gt;<i> the bytesize into a correct way.
+</I>&gt;<i> 
+</I>&gt;<i> It now has 3 options, determined by a shell variable BYTEPREFIX
+</I>&gt;<i> 
+</I>&gt;<i> 1. If the variable is set to &#8220;off&#8221;, the string is formatted the usual
+</I>&gt;<i> way. So 20,000 Bytes are 19.53 &#8220;Kilo&#8221;bytes (the output is &#8220;19.53 KB&#8221;)
+</I>&gt;<i> 2. If the variable is set to &#8220;decimal&#8221;, it uses the SI units in the
+</I>&gt;<i> correct way. This way, 20,000 Bytes are exactly 20 Kilobytes.
+</I>&gt;<i> 20,000,000 Bytes are 20 Megabytes. The output is &#8220;20 KB&#8221; and so on.
+</I>&gt;<i> 3. If the variable is set to &#8220;binary&#8221;, it uses the Binary prefixes
+</I>&gt;<i> (Kibi, Mebi, Gibi). So 20,000 Bytes will become 19.53 Kibibyte. The
+</I>&gt;<i> output then is &#8220;19.53 KiB&#8221;.
+</I>
+Basically, you want to add support for the decimal output format of file
+sizes. Why keep two different options for the same thing (&quot;off&quot; and
+&quot;binary&quot;), apart from the added &quot;i&quot; in &quot;MiB&quot;, &quot;KiB&quot; and &quot;GiB&quot;.
+
+&gt;<i> I have done this via a shell variable, because I think, it would be
+</I>&gt;<i> nice if the user could globally change the setting and then all
+</I>&gt;<i> applications with this feature would use the setting. I do not think
+</I>&gt;<i> it is very convenient if the user has to switch the setting each time
+</I>&gt;<i> in every appplication. This way, he could set the BYTEPREFIX variable
+</I>&gt;<i> and all applications could benefit. 
+</I>
+I've googled a bit for the &quot;BYTEPREFIX&quot; environment variable, and I
+haven't found a project that uses this variable name for the same thing.
+
+For this reason, I am against &quot;inventing&quot; a standard. If there is a
+variable in POSIX or GNU that defines that behaviour, I'd be glad to add
+support for that.
+
+We can, however, add this as a configuration option to gpodder.conf and
+not add configuration support for it in the GUI. This way, the UI does
+not get too difficult, and interested users can still set their
+preference in gpodder.conf.
+
+&gt;<i> If somebody could look over the function and see if there are some
+</I>&gt;<i> flaws I did not see?
+</I>
+I will have a look as time permits. Here are some questions that I'm
+still not sure about:
+
+ -) What IS the standard of displaying file sizes? (KB[2], KB[10], KiB?)
+ -) What is the benefit of providing &quot;decimal&quot; file sizes?
+ -) It would modify the results of our speed/etc.. calculations, is
+    that something we want or should avoid?
+
+
+Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000755.html">[gpodder-devel] Error: &quot;Could not load channel feed&quot;
+</A></li>
+	<LI>Next message: <A HREF="000743.html">[gpodder-devel] Extended format_filesize() function to cover	SI units
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#742">[ date ]</a>
+              <a href="thread.html#742">[ thread ]</a>
+              <a href="subject.html#742">[ subject ]</a>
+              <a href="author.html#742">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] icons and instructions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20icons%20and%20instructions&In-Reply-To=%3C1207425778.19915.4.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001354.html">
+   <LINK REL="Next"  HREF="001356.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] icons and instructions</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20icons%20and%20instructions&In-Reply-To=%3C1207425778.19915.4.camel%40macbook%3E"
+       TITLE="[gpodder-devel] icons and instructions">thp at perli.net
+       </A><BR>
+    <I>Sat Apr  5 22:02:57 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001354.html">[gpodder-devel] icons and instructions
+</A></li>
+        <LI>Next message: <A HREF="001356.html">[gpodder-devel] icons and instructions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1355">[ date ]</a>
+              <a href="thread.html#1355">[ thread ]</a>
+              <a href="subject.html#1355">[ subject ]</a>
+              <a href="author.html#1355">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Sat, 2008-04-05 at 11:28 -0500, Mark Alford wrote:
+&gt;<i> On Sat, 5 Apr 2008, Thomas Perl wrote:
+</I>&gt;<i> &gt; If you don't want to go through the hassle, you can PayPal to
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/gpodder-devel">thp at perli.net.</A> Thanks for your support!
+</I>&gt;<i> 
+</I>&gt;<i> You should include this option on the gpodder website, since
+</I>&gt;<i> it skips the hassle of having to set up an amazon.de account.
+</I>
+Thanks for the suggestion, I'll add that with the next update.
+
+&gt;<i> &gt; From a usability point of view, do you think that the &quot;yellow star&quot;
+</I>&gt;<i> icon
+</I>&gt;<i> &gt; is misleading and looks like the episode is already downloaded?
+</I>&gt;<i> Maybe we
+</I>&gt;<i> &gt; should use a icon that has a yellow star (or something that means
+</I>&gt;<i> &quot;new&quot;)
+</I>&gt;<i> &gt; on it, but no &quot;file&quot; icon, so people can understand better that the
+</I>&gt;<i> &gt; &quot;file&quot; is not on their computer, but that the item is &quot;new&quot;?
+</I>&gt;<i> 
+</I>&gt;<i> Yes, it's obvious now you tell me, but I didn't understand that
+</I>&gt;<i> icon at all. &quot;New&quot; is not quite right because it still implies that
+</I>&gt;<i> the thing is (newly) present. You want something that implies 
+</I>&gt;<i> &quot;available&quot;.
+</I>&gt;<i> Perhaps a cloud with a download arrow coming out of it, implying that
+</I>&gt;<i> this episode is still &quot;up there somewhere&quot;.
+</I>
+Quick mash-up of a Gnome weather icon and the &quot;down&quot; arrow. What do you
+think? I know I'm not a good artist, but just to get a feeling of what
+it would look like...
+
+<A HREF="http://khan.thpinfo.com/~thp/images/gpodder-wolke.png">http://khan.thpinfo.com/~thp/images/gpodder-wolke.png</A>
+
+&gt;<i> On the whole I prefer words to icons. That way of labelling things 
+</I>&gt;<i> raises language issues, but it is much easier to look up the meaning
+</I>&gt;<i> of a word on the internet than to look up the meaning of an icon.
+</I>
+After one has got to know what the icons mean, I think the icons in the
+treeview are more space-efficient. And combined with the lock icon and
+the played status icon, it really is easier to look at the icon and tell
+what's going instead of having three columns (Status, Played?, Locked?).
+
+What about a text-based tooltip that is shown when the mouse moves over
+the status icon? (i.e. &quot;Not downloaded&quot;, &quot;Downloaded, not yet played&quot;,
+&quot;Deleted&quot;, etc..)
+
+&gt;<i> I looked on the gpodder home page for instructions on how to use
+</I>&gt;<i> gpodder (what the icons mean, how to do common tasks) but I couldn't
+</I>&gt;<i> find any. I guess people are supposed to add that to the wiki..?
+</I>
+Yes, if someone wants to contribute documentation, that would be very
+helpful and badly needed. If the documentation outgrows the Wiki, we can
+export it and make a more organized approach to providing good
+documentation for the end user. Simply start adding to the Wiki, if you
+want :)
+
+&gt;<i> &gt;&gt; (c) syncing in the GUI did not work: the whole gpodder interface
+</I>&gt;<i> just
+</I>&gt;<i> &gt;&gt; froze up. But the command line gpodder --sync worked well.
+</I>&gt;<i> &gt; Which iPod are you using? Can you please post the console output
+</I>&gt;<i> when
+</I>&gt;<i> &gt; running gpodder with the &quot;--verbose&quot; switch, i.e. open a terminal
+</I>&gt;<i> and
+</I>&gt;<i> 
+</I>&gt;<i> OK, well now by magic it is working! Perhaps before it wasn't frozen,
+</I>&gt;<i> just quietly working away, and I was too impatient.
+</I>
+Yes, the GUI freezes when libgpod does its final iTunesDB writing and
+saving. I don't think we can do anything about this one, but it
+shouldn't take longer than a few seconds.
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001354.html">[gpodder-devel] icons and instructions
+</A></li>
+	<LI>Next message: <A HREF="001356.html">[gpodder-devel] icons and instructions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1355">[ date ]</a>
+              <a href="thread.html#1355">[ thread ]</a>
+              <a href="subject.html#1355">[ subject ]</a>
+              <a href="author.html#1355">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

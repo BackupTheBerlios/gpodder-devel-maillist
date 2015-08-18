@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] How to add a property to channels without beaking everything?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%3D%3Futf-8%3Fq%3FHow_to_add_a_property_to_channels_witho%3F%3D%0A%20%3D%3Futf-8%3Fq%3Fut_beaking_everything%3D3F%3F%3D&In-Reply-To=%3C20080717100342.4C43FA3132%40ifrance01.ifrance.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001655.html">
+   <LINK REL="Next"  HREF="001652.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] How to add a property to channels without beaking everything?</H1>
+    <B>jerome.chabod at ifrance.com</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20%3D%3Futf-8%3Fq%3FHow_to_add_a_property_to_channels_witho%3F%3D%0A%20%3D%3Futf-8%3Fq%3Fut_beaking_everything%3D3F%3F%3D&In-Reply-To=%3C20080717100342.4C43FA3132%40ifrance01.ifrance.com%3E"
+       TITLE="[gpodder-devel] How to add a property to channels without beaking everything?">jerome.chabod at ifrance.com
+       </A><BR>
+    <I>Thu Jul 17 12:03:40 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001655.html">[gpodder-devel] latest version doesn't run on Ubuntu 8.04
+</A></li>
+        <LI>Next message: <A HREF="001652.html">[gpodder-devel] How to add a property to channels without	beaking everything?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1651">[ date ]</a>
+              <a href="thread.html#1651">[ thread ]</a>
+              <a href="subject.html#1651">[ subject ]</a>
+              <a href="author.html#1651">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I need for solving bug 90 to add a &quot;xsl_file&quot; property to channels.
+Unfortunaltely, since whe use sqlite, it seems there is no mechanism to transparently add&#194;&#160; a field. The only way I see is to force the user to remove its database in order to run the setup again (table creation), and doing so losing its channels configurations and episode's history. Not very elegant.
+
+Has somebody already plan to solve this problem or have indication on how it could be done?
+From my point of vue, I would maintain a hard coded list of fields, and have a function which would check at each start if the fields are already in the table and add it if not (alter table). But I'm afraid it could be a very expensive task. What do you think?
+&#194;&#160;
+J&#195;&#169;r&#195;&#180;me
+
+________________________________________________________________________
+My...o&#249; ? You...quoi ? Face...qui ?... Vous ne savez plus comment &#234;tre vous-m&#234;me ?
+Pour Cr&#233;er, Partager et enfin Gagner ... D&#233;couvrez iDOO en vid&#233;o <A HREF="http://www.idoo.com/fr/videomark.php">http://www.idoo.com/fr/videomark.php</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080717/f3ed79f9/attachment.html">https://lists.berlios.de/pipermail/gpodder-devel/attachments/20080717/f3ed79f9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001655.html">[gpodder-devel] latest version doesn't run on Ubuntu 8.04
+</A></li>
+	<LI>Next message: <A HREF="001652.html">[gpodder-devel] How to add a property to channels without	beaking everything?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1651">[ date ]</a>
+              <a href="thread.html#1651">[ thread ]</a>
+              <a href="subject.html#1651">[ subject ]</a>
+              <a href="author.html#1651">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

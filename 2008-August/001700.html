@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] More Detail on the File Conversion Script
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20More%20Detail%20on%20the%20File%20Conversion%20Script&In-Reply-To=%3Ca955d17e0808021906p5b2e2b79q12966f2a58ca659c%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001715.html">
+   <LINK REL="Next"  HREF="001703.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] More Detail on the File Conversion Script</H1>
+    <B>Clark Burbidge</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20More%20Detail%20on%20the%20File%20Conversion%20Script&In-Reply-To=%3Ca955d17e0808021906p5b2e2b79q12966f2a58ca659c%40mail.gmail.com%3E"
+       TITLE="[gpodder-devel] More Detail on the File Conversion Script">clarkburbidge at gmail.com
+       </A><BR>
+    <I>Sun Aug  3 04:06:06 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001715.html">[gpodder-devel] How do you organize your podcasts on your	player?
+</A></li>
+        <LI>Next message: <A HREF="001703.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1700">[ date ]</a>
+              <a href="thread.html#1700">[ thread ]</a>
+              <a href="subject.html#1700">[ subject ]</a>
+              <a href="author.html#1700">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I would like to know more about the &quot;File Conversion Script&quot; option in
+the preferences. I searched the mailing list archive and the wiki but
+was not able to find anything.
+
+When is the &quot;File Conversion Script&quot; called? After download? On transfer?
+What files are passed to it?
+
+My media player does not like .mov, only .avi and I would like to
+convert any and all podcasts that come in as .mov to avi. I have a
+command I use to do this manually but need some direction on getting
+this command into a script that will convert with some level of
+magical automaticitude. Is the &quot;File Conversion Script&quot; what I want to
+do or should I cron something? I'd love to see gpodder managed (not
+synced or redownloaded) the orriginal and converted files so that I
+don't have to deal with them on the player side or in the random name
+by which they are stored on my computer by gpodder.
+
+The command:
+
+mencoder filename.mov -quiet -ovc lavc -lavcopts
+vcodec=mpeg4:v4mv:mbd=2:trell -vf expand=:::::4/3,scale=320:-3,harddup
+-oac mp3lame -lameopts fast:preset=medium -ffourcc DX50 -o
+filename.avi
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001715.html">[gpodder-devel] How do you organize your podcasts on your	player?
+</A></li>
+	<LI>Next message: <A HREF="001703.html">[gpodder-devel] More Detail on the File Conversion Script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1700">[ date ]</a>
+              <a href="thread.html#1700">[ thread ]</a>
+              <a href="subject.html#1700">[ subject ]</a>
+              <a href="author.html#1700">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

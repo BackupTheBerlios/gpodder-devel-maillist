@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] iPod Video &quot;Cannot Open Device&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20Video%20%22Cannot%20Open%20Device%22&In-Reply-To=%3C20090508064129.0193f3aab1db45621a7a7ee5866e9102.a59303be44.wbe%40email02.secureserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002117.html">
+   <LINK REL="Next"  HREF="002119.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] iPod Video &quot;Cannot Open Device&quot;</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20iPod%20Video%20%22Cannot%20Open%20Device%22&In-Reply-To=%3C20090508064129.0193f3aab1db45621a7a7ee5866e9102.a59303be44.wbe%40email02.secureserver.net%3E"
+       TITLE="[gpodder-devel] iPod Video &quot;Cannot Open Device&quot;">thp at gpodder.org
+       </A><BR>
+    <I>Fri May  8 15:41:29 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002117.html">[gpodder-devel] Norwegian bokm&#229;l
+</A></li>
+        <LI>Next message: <A HREF="002119.html">[gpodder-devel] Latest gpodder version refuses to start
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2118">[ date ]</a>
+              <a href="thread.html#2118">[ thread ]</a>
+              <a href="subject.html#2118">[ subject ]</a>
+              <a href="author.html#2118">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>You wrote:
+&gt;<i> I have made a bit of progress. I have checked out the source and i think 
+</I>&gt;<i> it may be a problem with the python bindings. Just to recap - gtkpod and 
+</I>&gt;<i>   Banshee both work OK with this iPod, so the basic libgpod4 library 
+</I>&gt;<i> seems to be working correctly.
+</I>&gt;<i> 
+</I>&gt;<i> If I put some debug code in sync.py:
+</I>&gt;<i> 
+</I>&gt;<i>      def open(self):
+</I>&gt;<i>          Device.open(self)
+</I>&gt;<i>          print &quot;ipod mount point: &quot;, self.mountpoint
+</I>&gt;<i>          if not gpod_available or not os.path.isdir(self.mountpoint):
+</I>&gt;<i>              print &quot;Error opening gpod or with mount path.&quot;
+</I>&gt;<i>              return False
+</I>&gt;<i> 
+</I>&gt;<i>          self.notify('status', _('Opening iPod database'))
+</I>&gt;<i>          self.itdb = gpod.itdb_parse(self.mountpoint, None)
+</I>&gt;<i>          if self.itdb is None:
+</I>&gt;<i>              print &quot;self.itb is none.&quot;
+</I>&gt;<i>              return False
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>          self.itdb.mountpoint = self.mountpoint
+</I>&gt;<i>          self.podcasts_playlist = gpod.itdb_playlist_podcasts(self.itdb)
+</I>&gt;<i> 
+</I>&gt;<i>          if self.podcasts_playlist:
+</I>&gt;<i>              self.notify('status', _('iPod opened'))
+</I>&gt;<i>              print &quot;iPod opened.&quot;
+</I>&gt;<i>              # build the initial tracks_list
+</I>&gt;<i>              self.tracks_list = self.get_all_tracks()
+</I>&gt;<i> 
+</I>&gt;<i>              return True
+</I>&gt;<i>          else:
+</I>&gt;<i>              print &quot;Unable to get playlist.&quot;
+</I>&gt;<i>              return False
+</I>&gt;<i> 
+</I>&gt;<i> The itunes database is opened OK but it fails to get the playlist in:
+</I>&gt;<i> self.podcasts_playlist = gpod.itdb_playlist_podcasts(self.itdb) i.e. 
+</I>&gt;<i> self.podcasts_playlist returns false.
+</I>
+Do you use an old version of the libgpod bindings? Please file a bug
+report
+and/or add all the relevant information to the corresponding existing
+bug
+at <A HREF="http://bugs.gpodder.org,">http://bugs.gpodder.org,</A> where we can have an easier and structured
+way
+of approaching and fixing these bugs.
+
+Thanks,
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002117.html">[gpodder-devel] Norwegian bokm&#229;l
+</A></li>
+	<LI>Next message: <A HREF="002119.html">[gpodder-devel] Latest gpodder version refuses to start
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2118">[ date ]</a>
+              <a href="thread.html#2118">[ thread ]</a>
+              <a href="subject.html#2118">[ subject ]</a>
+              <a href="author.html#2118">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>

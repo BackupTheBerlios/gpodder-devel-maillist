@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [gpodder-devel] GPLv3 licensing change
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/gpodder-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPLv3%20licensing%20change&In-Reply-To=%3C1188929835.4920.26.camel%40macbook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000552.html">
+   <LINK REL="Next"  HREF="000556.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[gpodder-devel] GPLv3 licensing change</H1>
+    <B>Thomas Perl</B> 
+    <A HREF="mailto:gpodder-devel%40lists.berlios.de?Subject=Re%3A%20%5Bgpodder-devel%5D%20GPLv3%20licensing%20change&In-Reply-To=%3C1188929835.4920.26.camel%40macbook%3E"
+       TITLE="[gpodder-devel] GPLv3 licensing change">thp at perli.net
+       </A><BR>
+    <I>Tue Sep  4 20:17:15 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000552.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+        <LI>Next message: <A HREF="000556.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Jeff!
+
+On Tue, 2007-09-04 at 09:44 -0800, Jeff Spaleta wrote:
+&gt;<i> The specific situation that I have been made aware of is when a
+</I>&gt;<i> codebase is licensed under GPLv2 without the optional &quot;or later
+</I>&gt;<i> version&quot; clause. This issue has actually prompted a change in how we
+</I>&gt;<i> communicate licensing summaries inside Fedora packaging, to try to
+</I>&gt;<i> help package maintainers stay ahead of any potential violations due to
+</I>&gt;<i> GPLv2 and GPLv3 conflicts. We're also trying to make sure we touc
+</I>&gt;<i> hbase with upstream developers has licensing changes are announced
+</I>&gt;<i> just to make sure this potential situation was considered fully.  If
+</I>&gt;<i> all the GPLv2 code you are making use of at build time has the &quot;or
+</I>&gt;<i> later&quot; clause then things should be okay. 
+</I>
+gPodder has started out with &quot;GPLv2 or later&quot;, and all code
+contributions are therefore upgradable to GPLv3.
+
+As you raised the question and I was interested myself, I've checked the
+copyright info for all dependencies (optional or strict) for the gPodder
+Debian package (as this is what I package and use). I'm talking about
+the current development version (in SVN), as 0.9.5 is still GPLv2:
+
+python-gtk2: LGPL, version 2 or later
+python-glade2: LGPL, version 2 or later
+wget: GPL, version 2 or later (w/ OpenSSL exception)
+
+Note that wget is only called using the &quot;popen2&quot; module (i.e. not
+linked, but called and its output parsed by gPodder), but it would be
+GPLv2 or later, anyway.
+
+python-pymad: GPL, version 2
+python-eyed3: GPL, version 2 or later
+
+I don't know if pymad will become a problem, but if it does, simply
+remove the dependency or if it's even impossible to distribute the
+source this way, I can remove support for pymad, as the functionality
+provided by pymad can also be provided by eyed3 or mplayer.
+
+mplayer: GPL, version 2
+
+But again, mplayer is only used through &quot;os.popen&quot;, and only its stdout
+output gets parsed by gPodder, so IIRC this is not considered &quot;linking&quot;
+and therefore is no licensing problem(???).
+
+Some points need to be clarified, mentioned above.
+
+
+Thanks,
+Thomas
+
+
+
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000552.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+	<LI>Next message: <A HREF="000556.html">[gpodder-devel] GPLv3 licensing change
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/gpodder-devel">More information about the gpodder-devel
+mailing list</a><br>
+</body></html>
